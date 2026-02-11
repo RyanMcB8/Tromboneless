@@ -29,6 +29,8 @@ Use tailscale: (Owner account is tromboneless.tech@gmail.com. Logged in via Goog
    
 2.) Make sure your public ssh key is on the pi
 
-3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): ```ssh tromboneless@100.127.48.42```
+3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): ```ssh tromboneless@100.127.48.42```.
+Recommend working within vscode, as you can open a remote window from there which will have a proper GUI hosted by your local machine, but controlling the hardware on the pi.
 
+4.) Once in the pi, make sure you're working within your git branch. Compiling from here will use the actual pi hardware so you can make sure it's working properly.
 
