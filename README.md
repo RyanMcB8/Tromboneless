@@ -14,7 +14,7 @@ An open source device which is capable of measuring the uses oral input to synth
 
 * SSH pair created on Raspberry with tromboneless.tech@gmail.com. Located in /home/tromboneless/.ssh
 * No passkey
-1) When generating own pair, make ssh of ed25519 format: ```ssh-keygen it ed25519```
+1) When generating own pair, make ssh of ed25519 format: ```ssh-keygen -t ed25519```
 2) Add your public key to /home/yourusername/.ssh/authorized_keys. If connected to the same network as the pi, you can do this automatically with ```ssh-copy-id yourusername@192.168.1.133```
 
 ## If on the same network as pi:
