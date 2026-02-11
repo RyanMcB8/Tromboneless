@@ -9,3 +9,11 @@ An open source device which is capable of measuring the uses oral input to synth
    <br>
 2) clone this git repository using the command:<br>
  ```  git clone https://github.com/RyanMcB8/Tromboneless.git ```<br>
+
+## SSH Steps
+
+* SSH pair created on Raspberry with tromboneless.tech@gmail.com. Located in /home/tromboneless/.ssh
+* No passkey
+* When generating own pair, make ssh of ed25519 format
+* Add your public key to /home/tromboneless/.ssh/authorized_keys
+
