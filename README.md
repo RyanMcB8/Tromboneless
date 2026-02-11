@@ -17,9 +17,18 @@ An open source device which is capable of measuring the uses oral input to synth
 1) When generating own pair, make ssh of ed25519 format: ```ssh-keygen it ed25519```
 2) Add your public key to /home/tromboneless/.ssh/authorized_keys. If connected to the same network as the pi, you can do this automatically with ```ssh-copy-id tromboneless@192.168.1.133```
 
-If on the same network as pi:
+## If on the same network as pi:
 ssh in with ```ssh tromboneless@192.168.1.133```
 
-If on a different network:
-Use tailscale...
-I'll set up an account with github
+## If on a different network:
+Use tailscale: (Owner account is tromboneless.tech@gmail.com. Logged in via Google, pwd = ```HolyTromboney**!c++```)
+
+1.) You need to set up your own personal tailscale account. (Note - I think student emails won't work unless via github.)
+   Invitations to share access to the pi are made on the owner account, then you need to be logged in to your personal account when you follow the invitation link.
+   After this is set up, you work from your personal account.
+   
+2.) Make sure your public ssh key is on the pi
+
+3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): ```ssh tromboneless@100.127.48.42```
+
+
