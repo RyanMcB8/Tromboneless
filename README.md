@@ -15,10 +15,10 @@ An open source device which is capable of measuring the uses oral input to synth
 * SSH pair created on Raspberry with tromboneless.tech@gmail.com. Located in /home/tromboneless/.ssh
 * No passkey
 1) When generating own pair, make ssh of ed25519 format: ```ssh-keygen it ed25519```
-2) Add your public key to /home/tromboneless/.ssh/authorized_keys. If connected to the same network as the pi, you can do this automatically with ```ssh-copy-id tromboneless@192.168.1.133```
+2) Add your public key to /home/yourusername/.ssh/authorized_keys. If connected to the same network as the pi, you can do this automatically with ```ssh-copy-id yourusername@192.168.1.133```
 
 ## If on the same network as pi:
-ssh in with ```ssh tromboneless@192.168.1.133```
+ssh in with eg ```ssh aidan@192.168.1.133```
 
 ## If on a different network:
 Use tailscale: (Owner account is tromboneless.tech@gmail.com. Logged in via Google, pwd = ```HolyTromboney**!c++```)
@@ -29,7 +29,7 @@ Use tailscale: (Owner account is tromboneless.tech@gmail.com. Logged in via Goog
    
 2.) Make sure your public ssh key is on the pi
 
-3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): ```ssh tromboneless@100.127.48.42```.
+3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): ```ssh aidan@100.127.48.42```.
 Recommend working within vscode, as you can open a remote window from there which will have a proper GUI hosted by your local machine, but controlling the hardware on the pi.
 
 4.) Once in the pi, make sure you're working within your git branch. Compiling from here will use the actual pi hardware so you can make sure it's working properly.
