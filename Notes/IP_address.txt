@@ -15,4 +15,4 @@
 
 Testing if VScode can commit
 
-Testing if kerrs vscode can commit
+Testing if kerrs vscode can commits
