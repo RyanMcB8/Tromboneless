@@ -1,0 +1,2 @@
+/usr/bin/ar qc libwindowCreation.a CMakeFiles/windowCreation.dir/src/Application.cpp.o CMakeFiles/windowCreation.dir/src/MainFrame.cpp.o
+/usr/bin/ranlib libwindowCreation.a

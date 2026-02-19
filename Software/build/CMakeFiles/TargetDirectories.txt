@@ -1,0 +1,4 @@
+/home/ryan-mcbride/Documents/Tromboneless/Software/build/CMakeFiles/trombonelessProgram.dir
+/home/ryan-mcbride/Documents/Tromboneless/Software/build/CMakeFiles/windowCreation.dir
+/home/ryan-mcbride/Documents/Tromboneless/Software/build/CMakeFiles/edit_cache.dir
+/home/ryan-mcbride/Documents/Tromboneless/Software/build/CMakeFiles/rebuild_cache.dir
