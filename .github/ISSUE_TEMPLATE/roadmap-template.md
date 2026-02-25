@@ -3,7 +3,7 @@ name: Roadmap template
 about: Template for adding roadmaps issues to the roadmap of the GitHub repo
 title: ''
 labels: enhancement
-assignees: RyanMcB8
+assignees: 
 
 ---
 
