@@ -33,3 +33,10 @@ Recommend working within vscode, as you can open a remote window from there whic
 
 4.) Once in the pi, make sure you're working within your git branch. Compiling from here will use the actual pi hardware so you can make sure it's working properly.
 
+Third Party Libraries
+
+RtMidi
+https://github.com/thestk/rtmidi
+MIT License
+Vendored at commit <a3233c22949342f6697681e2cf2403e27fcf0c9e>
+
