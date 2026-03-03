@@ -1,0 +1,3 @@
+/home/ciaran/Tromboneless/Firmware/build/CMakeFiles/tromboneless_firmware.dir
+/home/ciaran/Tromboneless/Firmware/build/CMakeFiles/edit_cache.dir
+/home/ciaran/Tromboneless/Firmware/build/CMakeFiles/rebuild_cache.dir

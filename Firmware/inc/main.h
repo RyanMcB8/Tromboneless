@@ -7,7 +7,7 @@ C{
 #endif
 
 /* Including header files */
-#include "Drivers/Pin_Definitions.h"
+#include "pin_definitions.h"
 
 
 #ifdef C_PLUS_PLUS

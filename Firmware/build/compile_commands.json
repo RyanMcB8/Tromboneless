@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/ciaran/Tromboneless/Firmware/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++ -DENABLE_LOGGING=1 -I/home/ciaran/Tromboneless/Firmware/inc -g -std=c++20 -w -Og -Wall -o CMakeFiles/tromboneless_firmware.dir/src/ads1115.cpp.o -c /home/ciaran/Tromboneless/Firmware/src/ads1115.cpp",
+  "file": "/home/ciaran/Tromboneless/Firmware/src/ads1115.cpp",
+  "output": "CMakeFiles/tromboneless_firmware.dir/src/ads1115.cpp.o"
+},
+{
+  "directory": "/home/ciaran/Tromboneless/Firmware/build",
+  "command": "/usr/bin/aarch64-linux-gnu-g++ -DENABLE_LOGGING=1 -I/home/ciaran/Tromboneless/Firmware/inc -g -std=c++20 -w -Og -Wall -o CMakeFiles/tromboneless_firmware.dir/src/main.cpp.o -c /home/ciaran/Tromboneless/Firmware/src/main.cpp",
+  "file": "/home/ciaran/Tromboneless/Firmware/src/main.cpp",
+  "output": "CMakeFiles/tromboneless_firmware.dir/src/main.cpp.o"
+}
+]

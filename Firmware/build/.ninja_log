@@ -1,0 +1,5 @@
+# ninja log v6
+1	51	1771423268174464545	CMakeFiles/tromboneless_firmware.dir/src/main.cpp.o	34a44b120d8e3dca
+1	3169	1771424420143595981	CMakeFiles/tromboneless_firmware.dir/src/ads1115.cpp.o	a5e1beb0f3d2b39a
+1	3155	1771424665661619794	CMakeFiles/tromboneless_firmware.dir/src/ads1115.cpp.o	a5e1beb0f3d2b39a
+3155	3281	1771424668813647039	tromboneless_firmware	602ce212e23a78d7
