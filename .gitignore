@@ -39,3 +39,9 @@
 
 # debug information files
 *.dwo
+
+# ignoring buiild
+build/
+
+# ignoring vscode settings
+.vscode
