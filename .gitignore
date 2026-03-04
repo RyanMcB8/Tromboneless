@@ -44,4 +44,4 @@
 build/
 
 # ignoring vscode settings
-.vscode
+.vscode/
