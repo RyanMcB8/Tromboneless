@@ -2,11 +2,11 @@
 // Code for arduino with IR balloon breath sensor & one PWM out i.e. LED
 
 // These constants won't change. They're used to give names to the pins used:
-const int photodiodeInPin = A0;  // Analog input pin that the potentiometer is attached to
-const int volumeOutPin = 9;  // Analog output pin that the LED is attached to
+const int photodiodeInPin = A0;  // Analog input pin that the photodiode is attached to
+const int volumeOutPin = 9;  // Analog output pin that the speaker is attached to
 
 int photodiodeInValue = 0;  // value read from the photodiode
-int volumeOutValue = 0;  // value output to the PWM (analog out)
+int volumeOutValue = 0;  // value output to the speaker (pwm digital out)
 
 void setup() {
   // initialize serial communications at 9600 bps:
