@@ -1,6 +1,7 @@
 # Tromboneless
 An open source device which is capable of measuring the uses oral input to synthesis the output a brass trombone would using the MIDI protocol.
 
+Please refer to https://github.com/RyanMcB8/Tromboneless/wiki to see componenent, sequence and state diagrams for the MIDI implementation.
 
 ## Steps to install:
 1) Install Raspberry Pi OS onto your Raspberry Pi.<br>
