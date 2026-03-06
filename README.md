@@ -34,3 +34,10 @@ Recommend working within vscode, as you can open a remote window from there whic
 
 4.) Once in the pi, make sure you're working within your git branch. Compiling from here will use the actual pi hardware so you can make sure it's working properly.
 
+# App
+## Dependencies
+Before building the project, the user must have the following installed:
+   - freetype2
+   - libcurl
+   - webkit2gtk-4.0
+   

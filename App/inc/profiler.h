@@ -3,14 +3,17 @@
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
-=// #include shared header
+// #include shared header
 
 
 class Profiler final : public juce::Component
 {
     public:
 
+        // Constructor
         Profiler();
+
+        // Deconstructor
         ~Profiler() override;
 
         void paint (juce::Graphics&) override;
@@ -24,6 +27,7 @@ class Profiler final : public juce::Component
         }
         
         bool keyPressed(const juce::KeyPress& key) override;
+
         
 
     private:
@@ -36,8 +40,6 @@ class Profiler final : public juce::Component
 
         juce::Label module_label;
 
-        void imageButtonClicked();
-        void select_module();
         void showMessageBox (const juce::String& title, const juce::String& message)
         {
             juce::AlertWindow::showMessageBoxAsync(

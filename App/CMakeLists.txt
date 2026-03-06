@@ -10,14 +10,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add JUCE as a subdirectory (assuming it's added as a git submodule)
-add_subdirectory(JUCE)
+add_subdirectory(modules/JUCE)
 
 # Create the GUI application
 juce_add_gui_app(Tromboneless
     PRODUCT_NAME "Tromboneless")
 
 target_include_directories(Tromboneless PRIVATE
-    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/inc
     ${PROJECT_SOURCE_DIR}/shared
     )
 
