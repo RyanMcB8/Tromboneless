@@ -548,3 +548,293 @@ events:
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
       GNU ld (GNU Binutils for Debian) 2.44
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_UdwYArt4wV6DgapP/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_UdwYArt4wV6DgapP/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_UdwYArt4wV6DgapP/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_41186
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_41186.dir/check_atomic_xi16E5LbMl1zcEmz.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_xi16E5LbMl1zcEmz.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_41186.dir/check_atomic_xi16E5LbMl1zcEmz.cpp.o -o cmTC_41186   && :
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:63 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:75 (_juce_find_target_architecture)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_26440
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=gnu++20 -o CMakeFiles/cmTC_26440.dir/juce_runtime_arch_detection.cpp.o -c /home/ryan/Tromboneless/App/modules/JUCE/extras/Build/CMake/juce_runtime_arch_detection.cpp
+        FAILED: CMakeFiles/cmTC_26440.dir/juce_runtime_arch_detection.cpp.o 
+        /usr/bin/aarch64-linux-gnu-g++   -std=gnu++20 -o CMakeFiles/cmTC_26440.dir/juce_runtime_arch_detection.cpp.o -c /home/ryan/Tromboneless/App/modules/JUCE/extras/Build/CMake/juce_runtime_arch_detection.cpp
+        /home/ryan/Tromboneless/App/modules/JUCE/extras/Build/CMake/juce_runtime_arch_detection.cpp:38:4: error: #error JUCE_ARCH aarch64
+           38 |   #error JUCE_ARCH aarch64
+              |    ^~~~~
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_7cngOLLj5xTJsiYo/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_7cngOLLj5xTJsiYo/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_7cngOLLj5xTJsiYo/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_c4e7e
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_c4e7e.dir/check_atomic_6teH6uXesS8v8P1I.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_6teH6uXesS8v8P1I.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_c4e7e.dir/check_atomic_6teH6uXesS8v8P1I.cpp.o -o cmTC_c4e7e   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_PJZfrrlkb5lpcM7m/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_PJZfrrlkb5lpcM7m/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_PJZfrrlkb5lpcM7m/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_d2133
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_d2133.dir/check_atomic_ruKVWOkFuHelTlaX.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_ruKVWOkFuHelTlaX.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_d2133.dir/check_atomic_ruKVWOkFuHelTlaX.cpp.o -o cmTC_d2133   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_nvyfL8PsDQFgsDqV/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_nvyfL8PsDQFgsDqV/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_nvyfL8PsDQFgsDqV/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_b0994
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_b0994.dir/check_atomic_AadXEixj4Ycgm2PP.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_AadXEixj4Ycgm2PP.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_b0994.dir/check_atomic_AadXEixj4Ycgm2PP.cpp.o -o cmTC_b0994   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_vIWdjpMM0LFKUHun/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_vIWdjpMM0LFKUHun/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_vIWdjpMM0LFKUHun/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_9c727
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_9c727.dir/check_atomic_1LWmgrSkKNeVIgeX.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_1LWmgrSkKNeVIgeX.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_9c727.dir/check_atomic_1LWmgrSkKNeVIgeX.cpp.o -o cmTC_9c727   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_aSwGotxaLB0OiZYY/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_aSwGotxaLB0OiZYY/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_aSwGotxaLB0OiZYY/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_53538
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_53538.dir/check_atomic_bmAJShKpG3BSsbu8.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_bmAJShKpG3BSsbu8.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_53538.dir/check_atomic_bmAJShKpG3BSsbu8.cpp.o -o cmTC_53538   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_KS9Xx6XgPdTSil3F/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_KS9Xx6XgPdTSil3F/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_KS9Xx6XgPdTSil3F/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_5ef9d
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_5ef9d.dir/check_atomic_URp4gp6KTOxG6Lqj.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_URp4gp6KTOxG6Lqj.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_5ef9d.dir/check_atomic_URp4gp6KTOxG6Lqj.cpp.o -o cmTC_5ef9d   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_5ObDHp9CHZm97HCc/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_5ObDHp9CHZm97HCc/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_5ObDHp9CHZm97HCc/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_76e70
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_76e70.dir/check_atomic_bZdkEfo1SFPv8271.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_bZdkEfo1SFPv8271.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_76e70.dir/check_atomic_bZdkEfo1SFPv8271.cpp.o -o cmTC_76e70   && :
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_GGHKM6Ky8G7QVSN8/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_GGHKM6Ky8G7QVSN8/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_GGHKM6Ky8G7QVSN8/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_75650
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_75650.dir/check_atomic_dnTFAJBijRkHwxPm.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dnTFAJBijRkHwxPm.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_75650.dir/check_atomic_dnTFAJBijRkHwxPm.cpp.o -o cmTC_75650   && :
+        
+      exitCode: 0
+...

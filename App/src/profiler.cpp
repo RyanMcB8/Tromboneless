@@ -58,15 +58,27 @@ Profiler::~Profiler()
     return;
 }
 
+
+
+/** @brief functions that sets the background colour of the window
+    @param  g The panel which should be divided
+    @retval void
+    @note Always sets the background to getLookAndFeel().findColour
+    */
 void Profiler::paint (juce::Graphics& g)
 {
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-    //g.setFont (juce::FontOptions (18.0f));
-    //g.setColour (juce::Colours::white);
-    //g.drawText ("amhraic", getLocalBounds(), juce::Justification::centredTop, true);
+    g.setFont (juce::FontOptions (18.0f));
+    g.setColour (juce::Colours::white);
+    g.drawText ("HELLO WORLD", getLocalBounds(), juce::Justification::centredTop, true);
 }
 
 //  Window resizing configuration
+
+/** @brief Function that changes the size of the profiler
+    @retval no return value: void
+    @note Resizes the window to be 80 by 20
+*/
 void Profiler::resized()    
 {
     auto area = getLocalBounds();
@@ -89,6 +101,10 @@ void Profiler::resized()
     terminal.setBounds (area.reduced (8));
 }
 
+/** @brief Function that is triggered when a key is pressed
+    @param key An instance of KeyPress that stores the value of the key being pressed
+    @retval boolean value of true if a key is pressed, otherwise false
+ */
 bool Profiler::keyPressed(const juce::KeyPress& key)
 {
     if (key == juce::KeyPress::spaceKey)

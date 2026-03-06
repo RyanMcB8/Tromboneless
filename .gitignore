@@ -45,3 +45,7 @@ build/
 
 # ignoring vscode settings
 .vscode/
+
+# ignoring CMake files excluding CMakeLists
+*CMakeCache.txt
+*.yaml
