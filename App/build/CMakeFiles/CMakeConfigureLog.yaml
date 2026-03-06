@@ -838,3 +838,32 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:73 (try_compile)"
+      - "modules/JUCE/extras/Build/CMake/JUCECheckAtomic.cmake:128 (_juce_create_atomic_target)"
+      - "modules/JUCE/extras/Build/CMake/JUCEModuleSupport.cmake:57 (include)"
+      - "modules/JUCE/CMakeLists.txt:50 (include)"
+    directories:
+      source: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_XGP3H0cwUVm0dd2C/CMakeFiles/CMakeTmp"
+      binary: "/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_XGP3H0cwUVm0dd2C/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_dir_XGP3H0cwUVm0dd2C/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/ninja -v cmTC_7dd82
+        [1/2] /usr/bin/aarch64-linux-gnu-g++   -std=c++17 -o CMakeFiles/cmTC_7dd82.dir/check_atomic_OdYNbrqyuLnBqY2F.cpp.o -c /home/ryan/Tromboneless/App/build/modules/JUCE/check_atomic_OdYNbrqyuLnBqY2F.cpp
+        [2/2] : && /usr/bin/aarch64-linux-gnu-g++   CMakeFiles/cmTC_7dd82.dir/check_atomic_OdYNbrqyuLnBqY2F.cpp.o -o cmTC_7dd82   && :
+        
+      exitCode: 0
+...

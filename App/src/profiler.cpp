@@ -12,19 +12,6 @@ Profiler::Profiler()
 {
     setSize (600, 400);
 
-    addAndMakeVisible (terminal);
-    terminal.setMultiLine (true);
-    terminal.setReturnKeyStartsNewLine (true);
-    terminal.setReadOnly (true);
-    terminal.setScrollbarsShown (true);
-    terminal.setCaretVisible (false);
-    terminal.setPopupMenuEnabled (true);
-    terminal.setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x32ffffff));
-    terminal.setColour (juce::TextEditor::outlineColourId, juce::Colour (0x171715));
-    terminal.setColour (juce::TextEditor::shadowColourId, juce::Colour (0x16000000));
-
-    addAndMakeVisible (imageButton);
-    
     // Setup module dropdown
     addAndMakeVisible (module_label);
     module_label.setText ("Module:", juce::dontSendNotification);
@@ -42,10 +29,8 @@ Profiler::Profiler()
         auto buttonImage = juce::ImageCache::getFromFile (imageFile);
         if (buttonImage.isValid())
         {
-            imageButton.setImages (false, true, true,
-                                   buttonImage, 1.0f, juce::Colours::transparentBlack,  // normal
-                                   buttonImage, 0.8f, juce::Colours::transparentBlack,  // over (hover)
-                                   buttonImage, 0.6f, juce::Colours::transparentBlack); // down (pressed)
+            // This is where the images will be set if they are added in the future.
+            // imageButton.setImages()
         }
     }
 
@@ -59,12 +44,6 @@ Profiler::~Profiler()
 }
 
 
-
-/** @brief functions that sets the background colour of the window
-    @param  g The panel which should be divided
-    @retval void
-    @note Always sets the background to getLookAndFeel().findColour
-    */
 void Profiler::paint (juce::Graphics& g)
 {
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
@@ -75,16 +54,11 @@ void Profiler::paint (juce::Graphics& g)
 
 //  Window resizing configuration
 
-/** @brief Function that changes the size of the profiler
-    @retval no return value: void
-    @note Resizes the window to be 80 by 20
-*/
 void Profiler::resized()    
 {
     auto area = getLocalBounds();
 
     auto buttonArea = area.removeFromTop (60);
-    imageButton.setBounds (buttonArea.reduced (10).removeFromRight (100));
     
     // // Layout serial port selector
     // auto serialArea = buttonArea.reduced (10);
@@ -98,18 +72,12 @@ void Profiler::resized()
     module_label.setBounds (labelBounds);
     moduleComboBox.setBounds (comboBounds);
 
-    terminal.setBounds (area.reduced (8));
 }
 
-/** @brief Function that is triggered when a key is pressed
-    @param key An instance of KeyPress that stores the value of the key being pressed
-    @retval boolean value of true if a key is pressed, otherwise false
- */
 bool Profiler::keyPressed(const juce::KeyPress& key)
 {
     if (key == juce::KeyPress::spaceKey)
     {
-        // imageButtonClicked();  // Trigger the same action as clicking the button
         return true;  // Key was handled
     }
     return false;  // Key was not handled

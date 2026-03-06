@@ -3,6 +3,10 @@
 
 
 //==============================================================================
+
+/**  @brief Creation of main application class
+     @note  This is called upon when the code is run for the first time.
+*/
 class GuiAppApplication final : public juce::JUCEApplication
 
 {
@@ -41,22 +45,23 @@ public:
         quit();
     }
 
+    /** @brief Handler for when the user tries to open mutliple instances of the application
+        @note This function will return the command line parameters passed for the new instance were and may be used within the current window.
+    */
     void anotherInstanceStarted (const juce::String& commandLine) override
     {
-        // When another instance of the app is launched while this one is running,
-        // this method is invoked, and the commandLine parameter tells you what
-        // the other instance's command-line arguments were.
         juce::ignoreUnused (commandLine);
     }
 
     //==============================================================================
-    /*
-        This class implements the desktop window that contains an instance of
-        our MainComponent class.
+    /** @brief This class implements the desktop window that contains an instance of the MainComponent class.
+        @note Inherits the juce::DocumentWindow class and functions.
     */
     class MainWindow final : public juce::DocumentWindow
     {
     public:
+
+        // Generation fo what the main window will look like
         explicit MainWindow (juce::String name)
             : DocumentWindow (name,
                               juce::Desktop::getInstance().getDefaultLookAndFeel()
@@ -76,6 +81,9 @@ public:
             setVisible (true);
         }
 
+        /** @brief function handler for when the user tries to close the program
+            @note Currently does not do anything other than request the system to close the application.
+        */
         void closeButtonPressed() override
         {
             // This is called when the user tries to close this window. Here, we'll just
