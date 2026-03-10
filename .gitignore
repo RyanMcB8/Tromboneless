@@ -49,3 +49,7 @@ build/
 # ignoring CMake files excluding CMakeLists
 *CMakeCache.txt
 *.yaml
+
+# ignoring the app side build
+App/build
+App/JUCE
