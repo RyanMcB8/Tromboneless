@@ -83,16 +83,17 @@ class Profiler final : public juce::Component
         ~Profiler() override;
 
         /** @brief functions that sets the background colour of the window
-        @param  g The panel which should be divided
+        @param  g The panel which should be modified
         @retval void
-        @note Always sets the background to getLookAndFeel().findColour
+        @note Always sets the background to the user preference for the background.
+        * This function also adds a title to be within the window.
         */  
         void paint (juce::Graphics&) override;
 
 
         /** @brief Function that changes the size of the profiler
         @retval no return value: void
-        @note Resizes the window to be 80 by 20
+        @note Resizes the contents of the window including dropdown menus, labels and buttons
         */
         void resized() override;
         
@@ -101,6 +102,17 @@ class Profiler final : public juce::Component
         @retval boolean value of true if a key is has been handled, otherwise false
         */
         bool keyPressed(const juce::KeyPress& key) override;
+
+        /* Creation of an enum which corresponds to different shift keying
+           initial positions which may adjusted by the user through the app. */
+        typedef enum{
+            SKOpt_NoOption,
+            SKOpt_MiddleF4,
+            SKOpt_BSharp4,
+            SKOpt_D5,
+            SKOpt_F5,
+            SKOpt_ASharp4,
+        } ShiftKeyingOptions_t;
 
         
 

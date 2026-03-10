@@ -10,18 +10,21 @@
 
 Profiler::Profiler()
 {
-    setSize (600, 400);
+    /* Sets the initial size of the window to be displayed to the user. */
+    setSize (500, 800);
 
-    // Setup module dropdown
+    // Creation of a dropdown menu that provides options for shift keying
     addAndMakeVisible (module_label);
-    module_label.setText ("Module:", juce::dontSendNotification);
+    module_label.setText ("Shift keying selector:", juce::dontSendNotification);
     module_label.setJustificationType (juce::Justification::centredRight);
     
     addAndMakeVisible (moduleComboBox);
-    moduleComboBox.addItem ("2f", 1);
-    moduleComboBox.addItem ("eas", 2);
-    moduleComboBox.addItem ("ceis", 3);
-    moduleComboBox.setSelectedId (1);
+    moduleComboBox.addItem ("Middle F4", SKOpt_MiddleF4);
+    moduleComboBox.addItem ("B sharp 4", SKOpt_BSharp4);
+    moduleComboBox.addItem ("D5", SKOpt_D5);
+    moduleComboBox.addItem ("F5", SKOpt_F5);
+    moduleComboBox.addItem ("A sharp 4", SKOpt_ASharp4);
+    moduleComboBox.setSelectedId (0);
 
     juce::File imageFile = juce::File::getCurrentWorkingDirectory().getChildFile("resources/circle_gold.png");
     if (imageFile.existsAsFile())
@@ -46,10 +49,17 @@ Profiler::~Profiler()
 
 void Profiler::paint (juce::Graphics& g)
 {
+    /* Sets the background to be the same as the users settings for other windows. */
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+
+    /* Setting the size of the font that will be written. */
     g.setFont (juce::FontOptions (18.0f));
+
+    /* Setting the colour of the text that will be written. */
     g.setColour (juce::Colours::white);
-    g.drawText ("HELLO WORLD", getLocalBounds(), juce::Justification::centredTop, true);
+    
+    /* Adds a banner at the top of the window centred with the name of the device. */
+    g.drawText ("Tromboneless.tech", getLocalBounds(), juce::Justification::centredTop, true);
 }
 
 //  Window resizing configuration
@@ -59,16 +69,11 @@ void Profiler::resized()
     auto area = getLocalBounds();
 
     auto buttonArea = area.removeFromTop (60);
-    
-    // // Layout serial port selector
-    // auto serialArea = buttonArea.reduced (10);
-    // module_label.setBounds (serialArea.removeFromLeft (100));
-    // moduleComboBox.setBounds (serialArea.removeFromLeft (200));
 
     auto labelBounds = buttonArea.removeFromLeft (60);
-    auto comboBounds = buttonArea.removeFromLeft (80);
-    comboBounds = comboBounds.withSizeKeepingCentre (80, 20);  // width, height
-    labelBounds = labelBounds.withSizeKeepingCentre (60, 20);
+    auto comboBounds = buttonArea.removeFromLeft (400);
+    comboBounds = comboBounds.withSizeKeepingCentre (200, 20);  // width, height
+    labelBounds = labelBounds.withSizeKeepingCentre (200, 20);
     module_label.setBounds (labelBounds);
     moduleComboBox.setBounds (comboBounds);
 

@@ -1,3 +1,6 @@
+/* This file is specifically for the creation, functions and closing
+    of the appliation, not any widgets present within the window. */
+
 #include "profiler.h"
 #include <juce_gui_extra/juce_gui_extra.h>
 
@@ -30,6 +33,9 @@ public:
         mainWindow.reset (new MainWindow (getApplicationName()));
     }
 
+    /** @brief Function used to control what happens when the user wants to close the application
+     *  @note Currently nothing extra is happening here other than closing the window
+     */
     void shutdown() override
     {
         // Add your application's shutdown code here..
