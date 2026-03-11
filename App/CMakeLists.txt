@@ -25,7 +25,15 @@ target_include_directories(Tromboneless PRIVATE
 file(GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 target_sources(Tromboneless
     PRIVATE
-        ${SOURCES})
+        ${SOURCES}
+        )
+
+# Add shared source files
+file(GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/shared/*.cpp")
+target_sources(Tromboneless
+    PRIVATE
+        ${SOURCES}
+        )
 
 # Set compile definitions
 target_compile_definitions(Tromboneless

@@ -1,7 +1,7 @@
 /* This file is specifically for the creation, functions and closing
     of the appliation, not any widgets present within the window. */
 
-#include "profiler.h"
+#include "Layout.h"
 #include <juce_gui_extra/juce_gui_extra.h>
 
 
@@ -22,7 +22,7 @@ public:
     // you could `#include <JuceHeader.h>` and use `ProjectInfo::projectName` etc. instead.
     const juce::String getApplicationName() override       { return JUCE_APPLICATION_NAME_STRING; }
     const juce::String getApplicationVersion() override    { return JUCE_APPLICATION_VERSION_STRING; }
-    bool moreThanOneInstanceAllowed() override             { return true; }
+    bool moreThanOneInstanceAllowed() override             { return false; }
 
     //==============================================================================
     void initialise (const juce::String& commandLine) override
@@ -75,7 +75,7 @@ public:
                               allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new Profiler(), true);
+            setContentOwned (new Layout(), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
