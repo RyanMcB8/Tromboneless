@@ -14,8 +14,11 @@ Layout::Layout()
 {
     /* Sets the initial size of the window to be displayed to the user. */
     setSize (500, 800);
+    minimumDistance = 5;
+    maximumDistance = 60;   
+    distanceRange = 5;
 
-    // Creation of a dropdown menu that provides options for shift keying
+    /* ============================== Creation of a dropdown menu that provides options for shift keying ============================== */
     
     addAndMakeVisible (shiftKeyChoice);
     shiftKeyChoice.addItem ("Middle F4", SKOpt_MiddleF4);
@@ -28,25 +31,34 @@ Layout::Layout()
     shiftKeyChoice.onChange = [this] {shiftKeyingUpdate(); };
     shiftKeyChoice.setSelectedId (0);
 
-    
-
+    /* Adding a label to be beside the shift key dropdown menu. */
     addAndMakeVisible (shiftKeySelectLabel);
     shiftKeySelectLabel.setText ("Shift keying selector:", juce::dontSendNotification);
     shiftKeySelectLabel.setJustificationType (juce::Justification::centredRight);
     shiftKeySelectLabel.attachToComponent(&shiftKeyChoice, true);
 
-    juce::File imageFile = juce::File::getCurrentWorkingDirectory().getChildFile("resources/circle_gold.png");
-    if (imageFile.existsAsFile())
-    {
-        auto buttonImage = juce::ImageCache::getFromFile (imageFile);
-        if (buttonImage.isValid())
-        {
-            // This is where the images will be set if they are added in the future.
-            // imageButton.setImages()
-        }
-    }
+    /* ============================== Creation of slider for the maximum and minimum ranges. ============================== */
+    /* Minimum. */
+    addAndMakeVisible (nearDistanceSlider);
+    nearDistanceSlider.setRange(minimumDistance, maximumDistance);                 /* Setting the range to be between 5 and 60cm. */
+    nearDistanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
+    nearDistanceSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    nearDistanceSlider.setValue (15.0);
 
-    // imageButton.onClick = ;
+    addAndMakeVisible (nearDistanceLabel);
+    nearDistanceLabel.setText ("Minimum distance", juce::dontSendNotification); /* Adding text to the label. */
+    nearDistanceLabel.attachToComponent (&nearDistanceSlider, true);        /* Attaching the label to the slider*/
+
+    /* Maximum. */
+    addAndMakeVisible (farDistanceSlider);
+    farDistanceSlider.setRange(nearDistanceSlider.getValue(), maximumDistance);                 /* Setting the range to be between 5 and 60cm. */
+    farDistanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
+    farDistanceSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    farDistanceSlider.setValue (40.0);
+
+    addAndMakeVisible (farDistanceLabel);
+    farDistanceLabel.setText ("Maximum distance", juce::dontSendNotification); /* Adding text to the label. */
+    farDistanceLabel.attachToComponent (&farDistanceSlider, true);        /* Attaching the label to the slider*/
 
 }
 
@@ -88,6 +100,17 @@ void Layout::resized()
     labelBounds = labelBounds.withSizeKeepingCentre (200, 40);
     shiftKeySelectLabel.setBounds (labelBounds);
     shiftKeyChoice.setBounds (comboBounds);
+
+    /* Adding the sliders to the window. */
+    auto sliderBounds = comboBounds.removeFromTop(200);
+    sliderBounds = sliderBounds.removeFromLeft(50);
+    sliderBounds = sliderBounds.withSizeKeepingCentre(200, 40);
+    nearDistanceSlider.setBounds (120, 100, getWidth() - 120 - 10, 20);
+
+    sliderBounds = sliderBounds.removeFromTop(200);
+    sliderBounds = sliderBounds.removeFromLeft(50);
+    sliderBounds = sliderBounds.withSizeKeepingCentre(200, 40);
+    farDistanceSlider.setBounds (120, 200, getWidth() - 120 - 10, 20);
 
 }
 
