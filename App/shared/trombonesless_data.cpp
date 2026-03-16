@@ -10,3 +10,8 @@ void distanceCalibrationUpdate(void){
     std::cout << " --- Slider distance has changed --- \n";
     return;
 }
+
+void pressureCalibrationUpdate(void){
+    std::cout << " --- Slider pressure has changed --- \n";
+    return;
+}

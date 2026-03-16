@@ -47,6 +47,13 @@ class Layout final : public juce::Component,
         double minimumDistance;    /* Setting the minimum distance that the tromboneless' slider will reach. */ 
         double maximumDistance;    /* Setting the maximum distance that the tromboneless' slider will reach. */
         double distanceRange;      /* The minimum distance between the maximum and minimum distabces allowed. */
+        double stepDistance;       /* The minimum change between values when the user adjusts the distance slider. */
+        
+        double minimumPressure;    /* The gain factor of the minimum pressure that could be read relative to the normal maximum. */
+        double maximumPressure;    /* The gain factor of the maxmimum pressure that could be read relative to the normal maximum. */
+        double stepPressure;       /* The granularity of how fine the user may adjust the pressure slider relative to the normal maximum. */
+        double pressureRange;      /* The minimum pressure pressure difference between the maximum and minimum pressure values relative to the normal maximum. */
+
             
         /** @brief A function handler for when any of the sliders on screen are moved.
          *  @param slider A pointer to the slider that has been modified
@@ -58,6 +65,9 @@ class Layout final : public juce::Component,
                 // auto currentMinimumDistance = &distanceSlider.getMinValueObject ();
                 // auto currentMaximumDistance = &distanceSlider.getMaxValueObject ();
                 distanceCalibrationUpdate();
+            }
+            else if (slider == &pressureSlider){
+                pressureCalibrationUpdate();
             }
 
         }
@@ -72,10 +82,17 @@ class Layout final : public juce::Component,
         juce::Label shiftKeySelectLabel;
 
         /* Sliders and labels for calibrating the range. */
-        juce::Slider distanceSlider;
+        MinDifferenceSlider distanceSlider;
         juce::Label distanceLabel;
         juce::Label distanceMinLabel;
         juce::Label distanceMaxLabel;
+
+        /* Sliders and labels for calibrating the pressure maximum and minimum. */
+        MinDifferenceSlider pressureSlider;
+        juce::Label pressureLabel;
+        juce::Label pressureMinLabel;
+        juce::Label pressureMaxLabel;
+
 
         /** @brief Function that can display a message on the window to the user
             @param title Takes in a message of type juce::String to be displayed as the message title

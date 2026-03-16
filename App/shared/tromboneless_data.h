@@ -27,3 +27,6 @@ void shiftKeyingUpdate(void);
  *  @note This function should be used to call upon the classes which hold the corresponding data which is being used. 
  */
 void distanceCalibrationUpdate(void);
+
+/** @brief A function which can be used to change the maximum and minimum relative pressures of being read from the pressure sensor.  */
+void pressureCalibrationUpdate(void);
