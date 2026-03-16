@@ -21,3 +21,9 @@ typedef enum{
  *  @note This function should be used to call upon the classes which hold the corresponding data which is being used. 
  */
 void shiftKeyingUpdate(void);
+
+/** @brief This function is used to change the maximum and minimum distances for the slider to work at.
+ *  @param shiftKey The key of which was chosen
+ *  @note This function should be used to call upon the classes which hold the corresponding data which is being used. 
+ */
+void distanceCalibrationUpdate(void);

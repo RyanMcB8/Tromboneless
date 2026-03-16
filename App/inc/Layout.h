@@ -48,12 +48,18 @@ class Layout final : public juce::Component,
         double maximumDistance;    /* Setting the maximum distance that the tromboneless' slider will reach. */
         double distanceRange;      /* The minimum distance between the maximum and minimum distabces allowed. */
             
+        /** @brief A function handler for when any of the sliders on screen are moved.
+         *  @param slider A pointer to the slider that has been modified
+         *  @note This function must check which slider has been modified before making any changes.
+         */
         void sliderValueChanged (juce::Slider* slider) override
         {
-            if (slider == &nearDistanceSlider)
-                farDistanceSlider.setRange (nearDistanceSlider.getValue() + distanceRange, Layout::maximumDistance, juce::dontSendNotification);
-            else if (slider == &farDistanceSlider)
-                nearDistanceSlider.setRange (Layout::minimumDistance, farDistanceSlider.getValue() - distanceRange, juce::dontSendNotification);
+            if (slider == &distanceSlider){
+                // auto currentMinimumDistance = &distanceSlider.getMinValueObject ();
+                // auto currentMaximumDistance = &distanceSlider.getMaxValueObject ();
+                distanceCalibrationUpdate();
+            }
+
         }
 
         
@@ -66,10 +72,10 @@ class Layout final : public juce::Component,
         juce::Label shiftKeySelectLabel;
 
         /* Sliders and labels for calibrating the range. */
-        juce::Slider nearDistanceSlider;
-        juce::Label nearDistanceLabel;
-        juce::Slider farDistanceSlider;
-        juce::Label farDistanceLabel;
+        juce::Slider distanceSlider;
+        juce::Label distanceLabel;
+        juce::Label distanceMinLabel;
+        juce::Label distanceMaxLabel;
 
         /** @brief Function that can display a message on the window to the user
             @param title Takes in a message of type juce::String to be displayed as the message title

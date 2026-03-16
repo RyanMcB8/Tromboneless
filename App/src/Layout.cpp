@@ -39,26 +39,31 @@ Layout::Layout()
 
     /* ============================== Creation of slider for the maximum and minimum ranges. ============================== */
     /* Minimum. */
-    addAndMakeVisible (nearDistanceSlider);
-    nearDistanceSlider.setRange(minimumDistance, maximumDistance);                 /* Setting the range to be between 5 and 60cm. */
-    nearDistanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
-    nearDistanceSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    nearDistanceSlider.setValue (15.0);
+    addAndMakeVisible (distanceSlider);
+    using juce::Slider;
+    distanceSlider.setSliderStyle(Slider::TwoValueHorizontal);
+    distanceSlider.setRange(minimumDistance, maximumDistance, 0.1);                 /* Setting the range to be between 5 and 60cm. */
+    distanceSlider.hideTextBox(false);
+    distanceSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
+    distanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
+    distanceSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    distanceSlider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
+    distanceSlider.setPopupDisplayEnabled(true, true, this, 1000);
+    distanceSlider.setNumDecimalPlacesToDisplay(1);
 
-    addAndMakeVisible (nearDistanceLabel);
-    nearDistanceLabel.setText ("Minimum distance", juce::dontSendNotification); /* Adding text to the label. */
-    nearDistanceLabel.attachToComponent (&nearDistanceSlider, true);        /* Attaching the label to the slider*/
+    addAndMakeVisible (distanceLabel);
+    distanceLabel.setText ("Slider distance range.", juce::dontSendNotification); /* Adding text to the label. */
+    distanceLabel.attachToComponent (&distanceSlider, false);        /* Attaching the label to the slider*/
 
-    /* Maximum. */
-    addAndMakeVisible (farDistanceSlider);
-    farDistanceSlider.setRange(nearDistanceSlider.getValue(), maximumDistance);                 /* Setting the range to be between 5 and 60cm. */
-    farDistanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
-    farDistanceSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    farDistanceSlider.setValue (40.0);
+    addAndMakeVisible (distanceMinLabel);
+    distanceMinLabel.setText (juce::String(minimumDistance), juce::dontSendNotification); /* Adding text to the label. */
+    distanceMinLabel.attachToComponent (&distanceSlider, true);        /* Attaching the label to the slider*/
 
-    addAndMakeVisible (farDistanceLabel);
-    farDistanceLabel.setText ("Maximum distance", juce::dontSendNotification); /* Adding text to the label. */
-    farDistanceLabel.attachToComponent (&farDistanceSlider, true);        /* Attaching the label to the slider*/
+    addAndMakeVisible (distanceMaxLabel);
+    distanceMaxLabel.setText (juce::String(maximumDistance), juce::dontSendNotification); /* Adding text to the label. */
+
+    // Value & 	getMinValueObject () can return the lower thumbs value (minimum distance)
+
 
 }
 
@@ -105,12 +110,9 @@ void Layout::resized()
     auto sliderBounds = comboBounds.removeFromTop(200);
     sliderBounds = sliderBounds.removeFromLeft(50);
     sliderBounds = sliderBounds.withSizeKeepingCentre(200, 40);
-    nearDistanceSlider.setBounds (120, 100, getWidth() - 120 - 10, 20);
+    distanceSlider.setBounds (30, 100, getWidth() - 60, 20);
 
-    sliderBounds = sliderBounds.removeFromTop(200);
-    sliderBounds = sliderBounds.removeFromLeft(50);
-    sliderBounds = sliderBounds.withSizeKeepingCentre(200, 40);
-    farDistanceSlider.setBounds (120, 200, getWidth() - 120 - 10, 20);
+    distanceMaxLabel.setBounds(getWidth()-30, 100, 40, 20);
 
 }
 
