@@ -1,7 +1,7 @@
 #include "Layout.h"
 #include "Widgets.h"
 
-#include <fcntl.h>
+// #include <fcntl.h>
 #include <errno.h>
 #include <unistd.h>
 
@@ -38,7 +38,7 @@ Layout::Layout()
     shiftKeyChoice.addItem ("A sharp 4", SKOpt_ASharp4);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
-    shiftKeyChoice.onChange = [this] {shiftKeyingUpdate(); };
+    shiftKeyChoice.onChange = [this] {trombonelessParameters.shiftKeyingOption = (ShiftKeyingOptions_t) shiftKeyChoice.getSelectedId(); };
     shiftKeyChoice.setSelectedId (0);
 
     /* Adding a label to be beside the shift key dropdown menu. */
@@ -51,16 +51,17 @@ Layout::Layout()
     /* Slider */
     addAndMakeVisible (distanceSlider);
     using juce::Slider;
-    distanceSlider.setSliderStyle(Slider::TwoValueHorizontal);
     distanceSlider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
     distanceSlider.setMinDifference(distanceRange);
-    distanceSlider.hideTextBox(false);
-    distanceSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
+    // distanceSlider.hideTextBox(false);
     distanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
-    distanceSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
     distanceSlider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
+    distanceSlider. addListener (this);  
     distanceSlider.setPopupDisplayEnabled(true, true, this, 1000);
     distanceSlider.setNumDecimalPlacesToDisplay(1);
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider Title");
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, "Min");
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, "Max");
 
     /* main label */
     addAndMakeVisible (distanceLabel);
@@ -81,12 +82,9 @@ Layout::Layout()
     /* Slider */
     addAndMakeVisible (pressureSlider);
     using juce::Slider;
-    pressureSlider.setSliderStyle(Slider::TwoValueHorizontal);
     pressureSlider.setRange(minimumPressure, maximumPressure, stepPressure);
     pressureSlider.setMinDifference(pressureRange);
     pressureSlider.hideTextBox(false);
-    pressureSlider.setTextBoxStyle(Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-    // pressureSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
     pressureSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
     pressureSlider.setMinAndMaxValues (0.05, 1, juce::dontSendNotification);
     pressureSlider.setPopupDisplayEnabled(true, true, this, 1000);
@@ -106,6 +104,14 @@ Layout::Layout()
     /* Maximum value label */
     addAndMakeVisible (pressureMaxLabel);
     pressureMaxLabel.setText (juce::String(maximumPressure), juce::dontSendNotification); /* Adding text to the label. */
+
+    /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
+    addAndMakeVisible (lowFreqSlider);
+    pressureSlider.setRange(0, 5, 0.1);
+    pressureSlider.addListener (this); 
+    pressureSlider.setPopupDisplayEnabled(true, true, this, 1000);
+    pressureSlider.setNumDecimalPlacesToDisplay(2);
+
 
 
 
@@ -159,6 +165,9 @@ void Layout::resized()
     /* Pressure slider bounds */
     pressureSlider.setBounds (50, 220, getWidth() - 105, 20);
     pressureMaxLabel.setBounds(getWidth()-55, 220, 45, 20);
+
+    /* Frequency */
+    lowFreqSlider.setBounds(100, 400, 20, 100);
 
 }
 

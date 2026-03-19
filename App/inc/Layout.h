@@ -1,5 +1,5 @@
 #pragma once
-
+#include "tromboneless_data.h"
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
@@ -7,8 +7,10 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "Widgets.h"
-#include "tromboneless_data.h"
 
+#include <stdio.h>
+
+// #define DBG_MSG
 
 /** @brief Main class that creates the window
  */
@@ -61,13 +63,24 @@ class Layout final : public juce::Component,
          */
         void sliderValueChanged (juce::Slider* slider) override
         {
+            /* Calibrated distance has changed. */
             if (slider == &distanceSlider){
-                // auto currentMinimumDistance = &distanceSlider.getMinValueObject ();
-                // auto currentMaximumDistance = &distanceSlider.getMaxValueObject ();
-                distanceCalibrationUpdate();
+                trombonelessParameters.nearDistance = distanceSlider.getMinValue();
+                trombonelessParameters.farDistance = distanceSlider.getMaxValue();
+#ifdef DBG_MSG
+                std::cout << "DistanceSlider min:" <<  trombonelessParameters.nearDistance << "\n";
+                std::cout << "DistanceSlider max:" <<  trombonelessParameters.farDistance << "\n";
+#endif
             }
+
+            /* Calibrated pressure has changed. */
             else if (slider == &pressureSlider){
-                pressureCalibrationUpdate();
+                trombonelessParameters.lowPressure = pressureSlider.getMinValue();
+                trombonelessParameters.highPressure = pressureSlider.getMaxValue();
+#ifdef DBG_MSG
+                std::cout << "PressureSlider min:" <<  trombonelessParameters.lowPressure << "\n";
+                std::cout << "PressureSlider max:" <<  trombonelessParameters.highPressure << "\n";
+#endif
             }
 
         }
@@ -82,16 +95,19 @@ class Layout final : public juce::Component,
         juce::Label shiftKeySelectLabel;
 
         /* Sliders and labels for calibrating the range. */
-        MinDifferenceSlider distanceSlider;
+        CalibrationSlider distanceSlider;
         juce::Label distanceLabel;
         juce::Label distanceMinLabel;
         juce::Label distanceMaxLabel;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
-        MinDifferenceSlider pressureSlider;
+        CalibrationSlider pressureSlider;
         juce::Label pressureLabel;
         juce::Label pressureMinLabel;
         juce::Label pressureMaxLabel;
+
+        /* Sliders and labels for setting the gains of each frequency band. */
+        verticalMixSlider lowFreqSlider;
 
 
         /** @brief Function that can display a message on the window to the user

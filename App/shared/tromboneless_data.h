@@ -1,6 +1,6 @@
 /* Header file to pass functions which may have an effect on both the app and core functionality. */
-
-#pragma once
+#ifndef _TROMBONELESS_DATA_H_
+#define _TROMBONELESS_DATA_H_
 
 /* ============================== This is where the types are defined ============================== */
 
@@ -15,18 +15,25 @@ typedef enum{
     SKOpt_ASharp4,
 } ShiftKeyingOptions_t;
 
+/* A struct which stores all the necessary parameters that may be changed on the app side effecting the core functionality. */
+typedef struct{
+    ShiftKeyingOptions_t shiftKeyingOption;
+    double nearDistance;
+    double farDistance;
 
-/** @brief This function is used to select the shift keying used on the slider.
- *  @param shiftKey The key of which was chosen
- *  @note This function should be used to call upon the classes which hold the corresponding data which is being used. 
- */
-void shiftKeyingUpdate(void);
+    double lowPressure;
+    double highPressure;
+} TrombonelessParameters_t;
 
-/** @brief This function is used to change the maximum and minimum distances for the slider to work at.
- *  @param shiftKey The key of which was chosen
- *  @note This function should be used to call upon the classes which hold the corresponding data which is being used. 
- */
-void distanceCalibrationUpdate(void);
+/* A struct to store any of the synthesier parameters that may be changed within the app. */
+typedef struct{
+    float gains[10];
+} SynthethiserParameters_t;
 
-/** @brief A function which can be used to change the maximum and minimum relative pressures of being read from the pressure sensor.  */
-void pressureCalibrationUpdate(void);
+/* Creating an instance of the trombonelessParameters_t struct to store the active parameter variables.*/
+extern TrombonelessParameters_t trombonelessParameters;
+
+/* Creating an instance of the SynthethiserParameters_t struct to store the active parameter variables.*/
+extern SynthethiserParameters_t synthethiserParameters;
+
+#endif
