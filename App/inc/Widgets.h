@@ -253,7 +253,8 @@ public:
 
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
-class verticalMixSlider : public SliderWithLabel
+class verticalMixSlider : public SliderWithLabel,
+                          public juce::Slider::Listener
 {
 public:
     verticalMixSlider() : SliderWithLabel(juce::Slider::LinearVertical){
@@ -261,14 +262,20 @@ public:
         this->slider.setValue(1, juce::dontSendNotification);  /* Setting the initial value to be 1 so that there is no change in gain. */
         this->slider.setPopupMenuEnabled(1);
         this->topLabelBounds = 30;
-        this->leftLabelBounds = 5;
-        this->rightLabelBounds = 5;
+        this->leftLabelBounds = 1;
+        this->rightLabelBounds = 1;
         this->bottomLabelBounds = 30; 
+        this->slider.addListener(this);
     };
 
     ~verticalMixSlider() {
         
     };
+
+    void sliderValueChanged(juce::Slider* sliderChanged) override
+    {
+        /* Add any code for responding to slider values being changed here.*/
+    }
     
 };
 
@@ -299,6 +306,7 @@ class Equalizer : public verticalMixSlider
                 eqSliders.add(new verticalMixSlider());
                 eqSliders[i]->slider.setPopupDisplayEnabled(true, true, this, 1000);
                 eqSliders[i]->slider.setLookAndFeel(&customLook);
+                eqSliders[i]->slider.addListener(this);
                 
                 if(numberOfSliders == 10){
                     newLabel = (prevLabel+prevLabel);
@@ -343,8 +351,21 @@ class Equalizer : public verticalMixSlider
             }
             
         }
+
+        void sliderValueChanged(juce::Slider* sliderChanged) override{
+            for (int i=0; i < nSliders; i++){
+                if (sliderChanged == &(eqSliders[i]->slider)){
+#ifdef DBG_MSG
+                    std::cout << "Slider:"<< i << "\n";
+#endif              
+                    /* Updating the slider value in the synthesiserParameters struct to match the new updated value. */
+                    synthesiserParameters.gains[i] = eqSliders[i]->slider.getValue();
+                }
+            }
+            return;            
+        }
         
-        private:
+    private:
         juce::Array <juce::String> frequencyLabels; 
         float prevLabel;
         float newLabel;

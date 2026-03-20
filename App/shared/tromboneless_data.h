@@ -27,13 +27,13 @@ typedef struct{
 
 /* A struct to store any of the synthesier parameters that may be changed within the app. */
 typedef struct{
-    float gains[10];
-} SynthethiserParameters_t;
+    float gains[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+} SynthesiserParameters_t;
 
 /* Creating an instance of the trombonelessParameters_t struct to store the active parameter variables.*/
 extern TrombonelessParameters_t trombonelessParameters;
 
 /* Creating an instance of the SynthethiserParameters_t struct to store the active parameter variables.*/
-extern SynthethiserParameters_t synthethiserParameters;
+extern SynthesiserParameters_t synthesiserParameters;
 
 #endif

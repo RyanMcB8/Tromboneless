@@ -3,6 +3,7 @@
 
 #include "Layout.h"
 #include <juce_gui_extra/juce_gui_extra.h>
+#include "tromboneless_data.h"
 
 
 //==============================================================================
@@ -95,6 +96,14 @@ public:
             // This is called when the user tries to close this window. Here, we'll just
             // ask the app to quit when this happens, but you can change this to do
             // whatever you need.
+#ifdef DBG_ON_CLOSE
+            std::cout << "Gain values: ";
+
+            for (int i=0; i< 10; i++){
+                std::cout << synthesiserParameters.gains[i] << "   ";
+            }
+            std::cout << "\n";
+#endif
             getInstance()->systemRequestedQuit();
         }
 

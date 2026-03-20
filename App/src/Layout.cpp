@@ -14,7 +14,7 @@
 Layout::Layout()
 {
     /* Sets the initial size of the window to be displayed to the user. */
-    setSize (800, 800);
+    setSize (500, 800);
 
     /* Variables for the distance range. */
     minimumDistance = 5;
@@ -43,7 +43,7 @@ Layout::Layout()
 
     /* Adding a label to be beside the shift key dropdown menu. */
     addAndMakeVisible (shiftKeySelectLabel);
-    shiftKeySelectLabel.setText ("Shift keying selector:", juce::dontSendNotification);
+    shiftKeySelectLabel.setText ("Transposition selector:", juce::dontSendNotification);
     shiftKeySelectLabel.setJustificationType (juce::Justification::centredRight);
     shiftKeySelectLabel.attachToComponent(&shiftKeyChoice, true);
 
@@ -108,7 +108,7 @@ void Layout::paint (juce::Graphics& g)
     g.setColour (juce::Colours::white);
     
     /* Adds a banner at the top of the window centred with the name of the device. */
-    g.drawText ("Tromboneless.tech", getLocalBounds(), juce::Justification::centredTop, true);
+    g.drawText ("Tromboneless Parameters", getLocalBounds(), juce::Justification::centredTop, true);
 
 }
 
@@ -140,7 +140,7 @@ void Layout::resized()
 
     /* Equalizer */
     auto equalizerBounds = area.removeFromTop(250);
-    equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()-250, 220);
+    equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()-20, 220);
     equalizer.setBounds(equalizerBounds);
 
 

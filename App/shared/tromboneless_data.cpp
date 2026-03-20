@@ -1,4 +1,4 @@
 #include "tromboneless_data.h"
 
 TrombonelessParameters_t trombonelessParameters;
-SynthethiserParameters_t synthethiserParameters;
+SynthesiserParameters_t synthesiserParameters;
