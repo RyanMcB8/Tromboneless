@@ -100,8 +100,8 @@ class Layout final : public juce::Component,
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
         CalibrationSlider pressureSlider;
 
-        /* Sliders and labels for setting the gains of each frequency band. */
-        verticalMixSlider lowFreqSlider;
+        /* Creation of the equalizer. */
+        Equalizer equalizer;
 
 
         /** @brief Function that can display a message on the window to the user

@@ -14,7 +14,7 @@
 Layout::Layout()
 {
     /* Sets the initial size of the window to be displayed to the user. */
-    setSize (500, 800);
+    setSize (800, 800);
 
     /* Variables for the distance range. */
     minimumDistance = 5;
@@ -58,9 +58,11 @@ Layout::Layout()
     distanceSlider.slider. addListener (this);  
     distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider Title");
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, "Min");
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, "Max");
+    
+    /* Adding labels to the slider. */    
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider distance");
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumDistance)) +" cm");
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumDistance))+ " cm");
 
 
     /* ============================== Creation of slider for adjusting maximum and minimum pressure amplitude. ============================== */
@@ -69,18 +71,19 @@ Layout::Layout()
     using juce::Slider;
     pressureSlider.slider.setRange(minimumPressure, maximumPressure, stepPressure);
     pressureSlider.setMinDifference(pressureRange);
-    pressureSlider.slider.hideTextBox(false);
     pressureSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
     pressureSlider.slider.setMinAndMaxValues (0.05, 1, juce::dontSendNotification);
     pressureSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     pressureSlider.slider.setNumDecimalPlacesToDisplay(2);
 
+    /* Adding labels to the slider. */
+    pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Pressure gain");
+    pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumPressure)));
+    pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumPressure)));
+
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
-    addAndMakeVisible (lowFreqSlider);
-    lowFreqSlider.slider.setRange(0, 5, 0.1);
-    lowFreqSlider.slider.addListener (this); 
-    lowFreqSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
-    lowFreqSlider.slider.setNumDecimalPlacesToDisplay(2);
+    addAndMakeVisible (equalizer);
+    
 
 
 
@@ -135,10 +138,11 @@ void Layout::resized()
     pressureSliderBounds = pressureSliderBounds.withSizeKeepingCentre(400, 80);
     pressureSlider.setBounds (pressureSliderBounds);
 
-    /* Frequency */
-    auto lowFreqSliderBounds = area.removeFromTop(250);
-    lowFreqSliderBounds = lowFreqSliderBounds.withSizeKeepingCentre(30, 120);
-    lowFreqSlider.setBounds(lowFreqSliderBounds);
+    /* Equalizer */
+    auto equalizerBounds = area.removeFromTop(250);
+    equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()-250, 220);
+    equalizer.setBounds(equalizerBounds);
+
 
 }
 
