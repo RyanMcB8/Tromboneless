@@ -36,8 +36,4 @@ Recommend working within vscode, as you can open a remote window from there whic
 
 # App
 ## Dependencies
-Before building the project, the user must have the following installed:
-   - freetype2
-   - libcurl
-   - webkit2gtk-4.0
-   
+ - Juce
