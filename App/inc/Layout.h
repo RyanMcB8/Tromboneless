@@ -64,9 +64,9 @@ class Layout final : public juce::Component,
         void sliderValueChanged (juce::Slider* slider) override
         {
             /* Calibrated distance has changed. */
-            if (slider == &distanceSlider){
-                trombonelessParameters.nearDistance = distanceSlider.getMinValue();
-                trombonelessParameters.farDistance = distanceSlider.getMaxValue();
+            if (slider == &distanceSlider.slider){
+                trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
+                trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
 #ifdef DBG_MSG
                 std::cout << "DistanceSlider min:" <<  trombonelessParameters.nearDistance << "\n";
                 std::cout << "DistanceSlider max:" <<  trombonelessParameters.farDistance << "\n";
@@ -74,9 +74,9 @@ class Layout final : public juce::Component,
             }
 
             /* Calibrated pressure has changed. */
-            else if (slider == &pressureSlider){
-                trombonelessParameters.lowPressure = pressureSlider.getMinValue();
-                trombonelessParameters.highPressure = pressureSlider.getMaxValue();
+            else if (slider == &pressureSlider.slider){
+                trombonelessParameters.lowPressure = pressureSlider.slider.getMinValue();
+                trombonelessParameters.highPressure = pressureSlider.slider.getMaxValue();
 #ifdef DBG_MSG
                 std::cout << "PressureSlider min:" <<  trombonelessParameters.lowPressure << "\n";
                 std::cout << "PressureSlider max:" <<  trombonelessParameters.highPressure << "\n";
@@ -96,15 +96,9 @@ class Layout final : public juce::Component,
 
         /* Sliders and labels for calibrating the range. */
         CalibrationSlider distanceSlider;
-        juce::Label distanceLabel;
-        juce::Label distanceMinLabel;
-        juce::Label distanceMaxLabel;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
         CalibrationSlider pressureSlider;
-        juce::Label pressureLabel;
-        juce::Label pressureMinLabel;
-        juce::Label pressureMaxLabel;
 
         /* Sliders and labels for setting the gains of each frequency band. */
         verticalMixSlider lowFreqSlider;

@@ -51,66 +51,36 @@ Layout::Layout()
     /* Slider */
     addAndMakeVisible (distanceSlider);
     using juce::Slider;
-    distanceSlider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
+    distanceSlider.slider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
     distanceSlider.setMinDifference(distanceRange);
-    // distanceSlider.hideTextBox(false);
-    distanceSlider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
-    distanceSlider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
-    distanceSlider. addListener (this);  
-    distanceSlider.setPopupDisplayEnabled(true, true, this, 1000);
-    distanceSlider.setNumDecimalPlacesToDisplay(1);
+    distanceSlider.slider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
+    distanceSlider.slider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
+    distanceSlider.slider. addListener (this);  
+    distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
+    distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider Title");
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, "Min");
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, "Max");
 
-    /* main label */
-    addAndMakeVisible (distanceLabel);
-    distanceLabel.setText ("Slider distance range.", juce::dontSendNotification); /* Adding text to the label. */
-    distanceLabel.attachToComponent (&distanceSlider, false);        /* Attaching the label to the slider*/
-    distanceLabel.setMinimumHorizontalScale(2);
-
-    /* Minimum value label */
-    addAndMakeVisible (distanceMinLabel);
-    distanceMinLabel.setText (juce::String(minimumDistance) + " cm", juce::dontSendNotification); /* Adding text to the label. */
-    distanceMinLabel.attachToComponent (&distanceSlider, true);        /* Attaching the label to the slider*/
-
-    /* Maximum value label */
-    addAndMakeVisible (distanceMaxLabel);
-    distanceMaxLabel.setText (juce::String(maximumDistance) + " cm", juce::dontSendNotification); /* Adding text to the label. */
 
     /* ============================== Creation of slider for adjusting maximum and minimum pressure amplitude. ============================== */
     /* Slider */
     addAndMakeVisible (pressureSlider);
     using juce::Slider;
-    pressureSlider.setRange(minimumPressure, maximumPressure, stepPressure);
+    pressureSlider.slider.setRange(minimumPressure, maximumPressure, stepPressure);
     pressureSlider.setMinDifference(pressureRange);
-    pressureSlider.hideTextBox(false);
-    pressureSlider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    pressureSlider.setMinAndMaxValues (0.05, 1, juce::dontSendNotification);
-    pressureSlider.setPopupDisplayEnabled(true, true, this, 1000);
-    pressureSlider.setNumDecimalPlacesToDisplay(2);
-
-    /* main label */
-    addAndMakeVisible (pressureLabel);
-    pressureLabel.setText ("Setting the maximum and minimum relative pressures.", juce::dontSendNotification); /* Adding text to the label. */
-    pressureLabel.attachToComponent (&pressureSlider, false);        /* Attaching the label to the slider*/
-    pressureLabel.setMinimumHorizontalScale(2);
-
-    /* Minimum value label */
-    addAndMakeVisible (pressureMinLabel);
-    pressureMinLabel.setText (juce::String(minimumPressure), juce::dontSendNotification); /* Adding text to the label. */
-    pressureMinLabel.attachToComponent (&pressureSlider, true);        /* Attaching the label to the slider*/
-
-    /* Maximum value label */
-    addAndMakeVisible (pressureMaxLabel);
-    pressureMaxLabel.setText (juce::String(maximumPressure), juce::dontSendNotification); /* Adding text to the label. */
+    pressureSlider.slider.hideTextBox(false);
+    pressureSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    pressureSlider.slider.setMinAndMaxValues (0.05, 1, juce::dontSendNotification);
+    pressureSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
+    pressureSlider.slider.setNumDecimalPlacesToDisplay(2);
 
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
     addAndMakeVisible (lowFreqSlider);
-    pressureSlider.setRange(0, 5, 0.1);
-    pressureSlider.addListener (this); 
-    pressureSlider.setPopupDisplayEnabled(true, true, this, 1000);
-    pressureSlider.setNumDecimalPlacesToDisplay(2);
+    lowFreqSlider.slider.setRange(0, 5, 0.1);
+    lowFreqSlider.slider.addListener (this); 
+    lowFreqSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
+    lowFreqSlider.slider.setNumDecimalPlacesToDisplay(2);
 
 
 
@@ -145,29 +115,30 @@ void Layout::resized()
 {
     auto area = getLocalBounds();
 
-    auto buttonArea = area.removeFromTop (100);
+    auto buttonArea = area.removeFromTop (50);
 
     /* Setting the positon of the label and combo box. */
     // auto labelBounds = buttonArea.removeFromLeft (80); //(getWidth() - 100);
-    auto comboBounds = buttonArea.removeFromLeft (380); //(getWidth() - 40);
+    auto comboBounds = area.removeFromTop (10); //(getWidth() - 40);
 
     /* Scaling the label and combo box. */
     comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
     shiftKeyChoice.setBounds (comboBounds);
 
     /* Adding the sliders to the window. */
-    auto sliderBounds = comboBounds.removeFromTop(200);
-    sliderBounds = sliderBounds.removeFromLeft(50);
-    sliderBounds = sliderBounds.withSizeKeepingCentre(200, 40);
-    distanceSlider.setBounds (50, 120, getWidth() - 105, 20);
-    distanceMaxLabel.setBounds(getWidth()-55, 120, 45, 20);
+    auto distanceSliderBounds = area.removeFromTop(150);
+    distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
+    distanceSlider.setBounds (distanceSliderBounds);
 
     /* Pressure slider bounds */
-    pressureSlider.setBounds (50, 220, getWidth() - 105, 20);
-    pressureMaxLabel.setBounds(getWidth()-55, 220, 45, 20);
+    auto pressureSliderBounds = area.removeFromTop(150);
+    pressureSliderBounds = pressureSliderBounds.withSizeKeepingCentre(400, 80);
+    pressureSlider.setBounds (pressureSliderBounds);
 
     /* Frequency */
-    lowFreqSlider.setBounds(100, 400, 20, 100);
+    auto lowFreqSliderBounds = area.removeFromTop(250);
+    lowFreqSliderBounds = lowFreqSliderBounds.withSizeKeepingCentre(30, 120);
+    lowFreqSlider.setBounds(lowFreqSliderBounds);
 
 }
 
