@@ -9,6 +9,7 @@
 #pragma once
 
 /* Addition of all necessary header files. */
+#include <cmath>
 
 /* New type definitions. */
 
@@ -318,7 +319,7 @@ class Notes{
 };
     
     
-/* Creation of a class to store all the synthesiser data. */
+/* Creation of a class to store the frequencies of notes at different octaves. */
 class Octaves
 {
     public:    
@@ -350,6 +351,58 @@ class Octaves
             
         }
     private:
+};
+
+class OctavesWithHarmonics :    public Octaves
+{
+    public:
+        /* Creation of the enumerated list of possible notes. */
+        typedef enum{
+            note_C,
+            note_Db,
+            note_D,
+            note_Eb,
+            note_E,
+            note_F,
+            note_Gb,
+            note_G,
+            note_Ab,
+            note_A,
+            note_Bb,
+            note_B,
+
+            /* Addition of sharp notes. */
+            note_C_sharp = note_Db,
+            note_D_sharp = note_Eb,
+            note_F_sharp = note_Gb,
+            note_G_sharp = note_Ab,
+            note_A_sharp = note_Bb,
+        }   Notes_t;
+
+        /* Constructor. */
+        OctavesWithHarmonics(){
+
+        }
+
+        /** @brief          A function which calculates how much the amplitude of 
+         *                  the harmonic should decay in comparison to the first
+         *                  harmonic.
+         *  @param  n       The integer multiple of the harmonic whose relative
+         *                  amplitude is being calculated.
+         *  @param  octave  The octave in which the first harmonic is in.
+         *  @retval         Returns a floating point value which represents the 
+         *                  ratio of amplitudes. 
+         *  @note           This function needs to be modified to better match the
+         *                  relationship between the frequency and the decay rate
+         *                  over the various harmonic frequencies. 
+         */
+        float Decay(int n, int octave, Notes_t note){
+            return exp(-(n * (octave + note) * decayConstant)/10);
+        }
+    
+    private:
+        float decayConstant = 2;
+
 };
 
  
