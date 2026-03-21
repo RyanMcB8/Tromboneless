@@ -16,6 +16,30 @@
 /* Creation of a class to store the frequency of notes. */
 class Notes{
     public:
+
+        /* Creation of the enumerated list of possible notes. */
+        typedef enum{
+            note_C,
+            note_Db,
+            note_D,
+            note_Eb,
+            note_E,
+            note_F,
+            note_Gb,
+            note_G,
+            note_Ab,
+            note_A,
+            note_Bb,
+            note_B,
+        
+            /* Addition of sharp notes. */
+            note_C_sharp = note_Db,
+            note_D_sharp = note_Eb,
+            note_F_sharp = note_Gb,
+            note_G_sharp = note_Ab,
+            note_A_sharp = note_Bb,
+        }   Notes_t;
+        
         /** @brief         Constructor for the `Notes` class to create a new 
          *                 set of notes and assign specified frequencies to
          *                 each. Each frequency is set to `Octave 0` by
@@ -188,6 +212,55 @@ class Notes{
             B = frequency;
         }
         
+        /** @brief          An alternative function which can allow for the user to alter the
+         *                  frequency of a specific note based upon the Notes_t enumerated
+         *                  values rather than specifying a function call.
+         *  @param  note    The note of which the user wants to change the frequency of.
+         *  @param  freq    The frequency which the specified note should be changed to.
+          */
+        float setNote(Notes_t note, float freq){
+            switch(note){
+                case note_C:
+                    setC(freq);
+
+                case note_Db:
+                    setDb(freq);
+
+                case note_D:
+                    setD(freq);
+
+                case note_Eb:
+                    setEb(freq);
+
+                case note_E:
+                    setE(freq);
+
+                case note_F:
+                    setF(freq);
+
+                case note_Gb:
+                    setGb(freq);
+
+                case note_G:
+                    setG(freq);
+
+                case note_Ab:
+                    setAb(freq);
+
+                case note_A:
+                    setA(freq);
+
+                case note_Bb:
+                    setBb(freq);
+
+                case note_B:
+                    setB(freq);
+
+                default:
+                    return 0.0f;
+            }
+        }
+
         /* ========================================================================================== */
         /*                               Note getters                                                 */
         /* ========================================================================================== */
@@ -311,6 +384,54 @@ class Notes{
             return B;
         }
 
+        /** @brief          An alternative function which can allow for the user to request
+         *                  a specific note based upon the Notes_t enumerated values rather
+         *                  than specifying a function call.
+         *  @param  note    The note of which the user wants to receive the frequency of.
+         *  @retval         Returns a floating point value representing the frequency in
+         *                  Hz of the note specified.
+          */
+        float getNote(Notes_t note){
+            switch(note){
+                case note_C:
+                    return getC();
+                case note_Db:
+                    return getDb();
+
+                case note_D:
+                    return getD();
+
+                case note_Eb:
+                    return getEb();
+
+                case note_E:
+                    return getE();
+
+                case note_F:
+                    return getF();
+
+                case note_Gb:
+                    return getGb();
+
+                case note_G:
+                    return getG();
+
+                case note_Ab:
+                    return getAb();
+
+                case note_A:
+                    return getA();
+
+                case note_Bb:
+                    return getBb();
+
+                case note_B:
+                    return getB();
+                default:
+                    return 0.0f;
+            }
+        }
+
     private:
         /* Initialisation of the possible note frequencies. */
         float   C, Db, D, Eb, E, F,
@@ -320,12 +441,13 @@ class Notes{
     
     
 /* Creation of a class to store the frequencies of notes at different octaves. */
-class Octaves
+class Octaves   : public Notes
 {
     public:    
+    
         /* Stores the number of octaves being used. */
         static const char nOctaves = 9;
-
+    
         /* Initialising an array of the octaves and their notes. */
         Notes octaves[nOctaves];
         
@@ -350,34 +472,56 @@ class Octaves
             
             
         }
+
+        /** @brief          A function which clamps the value passed to it to be
+         *                  within 0 and 1 so that it can remain within normalisation
+         *                  bounds;
+         *  @param  value   The value of which that should be clamped.
+         *  @retval         The floating point value which has been clamped between
+         *                  0 and 1.
+         */
+        float Clamp01(float value){
+            return std::max(std::min(value, 1.0f), 0.0f);
+        }
+        
+        /** @brief          A function which determines the relative maximum
+         *                  amplitude of sound depending on how long ago the
+         *                  note was released.
+         *  @param  t       The normalised amount of time in which the note
+         *                  was released.
+         *  @retval         Returns a floating point value between 0 and 1
+         *                  representing the maximum amplitude.
+         */
+        float TimeDecay(float t){
+            t = Clamp01(t);
+            return (std::max(1 - (t*t), (float)0));
+        }
+
+        /** @brief          A function which may be called upon to play a single note
+         *                  in a specified octave.
+         *  @param  octave  The octave in which the first harmonic is in.
+         *  @param  note    The note which is being played.
+         *  @param  time    The total amount of time the signal has been playing for.
+         *  @param  t       A parametric value which is used to determine how much the
+         *                  amplitudes of the waveforms should be reduced. When `t=0`, the
+         *                  waveforms are at their maximum amplitude and when`t=0`, their
+         *                  amplitudes = 0.
+         *  @retval         This function will return a floating point value representing
+         *                  the normalised changed amplitude of the sigal at that point in
+         *                  time.
+         *  @note           The number of steps between 0 and 1 for the time value should 
+         *                  be kept as high as possible as this represents the stage of
+         *                  oscillation the cosine wave is at.
+        */
+        float EndNote(int octave, Notes_t note, float time, float t){
+            return (float) cos(octaves[octave].getNote(note) * time * 2 * M_PI) * TimeDecay(t);
+        }
     private:
 };
 
 class OctavesWithHarmonics :    public Octaves
 {
     public:
-        /* Creation of the enumerated list of possible notes. */
-        typedef enum{
-            note_C,
-            note_Db,
-            note_D,
-            note_Eb,
-            note_E,
-            note_F,
-            note_Gb,
-            note_G,
-            note_Ab,
-            note_A,
-            note_Bb,
-            note_B,
-
-            /* Addition of sharp notes. */
-            note_C_sharp = note_Db,
-            note_D_sharp = note_Eb,
-            note_F_sharp = note_Gb,
-            note_G_sharp = note_Ab,
-            note_A_sharp = note_Bb,
-        }   Notes_t;
 
         /* Constructor. */
         OctavesWithHarmonics(){
@@ -390,14 +534,43 @@ class OctavesWithHarmonics :    public Octaves
          *  @param  n       The integer multiple of the harmonic whose relative
          *                  amplitude is being calculated.
          *  @param  octave  The octave in which the first harmonic is in.
+         *  @param  note    The note which is being played.
          *  @retval         Returns a floating point value which represents the 
          *                  ratio of amplitudes. 
          *  @note           This function needs to be modified to better match the
          *                  relationship between the frequency and the decay rate
          *                  over the various harmonic frequencies. 
          */
-        float Decay(int n, int octave, Notes_t note){
-            return exp(-(n * (octave + note) * decayConstant)/10);
+        float HarmonicDecay(int n, int octave, Notes::Notes_t note){
+            return exp(-(n * (octave + note) * decayConstant)/100);
+        }
+
+
+        /** @brief          A function which may be called upon to stop playing a range
+         *                  of harmonic notes when a specific note is called upon to
+         *                  be played.
+         *  @param  n       The number of harmonics which should be applied to the signal.
+         *  @param  octave  The octave in which the first harmonic is in.
+         *  @param  note    The note which is being played.
+         *  @param  time    The amount of time the signal has been playing. This corresponds
+         *                  to the phase that the waveform is at.
+         *  @param  t       A parametric value which is used to determine how much the
+         *                  amplitudes of the waveforms should be reduced. When `t=0`, the
+         *                  waveforms are at their maximum amplitude and when`t=0`, their
+         *                  amplitudes = 0.
+         *  @retval         This function will return a floating point value representing
+         *                  the normalised changed amplitude of the sigal at that point in
+         *                  time.
+         *  @note           This function could be made to produce a much cleaner response
+         *                  by increasing the number of harmonics present and using non
+         *                  integer harmonics too.
+        */
+        float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
+            float outputAmplitude = 0;
+            for (int i=0; i < n; i++){
+                outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t);
+            } 
+            return (outputAmplitude/n);
         }
     
     private:
