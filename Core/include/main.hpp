@@ -7,7 +7,9 @@ C{
 #endif
 
 /* Including header files */
-#include "Drivers/Pin_Definitions.h"
+#include "Pin_Definitions.h"
+#include "synth.hpp"
+#include <iostream>
 
 
 #ifdef C_PLUS_PLUS
