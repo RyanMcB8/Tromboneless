@@ -7,6 +7,9 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_processors/juce_audio_processors.h>
 
+/** @brief      Creation of a class which can be used to change the look of the sliders
+ *              used within the equalizer for the Tromboneless projet. 
+ */
 class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
 {
 public:
@@ -56,12 +59,24 @@ public:
 
             /* Drawing the custom finger. */
             g.setColour(dialColour);
+#ifdef USE_CIRCLE_FINGER            
             g.fillEllipse(bounds.getCentreX() - fingerRadius, sliderPos - fingerRadius,
                           2*fingerRadius, 2*fingerRadius);
 
             g.setColour(dialEdgeColour);
             g.drawEllipse(bounds.getCentreX() - (0.9)*fingerRadius, sliderPos - (0.9 *fingerRadius),
                           (1.8*fingerRadius), (1.8*fingerRadius), 2);
+#else
+            /* Creating a slider finger that is shaped like a rectangle as opposed to a circle. */
+            g.setColour(dialColour);
+            g.fillRect(bounds.getCentreX() - (fingerWidth/2), sliderPos - (fingerHeight/2),
+                          fingerWidth, fingerHeight);
+            
+            /* Adding a small horizontal line to the slider to give it more depth. */              
+            g.setColour(dialEdgeColour);                          
+            g.drawLine(bounds.getCentreX() - (fingerWidth*0.4), sliderPos ,
+                       bounds.getCentreX() + (fingerWidth*0.4), sliderPos, 0.2 * fingerHeight) ;
+#endif
         }
         else
         {
@@ -80,8 +95,14 @@ public:
         const juce::Colour backgroundColour     = juce::Colours::black;
 
         /* Sizes. */
-        float   trackWidth        = 5;          /* This sets the track width of the slider. */
+        float trackWidth          = 5;          /* This sets the track width of the slider. */
         float tickThickness       = 3.0;        /* This sets the height of the ticks along the slider. */
         float tickWidth           = 10;         /* This sets the width of the ticks along the slider. */
+
+#ifdef USE_CIRCLE_FINGER        
         float fingerRadius        = 12;         /* This sets the radius of the finger of the dial position. */
+#else        
+        float fingerWidth         = 10;         /* This sets the width of the finger of the slider. */
+        float fingerHeight        = 5;          /* This sets the height of the finger of the slider. */
+#endif        
 };

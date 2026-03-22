@@ -442,7 +442,9 @@ class Notes{
 };
     
     
-/* Creation of a class to store the frequencies of notes at different octaves. */
+/** @brief  Creation of a class to store the frequencies of notes at different octaves. 
+ *          Inherits from `Notes` class.            
+*/
 class Octaves   : public Notes
 {
     public:    
@@ -499,7 +501,7 @@ class Octaves   : public Notes
          *                  modified in the future to better match that of real world noise.
          */
         float TimeAscension(float t){
-            t = Clamp01(t);
+            // t = Clamp01(t);
             return Clamp01(t);
         }
         
@@ -661,7 +663,7 @@ class OctavesWithHarmonics :    public Octaves
             return (outputAmplitude/n);
         }
         
-        private:
+    private:
         float decayConstant = 2;
         
         /** @brief          A function which calculates how much the amplitude of 
@@ -680,6 +682,6 @@ class OctavesWithHarmonics :    public Octaves
         float HarmonicDecay(int n, int octave, Notes::Notes_t note){
             return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
         }
-    };
+};
     
     

@@ -1,9 +1,9 @@
 /* This file is specifically for the creation, functions and closing
     of the appliation, not any widgets present within the window. */
 
-#include "Layout.h"
+#include "Layout.hpp"
 #include <juce_gui_extra/juce_gui_extra.h>
-#include "tromboneless_data.h"
+#include "tromboneless_data.hpp"
 
 
 //==============================================================================

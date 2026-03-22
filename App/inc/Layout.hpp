@@ -1,12 +1,13 @@
 #pragma once
-#include "tromboneless_data.h"
+#include "tromboneless_data.hpp"
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
 #include <juce_core/juce_core.h>
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_processors/juce_audio_processors.h>
-#include "Widgets.h"
+#include "Widgets.hpp"
+#include "Panels.hpp"
 
 #include <stdio.h>
 
@@ -61,29 +62,7 @@ class Layout final : public juce::Component,
          *  @param slider A pointer to the slider that has been modified
          *  @note This function must check which slider has been modified before making any changes.
          */
-        void sliderValueChanged (juce::Slider* slider) override
-        {
-            /* Calibrated distance has changed. */
-            if (slider == &distanceSlider.slider){
-                trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
-                trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
-#ifdef DBG_MSG
-                std::cout << "DistanceSlider min:" <<  trombonelessParameters.nearDistance << "\n";
-                std::cout << "DistanceSlider max:" <<  trombonelessParameters.farDistance << "\n";
-#endif
-            }
-
-            /* Calibrated pressure has changed. */
-            else if (slider == &pressureSlider.slider){
-                trombonelessParameters.lowPressure = pressureSlider.slider.getMinValue();
-                trombonelessParameters.highPressure = pressureSlider.slider.getMaxValue();
-#ifdef DBG_MSG
-                std::cout << "PressureSlider min:" <<  trombonelessParameters.lowPressure << "\n";
-                std::cout << "PressureSlider max:" <<  trombonelessParameters.highPressure << "\n";
-#endif
-            }
-
-        }
+        void sliderValueChanged (juce::Slider* slider) override;
 
         
 
@@ -91,8 +70,7 @@ class Layout final : public juce::Component,
         /* ========== This is where the buttons and sliders should be initialised and attached to the profiler. ========== */     
 
         /* Shift keying drop down menu and label */  
-        juce::ComboBox shiftKeyChoice;
-        juce::Label shiftKeySelectLabel;
+        DropDownMenus   dropDownMenus;
 
         /* Sliders and labels for calibrating the range. */
         CalibrationSlider distanceSlider;

@@ -1,5 +1,5 @@
-#include "Layout.h"
-#include "Widgets.h"
+#include "Layout.hpp"
+#include "Widgets.hpp"
 
 // #include <fcntl.h>
 #include <errno.h>
@@ -9,7 +9,7 @@
 #include <string>
 #include <system_error>
 
-#include "tromboneless_data.h"
+#include "tromboneless_data.hpp"
 
 Layout::Layout()
 {
@@ -30,22 +30,7 @@ Layout::Layout()
 
     /* ============================== Creation of a dropdown menu that provides options for shift keying ============================== */
     
-    addAndMakeVisible (shiftKeyChoice);
-    shiftKeyChoice.addItem ("Middle F4", SKOpt_MiddleF4);
-    shiftKeyChoice.addItem ("B sharp 4", SKOpt_BSharp4);
-    shiftKeyChoice.addItem ("D5", SKOpt_D5);
-    shiftKeyChoice.addItem ("F5", SKOpt_F5);
-    shiftKeyChoice.addItem ("A sharp 4", SKOpt_ASharp4);
-    
-    /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
-    shiftKeyChoice.onChange = [this] {trombonelessParameters.shiftKeyingOption = (ShiftKeyingOptions_t) shiftKeyChoice.getSelectedId(); };
-    shiftKeyChoice.setSelectedId (0);
-
-    /* Adding a label to be beside the shift key dropdown menu. */
-    addAndMakeVisible (shiftKeySelectLabel);
-    shiftKeySelectLabel.setText ("Transposition selector:", juce::dontSendNotification);
-    shiftKeySelectLabel.setJustificationType (juce::Justification::centredRight);
-    shiftKeySelectLabel.attachToComponent(&shiftKeyChoice, true);
+    addAndMakeVisible (dropDownMenus);
 
     /* ============================== Creation of slider for the maximum and minimum ranges. ============================== */
     /* Slider */
@@ -83,10 +68,6 @@ Layout::Layout()
 
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
     addAndMakeVisible (equalizer);
-    
-
-
-
 
 }
 
@@ -126,7 +107,7 @@ void Layout::resized()
 
     /* Scaling the label and combo box. */
     comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
-    shiftKeyChoice.setBounds (comboBounds);
+    dropDownMenus.setBounds (comboBounds);
 
     /* Adding the sliders to the window. */
     auto distanceSliderBounds = area.removeFromTop(150);
@@ -153,5 +134,29 @@ bool Layout::keyPressed(const juce::KeyPress& key)
         return true;  // Key was handled
     }
     return false;  // Key was not handled
+}
+
+void Layout::sliderValueChanged (juce::Slider* slider) 
+{
+    /* Calibrated distance has changed. */
+    if (slider == &distanceSlider.slider){
+        trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
+        trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+#ifdef DBG_MSG
+        std::cout << "DistanceSlider min:" <<  trombonelessParameters.nearDistance << "\n";
+        std::cout << "DistanceSlider max:" <<  trombonelessParameters.farDistance << "\n";
+#endif
+    }
+
+    /* Calibrated pressure has changed. */
+    else if (slider == &pressureSlider.slider){
+        trombonelessParameters.lowPressure = pressureSlider.slider.getMinValue();
+        trombonelessParameters.highPressure = pressureSlider.slider.getMaxValue();
+#ifdef DBG_MSG
+        std::cout << "PressureSlider min:" <<  trombonelessParameters.lowPressure << "\n";
+        std::cout << "PressureSlider max:" <<  trombonelessParameters.highPressure << "\n";
+#endif
+    }
+
 }
 
