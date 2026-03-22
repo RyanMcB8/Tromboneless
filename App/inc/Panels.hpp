@@ -25,8 +25,8 @@
         /* Constructor. */
         DropDownMenus();
 
-        /* Destructor. */
-        ~DropDownMenus() override;
+        // /* Destructor. */
+        ~DropDownMenus() = default;
 
         /** @brief      Adding a functiont that will allow for the `DropDownMenus`
                         to be resized when the window size is adjusted to fit best.
@@ -34,7 +34,7 @@
         void resized() override;
 
     private:
-        /* Shift keying drop down menu and label */  
-        juce::ComboBox shiftKeyChoice;
-        juce::Label shiftKeySelectLabel;
+        /* Shift keying drop down menu and label */
+        juce::String    labelText = "Transposition";  
+        DropDownMenu shiftKeyChoice;
  };

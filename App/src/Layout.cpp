@@ -1,5 +1,6 @@
 #include "Layout.hpp"
 #include "Widgets.hpp"
+#include "Panels.hpp"
 
 // #include <fcntl.h>
 #include <errno.h>
@@ -14,7 +15,7 @@
 Layout::Layout()
 {
     /* Sets the initial size of the window to be displayed to the user. */
-    setSize (500, 800);
+    setSize (800, 800);
 
     /* Variables for the distance range. */
     minimumDistance = 5;
@@ -103,25 +104,25 @@ void Layout::resized()
 
     /* Setting the positon of the label and combo box. */
     // auto labelBounds = buttonArea.removeFromLeft (80); //(getWidth() - 100);
-    auto comboBounds = area.removeFromTop (10); //(getWidth() - 40);
+    auto comboBounds = area.removeFromTop (50); //(getWidth() - 40);
 
     /* Scaling the label and combo box. */
-    comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
+    // comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
     dropDownMenus.setBounds (comboBounds);
 
     /* Adding the sliders to the window. */
     auto distanceSliderBounds = area.removeFromTop(150);
-    distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
+    // distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
     distanceSlider.setBounds (distanceSliderBounds);
 
     /* Pressure slider bounds */
     auto pressureSliderBounds = area.removeFromTop(150);
-    pressureSliderBounds = pressureSliderBounds.withSizeKeepingCentre(400, 80);
+    // pressureSliderBounds = pressureSliderBounds.withSizeKeepingCentre(400, 80);
     pressureSlider.setBounds (pressureSliderBounds);
 
     /* Equalizer */
-    auto equalizerBounds = area.removeFromTop(250);
-    equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()-20, 220);
+    auto equalizerBounds = area.removeFromTop(350);
+    equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
     equalizer.setBounds(equalizerBounds);
 
 

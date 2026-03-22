@@ -76,6 +76,13 @@ public:
             g.setColour(dialEdgeColour);                          
             g.drawLine(bounds.getCentreX() - (fingerWidth*0.4), sliderPos ,
                        bounds.getCentreX() + (fingerWidth*0.4), sliderPos, 0.2 * fingerHeight) ;
+
+            /* Adding a small horizontal line to the slider to give it more depth. */              
+            g.setColour(dialEdgeColour);                          
+            g.drawLine(bounds.getCentreX() - (fingerWidth*0.3), sliderPos + (fingerHeight*0.3),
+                       bounds.getCentreX() + (fingerWidth*0.3), sliderPos + (fingerHeight*0.3), 0.2 * fingerHeight) ;
+            g.drawLine(bounds.getCentreX() - (fingerWidth*0.3), sliderPos - (fingerHeight*0.3),
+                       bounds.getCentreX() + (fingerWidth*0.3), sliderPos - (fingerHeight*0.3), 0.2 * fingerHeight) ;
 #endif
         }
         else
@@ -102,7 +109,7 @@ public:
 #ifdef USE_CIRCLE_FINGER        
         float fingerRadius        = 12;         /* This sets the radius of the finger of the dial position. */
 #else        
-        float fingerWidth         = 10;         /* This sets the width of the finger of the slider. */
-        float fingerHeight        = 5;          /* This sets the height of the finger of the slider. */
+        float fingerWidth         = 25;         /* This sets the width of the finger of the slider. */
+        float fingerHeight        = 10;          /* This sets the height of the finger of the slider. */
 #endif        
 };

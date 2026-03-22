@@ -26,7 +26,7 @@ SliderWithLabel::InitialiseLabelErrors_t SliderWithLabel::CreateLabel(LabelPosit
         
         case(UpperCentre):
             labelSetup(&UpperCentreLabel, phrase, NotificationEnable);
-            UpperCentreLabel.setJustificationType(juce::Justification::Flags::centredTop);
+            UpperCentreLabel.setJustificationType(juce::Justification::Flags::centredBottom);
             addAndMakeVisible (UpperCentreLabel);
             break;
 
@@ -85,21 +85,21 @@ void SliderWithLabel::resized()
     juce::Rectangle<int> BottomLabelBounds;
 
     /* Top labels. */
-    TopLabelBounds = area.removeFromTop(topLabelBounds);
-    UpperLeftLabel.setBounds(TopLabelBounds.removeFromLeft(leftLabelBounds));
+    TopLabelBounds = area.removeFromTop(std::min(area.getHeight()*0.3, (double) topLabelBounds));
+    UpperLeftLabel.setBounds(TopLabelBounds.removeFromLeft(std::min(area.getWidth()*0.2, (double) leftLabelBounds)));
     UpperCentreLabel.setBounds(TopLabelBounds);
-    UpperRightLabel.setBounds(TopLabelBounds.removeFromRight(rightLabelBounds));
+    UpperRightLabel.setBounds(TopLabelBounds.removeFromRight(std::min(area.getWidth()*0.2, (double) rightLabelBounds)));
 
     /* Middle labels. */
     CentreLabelBounds = area;
-    MiddleLeftLabel.setBounds(CentreLabelBounds.removeFromLeft(leftLabelBounds));
-    MiddleRightLabel.setBounds(CentreLabelBounds.removeFromRight(rightLabelBounds));
+    MiddleLeftLabel.setBounds(CentreLabelBounds.removeFromLeft(std::min(area.getWidth()*0.2, (double) leftLabelBounds)));
+    MiddleRightLabel.setBounds(CentreLabelBounds.removeFromRight(std::min(area.getWidth()*0.2, (double) rightLabelBounds)));
 
     /* Top labels. */
-    BottomLabelBounds = area.removeFromBottom(bottomLabelBounds);
-    LowerLeftLabel.setBounds(BottomLabelBounds.removeFromLeft(leftLabelBounds));
+    BottomLabelBounds = area.removeFromBottom(std::min(area.getHeight()*0.5, (double) bottomLabelBounds));
+    LowerLeftLabel.setBounds(BottomLabelBounds.removeFromLeft(std::min(area.getWidth()*0.2, (double) leftLabelBounds)));
     LowerCentreLabel.setBounds(BottomLabelBounds);
-    LowerRightLabel.setBounds(BottomLabelBounds.removeFromRight(rightLabelBounds));
+    LowerRightLabel.setBounds(BottomLabelBounds.removeFromRight(std::min(area.getWidth()*0.2, (double) rightLabelBounds)));
 
     /* Adding slider */
     slider.setBounds(area);
@@ -111,3 +111,37 @@ void SliderWithLabel::resized()
 /*                                   SliderWithLabel                                          */
 /*                                                                                            */
 /* ========================================================================================== */
+
+
+
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                   Drop Down Menu                                           */
+/*                                                                                            */
+/* ========================================================================================== */
+ DropDownMenu::DropDownMenu(juce::String labelPhrase){
+    addAndMakeVisible (dropDownChoice);
+    dropDownChoice.setSelectedId (0);
+
+    /* Adding a label to be beside the shift key dropdown menu. */
+    addAndMakeVisible (dropDownLabel);
+    dropDownLabel.setText (labelPhrase, juce::dontSendNotification);
+    dropDownLabel.setJustificationType (juce::Justification::centred);
+    dropDownLabel.attachToComponent(&dropDownChoice, true);
+ }
+
+ void DropDownMenu::resized(){
+    auto area = getLocalBounds();
+    auto labelBounds = area.removeFromLeft (std::min(area.getWidth()*0.2, double(150)));
+    dropDownLabel.setBounds (labelBounds);
+    dropDownChoice.setBounds (area.withSizeKeepingCentre(area.getWidth()*0.95, area.getHeight()));
+}
+
+ void DropDownMenu::AddItem(juce::String itemName, int itemValue){
+    dropDownChoice.addItem(itemName, itemValue);
+ }
+
+ void DropDownMenu::ChangeLabelText(juce::String text, juce::NotificationType notification){
+    dropDownLabel.setText(text, notification);
+ }

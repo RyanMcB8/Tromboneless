@@ -29,10 +29,10 @@ class SliderWithLabel : public juce::Component{
         juce::Slider slider;
 
         /* Bound parameters. */
-        int topLabelBounds = 20;
-        int leftLabelBounds = 50;
-        int rightLabelBounds = 50;
-        int bottomLabelBounds = 20; 
+        int topLabelBounds = 50;
+        int leftLabelBounds = 200;
+        int rightLabelBounds = 200;
+        int bottomLabelBounds = 50; 
 
         /* Constructor which sets the style of the slider being used and removes the text entry option. */
         SliderWithLabel(juce::Slider::SliderStyle style){
@@ -288,3 +288,69 @@ class Equalizer : public verticalMixSlider
         VerticalSliderLookAndFeel customLook;
         
 };
+
+
+ /** @brief     A class that creates a drop down menu or 'comboBox' with a label
+  *             attached to it. This takes up 95% of the available local area.
+  *             The label is set to have a maxmimum width of 200, but scales as
+  *             the window size is reduced.
+  */
+ class DropDownMenu :   public juce::Component
+ {
+     public:
+        juce::ComboBox dropDownChoice;
+     /** @brief                  Constructor for the DropDownMenu class that creates an
+         *                          instance of the class. This makes a juce component that
+         *                          has a combobox or drop-down menu within it with a label
+         *                          attached to its left by default.
+         *  @param  labelPhrase     This parameter should be of type juce::String and contain
+         *                          the phrase which should be displayed by the label. By
+         *                          default this is set to "ComboBox" so it may be viewed on
+         *                          creation.
+         */
+        DropDownMenu(juce::String labelPhrase = "ComboBox");
+
+        /* Destructor. */
+        ~DropDownMenu() = default;
+
+        /** @brief      Adding a functiont that will allow for the `DropDownMenu`
+                        to be resized when the window size is adjusted to fit best.
+        */
+        void resized() override;
+
+        /** @brief                  A function which allows for the addition of more items
+         *                          within the drop down menu.
+         *  @param  itemName        This parameter of type `juce::String` should contain the
+         *                          phrase which will be displayed to the end user on the
+         *                          display to select this option.
+         *  @param  itemValue       This is the unique number assigned to each of the items.
+         *                          It must be more than 0 for it to be displayed. Each item
+         *                          must have a different value for them to be distinguishable
+         *                          from each other.
+         */
+        void AddItem(juce::String itemName, int itemValue);
+
+        /** @brief                  This function sets what will happen when the option chosen
+         *                          has been changed by the user.
+         *  @param  updateVaraible  This should be a pointer to the variable which is being 
+         *                          set to the item index which has been chosen.
+         */
+        template <typename T>
+        void OnChange(T* updateVariable){
+            dropDownChoice.onChange = [updateVariable, this] {*updateVariable = static_cast<T> (dropDownChoice.getSelectedId());};
+        }
+
+        /** @brief                  This function allows for the editting of the main label
+         *                          displayed beside the drop down menu.
+         *  @param  text            This parameter should contain the text to which the label
+         *                          should be updated to display.
+         *  @param  notification    This is the type of notification which should be attached
+         *                          to the drop down menu. By default this value is set to
+         *                          `juce::dontSendNotification`.
+         */
+        void ChangeLabelText(juce::String text, juce::NotificationType notification = juce::dontSendNotification);
+
+    private:
+        /* Shift keying drop down menu and label */  
+        juce::Label dropDownLabel;
+ };
