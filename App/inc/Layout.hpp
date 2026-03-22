@@ -74,6 +74,7 @@ class Layout final : public juce::Component,
 
         /* Sliders and labels for calibrating the range. */
         CalibrationSlider distanceSlider;
+        CalibrationSliderLookAndFeel LandF;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
         CalibrationSlider pressureSlider;

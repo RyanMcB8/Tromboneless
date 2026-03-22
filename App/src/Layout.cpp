@@ -44,7 +44,8 @@ Layout::Layout()
     distanceSlider.slider. addListener (this);  
     distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
-    
+    distanceSlider.slider.setLookAndFeel(&LandF);
+
     /* Adding labels to the slider. */    
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider distance");
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumDistance)) +" cm");
@@ -110,14 +111,15 @@ void Layout::resized()
     // comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
     dropDownMenus.setBounds (comboBounds);
 
+    auto SliderBounds = area.removeFromTop(150);
+
     /* Adding the sliders to the window. */
-    auto distanceSliderBounds = area.removeFromTop(150);
+    auto distanceSliderBounds = SliderBounds.removeFromLeft(SliderBounds.getWidth()*0.45);
     // distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
     distanceSlider.setBounds (distanceSliderBounds);
 
     /* Pressure slider bounds */
-    auto pressureSliderBounds = area.removeFromTop(150);
-    // pressureSliderBounds = pressureSliderBounds.withSizeKeepingCentre(400, 80);
+    auto pressureSliderBounds = SliderBounds.removeFromRight(area.getWidth()*0.45);
     pressureSlider.setBounds (pressureSliderBounds);
 
     /* Equalizer */

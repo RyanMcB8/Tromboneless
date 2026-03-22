@@ -16,16 +16,8 @@
  */
 class SliderWithLabel : public juce::Component{
     public:
-        
-        /* Creation of labels that may be used with the slider. */
-        juce::Label UpperLeftLabel;
-        juce::Label UpperCentreLabel;
-        juce::Label UpperRightLabel;
-        juce::Label MiddleLeftLabel;
-        juce::Label MiddleRightLabel;
-        juce::Label LowerLeftLabel;
-        juce::Label LowerCentreLabel;
-        juce::Label LowerRightLabel;
+    
+    
         juce::Slider slider;
 
         /* Bound parameters. */
@@ -89,14 +81,18 @@ class SliderWithLabel : public juce::Component{
          *  @note This function was made to prevent large amounts of repetitive code within the 
          *  `CreateLabel` function and does not contain any extra code. 
          */
-        void labelSetup(juce::Label* Label,
-                                juce::String phrase,
-                                juce::NotificationType NotificationEnable){
-                    Label->setText(phrase, NotificationEnable);
-                    Label->setEditable(false);
-                    addAndMakeVisible (Label);
-                                }
-
+        void labelSetup(juce::Label* Label, juce::String phrase,
+                        juce::NotificationType NotificationEnable);
+    private:
+        /* Creation of labels that may be used with the slider. */
+        juce::Label UpperLeftLabel;
+        juce::Label UpperCentreLabel;
+        juce::Label UpperRightLabel;
+        juce::Label MiddleLeftLabel;
+        juce::Label MiddleRightLabel;
+        juce::Label LowerLeftLabel;
+        juce::Label LowerCentreLabel;
+        juce::Label LowerRightLabel;
 };
 
 
@@ -105,65 +101,27 @@ class CalibrationSlider :   public SliderWithLabel,
                             public juce::Slider::Listener
 {
 public:
-    double minDistance = 1;
-
     /** @brief Contructor for the `CalibrationSlider` class which requires the
-     *  type of slider being used to be initiate which is set to `TwoValueHorizontal`
+     *  type of slider being used to be initiated which is set to `TwoValueHorizontal`
      *  by default.
      */ 
-    CalibrationSlider() :SliderWithLabel(juce::Slider::TwoValueHorizontal){
-        this->slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-        this->slider.addListener(this);
-    }
+    CalibrationSlider();
+
+    ~CalibrationSlider() = default;
 
     /** @brief A function which sets the minimum difference between the upper and lower fingers of the slider.
      *  @param difference The value of the difference between the fingers.
      */
-    void setMinDifference(double difference){
-        minDistance = difference;
-    }
+    void setMinDifference(double difference);
 
 
     /** @brief A function that is called upon when either of the fingers are moved.
      *  @note This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other.
      */
-    void sliderValueChanged(juce::Slider* sliderChanged) override
-    {
-        auto min = sliderChanged->getMinValue();
-        auto max = sliderChanged->getMaxValue();
+    void sliderValueChanged(juce::Slider* sliderChanged) override;
 
-        /* Checking if the values are out of range of each other. */
-        if (max - min < minDistance)
-        {   
-            /* Checking if the maximum value is already at the maximum. If it is, only the minimum finger is moved. */
-            if (max >= sliderChanged->getMaximum()){
-                max = sliderChanged->getMaximum();
-                sliderChanged->setMaxValue(max);
-                sliderChanged->setMinValue(max - minDistance);
-                return;
-            }
-
-            /* Checking if the minimum value is already at the minimum. If it is, only the maximum finger is moved. */
-            else if (min <= sliderChanged->getMinimum()){
-                min = sliderChanged->getMinimum();
-                sliderChanged->setMinValue(min);
-                sliderChanged->setMaxValue(min + minDistance);
-                return;
-            }
-            
-            /* If neither finger is on the edge, onlt the finger not being dragged is adjusted to ensure the minimum range is maintained. */
-            else if (sliderChanged->getThumbBeingDragged() == 1){
-                sliderChanged->setMaxValue(min + minDistance);
-                return;
-            }
-
-            else{
-                sliderChanged->setMinValue(max - minDistance);
-                return;
-            }
-        }
-        return;
-    }
+    private:
+        double minDistance = 1;
 };
 
 
@@ -172,26 +130,11 @@ class verticalMixSlider : public SliderWithLabel,
                           public juce::Slider::Listener
 {
 public:
-    verticalMixSlider() : SliderWithLabel(juce::Slider::LinearVertical){
-        this->slider.setRange(0, 2, 0.01);                     /* Setting the maximum and minimum gain values for each band. */
-        this->slider.setValue(1, juce::dontSendNotification);  /* Setting the initial value to be 1 so that there is no change in gain. */
-        this->slider.setPopupMenuEnabled(1);
-        this->topLabelBounds = 30;
-        this->leftLabelBounds = 1;
-        this->rightLabelBounds = 1;
-        this->bottomLabelBounds = 30; 
-        this->slider.addListener(this);
-    };
+    verticalMixSlider();
 
-    ~verticalMixSlider() {
-        
-    };
+    ~verticalMixSlider() = default;
 
-    void sliderValueChanged(juce::Slider* sliderChanged) override
-    {
-        /* Add any code for responding to slider values being changed here.*/
-        if (sliderChanged){}
-    }
+    void sliderValueChanged(juce::Slider* sliderChanged) override;
     
 };
 
@@ -206,80 +149,17 @@ class Equalizer : public verticalMixSlider
         juce::OwnedArray <verticalMixSlider> eqSliders;
         
         /* Constructor. */
-        Equalizer(char numberOfSliders = 10): verticalMixSlider(){
-            
-            /* If there is no change in the number of sliders, the system will use the standard range. */
-            if(numberOfSliders == 10){
-                frequencyLabels.add ((juce::String) "0", (juce::String) "31.25");
-                prevLabel = 31.25;
-            }
-
-            nSliders = numberOfSliders;
-            /* Looping through every slider, creating it, setting its attributes adn adding it to an array. */
-            for (char i=0; i < nSliders ; i++){
-                
-                /* Adding all n sliders which will be used. */
-                eqSliders.add(new verticalMixSlider());
-                eqSliders[i]->slider.setPopupDisplayEnabled(true, true, this, 1000);
-                eqSliders[i]->slider.setLookAndFeel(&customLook);
-                eqSliders[i]->slider.addListener(this);
-                
-                if(numberOfSliders == 10){
-                    newLabel = (prevLabel+prevLabel);
-                    if (newLabel >= 1000){
-                        // juce::String newString = (newLabel/1000) + "k"
-                        frequencyLabels.add (((juce::String) (newLabel/1000))+ "k");
-                    }
-                    else{
-                        frequencyLabels.add ((juce::String) (newLabel));
-                    }
-                    prevLabel = newLabel; 
-                }
-                
-                /* Adding the appropriate labels to the slider. */
-                eqSliders[i]->CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, frequencyLabels[i+1]);
-                eqSliders[i]->CreateLabel(SliderWithLabel::LabelPositions_t::LowerCentre, frequencyLabels[i]);
-            }
-            
-        }
+        Equalizer(char numberOfSliders = 10);
 
         /*Destructor. */
-        ~Equalizer(){
-            for (char i=0; i < nSliders; i++){
-                eqSliders[i]->slider.setLookAndFeel(nullptr);
-            }
-        }
+        ~Equalizer();
         
         /** @brief A function to set the size of the sliders with respect to the equalizer.
          * 
          */
-        void resized() override
-        {
-            /* Finding the local bounds for the entire object. */
-            juce::Rectangle<int> totalArea = getLocalBounds();
-            juce::Rectangle<int> sliderBound;
-            
-            /* Looping through and having the sliders share the same amount of space each. */
-            for (char i=0; i < nSliders ; i++){
-                sliderBound = totalArea.removeFromLeft((totalArea.getWidth()) / (nSliders - i));
-                eqSliders[i]->setBounds(sliderBound);
-                addAndMakeVisible (eqSliders[i]);
-            }
-            
-        }
+        void resized() override;
 
-        void sliderValueChanged(juce::Slider* sliderChanged) override{
-            for (int i=0; i < nSliders; i++){
-                if (sliderChanged == &(eqSliders[i]->slider)){
-#ifdef DBG_MSG
-                    std::cout << "Slider:"<< i << "\n";
-#endif              
-                    /* Updating the slider value in the synthesiserParameters struct to match the new updated value. */
-                    synthesiserParameters.gains[i] = eqSliders[i]->slider.getValue();
-                }
-            }
-            return;            
-        }
+        void sliderValueChanged(juce::Slider* sliderChanged) override;
         
     private:
         juce::Array <juce::String> frequencyLabels; 
