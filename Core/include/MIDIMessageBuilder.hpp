@@ -50,6 +50,15 @@ public:
                         Byte note,
                         Byte velocity = 0) const;
 
+    /**
+     * @brief Pitch bend message constructor.
+     * @param channel MIDI channel number (1–16).
+     * @param value Pitch bend value (0–8192).
+     * @return Constructed MidiMessage.
+     */
+    MidiMessage pitchBend(int channel, 
+                          int value) const;
+
 private:
     /**
      * @brief Clamp a human-friendly channel number to valid MIDI range.
