@@ -20,9 +20,9 @@ class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
             const juce::Slider::SliderStyle style, juce::Slider& slider) override;
 
 private:
-    const juce::Colour dialColour           = juce::Colours::white;
-    const juce::Colour dialEdgeColour       = juce::Colours::grey;
-    const juce::Colour tickColour           = juce::Colours::darkgrey;
+    const juce::Colour dialColour           = juce::Colours::white;             /* Setting the colour of the finger. */
+    const juce::Colour dialEdgeColour       = juce::Colours::grey;              /* Setting the colour of the inner part of the finger.*/
+    const juce::Colour tickColour           = juce::Colours::darkgrey;          /* */
     const juce::Colour trackColour          = juce::Colours::darkgrey;
     const juce::Colour backgroundColour     = juce::Colours::black; //juce::Colours::black;
 
@@ -61,4 +61,15 @@ class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
 
 };
 
-juce::Path PaintTrombone(float x=300, float y=300, float width=50);
+/** @brief              A function which returns a path matching the perimeter of a trombone.
+    @param  x           The x coordinate from which the paths minimum x starts. The default
+                        value for this is 300.
+    @param  y           The y coordinate from which the paths minimum y starts. The default 
+                        value for this is 300.
+    @param  width       The maximum width which the path is allowed to enclose. The default
+                        value for this is 50.
+    @param  incPipes    A boolean value determining if the trombones pipes should be included
+                        within the path or whether only the end of the pipe should be
+                        returned. The pipes are included by default.
+    @retval             Returns a juce::Path which traces the perimeter of a trombone.*/
+juce::Path PaintTrombone(float x=300, float y=300, float width=50, bool incPipes = 1);

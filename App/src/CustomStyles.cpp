@@ -1,4 +1,3 @@
-#pragma once
 
 #include "CustomStyles.hpp"
 
@@ -21,7 +20,7 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
     if (style == juce::Slider::LinearVertical)
     {
         auto bounds = juce::Rectangle<float>((float)x, (float)y, (float)width, (float)height);
-
+        
         /* Adding a background colour to the slider. */
         g.setColour(backgroundColour);
         auto background = (bounds.withHeight(bounds.getHeight()));
@@ -95,7 +94,7 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
 /*                                                                                            */
 /* ========================================================================================== */
 
-juce::Path PaintTrombone(float x, float y, float width)
+juce::Path PaintTrombone(float x, float y, float width, bool incPipes)
 {
     juce::Path tromboneShape;
     
@@ -108,8 +107,9 @@ juce::Path PaintTrombone(float x, float y, float width)
 
     float X             = x+pipeLength;
     float Y             = y+height;
+    float totalHeight;
 
-    /* Adding the main pipe. */
+    /* ========== Adding the main pipe. ========== */
     tromboneShape.startNewSubPath(X, Y);
     tromboneShape.lineTo(x, Y);
     tromboneShape.lineTo(x, Y + pipeThickness);
@@ -124,32 +124,40 @@ juce::Path PaintTrombone(float x, float y, float width)
     tromboneShape.quadraticTo(X+coneLength, Y, X, Y);
     tromboneShape.closeSubPath();
 
-    /* Creating the first of the 2 minipipes.*/
-    float yPipe = Y+pipeThickness + gap;
-    pipeThickness = pipeThickness/2;
-    tromboneShape.startNewSubPath(X+coneLength+end, yPipe);
-    tromboneShape.lineTo(x, yPipe);
-    tromboneShape.lineTo(x, yPipe+pipeThickness);
-    tromboneShape.lineTo(X+coneLength+end, yPipe+pipeThickness);
-    tromboneShape.closeSubPath();
+    /* Drawing the pipes if they are incuded in the drawing.*/
+    if (true == incPipes){
+        /* ========== Creating the first of the 2 minipipes. ========== */
+        float yPipe = Y+pipeThickness + gap;
+        pipeThickness = pipeThickness/2;
+        tromboneShape.startNewSubPath(X+coneLength+end, yPipe);
+        tromboneShape.lineTo(x, yPipe);
+        tromboneShape.lineTo(x, yPipe+pipeThickness);
+        tromboneShape.lineTo(X+coneLength+end, yPipe+pipeThickness);
+        tromboneShape.closeSubPath();
 
-    /* Creating the second of the 2 minipipes.*/
-    yPipe = yPipe + gap+pipeThickness;
-    tromboneShape.startNewSubPath(X+coneLength+end, yPipe);
-    tromboneShape.lineTo(x, yPipe);
-    tromboneShape.lineTo(x, yPipe+pipeThickness);
-    tromboneShape.lineTo(X+coneLength+end, yPipe+pipeThickness);
-    tromboneShape.closeSubPath();
+        /* ========== Creating the second of the 2 minipipes. ========== */
+        yPipe = yPipe + gap+pipeThickness;
+        tromboneShape.startNewSubPath(X+coneLength+end, yPipe);
+        tromboneShape.lineTo(x, yPipe);
+        tromboneShape.lineTo(x, yPipe+pipeThickness);
+        tromboneShape.lineTo(X+coneLength+end, yPipe+pipeThickness);
+        tromboneShape.closeSubPath();
 
-    float totalHeight =  yPipe+pipeThickness - y;
-    float totalWidth = X+coneLength+end - x;
+        /* Determining the total height if the pipes are included. */
+        totalHeight =  yPipe + pipeThickness - y;
+    }
+    else{
+        totalHeight =  (2*+height) + pipeThickness;
+    }
+
+    /* Determining the scaling factor for the image. */
+    float totalWidth = pipeLength + coneLength + end;
     float outputHeight = totalHeight * (width / totalWidth);
 
-    std::cout << "thickness to total Height ratio: " << (pipeThickness / totalHeight) << "\n";
-    std::cout << "Height, width: " << (totalHeight) << "    " << totalWidth << "\n";
+    /* Scaling the path to fit into the prescribed width. */
     tromboneShape.scaleToFit(x, y, width, outputHeight, 1);
 
-
+    /* Returning the path which has been drawn. */
     return tromboneShape;
 }
 
@@ -239,10 +247,8 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
         g.fillRect(Thumbs);
         Thumbs = Thumbs.withX(thumbTwoX);
         g.fillRect(Thumbs);
-        
-        // std::cout << "Thumb 1 " << thumbOneX << "\n";
-        // std::cout << "Thumb 2 " << thumbTwoX << "\n";
     }
+    
     else{
         std::cout << "Error\n";
     }

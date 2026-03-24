@@ -52,3 +52,7 @@ The lines of code below display an example which first creates an instance of a 
   styleMenu.setSelectedId (1);
   setSize (400, 200);
 ```
+
+# Embauchure
+ Add a function to set the lowest note
+ Add a function to calibrate the pressure to that particular note.
