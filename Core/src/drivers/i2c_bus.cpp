@@ -1,126 +1,129 @@
-// i2c_bus.cpp
-#include "include/drivers/i2c_bus.hpp"
+#include "drivers/i2c_bus.hpp"
 
-#include <cerrno>
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <vector>
 #include <cstring>
-#include <stdexcept>
 
-#include <fcntl.h>        // open()
-#include <unistd.h>       // close(), read(), write()
-#include <sys/ioctl.h>    // ioctl()
-#include <linux/i2c-dev.h> // I2C_SLAVE
-
-[[noreturn]] void I2cBus::throwSys_(const char* what) {
-    throw std::runtime_error(std::string(what) + ": " + std::strerror(errno));
+/*
+ * Constructor
+ * Initialise file descriptor to invalid state
+ */
+I2CBus::I2CBus(const char* devicePath)
+    : devicePath_(devicePath), fd_(-1)
+{
 }
 
-I2cBus::I2cBus(const std::string& device_path) {
-    // Open I2C bus device node.
-    fd_ = ::open(device_path.c_str(), O_RDWR | O_CLOEXEC);
-    if (fd_ < 0) {
-        throwSys_("open(/dev/i2c-*) failed");
+/*
+ * Destructor
+ * Ensures file descriptor is closed on object destruction
+ */
+I2CBus::~I2CBus()
+{
+    closeBus();
+}
+
+/*
+ * Open the I2C device file
+ *
+ * Returns true if successful
+ */
+bool I2CBus::openBus()
+{
+    if (fd_ >= 0)
+    {
+        // Already open
+        return true;
     }
+
+    fd_ = open(devicePath_, O_RDWR);
+    return (fd_ >= 0);
 }
 
-I2cBus::~I2cBus() {
-    // Never throw from a destructor.
-    if (fd_ >= 0) {
-        ::close(fd_);
+/*
+ * Close the I2C device file
+ */
+void I2CBus::closeBus()
+{
+    if (fd_ >= 0)
+    {
+        close(fd_);
         fd_ = -1;
     }
 }
 
-void I2cBus::setAddress_(uint8_t addr) {
-    // Linux keeps the "current slave address" as state on the fd.
-    // So if you talk to multiple devices, you must set this before each transaction.
-    if (::ioctl(fd_, I2C_SLAVE, addr) < 0) {
-        throwSys_("ioctl(I2C_SLAVE) failed");
+/*
+ * Write data to a 16-bit register
+ *
+ * Transaction format:
+ * [reg_high][reg_low][data...]
+ */
+int I2CBus::writeBlock(uint8_t address, uint16_t reg, const uint8_t* data, uint8_t length)
+{
+    if (fd_ < 0)
+    {
+        return -1;
     }
-}
 
-void I2cBus::write(uint8_t addr, const uint8_t* data, std::size_t length) {
-    setAddress_(addr);
-
-    // Blocking write. We expect all bytes to be written.
-    const ssize_t n = ::write(fd_, data, length);
-    if (n < 0) {
-        throwSys_("i2c write() failed");
+    // Select target device on the I2C bus
+    if (ioctl(fd_, I2C_SLAVE, address) < 0)
+    {
+        return -1;
     }
-    if (static_cast<std::size_t>(n) != length) {
-        throw std::runtime_error("i2c write(): short write");
+
+    // Create buffer: register (2 bytes) + payload
+    std::vector<uint8_t> buffer(2 + length);
+
+    buffer[0] = static_cast<uint8_t>(reg >> 8);   // register MSB
+    buffer[1] = static_cast<uint8_t>(reg & 0xFF); // register LSB
+
+    // Copy payload data if present
+    if (length > 0)
+    {
+        std::memcpy(&buffer[2], data, length);
     }
+
+    // Write entire transaction to device
+    ssize_t bytesWritten = write(fd_, buffer.data(), buffer.size());
+
+    return (bytesWritten == static_cast<ssize_t>(buffer.size())) ? 0 : -1;
 }
 
-void I2cBus::read(uint8_t addr, uint8_t* data, std::size_t length) {
-    setAddress_(addr);
-
-    // Blocking read. We expect all bytes to be read.
-    const ssize_t n = ::read(fd_, data, length);
-    if (n < 0) {
-        throwSys_("i2c read() failed");
+/*
+ * Read data from a 16-bit register
+ *
+ * Transaction:
+ * 1. Write register address (2 bytes)
+ * 2. Read data back
+ */
+int I2CBus::readBlock(uint8_t address, uint16_t reg, uint8_t* data, uint8_t length)
+{
+    if (fd_ < 0)
+    {
+        return -1;
     }
-    if (static_cast<std::size_t>(n) != length) {
-        throw std::runtime_error("i2c read(): short read");
+
+    // Select target device
+    if (ioctl(fd_, I2C_SLAVE, address) < 0)
+    {
+        return -1;
     }
-}
 
-void I2cBus::writeThenRead(uint8_t addr,
-                           const uint8_t* tx, std::size_t tx_len,
-                           uint8_t* rx, std::size_t rx_len) {
-    // Common register read pattern:
-    //   1) write register address bytes
-    //   2) read back response bytes
-    //
-    // Note: This is two syscalls, which usually implies a STOP between them.
-    // Many sensors accept this.
-    // If you later find a device needs a repeated-start, you can upgrade this
-    // to use I2C_RDWR with i2c_msg structs. Start simple first.
-    write(addr, tx, tx_len);
-    read(addr, rx, rx_len);
-}
+    // Send register address (2 bytes)
+    uint8_t regBytes[2];
+    regBytes[0] = static_cast<uint8_t>(reg >> 8);
+    regBytes[1] = static_cast<uint8_t>(reg & 0xFF);
 
-// ---- Convenience helpers ----
+    ssize_t regWriteResult = write(fd_, regBytes, 2);
+    if (regWriteResult != 2)
+    {
+        return -1;
+    }
 
-uint8_t I2cBus::readReg8_8(uint8_t addr, uint8_t reg) {
-    uint8_t tx[1] = { reg };
-    uint8_t rx[1] = { 0 };
-    writeThenRead(addr, tx, 1, rx, 1);
-    return rx[0];
-}
+    // Read requested number of bytes
+    ssize_t bytesRead = read(fd_, data, length);
 
-void I2cBus::writeReg8_8(uint8_t addr, uint8_t reg, uint8_t value) {
-    uint8_t tx[2] = { reg, value };
-    write(addr, tx, 2);
-}
-
-uint8_t I2cBus::readReg8_16(uint8_t addr, uint16_t reg) {
-    // Big-endian register address on the wire: [MSB][LSB]
-    uint8_t tx[2] = {
-        static_cast<uint8_t>(reg >> 8),
-        static_cast<uint8_t>(reg & 0xFF)
-    };
-    uint8_t rx[1] = { 0 };
-    writeThenRead(addr, tx, 2, rx, 1);
-    return rx[0];
-}
-
-void I2cBus::writeReg8_16(uint8_t addr, uint16_t reg, uint8_t value) {
-    uint8_t tx[3] = {
-        static_cast<uint8_t>(reg >> 8),
-        static_cast<uint8_t>(reg & 0xFF),
-        value
-    };
-    write(addr, tx, 3);
-}
-
-uint16_t I2cBus::readReg16BE_16(uint8_t addr, uint16_t reg) {
-    uint8_t tx[2] = {
-        static_cast<uint8_t>(reg >> 8),
-        static_cast<uint8_t>(reg & 0xFF)
-    };
-    uint8_t rx[2] = { 0, 0 };
-    writeThenRead(addr, tx, 2, rx, 2);
-
-    // Returned value interpreted as big-endian.
-    return static_cast<uint16_t>(rx[0] << 8) | static_cast<uint16_t>(rx[1]);
+    return (bytesRead == length) ? 0 : -1;
 }

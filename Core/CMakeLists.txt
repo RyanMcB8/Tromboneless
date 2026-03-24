@@ -1,61 +1,44 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 
-project(tromboneless_core LANGUAGES C CXX)
+project(ToF_Project)
 
-# Use C++17 (no std::span)
+# Use modern standards
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_STANDARD 99)
 
-# Optional: export compile_commands.json for IntelliSense
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+# Optional but recommended flags
+add_compile_options(-Wall -Wextra -Wpedantic)
 
-# ---- Paths ----
-set(VL53_API_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/vl53l1x_api)
-set(VL53_CORE_DIR ${VL53_API_DIR}/core)
-set(VL53_PLATFORM_DIR ${VL53_API_DIR}/platform)
-
-# ---- Vendor library: VL53L1X API (C) ----
-file(GLOB VL53_CORE_SOURCES
-     "${VL53_CORE_DIR}/*.c"
-)
-file(GLOB VL53_PLATFORM_SOURCES
-     "${VL53_PLATFORM_DIR}/*.c"
+# ---------------------------
+# Include directories
+# ---------------------------
+include_directories(
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/external/vl53l1x_api/api/core
+    ${CMAKE_SOURCE_DIR}/external/vl53l1x_api/api/platform
 )
 
-add_library(vl53l1x_api STATIC
-    ${VL53_CORE_SOURCES}
-    ${VL53_PLATFORM_SOURCES}
+# ---------------------------
+# Your C++ source files
+# ---------------------------
+set(SOURCES
+    ${CMAKE_SOURCE_DIR}/src/main.cpp
+    ${CMAKE_SOURCE_DIR}/src/drivers/i2c_bus.cpp
+    ${CMAKE_SOURCE_DIR}/src/drivers/tof_sensor.cpp
 )
 
-target_include_directories(vl53l1x_api PUBLIC
-    ${VL53_CORE_DIR}
-    ${VL53_PLATFORM_DIR}
+# ---------------------------
+# ST VL53L1 C driver sources
+# ---------------------------
+file(GLOB VL53_SOURCES
+    ${CMAKE_SOURCE_DIR}/external/vl53l1x_api/api/core/*.c
+    ${CMAKE_SOURCE_DIR}/external/vl53l1x_api/api/platform/*.c
 )
 
-# Some vendor C code can be noisy; keep warnings modest here
-target_compile_options(vl53l1x_api PRIVATE
-    $<$<COMPILE_LANGUAGE:C>:-Wall -Wextra -Wno-unused-parameter>
-)
-
-# ---- Your application target ----
-add_executable(app
-    src/main.cpp
-    src/drivers/i2c_bus.cpp
-    # Add these when you create them:
-    # src/drivers/gpio_interrupt.cpp
-    # src/drivers/tof_sensor.cpp
-)
-
-target_include_directories(app PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-target_compile_options(app PRIVATE
-    $<$<COMPILE_LANGUAGE:CXX>:-Wall -Wextra -Wpedantic>
-)
-
-target_link_libraries(app PRIVATE
-    vl53l1x_api
+# ---------------------------
+# Create executable
+# ---------------------------
+add_executable(tof_test
+    ${SOURCES}
+    ${VL53_SOURCES}
 )

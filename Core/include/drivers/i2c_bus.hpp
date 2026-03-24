@@ -1,64 +1,59 @@
-// i2c_bus.hpp
-// Minimal, C++17-friendly I2C bus wrapper for Linux (/dev/i2c-*)
-// No std::span, no templates. Just the essentials.
-//
-// Usage idea:
-//   I2cBus bus("/dev/i2c-1");
-//   uint8_t whoami = bus.readReg8_8(0x68, 0x75);
-
 #pragma once
 
 #include <cstdint>
-#include <cstddef>
-#include <string>
 
-class I2cBus {
+/*
+ * Minimal Linux I2C bus wrapper
+ *
+ * Responsibility:
+ * - Open/close I2C device (e.g. /dev/i2c-1)
+ * - Perform register-based read/write transactions
+ *
+ * Does NOT:
+ * - Know anything about specific sensors
+ * - Perform any higher-level logic
+ */
+
+class I2CBus
+{
 public:
-    // Open the Linux I2C device node (e.g. "/dev/i2c-1").
-    explicit I2cBus(const std::string& device_path);
+    // Construct with device path (default = Raspberry Pi I2C bus 1)
+    explicit I2CBus(const char* devicePath = "/dev/i2c-1");
 
-    // Close the device node.
-    ~I2cBus();
+    // Destructor ensures bus is closed
+    ~I2CBus();
 
-    // Not copyable (owns a file descriptor).
-    I2cBus(const I2cBus&) = delete;
-    I2cBus& operator=(const I2cBus&) = delete;
+    // Open the I2C device file
+    bool openBus();
 
-    // ---- Raw transactions (blocking) ----
+    // Close the I2C device file
+    void closeBus();
 
-    // Write 'length' bytes to the slave at 'addr'.
-    void write(uint8_t addr, const uint8_t* data, std::size_t length);
+    /*
+     * Write a block of data to a device register
+     *
+     * address : 7-bit I2C device address
+     * reg     : 16-bit register address
+     * data    : pointer to data buffer
+     * length  : number of bytes to write
+     *
+     * Returns 0 on success, -1 on failure
+     */
+    int writeBlock(uint8_t address, uint16_t reg, const uint8_t* data, uint8_t length);
 
-    // Read 'length' bytes from the slave at 'addr' into 'data'.
-    void read(uint8_t addr, uint8_t* data, std::size_t length);
-
-    // Common pattern: write some bytes (often a register address), then read bytes.
-    void writeThenRead(uint8_t addr,
-                       const uint8_t* tx, std::size_t tx_len,
-                       uint8_t* rx, std::size_t rx_len);
-
-    // ---- Convenience register helpers ----
-
-    // 8-bit register address, 8-bit value.
-    uint8_t readReg8_8(uint8_t addr, uint8_t reg);
-    void    writeReg8_8(uint8_t addr, uint8_t reg, uint8_t value);
-
-    // 16-bit register address (big-endian address on wire), 8-bit value.
-    uint8_t readReg8_16(uint8_t addr, uint16_t reg);
-    void    writeReg8_16(uint8_t addr, uint16_t reg, uint8_t value);
-
-    // 16-bit register address (big-endian address), 16-bit value read back (big-endian).
-    uint16_t readReg16BE_16(uint8_t addr, uint16_t reg);
-
-    // Advanced: expose fd if you later need it (usually you don't).
-    int fd() const { return fd_; }
+    /*
+     * Read a block of data from a device register
+     *
+     * address : 7-bit I2C device address
+     * reg     : 16-bit register address
+     * data    : buffer to store result
+     * length  : number of bytes to read
+     *
+     * Returns 0 on success, -1 on failure
+     */
+    int readBlock(uint8_t address, uint16_t reg, uint8_t* data, uint8_t length);
 
 private:
-    int fd_{-1};
-
-    // Select the current slave address on this file descriptor.
-    void setAddress_(uint8_t addr);
-
-    // Throw runtime_error with errno message.
-    [[noreturn]] static void throwSys_(const char* what);
+    const char* devicePath_;   // e.g. "/dev/i2c-1"
+    int fd_;                   // file descriptor for the I2C device
 };
