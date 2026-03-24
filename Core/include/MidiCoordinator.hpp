@@ -1,4 +1,6 @@
 #pragma once
+#include "MidiMessage.hpp"
+#include "functional"
 
 /**
  * @brief Class to coordinate MIDI message construction based on output from sensor mappers.
@@ -8,7 +10,10 @@
 
 
 class MidiCoordinator{
-    private:
+    private:      
+        using CallbackInterface = std::function<void(const MidiMessage)>;
+        CallbackInterface callback;
+
         bool noteActive;
         int currentNote;
         int latestNote;
@@ -16,5 +21,11 @@ class MidiCoordinator{
         int lastSentBend;
         int lastSentExpr;
     public:
-        
+        // Methods should be input events
+        MidiCoordinator();
+        void RegisterCallback(CallbackInterface cb);
+        void setGate(bool on);
+        void setNote(int note);
+        void setBend(int bend);
+        void setExpr(int expr);
 };
