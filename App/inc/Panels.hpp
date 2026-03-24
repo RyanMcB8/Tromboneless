@@ -18,10 +18,6 @@
  class DropDownMenus :   public juce::Component
  {
     public:
-        // /* Shift keying drop down menu and label */  
-        // juce::ComboBox shiftKeyChoice;
-        // juce::Label shiftKeySelectLabel;
-
         /* Constructor. */
         DropDownMenus();
 

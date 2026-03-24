@@ -88,7 +88,7 @@ void Notes::setB(float frequency){
     B = frequency;
 }
 
-void Notes::setNote(Notes_t note, float freq){
+float Notes::setNote(Notes_t note, float freq){
     switch(note){
         case note_C:
             setC(freq);
@@ -127,7 +127,7 @@ void Notes::setNote(Notes_t note, float freq){
             setB(freq);
 
         default:
-            return;
+            return 0.0f;
     }
 }
 
@@ -271,4 +271,59 @@ float Octaves::Clamp01(float value){
 
 float Octaves::TimeAscension(float t){
     return Clamp01(t);
+}
+
+float Octaves::TimeDecay(float t){
+    t = Clamp01(t);
+    return Clamp01(1 - (t*t));
+}
+
+float Octaves::PlayingNote(int octave, Notes_t note, float time){
+    return (float) cos(octaves[octave].getNote(note) * time * 2 * M_PI);
+}
+
+float Octaves::StartNote(int octave, Notes_t note, float time, float t){
+    return PlayingNote(octave, note, time) * TimeAscension(t);
+}
+
+float Octaves::EndNote(int octave, Notes_t note, float time, float t){
+    return PlayingNote(octave, note, time) * TimeDecay(t);
+}
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                 OctavesWithHarmonics                                       */
+/*                                                                                            */
+/* ========================================================================================== */
+
+OctavesWithHarmonics::OctavesWithHarmonics(){
+
+}
+
+float OctavesWithHarmonics::StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
+    float outputAmplitude = 0;
+    for (int i=0; i < n; i++){
+        outputAmplitude += HarmonicDecay(n, octave, note) * StartNote(n, note, time, t);
+    } 
+    return (outputAmplitude/n);
+}
+
+float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
+    float outputAmplitude = 0;
+    for (int i=0; i < n; i++){
+        outputAmplitude += HarmonicDecay(n, octave, note) * PlayingNote(n, note, time);
+    } 
+    return (outputAmplitude/n);
+}
+
+float OctavesWithHarmonics::EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
+    float outputAmplitude = 0;
+    for (int i=0; i < n; i++){
+        outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t);
+    } 
+    return (outputAmplitude/n);
+}
+
+float OctavesWithHarmonics::HarmonicDecay(int n, int octave, Notes::Notes_t note){
+    return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
 }

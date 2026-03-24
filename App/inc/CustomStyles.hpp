@@ -50,7 +50,6 @@ class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
             float maxSliderPos, const juce::Slider::SliderStyle style, 
             juce::Slider& slider);
 
-        // virtual void drawSlider(juce::Graphics& g, juce::Slider& slider) override;
     private:
         const juce::Colour  emptyTrackColour= juce::Colours::darkgrey;
         const juce::Colour  fullTrackColour = juce::Colours::gold;
@@ -68,8 +67,28 @@ class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
                         value for this is 300.
     @param  width       The maximum width which the path is allowed to enclose. The default
                         value for this is 50.
+    @param  height      The maximum height which the path is allowed to enclose. The default
+                        value for this is 20.
     @param  incPipes    A boolean value determining if the trombones pipes should be included
                         within the path or whether only the end of the pipe should be
                         returned. The pipes are included by default.
     @retval             Returns a juce::Path which traces the perimeter of a trombone.*/
-juce::Path PaintTrombone(float x=300, float y=300, float width=50, bool incPipes = 1);
+juce::Path PaintTrombone(float x=300, float y=300, float width=50, float height = 20, bool incPipes = true);
+
+
+/** @brief              A function that traces out the shape of an arc based upon the thickness
+ *                      of the arc and the gap between its inner sides. i.e the inner circle
+ *                      diameter that would remove an area from the larger outer circle.
+ *  @param  x           The x positon of the path, where this is the left most pixel of the
+ *                      area allowed for the path.
+ *  @param  y           The y position of the path, where thes is the top most pixel of the
+ *                      area allowed by the path.
+ *  @param  thickness   The thickness of the arc itself.
+ *  @param  gap         The inner diameter of the arc itself. The arcs center diameter would
+ *                      be the equivalent of gap + (thickness/2).
+ *  @param  direction   A boolean option where 0 represents the arc having its outer face
+ *                      facing right, and 1 represents the arc having its outer face
+ *                      facing left.
+ *  @retval             Returns a juce::Path which traces the perimeter of an arc.
+ */
+juce::Path PaintArc(float x, float y, float thickness, float gap, bool direction);

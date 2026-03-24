@@ -307,6 +307,8 @@ class Octaves   : public Notes
         /* Constructor for the class*/
         Octaves();
 
+        ~Octaves() = default;
+
         /** @brief          A function which clamps the value passed to it to be
          *                  within 0 and 1 so that it can remain within normalisation
          *                  bounds;
@@ -338,10 +340,7 @@ class Octaves   : public Notes
          *  @retval         Returns a floating point value between 0 and 1
          *                  representing the maximum amplitude.
          */
-        float TimeDecay(float t){
-            t = Clamp01(t);
-            return Clamp01(1 - (t*t));
-        }
+        float TimeDecay(float t);
 
         /** @brief          A function which may be called to determine the amplitude of 
          *                  a specified note at a specified time.
@@ -354,9 +353,7 @@ class Octaves   : public Notes
          *                  depending on the volume. The maxmimum and minimum will always
          *                  be 1 and -1 respectively.
         */
-        float PlayingNote(int octave, Notes_t note, float time){
-            return (float) cos(octaves[octave].getNote(note) * time * 2 * M_PI);
-        }
+        float PlayingNote(int octave, Notes_t note, float time);
 
         /** @brief          A function which determines that maximum amplitude the note may
          *                  reach depending upon the amount of time it has been since the
@@ -371,9 +368,7 @@ class Octaves   : public Notes
          *  @retval         Returns a floating point value between 0 and 1 representing
          *                  the notes maximmum frequency.
          */
-        float StartNote(int octave, Notes_t note, float time, float t){
-            return PlayingNote(octave, note, time) * TimeAscension(t);
-        }
+        float StartNote(int octave, Notes_t note, float time, float t);
 
         /** @brief          A function which may be called upon to play a single note
          *                  in a specified octave.
@@ -391,9 +386,7 @@ class Octaves   : public Notes
          *                  be kept as high as possible as this represents the stage of
          *                  oscillation the cosine wave is at.
         */
-        float EndNote(int octave, Notes_t note, float time, float t){
-            return PlayingNote(octave, note, time) * TimeDecay(t);
-        }
+        float EndNote(int octave, Notes_t note, float time, float t);
     private:
 };
 
@@ -402,9 +395,9 @@ class OctavesWithHarmonics :    public Octaves
     public:
 
         /** @brief  Creates an instance of the `OctavesWithHarmonics`.*/
-        OctavesWithHarmonics(){
+        OctavesWithHarmonics();
 
-        }
+        ~OctavesWithHarmonics() = default;
 
         
         /** @brief          A function which may be called upon to stop playing a range
@@ -426,13 +419,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  by increasing the number of harmonics present and using non
          *                  integer harmonics too.
          */
-        float StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
-            float outputAmplitude = 0;
-            for (int i=0; i < n; i++){
-                outputAmplitude += HarmonicDecay(n, octave, note) * StartNote(n, note, time, t);
-            } 
-            return (outputAmplitude/n);
-        }
+        float StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t);
         
         /** @brief          A function which may be called upon to stop playing a range
          *                  of harmonic notes when a specific note is called upon to
@@ -453,13 +440,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  by increasing the number of harmonics present and using non
          *                  integer harmonics too.
          */
-        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
-            float outputAmplitude = 0;
-            for (int i=0; i < n; i++){
-                outputAmplitude += HarmonicDecay(n, octave, note) * PlayingNote(n, note, time);
-            } 
-            return (outputAmplitude/n);
-        }
+        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t);
         
         /** @brief          A function which may be called upon to stop playing a range
          *                  of harmonic notes when a specific note is called upon to
@@ -480,13 +461,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  by increasing the number of harmonics present and using non
          *                  integer harmonics too.
          */
-        float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
-            float outputAmplitude = 0;
-            for (int i=0; i < n; i++){
-                outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t);
-            } 
-            return (outputAmplitude/n);
-        }
+        float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t);
         
     private:
         float decayConstant = 2;
@@ -504,9 +479,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  relationship between the frequency and the decay rate
          *                  over the various harmonic frequencies. 
          */
-        float HarmonicDecay(int n, int octave, Notes::Notes_t note){
-            return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
-        }
+        float HarmonicDecay(int n, int octave, Notes::Notes_t note);
 };
     
     

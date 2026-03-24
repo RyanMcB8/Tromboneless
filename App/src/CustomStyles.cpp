@@ -94,20 +94,19 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
 /*                                                                                            */
 /* ========================================================================================== */
 
-juce::Path PaintTrombone(float x, float y, float width, bool incPipes)
+juce::Path PaintTrombone(float x, float y, float width, float height, bool incPipes)
 {
     juce::Path tromboneShape;
     
-    float pipeLength    =   60;
-    float pipeThickness =   14;
-    float height        =   30;
-    float coneLength    =   30;
-    float gap           =   10; /* The gap between each pipe*/
-    float end           =   10; /* The extra length of the pipes compared to the main pipe.*/
+    /* Determining the proportions of the components based upon the input.*/
+    float pipeThickness =   height*0.25;                 /* Pipe thickness will always be 25% of the height. */
+    float coneLength    =   width*0.3;                  /* Cone length with always be 30% of the overall width. */
+    float gap           =   height*0.1;                 /* The gap between each pipe will always be 10% of the height. */
+    float end           =   std::min((float) 10, (float) (width* 0.1));   /* The extra length of the pipes compared to the main pipe. */
+    float pipeLength    =   width - coneLength - end;   /* The length of the pipe is whatever is left of the width. */
 
     float X             = x+pipeLength;
     float Y             = y+height;
-    float totalHeight;
 
     /* ========== Adding the main pipe. ========== */
     tromboneShape.startNewSubPath(X, Y);
@@ -143,48 +142,43 @@ juce::Path PaintTrombone(float x, float y, float width, bool incPipes)
         tromboneShape.lineTo(X+coneLength+end, yPipe+pipeThickness);
         tromboneShape.closeSubPath();
 
-        /* Determining the total height if the pipes are included. */
-        totalHeight =  yPipe + pipeThickness - y;
     }
-    else{
-        totalHeight =  (2*+height) + pipeThickness;
-    }
-
-    /* Determining the scaling factor for the image. */
-    float totalWidth = pipeLength + coneLength + end;
-    float outputHeight = totalHeight * (width / totalWidth);
-
-    /* Scaling the path to fit into the prescribed width. */
-    tromboneShape.scaleToFit(x, y, width, outputHeight, 1);
-
     /* Returning the path which has been drawn. */
     return tromboneShape;
 }
 
-juce::Path PaintTromboneEnd(float x, float y, float width)
+juce::Path PaintArc(float x, float y, float thickness, float gap, bool direction)
 {
-    juce::Path tromboneShape;
-    float gap = 10;
-    float pipeThickness = 14;
-    float maxDiameter    =   gap+(2*pipeThickness);
-    float minDiameter    =   gap;
+    juce::Path arcShape;
+    // thickness = thickness/2;
+    float maxRadius    =   (gap+(2*thickness))/2;
+    float minRadius    =   gap/2;
 
-    /* Adding the main pipe. */
-    tromboneShape.startNewSubPath(x, y);
-    tromboneShape.addCentredArc (x+(maxDiameter/2), y+(maxDiameter/2), maxDiameter, maxDiameter, 0, 0, M_PI);
-    tromboneShape.lineTo(x, y+(2*pipeThickness)+gap);
-    tromboneShape.lineTo(x, y + pipeThickness+pipeThickness);
-    tromboneShape.addCentredArc (x+maxDiameter/2, y+maxDiameter/2, minDiameter, minDiameter, 0, M_PI, 0);
-    tromboneShape.lineTo(x, y+pipeThickness);
-    tromboneShape.lineTo(x, y);
-    tromboneShape.closeSubPath();
+    float startRad = 0;
+    float endRad =   M_PI;
+    float rotDir;
+    arcShape.startNewSubPath(x, y+(maxRadius));
+    /* If the direction of the arc is on the right. */
+    if (0 == direction){
+        rotDir = 0;
+        arcShape.addCentredArc (x, y+(maxRadius), maxRadius, maxRadius, rotDir, startRad, endRad);
+        arcShape.addCentredArc (x, y+maxRadius, minRadius, minRadius, rotDir, startRad, endRad);
+    }
 
-    float thisWidth = maxDiameter/2;
-    float height = (width)*(maxDiameter)/thisWidth;
-    tromboneShape.scaleToFit(x, y, width, height, 1);
+    /* If the direction of the arc is on the left.*/
+    else{
+        rotDir = M_PI;
+        arcShape.addCentredArc (x, y+maxRadius, minRadius, minRadius, rotDir, endRad, startRad);
+        arcShape.addCentredArc (x, y+(maxRadius), maxRadius, maxRadius, rotDir, endRad, startRad);
+    }
+
+    /* Adding the outer arc from 0 to pi radians. */
+    /* Adding the inner arc from 0 to pi radians. */
+
+    arcShape.closeSubPath();
 
 
-    return tromboneShape;
+    return arcShape;
 }
 
 
@@ -205,57 +199,60 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
     float maxSliderPos, const juce::Slider::SliderStyle style, 
     juce::Slider& slider) 
     {
+        /* This block is simply to use the unused parameters within the function so
+           that no extra warnings appear in the debug output. */
+        maxSliderPos = sliderPos;
+        sliderPos = minSliderPos;
+        maxSliderPos = maxSliderPos;
     /* Ensuring that it is a 2 valued horizontal slider. */
     if (style == juce::Slider::TwoValueHorizontal)
     {
-        
-        float tromboneEndWidth = 12;
-        float fingerThickness = 4;
+        /* Adjusting the sizes of different components depending upon the screen size.*/
+        float fingerThickness = std::min((float) 4, (float) (width*0.05));
+        float extraPipe = std::min((float) 30, (float) (width*0.2));
+        float pipeGap = std::min((float) 8, (float) (height*0.7));
+        float mouthPieceDelta = std::min((float) 20, (float) (width*0.1));
         auto bounds = juce::Rectangle<float>((float)x, (float)y, (float)width, (float)height);
 
         /* Adding a track decal running the length of the slider. */
         g.setColour(emptyTrackColour);
         juce::Rectangle<float> sliderBounds  = bounds.withHeight(trackWidth).withCentre(bounds.getCentre());
         g.fillRect(sliderBounds.withY(y + (height*0.8)));
-    
-        /* The ratio of the trombones pipe thickness to overall height is 0.0897436*/
 
         /* Finding the 2 thumb positions. */
         float thumbOneX = slider.getPositionOfValue(slider.getMinValue());
         float thumbTwoX = slider.getPositionOfValue(slider.getMaxValue());
 
-        /* Adding a track decal between the 2 fingers. */
+        /* Adding the start of the pipe to start near the first finger. */
         g.setColour(fullTrackColour);
-        juce::Rectangle fullSliderBounds = juce::Rectangle<float>((float) thumbOneX, (float) y+(height/2), 
-            (float) (thumbTwoX - thumbOneX-fingerThickness-tromboneEndWidth), (float) trackWidth);
+        juce::Rectangle fullSliderBounds = juce::Rectangle<float>((float) thumbOneX-extraPipe, (float) y+(height/2), 
+            (float) (thumbTwoX - thumbOneX + extraPipe), (float) trackWidth);
         g.fillRect(fullSliderBounds);
-        fullSliderBounds = fullSliderBounds.withY(fullSliderBounds.getY() + 8);
+
+        /* Adding the bottom part of the pipe which is slightly longer than the middle part of the pipe. */
+        fullSliderBounds = fullSliderBounds.withY(fullSliderBounds.getY() + pipeGap);
+        fullSliderBounds = fullSliderBounds.withWidth(fullSliderBounds.getWidth() + mouthPieceDelta);
+        fullSliderBounds = fullSliderBounds.withX(fullSliderBounds.getX() - mouthPieceDelta);
         g.fillRect(fullSliderBounds);
         
-        /* Changing the look of the first thumb: */
-        // g.setColour(thumbOneColour);
+        /* Adding the trombone horn to be output to the screen. */
         g.setColour (juce::Colours::gold);
-        juce::Path tromboneShape = PaintTrombone(thumbOneX+fingerThickness, y, 50);
+        juce::Path tromboneShape = PaintTrombone(fullSliderBounds.getX(), y, std::min((float) 80, (float) (width*0.2)), 20, false);
         g.fillPath(tromboneShape);
 
-        /* Changing the look of the second thumb: */
-        tromboneShape = PaintTromboneEnd(thumbTwoX - fingerThickness - 12, y+20 , 12);
+        /* Adding the arc between the middle part of the trombone to meet the bottom part. */
+        tromboneShape = PaintArc(thumbTwoX, fullSliderBounds.getY() - pipeGap, trackWidth, pipeGap/2, 0);
         g.fillPath(tromboneShape);
 
+        /* Adding the arc between the bottom part of the trombone to meet the top part. */
+        tromboneShape = PaintArc(fullSliderBounds.getX(), y+((height +2)/2)- pipeGap, trackWidth, (pipeGap/2)+trackWidth, 1);
+        g.fillPath(tromboneShape);
+
+        /* Adding lines to indicate where on the slider the values are. */
         g.setColour (juce::Colours::black);
         juce::Rectangle Thumbs = juce::Rectangle<float>((float) thumbOneX, (float) y+(height/2), (float) fingerThickness, (float) bounds.getHeight()*0.8);
         g.fillRect(Thumbs);
         Thumbs = Thumbs.withX(thumbTwoX);
         g.fillRect(Thumbs);
     }
-    
-    else{
-        std::cout << "Error\n";
-    }
-
-
 }
-
-// void CalibrationSliderLookAndFeel::drawSlider(juce::Graphics& g, juce::Slider& slider){
-
-// }
