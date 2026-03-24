@@ -1,2 +1,0 @@
-/home/kerr-mclaren/Tromboneless/Tromboneless/build/CMakeFiles/edit_cache.dir
-/home/kerr-mclaren/Tromboneless/Tromboneless/build/CMakeFiles/rebuild_cache.dir
