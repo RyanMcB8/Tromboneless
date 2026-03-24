@@ -27,6 +27,7 @@ typedef struct{
 
 /* A struct to store any of the synthesier parameters that may be changed within the app. */
 typedef struct{
+    bool synthEnable;
     float gains[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 } SynthesiserParameters_t;
 

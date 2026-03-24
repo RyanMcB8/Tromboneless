@@ -92,3 +92,45 @@ juce::Path PaintTrombone(float x=300, float y=300, float width=50, float height 
  *  @retval             Returns a juce::Path which traces the perimeter of an arc.
  */
 juce::Path PaintArc(float x, float y, float thickness, float gap, bool direction);
+
+class BarometerLookAndFeel  :  public   juce::LookAndFeel_V4{
+    public:
+        BarometerLookAndFeel();
+
+        virtual ~BarometerLookAndFeel() = default;
+
+        virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+            int height, float sliderPos, const float rotaryStartAngle,
+             const float rotaryEndAngle, juce::Slider& slider) override;
+
+    private:
+        const juce::Colour  emptyTrackColour= juce::Colours::darkgrey;
+        const juce::Colour  fullTrackColour = juce::Colours::gold;
+        const juce::Colour  thumbOneColour  = juce::Colours::yellow;
+        const juce::Colour  thumbTwoColour  = juce::Colours::pink;
+        const juce::Colour  backgroundColour= juce::Colours::white;
+
+        float trackWidth        =   5;
+
+};
+
+class BarometerOuterLookAndFeel  :  public   juce::LookAndFeel_V4{
+    public:
+        BarometerOuterLookAndFeel();
+
+        virtual ~BarometerOuterLookAndFeel() = default;
+
+        virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+            int height, float sliderPos, const float rotaryStartAngle,
+             const float rotaryEndAngle, juce::Slider& slider) override;
+
+    private:
+        const juce::Colour  thumbColour  = juce::Colours::yellow;
+
+};
+
+juce::Path RotaryArc(float x = 100, float y = 100, float thickness = 5, float width = 50, 
+    float height = 50, float angularRange = 5, float rotation = 0);
+
+
+juce::Path drawCircle(float x, float y, float xRadius, float yRadius);

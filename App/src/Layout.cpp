@@ -59,18 +59,21 @@ Layout::Layout()
     pressureSlider.slider.setRange(minimumPressure, maximumPressure, stepPressure);
     pressureSlider.setMinDifference(pressureRange);
     pressureSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    pressureSlider.slider.setMinAndMaxValues (0.05, 1, juce::dontSendNotification);
+    pressureSlider.maxSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    pressureSlider.slider.setValue (0.2, juce::dontSendNotification);
+    pressureSlider.maxSlider.slider.setValue (1.2, juce::dontSendNotification);
     pressureSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     pressureSlider.slider.setNumDecimalPlacesToDisplay(2);
+    pressureSlider.slider.setLookAndFeel(&barometerLandF);
+    pressureSlider.maxSlider.slider.setLookAndFeel(&barometerOuterLandF);
 
     /* Adding labels to the slider. */
-    pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Pressure gain");
-    pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumPressure)));
-    pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumPressure)));
+    // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Pressure gain");
+    // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumPressure)));
+    // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumPressure)));
 
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
-    addAndMakeVisible (equalizer);
-
+    
 }
 
 Layout::~Layout()
@@ -83,16 +86,16 @@ void Layout::paint (juce::Graphics& g)
 {
     /* Sets the background to be the same as the users settings for other windows. */
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
+    
     /* Setting the size of the font that will be written. */
     g.setFont (juce::FontOptions (18.0f));
-
+    
     /* Setting the colour of the text that will be written. */
     g.setColour (juce::Colours::white);
     
     /* Adds a banner at the top of the window centred with the name of the device. */
     g.drawText ("Tromboneless Parameters", getLocalBounds(), juce::Justification::centredTop, true);
-
+    
 }
 
 //  Window resizing configuration
@@ -100,33 +103,36 @@ void Layout::paint (juce::Graphics& g)
 void Layout::resized()    
 {
     auto area = getLocalBounds();
-
-    auto buttonArea = area.removeFromTop (50);
+    /* Adding a margin around the edge of the window.*/
+    area = area.withSizeKeepingCentre(area.getWidth()*0.94, area.getHeight()*0.94);
 
     /* Setting the positon of the label and combo box. */
     // auto labelBounds = buttonArea.removeFromLeft (80); //(getWidth() - 100);
     auto comboBounds = area.removeFromTop (50); //(getWidth() - 40);
-
+    
     /* Scaling the label and combo box. */
     // comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
     dropDownMenus.setBounds (comboBounds);
-
-    auto SliderBounds = area.removeFromTop(150);
-
+    
+    auto SliderBounds = area.removeFromTop(250);
+    
     /* Adding the sliders to the window. */
     auto distanceSliderBounds = SliderBounds.removeFromLeft(SliderBounds.getWidth()*0.45);
     // distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
-    distanceSlider.setBounds (distanceSliderBounds);
-
+    distanceSlider.setBounds (distanceSliderBounds.removeFromBottom(150));
+    
     /* Pressure slider bounds */
     auto pressureSliderBounds = SliderBounds.removeFromRight(area.getWidth()*0.45);
     pressureSlider.setBounds (pressureSliderBounds);
-
+    
     /* Equalizer */
-    auto equalizerBounds = area.removeFromTop(350);
-    equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
-    equalizer.setBounds(equalizerBounds);
-
+    /* Only allowing the synthethiser to be viewed if it is enabled. */
+    if(true == synthesiserParameters.synthEnable){
+        addAndMakeVisible (equalizer);
+        auto equalizerBounds = area.removeFromTop(350);
+        equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
+        equalizer.setBounds(equalizerBounds);
+    }
 
 }
 

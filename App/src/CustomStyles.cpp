@@ -245,7 +245,7 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
         g.fillPath(tromboneShape);
 
         /* Adding the arc between the bottom part of the trombone to meet the top part. */
-        tromboneShape = PaintArc(fullSliderBounds.getX(), y+((height +2)/2)- pipeGap, trackWidth, (pipeGap/2)+trackWidth, 1);
+        tromboneShape = PaintArc(fullSliderBounds.getX()+0.1, y+((height +2)/2)- pipeGap, trackWidth, (pipeGap/2)+trackWidth, 1);
         g.fillPath(tromboneShape);
 
         /* Adding lines to indicate where on the slider the values are. */
@@ -255,4 +255,129 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
         Thumbs = Thumbs.withX(thumbTwoX);
         g.fillRect(Thumbs);
     }
+
+}
+
+juce::Path RotaryArc(float x, float y, float thickness, float width, float height, float angularRange, float rotation)
+{
+    juce::Path arcShape;
+    float xRadius   =   width;
+    float yRadius   =   height;
+
+    float endRad = angularRange/2;
+    float startRad = -angularRange/2;
+
+    // rotation = rotation - (angularRange/2);
+    
+    // arcShape.startNewSubPath(x+(xRadius*sin(startRad)) , y+(yRadius*sin(startRad)));
+    arcShape.startNewSubPath(x , y);
+
+    arcShape.addCentredArc (x, y, 
+        xRadius + thickness, yRadius + thickness, 
+        rotation, startRad, endRad);
+
+    arcShape.closeSubPath();
+    // arcShape.startNewSubPath(x+(xRadius*sin(endRad)) , y+(yRadius*sin(endRad)));
+    // arcShape.addCentredArc (x + xRadius, y + yRadius, 
+    //     xRadius - thickness, yRadius - thickness, 
+    //     rotation, startRad, endRad);
+
+    // arcShape.closeSubPath();
+
+    return arcShape;
+
+}
+
+juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
+
+    juce::Path circleShape;
+    circleShape.startNewSubPath(x , y);
+
+    circleShape.addCentredArc (x, y, xRadius, yRadius, 0, 0, 2*M_PI);
+
+    circleShape.closeSubPath();
+    return circleShape;
+}
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                     BarometerSlider                                        */
+/*                                                                                            */
+/* ========================================================================================== */
+
+BarometerLookAndFeel::BarometerLookAndFeel(){
+
+}
+
+void BarometerLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+    int height, float sliderPos, const float rotaryStartAngle,
+    const float rotaryEndAngle, juce::Slider& slider){
+        /* Finding the centre point. */
+        float middleX = x + (width)/2;
+        float middleY = y + (height)/2;
+
+        /* Finding the radius of the circle. */
+        float radius = std::min(width/2, height/2);
+
+        /* Setting the relative sizes of component parts. */
+        float fingerThickness = std::min((float) 5, (float) (width*0.05));
+        float pathThickness = radius*0.08;
+        float edgeThickness = radius*0.1;
+
+        /* Drawing the main circle */
+        g.setColour(backgroundColour);
+        juce::Path background = drawCircle(middleX, middleY, radius, radius);
+        g.fillPath(background);
+
+        /* Adding the path that the sliders will follow. */
+        g.setColour(emptyTrackColour);
+        juce::Path sliderPath = RotaryArc(middleX, middleY, pathThickness, radius-edgeThickness,
+                                            radius - edgeThickness, rotaryEndAngle - rotaryStartAngle);
+        g.fillPath(sliderPath);
+
+        /* Adding the inner circle (Background). */
+        g.setColour(backgroundColour);
+        background = drawCircle(middleX, middleY, radius-edgeThickness - pathThickness,
+            radius - edgeThickness - pathThickness);
+        g.fillPath(background);
+
+        /* Adding one of the fingers. */
+        juce::Path p;
+        float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
+        p.addRectangle (-fingerThickness * 0.5f, -radius, fingerThickness, radius-edgeThickness);
+        p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
+        g.setColour (juce::Colours::black);
+        g.fillPath (p);
+        
+}
+
+
+BarometerOuterLookAndFeel::BarometerOuterLookAndFeel(){
+
+}
+
+void BarometerOuterLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+    int height, float sliderPos, const float rotaryStartAngle,
+    const float rotaryEndAngle, juce::Slider& slider){
+        /* Finding the centre point. */
+        float middleX = x + (width)/2;
+        float middleY = y + (height)/2;
+
+        /* Finding the radius of the circle. */
+        float radius = std::min(width/2, height/2);
+
+        /* Setting the relative sizes of component parts. */
+        float fingerThickness = std::min((float) 5, (float) (width*0.05));
+        float edgeThickness = radius*0.1;
+
+        /* Adding the outer finger. */
+        juce::Path p;
+        g.setColour(thumbColour);
+        float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
+        p.addRectangle (-fingerThickness, -radius, fingerThickness, radius-edgeThickness);
+        p.applyTransform (juce::AffineTransform::translation (x, y));
+        p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
+        g.setColour (juce::Colours::black);
+        g.fillPath (p);
+        
 }

@@ -31,6 +31,6 @@
 
     private:
         /* Shift keying drop down menu and label */
-        juce::String    labelText = "Transposition";  
+        juce::String    labelText;  
         DropDownMenu shiftKeyChoice;
  };

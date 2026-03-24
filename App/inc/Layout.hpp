@@ -77,7 +77,10 @@ class Layout final : public juce::Component,
         CalibrationSliderLookAndFeel LandF;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
-        CalibrationSlider pressureSlider;
+        CalibrationRotarySlider pressureSlider;
+        BarometerLookAndFeel barometerLandF;
+        BarometerOuterLookAndFeel barometerOuterLandF;
+        
 
         /* Creation of the equalizer. */
         Equalizer equalizer;

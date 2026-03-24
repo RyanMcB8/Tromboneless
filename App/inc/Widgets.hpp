@@ -95,6 +95,16 @@ class SliderWithLabel : public juce::Component{
         juce::Label LowerRightLabel;
 };
 
+class RotarySliderWithLabel :   public SliderWithLabel,
+                                public juce::Slider::Listener
+{
+public:
+    RotarySliderWithLabel();
+
+    ~RotarySliderWithLabel() = default;
+    
+};
+
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
 class CalibrationSlider :   public SliderWithLabel,
@@ -124,6 +134,43 @@ public:
         double minDistance = 1;
 };
 
+/** @brief A class that adds more functionality to the slider class from Juce. */
+class CalibrationRotarySlider : public SliderWithLabel,
+                                public juce::Slider::Listener
+{
+public:
+
+    SliderWithLabel maxSlider = SliderWithLabel(juce::Slider::Rotary);
+    /** @brief Contructor for the `CalibrationSlider` class which requires the
+     *  type of slider being used to be initiated which is set to `TwoValueHorizontal`
+     *  by default.
+     */ 
+    CalibrationRotarySlider();
+
+    ~CalibrationRotarySlider() = default;
+
+    /** @brief A function which sets the minimum difference between the upper and lower fingers of the slider.
+     *  @param difference The value of the difference between the fingers.
+     */
+    void setMinDifference(double difference);
+
+
+    /** @brief A function that is called upon when either of the fingers are moved.
+     *  @note This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other.
+     */
+    void sliderValueChanged(juce::Slider* sliderChanged);
+
+    void resized() override;
+
+    // void mouseDown(const juce::MouseEvent& e) override;
+    void mouseDrag(const juce::MouseEvent& e) override;
+    void mouseUp(const juce::MouseEvent& e) override;
+
+    private:
+        double minDistance = 1;
+        juce::Slider* activeSlider = nullptr;
+        
+};
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
 class verticalMixSlider : public SliderWithLabel,

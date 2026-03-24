@@ -132,9 +132,9 @@ void SliderWithLabel::labelSetup(juce::Label* Label, juce::String phrase,
 /* ========================================================================================== */
 
  CalibrationSlider::CalibrationSlider() :   SliderWithLabel(juce::Slider::TwoValueHorizontal){
-        this->slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-        this->slider.addListener(this);
-    }
+    this->slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
+    this->slider.addListener(this);
+}
 
  void CalibrationSlider::setMinDifference(double difference){
      minDistance = difference;
@@ -178,6 +178,114 @@ void SliderWithLabel::labelSetup(juce::Label* Label, juce::String phrase,
      return;
  }
 
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                CalibrationRotarySlider                                     */
+/*                                                                                            */
+/* ========================================================================================== */
+
+ CalibrationRotarySlider::CalibrationRotarySlider() : SliderWithLabel(juce::Slider::Rotary)
+ {
+    this->slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
+    this->slider.addListener(this);
+
+    /* Removing an option to enter the data using a text box. */
+    maxSlider.slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
+    
+    /* Adding a listener to the function to perform the correct operations. */
+    maxSlider.slider.addListener(this);
+
+    /* Allowing the sliders to be viewed. */
+    addAndMakeVisible(maxSlider);
+    
+
+ }
+
+void CalibrationRotarySlider::setMinDifference(double difference){
+    minDistance = difference;
+}
+
+void CalibrationRotarySlider::sliderValueChanged(juce::Slider* sliderChanged){
+    auto min = this->slider.getValue();
+    auto max = maxSlider.slider.getValue();
+
+    /* Checking if the values are out of range of each other. */
+    if (max - min < minDistance)
+    {   
+        /* Checking if the maximum value is already at the maximum. If it is, only the minimum finger is moved. */
+        if (max >= maxSlider.slider.getValue()){
+            max = maxSlider.slider.getValue();
+            maxSlider.slider.setValue(max);
+            this->slider.setValue(max - minDistance);
+            return;
+        }
+
+        /* Checking if the minimum value is already at the minimum. If it is, only the maximum finger is moved. */
+        else if (min <= this->slider.getValue()){
+            min = this->slider.getValue();
+            this->slider.setValue(min);
+            maxSlider.slider.setValue(min + minDistance);
+            return;
+        }
+        
+        /* If neither finger is on the edge, onlt the finger not being dragged is adjusted to ensure the minimum range is maintained. */
+        else if (sliderChanged == &this->slider){
+            maxSlider.slider.setValue(min + minDistance);
+            return;
+        }
+
+        else{
+            this->slider.setValue(max - minDistance);
+            return;
+        }
+    }
+    return;
+}
+
+void CalibrationRotarySlider::resized()
+{
+    auto area = getLocalBounds();
+
+    maxSlider.setBounds(area); // max slider
+    // maxSlider.setInterceptsMouseClicks(false, false);
+    slider.setBounds(area.withSizeKeepingCentre(area.getWidth()*0.95, area.getHeight()*0.95));   // main slider
+}
+
+// void CalibrationRotarySlider::mouseDown(const juce::MouseEvent& e)
+// {
+//     auto centre = getLocalBounds().getCentre().toFloat();
+//     auto pos = e.position;
+
+//     float distance = pos.getDistanceFrom(centre);
+
+//     float radius = getWidth() * 0.5f;
+
+//     if (distance > radius * 0.7f)
+//         maxSlider.mouseDown(e.getEventRelativeTo(&maxSlider));
+//     else
+//         slider.mouseDown(e.getEventRelativeTo(&slider));
+// }
+
+void CalibrationRotarySlider::mouseDrag(const juce::MouseEvent& e)
+{
+    if (activeSlider == nullptr)
+        return;
+
+    float delta = -e.getDistanceFromDragStartY() * 0.01f;
+
+    activeSlider->setValue(
+        activeSlider->getValue() + delta,
+        juce::sendNotificationSync
+    );
+}
+
+void CalibrationRotarySlider::mouseUp(const juce::MouseEvent& e)
+{
+    if (activeSlider != nullptr)
+        activeSlider->mouseUp(e.getEventRelativeTo(activeSlider));
+
+    activeSlider = nullptr;
+}
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                   verticalMixSlider                                        */
