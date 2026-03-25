@@ -184,108 +184,121 @@ void SliderWithLabel::labelSetup(juce::Label* Label, juce::String phrase,
 /*                                                                                            */
 /* ========================================================================================== */
 
- CalibrationRotarySlider::CalibrationRotarySlider() : SliderWithLabel(juce::Slider::Rotary)
- {
-    this->slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-    this->slider.addListener(this);
 
-    /* Removing an option to enter the data using a text box. */
-    maxSlider.slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
-    
-    /* Adding a listener to the function to perform the correct operations. */
-    maxSlider.slider.addListener(this);
+CalibrationRotarySlider::CalibrationRotarySlider(){
 
-    /* Allowing the sliders to be viewed. */
-    addAndMakeVisible(maxSlider);
-    
-
- }
-
-void CalibrationRotarySlider::setMinDifference(double difference){
-    minDistance = difference;
 }
 
-void CalibrationRotarySlider::sliderValueChanged(juce::Slider* sliderChanged){
-    auto min = this->slider.getValue();
-    auto max = maxSlider.slider.getValue();
-
-    /* Checking if the values are out of range of each other. */
-    if (max - min < minDistance)
-    {   
-        /* Checking if the maximum value is already at the maximum. If it is, only the minimum finger is moved. */
-        if (max >= maxSlider.slider.getValue()){
-            max = maxSlider.slider.getValue();
-            maxSlider.slider.setValue(max);
-            this->slider.setValue(max - minDistance);
-            return;
-        }
-
-        /* Checking if the minimum value is already at the minimum. If it is, only the maximum finger is moved. */
-        else if (min <= this->slider.getValue()){
-            min = this->slider.getValue();
-            this->slider.setValue(min);
-            maxSlider.slider.setValue(min + minDistance);
-            return;
-        }
-        
-        /* If neither finger is on the edge, onlt the finger not being dragged is adjusted to ensure the minimum range is maintained. */
-        else if (sliderChanged == &this->slider){
-            maxSlider.slider.setValue(min + minDistance);
-            return;
-        }
-
-        else{
-            this->slider.setValue(max - minDistance);
-            return;
-        }
-    }
-    return;
-}
-
-void CalibrationRotarySlider::resized()
+void CalibrationRotarySlider::paint (juce::Graphics& g)
 {
-    auto area = getLocalBounds();
+    auto bounds = getLocalBounds().toFloat();
+    auto centre = bounds.getCentre();
+    float radius = std::min(bounds.getWidth(), bounds.getHeight()) * 0.4f;
 
-    maxSlider.setBounds(area); // max slider
-    // maxSlider.setInterceptsMouseClicks(false, false);
-    slider.setBounds(area.withSizeKeepingCentre(area.getWidth()*0.95, area.getHeight()*0.95));   // main slider
+    /* Lambda function to determine the angle at that value*/
+    auto angleFromValue = [&](float v)
+    {
+        return juce::jmap(v, sliderMinLimit, sliderMaxLimit, startAngle, endAngle);
+    };
+
+    float minAngle = angleFromValue(minValue);
+    float maxAngle = angleFromValue(maxValue);
+
+    /* Adding the arc the length of the slider.*/
+    g.setColour(juce::Colours::darkgrey);
+    juce::Path backgroundArc;
+    backgroundArc.addCentredArc(centre.x, centre.y, radius, radius,
+                                0.0f, startAngle, endAngle, true);
+    g.strokePath(backgroundArc, juce::PathStrokeType(2.0f));
+
+    /* Adding the arc between the fingers*/
+    juce::Path valueArc;
+    valueArc.addCentredArc(centre.x, centre.y, radius, radius,
+                            0.0f, minAngle, maxAngle, true);
+
+    g.setColour(juce::Colours::green);
+    g.strokePath(valueArc, juce::PathStrokeType(4.0f));
+
+    // Draw handles
+    drawHandle(g, centre.x, centre.y, radius, minAngle, juce::Colours::white);
+    drawHandle(g, centre.x, centre.y, radius, maxAngle, juce::Colours::white);
 }
 
-// void CalibrationRotarySlider::mouseDown(const juce::MouseEvent& e)
-// {
-//     auto centre = getLocalBounds().getCentre().toFloat();
-//     auto pos = e.position;
-
-//     float distance = pos.getDistanceFrom(centre);
-
-//     float radius = getWidth() * 0.5f;
-
-//     if (distance > radius * 0.7f)
-//         maxSlider.mouseDown(e.getEventRelativeTo(&maxSlider));
-//     else
-//         slider.mouseDown(e.getEventRelativeTo(&slider));
-// }
-
-void CalibrationRotarySlider::mouseDrag(const juce::MouseEvent& e)
+void CalibrationRotarySlider::mouseDown (const juce::MouseEvent& e)
 {
-    if (activeSlider == nullptr)
-        return;
-
-    float delta = -e.getDistanceFromDragStartY() * 0.01f;
-
-    activeSlider->setValue(
-        activeSlider->getValue() + delta,
-        juce::sendNotificationSync
-    );
+    activeHandle = getClosestHandle(e.x, e.y);
 }
 
-void CalibrationRotarySlider::mouseUp(const juce::MouseEvent& e)
+void CalibrationRotarySlider::mouseDrag (const juce::MouseEvent& e)
 {
-    if (activeSlider != nullptr)
-        activeSlider->mouseUp(e.getEventRelativeTo(activeSlider));
+    float newValue = positionToValue(e.x, e.y);
 
-    activeSlider = nullptr;
+    if (activeHandle == handle_t::min)
+        minValue = juce::jlimit(0.0f, maxValue, newValue);
+    else
+        maxValue = juce::jlimit(minValue, 1.0f, newValue);
+
+    if (onValueChange)
+        onValueChange(minValue, maxValue);
+
+    repaint();
 }
+
+float CalibrationRotarySlider::positionToValue (float x, float y)
+{
+    auto bounds = getLocalBounds().toFloat();
+    auto centre = bounds.getCentre();
+
+    float angle = std::atan2(y - centre.y, x - centre.x);
+
+
+    // Wrap angle into positive range
+    if (angle < 0)
+        angle += 2*M_PI;
+
+    // Clamp into slider arc
+    angle = juce::jlimit(startAngle, endAngle, angle);
+
+    return juce::jmap(angle, startAngle, endAngle, 0.0f, 1.0f);
+}
+
+CalibrationRotarySlider::handle_t CalibrationRotarySlider::getClosestHandle (float x, float y)
+{
+    auto bounds = getLocalBounds().toFloat();
+    auto centre = bounds.getCentre();
+    float radius = juce::jmin(bounds.getWidth(), bounds.getHeight()) * 0.4f;
+
+    auto angleFromValue = [&](float v)
+    {
+        return juce::jmap(v, 0.0f, 1.0f, startAngle, endAngle);
+    };
+
+    auto handlePos = [&](float value)
+    {
+        float angle = angleFromValue(value);
+        return juce::Point<float>(
+            centre.x + std::cos(angle) * radius,
+            centre.y + std::sin(angle) * radius
+        );
+    };
+    juce::Point<float>  pos = juce::Point<float> {x, y}; 
+    float distMin = pos.getDistanceFrom(handlePos(minValue/sliderMaxLimit));
+    float distMax = pos.getDistanceFrom(handlePos(maxValue/sliderMaxLimit));
+
+    return (distMin < distMax) ? handle_t::min : handle_t::max;
+}
+
+void CalibrationRotarySlider::drawHandle (juce::Graphics& g, float centreX, float centreY,
+                     float radius, float angle, juce::Colour colour)
+{
+    float pointX = centreX + std::cos(angle) * radius;
+    float pointY = centreY + std::sin(angle) * radius;
+    std::cout << "ANGEL" << angle <<"\n";
+
+    g.setColour(colour);
+    g.fillEllipse(pointX - 6.0f, pointY - 6.0f, 12.0f, 12.0f);
+}
+
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                   verticalMixSlider                                        */
@@ -426,7 +439,7 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
 
  CalibrationOnClick::CalibrationOnClick(){
     /* Setting the button to only be momentary and not a switch. */
-    button.setToggleable(false);
+    this->button.setToggleable(false);
     /* Setting the button to only be triggered on the mouse down motion. */
     button.setTriggeredOnMouseDown(true);
     /* Attaching a listener so that this object can perform functions 
@@ -438,7 +451,7 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
  void CalibrationOnClick::resized(){
     juce::Rectangle<int> area = getLocalBounds();
     juce::Rectangle<int> buttonBounds = area.withSizeKeepingCentre(area.getWidth()*0.9, area.getHeight()*0.9);
-    button.setBounds(buttonBounds);
+    this->button.setBounds(buttonBounds);
 
  }
 
@@ -466,6 +479,11 @@ CalibrateEmbachure::CalibrateEmbachure(){
     addAndMakeVisible (this->button);
     this->button.setButtonText("Calibrate");
 
+    /* Adding a tool tip to be attached to the button so that if a user does not
+    know what the calibrate button is meant to do, it will explain it. */
+    this->button.setTooltip("This button will read the\ncurrent capacitance of the\nmouthpiece and set that as\nthe zero point.");
+    tooltipWindow.setMillisecondsBeforeTipAppears(300);
+
 }
 
 void CalibrateEmbachure::resized(){
@@ -483,9 +501,9 @@ void CalibrateEmbachure::resized(){
 
 }
 
-void CalibrateEmbachure::buttonClicked(juce::Button* button)
+void CalibrateEmbachure::buttonClicked(juce::Button* buttonClicked)
 {
-    if (button == &this->button){
+    if (buttonClicked == &this->button){
         trombonelessParameters.triggerEmbachureCalibrate = true;
     }
 }
