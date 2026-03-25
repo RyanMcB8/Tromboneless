@@ -18,7 +18,7 @@
  * Channels are specified using human-friendly numbering (1–16)
  * and internally converted to zero-based encoding (0–15).
  */
-class MIDIMessageBuilder
+class MidiMessageBuilder
 {
 public:
     using Byte = MidiMessage::Byte;
