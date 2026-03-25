@@ -1,5 +1,6 @@
 #pragma once
 #include "MidiMessage.hpp"
+#include "MIDIMessageBuilder.hpp"
 #include "functional"
 
 /**
@@ -10,18 +11,30 @@
 
 
 class MidiCoordinator{
-    private:      
-        using CallbackInterface = std::function<void(const MidiMessage)>;
+    private:
+
+        MidiMessage message;
+
+        using CallbackInterface = std::function<void(const MidiMessage&)>;
         CallbackInterface callback;
 
-        bool noteActive;
-        int currentNote;
-        int latestNote;
-        int latestExpr;
-        int lastSentBend;
-        int lastSentExpr;
+        bool noteActive = false; // Update with pressure gate.
+
+        int latestNote = -1; // Updated by mouthpiece. [0:127]
+        int latestExpr = -1; // Updated by pressure. [0:127]
+        int latestBend = -1; // Updated by slide. [-8192:8191]
+
+        int currentNote = -1; // Playing note 
+        int lastSentExpr = -1; // Saves expression. 
+        int lastSentBend = 10000; // Saves bend
+
+        int velocity = 127; // Clamped to max
+
     public:
         // Methods should be input events
+        /**
+         * Default constructor.
+         */
         MidiCoordinator();
         void RegisterCallback(CallbackInterface cb);
         void setGate(bool on);
