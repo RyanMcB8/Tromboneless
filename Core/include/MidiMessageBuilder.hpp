@@ -11,10 +11,6 @@
  * It separates message construction from message transmission,
  * supporting a clean single-responsibility design.
  *
- * Currently supported:
- * - Note On (0x9n)
- * - Note Off (0x8n)
- *
  * Channels are specified using human-friendly numbering (1–16)
  * and internally converted to zero-based encoding (0–15).
  */
