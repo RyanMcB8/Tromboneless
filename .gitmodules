@@ -1,0 +1,6 @@
+[submodule "App/modules/JUCE"]
+	path = App/modules/JUCE
+	url = https://github.com/juce-framework/JUCE.git
+[submodule "App/modules/freetype2"]
+	path = App/modules/freetype2
+	url = https://github.com/aseprite/freetype2.git
