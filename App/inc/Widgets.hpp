@@ -281,3 +281,32 @@ class Equalizer : public verticalMixSlider
         /* Shift keying drop down menu and label */  
         juce::Label dropDownLabel;
  };
+
+
+ class CalibrationOnClick   :   public juce::Component,
+                                public juce::Button::Listener
+ {
+    public:
+        juce::TextButton button;
+        CalibrationOnClick();
+
+        ~CalibrationOnClick() = default;
+
+        void resized() override;
+ };
+
+class CalibrateEmbachure    :   public CalibrationOnClick
+{
+    public:
+        CalibrateEmbachure();
+
+        ~CalibrateEmbachure() = default;
+
+        void resized() override;
+
+        void buttonClicked(juce::Button* button) override;
+
+    private:
+        DropDownMenu embachureChoice;
+
+};

@@ -31,6 +31,26 @@
 
     private:
         /* Shift keying drop down menu and label */
-        juce::String    labelText;  
         DropDownMenu shiftKeyChoice;
+ };
+
+ class EqualizerPanel   :   public juce::Component,
+                            public juce::Button::Listener
+ {
+    public:
+        EqualizerPanel();
+
+        ~EqualizerPanel() = default;
+
+        void resized() override;
+
+        // void DisplayPanel(bool option);
+
+        void buttonClicked(juce::Button* buttonClicked) override;
+
+    private:
+        juce::ToggleButton  button;
+        Equalizer equalizer;
+        juce::Label buttonLabel;
+
  };

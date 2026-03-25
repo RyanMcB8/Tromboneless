@@ -72,8 +72,10 @@ Layout::Layout()
     // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumPressure)));
     // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumPressure)));
 
+    addAndMakeVisible(calibrateEmbachure);
+
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
-    
+    addAndMakeVisible (equalizer);
 }
 
 Layout::~Layout()
@@ -117,19 +119,25 @@ void Layout::resized()
     auto SliderBounds = area.removeFromTop(250);
     
     /* Adding the sliders to the window. */
-    auto distanceSliderBounds = SliderBounds.removeFromLeft(SliderBounds.getWidth()*0.45);
+    auto distanceSliderBounds = SliderBounds.removeFromLeft(SliderBounds.getWidth()*0.65);
     // distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
     distanceSlider.setBounds (distanceSliderBounds.removeFromBottom(150));
     
     /* Pressure slider bounds */
-    auto pressureSliderBounds = SliderBounds.removeFromRight(area.getWidth()*0.45);
+    auto pressureSliderBounds = SliderBounds.removeFromRight(area.getWidth()*0.25);
     pressureSlider.setBounds (pressureSliderBounds);
+
+    calibrateEmbachure.setBounds(distanceSliderBounds);
     
     /* Equalizer */
     /* Only allowing the synthethiser to be viewed if it is enabled. */
     if(true == synthesiserParameters.synthEnable){
-        addAndMakeVisible (equalizer);
         auto equalizerBounds = area.removeFromTop(350);
+        equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
+        equalizer.setBounds(equalizerBounds);
+    }
+    else{
+        auto equalizerBounds = area.removeFromTop(50);
         equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
         equalizer.setBounds(equalizerBounds);
     }

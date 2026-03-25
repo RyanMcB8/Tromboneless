@@ -80,10 +80,13 @@ class Layout final : public juce::Component,
         CalibrationRotarySlider pressureSlider;
         BarometerLookAndFeel barometerLandF;
         BarometerOuterLookAndFeel barometerOuterLandF;
+
+        /* Adding an option to calibrate the embachure. */
+        CalibrateEmbachure calibrateEmbachure;
         
 
         /* Creation of the equalizer. */
-        Equalizer equalizer;
+        EqualizerPanel equalizer;
 
 
         /** @brief Function that can display a message on the window to the user

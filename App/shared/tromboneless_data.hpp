@@ -23,6 +23,9 @@ typedef struct{
 
     double lowPressure;
     double highPressure;
+
+    int embachureOption;
+    bool triggerEmbachureCalibrate;
 } TrombonelessParameters_t;
 
 /* A struct to store any of the synthesier parameters that may be changed within the app. */

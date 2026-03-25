@@ -403,7 +403,7 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
 
  void DropDownMenu::resized(){
     auto area = getLocalBounds();
-    auto labelBounds = area.removeFromLeft (std::min(area.getWidth()*0.2, double(150)));
+    auto labelBounds = area.removeFromLeft (std::min(area.getWidth()*0.6, double(80)));
     dropDownLabel.setBounds (labelBounds);
     dropDownChoice.setBounds (area.withSizeKeepingCentre(area.getWidth()*0.95, area.getHeight()));
 }
@@ -415,3 +415,77 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
  void DropDownMenu::ChangeLabelText(juce::String text, juce::NotificationType notification){
     dropDownLabel.setText(text, notification);
  }
+
+
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                   CalibrationOnClick                                       */
+/*                                                                                            */
+/* ========================================================================================== */
+
+ CalibrationOnClick::CalibrationOnClick(){
+    /* Setting the button to only be momentary and not a switch. */
+    button.setToggleable(false);
+    /* Setting the button to only be triggered on the mouse down motion. */
+    button.setTriggeredOnMouseDown(true);
+    /* Attaching a listener so that this object can perform functions 
+    when the button is pressed. */
+    button.addListener(this);
+
+ }
+
+ void CalibrationOnClick::resized(){
+    juce::Rectangle<int> area = getLocalBounds();
+    juce::Rectangle<int> buttonBounds = area.withSizeKeepingCentre(area.getWidth()*0.9, area.getHeight()*0.9);
+    button.setBounds(buttonBounds);
+
+ }
+
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                   CalibrateEmbachure                                       */
+/*                                                                                            */
+/* ========================================================================================== */
+
+CalibrateEmbachure::CalibrateEmbachure(){
+    /* Adding the dropdown menu to select the start */
+    addAndMakeVisible (embachureChoice);
+    embachureChoice.ChangeLabelText("Embachure\nselection: ");
+    embachureChoice.AddItem ("Middle F4", SKOpt_MiddleF4);
+    embachureChoice.AddItem ("B sharp 4", SKOpt_BSharp4);
+    embachureChoice.AddItem ("D5", SKOpt_D5);
+    embachureChoice.AddItem ("F5", SKOpt_F5);
+    embachureChoice.AddItem ("A sharp 4", SKOpt_ASharp4);
+    
+    /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
+    embachureChoice.OnChange (&trombonelessParameters.embachureOption);
+
+    /* Adding the button. */
+    addAndMakeVisible (this->button);
+    this->button.setButtonText("Calibrate");
+
+}
+
+void CalibrateEmbachure::resized(){
+    juce::Rectangle<int> area = getLocalBounds();
+    /* Adding a margin around the edge. */
+    area = area.withSizeKeepingCentre(area.getWidth()*0.9, area.getHeight()*0.8);
+
+    /* Making the button take up 10% of the space or 60 pixels.*/
+    juce::Rectangle<int> buttonBounds = area.removeFromRight(std::min((float) (area.getWidth()*0.4), (float) 100));
+    buttonBounds = buttonBounds.withSizeKeepingCentre((float)(buttonBounds.getWidth()), (float) (buttonBounds.getHeight()*0.5));
+    this->button.setBounds(buttonBounds);
+
+    /* Allowing the rest of the area to go to the dropdown and label. */
+    embachureChoice.setBounds(area);
+
+}
+
+void CalibrateEmbachure::buttonClicked(juce::Button* button)
+{
+    if (button == &this->button){
+        trombonelessParameters.triggerEmbachureCalibrate = true;
+    }
+}
