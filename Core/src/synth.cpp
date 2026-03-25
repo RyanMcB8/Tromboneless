@@ -327,3 +327,28 @@ float OctavesWithHarmonics::EndNoteWithHarmonics(int n, int octave, Notes_t note
 float OctavesWithHarmonics::HarmonicDecay(int n, int octave, Notes::Notes_t note){
     return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
 }
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                      Envelope                                              */
+/*                                                                                            */
+/* ========================================================================================== */
+
+Envelope::Envelope(int n_in, int octave_in, Notes::Notes_t note_in, float ascendT_in,
+                 float decayT_in, float saturation_in, float restT_in){
+    /** Setting the initial values of the parameters. */
+    n = n_in;   octave = octave_in;     note = note_in;     ascendT = ascendT_in;
+    decayT = decayT_in;     saturation = saturation_in;     restT = restT_in;
+
+
+}
+
+void Envelope::StartEnvelope(){
+
+
+}
+
+void Envelope::EndEnvelope(){
+
+
+}

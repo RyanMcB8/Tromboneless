@@ -482,4 +482,51 @@ class OctavesWithHarmonics :    public Octaves
         float HarmonicDecay(int n, int octave, Notes::Notes_t note);
 };
     
+class Envelope    :   public OctavesWithHarmonics
+{
+    public:
+        float amplitude = 0;
+    /** @brief                  Constructor for the Envelope class which initialises
+                                an envelope for a specified note. 
+        @param  n_in            The number of harmonics which should be included in the
+                                output waveform.
+        @param  octave_in       The octave to which the note being played belongs to.
+        @param  note_in         The note which is to be played. Defined in `Notes_t`.
+        @param  ascendT_in      The time in milliseconds in which it should take for
+                                the note to rise.
+        @param  decayT_in       The amount of time in milliseconds it takes the output
+                                signal to go from the peak value (1) to reach the
+                                saturation value.
+        @param  saturation_in   The relative amplitude which is settled upon after the
+                                decay region.
+        @param  restT_in        The time it takes for when the note has been released,
+                                to have an output amplitude of 0.
+        @note                   This function does not return any value but writes to the
+                                class's `amplitude` variable. Use this as the referenced
+                                output.
+        */
+        Envelope(int n_in = 5, int octave_in = 2, Notes::Notes_t note_in = note_C,
+             float ascendT_in = 1, float decayT_in = 2, 
+             float saturation_in = 0.8, float restT_in = 15);
+        
+        /* Destructor for the class. */
+        ~Envelope() = default;
+
+        /** @brief              A function which may be used to begin playing the sound
+                                specified. This will run indefinitely.
+        */
+        void StartEnvelope();
+
+        /** @brief              A function which stops this instances audio from playing.
+                                This enters the rest stage of the sound and does not stop
+                                instantly unless `restT` has been set to 0.
+        */
+        void EndEnvelope();
+
+    private:
+        /* initialising parameters. */
+        int             n, octave;
+        Notes::Notes_t  note;
+        float           ascendT, decayT, saturation, restT;
+};
     
