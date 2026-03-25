@@ -59,6 +59,9 @@ public:
     MidiMessage pitchBend(int channel, 
                           int value) const;
 
+    MidiMessage expr(int channel,
+                    int value) const;
+
 private:
     /**
      * @brief Clamp a human-friendly channel number to valid MIDI range.

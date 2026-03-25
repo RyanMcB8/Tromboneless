@@ -38,3 +38,15 @@ MidiMessageBuilder::Byte MidiMessageBuilder::clampChannel(int channel)
     if (channel > 16) channel = 16;
     return static_cast<Byte>(channel - 1);
 }
+
+MidiMessage MidiMessageBuilder::expr(int channel, int value) const 
+{
+    if(value < 0) value = 0;
+    if(value > 127) value = 127;
+    Byte ch = clampChannel(channel);           // 0..15
+    Byte status = static_cast<Byte>(0xB0 | ch); //Expression, channel
+    Byte CC = static_cast<Byte>(11); //Control Change 11
+    Byte expr_value = static_cast<Byte>(value);
+
+    return MidiMessage{status, CC, expr_value};
+}
