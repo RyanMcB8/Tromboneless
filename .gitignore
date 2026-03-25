@@ -41,7 +41,7 @@
 *.dwo
 
 # ignoring buiild
-build/
+*build/
 
 # ignoring vscode settings
 .vscode/

@@ -1,5 +1,9 @@
 #include "MidiCoordinator.hpp"
 
+MidiCoordinator::MidiCoordinator(){
+
+}
+
 void MidiCoordinator::RegisterCallback(CallbackInterface cb){
     callback = cb;
 }

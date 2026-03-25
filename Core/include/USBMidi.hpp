@@ -1,4 +1,4 @@
-#include "lib/rtmidi/RtMidi.h"
+#include "RtMidi.h"
 #include "MidiMessage.hpp"
 
 class RtMidiSink {
