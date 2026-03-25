@@ -1,13 +1,12 @@
 #include "drivers/tof_sensor.hpp"
 
-#include <thread>
 #include <chrono>
 
 using namespace std::chrono_literals;
 
-// --- Paste your full 91-byte config array here ---
+//full 91-byte config here
 const uint8_t ToFSensor::DEFAULT_CONFIG[91] = {
-    0x00, // 0x2d : set bit 2 and 5 to 1 for fast plus mode (1MHz I2C), else don't touch
+	0x00, // 0x2d : set bit 2 and 5 to 1 for fast plus mode (1MHz I2C), else don't touch
 	0x00, // 0x2e : bit 0 if I2C pulled up at 1.8V, else set bit 0 to 1 (pull up at AVDD)
 	0x00, // 0x2f : bit 0 if GPIO pulled up at 1.8V, else set bit 0 to 1 (pull up at AVDD)
 	0x01, // 0x30 : set bit 4 to 0 for active high interrupt and 1 for active low (bits 3:0 must be 0x1), use SetInterruptPolarity()
@@ -100,43 +99,63 @@ const uint8_t ToFSensor::DEFAULT_CONFIG[91] = {
 	0x00, // 0x87 : start ranging, use StartRanging() or StopRanging(), If you want an automatic start after VL53L1X_init() call, put 0x40 in location 0x87
 };
 
-ToFSensor::ToFSensor(I2CBus& bus, uint8_t address)
-    : bus_(bus), address_(address)
+ToFSensor::ToFSensor(I2CBus& bus,
+                     uint8_t address,
+                     const std::string& gpioChipPath,
+                     unsigned int gpioLine)
+    : bus_(bus),
+      address_(address),
+      gpioChipPath_(gpioChipPath),
+      gpioLine_(gpioLine)
 {
+}
+
+ToFSensor::~ToFSensor()
+{
+    stop(); // ensure clean shutdown
+}
+
+void ToFSensor::registerCallback(DistanceCallbackInterface cb)
+{
+    // Store subscriber callback
+    distanceCallbackInterface_ = cb;
 }
 
 bool ToFSensor::initialise()
 {
+    // Open I2C device
     if (!bus_.openBus())
         return false;
 
-    // Write default configuration (0x2D → 0x87)
-    for (uint16_t reg = 0x2D; reg <= 0x87; reg++)
+
+    // force sensor into known state
+    softReset();
+    
+    // Write default configuration to sensor registers
+    for (uint16_t reg = 0x2D; reg <= 0x87; ++reg)
     {
         uint8_t value = DEFAULT_CONFIG[reg - 0x2D];
         bus_.writeBlock(address_, reg, &value, 1);
     }
 
-    // Start once to initialise
+    // Start once to initialise internal state
     startRanging();
 
+    // Wait until first measurement ready
     while (!isDataReady())
         std::this_thread::sleep_for(10ms);
 
-    // Clear interrupt
-    uint8_t clear = 0x01;
-    bus_.writeBlock(address_, SYSTEM_INTERRUPT_CLEAR, &clear, 1);
-
+    clearInterrupt();
     stopRanging();
 
-    // Additional required config
-    uint8_t vhv1 = 0x09;
-    bus_.writeBlock(address_, VHV_CONFIG_TIMEOUT_MACROP_LOOP_BOUND, &vhv1, 1);
+    // Required additional config (ST recommended)
+    uint8_t vhvBound = 0x09;
+    bus_.writeBlock(address_, VHV_CONFIG_TIMEOUT_MACROP_LOOP_BOUND, &vhvBound, 1);
 
-    uint8_t vhv2 = 0x00;
-    bus_.writeBlock(address_, VHV_CONFIG_INIT, &vhv2, 1);
+    uint8_t vhvInit = 0x00;
+    bus_.writeBlock(address_, VHV_CONFIG_INIT, &vhvInit, 1);
 
-    // Read interrupt polarity
+    // Read interrupt polarity (used for data-ready detection)
     uint8_t tmp = 0;
     bus_.readBlock(address_, GPIO_HV_MUX_CTRL, &tmp, 1);
     interruptPolarity_ = !((tmp & 0x10) >> 4);
@@ -144,16 +163,114 @@ bool ToFSensor::initialise()
     return true;
 }
 
+void ToFSensor::softReset()
+{
+    // Put sensor into reset
+    uint8_t resetLow = 0x00;
+    bus_.writeBlock(address_, 0x0000, &resetLow, 1);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(2));
+
+    // Bring sensor out of reset
+    uint8_t resetHigh = 0x01;
+    bus_.writeBlock(address_, 0x0000, &resetHigh, 1);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(2));
+}
+
+void ToFSensor::start()
+{
+    // Configure GPIO line for input + rising edge detection
+    gpiod::line_config lineCfg;
+    lineCfg.add_line_settings(
+        gpioLine_,
+        gpiod::line_settings()
+            .set_direction(gpiod::line::direction::INPUT)
+            .set_edge_detection(gpiod::line::edge::RISING)
+    );
+
+    chip_ = std::make_shared<gpiod::chip>(gpioChipPath_);
+
+    auto builder = chip_->prepare_request();
+    builder.set_consumer("tof_sensor");
+    builder.set_line_config(lineCfg);
+
+    request_ = std::make_shared<gpiod::line_request>(builder.do_request());
+
+    // Start sensor ranging
+    startRanging();
+
+    // Launch worker thread (blocking)
+    running_ = true;
+    thread_ = std::thread(&ToFSensor::worker, this);
+}
+
+void ToFSensor::stop()
+{
+    if (!running_)
+        return;
+
+    running_ = false;
+
+    // Wait for thread to finish
+    if (thread_.joinable())
+        thread_.join();
+
+    // Stop sensor measurements
+    stopRanging();
+
+    // Release GPIO resources
+    if (request_)
+        request_->release();
+
+    if (chip_)
+        chip_->close();
+}
+
+void ToFSensor::worker()
+{
+    while (running_)
+    {
+        // BLOCKING call — sleeps until GPIO edge event occurs
+        bool ready = request_->wait_edge_events(std::chrono::milliseconds(1000));
+
+        if (!running_)
+            break;
+
+        if (ready)
+        {
+            // Consume event (required by libgpiod)
+            gpiod::edge_event_buffer buffer;
+            request_->read_edge_events(buffer, 1);
+
+            // Handle new measurement
+            handleDataReady();
+        }
+    }
+}
+
+void ToFSensor::handleDataReady()
+{
+    // Read distance from sensor
+    uint16_t distance = readDistanceMm();
+
+    // Publish to subscriber if registered
+    if (distanceCallbackInterface_)
+        distanceCallbackInterface_(distance);
+}
+
 void ToFSensor::startRanging()
 {
-    uint8_t val = 0x40;
-    bus_.writeBlock(address_, SYSTEM_MODE_START, &val, 1);
+    // 0x40 → continuous ranging mode
+    uint8_t value = 0x40;
+    bus_.writeBlock(address_, SYSTEM_MODE_START, &value, 1);
 }
 
 void ToFSensor::stopRanging()
 {
-    uint8_t val = 0x00;
-    bus_.writeBlock(address_, SYSTEM_MODE_START, &val, 1);
+    // 0x00 → stop measurements
+    uint8_t value = 0x00;
+    bus_.writeBlock(address_, SYSTEM_MODE_START, &value, 1);
 }
 
 bool ToFSensor::isDataReady()
@@ -161,26 +278,31 @@ bool ToFSensor::isDataReady()
     uint8_t status = 0;
     bus_.readBlock(address_, GPIO_TIO_HV_STATUS, &status, 1);
 
+    // Compare against configured interrupt polarity
     return (status & 0x01) == interruptPolarity_;
 }
 
-uint16_t ToFSensor::getDistanceMm()
+uint16_t ToFSensor::readDistanceMm()
 {
-    // Wait until data ready
-    while (!isDataReady())
-        std::this_thread::sleep_for(5ms);
-
+    // Read 16-bit distance result (MSB first)
     uint8_t data[2] = {0, 0};
     bus_.readBlock(address_, RESULT_RANGE_MM, data, 2);
 
-    uint16_t distance = (data[0] << 8) | data[1];
+    uint16_t distance = (static_cast<uint16_t>(data[0]) << 8) | data[1];
 
-    // Clear interrupt (corrected version)
-    uint8_t clear = 0x01;
-    bus_.writeBlock(address_, SYSTEM_INTERRUPT_CLEAR, &clear, 1);
+    // Clear interrupt so next measurement can trigger
+    clearInterrupt();
 
+    // Clamp out-of-range values
     if (distance > 4000)
-        return 16384; // out of range
+        return 16384;
 
     return distance;
+}
+
+void ToFSensor::clearInterrupt()
+{
+    // Must clear interrupt after each read
+    uint8_t clear = 0x01;
+    bus_.writeBlock(address_, SYSTEM_INTERRUPT_CLEAR, &clear, 1);
 }
