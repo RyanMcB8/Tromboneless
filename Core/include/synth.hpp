@@ -10,6 +10,7 @@
 
 /* Addition of all necessary header files. */
 #include <cmath>
+#include <sys/time.h>
 
 /* ========================================================================================== */
 /*                                  Class definitions                                         */
@@ -331,16 +332,30 @@ class Octaves   : public Notes
          *                  modified in the future to better match that of real world noise.
          */
         float TimeAscension(float t);
+
+        /** @brief          A function which determines the relative maximum
+         *                  amplitude of sound depending on how long ago the
+         *                  note was released.
+         *  @param  t       The normalised amount of time in which the note
+         *                  was released.
+         *  @param saturation The relative amplitude of the normal amplitude
+                            to the peak.
+         *  @retval         Returns a floating point value between saturation
+                            value and 1 representing the maximum amplitude.
+         */
+        float TimeDecay(float t, float saturation);
         
         /** @brief          A function which determines the relative maximum
          *                  amplitude of sound depending on how long ago the
          *                  note was released.
          *  @param  t       The normalised amount of time in which the note
          *                  was released.
+         *  @param saturation The relative amplitude of the normal amplitude
+                            to the peak.
          *  @retval         Returns a floating point value between 0 and 1
          *                  representing the maximum amplitude.
          */
-        float TimeDecay(float t);
+        float TimeRest(float t, float saturation);
 
         /** @brief          A function which may be called to determine the amplitude of 
          *                  a specified note at a specified time.
@@ -370,6 +385,41 @@ class Octaves   : public Notes
          */
         float StartNote(int octave, Notes_t note, float time, float t);
 
+        /** @brief          A function which may be called to determine the amplitude of 
+         *                  a specified note at a specified time.
+         *  @param  octave  The octave in which the note being played is in.
+         *  @param  note    The note which is currently being played.
+         *  @param  time    The time at which the sound should be sampled at.
+         *  @param  saturation  Sets the saturation level.
+         *  @retval         Returns a floating point value representing the ampliude
+         *                  of the note at the time it was sampled.
+         *  @note           This function only uses unit amplitudes and does not change
+         *                  depending on the volume. The maxmimum and minimum will always
+         *                  be 1 and -1 respectively.
+        */
+        float SaturatedNote(int octave, Notes_t note, float time, float saturation);
+
+        /** @brief          A function which may be called upon to play a single note
+         *                  in a specified octave and reduce it from its peak to its
+                            normal amplitude.
+         *  @param  octave  The octave in which the first harmonic is in.
+         *  @param  note    The note which is being played.
+         *  @param  time    The total amount of time the signal has been playing for.
+         *  @param  t       A parametric value which is used to determine how much the
+         *                  amplitudes of the waveforms should be reduced. When `t=0`, the
+         *                  waveforms are at their maximum amplitude and when`t=0`, their
+         *                  amplitudes = 0.
+         *  @param saturation The normal relative amplitude of the signal to its peak.
+         *  @retval         This function will return a floating point value representing
+         *                  the normalised changed amplitude of the sigal at that point in
+         *                  time.
+         *  @note           The number of steps between 0 and 1 for the time value should 
+         *                  be kept as high as possible as this represents the stage of
+         *                  oscillation the cosine wave is at.
+        */
+        float DecayNote(int octave, Notes_t note, float time, float t, float saturation);
+
+
         /** @brief          A function which may be called upon to play a single note
          *                  in a specified octave.
          *  @param  octave  The octave in which the first harmonic is in.
@@ -379,6 +429,7 @@ class Octaves   : public Notes
          *                  amplitudes of the waveforms should be reduced. When `t=0`, the
          *                  waveforms are at their maximum amplitude and when`t=0`, their
          *                  amplitudes = 0.
+         *  @param saturation The normal relative amplitude of the signal to its peak.
          *  @retval         This function will return a floating point value representing
          *                  the normalised changed amplitude of the sigal at that point in
          *                  time.
@@ -386,7 +437,7 @@ class Octaves   : public Notes
          *                  be kept as high as possible as this represents the stage of
          *                  oscillation the cosine wave is at.
         */
-        float EndNote(int octave, Notes_t note, float time, float t);
+        float EndNote(int octave, Notes_t note, float time, float t, float saturation);
     private:
 };
 
@@ -420,6 +471,45 @@ class OctavesWithHarmonics :    public Octaves
          *                  integer harmonics too.
          */
         float StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t);
+
+        /** @brief          A function which may be called upon to stop playing a range
+         *                  of harmonic notes when a specific note is called upon to
+         *                  be played.
+         *  @param  n       The number of harmonics which should be applied to the signal.
+         *  @param  octave  The octave in which the first harmonic is in.
+         *  @param  note    The note which is being played.
+         *  @param  time    The amount of time the signal has been playing. This corresponds
+         *                  to the phase that the waveform is at.
+         *  @param  t       A parametric value which is used to determine how much the
+         *                  amplitudes of the waveforms should be reduced. When `t=0`, the
+         *                  waveforms are at their maximum amplitude and when`t=0`, their
+         *                  amplitudes = 0.
+         *  @param  saturation
+         *  @retval         This function will return a floating point value representing
+         *                  the normalised changed amplitude of the sigal at that point in
+         *                  time.
+         *  @note           This function could be made to produce a much cleaner response
+         *                  by increasing the number of harmonics present and using non
+         *                  integer harmonics too.
+         */
+        float DecayNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation);
+        
+        /** @brief          A function which may be called upon to stop playing a range
+         *                  of harmonic notes when a specific note is called upon to
+         *                  be played.
+         *  @param  n       The number of harmonics which should be applied to the signal.
+         *  @param  octave  The octave in which the first harmonic is in.
+         *  @param  note    The note which is being played.
+         *  @param  time    The amount of time the signal has been playing. This corresponds
+         *                  to the phase that the waveform is at.
+         *  @retval         This function will return a floating point value representing
+         *                  the normalised changed amplitude of the sigal at that point in
+         *                  time.
+         *  @note           This function could be made to produce a much cleaner response
+         *                  by increasing the number of harmonics present and using non
+         *                  integer harmonics too.
+         */
+        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation);
         
         /** @brief          A function which may be called upon to stop playing a range
          *                  of harmonic notes when a specific note is called upon to
@@ -440,28 +530,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  by increasing the number of harmonics present and using non
          *                  integer harmonics too.
          */
-        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t);
-        
-        /** @brief          A function which may be called upon to stop playing a range
-         *                  of harmonic notes when a specific note is called upon to
-         *                  be played.
-         *  @param  n       The number of harmonics which should be applied to the signal.
-         *  @param  octave  The octave in which the first harmonic is in.
-         *  @param  note    The note which is being played.
-         *  @param  time    The amount of time the signal has been playing. This corresponds
-         *                  to the phase that the waveform is at.
-         *  @param  t       A parametric value which is used to determine how much the
-         *                  amplitudes of the waveforms should be reduced. When `t=0`, the
-         *                  waveforms are at their maximum amplitude and when`t=0`, their
-         *                  amplitudes = 0.
-         *  @retval         This function will return a floating point value representing
-         *                  the normalised changed amplitude of the sigal at that point in
-         *                  time.
-         *  @note           This function could be made to produce a much cleaner response
-         *                  by increasing the number of harmonics present and using non
-         *                  integer harmonics too.
-         */
-        float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t);
+        float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation);
         
     private:
         float decayConstant = 2;
@@ -481,11 +550,57 @@ class OctavesWithHarmonics :    public Octaves
          */
         float HarmonicDecay(int n, int octave, Notes::Notes_t note);
 };
-    
+
+
+class DeltaTime
+{
+    public:
+        /** @brief          Constructor for the DeltaTime class which simply creates
+                            an instance of the class and sets the initial start time
+                            to be a the time of creation.
+        */
+        DeltaTime();
+
+        /** @brief          Destructor for the DeltaTime class.
+         */
+        ~DeltaTime() = default;
+
+        /** @brief          A function that can change the start time of the instance
+                            an change the reference time of the delta time.
+        */
+        void setStartTime();
+
+        /** @brief          A function which returns the current start time.
+            @retval         returns the start timeval struct containing the
+                            time.
+        */
+        struct timeval getStartTime();
+
+        /** @brief          A function that can change the current time of the
+                            instance an change the reference time of the delta
+                            time.
+        */
+        void setCurrentTime();
+
+        /** @brief          A function which returns the current difference
+                            in time compared to start time and the current.
+            @retval         Returns the difference between the start time
+                            and time at call as a floating point value 
+                            representing the time in milliseconds.
+        */
+        float getDifference();
+
+    private:
+        /* Setting the variables which will hold the time structs.*/
+        struct timeval startTime;
+        struct timeval currentTime;
+
+};    
+
+
 class Envelope    :   public OctavesWithHarmonics
 {
     public:
-        float amplitude = 0;
     /** @brief                  Constructor for the Envelope class which initialises
                                 an envelope for a specified note. 
         @param  n_in            The number of harmonics which should be included in the
@@ -501,32 +616,41 @@ class Envelope    :   public OctavesWithHarmonics
                                 decay region.
         @param  restT_in        The time it takes for when the note has been released,
                                 to have an output amplitude of 0.
-        @note                   This function does not return any value but writes to the
-                                class's `amplitude` variable. Use this as the referenced
-                                output.
         */
         Envelope(int n_in = 5, int octave_in = 2, Notes::Notes_t note_in = note_C,
-             float ascendT_in = 1, float decayT_in = 2, 
-             float saturation_in = 0.8, float restT_in = 15);
+            float ascendT_in = 1, float decayT_in = 2, 
+            float saturation_in = 0.8, float restT_in = 15);
         
         /* Destructor for the class. */
         ~Envelope() = default;
-
+            
         /** @brief              A function which may be used to begin playing the sound
                                 specified. This will run indefinitely.
         */
         void StartEnvelope();
 
+        /** @brief              A function which may be called to update the value of the
+                                amplitude.
+            @retval             Returns a floating point value representing the amplitude
+                                of the noise at the time of request. Maxium value is 1.*/
+        float GetAmplitude();
+        
         /** @brief              A function which stops this instances audio from playing.
                                 This enters the rest stage of the sound and does not stop
                                 instantly unless `restT` has been set to 0.
-        */
+                                */
         void EndEnvelope();
-
+        
     private:
         /* initialising parameters. */
         int             n, octave;
         Notes::Notes_t  note;
         float           ascendT, decayT, saturation, restT;
-};
-    
+        
+        float amplitude = 0;
+        DeltaTime deltaTime;
+        
+        bool ending = 0;
+        DeltaTime endTime;
+    };
+

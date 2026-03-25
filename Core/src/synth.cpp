@@ -273,9 +273,14 @@ float Octaves::TimeAscension(float t){
     return Clamp01(t);
 }
 
-float Octaves::TimeDecay(float t){
+float Octaves::TimeDecay(float t, float saturation){
     t = Clamp01(t);
-    return Clamp01(1 - (t*t));
+    return ((1-saturation)*(1-t) + saturation);
+}
+
+float Octaves::TimeRest(float t, float saturation){
+    t = Clamp01(t);
+    return (saturation*(1 - Clamp01(t*t)));
 }
 
 float Octaves::PlayingNote(int octave, Notes_t note, float time){
@@ -286,8 +291,16 @@ float Octaves::StartNote(int octave, Notes_t note, float time, float t){
     return PlayingNote(octave, note, time) * TimeAscension(t);
 }
 
-float Octaves::EndNote(int octave, Notes_t note, float time, float t){
-    return PlayingNote(octave, note, time) * TimeDecay(t);
+float Octaves::SaturatedNote(int octave, Notes_t note, float time, float saturation){
+    return (PlayingNote(octave, note, time) * saturation);
+}
+
+float Octaves::DecayNote(int octave, Notes_t note, float time, float t, float saturation){
+    return PlayingNote(octave, note, time) * TimeDecay(t, saturation);
+}
+
+float Octaves::EndNote(int octave, Notes_t note, float time, float t, float saturation){
+    return PlayingNote(octave, note, time) * TimeRest(t, saturation);
 }
 
 /* ========================================================================================== */
@@ -308,7 +321,15 @@ float OctavesWithHarmonics::StartNoteWithHarmonics(int n, int octave, Notes_t no
     return (outputAmplitude/n);
 }
 
-float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
+float OctavesWithHarmonics::DecayNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation){
+    float outputAmplitude = 0;
+    for (int i=0; i < n; i++){
+        outputAmplitude += HarmonicDecay(n, octave, note) * StartNote(n, note, time, t);
+    } 
+    return (outputAmplitude/n);
+}
+
+float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation){
     float outputAmplitude = 0;
     for (int i=0; i < n; i++){
         outputAmplitude += HarmonicDecay(n, octave, note) * PlayingNote(n, note, time);
@@ -316,10 +337,10 @@ float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t 
     return (outputAmplitude/n);
 }
 
-float OctavesWithHarmonics::EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
+float OctavesWithHarmonics::EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation){
     float outputAmplitude = 0;
     for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t);
+        outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t, saturation);
     } 
     return (outputAmplitude/n);
 }
@@ -344,11 +365,73 @@ Envelope::Envelope(int n_in, int octave_in, Notes::Notes_t note_in, float ascend
 }
 
 void Envelope::StartEnvelope(){
+    /* Determining the time at the start of the envelope. */
+    deltaTime.setStartTime();
+    return;
+}
 
+float Envelope::GetAmplitude(){
+    deltaTime.setCurrentTime();
+    float time = deltaTime.getDifference();
+
+    /* Checking if the note has been stopped. */
+    if(!ending){
+        /* The sound is still in the ascent range. */
+        if (ascendT >= time){
+            float t = 1 - std::min((ascendT/time), (float)1);
+            return DecayNoteWithHarmonics(n, octave, note, time, t, saturation);
+        }
+
+        /* The sound is in the decay stage. */
+        else if ((ascendT+decayT) >= time){
+            float t = 1 - (decayT/(time-ascendT));
+            return StartNoteWithHarmonics(n, octave, note, time, t);
+        }
+
+        /* The sound is still in the saturation range. */
+        else if ((ascendT+decayT) < time){
+            return PlayingNoteWithHarmonics(n, octave, note, time, saturation);
+        }
+    }
+    else{
+        /* The system is now nearing the end. */
+        t = deltaTime
+        return EndNoteWithHarmonics(n, octave, note, time, )
+    }
+    
 
 }
 
 void Envelope::EndEnvelope(){
+    ending = 1;
+    gettimeofday(&endTime, NULL);
 
+}
 
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                      DeltaTime                                             */
+/*                                                                                            */
+/* ========================================================================================== */
+
+DeltaTime::DeltaTime(){
+    gettimeofday(&startTime, NULL);
+}
+
+void DeltaTime::setStartTime(){
+    gettimeofday(&startTime, NULL);
+}
+
+void DeltaTime::setCurrentTime(){
+    gettimeofday(&currentTime, NULL);
+}
+
+struct timeval DeltaTime::getStartTime(){
+    return startTime;
+}
+
+float DeltaTime::getDifference(){
+    float delta = ((currentTime.tv_sec - startTime.tv_sec)/1000);
+    delta += ((currentTime.tv_usec - startTime.tv_usec)*1000);
+    return delta;
 }

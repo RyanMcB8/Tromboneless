@@ -9,7 +9,24 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Generate compile_commands.json for better IntelliSense
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Enabling the unit tests:
+enable_testing()
+
 add_executable(TrombonelessCore src/main.cpp)
+# add_executable(TestCore tests/testSynth.cpp)
+
+# target_link_libraries(TestInstantiator vtkCommon)
+# add_test(NAME TestCore
+#          COMMAND TestCore)
+
+# target_include_directories(TestCore PRIVATE
+#     ${PROJECT_SOURCE_DIR}/include
+#     )    
+
+# target_sources(TestCore
+#     PRIVATE
+#         ${PROJECT_SOURCE_DIR}/tests
+#         )
 
 target_include_directories(TrombonelessCore PRIVATE
     ${PROJECT_SOURCE_DIR}/include
