@@ -1,41 +1,46 @@
 #pragma once
 
 #include <cstdint>
-
 #include "drivers/i2c_bus.hpp"
 
-// ST headers are C headers, so keep them in extern "C"
-extern "C"
-{
-#include "vl53l1_api.h"
-#include "vl53l1_platform.h"
-}
-
 /*
- * Minimal VL53L1X sensor wrapper
+ * Minimal VL53L1X ToF sensor class
  *
- * Responsibility:
- * - Own the I2C bus object
- * - Own the VL53L1 device struct
- * - Connect the ST platform layer to Linux I2C
- * - Provide a very small public interface for initial testing
+ * Responsibilities:
+ * - Initialise sensor
+ * - Start/stop ranging
+ * - Read distance in mm
  */
 
 class ToFSensor
 {
 public:
-    ToFSensor();
-    ~ToFSensor() = default;
+    explicit ToFSensor(I2CBus& bus, uint8_t address = 0x29);
 
-    // Open bus and prepare device for communication
     bool initialise();
 
-    // Read a single byte from a sensor register
-    bool readRegisterByte(uint16_t reg, uint8_t& value);
+    void startRanging();
+    void stopRanging();
+
+    bool isDataReady();
+    uint16_t getDistanceMm();
 
 private:
-    static constexpr uint8_t SENSOR_ADDRESS = 0x29;
+    I2CBus& bus_;
+    uint8_t address_;
 
-    I2CBus bus_;
-    VL53L1_Dev_t dev_;
+    uint8_t interruptPolarity_ = 0;
+
+    // --- Registers ---
+    static constexpr uint16_t SYSTEM_MODE_START = 0x0087;
+    static constexpr uint16_t GPIO_TIO_HV_STATUS = 0x0031;
+    static constexpr uint16_t SYSTEM_INTERRUPT_CLEAR = 0x0086;
+    static constexpr uint16_t RESULT_RANGE_MM = 0x0096;
+    static constexpr uint16_t GPIO_HV_MUX_CTRL = 0x0030;
+
+    static constexpr uint16_t VHV_CONFIG_TIMEOUT_MACROP_LOOP_BOUND = 0x0008;
+    static constexpr uint16_t VHV_CONFIG_INIT = 0x000B;
+
+    // Default configuration (paste full array in .cpp)
+    static const uint8_t DEFAULT_CONFIG[91];
 };
