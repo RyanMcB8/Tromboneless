@@ -31,11 +31,11 @@ int main()
         coordinator.ChangeNote(64);
         
         // Loop to test pitch bend
-        for (int i = 8000; i > 0; i-=200) 
+        for (int i = 8000; i > 0; i-=1) 
         {
             coordinator.setBend(i);
             coordinator.setExpr(i);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
 
         // Stop note
