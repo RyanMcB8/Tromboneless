@@ -29,10 +29,14 @@ int main()
 
         // Change note while playing
         coordinator.ChangeNote(64);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-        coordinator.setBend(-4000);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        
+        // Loop to test pitch bend
+        for (int i = 8000; i > 0; i-=200) 
+        {
+            coordinator.setBend(i);
+            coordinator.setExpr(i);
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
 
         // Stop note
         coordinator.PressureEdge(false);

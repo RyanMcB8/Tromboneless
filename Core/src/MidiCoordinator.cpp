@@ -54,8 +54,8 @@ void MidiCoordinator::ChangeNote(int note)
 
 void MidiCoordinator::setBend(int bend)
 {
-    if(bend < -8192) bend = -8192;
-    if(bend > 0) bend = 0;
+    if(bend < 0) bend = 0;
+    if(bend > 8192) bend = 8192;
     latestBend = bend;
 
     if (current_state == PLAYING)
