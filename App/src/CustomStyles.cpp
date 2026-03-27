@@ -250,7 +250,7 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
 
         /* Adding lines to indicate where on the slider the values are. */
         g.setColour (juce::Colours::black);
-        juce::Rectangle Thumbs = juce::Rectangle<float>((float) thumbOneX, (float) y+(height/2), (float) fingerThickness, (float) bounds.getHeight()*0.8);
+        juce::Rectangle Thumbs = juce::Rectangle<float>((float) thumbOneX, (float) (y + (height*0.8)), (float) fingerThickness, (float) bounds.getHeight()*0.8);
         g.fillRect(Thumbs);
         Thumbs = Thumbs.withX(thumbTwoX);
         g.fillRect(Thumbs);
@@ -374,7 +374,7 @@ void BarometerOuterLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y
         juce::Path p;
         g.setColour(thumbColour);
         float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
-        p.addRectangle (-fingerThickness, -radius, fingerThickness, radius-edgeThickness);
+        p.addRectangle (-fingerThickness, -(radius+2*(edgeThickness)), fingerThickness, edgeThickness);
         p.applyTransform (juce::AffineTransform::translation (x, y));
         p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
         g.setColour (juce::Colours::black);

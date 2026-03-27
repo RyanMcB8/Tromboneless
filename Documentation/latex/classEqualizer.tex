@@ -1,0 +1,115 @@
+\doxysection{Equalizer Class Reference}
+\hypertarget{classEqualizer}{}\label{classEqualizer}\index{Equalizer@{Equalizer}}
+
+
+A class which inherits its sliders from {\ttfamily \doxylink{classverticalMixSlider}{vertical\+Mix\+Slider}} made to act as an equalizer.  
+
+
+
+
+{\ttfamily \#include $<$Widgets.\+hpp$>$}
+
+
+
+Inheritance diagram for Equalizer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classEqualizer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Equalizer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classEqualizer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97}\label{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97} 
+{\bfseries Equalizer} (char number\+Of\+Sliders=10)
+\item 
+\Hypertarget{classEqualizer_a13ce26627bc000f883fceb7fcce46a24}\label{classEqualizer_a13ce26627bc000f883fceb7fcce46a24} 
+void {\bfseries resized} () override
+\begin{DoxyCompactList}\small\item\em A function to set the size of the sliders with respect to the equalizer. \end{DoxyCompactList}\item 
+\Hypertarget{classEqualizer_a874d467cae04b84eb2adeefaa08046e0}\label{classEqualizer_a874d467cae04b84eb2adeefaa08046e0} 
+void {\bfseries slider\+Value\+Changed} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classverticalMixSlider}{vertical\+Mix\+Slider}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries slider\+Value\+Changed} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Slider\+With\+Label} (juce\+::\+Slider\+::\+Slider\+Style style)
+\item 
+Initialise\+Label\+Errors\+\_\+t \mbox{\hyperlink{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}{Create\+Label}} (Label\+Positions\+\_\+t position, juce\+::\+String phrase, juce\+::\+Notification\+Type Notification\+Enable=juce\+::dont\+Send\+Notification)
+\begin{DoxyCompactList}\small\item\em A function which may be called to create or edit a specified label around the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{resized}} () override
+\begin{DoxyCompactList}\small\item\em A function which is automatically called whenever the window size is modified. This automatically adjusts the bounds of each of the labels as well as the slider to ensure the size is correct with respect to the screen size for the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEqualizer_ac5bd4808ca00f7c7686c20b7eefbfd3e}\label{classEqualizer_ac5bd4808ca00f7c7686c20b7eefbfd3e} 
+char {\bfseries n\+Sliders}
+\item 
+\Hypertarget{classEqualizer_a4ccb3c51309f715183fd47a046ac1911}\label{classEqualizer_a4ccb3c51309f715183fd47a046ac1911} 
+juce\+::\+Owned\+Array$<$ \mbox{\hyperlink{classverticalMixSlider}{vertical\+Mix\+Slider}} $>$ {\bfseries eq\+Sliders}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+juce\+::\+Slider {\bfseries slider}
+\item 
+int {\bfseries top\+Label\+Bounds} = 50
+\item 
+int {\bfseries left\+Label\+Bounds} = 200
+\item 
+int {\bfseries right\+Label\+Bounds} = 200
+\item 
+int {\bfseries bottom\+Label\+Bounds} = 50
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe}\label{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe} 
+enum {\bfseries Label\+Positions\+\_\+t} \{ \newline
+{\bfseries Upper\+Left}
+, {\bfseries Upper\+Centre}
+, {\bfseries Upper\+Right}
+, {\bfseries Middle\+Left}
+, \newline
+{\bfseries Middle\+Right}
+, {\bfseries Lower\+Left}
+, {\bfseries Lower\+Centre}
+, {\bfseries Lower\+Right}
+ \}
+\item 
+\Hypertarget{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3}\label{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3} 
+enum {\bfseries Initialise\+Label\+Errors\+\_\+t} \{ {\bfseries Label\+OK}
+, {\bfseries Positon\+Not\+Accepted}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which inherits its sliders from {\ttfamily \doxylink{classverticalMixSlider}{vertical\+Mix\+Slider}} made to act as an equalizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Sliders} & The number of sliders which should be added to the object. 10 by default. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,125 @@
+\doxysection{Slider\+With\+Label Class Reference}
+\hypertarget{classSliderWithLabel}{}\label{classSliderWithLabel}\index{SliderWithLabel@{SliderWithLabel}}
+
+
+A class which inherits attributes from the juce\+::\+Component class to create a new component containing a 8 possible label locations around the slider.  
+
+
+
+
+{\ttfamily \#include $<$Widgets.\+hpp$>$}
+
+
+
+Inheritance diagram for Slider\+With\+Label\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSliderWithLabel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Slider\+With\+Label\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classSliderWithLabel__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe}\label{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe} 
+enum {\bfseries Label\+Positions\+\_\+t} \{ \newline
+{\bfseries Upper\+Left}
+, {\bfseries Upper\+Centre}
+, {\bfseries Upper\+Right}
+, {\bfseries Middle\+Left}
+, \newline
+{\bfseries Middle\+Right}
+, {\bfseries Lower\+Left}
+, {\bfseries Lower\+Centre}
+, {\bfseries Lower\+Right}
+ \}
+\item 
+\Hypertarget{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3}\label{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3} 
+enum {\bfseries Initialise\+Label\+Errors\+\_\+t} \{ {\bfseries Label\+OK}
+, {\bfseries Positon\+Not\+Accepted}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSliderWithLabel_a25c9c9dc8ea3c9ae6ff41567e1ba760e}\label{classSliderWithLabel_a25c9c9dc8ea3c9ae6ff41567e1ba760e} 
+{\bfseries Slider\+With\+Label} (juce\+::\+Slider\+::\+Slider\+Style style)
+\item 
+Initialise\+Label\+Errors\+\_\+t \mbox{\hyperlink{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}{Create\+Label}} (Label\+Positions\+\_\+t position, juce\+::\+String phrase, juce\+::\+Notification\+Type Notification\+Enable=juce\+::dont\+Send\+Notification)
+\begin{DoxyCompactList}\small\item\em A function which may be called to create or edit a specified label around the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{resized}} () override
+\begin{DoxyCompactList}\small\item\em A function which is automatically called whenever the window size is modified. This automatically adjusts the bounds of each of the labels as well as the slider to ensure the size is correct with respect to the screen size for the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSliderWithLabel_ae5325e0cc2cb8f5443f9bf43d8c7fb9c}\label{classSliderWithLabel_ae5325e0cc2cb8f5443f9bf43d8c7fb9c} 
+juce\+::\+Slider {\bfseries slider}
+\item 
+\Hypertarget{classSliderWithLabel_ab19eb981d5f1bbfcbdcbcc33e0fb8e7c}\label{classSliderWithLabel_ab19eb981d5f1bbfcbdcbcc33e0fb8e7c} 
+int {\bfseries top\+Label\+Bounds} = 50
+\item 
+\Hypertarget{classSliderWithLabel_af8bb174d3b7b6c67ac0fa51eea68c1de}\label{classSliderWithLabel_af8bb174d3b7b6c67ac0fa51eea68c1de} 
+int {\bfseries left\+Label\+Bounds} = 200
+\item 
+\Hypertarget{classSliderWithLabel_a0ec83c456ced1a00fffff16d816791d9}\label{classSliderWithLabel_a0ec83c456ced1a00fffff16d816791d9} 
+int {\bfseries right\+Label\+Bounds} = 200
+\item 
+\Hypertarget{classSliderWithLabel_ad3391054e43b51af36f1276fea31a2a0}\label{classSliderWithLabel_ad3391054e43b51af36f1276fea31a2a0} 
+int {\bfseries bottom\+Label\+Bounds} = 50
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which inherits attributes from the juce\+::\+Component class to create a new component containing a 8 possible label locations around the slider. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}\label{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0} 
+\index{SliderWithLabel@{SliderWithLabel}!CreateLabel@{CreateLabel}}
+\index{CreateLabel@{CreateLabel}!SliderWithLabel@{SliderWithLabel}}
+\doxysubsubsection{\texorpdfstring{CreateLabel()}{CreateLabel()}}
+{\footnotesize\ttfamily Slider\+With\+Label\+::\+Initialise\+Label\+Errors\+\_\+t Slider\+With\+Label\+::\+Create\+Label (\begin{DoxyParamCaption}\item[{Label\+Positions\+\_\+t}]{position,  }\item[{juce\+::\+String}]{phrase,  }\item[{juce\+::\+Notification\+Type}]{Notification\+Enable = {\ttfamily juce\+:\+:dontSendNotification} }\end{DoxyParamCaption})}
+
+
+
+A function which may be called to create or edit a specified label around the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position index of the label which should be modified. These are saved as an enum in {\ttfamily Widgets.\+h}. \\
+\hline
+{\em phrase} & An array of type juce\+::\+String which contains the phrase which should be displayed where the label is. \\
+\hline
+{\em Notification\+Enable} & The type of notification which should be attached to the label. This is set to {\ttfamily dont\+Send\+Notification} by default but may be modified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function may only address one label at a time, but may be called upon for each label needed. There may only be one label in each position. 
+\end{DoxyNote}
+\Hypertarget{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}\label{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511} 
+\index{SliderWithLabel@{SliderWithLabel}!resized@{resized}}
+\index{resized@{resized}!SliderWithLabel@{SliderWithLabel}}
+\doxysubsubsection{\texorpdfstring{resized()}{resized()}}
+{\footnotesize\ttfamily void Slider\+With\+Label\+::resized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A function which is automatically called whenever the window size is modified. This automatically adjusts the bounds of each of the labels as well as the slider to ensure the size is correct with respect to the screen size for the component. 
+
+\begin{DoxyNote}{Note}
+The bounds are preset to be 20 for the top and bottom labels and 40 for the left and right labels. These values may be overwritten by writting to the {\ttfamily \+\_\+\+\_\+\+\_\+\+Label\+Bounds} where \+\_\+\+\_\+\+\_\+ may be {\ttfamily top}, {\ttfamily right}, {\ttfamily left} or {\ttfamily bottom}. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}
