@@ -501,9 +501,9 @@ void CalibrateEmbachure::resized(){
 
 }
 
-void CalibrateEmbachure::buttonClicked(juce::Button* buttonClicked)
+void CalibrateEmbachure::buttonClicked(juce::Button* thisButtonClicked)
 {
-    if (buttonClicked == &this->button){
+    if (thisButtonClicked == &this->button){
         trombonelessParameters.triggerEmbachureCalibrate = true;
     }
 }

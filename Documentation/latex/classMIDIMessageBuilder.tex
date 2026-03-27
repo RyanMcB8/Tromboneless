@@ -1,0 +1,94 @@
+\doxysection{MIDIMessage\+Builder Class Reference}
+\hypertarget{classMIDIMessageBuilder}{}\label{classMIDIMessageBuilder}\index{MIDIMessageBuilder@{MIDIMessageBuilder}}
+
+
+Factory class for constructing common MIDI channel messages.  
+
+
+
+
+{\ttfamily \#include $<$MIDIMessage\+Builder.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMIDIMessageBuilder_a8ebdf3350b3df5ab4cfac486b2bbd1ec}\label{classMIDIMessageBuilder_a8ebdf3350b3df5ab4cfac486b2bbd1ec} 
+using {\bfseries Byte} = Midi\+Message\+::\+Byte
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMidiMessage}{Midi\+Message}} \mbox{\hyperlink{classMIDIMessageBuilder_ad1a1d5275808d86aaf835f8e4f3da3a8}{note\+On}} (int channel, Byte note, Byte velocity) const
+\begin{DoxyCompactList}\small\item\em Create a MIDI Note On message. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMidiMessage}{Midi\+Message}} \mbox{\hyperlink{classMIDIMessageBuilder_a85223a9564f5dd4b9e433f75251ea296}{note\+Off}} (int channel, Byte note, Byte velocity=0) const
+\begin{DoxyCompactList}\small\item\em Create a MIDI Note Off message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Factory class for constructing common MIDI channel messages. 
+
+This class encapsulates the encoding logic required to construct correctly formatted MIDI channel voice messages.
+
+It separates message construction from message transmission, supporting a clean single-\/responsibility design.
+
+Currently supported\+:
+\begin{DoxyItemize}
+\item Note On (0x9n)
+\item Note Off (0x8n)
+\end{DoxyItemize}
+
+Channels are specified using human-\/friendly numbering (1–16) and internally converted to zero-\/based encoding (0–15). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMIDIMessageBuilder_a85223a9564f5dd4b9e433f75251ea296}\label{classMIDIMessageBuilder_a85223a9564f5dd4b9e433f75251ea296} 
+\index{MIDIMessageBuilder@{MIDIMessageBuilder}!noteOff@{noteOff}}
+\index{noteOff@{noteOff}!MIDIMessageBuilder@{MIDIMessageBuilder}}
+\doxysubsubsection{\texorpdfstring{noteOff()}{noteOff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMidiMessage}{Midi\+Message}} MIDIMessage\+Builder\+::note\+Off (\begin{DoxyParamCaption}\item[{int}]{channel,  }\item[{Byte}]{note,  }\item[{Byte}]{velocity = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Create a MIDI Note Off message. 
+
+This implementation uses the dedicated Note Off status byte (0x8n) rather than Note On with velocity 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & MIDI channel number (1–16). \\
+\hline
+{\em note} & MIDI note number (0–127). \\
+\hline
+{\em velocity} & Release velocity (default 0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Constructed \doxylink{classMidiMessage}{Midi\+Message}. 
+\end{DoxyReturn}
+\Hypertarget{classMIDIMessageBuilder_ad1a1d5275808d86aaf835f8e4f3da3a8}\label{classMIDIMessageBuilder_ad1a1d5275808d86aaf835f8e4f3da3a8} 
+\index{MIDIMessageBuilder@{MIDIMessageBuilder}!noteOn@{noteOn}}
+\index{noteOn@{noteOn}!MIDIMessageBuilder@{MIDIMessageBuilder}}
+\doxysubsubsection{\texorpdfstring{noteOn()}{noteOn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMidiMessage}{Midi\+Message}} MIDIMessage\+Builder\+::note\+On (\begin{DoxyParamCaption}\item[{int}]{channel,  }\item[{Byte}]{note,  }\item[{Byte}]{velocity }\end{DoxyParamCaption}) const}
+
+
+
+Create a MIDI Note On message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & MIDI channel number (1–16). \\
+\hline
+{\em note} & MIDI note number (0–127). \\
+\hline
+{\em velocity} & Note velocity (0–127). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Constructed \doxylink{classMidiMessage}{Midi\+Message}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Core/include/MIDIMessage\+Builder.\+hpp\item 
+Core/src/MIDIMessage\+Builder.\+cpp\end{DoxyCompactItemize}

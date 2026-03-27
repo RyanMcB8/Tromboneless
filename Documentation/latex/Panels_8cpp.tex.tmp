@@ -1,0 +1,19 @@
+\doxysection{App/src/\+Panels.cpp File Reference}
+\hypertarget{Panels_8cpp}{}\label{Panels_8cpp}\index{App/src/Panels.cpp@{App/src/Panels.cpp}}
+
+
+This file contains the function defintions for to create the necessary panels that may be used within the Tromboneless user interface.  
+
+
+{\ttfamily \#include "{}Panels.\+hpp"{}}\newline
+{\ttfamily \#include "{}Widgets.\+hpp"{}}\newline
+Include dependency graph for Panels.\+cpp\+:
+% FIG 0
+
+
+\doxysubsection{Detailed Description}
+This file contains the function defintions for to create the necessary panels that may be used within the Tromboneless user interface. 
+
+\begin{DoxyAuthor}{Author}
+Ryan Mc\+Bride 
+\end{DoxyAuthor}

@@ -1,0 +1,59 @@
+\doxysection{Rotary\+Slider\+With\+Label Class Reference}
+\hypertarget{classRotarySliderWithLabel}{}\label{classRotarySliderWithLabel}\index{RotarySliderWithLabel@{RotarySliderWithLabel}}
+
+
+Inheritance diagram for Rotary\+Slider\+With\+Label\+:
+% FIG 0
+
+
+Collaboration diagram for Rotary\+Slider\+With\+Label\+:
+% FIG 1
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe}\label{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe} 
+enum {\bfseries Label\+Positions\+\_\+t} \{ \newline
+{\bfseries Upper\+Left}
+, {\bfseries Upper\+Centre}
+, {\bfseries Upper\+Right}
+, {\bfseries Middle\+Left}
+, \newline
+{\bfseries Middle\+Right}
+, {\bfseries Lower\+Left}
+, {\bfseries Lower\+Centre}
+, {\bfseries Lower\+Right}
+ \}
+\item 
+\Hypertarget{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3}\label{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3} 
+enum {\bfseries Initialise\+Label\+Errors\+\_\+t} \{ {\bfseries Label\+OK}
+, {\bfseries Positon\+Not\+Accepted}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Slider\+With\+Label} (juce\+::\+Slider\+::\+Slider\+Style style)
+\item 
+Initialise\+Label\+Errors\+\_\+t \mbox{\hyperlink{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}{Create\+Label}} (Label\+Positions\+\_\+t position, juce\+::\+String phrase, juce\+::\+Notification\+Type Notification\+Enable=juce\+::dont\+Send\+Notification)
+\begin{DoxyCompactList}\small\item\em A function which may be called to create or edit a specified label around the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{resized}} () override
+\begin{DoxyCompactList}\small\item\em A function which is automatically called whenever the window size is modified. This automatically adjusts the bounds of each of the labels as well as the slider to ensure the size is correct with respect to the screen size for the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+juce\+::\+Slider {\bfseries slider}
+\item 
+int {\bfseries top\+Label\+Bounds} = 50
+\item 
+int {\bfseries left\+Label\+Bounds} = 200
+\item 
+int {\bfseries right\+Label\+Bounds} = 200
+\item 
+int {\bfseries bottom\+Label\+Bounds} = 50
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+App/inc/Widgets.\+hpp\end{DoxyCompactItemize}

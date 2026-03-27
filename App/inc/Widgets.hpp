@@ -311,7 +311,7 @@ class CalibrateEmbachure    :   public CalibrationOnClick
 
         void resized() override;
 
-        void buttonClicked(juce::Button* buttonClicked) override;
+        void buttonClicked(juce::Button* thisButtonClicked) override;
 
     private:
         DropDownMenu embachureChoice;
