@@ -12,7 +12,7 @@ class getDistance{
             if(distance<20) distance = 0;
             if(distance>500) distance = 500;
             int scaled_bend = distance*(8192/500);
-            return distance;
+            return scaled_bend;
         }
 };
 
@@ -46,10 +46,12 @@ int main()
                 midiSink.send(msg);
             });
 
+        int got_bend = 0;
+        
         // lidar callback
         sensor.registerCallback([&](uint16_t distance)
             {
-                distancegetter.hasTOFsample(distance);
+                got_bend = distancegetter.hasTOFsample(distance);
             });
 
         // Set up some initial values
@@ -64,12 +66,8 @@ int main()
         // Change note while playing
         coordinator.ChangeNote(64);
         
-        // Loop to test pitch bend
-        for (int i = 8000; i > 0; i-=1) 
-        {
-            coordinator.setBend(i);
-            coordinator.setExpr(i);
-            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        while(true){
+        coordinator.setBend(got_bend);
         }
 
         // Stop note
