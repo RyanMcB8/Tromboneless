@@ -43,6 +43,10 @@
 # ignoring buiild
 *build/
 
+# ignoring build within Core
+
+/Core/build/
+
 # ignoring vscode settings
 .vscode/
 
