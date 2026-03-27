@@ -1,9 +1,9 @@
-<map id="Core/include/synth.hpp" name="Core/include/synth.hpp">
-<area shape="rect" id="Node000001" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="184,5,355,31"/>
-<area shape="rect" id="Node000002" href="$main_8hpp_source.html" title=" " alt="" coords="5,79,173,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,38,120,81,118,76,227,33"/>
-<area shape="rect" id="Node000003" href="$synth_8cpp.html" title="C file which contains the defintions for the functions declared in the synth.hpp file." alt="" coords="198,79,341,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,44,272,79,267,79,267,44"/>
-<area shape="rect" id="Node000004" href="$testSynth_8cpp.html" title="This file contains all of the necessary unit tests for the functions declared within the synth...." alt="" coords="365,79,547,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="313,33,426,76,425,81,311,38"/>
+<map id="/home/ryan/Tromboneless/Core/include/synth.hpp" name="/home/ryan/Tromboneless/Core/include/synth.hpp">
+<area shape="rect" id="Node000001" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="220,5,411,45"/>
+<area shape="rect" id="Node000002" href="$main_8hpp_source.html" title=" " alt="" coords="5,93,196,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,53,149,96,147,91,255,48"/>
+<area shape="rect" id="Node000003" href="$synth_8cpp.html" title="C file which contains the defintions for the functions declared in the synth.hpp file." alt="" coords="220,93,411,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="318,59,318,93,313,93,313,59"/>
+<area shape="rect" id="Node000004" href="$testSynth_8cpp.html" title="This file contains all of the necessary unit tests for the functions declared within the synth...." alt="" coords="435,93,625,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="376,48,484,91,482,96,374,53"/>
 </map>
