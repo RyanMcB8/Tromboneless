@@ -2,21 +2,55 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
+#include "drivers/i2c_bus.hpp"
+#include "drivers/tof_sensor.hpp"
+
+class getDistance{
+    public:
+        int hasTOFsample(uint16_t distance){
+            // map to 0-812
+            if(distance<20) distance = 0;
+            if(distance>500) distance = 500;
+            int scaled_bend = distance*(8192/500);
+            return distance;
+        }
+};
 
 int main()
 {
     try
-    {
+    {   
+        // opening I2c bus
+        I2CBus bus("/dev/i2c-1");
+
+        // GPIO line must match wiring of VL53L1X interrupt pin
+        ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
+
+        // Instantiating midi things
         MidiCoordinator coordinator;
         RtMidiSink midiSink;
-
+        getDistance distancegetter;
+        
+        // check lidar sensor has initialised properly
+        if (!sensor.initialise())
+    {
+        std::cerr << "Initialisation failed\n";
+        return 1;
+    }
+        
+        // midi callback
         coordinator.RegisterCallback(
             [&](const MidiMessage& msg)
             {
                 std::cout << "Sending MIDI message of size " << msg.size() << "\n";
                 midiSink.send(msg);
-            }
-        );
+            });
+
+        // lidar callback
+        sensor.registerCallback([&](uint16_t distance)
+            {
+                distancegetter.hasTOFsample(distance);
+            });
 
         // Set up some initial values
         coordinator.setExpr(100);   // CC11 expression
@@ -48,48 +82,11 @@ int main()
         return 1;
     }
 
-#include <iostream>
-#include <thread>
-#include <chrono>
+    return 0;
+}
 
-#include "drivers/i2c_bus.hpp"
-#include "drivers/tof_sensor.hpp"
 
-/*
- * Subscriber class
- * Receives distance from sensor
- */
-class ToFPrinter
-{
-public:
-    void hasToFSample(uint16_t distance)
-    {
-        std::cout << "Distance: " << distance << " mm\n";
-    }
-};
-
-int main()
-{
-    I2CBus bus("/dev/i2c-1");
-
-    // GPIO line must match wiring of VL53L1X interrupt pin
-    ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
-
-    ToFPrinter printer;
-
-    if (!sensor.initialise())
-    {
-        std::cerr << "Initialisation failed\n";
-        return 1;
-    }
-
-    // Connect publisher → subscriber via lambda
-    sensor.registerCallback([&](uint16_t distance)
-    {
-        printer.hasToFSample(distance);
-    });
-
-    // Start blocking GPIO + sensor
+/*     // Start blocking GPIO + sensor
     sensor.start();
 
     // Main thread idle (system is event-driven now)
@@ -97,6 +94,4 @@ int main()
     {
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
-
-    return 0;
-}
+ */
