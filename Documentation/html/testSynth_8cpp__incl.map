@@ -1,0 +1,11 @@
+<map id="Core/tests/testSynth.cpp" name="Core/tests/testSynth.cpp">
+<area shape="rect" id="Node000001" title="This file contains all of the necessary unit tests for the functions declared within the synth...." alt="" coords="50,5,231,31"/>
+<area shape="rect" id="Node000002" href="$synth_8hpp.html" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="44,79,131,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,33,106,69,102,66,130,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="155,79,235,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="152,29,180,66,176,69,148,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,68,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,106,55,142,51,139,77,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="93,152,183,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="98,103,124,139,120,142,94,106"/>
+</map>
