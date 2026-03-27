@@ -88,7 +88,6 @@ class Layout final : public juce::Component,
         /* Creation of the equalizer. */
         EqualizerPanel equalizer;
 
-
         /** @brief Function that can display a message on the window to the user
             @param title Takes in a message of type juce::String to be displayed as the message title
             @param message Takes in a message of type juce::String to be the message displayed

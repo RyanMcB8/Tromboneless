@@ -56,16 +56,16 @@ Layout::Layout()
     /* Slider */
     addAndMakeVisible (pressureSlider);
     using juce::Slider;
-    pressureSlider.slider.setRange(minimumPressure, maximumPressure, stepPressure);
-    pressureSlider.setMinDifference(pressureRange);
-    pressureSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    pressureSlider.maxSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    pressureSlider.slider.setValue (0.2, juce::dontSendNotification);
-    pressureSlider.maxSlider.slider.setValue (1.2, juce::dontSendNotification);
-    pressureSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
-    pressureSlider.slider.setNumDecimalPlacesToDisplay(2);
-    pressureSlider.slider.setLookAndFeel(&barometerLandF);
-    pressureSlider.maxSlider.slider.setLookAndFeel(&barometerOuterLandF);
+    // pressureSlider.slider.setRange(minimumPressure, maximumPressure, stepPressure);
+    // pressureSlider.setMinDifference(pressureRange);
+    // pressureSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    // pressureSlider.maxSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
+    // pressureSlider.slider.setValue (0.2, juce::dontSendNotification);
+    // pressureSlider.maxSlider.slider.setValue (1.2, juce::dontSendNotification);
+    // pressureSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
+    // pressureSlider.slider.setNumDecimalPlacesToDisplay(2);
+    // pressureSlider.slider.setLookAndFeel(&barometerLandF);
+    // pressureSlider.maxSlider.slider.setLookAndFeel(&barometerOuterLandF);
 
     /* Adding labels to the slider. */
     // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Pressure gain");
@@ -73,6 +73,7 @@ Layout::Layout()
     // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumPressure)));
 
     addAndMakeVisible(calibrateEmbachure);
+
 
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
     addAndMakeVisible (equalizer);
@@ -128,7 +129,7 @@ void Layout::resized()
     pressureSlider.setBounds (pressureSliderBounds);
 
     calibrateEmbachure.setBounds(distanceSliderBounds);
-    
+
     /* Equalizer */
     /* Only allowing the synthethiser to be viewed if it is enabled. */
     if(true == synthesiserParameters.synthEnable){
@@ -141,6 +142,7 @@ void Layout::resized()
         equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
         equalizer.setBounds(equalizerBounds);
     }
+
 
 }
 
@@ -166,14 +168,14 @@ void Layout::sliderValueChanged (juce::Slider* slider)
     }
 
     /* Calibrated pressure has changed. */
-    else if (slider == &pressureSlider.slider){
-        trombonelessParameters.lowPressure = pressureSlider.slider.getMinValue();
-        trombonelessParameters.highPressure = pressureSlider.slider.getMaxValue();
+    // else if (slider == &pressureSlider.slider){
+    //     trombonelessParameters.lowPressure = pressureSlider.slider.getMinValue();
+    //     trombonelessParameters.highPressure = pressureSlider.slider.getMaxValue();
 #ifdef DBG_MSG
         std::cout << "PressureSlider min:" <<  trombonelessParameters.lowPressure << "\n";
         std::cout << "PressureSlider max:" <<  trombonelessParameters.highPressure << "\n";
 #endif
-    }
+    // }
 
 }
 

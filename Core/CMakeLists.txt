@@ -10,6 +10,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
+# Enabling the unit tests:
+# enable_testing()
 
 add_executable(TrombonelessCore src/main.cpp)
 
@@ -23,6 +25,7 @@ target_include_directories(TrombonelessCore PRIVATE
     ${PROJECT_SOURCE_DIR}/lib/rtmidi
 
     # ${PROJECT_SOURCE_DIR}/shared
+    ${PROJECT_SOURCE_DIR}/shared
     )
 
 # Add source files

@@ -135,41 +135,45 @@ public:
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
-class CalibrationRotarySlider : public SliderWithLabel,
-                                public juce::Slider::Listener
+class CalibrationRotarySlider : public juce::Component
 {
 public:
-
-    SliderWithLabel maxSlider = SliderWithLabel(juce::Slider::Rotary);
-    /** @brief Contructor for the `CalibrationSlider` class which requires the
-     *  type of slider being used to be initiated which is set to `TwoValueHorizontal`
-     *  by default.
-     */ 
     CalibrationRotarySlider();
 
-    ~CalibrationRotarySlider() = default;
+    // Normalised values (0.0 → 1.0)
+    float minValue = 0.25f;
+    float maxValue = 0.75f;
 
-    /** @brief A function which sets the minimum difference between the upper and lower fingers of the slider.
-     *  @param difference The value of the difference between the fingers.
-     */
-    void setMinDifference(double difference);
+    /* Setting the limits of the slider. */
+    float sliderMinLimit = 0.1;
+    float sliderMaxLimit = 2;
 
+    std::function<void(float, float)> onValueChange;
 
-    /** @brief A function that is called upon when either of the fingers are moved.
-     *  @note This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other.
-     */
-    void sliderValueChanged(juce::Slider* sliderChanged);
+    void paint (juce::Graphics& g) override;
 
-    void resized() override;
+    void mouseDown (const juce::MouseEvent& e) override;
 
-    // void mouseDown(const juce::MouseEvent& e) override;
-    void mouseDrag(const juce::MouseEvent& e) override;
-    void mouseUp(const juce::MouseEvent& e) override;
+    void mouseDrag (const juce::MouseEvent& e) override;
 
-    private:
-        double minDistance = 1;
-        juce::Slider* activeSlider = nullptr;
-        
+private:
+    typedef enum
+    {
+        min,
+        max,
+    } handle_t;
+
+    float startAngle = -M_PI*0.75f;
+    float endAngle = -startAngle;
+
+    handle_t activeHandle = handle_t::min;
+
+    float positionToValue (float x, float y);
+
+    handle_t getClosestHandle (float x, float y);
+
+    void drawHandle (juce::Graphics& g, float centreX, float centreY,
+                     float radius, float angle, juce::Colour colour);
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
@@ -287,12 +291,15 @@ class Equalizer : public verticalMixSlider
                                 public juce::Button::Listener
  {
     public:
-        juce::TextButton button;
+        
         CalibrationOnClick();
 
         ~CalibrationOnClick() = default;
 
         void resized() override;
+        juce::TextButton button;
+        
+    private:
  };
 
 class CalibrateEmbachure    :   public CalibrationOnClick
@@ -304,9 +311,12 @@ class CalibrateEmbachure    :   public CalibrationOnClick
 
         void resized() override;
 
-        void buttonClicked(juce::Button* button) override;
+        void buttonClicked(juce::Button* thisButtonClicked) override;
 
     private:
         DropDownMenu embachureChoice;
+        
+        juce::TooltipWindow tooltipWindow;
 
 };
+
