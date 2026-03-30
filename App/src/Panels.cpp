@@ -84,17 +84,18 @@ void EqualizerPanel::resized(){
 
 void EqualizerPanel::buttonClicked(juce::Button* buttonClicked)
 {
+    if (buttonClicked == &button){
+        synthesiserParameters.synthEnable = !synthesiserParameters.synthEnable;
+        equalizer.setVisible(synthesiserParameters.synthEnable);
 
-    synthesiserParameters.synthEnable = !synthesiserParameters.synthEnable;
-    equalizer.setVisible(synthesiserParameters.synthEnable);
-
-    if (false == synthesiserParameters.synthEnable){
-        buttonLabel.setText((juce::String) "Enable equalizer", juce::dontSendNotification);
+        if (false == synthesiserParameters.synthEnable){
+            buttonLabel.setText((juce::String) "Enable equalizer", juce::dontSendNotification);
+        }
+        else{
+            buttonLabel.setText((juce::String) "Disable equalizer", juce::dontSendNotification);
+        }
+        
+        /* Updating the parent component to redraw the screen. */
+        if (auto* parent = getParentComponent()) parent->resized();
     }
-    else{
-        buttonLabel.setText((juce::String) "Disable equalizer", juce::dontSendNotification);
-    }
-    
-    /* Updating the parent component to redraw the screen. */
-    if (auto* parent = getParentComponent()) parent->resized();
 }

@@ -25,6 +25,7 @@ private:
     const juce::Colour tickColour           = juce::Colours::darkgrey;          /* */
     const juce::Colour trackColour          = juce::Colours::darkgrey;
     const juce::Colour backgroundColour     = juce::Colours::black; //juce::Colours::black;
+    const juce::Colour textColour           = juce::Colours::white;
 
     /* Sizes. */
     float trackWidth          = 5;          /* This sets the track width of the slider. */
@@ -132,7 +133,7 @@ class BarometerOuterLookAndFeel  :  public   juce::LookAndFeel_V4{
 class NeedleLookAndFeel :   public juce::LookAndFeel_V4
 {
     public:
-        NeedleLookAndFeel();
+        NeedleLookAndFeel() = default;
 
         virtual ~NeedleLookAndFeel() = default;
 

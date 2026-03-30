@@ -190,8 +190,8 @@ CalibrationSlider::~CalibrationSlider(){
 
 DualRotarySlider::DualRotarySlider(){
     /* Setting the styles of the rotary sliders.*/
-    minSlider.setSliderStyle(juce::Slider::RotaryHorizontalDrag);
-    maxSlider.setSliderStyle(juce::Slider::RotaryHorizontalDrag);
+    minSlider.setSliderStyle(juce::Slider::Rotary);
+    maxSlider.setSliderStyle(juce::Slider::Rotary);
 
     /* Adding limits to the slider.*/
     minSlider.setRotaryParameters(minAngle, (maxAngle - minAngleDifference), true);
@@ -230,8 +230,6 @@ DualRotarySlider::~DualRotarySlider(){
  {
     float min = minSlider.getValue();
     float max = maxSlider.getValue();
-
-    std::cout << "min:  " << min << "    max:  " << max << "\n";
  
     /* Checking if the values are out of range of each other. */
     if (max - min < minDifference)
@@ -353,6 +351,9 @@ void Barometer::paint (juce::Graphics& g){
 
     g.setColour(textColour);
     int nNotches = (maxLimit - minLimit)/interval;
+    int counter = (int) (minLimit*10);
+    float textWidth = 20;
+    float textHeight = 15;
     for (int i = 0; i <= nNotches; i++)
     {
         juce::Path rotated;
@@ -360,10 +361,23 @@ void Barometer::paint (juce::Graphics& g){
         rotated.lineTo(centreX, centreY - (radius*relativeInnerRadius));
         float plotAngle = ((maxAngle - minAngle) * i / nNotches) + minAngle;
 
+        /* Checking if there is a step of 0.5 appearing.*/
+        if (0 == (counter % 5)){
+            X = (float) (centreX + radius*relativeLabelRadius*sin(plotAngle) - 1.5*thickness);
+            Y = (float) (centreY - radius*relativeLabelRadius*cos(plotAngle)- thickness);
+            g.setFont(12.0f); 	
+            g.drawText((const juce::String&)(juce::String(0.5 * (int)(counter/5))),
+                        X, Y,
+                        textWidth, textHeight,
+                        juce::Justification::left, true  );
+
+        }
+
         // rotated.applyTransform(juce::AffineTransform::rotation (minAngle, centreX, centreY));
         rotated.applyTransform(juce::AffineTransform::rotation (plotAngle, centreX, centreY));
 
         g.strokePath (rotated, juce::PathStrokeType (1.0f));
+        counter += (int)(interval*10);
     }
 
     /* enclosing the notches in a circle */
@@ -385,9 +399,9 @@ void Barometer::paint (juce::Graphics& g){
     g.strokePath(p, juce::PathStrokeType (1.0f));
 
     /* Adding the maximum and minimum labels to the screen.*/
-    float textWidth = 25;
-    float textHeight = 15;
-
+    textWidth = 25;
+    textHeight = 15;
+    g.setFont(18.0f);
     g.drawText ((const juce::String) minLimit,
                  (float) (centreX + radius*relativeOuterRadius*sin(minAngle)), (float) (centreY - radius*relativeOuterRadius*cos(minAngle)),
                  (float)textWidth, (float) textHeight,
@@ -447,9 +461,9 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
 /* ========================================================================================== */
 
  verticalMixSlider::verticalMixSlider() : SliderWithLabel(juce::Slider::LinearVertical){
-        this->slider.setRange(0, 2, 0.01);                     /* Setting the maximum and minimum gain values for each band. */
-        this->slider.setValue(1, juce::dontSendNotification);  /* Setting the initial value to be 1 so that there is no change in gain. */
-        this->slider.setPopupMenuEnabled(1);
+        this->slider.setRange(-9, 9, 3);                     /* Setting the maximum and minimum gain values for each band. */
+        this->slider.setValue(0, juce::dontSendNotification);  /* Setting the initial value to be 1 so that there is no change in gain. */
+        this->slider.setPopupMenuEnabled(false);
         this->topLabelBounds = 30;
         this->leftLabelBounds = 1;
         this->rightLabelBounds = 1;
@@ -485,7 +499,7 @@ verticalMixSlider::~verticalMixSlider(){
         
         /* Adding all n sliders which will be used. */
         eqSliders.add(new verticalMixSlider());
-        eqSliders[i]->slider.setPopupDisplayEnabled(true, true, this, 1000);
+        // eqSliders[i]->slider.setPopupDisplayEnabled(true, true, this, 1000);
         eqSliders[i]->slider.setLookAndFeel(&customLook);
         eqSliders[i]->slider.addListener(this);
         

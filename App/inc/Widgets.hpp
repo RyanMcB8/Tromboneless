@@ -203,6 +203,7 @@ class Barometer :   public DualRotarySlider
         /* Dimensions */
         float relativeOuterRadius = 0.4;
         float relativeInnerRadius = 0.35;
+        float relativeLabelRadius = 0.3;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */

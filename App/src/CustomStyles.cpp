@@ -32,25 +32,46 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         g.fillRect(bounds.withWidth(trackWidth).withCentre(bounds.getCentre()));
 
         /* Adding ticks to the slider */
-        int numSteps = 10;
-        g.setColour(tickColour);
+        int numSteps = 6;
 
+        juce::Array <juce::String> numeralLabels = {"-9dB", "-6dB", "-3dB", "0dB", "+3dB", "+6dB", "+9dB"};
+        g.setFont((float) 14);	
+        int textHeight = 18;
+        int textWidth = (int) (bounds.getWidth()/3);
+        
         for (int i = 1; i <= numSteps-1; ++i){
             float proportion = (float)i / (float)numSteps;
 
             float yPos = bounds.getBottom() - proportion * bounds.getHeight();
 
             // Draw horizontal tick line (perpendicular to vertical slider)
+            g.setColour(tickColour);
             g.drawLine(bounds.getCentreX() - tickWidth, yPos,
                         bounds.getCentreX() + tickWidth, yPos, tickThickness);
+
+            /* Adding numerals to the side of the slider. */
+            g.setColour(textColour);
+            g.drawText(numeralLabels[i],
+                       (int) (bounds.getCentreX() + tickWidth + 5), (int) ((yPos)-(textHeight/2)),
+                       (int) textWidth, (int) textHeight,
+                       juce::Justification::left );
         }
         
         /* Drawing the maxmimum and minimum ticks as wider than the rest of the ticks.*/
         g.drawLine(bounds.getCentreX() - tickWidth*1.5, bounds.getBottom(),
                         bounds.getCentreX() + tickWidth*1.5, bounds.getBottom(), tickThickness);
+        g.drawText(numeralLabels[0],
+                       (int) (bounds.getCentreX() + tickWidth + 10), (int) (bounds.getBottom()-(textHeight/2)),
+                       (int) textWidth, (int) textHeight,
+                       juce::Justification::left );
 
         g.drawLine(bounds.getCentreX() - tickWidth*1.5, bounds.getBottom() - bounds.getHeight(),
                         bounds.getCentreX() + tickWidth*1.5, bounds.getBottom() - bounds.getHeight(), tickThickness);
+        g.drawText(numeralLabels[6],
+                       (int) (bounds.getCentreX() + tickWidth + 10), (int) ((bounds.getBottom() - bounds.getHeight())-(textHeight/2)),
+                       (int) textWidth, (int) textHeight,
+                       juce::Justification::left );
+
 
         /* Drawing the custom finger. */
         g.setColour(dialColour);
@@ -79,6 +100,7 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         g.drawLine(bounds.getCentreX() - (fingerWidth*0.3), sliderPos - (fingerHeight*0.3),
                     bounds.getCentreX() + (fingerWidth*0.3), sliderPos - (fingerHeight*0.3), 0.2 * fingerHeight) ;
 #endif
+
     }
     else
     {
@@ -383,11 +405,6 @@ void BarometerOuterLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y
 }
 
 
-
-NeedleLookAndFeel::NeedleLookAndFeel(){
-
-}
-
 void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
             int height, float sliderPos, const float rotaryStartAngle,
              const float rotaryEndAngle, juce::Slider& slider) {
@@ -416,7 +433,3 @@ void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
 
 
 }
-
-// void NeedleLookAndFeel::setColour(juce::Colour colour){
-//     needleColour = colour;
-// }

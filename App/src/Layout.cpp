@@ -15,7 +15,7 @@
 Layout::Layout()
 {
     /* Sets the initial size of the window to be displayed to the user. */
-    setSize (800, 800);
+    setSize (1200, 800);
 
     /* Variables for the distance range. */
     minimumDistance = 5;
@@ -48,29 +48,13 @@ Layout::Layout()
 
     /* Adding labels to the slider. */    
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider distance");
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumDistance)) +" cm");
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumDistance))+ " cm");
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, (juce::String)(((juce::String) minimumDistance) + (juce::String)" cm"));
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, (juce::String)(((juce::String) maximumDistance) + (juce::String)" cm"));
 
 
     /* ============================== Creation of slider for adjusting maximum and minimum pressure amplitude. ============================== */
     /* Slider */
     addAndMakeVisible (pressureSlider);
-    using juce::Slider;
-    // pressureSlider.slider.setRange(minimumPressure, maximumPressure, stepPressure);
-    // pressureSlider.setMinDifference(pressureRange);
-    // pressureSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    // pressureSlider.maxSlider.slider.addListener (this);              /* Adds a listener so that the value may be read when changed. */
-    // pressureSlider.slider.setValue (0.2, juce::dontSendNotification);
-    // pressureSlider.maxSlider.slider.setValue (1.2, juce::dontSendNotification);
-    // pressureSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
-    // pressureSlider.slider.setNumDecimalPlacesToDisplay(2);
-    // pressureSlider.slider.setLookAndFeel(&barometerLandF);
-    // pressureSlider.maxSlider.slider.setLookAndFeel(&barometerOuterLandF);
-
-    /* Adding labels to the slider. */
-    // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Pressure gain");
-    // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, ((juce::String) (minimumPressure)));
-    // pressureSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, ((juce::String) (maximumPressure)));
 
     addAndMakeVisible(calibrateEmbachure);
 
@@ -110,16 +94,8 @@ void Layout::resized()
     auto area = getLocalBounds();
     /* Adding a margin around the edge of the window.*/
     area = area.withSizeKeepingCentre(area.getWidth()*0.94, area.getHeight()*0.94);
-
-    /* Setting the positon of the label and combo box. */
-    // auto labelBounds = buttonArea.removeFromLeft (80); //(getWidth() - 100);
-    auto comboBounds = area.removeFromTop (50); //(getWidth() - 40);
     
-    /* Scaling the label and combo box. */
-    // comboBounds = comboBounds.withSizeKeepingCentre (200, 40);  // width, height
-    dropDownMenus.setBounds (comboBounds);
-    
-    auto SliderBounds = area.removeFromTop(250);
+    auto SliderBounds = area.removeFromTop(300);
     
     /* Adding the sliders to the window. */
     auto distanceSliderBounds = SliderBounds.removeFromLeft(SliderBounds.getWidth()*0.65);
@@ -129,7 +105,14 @@ void Layout::resized()
     /* Pressure slider bounds */
     auto pressureSliderBounds = SliderBounds.removeFromRight(area.getWidth()*0.25);
     pressureSlider.setBounds (pressureSliderBounds);
+    
+    /* Setting the bounds of the drop down menus.*/
+    auto comboBounds = distanceSliderBounds.removeFromTop (50);
+    dropDownMenus.setBounds (comboBounds);
 
+    /* Adding a gap between the drop down menus and adding the calibrate
+        embachure drop down and button to the area. */
+    comboBounds = distanceSliderBounds.removeFromTop (10);
     calibrateEmbachure.setBounds(distanceSliderBounds);
 
     /* Equalizer */
