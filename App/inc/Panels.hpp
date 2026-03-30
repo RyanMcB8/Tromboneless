@@ -40,7 +40,7 @@
     public:
         EqualizerPanel();
 
-        ~EqualizerPanel() = default;
+        ~EqualizerPanel();
 
         void resized() override;
 

@@ -381,3 +381,42 @@ void BarometerOuterLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y
         g.fillPath (p);
         
 }
+
+
+
+NeedleLookAndFeel::NeedleLookAndFeel(){
+
+}
+
+void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+            int height, float sliderPos, const float rotaryStartAngle,
+             const float rotaryEndAngle, juce::Slider& slider) {
+
+    /* Finding the centere of the slider. */
+    float centreX = x + (width/2);
+    float centreY = y + (height/2);
+
+    float thickness = 5;
+    /* How much extra length relative to the radius is added to the other side of the slider. */
+    float extra = 0.1;
+
+    /* Determining the angle of the knob with respect to the centre point.*/
+    float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
+
+    /* Creating the main line of the arrow.*/
+    juce::Rectangle<float> mainLine = juce::Rectangle<float>{-(thickness/2), (float)(-(width*0.4)), thickness, (float)((height*0.4)*(1+extra))};
+    juce::Path p;
+    p.addRectangle(mainLine);
+    /* Adding the point at the end of the triangle. */
+    p.addTriangle(-thickness, -(height)*(0.4), 0, -((height)*(0.5)), thickness, -(height*0.4));
+    p.applyTransform (juce::AffineTransform::translation (x, y));
+    p.applyTransform (juce::AffineTransform::rotation (angle).translated (centreX, centreY));
+    g.setColour(needleColour);
+    g.fillPath(p);
+
+
+}
+
+// void NeedleLookAndFeel::setColour(juce::Colour colour){
+//     needleColour = colour;
+// }

@@ -95,16 +95,6 @@ class SliderWithLabel : public juce::Component{
         juce::Label LowerRightLabel;
 };
 
-class RotarySliderWithLabel :   public SliderWithLabel,
-                                public juce::Slider::Listener
-{
-public:
-    RotarySliderWithLabel();
-
-    ~RotarySliderWithLabel() = default;
-    
-};
-
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
 class CalibrationSlider :   public SliderWithLabel,
@@ -117,7 +107,7 @@ public:
      */ 
     CalibrationSlider();
 
-    ~CalibrationSlider() = default;
+    ~CalibrationSlider();
 
     /** @brief A function which sets the minimum difference between the upper and lower fingers of the slider.
      *  @param difference The value of the difference between the fingers.
@@ -135,45 +125,84 @@ public:
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
-class CalibrationRotarySlider : public juce::Component
+class DualRotarySlider : public juce::Component,
+                         public juce::Slider::Listener
 {
 public:
-    CalibrationRotarySlider();
 
-    // Normalised values (0.0 → 1.0)
-    float minValue = 0.25f;
-    float maxValue = 0.75f;
+    /* The slider which will represent the high end of the calibration. */
+    juce::Slider    maxSlider;
+    /* The slider which will represent the low end of the calibration. */
+    juce::Slider    minSlider;
+    /* The label of the component. */
+    juce::Label     rotaryLabel;
+    
+    DualRotarySlider();
+
+    ~DualRotarySlider();
 
     /* Setting the limits of the slider. */
-    float sliderMinLimit = 0.1;
-    float sliderMaxLimit = 2;
+    float minLimit = 0.1;
+    float maxLimit = 2.0;
+    float interval = 0.1;
 
-    std::function<void(float, float)> onValueChange;
+    /* This is the minimum difference between the min and max sliders with respect ot the non normalised values. */
+    float minDifference = 0.2;
 
-    void paint (juce::Graphics& g) override;
 
-    void mouseDown (const juce::MouseEvent& e) override;
+    /** @brief A function that is called upon when either of the fingers are moved.
+     *  @note This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other.
+     */
+    void sliderValueChanged(juce::Slider* sliderChanged) override;
 
-    void mouseDrag (const juce::MouseEvent& e) override;
+    void resized() override;
 
+    float labelHeight;
+
+    float minAngle      =   M_PI + 0.5;
+    float maxAngle      =   3*M_PI - 0.5;
 private:
-    typedef enum
-    {
-        min,
-        max,
-    } handle_t;
 
-    float startAngle = -M_PI*0.75f;
-    float endAngle = -startAngle;
+    /* Adding the limits to the slider angles. */
+    /* Finding the minimum difference in angle for the finger differences by
+       normalising the minDifference with respect to the max and min limits
+       and then mulitplying it by the difference betweent the max and min
+       angles. */
+    float minAngleDifference = (maxAngle - minAngle)*(minDifference/(maxLimit - minLimit));
 
-    handle_t activeHandle = handle_t::min;
+    /* Setting the relative radii of the sliders. */
+    float minSliderRadius =   0.6;
+    float maxSliderRadius =   0.9;
 
-    float positionToValue (float x, float y);
+    typedef enum{
+        minSliderUsed,
+        maxSliderUsed,
+    }   SliderChoice_t;
 
-    handle_t getClosestHandle (float x, float y);
+    SliderChoice_t currentSlider;
 
-    void drawHandle (juce::Graphics& g, float centreX, float centreY,
-                     float radius, float angle, juce::Colour colour);
+};
+
+class Barometer :   public DualRotarySlider
+{
+    public:
+        Barometer();
+
+        ~Barometer();
+
+        void sliderValueChanged(juce::Slider* sliderChanged) override;
+
+        void paint (juce::Graphics& g) override;
+
+    private:
+        NeedleLookAndFeel arrow;
+        juce::Colour backgroundColour   = juce::Colours::white;
+        juce::Colour textColour         = juce::Colours::black;
+        juce::Colour boarderColour      = juce::Colours::gold;
+        
+        /* Dimensions */
+        float relativeOuterRadius = 0.4;
+        float relativeInnerRadius = 0.35;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
@@ -183,7 +212,7 @@ class verticalMixSlider : public SliderWithLabel,
 public:
     verticalMixSlider();
 
-    ~verticalMixSlider() = default;
+    ~verticalMixSlider();
 
     void sliderValueChanged(juce::Slider* sliderChanged) override;
     
@@ -294,7 +323,7 @@ class Equalizer : public verticalMixSlider
         
         CalibrationOnClick();
 
-        ~CalibrationOnClick() = default;
+        ~CalibrationOnClick();
 
         void resized() override;
         juce::TextButton button;

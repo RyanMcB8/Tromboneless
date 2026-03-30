@@ -32,7 +32,7 @@ class Layout final : public juce::Component,
         @note Always sets the background to the user preference for the background.
         * This function also adds a title to be within the window.
         */  
-        void paint (juce::Graphics&) override;
+        void paint (juce::Graphics& g) override;
 
 
         /** @brief Function that changes the size of the profiler
@@ -77,7 +77,7 @@ class Layout final : public juce::Component,
         CalibrationSliderLookAndFeel LandF;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
-        CalibrationRotarySlider pressureSlider;
+        Barometer pressureSlider;
         BarometerLookAndFeel barometerLandF;
         BarometerOuterLookAndFeel barometerOuterLandF;
 

@@ -81,6 +81,8 @@ Layout::Layout()
 
 Layout::~Layout()
 {
+    distanceSlider.slider.removeListener(this);
+    distanceSlider.slider.setLookAndFeel(nullptr);
     return;
 }
 

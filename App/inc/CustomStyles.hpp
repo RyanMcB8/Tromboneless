@@ -129,6 +129,25 @@ class BarometerOuterLookAndFeel  :  public   juce::LookAndFeel_V4{
 
 };
 
+class NeedleLookAndFeel :   public juce::LookAndFeel_V4
+{
+    public:
+        NeedleLookAndFeel();
+
+        virtual ~NeedleLookAndFeel() = default;
+
+        virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+            int height, float sliderPos, const float rotaryStartAngle,
+             const float rotaryEndAngle, juce::Slider& slider) override;
+
+        // virtual void setColour(juce::Colour colour);
+
+    private:
+        const juce::Colour needleColour =   juce::Colours::black;
+
+
+};
+
 juce::Path RotaryArc(float x = 100, float y = 100, float thickness = 5, float width = 50, 
     float height = 50, float angularRange = 5, float rotation = 0);
 

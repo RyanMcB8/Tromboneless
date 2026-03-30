@@ -57,6 +57,10 @@ EqualizerPanel::EqualizerPanel(){
 
 }
 
+EqualizerPanel::~EqualizerPanel(){
+    button.removeListener(this);
+}
+
 void EqualizerPanel::resized(){
     juce::Rectangle<int> area = getLocalBounds();
     area = area.withSizeKeepingCentre((float) (area.getWidth()*0.95), (float) area.getHeight()*0.95);
