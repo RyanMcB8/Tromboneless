@@ -655,7 +655,7 @@ void CalibrateEmbouchure::resized(){
 
     /* Making the button take up 40% of the space or 100 pixels.*/
     juce::Rectangle<int> buttonBounds = area.removeFromRight(std::min((float) (area.getWidth()*0.4), (float) 100));
-    buttonBounds = buttonBounds.withHeight(buttonBounds.getHeight()*0.5);
+    buttonBounds = buttonBounds.withSizeKeepingCentre(buttonBounds.getWidth(), buttonBounds.getHeight()*0.5);
     this->button.setBounds(buttonBounds);
 
     /* Allowing the rest of the area to go to the dropdown and label. */
