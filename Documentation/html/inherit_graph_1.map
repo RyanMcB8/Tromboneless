@@ -14,7 +14,7 @@
 <area shape="poly" id="edge7_Node000000_Node000008" title=" " alt="" coords="161,179,214,187,365,204,484,212,484,218,365,209,213,193,160,184"/>
 <area shape="rect" id="Node000011" href="$classSliderWithLabel.html" title="A class which inherits attributes from the juce::Component class to create a new component containing..." alt="" coords="238,353,362,379"/>
 <area shape="poly" id="edge8_Node000000_Node000011" title=" " alt="" coords="101,190,119,224,144,264,176,304,215,338,239,351,236,356,212,343,172,308,140,267,114,226,96,192"/>
-<area shape="rect" id="Node000002" href="$classCalibrateEmbachure.html" title=" " alt="" coords="441,5,595,31"/>
+<area shape="rect" id="Node000002" href="$classCalibrateEmbouchure.html" title=" " alt="" coords="441,5,595,31"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="385,15,440,15,440,21,385,21"/>
 <area shape="rect" id="Node000010" href="$classCalibrationSlider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="453,353,583,379"/>
 <area shape="poly" id="edge9_Node000011_Node000010" title=" " alt="" coords="376,363,452,363,452,369,376,369"/>

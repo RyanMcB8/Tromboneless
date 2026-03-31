@@ -73,16 +73,17 @@ class Layout final : public juce::Component,
         DropDownMenus   dropDownMenus;
 
         /* Sliders and labels for calibrating the range. */
-        CalibrationSlider distanceSlider;
-        CalibrationSliderLookAndFeel LandF;
+        // CalibrationSlider distanceSlider;
+        // CalibrationSliderLookAndFeel LandF;
+        Sliders sliders;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
         Barometer pressureSlider;
         BarometerLookAndFeel barometerLandF;
         BarometerOuterLookAndFeel barometerOuterLandF;
 
-        /* Adding an option to calibrate the embachure. */
-        CalibrateEmbachure calibrateEmbachure;
+        /* Adding an option to calibrate the embouchure. */
+        CalibrateEmbouchure calibrateEmbouchure;
         
 
         /* Creation of the equalizer. */

@@ -15,48 +15,21 @@
 Layout::Layout()
 {
     /* Sets the initial size of the window to be displayed to the user. */
-    setSize (1200, 800);
-
-    /* Variables for the distance range. */
-    minimumDistance = 5;
-    maximumDistance = 60;
-    stepDistance = 0.1;   
-    distanceRange = 5;
-
-    /* Variables for the pressure range. */
-    minimumPressure = 0.01;
-    maximumPressure = 2;
-    stepPressure = 0.01;
-    pressureRange = 0.5;
+    setSize (1200, 700);
 
     /* ============================== Creation of a dropdown menu that provides options for shift keying ============================== */
     
     addAndMakeVisible (dropDownMenus);
 
     /* ============================== Creation of slider for the maximum and minimum ranges. ============================== */
-    /* Slider */
-    addAndMakeVisible (distanceSlider);
-    using juce::Slider;
-    distanceSlider.slider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
-    distanceSlider.setMinDifference(distanceRange);
-    distanceSlider.slider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
-    distanceSlider.slider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
-    distanceSlider.slider. addListener (this);  
-    distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
-    distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
-    distanceSlider.slider.setLookAndFeel(&LandF);
-
-    /* Adding labels to the slider. */    
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider distance");
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, (juce::String)(((juce::String) minimumDistance) + (juce::String)" cm"));
-    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, (juce::String)(((juce::String) maximumDistance) + (juce::String)" cm"));
+    addAndMakeVisible (sliders);
 
 
     /* ============================== Creation of slider for adjusting maximum and minimum pressure amplitude. ============================== */
     /* Slider */
     addAndMakeVisible (pressureSlider);
 
-    addAndMakeVisible(calibrateEmbachure);
+    // addAndMakeVisible(calibrateEmbouchure);
 
 
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
@@ -65,8 +38,8 @@ Layout::Layout()
 
 Layout::~Layout()
 {
-    distanceSlider.slider.removeListener(this);
-    distanceSlider.slider.setLookAndFeel(nullptr);
+    // distanceSlider.slider.removeListener(this);
+    // distanceSlider.slider.setLookAndFeel(nullptr);
     return;
 }
 
@@ -99,32 +72,30 @@ void Layout::resized()
     
     /* Adding the sliders to the window. */
     auto distanceSliderBounds = SliderBounds.removeFromLeft(SliderBounds.getWidth()*0.65);
-    // distanceSliderBounds = distanceSliderBounds.withSizeKeepingCentre(400, 80);
-    distanceSlider.setBounds (distanceSliderBounds.removeFromBottom(150));
+    sliders.setBounds(distanceSliderBounds.removeFromBottom(120));
     
+    /* Adding a margin between the drop down menus and the slider. */
+    distanceSliderBounds.removeFromBottom(20);
+
     /* Pressure slider bounds */
     auto pressureSliderBounds = SliderBounds.removeFromRight(area.getWidth()*0.25);
     pressureSlider.setBounds (pressureSliderBounds);
     
     /* Setting the bounds of the drop down menus.*/
-    auto comboBounds = distanceSliderBounds.removeFromTop (50);
+    auto comboBounds = distanceSliderBounds.removeFromTop (150);
     dropDownMenus.setBounds (comboBounds);
 
-    /* Adding a gap between the drop down menus and adding the calibrate
-        embachure drop down and button to the area. */
-    comboBounds = distanceSliderBounds.removeFromTop (10);
-    calibrateEmbachure.setBounds(distanceSliderBounds);
+    /* Adding a margin between the equalizer and the sliders. */
+    area.removeFromTop(20);
 
     /* Equalizer */
     /* Only allowing the synthethiser to be viewed if it is enabled. */
     if(true == synthesiserParameters.synthEnable){
-        auto equalizerBounds = area.removeFromTop(350);
-        equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
-        equalizer.setBounds(equalizerBounds);
+        // auto equalizerBounds = area.removeFromTop(350);
+        equalizer.setBounds(area);
     }
     else{
-        auto equalizerBounds = area.removeFromTop(50);
-        equalizerBounds = equalizerBounds.withSizeKeepingCentre(area.getWidth()*0.95, equalizerBounds.getHeight());
+        juce::Rectangle <int> equalizerBounds = area.removeFromTop(50);
         equalizer.setBounds(equalizerBounds);
     }
 
@@ -143,9 +114,9 @@ bool Layout::keyPressed(const juce::KeyPress& key)
 void Layout::sliderValueChanged (juce::Slider* slider) 
 {
     /* Calibrated distance has changed. */
-    if (slider == &distanceSlider.slider){
-        trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
-        trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+    if (slider == &sliders.distanceSlider.slider){
+        trombonelessParameters.nearDistance = sliders.distanceSlider.slider.getMinValue();
+        trombonelessParameters.farDistance = sliders.distanceSlider.slider.getMaxValue();
 #ifdef DBG_MSG
         std::cout << "DistanceSlider min:" <<  trombonelessParameters.nearDistance << "\n";
         std::cout << "DistanceSlider max:" <<  trombonelessParameters.farDistance << "\n";

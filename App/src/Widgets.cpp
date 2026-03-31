@@ -296,7 +296,7 @@ Barometer::Barometer(){
     /* Adding the label */
     rotaryLabel.setText((const juce::String)"Relative pressure calibration\n for mouthpiece",
                         juce::dontSendNotification);
-    rotaryLabel.setJustificationType(juce::Justification::Flags::centredBottom);
+    rotaryLabel.setJustificationType(juce::Justification::Flags::centred);
     addAndMakeVisible(rotaryLabel);
 
 }
@@ -315,6 +315,9 @@ void Barometer::paint (juce::Graphics& g){
     // g.fillAll(getLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId)); 
 
     juce::Rectangle <int> area = getLocalBounds();
+    juce::Rectangle <float> outlineRectangle = area.toFloat();
+    g.setColour(edgeColour);
+    g.fillRoundedRectangle(outlineRectangle , (float) 20);
 
     /* Not drawing over the area of where the label is. */
     juce::Rectangle<int> labelArea = area.removeFromBottom(labelHeight);
@@ -621,22 +624,20 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
 
 /* ========================================================================================== */
 /*                                                                                            */
-/*                                   CalibrateEmbachure                                       */
+/*                                   CalibrateEmbouchure                                       */
 /*                                                                                            */
 /* ========================================================================================== */
 
-CalibrateEmbachure::CalibrateEmbachure(){
+CalibrateEmbouchure::CalibrateEmbouchure(){
     /* Adding the dropdown menu to select the start */
-    addAndMakeVisible (embachureChoice);
-    embachureChoice.ChangeLabelText("Embachure\nselection: ");
-    embachureChoice.AddItem ("Middle F4", SKOpt_MiddleF4);
-    embachureChoice.AddItem ("B sharp 4", SKOpt_BSharp4);
-    embachureChoice.AddItem ("D5", SKOpt_D5);
-    embachureChoice.AddItem ("F5", SKOpt_F5);
-    embachureChoice.AddItem ("A sharp 4", SKOpt_ASharp4);
+    addAndMakeVisible (embouchureChoice);
+    embouchureChoice.ChangeLabelText("Embouchure\nselection: ");
+    embouchureChoice.AddItem ("Low placement", EMBCR_LowPlacement);
+    embouchureChoice.AddItem ("Medium placement", EMBCR_MediumPlacement);
+    embouchureChoice.AddItem ("High placement", EMBCR_HighPlacement);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
-    embachureChoice.OnChange (&trombonelessParameters.embachureOption);
+    embouchureChoice.OnChange (&trombonelessParameters.embouchureOption);
 
     /* Adding the button. */
     addAndMakeVisible (this->button);
@@ -649,24 +650,22 @@ CalibrateEmbachure::CalibrateEmbachure(){
 
 }
 
-void CalibrateEmbachure::resized(){
+void CalibrateEmbouchure::resized(){
     juce::Rectangle<int> area = getLocalBounds();
-    /* Adding a margin around the edge. */
-    area = area.withSizeKeepingCentre(area.getWidth()*0.9, area.getHeight()*0.8);
 
-    /* Making the button take up 10% of the space or 60 pixels.*/
+    /* Making the button take up 40% of the space or 100 pixels.*/
     juce::Rectangle<int> buttonBounds = area.removeFromRight(std::min((float) (area.getWidth()*0.4), (float) 100));
-    buttonBounds = buttonBounds.withSizeKeepingCentre((float)(buttonBounds.getWidth()), (float) (buttonBounds.getHeight()*0.5));
+    buttonBounds = buttonBounds.withHeight(buttonBounds.getHeight()*0.5);
     this->button.setBounds(buttonBounds);
 
     /* Allowing the rest of the area to go to the dropdown and label. */
-    embachureChoice.setBounds(area);
+    embouchureChoice.setBounds(area);
 
 }
 
-void CalibrateEmbachure::buttonClicked(juce::Button* thisButtonClicked)
+void CalibrateEmbouchure::buttonClicked(juce::Button* thisButtonClicked)
 {
     if (thisButtonClicked == &this->button){
-        trombonelessParameters.triggerEmbachureCalibrate = true;
+        trombonelessParameters.triggerEmbouchureCalibrate = true;
     }
 }

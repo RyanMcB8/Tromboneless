@@ -199,6 +199,7 @@ class Barometer :   public DualRotarySlider
         juce::Colour backgroundColour   = juce::Colours::white;
         juce::Colour textColour         = juce::Colours::black;
         juce::Colour boarderColour      = juce::Colours::gold;
+        juce::Colour edgeColour         = juce::Colour((unsigned int) (0x43080810));
         
         /* Dimensions */
         float relativeOuterRadius = 0.4;
@@ -332,19 +333,19 @@ class Equalizer : public verticalMixSlider
     private:
  };
 
-class CalibrateEmbachure    :   public CalibrationOnClick
+class CalibrateEmbouchure    :   public CalibrationOnClick
 {
     public:
-        CalibrateEmbachure();
+        CalibrateEmbouchure();
 
-        ~CalibrateEmbachure() = default;
+        ~CalibrateEmbouchure() = default;
 
         void resized() override;
 
         void buttonClicked(juce::Button* thisButtonClicked) override;
 
     private:
-        DropDownMenu embachureChoice;
+        DropDownMenu embouchureChoice;
         
         juce::TooltipWindow tooltipWindow;
 

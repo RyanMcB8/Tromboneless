@@ -259,7 +259,7 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
         
         /* Adding the trombone horn to be output to the screen. */
         g.setColour (juce::Colours::gold);
-        juce::Path tromboneShape = PaintTrombone(fullSliderBounds.getX(), y, std::min((float) 80, (float) (width*0.2)), 20, false);
+        juce::Path tromboneShape = PaintTrombone(thumbOneX - std::min((float) 80, (float) (width*0.2))*0.65 , y - 1.2*pipeGap, std::min((float) 80, (float) (width*0.2)), 20, false);
         g.fillPath(tromboneShape);
 
         /* Adding the arc between the middle part of the trombone to meet the bottom part. */
@@ -299,13 +299,6 @@ juce::Path RotaryArc(float x, float y, float thickness, float width, float heigh
         rotation, startRad, endRad);
 
     arcShape.closeSubPath();
-    // arcShape.startNewSubPath(x+(xRadius*sin(endRad)) , y+(yRadius*sin(endRad)));
-    // arcShape.addCentredArc (x + xRadius, y + yRadius, 
-    //     xRadius - thickness, yRadius - thickness, 
-    //     rotation, startRad, endRad);
-
-    // arcShape.closeSubPath();
-
     return arcShape;
 
 }

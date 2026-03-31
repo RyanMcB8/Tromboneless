@@ -15,7 +15,18 @@
 
  /* Class definitions. */
 
- class DropDownMenus :   public juce::Component
+ class Panels   :   public juce::Component
+ {
+    public:
+        Panels() = default;
+        ~Panels() = default;
+
+        void paint(juce::Graphics& g) override;
+    private:
+        juce::Colour edgeColour         = juce::Colour((unsigned int) (0x43080810));
+ };
+
+ class DropDownMenus :   public Panels
  {
     public:
         /* Constructor. */
@@ -32,9 +43,31 @@
     private:
         /* Shift keying drop down menu and label */
         DropDownMenu shiftKeyChoice;
+        CalibrateEmbouchure calibrateEmbouchure;
  };
 
- class EqualizerPanel   :   public juce::Component,
+ class Sliders : public Panels,
+                public juce::Slider::Listener
+ {
+    public:
+        CalibrationSlider distanceSlider;
+        CalibrationSliderLookAndFeel LandF;
+
+        Sliders();
+        ~Sliders();
+
+        void resized() override;
+
+        void sliderValueChanged(juce::Slider* sliderChanged) override;
+
+    private:
+        float minimumDistance = 5;
+        float maximumDistance = 60;
+        float stepDistance = 0.1;   
+        float distanceRange = 5;
+ };
+
+ class EqualizerPanel   :   public Panels,
                             public juce::Button::Listener
  {
     public:
