@@ -49,3 +49,5 @@ build/
 
 # ignoring vscode settings
 .vscode
+.vscode/settings.json
+.vscode/
