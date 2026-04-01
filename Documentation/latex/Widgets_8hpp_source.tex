@@ -1,5 +1,5 @@
 \doxysection{Widgets.\+hpp}
-\hypertarget{Widgets_8hpp_source}{}\label{Widgets_8hpp_source}\index{/home/ryan/Tromboneless/App/inc/Widgets.hpp@{/home/ryan/Tromboneless/App/inc/Widgets.hpp}}
+\hypertarget{Widgets_8hpp_source}{}\label{Widgets_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/App/inc/Widgets.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/App/inc/Widgets.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -48,193 +48,254 @@
 \DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ PositonNotAccepted,}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}\ InitialiseLabelErrors\_t;}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ InitialiseLabelErrors\_t\ \mbox{\hyperlink{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}{CreateLabel}}(LabelPositions\_t\ position,}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ juce::String\ phrase,}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ juce::NotificationType\ NotificationEnable\ =\ juce::dontSendNotification);}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{resized}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ labelSetup(juce::Label*\ Label,\ juce::String\ phrase,}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ juce::NotificationType\ NotificationEnable);}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Creation\ of\ labels\ that\ may\ be\ used\ with\ the\ slider.\ */}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ juce::Label\ UpperLeftLabel;}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ juce::Label\ UpperCentreLabel;}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ juce::Label\ UpperRightLabel;}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ juce::Label\ MiddleLeftLabel;}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ juce::Label\ MiddleRightLabel;}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ juce::Label\ LowerLeftLabel;}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ juce::Label\ LowerCentreLabel;}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ juce::Label\ LowerRightLabel;}
-\DoxyCodeLine{00096\ \};}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classRotarySliderWithLabel}{RotarySliderWithLabel}}\ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classSliderWithLabel}{SliderWithLabel}},}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Slider::Listener}
-\DoxyCodeLine{00100\ \{}
-\DoxyCodeLine{00101\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{classRotarySliderWithLabel}{RotarySliderWithLabel}}();}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{classRotarySliderWithLabel}{\string~RotarySliderWithLabel}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00105\ \ \ \ \ }
-\DoxyCodeLine{00106\ \};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ InitialiseLabelErrors\_t\ \mbox{\hyperlink{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}{CreateLabel}}(LabelPositions\_t\ position,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ juce::String\ phrase,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ juce::NotificationType\ NotificationEnable\ =\ juce::dontSendNotification);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{resized}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ labelSetup(juce::Label*\ Label,\ juce::String\ phrase,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ juce::NotificationType\ NotificationEnable);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Creation\ of\ labels\ that\ may\ be\ used\ with\ the\ slider.\ */}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ juce::Label\ UpperLeftLabel;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ juce::Label\ UpperCentreLabel;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ juce::Label\ UpperRightLabel;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ juce::Label\ MiddleLeftLabel;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ juce::Label\ MiddleRightLabel;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ juce::Label\ LowerLeftLabel;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ juce::Label\ LowerCentreLabel;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ juce::Label\ LowerRightLabel;}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00110\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationSlider}{CalibrationSlider}}\ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classSliderWithLabel}{SliderWithLabel}},}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Slider::Listener}
-\DoxyCodeLine{00112\ \{}
-\DoxyCodeLine{00113\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{classCalibrationSlider_a0cd4e4240dfd46d022488cc00cad88ad}{CalibrationSlider}}();}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{classCalibrationSlider}{\string~CalibrationSlider}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrationSlider_a5600f08e5786ae9d9e3a87c3ca9fc68b}{setMinDifference}}(\textcolor{keywordtype}{double}\ difference);}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4}{sliderValueChanged}}(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ minDistance\ =\ 1;}
-\DoxyCodeLine{00135\ \};}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00138\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationRotarySlider}{CalibrationRotarySlider}}\ :\ \textcolor{keyword}{public}\ juce::Component}
-\DoxyCodeLine{00139\ \{}
-\DoxyCodeLine{00140\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{classCalibrationRotarySlider}{CalibrationRotarySlider}}();}
+\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationSlider}{CalibrationSlider}}\ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classSliderWithLabel}{SliderWithLabel}},}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Slider::Listener}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{classCalibrationSlider_a0cd4e4240dfd46d022488cc00cad88ad}{CalibrationSlider}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{classCalibrationSlider_a97344f37ff0850b789d63b14322602f3}{\string~CalibrationSlider}}();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrationSlider_a5600f08e5786ae9d9e3a87c3ca9fc68b}{setMinDifference}}(\textcolor{keywordtype}{double}\ difference);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4}{sliderValueChanged}}(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ minDistance\ =\ 1;}
+\DoxyCodeLine{00141\ \};}
 \DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ Normalised\ values\ (0.0\ →\ 1.0)}}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{float}\ minValue\ =\ 0.25f;}
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{float}\ maxValue\ =\ 0.75f;}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ limits\ of\ the\ slider.\ */}}
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{float}\ sliderMinLimit\ =\ 0.1;}
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{float}\ sliderMaxLimit\ =\ 2;}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ std::function<void(\textcolor{keywordtype}{float},\ \textcolor{keywordtype}{float})>\ onValueChange;}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ paint\ (juce::Graphics\&\ g)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ mouseDown\ (\textcolor{keyword}{const}\ juce::MouseEvent\&\ e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ mouseDrag\ (\textcolor{keyword}{const}\ juce::MouseEvent\&\ e)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
-\DoxyCodeLine{00161\ \ \ \ \ \{}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ min,}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ max,}
-\DoxyCodeLine{00164\ \ \ \ \ \}\ handle\_t;}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{float}\ startAngle\ =\ -\/M\_PI*0.75f;}
-\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{float}\ endAngle\ =\ -\/startAngle;}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \ \ \ \ handle\_t\ activeHandle\ =\ handle\_t::min;}
-\DoxyCodeLine{00170\ }
-\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{float}\ positionToValue\ (\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00144\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDualRotarySlider}{DualRotarySlider}}\ :\ \textcolor{keyword}{public}\ juce::Component,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Slider::Listener}
+\DoxyCodeLine{00146\ \{}
+\DoxyCodeLine{00147\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{/*\ The\ slider\ which\ will\ represent\ the\ high\ end\ of\ the\ calibration.\ */}}
+\DoxyCodeLine{00150\ \ \ \ \ juce::Slider\ \ \ \ maxSlider;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{/*\ The\ slider\ which\ will\ represent\ the\ low\ end\ of\ the\ calibration.\ */}}
+\DoxyCodeLine{00152\ \ \ \ \ juce::Slider\ \ \ \ minSlider;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{/*\ The\ label\ of\ the\ component.\ */}}
+\DoxyCodeLine{00154\ \ \ \ \ juce::Label\ \ \ \ \ rotaryLabel;}
+\DoxyCodeLine{00155\ \ \ \ \ }
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{classDualRotarySlider_aafe624d1dfda53a66256f2e3bcc78593}{DualRotarySlider}}();}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{classDualRotarySlider_af3b4b24992fc45da3771913bd6a61cf6}{\string~DualRotarySlider}}();}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ minimum\ limit\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{float}\ minLimit\ =\ 0.1;}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ maximum\ limit\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{float}\ maxLimit\ =\ 2.0;}
 \DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ \ \ \ \ handle\_t\ getClosestHandle\ (\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{void}\ drawHandle\ (juce::Graphics\&\ g,\ \textcolor{keywordtype}{float}\ centreX,\ \textcolor{keywordtype}{float}\ centreY,}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ angle,\ juce::Colour\ colour);}
-\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ minimum\ step\ to\ which\ the\ slider\ may\ be\ moved.\ */}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{float}\ interval\ =\ 0.1;}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{/*\ This\ is\ the\ minimum\ difference\ between\ the\ min\ and\ max\ sliders\ with\ respect\ ot\ the\ non\ normalised\ values.\ */}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{float}\ minDifference\ =\ 0.2;}
 \DoxyCodeLine{00178\ }
-\DoxyCodeLine{00180\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classverticalMixSlider}{verticalMixSlider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classSliderWithLabel}{SliderWithLabel}},}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Slider::Listener}
-\DoxyCodeLine{00182\ \{}
-\DoxyCodeLine{00183\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{classverticalMixSlider}{verticalMixSlider}}();}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{classverticalMixSlider}{\string~verticalMixSlider}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{void}\ sliderValueChanged(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00189\ \ \ \ \ }
-\DoxyCodeLine{00190\ \};}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00196\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEqualizer}{Equalizer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classverticalMixSlider}{verticalMixSlider}}}
-\DoxyCodeLine{00197\ \{}
-\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ nSliders;}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ juce::OwnedArray\ <verticalMixSlider>\ eqSliders;}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Constructor.\ */}}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEqualizer}{Equalizer}}(\textcolor{keywordtype}{char}\ numberOfSliders\ =\ 10);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}{sliderValueChanged}}(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDualRotarySlider_ae41130a459061a74df75c3d2a75696ae}{resized}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ relative\ height\ of\ the\ label.\ */}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{float}\ labelHeight;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{/*\ \ These\ values\ should\ be\ moved\ to\ be\ private\ and\ set/get\ functions\ added.\ */}}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ minimum\ angle\ which\ the\ slider\ can\ reach.\ */}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{float}\ minAngle\ \ \ \ \ \ =\ \ \ M\_PI\ +\ 0.5;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ maximum\ angle\ which\ the\ slider\ can\ reach.\ */}}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{float}\ maxAngle\ \ \ \ \ \ =\ \ \ 3*M\_PI\ -\/\ 0.5;}
+\DoxyCodeLine{00203\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00204\ }
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Destructor.\ */}}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEqualizer}{\string~Equalizer}}();}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEqualizer_a13ce26627bc000f883fceb7fcce46a24}{resized}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sliderValueChanged(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ juce::Array\ <juce::String>\ frequencyLabels;\ }
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ prevLabel;}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ newLabel;}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVerticalSliderLookAndFeel}{VerticalSliderLookAndFeel}}\ customLook;}
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00221\ \};}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00229\ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDropDownMenu}{DropDownMenu}}\ :\ \ \ \textcolor{keyword}{public}\ juce::Component}
-\DoxyCodeLine{00230\ \ \{}
-\DoxyCodeLine{00231\ \ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ juce::ComboBox\ dropDownChoice;}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenu}{DropDownMenu}}(juce::String\ labelPhrase\ =\ \textcolor{stringliteral}{"{}ComboBox"{}});}
-\DoxyCodeLine{00243\ }
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Destructor.\ */}}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenu}{\string~DropDownMenu}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_af9677864aa76f756ea76bc0081a7f434}{resized}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_af3d78708f3fc30dc4743b4481e741623}{AddItem}}(juce::String\ itemName,\ \textcolor{keywordtype}{int}\ itemValue);}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_ac3b09c656d7b30ea9aab2dd6938a08df}{OnChange}}(T*\ updateVariable)\{}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ dropDownChoice.onChange\ =\ [updateVariable,\ \textcolor{keyword}{this}]\ \{*updateVariable\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}\ (dropDownChoice.getSelectedId());\};}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_a56e0e79ee5f5d195e4d11fd898a5d96c}{ChangeLabelText}}(juce::String\ text,\ juce::NotificationType\ notification\ =\ juce::dontSendNotification);}
-\DoxyCodeLine{00283\ }
-\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Shift\ keying\ drop\ down\ menu\ and\ label\ */}\ \ }
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ juce::Label\ dropDownLabel;}
-\DoxyCodeLine{00287\ \ \};}
-\DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ }
-\DoxyCodeLine{00290\ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationOnClick}{CalibrationOnClick}}\ \ \ :\ \ \ \textcolor{keyword}{public}\ juce::Component,}
-\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Button::Listener}
-\DoxyCodeLine{00292\ \ \{}
-\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationOnClick}{CalibrationOnClick}}();}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationOnClick}{\string~CalibrationOnClick}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00298\ }
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ resized()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ juce::TextButton\ button;}
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00303\ \ \};}
-\DoxyCodeLine{00304\ }
-\DoxyCodeLine{00305\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrateEmbachure}{CalibrateEmbachure}}\ \ \ \ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalibrationOnClick}{CalibrationOnClick}}}
-\DoxyCodeLine{00306\ \{}
-\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrateEmbachure}{CalibrateEmbachure}}();}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrateEmbachure}{\string~CalibrateEmbachure}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ resized()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00313\ }
-\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ buttonClicked(juce::Button*\ thisButtonClicked)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00315\ }
-\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenu}{DropDownMenu}}\ embachureChoice;}
-\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ juce::TooltipWindow\ tooltipWindow;}
-\DoxyCodeLine{00320\ }
-\DoxyCodeLine{00321\ \};}
-\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{/*\ Adding\ the\ limits\ to\ the\ slider\ angles.\ */}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{comment}{/*\ Finding\ the\ minimum\ difference\ in\ angle\ for\ the\ finger\ differences\ by}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ \ \ \ \ \ \ normalising\ the\ minDifference\ with\ respect\ to\ the\ max\ and\ min\ limits}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ \ \ \ \ \ \ and\ then\ mulitplying\ it\ by\ the\ difference\ betweent\ the\ max\ and\ min}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ \ \ \ \ \ \ angles.\ */}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{float}\ minAngleDifference\ =\ (maxAngle\ -\/\ minAngle)*(minDifference/(maxLimit\ -\/\ minLimit));}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ relative\ radius\ of\ the\ minimum\ slider.\ */}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{float}\ minSliderRadius\ =\ \ \ 0.6;}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ relative\ radius\ of\ the\ maximum\ slider.\ */}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{float}\ maxSliderRadius\ =\ \ \ 0.9;}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBarometer}{Barometer}}\ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classDualRotarySlider}{DualRotarySlider}}}
+\DoxyCodeLine{00222\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometer_ae73bc03245af7fe321e855a26968e3d9}{Barometer}}();}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometer_a5254d60884f804d70f4d59b4c7e2cef8}{\string~Barometer}}();}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d}{sliderValueChanged}}(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBarometer_a9cde3aede799c7b81c5a9836865c05a5}{paint}}\ (juce::Graphics\&\ g)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Creation\ of\ an\ instance\ of\ the\ NeedleLookAndFeel\ class\ to\ be}}
+\DoxyCodeLine{00265\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ added\ to\ the\ slider\ knobs\ to\ have\ the\ correct\ aesthetic.\ */}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNeedleLookAndFeel}{NeedleLookAndFeel}}\ arrow;}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Defining\ the\ colours\ used\ within\ the\ barometer.\ */}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ juce::Colour\ backgroundColour\ \ \ =\ juce::Colours::white;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ juce::Colour\ textColour\ \ \ \ \ \ \ \ \ =\ juce::Colours::black;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ juce::Colour\ boarderColour\ \ \ \ \ \ =\ juce::Colours::gold;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ juce::Colour\ edgeColour\ \ \ \ \ \ \ \ \ =\ juce::Colour((\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})\ (0x43080810));}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Dimensions\ */}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ size\ of\ the\ outer\ arc\ on\ the\ barometer.\ */}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ relativeOuterRadius\ =\ 0.4;}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ size\ of\ the\ inner\ arc\ on\ the\ barometer.*/}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ relativeInnerRadius\ =\ 0.35;}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ distance\ of\ the\ gain\ labels\ relative\ to\ the\ centre\ point.\ */}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ relativeLabelRadius\ =\ 0.3;}
+\DoxyCodeLine{00283\ \};}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00286\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classverticalMixSlider}{verticalMixSlider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classSliderWithLabel}{SliderWithLabel}},}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Slider::Listener}
+\DoxyCodeLine{00288\ \{}
+\DoxyCodeLine{00289\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00296\ \ \ \ \ \mbox{\hyperlink{classverticalMixSlider_a64196197ca6240b83ad300ea23fe1f1c}{verticalMixSlider}}();}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00302\ \ \ \ \ \mbox{\hyperlink{classverticalMixSlider_a78573e6d3ca59e33fbb67c8aab65d454}{\string~verticalMixSlider}}();}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364}{sliderValueChanged}}(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00314\ \ \ \ \ }
+\DoxyCodeLine{00315\ \};}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00321\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEqualizer}{Equalizer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classverticalMixSlider}{verticalMixSlider}}}
+\DoxyCodeLine{00322\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Creating\ an\ array\ of\ sliders\ for\ the\ equalizer.\ */}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ juce::OwnedArray\ <verticalMixSlider>\ eqSliders;}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEqualizer}{Equalizer}}(\textcolor{keywordtype}{char}\ numberOfSliders\ =\ 10);}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEqualizer_a3467b7d27117adad2b78ddb92ea86df9}{\string~Equalizer}}();}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEqualizer_a13ce26627bc000f883fceb7fcce46a24}{resized}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEqualizer_a874d467cae04b84eb2adeefaa08046e0}{sliderValueChanged}}(juce::Slider*\ sliderChanged)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Creation\ of\ an\ array\ which\ stores\ the\ different\ labels\ which\ will\ be\ set}}
+\DoxyCodeLine{00369\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ as\ the\ frequency\ ranges\ of\ the\ sliders.\ */}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ juce::Array\ <juce::String>\ frequencyLabels;\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Stores\ the\ previous\ label\ which\ is\ being\ written\ to\ the\ bottom\ of\ the}}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ slider.\ i.e.\ the\ minimum\ frequency\ in\ the\ frequency\ band\ which\ is\ being}}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ adjusted\ by\ the\ slider.\ */}}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ prevLabel;}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Stores\ the\ current\ label\ which\ is\ being\ written\ to\ the\ top\ of\ the\ slider.}}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ i.e\ the\ maximum\ frequency\ in\ the\ frequency\ band\ which\ is\ being\ adjusted}}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ by\ the\ slider.\ */}}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ newLabel;}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Creating\ an\ instance\ of\ the\ VerticalSliderLookAndFeel\ class\ to\ apply\ a\ new}}
+\DoxyCodeLine{00383\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ look\ and\ feel\ to\ the\ sliders\ within\ this\ class\ to\ match\ that\ of\ a\ standard}}
+\DoxyCodeLine{00384\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ equalizer.\ */}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVerticalSliderLookAndFeel}{VerticalSliderLookAndFeel}}\ customLook;}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ variable\ to\ store\ the\ number\ of\ sliders\ which\ are\ being\ used.\ */}}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ nSliders;}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00390\ \};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00398\ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDropDownMenu}{DropDownMenu}}\ :\ \ \ \textcolor{keyword}{public}\ juce::Component}
+\DoxyCodeLine{00399\ \ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenu}{DropDownMenu}}(juce::String\ labelPhrase\ =\ \textcolor{stringliteral}{"{}ComboBox"{}});}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenu_a38782be175ad1331dfe4937b89de9dbe}{\string~DropDownMenu}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_af9677864aa76f756ea76bc0081a7f434}{resized}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_af3d78708f3fc30dc4743b4481e741623}{AddItem}}(juce::String\ itemName,\ \textcolor{keywordtype}{int}\ itemValue);}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_ac3b09c656d7b30ea9aab2dd6938a08df}{OnChange}}(T*\ updateVariable)\{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ dropDownChoice.onChange\ =\ [updateVariable,\ \textcolor{keyword}{this}]\ \{*updateVariable\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}\ (dropDownChoice.getSelectedId());\};}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDropDownMenu_a56e0e79ee5f5d195e4d11fd898a5d96c}{ChangeLabelText}}(juce::String\ text,\ juce::NotificationType\ notification\ =\ juce::dontSendNotification);}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Adding\ the\ label\ which\ will\ be\ next\ to\ the\ drop\ down\ menu.\ */}\ \ }
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ juce::Label\ dropDownLabel;}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Adding\ the\ drop\ down\ menu\ to\ the\ class.\ */}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ juce::ComboBox\ dropDownChoice;}
+\DoxyCodeLine{00463\ \ \};}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00469\ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationOnClick}{CalibrationOnClick}}\ \ \ :\ \ \ \textcolor{keyword}{public}\ juce::Component,}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ juce::Button::Listener}
+\DoxyCodeLine{00471\ \ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationOnClick_af1854f0843d28e3ca1de1cf3a79fe171}{CalibrationOnClick}}();}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationOnClick_a716b529df6ca9dda09b6972a70917198}{\string~CalibrationOnClick}}();}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrationOnClick_aff5da726e335398bcb807ef53214ae6a}{resized}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Creating\ the\ TextButton\ instance\ for\ the\ CalibrationOnClick\ class}}
+\DoxyCodeLine{00499\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ to\ have\ a\ button\ within\ it.\ */}}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ juce::TextButton\ button;}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00502\ \ \};}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00512\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrateEmbouchure}{CalibrateEmbouchure}}\ \ \ \ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCalibrationOnClick}{CalibrationOnClick}}}
+\DoxyCodeLine{00513\ \{}
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrateEmbouchure_aa1465033fbf48190f673e4800329706e}{CalibrateEmbouchure}}();}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrateEmbouchure_a8500bacc28c9b735bc68e4cd0def7caa}{\string~CalibrateEmbouchure}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrateEmbouchure_adafc772c47e0473b4ce6901ff34392df}{resized}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCalibrateEmbouchure_a6e84f10dc4aa61609c6fa0aafbfa51c3}{buttonClicked}}(juce::Button*\ thisButtonClicked)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Adding\ a\ dropdown\ menu\ next\ to\ the\ calibration\ button\ to\ select\ }}
+\DoxyCodeLine{00552\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ embachure\ option\ which\ is\ being\ calibrated.\ */}}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenu}{DropDownMenu}}\ embouchureChoice;}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Adding\ a\ tootltipWindow\ to\ the\ class\ which\ may\ be\ displayed\ when}}
+\DoxyCodeLine{00556\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ the\ user\ runs\ their\ cursor\ over\ the\ button\ for\ at\ least\ 300ms.\ */}}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ juce::TooltipWindow\ tooltipWindow;}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00559\ \};}
+\DoxyCodeLine{00560\ }
 
 \end{DoxyCode}

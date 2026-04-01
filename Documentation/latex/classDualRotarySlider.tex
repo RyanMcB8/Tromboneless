@@ -1,0 +1,103 @@
+\doxysection{Dual\+Rotary\+Slider Class Reference}
+\hypertarget{classDualRotarySlider}{}\label{classDualRotarySlider}\index{DualRotarySlider@{DualRotarySlider}}
+
+
+A class that adds more functionality to the slider class from Juce.  
+
+
+
+
+{\ttfamily \#include $<$Widgets.\+hpp$>$}
+
+
+
+Inheritance diagram for Dual\+Rotary\+Slider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classDualRotarySlider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Dual\+Rotary\+Slider\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classDualRotarySlider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDualRotarySlider_aafe624d1dfda53a66256f2e3bcc78593}\label{classDualRotarySlider_aafe624d1dfda53a66256f2e3bcc78593} 
+{\bfseries Dual\+Rotary\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classDualRotarySlider}{Dual\+Rotary\+Slider}} class which sets the range of the sliders, minimum distance and adds listeners to them both so that when the sliders are moved, the corresponding variables may be changed. \end{DoxyCompactList}\item 
+\Hypertarget{classDualRotarySlider_af3b4b24992fc45da3771913bd6a61cf6}\label{classDualRotarySlider_af3b4b24992fc45da3771913bd6a61cf6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Dual\+Rotary\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classDualRotarySlider}{Dual\+Rotary\+Slider}} class which removes the listeners from the sliders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A function that is called upon when either of the fingers are moved. \end{DoxyCompactList}\item 
+\Hypertarget{classDualRotarySlider_ae41130a459061a74df75c3d2a75696ae}\label{classDualRotarySlider_ae41130a459061a74df75c3d2a75696ae} 
+void {\bfseries resized} () override
+\begin{DoxyCompactList}\small\item\em A callback function for when the window size has changed. This allows for the labels and sliders to be resized to be the best relative size. This can either be set to a predetermined size like 100px x 200px, but it is currrently set to be relative to the size of the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDualRotarySlider_ac0f3e0e5574427d2b02ff7974fa301d5}\label{classDualRotarySlider_ac0f3e0e5574427d2b02ff7974fa301d5} 
+juce\+::\+Slider {\bfseries max\+Slider}
+\item 
+\Hypertarget{classDualRotarySlider_a5046c6bcf193000398e6e7bc96a173a0}\label{classDualRotarySlider_a5046c6bcf193000398e6e7bc96a173a0} 
+juce\+::\+Slider {\bfseries min\+Slider}
+\item 
+\Hypertarget{classDualRotarySlider_ac926af9f0b359a18dcd42f6cc449a9f2}\label{classDualRotarySlider_ac926af9f0b359a18dcd42f6cc449a9f2} 
+juce\+::\+Label {\bfseries rotary\+Label}
+\item 
+\Hypertarget{classDualRotarySlider_a2cf849cbff733ffdcf2da4c48b614f54}\label{classDualRotarySlider_a2cf849cbff733ffdcf2da4c48b614f54} 
+float {\bfseries min\+Limit} = 0.\+1
+\item 
+\Hypertarget{classDualRotarySlider_ac2a44c597faa5c4174ab084416b532a1}\label{classDualRotarySlider_ac2a44c597faa5c4174ab084416b532a1} 
+float {\bfseries max\+Limit} = 2.\+0
+\item 
+\Hypertarget{classDualRotarySlider_abd1223bb1effc3ea7323a6a34b6199a4}\label{classDualRotarySlider_abd1223bb1effc3ea7323a6a34b6199a4} 
+float {\bfseries interval} = 0.\+1
+\item 
+\Hypertarget{classDualRotarySlider_a9ded3c35cd572eda36374ab84a91756d}\label{classDualRotarySlider_a9ded3c35cd572eda36374ab84a91756d} 
+float {\bfseries min\+Difference} = 0.\+2
+\item 
+\Hypertarget{classDualRotarySlider_abb702a6a71a8db6693d8901ead5d7b79}\label{classDualRotarySlider_abb702a6a71a8db6693d8901ead5d7b79} 
+float {\bfseries label\+Height}
+\item 
+\Hypertarget{classDualRotarySlider_a180489a4ac2074104cd23a61332065fd}\label{classDualRotarySlider_a180489a4ac2074104cd23a61332065fd} 
+float {\bfseries min\+Angle} = M\+\_\+\+PI + 0.\+5
+\item 
+\Hypertarget{classDualRotarySlider_a206f7a52b0c8b04cfefdbfc12d4f063d}\label{classDualRotarySlider_a206f7a52b0c8b04cfefdbfc12d4f063d} 
+float {\bfseries max\+Angle} = 3\texorpdfstring{$\ast$}{*}M\+\_\+\+PI -\/ 0.\+5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that adds more functionality to the slider class from Juce. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}\label{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae} 
+\index{DualRotarySlider@{DualRotarySlider}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A function that is called upon when either of the fingers are moved. 
+
+\begin{DoxyNote}{Note}
+This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

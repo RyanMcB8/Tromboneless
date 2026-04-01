@@ -77,13 +77,18 @@ $(function() {
   <div class="headertitle"><div class="title">CalibrationOnClick Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class which allows for the additon of a button to the screen without inheriting the button directly. This allows for other widgets to be added to it later without compatibility issues.  
+ <a href="classCalibrationOnClick.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for CalibrationOnClick:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCalibrationOnClick__inherit__graph.png" border="0" usemap="#aCalibrationOnClick_inherit__map" alt="Inheritance graph"/></div>
 <map name="aCalibrationOnClick_inherit__map" id="aCalibrationOnClick_inherit__map">
-<area shape="rect" title=" " alt="" coords="85,79,228,104"/>
-<area shape="rect" href="classCalibrateEmbachure.html" title=" " alt="" coords="79,152,234,177"/>
+<area shape="rect" title="A class which allows for the additon of a button to the screen without inheriting the button directly..." alt="" coords="85,79,228,104"/>
+<area shape="rect" href="classCalibrateEmbouchure.html" title="A class which is inherited from the CalibrationOnClick class that adds a dropdown menu next to the bu..." alt="" coords="75,152,238,177"/>
 <area shape="poly" title=" " alt="" coords="159,118,159,152,154,152,154,118"/>
 <area shape="rect" title=" " alt="" coords="5,5,137,31"/>
 <area shape="poly" title=" " alt="" coords="97,37,144,76,141,80,94,41"/>
@@ -96,7 +101,7 @@ Collaboration diagram for CalibrationOnClick:</div>
 <div class="dyncontent">
 <div class="center"><img src="classCalibrationOnClick__coll__graph.png" border="0" usemap="#aCalibrationOnClick_coll__map" alt="Collaboration graph"/></div>
 <map name="aCalibrationOnClick_coll__map" id="aCalibrationOnClick_coll__map">
-<area shape="rect" title=" " alt="" coords="85,79,228,104"/>
+<area shape="rect" title="A class which allows for the additon of a button to the screen without inheriting the button directly..." alt="" coords="85,79,228,104"/>
 <area shape="rect" title=" " alt="" coords="5,5,137,31"/>
 <area shape="poly" title=" " alt="" coords="97,37,144,76,141,80,94,41"/>
 <area shape="rect" title=" " alt="" coords="162,5,322,31"/>
@@ -106,8 +111,16 @@ Collaboration diagram for CalibrationOnClick:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aff5da726e335398bcb807ef53214ae6a" id="r_aff5da726e335398bcb807ef53214ae6a"><td class="memItemLeft" align="right" valign="top"><a id="aff5da726e335398bcb807ef53214ae6a" name="aff5da726e335398bcb807ef53214ae6a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>resized</b> () override</td></tr>
+<tr class="memitem:af1854f0843d28e3ca1de1cf3a79fe171" id="r_af1854f0843d28e3ca1de1cf3a79fe171"><td class="memItemLeft" align="right" valign="top"><a id="af1854f0843d28e3ca1de1cf3a79fe171" name="af1854f0843d28e3ca1de1cf3a79fe171"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CalibrationOnClick</b> ()</td></tr>
+<tr class="memdesc:af1854f0843d28e3ca1de1cf3a79fe171"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor for the <a class="el" href="classCalibrationOnClick.html" title="A class which allows for the additon of a button to the screen without inheriting the button directly...">CalibrationOnClick</a> class which inherits characteristics from juce:: Component and Button::Listener. It is used to receive a calibration message when clicked. <br /></td></tr>
+<tr class="separator:af1854f0843d28e3ca1de1cf3a79fe171"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a716b529df6ca9dda09b6972a70917198" id="r_a716b529df6ca9dda09b6972a70917198"><td class="memItemLeft" align="right" valign="top"><a id="a716b529df6ca9dda09b6972a70917198" name="a716b529df6ca9dda09b6972a70917198"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~CalibrationOnClick</b> ()</td></tr>
+<tr class="memdesc:a716b529df6ca9dda09b6972a70917198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classCalibrationOnClick.html" title="A class which allows for the additon of a button to the screen without inheriting the button directly...">CalibrationOnClick</a> class which removes the listener from the attached button. <br /></td></tr>
+<tr class="separator:a716b529df6ca9dda09b6972a70917198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5da726e335398bcb807ef53214ae6a" id="r_aff5da726e335398bcb807ef53214ae6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCalibrationOnClick.html#aff5da726e335398bcb807ef53214ae6a">resized</a> () override</td></tr>
+<tr class="memdesc:aff5da726e335398bcb807ef53214ae6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which is called upon whenever the user interface window has changed in size. This can change the size of the component so that it can either be kept at a constant size of scaled to fit a specified area of the screen.  <br /></td></tr>
 <tr class="separator:aff5da726e335398bcb807ef53214ae6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -116,9 +129,40 @@ Public Attributes</h2></td></tr>
 juce::TextButton&#160;</td><td class="memItemRight" valign="bottom"><b>button</b></td></tr>
 <tr class="separator:acfbee39178d96a1dd1d70eb873e63aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class which allows for the additon of a button to the screen without inheriting the button directly. This allows for other widgets to be added to it later without compatibility issues. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aff5da726e335398bcb807ef53214ae6a" name="aff5da726e335398bcb807ef53214ae6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff5da726e335398bcb807ef53214ae6a">&#9670;&#160;</a></span>resized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CalibrationOnClick::resized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function which is called upon whenever the user interface window has changed in size. This can change the size of the component so that it can either be kept at a constant size of scaled to fit a specified area of the screen. </p>
+<dl class="section note"><dt>Note</dt><dd>Currently, this adds a small margin around the local area and fills the rest of the area with the attached button. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
-<li>/home/ryan/Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

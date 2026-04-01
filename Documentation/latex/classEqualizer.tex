@@ -30,20 +30,25 @@ Collaboration diagram for Equalizer\+:\nopagebreak
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97}\label{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97} 
-{\bfseries Equalizer} (char number\+Of\+Sliders=10)
-\item 
+\mbox{\hyperlink{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97}{Equalizer}} (char number\+Of\+Sliders=10)
+\begin{DoxyCompactList}\small\item\em Contructor for the \doxylink{classEqualizer}{Equalizer} class which creates a set of n vertical sliders in the style of an equalizer. \end{DoxyCompactList}\item 
+\Hypertarget{classEqualizer_a3467b7d27117adad2b78ddb92ea86df9}\label{classEqualizer_a3467b7d27117adad2b78ddb92ea86df9} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Equalizer} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classEqualizer}{Equalizer} which removes the slider listeners from each of the sliders as well as resetting the look and feel of each of them. \end{DoxyCompactList}\item 
 \Hypertarget{classEqualizer_a13ce26627bc000f883fceb7fcce46a24}\label{classEqualizer_a13ce26627bc000f883fceb7fcce46a24} 
 void {\bfseries resized} () override
-\begin{DoxyCompactList}\small\item\em A function to set the size of the sliders with respect to the equalizer. \end{DoxyCompactList}\item 
-\Hypertarget{classEqualizer_a874d467cae04b84eb2adeefaa08046e0}\label{classEqualizer_a874d467cae04b84eb2adeefaa08046e0} 
-void {\bfseries slider\+Value\+Changed} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function to set the size of the sliders with respect to the equalizer size. Whenever the parent component changes size, this function is called upon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEqualizer_a874d467cae04b84eb2adeefaa08046e0}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A callback function for when one of the sliders within the equalizer has been detected to have changed in value. This is where the corresponding variables the sliders affect may be changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classverticalMixSlider}{vertical\+Mix\+Slider}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries slider\+Value\+Changed} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
-\end{DoxyCompactItemize}
+{\bfseries vertical\+Mix\+Slider} ()
+\begin{DoxyCompactList}\small\item\em Constructor function for the verical\+Mix\+Slider which creates an instance of the class and sets the parameters to match it best such as setting the range to be between -\/9 dB and 9 dB with a step size of 3 dB as well as label size. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}vertical\+Mix\+Slider} ()
+\begin{DoxyCompactList}\small\item\em Destructor function for the \doxylink{classverticalMixSlider}{vertical\+Mix\+Slider} class which removes the listener from the slider before killing the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A callback function for when the slider used has been adjusted and its value may have been changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -55,9 +60,6 @@ void \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{re
 \begin{DoxyCompactList}\small\item\em A function which is automatically called whenever the window size is modified. This automatically adjusts the bounds of each of the labels as well as the slider to ensure the size is correct with respect to the screen size for the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classEqualizer_ac5bd4808ca00f7c7686c20b7eefbfd3e}\label{classEqualizer_ac5bd4808ca00f7c7686c20b7eefbfd3e} 
-char {\bfseries n\+Sliders}
 \item 
 \Hypertarget{classEqualizer_a4ccb3c51309f715183fd47a046ac1911}\label{classEqualizer_a4ccb3c51309f715183fd47a046ac1911} 
 juce\+::\+Owned\+Array$<$ \mbox{\hyperlink{classverticalMixSlider}{vertical\+Mix\+Slider}} $>$ {\bfseries eq\+Sliders}
@@ -109,7 +111,50 @@ A class which inherits its sliders from {\ttfamily \doxylink{classverticalMixSli
 \end{DoxyParams}
 
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97}\label{classEqualizer_a504d4d05b8bf5494f8c139c0229fba97} 
+\index{Equalizer@{Equalizer}!Equalizer@{Equalizer}}
+\index{Equalizer@{Equalizer}!Equalizer@{Equalizer}}
+\doxysubsubsection{\texorpdfstring{Equalizer()}{Equalizer()}}
+{\footnotesize\ttfamily Equalizer\+::\+Equalizer (\begin{DoxyParamCaption}\item[{char}]{number\+Of\+Sliders = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+
+
+Contructor for the \doxylink{classEqualizer}{Equalizer} class which creates a set of n vertical sliders in the style of an equalizer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\+Of\+Sliders} & The number of sliders which are present within the equalizer. This is set to 10 by default by may be altered. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Caution\+: If the nuimber\+Of\+Sliders is set to be higher than the number of elements in the {\ttfamily gains} variable in {\ttfamily \doxylink{structSynthesiserParameters__t}{Synthesiser\+Parameters\+\_\+t}}, then the extra sliders will not affect any variable. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEqualizer_a874d467cae04b84eb2adeefaa08046e0}\label{classEqualizer_a874d467cae04b84eb2adeefaa08046e0} 
+\index{Equalizer@{Equalizer}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!Equalizer@{Equalizer}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void Equalizer\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A callback function for when one of the sliders within the equalizer has been detected to have changed in value. This is where the corresponding variables the sliders affect may be changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slider\+Changed} & A pointer to the slider which has been changed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+As the equalizer has multiple sliders within it, it is important to check which of the sliders has been changed before altering any values. This function uses predefined variables which are affected by each of the sliders. If you wish to change this, you must change it within the function defintion as there are no functions to call to change the variable. ~\newline
+ 
+\end{DoxyNote}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
-/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

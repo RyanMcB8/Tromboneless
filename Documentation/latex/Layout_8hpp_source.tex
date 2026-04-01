@@ -1,5 +1,5 @@
 \doxysection{Layout.\+hpp}
-\hypertarget{Layout_8hpp_source}{}\label{Layout_8hpp_source}\index{/home/ryan/Tromboneless/App/inc/Layout.hpp@{/home/ryan/Tromboneless/App/inc/Layout.hpp}}
+\hypertarget{Layout_8hpp_source}{}\label{Layout_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/App/inc/Layout.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/App/inc/Layout.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -28,7 +28,7 @@
 \DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Deconstructor}}
 \DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLayout}{\string~Layout}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLayout_a61ba6125142eb33c4dd13534ec63530c}{paint}}\ (juce::Graphics\&)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLayout_a1928c3c94ff880bd1ca446a6f0991d05}{paint}}\ (juce::Graphics\&\ g)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00036\ }
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLayout_ace00518b85cff7055509d7517c9340e9}{resized}}()\ \textcolor{keyword}{override};}
@@ -57,35 +57,36 @@
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDropDownMenus}{DropDownMenus}}\ \ \ dropDownMenus;}
 \DoxyCodeLine{00074\ }
 \DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Sliders\ and\ labels\ for\ calibrating\ the\ range.\ */}}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationSlider}{CalibrationSlider}}\ distanceSlider;}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationSliderLookAndFeel}{CalibrationSliderLookAndFeel}}\ LandF;}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Sliders\ and\ labels\ for\ calibrating\ the\ pressure\ maximum\ and\ minimum.\ */}}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationRotarySlider}{CalibrationRotarySlider}}\ pressureSlider;}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometerLookAndFeel}{BarometerLookAndFeel}}\ barometerLandF;}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometerOuterLookAndFeel}{BarometerOuterLookAndFeel}}\ barometerOuterLandF;}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Adding\ an\ option\ to\ calibrate\ the\ embachure.\ */}}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrateEmbachure}{CalibrateEmbachure}}\ calibrateEmbachure;}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Creation\ of\ the\ equalizer.\ */}}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEqualizerPanel}{EqualizerPanel}}\ equalizer;}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ showMessageBox\ (\textcolor{keyword}{const}\ juce::String\&\ title,\ \textcolor{keyword}{const}\ juce::String\&\ message)}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ juce::AlertWindow::showMessageBoxAsync(}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ juce::MessageBoxIconType::InfoIcon,}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ title,}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CalibrationSlider\ distanceSlider;}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CalibrationSliderLookAndFeel\ LandF;}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSliders}{Sliders}}\ sliders;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Sliders\ and\ labels\ for\ calibrating\ the\ pressure\ maximum\ and\ minimum.\ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometer}{Barometer}}\ pressureSlider;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometerLookAndFeel}{BarometerLookAndFeel}}\ barometerLandF;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometerOuterLookAndFeel}{BarometerOuterLookAndFeel}}\ barometerOuterLandF;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Adding\ an\ option\ to\ calibrate\ the\ embouchure.\ */}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrateEmbouchure}{CalibrateEmbouchure}}\ calibrateEmbouchure;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Creation\ of\ the\ equalizer.\ */}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEqualizerPanel}{EqualizerPanel}}\ equalizer;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ showMessageBox\ (\textcolor{keyword}{const}\ juce::String\&\ title,\ \textcolor{keyword}{const}\ juce::String\&\ message)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ juce::AlertWindow::showMessageBoxAsync(}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ juce::MessageBoxIconType::InfoIcon,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ title,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ message}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ JUCE\_DECLARE\_NON\_COPYABLE\_WITH\_LEAK\_DETECTOR\ (\mbox{\hyperlink{classLayout}{Layout}})}
-\DoxyCodeLine{00109\ \};}
-\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ JUCE\_DECLARE\_NON\_COPYABLE\_WITH\_LEAK\_DETECTOR\ (\mbox{\hyperlink{classLayout}{Layout}})}
+\DoxyCodeLine{00110\ \};}
 \DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
 
 \end{DoxyCode}

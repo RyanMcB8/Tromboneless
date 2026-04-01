@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rotarysliderwithlabel_0',['RotarySliderWithLabel',['../classRotarySliderWithLabel.html',1,'']]]
+  ['panels_0',['Panels',['../classPanels.html',1,'']]]
 ];

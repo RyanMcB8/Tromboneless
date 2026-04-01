@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['same_20network_20as_20pi_3a_0',['If on the same network as pi:',['../index.html#autotoc_md12',1,'']]],
+  ['same_20network_20as_20pi_3a_0',['If on the same network as pi:',['../index.html#autotoc_md10',1,'']]],
   ['saturatednote_1',['SaturatedNote',['../classOctaves.html#a01d61ab40de2a20165a7e3526662484e',1,'Octaves']]],
   ['seta_2',['setA',['../classNotes.html#a04c47164cb0f449420fc0dbff35c405e',1,'Notes']]],
   ['seta_5fsharp_3',['setA_sharp',['../classNotes.html#a2768afc7543a3e382d7c302d992e920e',1,'Notes']]],
@@ -25,15 +25,17 @@ var searchData=
   ['setstarttime_22',['setStartTime',['../classDeltaTime.html#a7a32bf9e7b9ee81377dc777a32b819e8',1,'DeltaTime']]],
   ['shutdown_23',['shutdown',['../classGuiAppApplication.html#ae89b90a057c20d7f6d9c1b50b0568d0d',1,'GuiAppApplication']]],
   ['size_24',['size',['../classMidiMessage.html#aec6e6ae073d1f50f3a1030ff936f9607',1,'MidiMessage']]],
-  ['slidervaluechanged_25',['slidervaluechanged',['../classCalibrationSlider.html#aa86dc6014c7b5579ffd0a41256a115f4',1,'CalibrationSlider::sliderValueChanged()'],['../classLayout.html#a990ca39aae090b72660e5be5a4d7f18b',1,'Layout::sliderValueChanged()']]],
-  ['sliderwithlabel_26',['SliderWithLabel',['../classSliderWithLabel.html',1,'']]],
-  ['ssh_20steps_27',['SSH Steps',['../index.html#autotoc_md11',1,'']]],
-  ['startenvelope_28',['StartEnvelope',['../classEnvelope.html#a055b521678bf21efe6a1ded92e123aed',1,'Envelope']]],
-  ['startnote_29',['StartNote',['../classOctaves.html#a3f6a62befde733b18ebf3beb3259358f',1,'Octaves']]],
-  ['startnotewithharmonics_30',['StartNoteWithHarmonics',['../classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a',1,'OctavesWithHarmonics']]],
-  ['steps_31',['SSH Steps',['../index.html#autotoc_md11',1,'']]],
-  ['steps_20to_20install_3a_32',['Steps to install:',['../index.html#autotoc_md10',1,'']]],
-  ['synth_2ecpp_33',['synth.cpp',['../synth_8cpp.html',1,'']]],
-  ['synth_2ehpp_34',['synth.hpp',['../synth_8hpp.html',1,'']]],
-  ['synthesiserparameters_5ft_35',['SynthesiserParameters_t',['../structSynthesiserParameters__t.html',1,'']]]
+  ['sliders_25',['Sliders',['../classSliders.html',1,'']]],
+  ['slidervaluechanged_26',['slidervaluechanged',['../classEqualizer.html#a874d467cae04b84eb2adeefaa08046e0',1,'Equalizer::sliderValueChanged()'],['../classverticalMixSlider.html#ac5ad8f8ccd6ccc5d30bff4e0900be364',1,'verticalMixSlider::sliderValueChanged()'],['../classLayout.html#a990ca39aae090b72660e5be5a4d7f18b',1,'Layout::sliderValueChanged()'],['../classCalibrationSlider.html#aa86dc6014c7b5579ffd0a41256a115f4',1,'CalibrationSlider::sliderValueChanged()'],['../classDualRotarySlider.html#a7d5673c6f2313981b21c4c24a98441ae',1,'DualRotarySlider::sliderValueChanged()'],['../classBarometer.html#a3bfa01d333610a674db18ead6e1a7b2d',1,'Barometer::sliderValueChanged()']]],
+  ['sliderwithlabel_27',['SliderWithLabel',['../classSliderWithLabel.html',1,'']]],
+  ['specifically_20for_20juce_3a_28',['Code tutorials specifically for JUCE:',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html#autotoc_md2',1,'']]],
+  ['ssh_20steps_29',['SSH Steps',['../index.html#autotoc_md9',1,'']]],
+  ['startenvelope_30',['StartEnvelope',['../classEnvelope.html#a055b521678bf21efe6a1ded92e123aed',1,'Envelope']]],
+  ['startnote_31',['StartNote',['../classOctaves.html#a3f6a62befde733b18ebf3beb3259358f',1,'Octaves']]],
+  ['startnotewithharmonics_32',['StartNoteWithHarmonics',['../classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a',1,'OctavesWithHarmonics']]],
+  ['steps_33',['SSH Steps',['../index.html#autotoc_md9',1,'']]],
+  ['steps_20to_20install_3a_34',['Steps to install:',['../index.html#autotoc_md8',1,'']]],
+  ['synth_2ecpp_35',['synth.cpp',['../synth_8cpp.html',1,'']]],
+  ['synth_2ehpp_36',['synth.hpp',['../synth_8hpp.html',1,'']]],
+  ['synthesiserparameters_5ft_37',['SynthesiserParameters_t',['../structSynthesiserParameters__t.html',1,'']]]
 ];

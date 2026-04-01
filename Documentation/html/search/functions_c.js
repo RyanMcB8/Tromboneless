@@ -24,7 +24,7 @@ var searchData=
   ['setstarttime_21',['setStartTime',['../classDeltaTime.html#a7a32bf9e7b9ee81377dc777a32b819e8',1,'DeltaTime']]],
   ['shutdown_22',['shutdown',['../classGuiAppApplication.html#ae89b90a057c20d7f6d9c1b50b0568d0d',1,'GuiAppApplication']]],
   ['size_23',['size',['../classMidiMessage.html#aec6e6ae073d1f50f3a1030ff936f9607',1,'MidiMessage']]],
-  ['slidervaluechanged_24',['slidervaluechanged',['../classLayout.html#a990ca39aae090b72660e5be5a4d7f18b',1,'Layout::sliderValueChanged()'],['../classCalibrationSlider.html#aa86dc6014c7b5579ffd0a41256a115f4',1,'CalibrationSlider::sliderValueChanged()']]],
+  ['slidervaluechanged_24',['slidervaluechanged',['../classLayout.html#a990ca39aae090b72660e5be5a4d7f18b',1,'Layout::sliderValueChanged()'],['../classCalibrationSlider.html#aa86dc6014c7b5579ffd0a41256a115f4',1,'CalibrationSlider::sliderValueChanged()'],['../classDualRotarySlider.html#a7d5673c6f2313981b21c4c24a98441ae',1,'DualRotarySlider::sliderValueChanged()'],['../classBarometer.html#a3bfa01d333610a674db18ead6e1a7b2d',1,'Barometer::sliderValueChanged()'],['../classverticalMixSlider.html#ac5ad8f8ccd6ccc5d30bff4e0900be364',1,'verticalMixSlider::sliderValueChanged()'],['../classEqualizer.html#a874d467cae04b84eb2adeefaa08046e0',1,'Equalizer::sliderValueChanged()']]],
   ['startenvelope_25',['StartEnvelope',['../classEnvelope.html#a055b521678bf21efe6a1ded92e123aed',1,'Envelope']]],
   ['startnote_26',['StartNote',['../classOctaves.html#a3f6a62befde733b18ebf3beb3259358f',1,'Octaves']]],
   ['startnotewithharmonics_27',['StartNoteWithHarmonics',['../classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a',1,'OctavesWithHarmonics']]]

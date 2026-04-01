@@ -117,19 +117,31 @@ Collaboration diagram for Equalizer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a504d4d05b8bf5494f8c139c0229fba97" id="r_a504d4d05b8bf5494f8c139c0229fba97"><td class="memItemLeft" align="right" valign="top"><a id="a504d4d05b8bf5494f8c139c0229fba97" name="a504d4d05b8bf5494f8c139c0229fba97"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Equalizer</b> (char numberOfSliders=10)</td></tr>
+<tr class="memitem:a504d4d05b8bf5494f8c139c0229fba97" id="r_a504d4d05b8bf5494f8c139c0229fba97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEqualizer.html#a504d4d05b8bf5494f8c139c0229fba97">Equalizer</a> (char numberOfSliders=10)</td></tr>
+<tr class="memdesc:a504d4d05b8bf5494f8c139c0229fba97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contructor for the <a class="el" href="classEqualizer.html" title="A class which inherits its sliders from verticalMixSlider made to act as an equalizer.">Equalizer</a> class which creates a set of n vertical sliders in the style of an equalizer.  <br /></td></tr>
 <tr class="separator:a504d4d05b8bf5494f8c139c0229fba97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3467b7d27117adad2b78ddb92ea86df9" id="r_a3467b7d27117adad2b78ddb92ea86df9"><td class="memItemLeft" align="right" valign="top"><a id="a3467b7d27117adad2b78ddb92ea86df9" name="a3467b7d27117adad2b78ddb92ea86df9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~Equalizer</b> ()</td></tr>
+<tr class="memdesc:a3467b7d27117adad2b78ddb92ea86df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the <a class="el" href="classEqualizer.html" title="A class which inherits its sliders from verticalMixSlider made to act as an equalizer.">Equalizer</a> which removes the slider listeners from each of the sliders as well as resetting the look and feel of each of them. <br /></td></tr>
+<tr class="separator:a3467b7d27117adad2b78ddb92ea86df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13ce26627bc000f883fceb7fcce46a24" id="r_a13ce26627bc000f883fceb7fcce46a24"><td class="memItemLeft" align="right" valign="top"><a id="a13ce26627bc000f883fceb7fcce46a24" name="a13ce26627bc000f883fceb7fcce46a24"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>resized</b> () override</td></tr>
-<tr class="memdesc:a13ce26627bc000f883fceb7fcce46a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the size of the sliders with respect to the equalizer. <br /></td></tr>
+<tr class="memdesc:a13ce26627bc000f883fceb7fcce46a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the size of the sliders with respect to the equalizer size. Whenever the parent component changes size, this function is called upon. <br /></td></tr>
 <tr class="separator:a13ce26627bc000f883fceb7fcce46a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a874d467cae04b84eb2adeefaa08046e0" id="r_a874d467cae04b84eb2adeefaa08046e0"><td class="memItemLeft" align="right" valign="top"><a id="a874d467cae04b84eb2adeefaa08046e0" name="a874d467cae04b84eb2adeefaa08046e0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sliderValueChanged</b> (juce::Slider *sliderChanged) override</td></tr>
+<tr class="memitem:a874d467cae04b84eb2adeefaa08046e0" id="r_a874d467cae04b84eb2adeefaa08046e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEqualizer.html#a874d467cae04b84eb2adeefaa08046e0">sliderValueChanged</a> (juce::Slider *sliderChanged) override</td></tr>
+<tr class="memdesc:a874d467cae04b84eb2adeefaa08046e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A callback function for when one of the sliders within the equalizer has been detected to have changed in value. This is where the corresponding variables the sliders affect may be changed.  <br /></td></tr>
 <tr class="separator:a874d467cae04b84eb2adeefaa08046e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classverticalMixSlider"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classverticalMixSlider')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classverticalMixSlider.html">verticalMixSlider</a></td></tr>
-<tr class="memitem:ac5ad8f8ccd6ccc5d30bff4e0900be364 inherit pub_methods_classverticalMixSlider" id="r_ac5ad8f8ccd6ccc5d30bff4e0900be364"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sliderValueChanged</b> (juce::Slider *sliderChanged) override</td></tr>
+<tr class="memitem:a64196197ca6240b83ad300ea23fe1f1c inherit pub_methods_classverticalMixSlider" id="r_a64196197ca6240b83ad300ea23fe1f1c"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>verticalMixSlider</b> ()</td></tr>
+<tr class="memdesc:a64196197ca6240b83ad300ea23fe1f1c inherit pub_methods_classverticalMixSlider"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor function for the vericalMixSlider which creates an instance of the class and sets the parameters to match it best such as setting the range to be between -9 dB and 9 dB with a step size of 3 dB as well as label size. <br /></td></tr>
+<tr class="separator:a64196197ca6240b83ad300ea23fe1f1c inherit pub_methods_classverticalMixSlider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78573e6d3ca59e33fbb67c8aab65d454 inherit pub_methods_classverticalMixSlider" id="r_a78573e6d3ca59e33fbb67c8aab65d454"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>~verticalMixSlider</b> ()</td></tr>
+<tr class="memdesc:a78573e6d3ca59e33fbb67c8aab65d454 inherit pub_methods_classverticalMixSlider"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor function for the <a class="el" href="classverticalMixSlider.html" title="A class that adds more functionality to the slider class from Juce.">verticalMixSlider</a> class which removes the listener from the slider before killing the object. <br /></td></tr>
+<tr class="separator:a78573e6d3ca59e33fbb67c8aab65d454 inherit pub_methods_classverticalMixSlider"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5ad8f8ccd6ccc5d30bff4e0900be364 inherit pub_methods_classverticalMixSlider" id="r_ac5ad8f8ccd6ccc5d30bff4e0900be364"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classverticalMixSlider.html#ac5ad8f8ccd6ccc5d30bff4e0900be364">sliderValueChanged</a> (juce::Slider *sliderChanged) override</td></tr>
+<tr class="memdesc:ac5ad8f8ccd6ccc5d30bff4e0900be364 inherit pub_methods_classverticalMixSlider"><td class="mdescLeft">&#160;</td><td class="mdescRight">A callback function for when the slider used has been adjusted and its value may have been changed.  <br /></td></tr>
 <tr class="separator:ac5ad8f8ccd6ccc5d30bff4e0900be364 inherit pub_methods_classverticalMixSlider"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classSliderWithLabel"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classSliderWithLabel')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classSliderWithLabel.html">SliderWithLabel</a></td></tr>
 <tr class="memitem:a25c9c9dc8ea3c9ae6ff41567e1ba760e inherit pub_methods_classSliderWithLabel" id="r_a25c9c9dc8ea3c9ae6ff41567e1ba760e"><td class="memItemLeft" align="right" valign="top">
@@ -144,9 +156,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>sliderValueChanged</b
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac5bd4808ca00f7c7686c20b7eefbfd3e" id="r_ac5bd4808ca00f7c7686c20b7eefbfd3e"><td class="memItemLeft" align="right" valign="top"><a id="ac5bd4808ca00f7c7686c20b7eefbfd3e" name="ac5bd4808ca00f7c7686c20b7eefbfd3e"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>nSliders</b></td></tr>
-<tr class="separator:ac5bd4808ca00f7c7686c20b7eefbfd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ccb3c51309f715183fd47a046ac1911" id="r_a4ccb3c51309f715183fd47a046ac1911"><td class="memItemLeft" align="right" valign="top"><a id="a4ccb3c51309f715183fd47a046ac1911" name="a4ccb3c51309f715183fd47a046ac1911"></a>
 juce::OwnedArray&lt; <a class="el" href="classverticalMixSlider.html">verticalMixSlider</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>eqSliders</b></td></tr>
 <tr class="separator:a4ccb3c51309f715183fd47a046ac1911"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,9 +205,74 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
-<li>/home/ryan/Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a504d4d05b8bf5494f8c139c0229fba97" name="a504d4d05b8bf5494f8c139c0229fba97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a504d4d05b8bf5494f8c139c0229fba97">&#9670;&#160;</a></span>Equalizer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Equalizer::Equalizer </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>numberOfSliders</em> = <code>10</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Contructor for the <a class="el" href="classEqualizer.html" title="A class which inherits its sliders from verticalMixSlider made to act as an equalizer.">Equalizer</a> class which creates a set of n vertical sliders in the style of an equalizer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numberOfSliders</td><td>The number of sliders which are present within the equalizer. This is set to 10 by default by may be altered. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Caution: If the nuimberOfSliders is set to be higher than the number of elements in the <code>gains</code> variable in <code><a class="el" href="structSynthesiserParameters__t.html">SynthesiserParameters_t</a></code>, then the extra sliders will not affect any variable. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a874d467cae04b84eb2adeefaa08046e0" name="a874d467cae04b84eb2adeefaa08046e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874d467cae04b84eb2adeefaa08046e0">&#9670;&#160;</a></span>sliderValueChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Equalizer::sliderValueChanged </td>
+          <td>(</td>
+          <td class="paramtype">juce::Slider *&#160;</td>
+          <td class="paramname"><em>sliderChanged</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A callback function for when one of the sliders within the equalizer has been detected to have changed in value. This is where the corresponding variables the sliders affect may be changed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sliderChanged</td><td>A pointer to the slider which has been changed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>As the equalizer has multiple sliders within it, it is important to check which of the sliders has been changed before altering any values. This function uses predefined variables which are affected by each of the sliders. If you wish to change this, you must change it within the function defintion as there are no functions to call to change the variable. <br  />
+ </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/ryan-mcbride/Documents/Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

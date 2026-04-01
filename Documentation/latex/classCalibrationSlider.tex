@@ -32,7 +32,10 @@ Collaboration diagram for Calibration\+Slider\+:\nopagebreak
 \item 
 \Hypertarget{classCalibrationSlider_a0cd4e4240dfd46d022488cc00cad88ad}\label{classCalibrationSlider_a0cd4e4240dfd46d022488cc00cad88ad} 
 {\bfseries Calibration\+Slider} ()
-\begin{DoxyCompactList}\small\item\em Contructor for the {\ttfamily \doxylink{classCalibrationSlider}{Calibration\+Slider}} class which requires the type of slider being used to be initiated which is set to {\ttfamily Two\+Value\+Horizontal} by default. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The contructor function for the {\ttfamily \doxylink{classCalibrationSlider}{Calibration\+Slider}} class which requires the type of slider being used to be initiated. This is set to {\ttfamily Two\+Value\+Horizontal} by default. \end{DoxyCompactList}\item 
+\Hypertarget{classCalibrationSlider_a97344f37ff0850b789d63b14322602f3}\label{classCalibrationSlider_a97344f37ff0850b789d63b14322602f3} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Calibration\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classCalibrationSlider}{Calibration\+Slider}} class which removes the listener from the slider. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalibrationSlider_a5600f08e5786ae9d9e3a87c3ca9fc68b}{set\+Min\+Difference}} (double difference)
 \begin{DoxyCompactList}\small\item\em A function which sets the minimum difference between the upper and lower fingers of the slider. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
@@ -99,7 +102,7 @@ A function which sets the minimum difference between the upper and lower fingers
 
 
 \begin{DoxyParams}{Parameters}
-{\em difference} & The value of the difference between the fingers. \\
+{\em difference} & The value of the minimum distance between the slider knobs. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4}\label{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4} 
@@ -119,5 +122,5 @@ This function automatically moves the fingers to ensure that they stay at least 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
-/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}
