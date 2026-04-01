@@ -1,0 +1,100 @@
+\doxysection{Barometer Class Reference}
+\hypertarget{classBarometer}{}\label{classBarometer}\index{Barometer@{Barometer}}
+
+
+Inheritance diagram for Barometer\+:
+% FIG 0
+
+
+Collaboration diagram for Barometer\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBarometer_ae73bc03245af7fe321e855a26968e3d9}\label{classBarometer_ae73bc03245af7fe321e855a26968e3d9} 
+{\bfseries Barometer} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classBarometer}{Barometer} class which sets the look and feel of the sliders, attaches a listener to them both and sets the labels text to be the corresponding text. \end{DoxyCompactList}\item 
+\Hypertarget{classBarometer_a5254d60884f804d70f4d59b4c7e2cef8}\label{classBarometer_a5254d60884f804d70f4d59b4c7e2cef8} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Barometer} ()
+\begin{DoxyCompactList}\small\item\em Decontructor for the \doxylink{classBarometer}{Barometer} class which removes the listeners from the sliders as well as resetting their look and feel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A callback function which is automatically called upon when either of the sliders knobs are adjusted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a9cde3aede799c7b81c5a9836865c05a5}{paint}} (juce\+::\+Graphics \&g) override
+\begin{DoxyCompactList}\small\item\em A function which is used to change the background of the component to look like it is a barometer/ pressure gauge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classDualRotarySlider}{Dual\+Rotary\+Slider}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Dual\+Rotary\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classDualRotarySlider}{Dual\+Rotary\+Slider}} class which sets the range of the sliders, minimum distance and adds listeners to them both so that when the sliders are moved, the corresponding variables may be changed. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Dual\+Rotary\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classDualRotarySlider}{Dual\+Rotary\+Slider}} class which removes the listeners from the sliders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A function that is called upon when either of the fingers are moved. \end{DoxyCompactList}\item 
+void {\bfseries resized} () override
+\begin{DoxyCompactList}\small\item\em A callback function for when the window size has changed. This allows for the labels and sliders to be resized to be the best relative size. This can either be set to a predetermined size like 100px x 200px, but it is currrently set to be relative to the size of the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classDualRotarySlider}{Dual\+Rotary\+Slider}}}
+\begin{DoxyCompactItemize}
+\item 
+juce\+::\+Slider {\bfseries max\+Slider}
+\item 
+juce\+::\+Slider {\bfseries min\+Slider}
+\item 
+juce\+::\+Label {\bfseries rotary\+Label}
+\item 
+float {\bfseries min\+Limit} = 0.\+1
+\item 
+float {\bfseries max\+Limit} = 2.\+0
+\item 
+float {\bfseries interval} = 0.\+1
+\item 
+float {\bfseries min\+Difference} = 0.\+2
+\item 
+float {\bfseries label\+Height}
+\item 
+float {\bfseries min\+Angle} = M\+\_\+\+PI + 0.\+5
+\item 
+float {\bfseries max\+Angle} = 3\texorpdfstring{$\ast$}{*}M\+\_\+\+PI -\/ 0.\+5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBarometer_a9cde3aede799c7b81c5a9836865c05a5}\label{classBarometer_a9cde3aede799c7b81c5a9836865c05a5} 
+\index{Barometer@{Barometer}!paint@{paint}}
+\index{paint@{paint}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void Barometer\+::paint (\begin{DoxyParamCaption}\item[{juce\+::\+Graphics \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A function which is used to change the background of the component to look like it is a barometer/ pressure gauge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to the juce\+::\+Graphics instance which is being drawn to. This is likely the parent component or the main window of the system. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function may be altered to change the look of the device but it currently adds a white circle as a background, golden outer circle for the edge of it, 2 arcs around it corresponding to bounds, with lines connecting them representing the possible settings. 
+\end{DoxyNote}
+\Hypertarget{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d}\label{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d} 
+\index{Barometer@{Barometer}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void Barometer\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A callback function which is automatically called upon when either of the sliders knobs are adjusted. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slider\+Changed} & A pointer to the slider which has been changed by the user. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

@@ -549,10 +549,17 @@ void Equalizer::resized()
 
 void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
     for (int i=0; i < nSliders; i++){
-        if (sliderChanged == &(eqSliders[i]->slider)){
+        if (((int) sizeof(synthesiserParameters.gains) / (int) sizeof(synthesiserParameters.gains[0])) < i){
+            /* The number of sliders is more than the length of the gains array.
+                writing passed the value would break the system. Better to return
+                before crashing.    */
 #ifdef DBG_MSG
-            std::cout << "Slider:"<< i << "\n";
-#endif              
+            DBG("Too many sliders in the equalizer compared to the number of gains defined in `synthesiserParameters.gains`.\n");
+#endif
+            return;
+        }
+
+        if (sliderChanged == &(eqSliders[i]->slider)){
             /* Updating the slider value in the synthesiserParameters struct to match the new updated value. */
             synthesiserParameters.gains[i] = eqSliders[i]->slider.getValue();
         }

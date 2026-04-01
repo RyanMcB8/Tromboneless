@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['use_20of_20certain_20classes_20within_20juce_20and_20will_20be_20removed_20for_20the_20alpha_20release_20once_20the_20initial_20template_20is_20complete_0',['This will contain a large amount of tutorial code for the use of certain classes within JUCE and will be removed for the alpha release once the initial template is complete.',['../md__2home_2ryan_2Tromboneless_2App_2Notes.html#autotoc_md1',1,'']]]
+  ['verticalmixslider_0',['verticalmixslider',['../classverticalMixSlider.html',1,'verticalMixSlider'],['../classverticalMixSlider.html#a64196197ca6240b83ad300ea23fe1f1c',1,'verticalMixSlider::verticalMixSlider()']]],
+  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../classVerticalSliderLookAndFeel.html',1,'']]]
 ];

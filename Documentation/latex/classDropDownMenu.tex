@@ -32,21 +32,18 @@ Collaboration diagram for Drop\+Down\+Menu\+:\nopagebreak
 \item 
 \mbox{\hyperlink{classDropDownMenu_a85dbcc39a99ed5db3342709a21e2b7af}{Drop\+Down\+Menu}} (juce\+::\+String label\+Phrase="{}Combo\+Box"{})
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classDropDownMenu}{Drop\+Down\+Menu} class that creates an instance of the class. This makes a juce component that has a combobox or drop-\/down menu within it with a label attached to its left by default. \end{DoxyCompactList}\item 
+\Hypertarget{classDropDownMenu_a38782be175ad1331dfe4937b89de9dbe}\label{classDropDownMenu_a38782be175ad1331dfe4937b89de9dbe} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Drop\+Down\+Menu} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{classDropDownMenu}{Drop\+Down\+Menu} which is set to default as there are no components within this class that need to be deinitialised before the deconstruction of the object. \end{DoxyCompactList}\item 
 \Hypertarget{classDropDownMenu_af9677864aa76f756ea76bc0081a7f434}\label{classDropDownMenu_af9677864aa76f756ea76bc0081a7f434} 
 void {\bfseries resized} () override
-\begin{DoxyCompactList}\small\item\em Adding a functiont that will allow for the {\ttfamily \doxylink{classDropDownMenu}{Drop\+Down\+Menu}} to be resized when the window size is adjusted to fit best. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adding a function that will allow for the {\ttfamily \doxylink{classDropDownMenu}{Drop\+Down\+Menu}} to be resized when the window size is adjusted to fit best. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classDropDownMenu_af3d78708f3fc30dc4743b4481e741623}{Add\+Item}} (juce\+::\+String item\+Name, int item\+Value)
 \begin{DoxyCompactList}\small\item\em A function which allows for the addition of more items within the drop down menu. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classDropDownMenu_ac3b09c656d7b30ea9aab2dd6938a08df}{On\+Change}} (T \texorpdfstring{$\ast$}{*}update\+Variable)
-\begin{DoxyCompactList}\small\item\em This function sets what will happen when the option chosen has been changed by the user. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This function sets what will happen when the option wihtin the drop down menu has been changed by the user. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classDropDownMenu_a56e0e79ee5f5d195e4d11fd898a5d96c}{Change\+Label\+Text}} (juce\+::\+String text, juce\+::\+Notification\+Type notification=juce\+::dont\+Send\+Notification)
 \begin{DoxyCompactList}\small\item\em This function allows for the editting of the main label displayed beside the drop down menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classDropDownMenu_a92ae21fc290fd8e874488e8cb12e010d}\label{classDropDownMenu_a92ae21fc290fd8e874488e8cb12e010d} 
-juce\+::\+Combo\+Box {\bfseries drop\+Down\+Choice}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -65,7 +62,7 @@ Constructor for the \doxylink{classDropDownMenu}{Drop\+Down\+Menu} class that cr
 
 
 \begin{DoxyParams}{Parameters}
-{\em label\+Phrase} & This parameter should be of type juce\+::\+String and contain the phrase which should be displayed by the label. By default this is set to "{}\+Combo\+Box"{} so it may be viewed on creation. \\
+{\em label\+Phrase} & This parameter should be of type juce\+::\+String and contain the phrase which should be displayed by the label. By default this is set to "{}\+Combo\+Box"{} so it may be viewed upon creation. \\
 \hline
 \end{DoxyParams}
 
@@ -114,16 +111,19 @@ void Drop\+Down\+Menu\+::\+On\+Change (\begin{DoxyParamCaption}\item[{T \texorpd
 
 
 
-This function sets what will happen when the option chosen has been changed by the user. 
+This function sets what will happen when the option wihtin the drop down menu has been changed by the user. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em update\+Varaible} & This should be a pointer to the variable which is being set to the item index which has been chosen. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function uses a lambda function to update the specified variable to ensure that the specified variable may be changed for different instances of the class. 
+\end{DoxyNote}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
-/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

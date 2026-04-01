@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['verticalmixslider_0',['verticalMixSlider',['../classverticalMixSlider.html',1,'']]],
-  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../classVerticalSliderLookAndFeel.html',1,'']]]
+  ['widgets_2ecpp_0',['Widgets.cpp',['../Widgets_8cpp.html',1,'']]]
 ];

@@ -30,9 +30,14 @@ Collaboration diagram for vertical\+Mix\+Slider\+:\nopagebreak
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364}\label{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364} 
-void {\bfseries slider\+Value\+Changed} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
-\end{DoxyCompactItemize}
+\Hypertarget{classverticalMixSlider_a64196197ca6240b83ad300ea23fe1f1c}\label{classverticalMixSlider_a64196197ca6240b83ad300ea23fe1f1c} 
+{\bfseries vertical\+Mix\+Slider} ()
+\begin{DoxyCompactList}\small\item\em Constructor function for the verical\+Mix\+Slider which creates an instance of the class and sets the parameters to match it best such as setting the range to be between -\/9 dB and 9 dB with a step size of 3 dB as well as label size. \end{DoxyCompactList}\item 
+\Hypertarget{classverticalMixSlider_a78573e6d3ca59e33fbb67c8aab65d454}\label{classverticalMixSlider_a78573e6d3ca59e33fbb67c8aab65d454} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}vertical\+Mix\+Slider} ()
+\begin{DoxyCompactList}\small\item\em Destructor function for the \doxylink{classverticalMixSlider}{vertical\+Mix\+Slider} class which removes the listener from the slider before killing the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A callback function for when the slider used has been adjusted and its value may have been changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -82,7 +87,28 @@ int {\bfseries bottom\+Label\+Bounds} = 50
 \doxysubsection{Detailed Description}
 A class that adds more functionality to the slider class from Juce. 
 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364}\label{classverticalMixSlider_ac5ad8f8ccd6ccc5d30bff4e0900be364} 
+\index{verticalMixSlider@{verticalMixSlider}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!verticalMixSlider@{verticalMixSlider}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void vertical\+Mix\+Slider\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A callback function for when the slider used has been adjusted and its value may have been changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slider\+Changed} & This is a pointer to the slider which has been changed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+As this class only has one slider that is in it, there is no need to use it but the JUCE function passes it anyway. 
+\end{DoxyNote}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
-/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

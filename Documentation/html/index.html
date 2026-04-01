@@ -73,9 +73,9 @@ $(function() {
   <div class="headertitle"><div class="title">Tromboneless </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__2home_2ryan_2Tromboneless_2README"></a>An open source device which is capable of measuring the uses oral input to synthesis the output a brass trombone would using the MIDI protocol.</p>
+<div class="textblock"><p><a class="anchor" id="md__2home_2ryan-mcbride_2Documents_2Tromboneless_2README"></a>An open source device which is capable of measuring the uses oral input to synthesis the output a brass trombone would using the MIDI protocol.</p>
 <p>Please refer to <a href="https://github.com/RyanMcB8/Tromboneless/wiki">https://github.com/RyanMcB8/Tromboneless/wiki</a> to see componenent, sequence and state diagrams for the MIDI implementation.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Steps to install:</h1>
 <p>1) Install Raspberry Pi OS onto your Raspberry Pi.<br  />
  If you need a guide on how to flash a Pi with the OS, please follow this guide: <br  />
@@ -85,24 +85,24 @@ Steps to install:</h1>
  </p><div class="fragment"><div class="line">git clone https://github.com/RyanMcB8/Tromboneless.git </div>
 </div><!-- fragment --><p> <br  />
 </p>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 SSH Steps</h1>
 <ul>
 <li>SSH pair created on Raspberry with Located in /home/tromboneless/.ssh</li>
 <li>1) When generating own pair, make ssh of ed25519 format: <code>ssh-keygen -t ed25519</code> 2) Add your public key to /home/yourusername/.ssh/authorized_keys. If connected to the same network as the pi, you can do this automatically with <code>ssh-copy-id yourusername@IP_Address</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 If on the same network as pi:</h1>
 <p>ssh in with eg <code>ssh name@IP_Address</code></p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 If on a different network:</h1>
 <p>1.) You need to set up your own personal tailscale account. (Note - I think student emails won't work unless via github.) Invitations to share access to the pi are made on the owner account, then you need to be logged in to your personal account when you follow the invitation link. After this is set up, you work from your personal account.</p>
 <p>2.) Make sure your public ssh key is on the pi</p>
 <p>3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): <code>ssh name@IP_Address</code>. Recommend working within vscode, as you can open a remote window from there which will have a proper GUI hosted by your local machine, but controlling the hardware on the pi.</p>
 <p>4.) Once in the pi, make sure you're working within your git branch. Compiling from here will use the actual pi hardware so you can make sure it's working properly.</p>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 App</h1>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Dependencies</h2>
 <ul>
 <li>Juce </li>
