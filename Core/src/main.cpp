@@ -12,7 +12,7 @@ class GetDistance {
 public:
     int hasTOFsample(uint16_t distance) {
         if (distance > 500) distance = 500;
-        int scaled_bend = 8192 - distance * (8192 / 500);
+        int scaled_bend = 8192 - (distance * 8192) / 500;
         std::cout << scaled_bend << "/n";
         return scaled_bend;
     }
@@ -29,11 +29,14 @@ int main()
         RtMidiSink midiSink;
         GetDistance distanceGetter;
 
+
+        // Check sensor has initialised properly
         if (!sensor.initialise()) {
             std::cerr << "Initialisation failed\n";
             return 1;
         }
 
+        // Callback to start midi message chain
         coordinator.RegisterCallback(
             [&](const MidiMessage& msg)
             {
@@ -43,10 +46,12 @@ int main()
 
         std::atomic<int> got_bend{0};
 
-        sensor.registerCallback([&](uint16_t distance)
-        {
-            got_bend.store(distanceGetter.hasTOFsample(distance), std::memory_order_relaxed);
-        });
+        // Lidar callback when data ready
+        sensor.registerCallback(
+            [&](uint16_t distance)
+            {
+                got_bend.store(distanceGetter.hasTOFsample(distance), std::memory_order_relaxed);
+            });
 
         coordinator.setExpr(100);
         coordinator.setBend(0);
