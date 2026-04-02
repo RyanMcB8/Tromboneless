@@ -48,7 +48,7 @@
 /Core/build/
 
 # ignoring vscode settings
-.vscode/
+*.vscode*
 
 # ignoring CMake files excluding CMakeLists
 *CMakeCache.txt
