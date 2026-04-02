@@ -19,10 +19,9 @@ add_executable(TrombonelessCore src/main.cpp)
 target_compile_definitions(TrombonelessCore PRIVATE __LINUX_ALSA__)
 target_link_libraries(TrombonelessCore PRIVATE asound)
 
-target_include_directories(midi_tof_test PRIVATE
+target_include_directories(TrombonelessCore PRIVATE
     ${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/lib/rtmidi
-
     ${PROJECT_SOURCE_DIR}/shared
     )
 
