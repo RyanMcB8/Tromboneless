@@ -41,3 +41,9 @@ void EventHandler::handleToFDistance(uint16_t distance) {
 
     eventQueueCv.notify_one();
 }
+
+void EventHandler::handleKeyControl(char key){
+    RawInputEvent event{};
+    event.type = RawInputEvent::Type::Keycontrol;
+    event.keycontrol = key;
+}

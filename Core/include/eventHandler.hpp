@@ -12,13 +12,15 @@ struct RawInputEvent {
     enum class Type {
         ToFDistance,
         PressureReading,
-        MouthpieceReading
+        MouthpieceReading,
+        Keycontrol
     };
 
     Type type;
     uint16_t tofDistance;
     float pressureReading;
     float mouthpieceReading;
+    char keycontrol;
 };
 
 class EventHandler {
@@ -37,6 +39,8 @@ public:
 
 private:
     void handleToFDistance(uint16_t distance);
+
+    void handleKeyControl(char key);
 
     EventQueue& eventQueue;
     std::mutex& eventQueueMutex;
