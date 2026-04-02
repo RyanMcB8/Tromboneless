@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(TrombonelessCore VERSION 1.0.0)
+project(TrombonelessCore VERSION 1.0.0 LANGUAGES C CXX)
 
-# Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# Generate compile_commands.json for better IntelliSense
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
@@ -21,10 +21,7 @@ target_link_libraries(TrombonelessCore PRIVATE asound)
 
 target_include_directories(TrombonelessCore PRIVATE
     ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/Drivers
     ${PROJECT_SOURCE_DIR}/lib/rtmidi
-
-    # ${PROJECT_SOURCE_DIR}/shared
     ${PROJECT_SOURCE_DIR}/shared
     )
 

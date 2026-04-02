@@ -1,46 +1,78 @@
 #include "main.hpp"
-#include <chrono>
-#include <thread>
+
+
+#include <condition_variable>
+#include <cstdint>
 #include <iostream>
+#include <mutex>
+#include <queue>
+
+class GetDistance {
+public:
+    int hasTOFsample(uint16_t distance) {
+        if (distance > 500) distance = 500;
+        int scaled_bend = 8192 - (distance * 8192) / 500;
+        std::cout << scaled_bend << "\n";
+        return scaled_bend;
+    }
+};
 
 int main()
 {
     try
     {
+        std::queue<RawInputEvent> eventQueue;
+        std::mutex eventQueueMutex;
+        std::condition_variable eventQueueCv;
+
+        EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
+
         MidiCoordinator coordinator;
         RtMidiSink midiSink;
+        GetDistance distanceGetter;
+
+        if (!eventHandler.initialise()) {
+            std::cerr << "Initialisation failed\n";
+            return 1;
+        }
 
         coordinator.RegisterCallback(
             [&](const MidiMessage& msg)
             {
                 std::cout << "Sending MIDI message of size " << msg.size() << "\n";
                 midiSink.send(msg);
-            }
-        );
+            });
 
-        // Set up some initial values
-        coordinator.setExpr(100);   // CC11 expression
-        coordinator.setBend(0);  // centre pitch bend, if your builder expects 14-bit style
-        coordinator.ChangeNote(60); // middle C
-
-        // Start note
+        coordinator.setExpr(100);
+        coordinator.setBend(0);
+        coordinator.ChangeNote(60);
         coordinator.PressureEdge(true);
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-        // Change note while playing
-        coordinator.ChangeNote(64);
-        
-        // Loop to test pitch bend
-        for (int i = 8000; i > 0; i-=200) 
-        {
-            coordinator.setBend(i);
-            coordinator.setExpr(i);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        eventHandler.start();
+
+        while (true) {
+            RawInputEvent event;
+
+            {
+                std::unique_lock<std::mutex> lock(eventQueueMutex);
+                eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
+
+                event = eventQueue.front();
+                eventQueue.pop();
+            }
+
+            switch (event.type) {
+            case RawInputEvent::Type::ToFDistance:
+                coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
+                break;
+
+            case RawInputEvent::Type::PressureReading:
+                break;
+
+            case RawInputEvent::Type::MouthpieceReading:
+                break;
+            }
         }
-
-        // Stop note
-        coordinator.PressureEdge(false);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
     catch (const std::exception& e)
     {
