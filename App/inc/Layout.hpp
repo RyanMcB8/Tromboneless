@@ -11,8 +11,6 @@
 
 #include <stdio.h>
 
-// #define DBG_MSG
-
 /** @brief Main class that creates the window
  */
 class Layout final : public juce::Component,
@@ -73,8 +71,6 @@ class Layout final : public juce::Component,
         DropDownMenus   dropDownMenus;
 
         /* Sliders and labels for calibrating the range. */
-        // CalibrationSlider distanceSlider;
-        // CalibrationSliderLookAndFeel LandF;
         Sliders sliders;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */

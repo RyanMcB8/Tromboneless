@@ -20,10 +20,13 @@ class SliderWithLabel : public juce::Component{
     
         juce::Slider slider;
 
-        /* Bound parameters. */
+        /* Top label bound parameter (maximum height of the above the slider). */
         int topLabelBounds = 50;
+        /* Left label bound parameter (maximum width of the label to the left of the slider). */
         int leftLabelBounds = 200;
+        /* Right label bound parameter (maximum width of the label to the right of the slider). */
         int rightLabelBounds = 200;
+        /* Bottom label bound parameter (maximum height of the label under the slider). */
         int bottomLabelBounds = 50; 
 
         /* Constructor which sets the style of the slider being used and removes the text entry option. */
@@ -32,7 +35,6 @@ class SliderWithLabel : public juce::Component{
             slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
             addAndMakeVisible(slider);
         }
-
 
         /* Enumerated list of possible positions for the label to be attached relative to the slider. */
         typedef enum{
@@ -415,8 +417,8 @@ class Equalizer : public verticalMixSlider
          */
         ~DropDownMenu() = default;
 
-        /** @brief      Adding a function that will allow for the `DropDownMenu`
-                        to be resized when the window size is adjusted to fit best.
+        /** @brief                  Adding a function that will allow for the `DropDownMenu`
+                                    to be resized when the window size is adjusted to fit best.
         */
         void resized() override;
 
