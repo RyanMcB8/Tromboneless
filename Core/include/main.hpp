@@ -11,6 +11,7 @@ C{
 #include "MidiCoordinator.hpp"
 #include "USBMidi.hpp"
 #include "RtMidi.h"
+#include "eventHandler.hpp"
 #include <iostream>
 
 

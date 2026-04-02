@@ -1,19 +1,18 @@
 #include "main.hpp"
-#include <atomic>
-#include <chrono>
+
+
+#include <condition_variable>
 #include <cstdint>
 #include <iostream>
-#include <thread>
-
-#include "drivers/i2c_bus.hpp"
-#include "drivers/tof_sensor.hpp"
+#include <mutex>
+#include <queue>
 
 class GetDistance {
 public:
     int hasTOFsample(uint16_t distance) {
         if (distance > 500) distance = 500;
         int scaled_bend = 8192 - (distance * 8192) / 500;
-        std::cout << scaled_bend << "/n";
+        std::cout << scaled_bend << "\n";
         return scaled_bend;
     }
 };
@@ -22,21 +21,21 @@ int main()
 {
     try
     {
-        I2CBus bus("/dev/i2c-1");
-        ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
+        std::queue<RawInputEvent> eventQueue;
+        std::mutex eventQueueMutex;
+        std::condition_variable eventQueueCv;
+
+        EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
 
         MidiCoordinator coordinator;
         RtMidiSink midiSink;
         GetDistance distanceGetter;
 
-
-        // Check sensor has initialised properly
-        if (!sensor.initialise()) {
+        if (!eventHandler.initialise()) {
             std::cerr << "Initialisation failed\n";
             return 1;
         }
 
-        // Callback to start midi message chain
         coordinator.RegisterCallback(
             [&](const MidiMessage& msg)
             {
@@ -44,25 +43,35 @@ int main()
                 midiSink.send(msg);
             });
 
-        std::atomic<int> got_bend{0};
-
-        // Lidar callback when data ready
-        sensor.registerCallback(
-            [&](uint16_t distance)
-            {
-                got_bend.store(distanceGetter.hasTOFsample(distance), std::memory_order_relaxed);
-            });
-
         coordinator.setExpr(100);
         coordinator.setBend(0);
         coordinator.ChangeNote(60);
         coordinator.PressureEdge(true);
 
-        sensor.start();
+        eventHandler.start();
 
         while (true) {
-            coordinator.setBend(got_bend.load(std::memory_order_relaxed));
-            std::this_thread::sleep_for(std::chrono::milliseconds(5));
+            RawInputEvent event;
+
+            {
+                std::unique_lock<std::mutex> lock(eventQueueMutex);
+                eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
+
+                event = eventQueue.front();
+                eventQueue.pop();
+            }
+
+            switch (event.type) {
+            case RawInputEvent::Type::ToFDistance:
+                coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
+                break;
+
+            case RawInputEvent::Type::PressureReading:
+                break;
+
+            case RawInputEvent::Type::MouthpieceReading:
+                break;
+            }
         }
     }
     catch (const std::exception& e)
