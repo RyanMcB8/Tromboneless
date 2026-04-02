@@ -7,13 +7,23 @@
 /* Creation of an enum which corresponds to different shift keying
     initial positions which may adjusted by the user through the app. */
 typedef enum{
-    SKOpt_NoOption,
-    SKOpt_MiddleF4,
-    SKOpt_BSharp4,
-    SKOpt_D5,
-    SKOpt_F5,
-    SKOpt_ASharp4,
+    SKOpt_EMPTY,
+    SKOpt_BASS,
+    SKOpt_PICCOLO,
+    SKOpt_ALTO,
+    SKOpt_TENOR,
+    SKOpt_CONTRABASS,
+    SKOpt_SOPRANO,
 } ShiftKeyingOptions_t;
+
+/* Creation of an enum which corresponds to the different
+    embouchure options that the user may select to calibrate. */
+typedef enum{
+    EMBCR_EMPTY,
+    EMBCR_LowPlacement,
+    EMBCR_MediumPlacement,
+    EMBCR_HighPlacement,
+} EmbachureOptions_t;
 
 /* A struct which stores all the necessary parameters that may be changed on the app side effecting the core functionality. */
 typedef struct{
@@ -24,8 +34,8 @@ typedef struct{
     double lowPressure;
     double highPressure;
 
-    int embachureOption;
-    bool triggerEmbachureCalibrate;
+    int embouchureOption;
+    bool triggerEmbouchureCalibrate;
 } TrombonelessParameters_t;
 
 /* A struct to store any of the synthesier parameters that may be changed within the app. */

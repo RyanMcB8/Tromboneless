@@ -1,0 +1,9 @@
+<map id="/home/ryan&#45;mcbride/Documents/Tromboneless/Core/include/synth.hpp" name="/home/ryan&#45;mcbride/Documents/Tromboneless/Core/include/synth.hpp">
+<area shape="rect" id="Node000001" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="224,5,419,60"/>
+<area shape="rect" id="Node000002" href="$main_8hpp_source.html" title=" " alt="" coords="5,108,200,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,68,161,110,159,106,251,63"/>
+<area shape="rect" id="Node000003" href="$synth_8cpp.html" title="C file which contains the defintions for the functions declared in the synth.hpp file." alt="" coords="224,108,419,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="324,74,324,108,319,108,319,74"/>
+<area shape="rect" id="Node000004" href="$testSynth_8cpp.html" title="This file contains all of the necessary unit tests for the functions declared within the synth...." alt="" coords="443,108,637,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="392,63,484,106,482,110,390,68"/>
+</map>

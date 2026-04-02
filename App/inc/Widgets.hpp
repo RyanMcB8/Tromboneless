@@ -47,39 +47,48 @@ class SliderWithLabel : public juce::Component{
             PositonNotAccepted,
         } InitialiseLabelErrors_t;
         
-        /** @brief A function which may be called to create or edit a specified label around the slider.
-         *  @param position The position index of the label which should be modified.
-         *  These are saved as an enum in `Widgets.h`.
-         *  @param phrase An array of type juce::String which contains the phrase which should be
-         *  displayed where the label is.
-         *  @param NotificationEnable The type of notification which should be attached to the label.
-         *  This is set to `dontSendNotification` by default but may be modified.
-         *  @note This function may only address one label at a time, but may be called upon
-         *  for each label needed.
-         *  There may only be one label in each position.
+        /** @brief                      A function which may be called to create or edit a
+         *                              specified label around the slider.
+         *  @param position             The position index of the label which should be modified.
+         *                              These are saved as an enum in `Widgets.h`.
+         *  @param phrase               An array of type juce::String which contains the phrase
+         *                              which should be displayed where the label is.
+         *  @param NotificationEnable   The type of notification which should be attached to the
+         *                              label. This is set to `dontSendNotification` by default
+         *                              but may be modified.
+         *  @note                       This function may only address one label at a time, but
+         *                              may be called upon for each label needed. There may only
+         *                              be one label in each position.
          */
         InitialiseLabelErrors_t CreateLabel(LabelPositions_t position,
             juce::String phrase,
             juce::NotificationType NotificationEnable = juce::dontSendNotification);
 
-        /** @brief A function which is automatically called whenever the window size is modified.
-         *  This automatically adjusts the bounds of each of the labels as well as the slider
-         *  to ensure the size is correct with respect to the screen size for the component.
-         *  @note The bounds are preset to be 20 for the top and bottom labels and 40 for the
-         *  left and right labels. These values may be overwritten by writting to the
-         *  `___LabelBounds` where ___ may be `top`, `right`, `left` or `bottom`.
+        /** @brief                      A function which is automatically called whenever the
+         *                              window size is modified. This automatically adjusts
+         *                              the bounds of each of the labels as well as the
+         *                              slider to ensure the size is correct with respect to
+         *                              the screen size for the component.
+         *  @note                       The bounds are preset to be 20 for the top and bottom
+         *                              labels and 40 for the left and right labels. These
+         *                              values may be overwritten by writting to the
+         *                              `___LabelBounds` where ___ may be `top`, `right`,
+         *                              `left` or `bottom`.
          */
         void resized() override;
 
     private:
         
-        /** @brief A simple function which writes to the label referenced and sets its
-         *  notificiation type.
-         *  @param Label A pointer to the label which should be modified.
-         *  @param phrase An array of data of type juce::String which contains what the label should say.
-         *  @param NotificationEnable The notification type which is being attached to the label.
-         *  @note This function was made to prevent large amounts of repetitive code within the 
-         *  `CreateLabel` function and does not contain any extra code. 
+        /** @brief                      A simple function which writes to the label referenced
+         *                              and sets its notificiation type.
+         *  @param Label                A pointer to the label which should be modified.
+         *  @param phrase               An array of data of type juce::String which contains
+         *                              what the label should say.
+         *  @param NotificationEnable   The notification type which is being attached to the
+         *                              label.
+         *  @note                       This function was made to prevent large amounts of
+         *                              repetitive code within the `CreateLabel` function and
+         *                              does not contain any extra code. 
          */
         void labelSetup(juce::Label* Label, juce::String phrase,
                         juce::NotificationType NotificationEnable);
@@ -95,81 +104,182 @@ class SliderWithLabel : public juce::Component{
         juce::Label LowerRightLabel;
 };
 
-class RotarySliderWithLabel :   public SliderWithLabel,
-                                public juce::Slider::Listener
-{
-public:
-    RotarySliderWithLabel();
-
-    ~RotarySliderWithLabel() = default;
-    
-};
-
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
 class CalibrationSlider :   public SliderWithLabel,
                             public juce::Slider::Listener
 {
 public:
-    /** @brief Contructor for the `CalibrationSlider` class which requires the
-     *  type of slider being used to be initiated which is set to `TwoValueHorizontal`
-     *  by default.
+    /** @brief                      The contructor function for the `CalibrationSlider` class
+     *                              which requires the type of slider being used to be
+     *                              initiated. This is set to `TwoValueHorizontal` by default.
      */ 
     CalibrationSlider();
 
-    ~CalibrationSlider() = default;
+    /** @brief                      The destructor function for the `CalibrationSlider` class
+     *                              which removes the listener from the slider.
+     */
+    ~CalibrationSlider();
 
-    /** @brief A function which sets the minimum difference between the upper and lower fingers of the slider.
-     *  @param difference The value of the difference between the fingers.
+    /** @brief                      A function which sets the minimum difference between the upper
+     *                              and lower fingers of the slider.
+     *  @param difference           The value of the minimum distance between the slider knobs.
      */
     void setMinDifference(double difference);
 
 
-    /** @brief A function that is called upon when either of the fingers are moved.
-     *  @note This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other.
+    /** @brief                      A function that is called upon when either of the fingers are
+     *                              moved.
+     *  @note                       This function automatically moves the fingers to ensure that
+     *                              they stay at least the minimum range apart from each other.
      */
     void sliderValueChanged(juce::Slider* sliderChanged) override;
 
     private:
+        /** A variable which sets the minimum distance between the maxmimum and minimum slider knobs. */
         double minDistance = 1;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
-class CalibrationRotarySlider : public SliderWithLabel,
-                                public juce::Slider::Listener
+class DualRotarySlider : public juce::Component,
+                         public juce::Slider::Listener
 {
 public:
 
-    SliderWithLabel maxSlider = SliderWithLabel(juce::Slider::Rotary);
-    /** @brief Contructor for the `CalibrationSlider` class which requires the
-     *  type of slider being used to be initiated which is set to `TwoValueHorizontal`
-     *  by default.
-     */ 
-    CalibrationRotarySlider();
-
-    ~CalibrationRotarySlider() = default;
-
-    /** @brief A function which sets the minimum difference between the upper and lower fingers of the slider.
-     *  @param difference The value of the difference between the fingers.
+    /* The slider which will represent the high end of the calibration. */
+    juce::Slider    maxSlider;
+    /* The slider which will represent the low end of the calibration. */
+    juce::Slider    minSlider;
+    /* The label of the component. */
+    juce::Label     rotaryLabel;
+    
+    /** @brief                      The constructor function for the `DualRotarySlider` class
+     *                              which sets the range of the sliders, minimum distance and
+     *                              adds listeners to them both so that when the sliders are
+     *                              moved, the corresponding variables may be changed.
      */
-    void setMinDifference(double difference);
+    DualRotarySlider();
 
-
-    /** @brief A function that is called upon when either of the fingers are moved.
-     *  @note This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other.
+    /** @brief                      The destructor function for the `DualRotarySlider` class
+     *                              which removes the listeners from the sliders.
      */
-    void sliderValueChanged(juce::Slider* sliderChanged);
+    ~DualRotarySlider();
 
+    /*  Setting the minimum limit of the slider. */
+    float minLimit = 0.1;
+    /*  Setting the maximum limit of the slider. */
+    float maxLimit = 2.0;
+
+    /*  Setting the minimum step to which the slider may be moved. */
+    float interval = 0.1;
+
+    /* This is the minimum difference between the min and max sliders with respect ot the non normalised values. */
+    float minDifference = 0.2;
+
+
+    /** @brief                      A function that is called upon when either of the fingers
+     *                              are moved.
+     *  @note                       This function automatically moves the fingers to ensure that
+     *                              they stay at least the minimum range apart from each other.
+     */
+    void sliderValueChanged(juce::Slider* sliderChanged) override;
+
+    /** @brief                      A callback function for when the window size has changed.
+     *                              This allows for the labels and sliders to be resized to
+     *                              be the best relative size. This can either be set to a 
+     *                              predetermined size like 100px x 200px, but it is currrently
+     *                              set to be relative to the size of the screen.
+     */
     void resized() override;
 
-    // void mouseDown(const juce::MouseEvent& e) override;
-    void mouseDrag(const juce::MouseEvent& e) override;
-    void mouseUp(const juce::MouseEvent& e) override;
+    /* Setting the relative height of the label. */
+    float labelHeight;
+
+    /*  These values should be moved to be private and set/get functions added. */
+    /*  Setting the minimum angle which the slider can reach. */
+    float minAngle      =   M_PI + 0.5;
+    /*  Setting the maximum angle which the slider can reach. */
+    float maxAngle      =   3*M_PI - 0.5;
+private:
+
+    /* Adding the limits to the slider angles. */
+    /* Finding the minimum difference in angle for the finger differences by
+       normalising the minDifference with respect to the max and min limits
+       and then mulitplying it by the difference betweent the max and min
+       angles. */
+    float minAngleDifference = (maxAngle - minAngle)*(minDifference/(maxLimit - minLimit));
+
+    /* Setting the relative radius of the minimum slider. */
+    float minSliderRadius =   0.6;
+
+    /* Setting the relative radius of the maximum slider. */
+    float maxSliderRadius =   0.9;
+
+
+};
+
+class Barometer :   public DualRotarySlider
+{
+    public:
+        /** @brief                  Constructor for the Barometer class which
+         *                          sets the look and feel of the sliders,
+         *                          attaches a listener to them both and sets
+         *                          the labels text to be the corresponding
+         *                          text.
+         */
+        Barometer();
+
+        /** @brief                  Decontructor for the Barometer class which
+         *                          removes the listeners from the sliders as
+         *                          well as resetting their look and feel.
+         */
+        ~Barometer();
+
+        /** @brief                  A callback function which is automatically
+         *                          called upon when either of the sliders
+         *                          knobs are adjusted.
+         *  @param  sliderChanged   A pointer to the slider which has been
+         *                          changed by the user.
+         */
+        void sliderValueChanged(juce::Slider* sliderChanged) override;
+
+        /** @brief                  A function which is used to change the
+         *                          background of the component to look
+         *                          like it is a barometer/ pressure gauge.
+         *  @param  g               A pointer to the juce::Graphics instance
+         *                          which is being drawn to. This is likely
+         *                          the parent component or the main window
+         *                          of the system.
+         *  @note                   This function may be altered to change
+         *                          the look of the device but it currently
+         *                          adds a white circle as a background,
+         *                          golden outer circle for the edge of it,
+         *                          2 arcs around it corresponding to bounds,
+         *                          with lines connecting them representing
+         *                          the possible settings.
+         */
+        void paint (juce::Graphics& g) override;
 
     private:
-        double minDistance = 1;
-        juce::Slider* activeSlider = nullptr;
+        /*  Creation of an instance of the NeedleLookAndFeel class to be
+            added to the slider knobs to have the correct aesthetic. */
+        NeedleLookAndFeel arrow;
+
+        /* Defining the colours used within the barometer. */
+        juce::Colour backgroundColour   = juce::Colours::white;
+        juce::Colour textColour         = juce::Colours::black;
+        juce::Colour boarderColour      = juce::Colours::gold;
+        juce::Colour edgeColour         = juce::Colour((unsigned int) (0x43080810));
         
+        /* Dimensions */
+        /* Setting the size of the outer arc on the barometer. */
+        float relativeOuterRadius = 0.4;
+
+        /* Setting the size of the inner arc on the barometer.*/
+        float relativeInnerRadius = 0.35;
+
+        /* Setting the distance of the gain labels relative to the centre point. */
+        float relativeLabelRadius = 0.3;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
@@ -177,10 +287,29 @@ class verticalMixSlider : public SliderWithLabel,
                           public juce::Slider::Listener
 {
 public:
+    /** @brief                      Constructor function for the vericalMixSlider
+     *                              which creates an instance of the class and
+     *                              sets the parameters to match it best such as
+     *                              setting the range to be between -9 dB and 9 dB
+     *                              with a step size of 3 dB as well as label size.
+     */
     verticalMixSlider();
 
-    ~verticalMixSlider() = default;
+    /** @brief                      Destructor function for the verticalMixSlider
+     *                              class which removes the listener from the
+     *                              slider before killing the object.
+     */
+    ~verticalMixSlider();
 
+    /** @brief                      A callback function for when the slider used
+     *                              has been adjusted and its value may have been
+     *                              changed.
+     *  @param  sliderChanged       This is a pointer to the slider which has
+     *                              been changed.
+     *  @note                       As this class only has one slider that is in
+     *                              it, there is no need to use it but the JUCE
+     *                              function passes it anyway.
+     */
     void sliderValueChanged(juce::Slider* sliderChanged) override;
     
 };
@@ -192,27 +321,71 @@ public:
 class Equalizer : public verticalMixSlider
 {
     public:
-        char nSliders;
+
+        /* Creating an array of sliders for the equalizer. */
         juce::OwnedArray <verticalMixSlider> eqSliders;
         
-        /* Constructor. */
+        /** @brief                  Contructor for the Equalizer class which creates a set
+         *                          of n vertical sliders in the style of an equalizer.
+         *  @param  numberOfSliders The number of sliders which are present within the
+         *                          equalizer. This is set to 10 by default by may be altered.
+         *  @note                   Caution: If the nuimberOfSliders is set to be higher than
+         *                          the number of elements in the `gains` variable in
+         *                          `SynthesiserParameters_t`, then the extra sliders will not
+         *                          affect any variable.
+         */
         Equalizer(char numberOfSliders = 10);
 
-        /*Destructor. */
+        /** @brief                  Destructor for the Equalizer which removes the slider
+         *                          listeners from each of the sliders as well as resetting
+         *                          the look and feel of each of them.
+         */
         ~Equalizer();
         
-        /** @brief A function to set the size of the sliders with respect to the equalizer.
+        /** @brief                  A function to set the size of the sliders with respect
+         *                          to the equalizer size. Whenever the parent component
+         *                          changes size, this function is called upon.
          * 
          */
         void resized() override;
 
+        /** @brief                  A callback function for when one of the sliders within
+         *                          the equalizer has been detected to have changed in value.
+         *                          This is where the corresponding variables the sliders
+         *                          affect may be changed.
+         *  @param  sliderChanged   A pointer to the slider which has been changed.
+         *  @note                   As the equalizer has multiple sliders within it, it is
+         *                          important to check which of the sliders has been changed
+         *                          before altering any values. This function uses predefined
+         *                          variables which are affected by each of the sliders. If
+         *                          you wish to change this, you must change it within the
+         *                          function defintion as there are no functions to call to
+         *                          change the variable.    
+         */
         void sliderValueChanged(juce::Slider* sliderChanged) override;
         
     private:
+        /*  Creation of an array which stores the different labels which will be set
+            as the frequency ranges of the sliders. */
         juce::Array <juce::String> frequencyLabels; 
+        
+        /*  Stores the previous label which is being written to the bottom of the
+            slider. i.e. the minimum frequency in the frequency band which is being
+            adjusted by the slider. */
         float prevLabel;
+
+        /*  Stores the current label which is being written to the top of the slider.
+            i.e the maximum frequency in the frequency band which is being adjusted
+            by the slider. */
         float newLabel;
+
+        /*  Creating an instance of the VerticalSliderLookAndFeel class to apply a new
+            look and feel to the sliders within this class to match that of a standard
+            equalizer. */
         VerticalSliderLookAndFeel customLook;
+
+        /* variable to store the number of sliders which are being used. */
+        char nSliders;
         
 };
 
@@ -225,22 +398,24 @@ class Equalizer : public verticalMixSlider
  class DropDownMenu :   public juce::Component
  {
      public:
-        juce::ComboBox dropDownChoice;
-     /** @brief                  Constructor for the DropDownMenu class that creates an
+        /** @brief                  Constructor for the DropDownMenu class that creates an
          *                          instance of the class. This makes a juce component that
          *                          has a combobox or drop-down menu within it with a label
          *                          attached to its left by default.
          *  @param  labelPhrase     This parameter should be of type juce::String and contain
          *                          the phrase which should be displayed by the label. By
-         *                          default this is set to "ComboBox" so it may be viewed on
+         *                          default this is set to "ComboBox" so it may be viewed upon
          *                          creation.
          */
         DropDownMenu(juce::String labelPhrase = "ComboBox");
 
-        /* Destructor. */
+        /** @brief                  Destructor for the DropDownMenu which is set to default as
+         *                          there are no components within this class that need to be
+         *                          deinitialised before the deconstruction of the object.
+         */
         ~DropDownMenu() = default;
 
-        /** @brief      Adding a functiont that will allow for the `DropDownMenu`
+        /** @brief      Adding a function that will allow for the `DropDownMenu`
                         to be resized when the window size is adjusted to fit best.
         */
         void resized() override;
@@ -257,13 +432,15 @@ class Equalizer : public verticalMixSlider
          */
         void AddItem(juce::String itemName, int itemValue);
 
-        /** @brief                  This function sets what will happen when the option chosen
-         *                          has been changed by the user.
+        /** @brief                  This function sets what will happen when the option wihtin
+         *                          the drop down menu has been changed by the user.
          *  @param  updateVaraible  This should be a pointer to the variable which is being 
          *                          set to the item index which has been chosen.
+         *  @note                   This function uses a lambda function to update the specified
+         *                          variable to ensure that the specified variable may be changed
+         *                          for different instances of the class.
          */
-        template <typename T>
-        void OnChange(T* updateVariable){
+        template <typename T> void OnChange(T* updateVariable){
             dropDownChoice.onChange = [updateVariable, this] {*updateVariable = static_cast<T> (dropDownChoice.getSelectedId());};
         }
 
@@ -278,35 +455,106 @@ class Equalizer : public verticalMixSlider
         void ChangeLabelText(juce::String text, juce::NotificationType notification = juce::dontSendNotification);
 
     private:
-        /* Shift keying drop down menu and label */  
+        /* Adding the label which will be next to the drop down menu. */  
         juce::Label dropDownLabel;
+
+        /* Adding the drop down menu to the class. */
+        juce::ComboBox dropDownChoice;
  };
 
-
+/** @brief      A class which allows for the additon of a button to the screen
+ *              without inheriting the button directly. This allows for other
+ *              widgets to be added to it later without compatibility issues.
+ */
  class CalibrationOnClick   :   public juce::Component,
                                 public juce::Button::Listener
  {
     public:
-        juce::TextButton button;
+        
+        /** @brief              A constructor for the CalibrationOnClick class
+         *                      which inherits characteristics from juce::
+         *                      Component and Button::Listener. It is used to
+         *                      receive a calibration message when clicked.
+         */
         CalibrationOnClick();
 
-        ~CalibrationOnClick() = default;
+        /** @brief              Destructor for the CalibrationOnClick class
+         *                      which removes the listener from the attached
+         *                      button.
+         */
+        ~CalibrationOnClick();
 
+        /** @brief              A function which is called upon whenever the 
+         *                      user interface window has changed in size. This
+         *                      can change the size of the component so that it
+         *                      can either be kept at a constant size of scaled
+         *                      to fit a specified area of the screen.
+         * @note                Currently, this adds a small margin around the
+         *                      local area and fills the rest of the area with 
+         *                      the attached button.
+         */
         void resized() override;
+
+        /*  Creating the TextButton instance for the CalibrationOnClick class
+            to have a button within it. */
+        juce::TextButton button;
+        
  };
 
-class CalibrateEmbachure    :   public CalibrationOnClick
+ /** @brief     A class which is inherited from the CalibrationOnClick class
+  *             that adds a dropdown menu next to the button for the user to
+  *             select which option they wish to calibrate.
+  *  @note      This class was specifically designed for the embachure selction
+  *             as no other widget needed to have a calibration button, hence
+  *             the name of the class and lack of an intermediate step from
+  *             CalibrationOnClick.
+  */
+class CalibrateEmbouchure    :   public CalibrationOnClick
 {
     public:
-        CalibrateEmbachure();
+        /** @brief          Constructor function for the CalibrateEmbouchure
+         *                  class which sets the specific parameters of the
+         *                  label, dropdown menu and button which are being
+         *                  used.
+         */
+        CalibrateEmbouchure();
 
-        ~CalibrateEmbachure() = default;
+        /** @brief          Destructor function for the CalibrateEmbouchure
+         *                  class which is currently set to default as there
+         *                  are mo specific methods or parameters which need
+         *                  to be dealt with before destructing the object.
+        */
+        ~CalibrateEmbouchure() = default;
 
+        /** @brief          A function which is automatically called upon when
+         *                  the user window is adjusted in size. This function
+         *                  will allow for the change in relative width and
+         *                  height of the components dependent upon screen size.
+         */
         void resized() override;
 
-        void buttonClicked(juce::Button* button) override;
+        /** @brief          Callback function which is automatically triggered
+         *                  when the button within this class is clicked by the
+         *                  user. As this class only has one instance of a
+         *                  button, there is no need to check which button has 
+         *                  been pressed. However, a pointer to the button is
+         *                  still passed as default from the JUCE framework.
+         *  @note           Currently this function updates the
+         *                  trombonelessParameters struct instance to change
+         *                  the calibrate embouchure flag to be on. This will
+         *                  allow the Core to read the ADC and set the 
+         *                  corresponding value. 
+        */
+        void buttonClicked(juce::Button* thisButtonClicked) override;
 
     private:
-        DropDownMenu embachureChoice;
+        /*  Adding a dropdown menu next to the calibration button to select 
+            the embachure option which is being calibrated. */
+        DropDownMenu embouchureChoice;
+        
+        /*  Adding a tootltipWindow to the class which may be displayed when
+            the user runs their cursor over the button for at least 300ms. */
+        juce::TooltipWindow tooltipWindow;
 
 };
+

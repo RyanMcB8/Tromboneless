@@ -1,0 +1,11 @@
+<map id="Equalizer" name="Equalizer">
+<area shape="rect" id="Node000001" title="A class which inherits its sliders from verticalMixSlider made to act as an equalizer." alt="" coords="111,225,194,251"/>
+<area shape="rect" id="Node000002" href="$classverticalMixSlider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="87,152,219,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,191,155,225,150,225,150,191"/>
+<area shape="rect" id="Node000003" href="$classSliderWithLabel.html" title="A class which inherits attributes from the juce::Component class to create a new component containing..." alt="" coords="9,79,133,104"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,111,141,150,138,154,93,115"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,137,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="74,44,74,79,69,79,69,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="158,79,313,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="213,115,168,154,164,150,210,111"/>
+</map>

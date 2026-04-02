@@ -32,7 +32,7 @@ class Layout final : public juce::Component,
         @note Always sets the background to the user preference for the background.
         * This function also adds a title to be within the window.
         */  
-        void paint (juce::Graphics&) override;
+        void paint (juce::Graphics& g) override;
 
 
         /** @brief Function that changes the size of the profiler
@@ -73,21 +73,21 @@ class Layout final : public juce::Component,
         DropDownMenus   dropDownMenus;
 
         /* Sliders and labels for calibrating the range. */
-        CalibrationSlider distanceSlider;
-        CalibrationSliderLookAndFeel LandF;
+        // CalibrationSlider distanceSlider;
+        // CalibrationSliderLookAndFeel LandF;
+        Sliders sliders;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
-        CalibrationRotarySlider pressureSlider;
+        Barometer pressureSlider;
         BarometerLookAndFeel barometerLandF;
         BarometerOuterLookAndFeel barometerOuterLandF;
 
-        /* Adding an option to calibrate the embachure. */
-        CalibrateEmbachure calibrateEmbachure;
+        /* Adding an option to calibrate the embouchure. */
+        CalibrateEmbouchure calibrateEmbouchure;
         
 
         /* Creation of the equalizer. */
         EqualizerPanel equalizer;
-
 
         /** @brief Function that can display a message on the window to the user
             @param title Takes in a message of type juce::String to be displayed as the message title
