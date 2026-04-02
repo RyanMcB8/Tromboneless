@@ -33,7 +33,7 @@ int main()
         return 1;
     }
 
-    // Connect publisher → subscriber via lambda
+    // Connect publisher -> subscriber via lambda
     sensor.registerCallback([&](uint16_t distance)
     {
         printer.hasToFSample(distance);
