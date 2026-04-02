@@ -43,6 +43,10 @@
 # ignoring buiild
 build/
 
+# ignoring build within Core
+
+/Core/build/
+
 # ignoring vscode settings
 .vscode/
 
@@ -53,3 +57,6 @@ build/
 # ignoring the app side build
 App/build/
 App/JUCE
+.vscode
+.vscode/settings.json
+.vscode/
