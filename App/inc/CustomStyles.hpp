@@ -13,30 +13,91 @@
 class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
 {
     public:
+        /** @brief          The constructor function for the `VerticalSliderLookAndFeel`
+         *                  class that creates an instance of the look and feel style.
+         *  @note           Currently there is not extra functionality attached to the 
+         *                  contructor as the style of the vertical slider is defined
+         *                  in the `drawLinearSlider()` function and there are no other
+         *                  components being modified by this style currently.
+         */
         VerticalSliderLookAndFeel();
+
+        /** @brief          The destructor function for the `VerticalSliderLookAndFeel`
+         *                  class which is currently set to default as there is no
+         *                  need for a deconstructor for this class.
+         */
         virtual ~VerticalSliderLookAndFeel() = default;
+
+        /** @brief                  When this look and feel is attsched to an object which has
+         *                          a vertical slider in it, this function sets the look and
+         *                          feel of the slider being used. This makes it look like
+         *                          an average equalizer slider.
+         *  @param  g               A pointer to the `juce::Graphics` instance which is being
+         *                          drawn to. This is likely the main window or else the parent
+         *                          component.
+         *  @param  x               The integer representation of the slider's left corner in
+         *                          the global window.
+         *  @param  y               The integer representation of the sliders top corner in
+         *                          the global window.
+         *  @param  width           The integer representation of the width of the slider.
+         *                          i.e. the difference between the left most and right most
+         *                          part of the slider.
+         *  @param  Height          The integer representation of the width of the slider.
+         *                          i.e. the difference between the top most and bottom
+         *                          most parts of the slider's bounds.
+         *  @param  sliderPos       The position of the sliders finger. The position represents
+         *                          x if the slider is horizontal and y if the slider is vertical.
+         *  @param  minSliderPos    The minimum slider position.
+         *  @param  maxSliderPos    The maximum slider position.
+         *  @param  style           The style of the slider whose look and feel is getting 
+         *                          modified. For example, LinearVertical or Rotary.
+         *  @param  slider          A pointer to the slider which is being modified. This
+         *                          can allow for extraction of more data from the slider.
+         */
         virtual void drawLinearSlider(juce::Graphics& g, int x, int y, int width,
             int height, float sliderPos, float minSliderPos, float maxSliderPos,
             const juce::Slider::SliderStyle style, juce::Slider& slider) override;
 
 private:
-    const juce::Colour dialColour           = juce::Colours::white;             /* Setting the colour of the finger. */
-    const juce::Colour dialEdgeColour       = juce::Colours::grey;              /* Setting the colour of the inner part of the finger.*/
-    const juce::Colour tickColour           = juce::Colours::darkgrey;          /* */
+    /*  Setting the main colour of the knob (dial) of the slider. */
+    const juce::Colour dialColour           = juce::Colours::white;
+
+    /*  Setting the secondary colour of the knob (dial) of the slider.
+        currently, this is for the lines within the knob. */
+    const juce::Colour dialEdgeColour       = juce::Colours::red;
+
+    /*  Setting the colour of the ticks along the slider. */
+    const juce::Colour tickColour           = juce::Colours::darkgrey; 
+
+    /*  Setting the colour of the track which the knob will be moving
+        across. */
     const juce::Colour trackColour          = juce::Colours::darkgrey;
-    const juce::Colour backgroundColour     = juce::Colours::black; //juce::Colours::black;
+
+    /*  Setting the colour which will fill the bounds of the slider. */
+    const juce::Colour backgroundColour     = juce::Colours::black; 
+
+    /*  Setting the colour of the text which will be beside the slider. */
     const juce::Colour textColour           = juce::Colours::white;
 
-    /* Sizes. */
-    float trackWidth          = 5;          /* This sets the track width of the slider. */
-    float tickThickness       = 3.0;        /* This sets the height of the ticks along the slider. */
-    float tickWidth           = 10;         /* This sets the width of the ticks along the slider. */
+    /*          Sizes.       */
+    /*  This sets the track width of the slider. */
+    float trackWidth          = 5;
+    
+    /*  This sets the height of the ticks along the slider. */
+    float tickThickness       = 3.0;        
+
+    /*  This sets the width of the ticks along the slider. */
+    float tickWidth           = 10;         
 
 #ifdef USE_CIRCLE_FINGER        
-    float fingerRadius        = 12;         /* This sets the radius of the finger of the dial position. */
-#else        
-    float fingerWidth         = 25;         /* This sets the width of the finger of the slider. */
-    float fingerHeight        = 10;          /* This sets the height of the finger of the slider. */
+    /*  This sets the radius of the finger of the dial position. */
+    float fingerRadius        = 12;         
+#else       
+    /*  This sets the width of the finger of the slider. */
+    float fingerWidth         = 25;     
+    
+    /*  This sets the height of the finger of the slider. */    
+    float fingerHeight        = 10;         
 #endif        
 };
 
