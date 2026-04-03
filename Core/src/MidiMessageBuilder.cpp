@@ -1,0 +1,52 @@
+// src/MidiMessageBuilder.cpp
+#include "MidiMessageBuilder.hpp"
+
+MidiMessage MidiMessageBuilder::noteOn(int channel, Byte note, Byte velocity) const
+{
+    Byte ch = clampChannel(channel);          // 0..15
+    Byte status = static_cast<Byte>(0x90 | ch); // Note On, channel
+    return MidiMessage{status, note, velocity};
+}
+
+MidiMessage MidiMessageBuilder::noteOff(int channel, Byte note, Byte velocity) const
+{
+    Byte ch = clampChannel(channel);           // 0..15
+    Byte status = static_cast<Byte>(0x80 | ch);  // Note Off, channel
+    return MidiMessage{status, note, velocity};
+}
+
+MidiMessage MidiMessageBuilder::pitchBend(int channel, int value) const
+{
+    Byte ch = clampChannel(channel);           // 0..15
+    Byte status = static_cast<Byte>(0xE0 | ch);  // Pitch Bend, channel
+
+    // Midi pitch bend is a 14-bit value (0..16383) with center at 8192.
+    // This implementation clamps to between 0 and 8192 to provide only downward bends.
+    if (value < 0) value = 0;
+    if (value > 8192) value = 8192;
+
+    Byte lsb = static_cast<Byte>(value & 0x7F);        // Lower 7 bits
+    Byte msb = static_cast<Byte>((value >> 7) & 0x7F); // Upper 7 bits
+
+    return MidiMessage{status, lsb, msb};
+}
+
+MidiMessageBuilder::Byte MidiMessageBuilder::clampChannel(int channel)
+{
+    // Midi channels in the wire protocol are 0..15, but humans usually say 1..16.
+    if (channel < 1) channel = 1;
+    if (channel > 16) channel = 16;
+    return static_cast<Byte>(channel - 1);
+}
+
+MidiMessage MidiMessageBuilder::expr(int channel, int value) const 
+{
+    if(value < 0) value = 0;
+    if(value > 127) value = 127;
+    Byte ch = clampChannel(channel);           // 0..15
+    Byte status = static_cast<Byte>(0xB0 | ch); //Expression, channel
+    Byte CC = static_cast<Byte>(11); //Control Change 11
+    Byte expr_value = static_cast<Byte>(value);
+
+    return MidiMessage{status, CC, expr_value};
+}

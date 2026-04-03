@@ -11,14 +11,10 @@
  * It separates message construction from message transmission,
  * supporting a clean single-responsibility design.
  *
- * Currently supported:
- * - Note On (0x9n)
- * - Note Off (0x8n)
- *
  * Channels are specified using human-friendly numbering (1–16)
  * and internally converted to zero-based encoding (0–15).
  */
-class MIDIMessageBuilder
+class MidiMessageBuilder
 {
 public:
     using Byte = MidiMessage::Byte;
@@ -49,6 +45,18 @@ public:
     MidiMessage noteOff(int channel,
                         Byte note,
                         Byte velocity = 0) const;
+
+    /**
+     * @brief Pitch bend message constructor.
+     * @param channel MIDI channel number (1–16).
+     * @param value Pitch bend value (0–8192).
+     * @return Constructed MidiMessage.
+     */
+    MidiMessage pitchBend(int channel, 
+                          int value) const;
+
+    MidiMessage expr(int channel,
+                    int value) const;
 
 private:
     /**
