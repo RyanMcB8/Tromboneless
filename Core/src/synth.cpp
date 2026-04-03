@@ -284,7 +284,7 @@ float Octaves::TimeRest(float t, float saturation){
 }
 
 float Octaves::PlayingNote(int octave, Notes_t note, float time){
-    return (float) cos(octaves[octave].getNote(note) * time * 2 * M_PI);
+    return (float) cos((1/octaves[octave].getNote(note)) * time * 2 * M_PI);
 }
 
 float Octaves::StartNote(int octave, Notes_t note, float time, float t){
