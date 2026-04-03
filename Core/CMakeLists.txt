@@ -15,33 +15,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Enable unit tests
 enable_testing()
+include(CTest)
 
-#including the GPIO library
-include(ExternalProject)
-
-ExternalProject_Add(libgpiod_external
-    PREFIX ${CMAKE_BINARY_DIR}/modules/external/libgpiod
-    SOURCE_DIR ${PROJECT_SOURCE_DIR}/modules/external/libgpiod
-    CONFIGURE_COMMAND ./autogen.sh && ./configure --prefix=${CMAKE_BINARY_DIR}/modules/external/libgpiod/install
-    BUILD_COMMAND make -j${CMAKE_GENERATOR_CPU_COUNT}
-    INSTALL_COMMAND make install
-    BUILD_IN_SOURCE 1
-)
-
-# -------------------------------
 # Core Library
 # -------------------------------
-add_library(TrombonelessCoreLibrary STATIC)
-add_dependencies(TrombonelessCoreLibrary libgpiod_external)
-
-# Include directories for the library
-target_include_directories(TrombonelessCoreLibrary PUBLIC
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/include/drivers
-    ${PROJECT_SOURCE_DIR}/shared
-    ${PROJECT_SOURCE_DIR}/lib/rtmidi
-    ${CMAKE_BINARY_DIR}/modules/external/libgpiod/install/include
-)
 
 # Add source files
 file(GLOB_RECURSE CORE_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
@@ -52,14 +29,23 @@ list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/tof_sensor\\.cpp$")
 list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/eventHandler\\.cpp$")
 list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/ads1115rpi\\.cpp$")
 
+add_library(TrombonelessCoreLibrary STATIC ${CORE_SOURCES} ${RTMIDI_SOURCES})
+# add_dependencies(TrombonelessCoreLibrary)
 
-target_sources(TrombonelessCoreLibrary PRIVATE ${CORE_SOURCES} ${RTMIDI_SOURCES})
+# Include directories for the library
+target_include_directories(TrombonelessCoreLibrary PUBLIC
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/drivers
+    ${PROJECT_SOURCE_DIR}/shared
+    ${PROJECT_SOURCE_DIR}/lib/rtmidi
+    ${LIBGPIOD_INCLUDE_DIRS}
+)
 
-# Link any required external libraries (e.g., ALSA)
-target_link_libraries(TrombonelessCoreLibrary PRIVATE
-         asound
-         ${CMAKE_BINARY_DIR}/modules/external/libgpiod/install/lib/libgpiod.so 
-         )
+target_include_directories(TrombonelessCoreLibrary PUBLIC ${LIBGPIOD_INCLUDE_DIRS})
+target_link_libraries(TrombonelessCoreLibrary PRIVATE 
+    ${LIBGPIOD_LIB}
+    asound
+)
 
 # -------------------------------
 # Main executable

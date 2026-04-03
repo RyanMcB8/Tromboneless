@@ -43,6 +43,7 @@ bool TestDeltaTime(){
 int main() {
     bool success = true;
 
+    /* Calling upon the test funtions to run. */
     success &= TestDeltaTime();
 
 
