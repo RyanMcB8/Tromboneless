@@ -1,3 +1,11 @@
+/** @file       CustomStyles.hpp
+ *  @author     Ryan McBride
+ *  @brief      This file holds the declarations of all functions and variables
+ *              needed by the Tromboneless project to change the looks and feel
+ *              of various different widgets which are being displayed to the
+ *              end user.
+ */
+
 #pragma once
 
 #include <juce_gui_extra/juce_gui_extra.h>
@@ -8,7 +16,7 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 
 /** @brief      Creation of a class which can be used to change the look of the sliders
- *              used within the equalizer for the Tromboneless projet. 
+ *              used within the equalizer for the Tromboneless project. 
  */
 class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
 {
@@ -28,7 +36,7 @@ class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
          */
         virtual ~VerticalSliderLookAndFeel() = default;
 
-        /** @brief                  When this look and feel is attsched to an object which has
+        /** @brief                  When this look and feel is attached to an object which has
          *                          a vertical slider in it, this function sets the look and
          *                          feel of the slider being used. This makes it look like
          *                          an average equalizer slider.
@@ -89,6 +97,7 @@ private:
     /*  This sets the width of the ticks along the slider. */
     float tickWidth           = 10;         
 
+/*  Checking the he slider should use a circular finger or rectangular. */
 #ifdef USE_CIRCLE_FINGER        
     /*  This sets the radius of the finger of the dial position. */
     float fingerRadius        = 12;         
@@ -155,63 +164,95 @@ juce::Path PaintTrombone(float x=300, float y=300, float width=50, float height 
  */
 juce::Path PaintArc(float x, float y, float thickness, float gap, bool direction);
 
-class BarometerLookAndFeel  :  public   juce::LookAndFeel_V4{
-    public:
-        BarometerLookAndFeel();
-
-        virtual ~BarometerLookAndFeel() = default;
-
-        virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
-            int height, float sliderPos, const float rotaryStartAngle,
-             const float rotaryEndAngle, juce::Slider& slider) override;
-
-    private:
-        const juce::Colour  emptyTrackColour= juce::Colours::darkgrey;
-        const juce::Colour  fullTrackColour = juce::Colours::gold;
-        const juce::Colour  thumbOneColour  = juce::Colours::yellow;
-        const juce::Colour  thumbTwoColour  = juce::Colours::pink;
-        const juce::Colour  backgroundColour= juce::Colours::white;
-
-        float trackWidth        =   5;
-
-};
-
-class BarometerOuterLookAndFeel  :  public   juce::LookAndFeel_V4{
-    public:
-        BarometerOuterLookAndFeel();
-
-        virtual ~BarometerOuterLookAndFeel() = default;
-
-        virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
-            int height, float sliderPos, const float rotaryStartAngle,
-             const float rotaryEndAngle, juce::Slider& slider) override;
-
-    private:
-        const juce::Colour  thumbColour  = juce::Colours::yellow;
-
-};
-
+/** @brief      A class which may be attached to a rotary slider from the juce framework
+ *              to change its look and feel. This changes the look of the slider to have
+ *              an arrow rotate about the centre of the slider pointing to the different
+ *              values rather than a knob moving in an arc as the basic rotary slider.
+ */
 class NeedleLookAndFeel :   public juce::LookAndFeel_V4
 {
     public:
+        /** @brief                      The constructor function for the `NeedleLookAndFeel`
+         *                              class which is set to default.
+         */
         NeedleLookAndFeel() = default;
 
+        /** @brief                      The destructor function for the `NeedleLookAndFeel`
+         *                              class which is set to default.
+         */
         virtual ~NeedleLookAndFeel() = default;
 
+        /** @brief                      A function which is used to redraw the rotary
+         *                              slider whose look and feel is being changed.
+         *                              This will full describe how it should appear
+         *                              to the user.
+         *  @param  g                   A pointer to the `juce::Graphics` instance which
+         *                              is being updated. This is the parent component or
+         *                              the main window.
+         *  @param  x                   The x position of the slider.
+         *  @param  y                   The y position of the slider.
+         *  @param  width               The width of the slider.
+         *  @param  height              The maximum height of the slider.
+         *  @param  sliderPos           The position of the slider finger.
+         *  @param  rotaryStartAngle    The minimum angle which the slider starts at. This
+         *                              represents the minimum value, typically bottom left.
+         *  @param  rotaryEndAngle      The maximum angle which the slider ends at. This
+         *                              represents the maximum value, typically bottom right.
+         *  @param  slider              This is a pointer to the slider which is being drawn.
+         *                              Extra data may be extracted from it if necessary.
+         *  @note                       This function is a call back which is automatically
+         *                              called to redraw the slider to look how described. It
+         *                              should not need to be called by any high level function. 
+         */
         virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
             int height, float sliderPos, const float rotaryStartAngle,
-             const float rotaryEndAngle, juce::Slider& slider) override;
-
-        // virtual void setColour(juce::Colour colour);
+                const float rotaryEndAngle, juce::Slider& slider) override;
 
     private:
+        /*  Setting the colour of the needle/arrow which is being drawn. */
         const juce::Colour needleColour =   juce::Colours::black;
 
 
 };
 
+/** @brief                  A function which can draw an arc with a specified thickness
+ *                          and nominal radius.
+ *  @param  x               The x position of the centre point of the arc. This is set
+ *                          to be 100 by default
+ *  @param  y               The y position of the centre point of the arc. This is set
+ *                          to be 100 by default.
+ *  @param  thickness       The thickness of the arc which is being drawn. This is set 
+ *                          to be 5 by default.
+ *  @param  width           The radius in the x axis of the arc. This is set to be 50 by
+ *                          default. 
+ *  @param  height          the radius in the y axis of the arc. This is set to be 50 by
+ *                          default.
+ *  @param  angularRange    This sets the difference in minimum versus maximum angle of
+ *                          the arc which is being drawn. This is measured in radians 
+ *                          and is set to be 5 by default.
+ *  @param  rotation        This parameter rotates the arc to be facing the orientated
+ *                          the preferred way by the user. This function splits the
+ *                          `angularRange` in half from the up direction and has the
+ *                          left and right arcs of equal length. By default, this 
+ *                          parameter is set to 0.
+ *  @note                   This is built upon using the juce::centredArc function and
+ *                          line functions to create a path. If the user chooses to 
+ *                          draw the shape outline as opposed to fill, this will be 
+ *                          visible.
+ */
 juce::Path RotaryArc(float x = 100, float y = 100, float thickness = 5, float width = 50, 
     float height = 50, float angularRange = 5, float rotation = 0);
 
 
+/** @brief                  A simpified function for drawing a circle using the juce
+ *                          framework reducing the number of parameters compared to
+ *                          the ellipse function in juce.
+ *  @param  x               The centre x position of the circle.
+ *  @param  y               The centre y position of the circle.
+ *  @param  xRadius         The radius of the circle.
+ *  @param  yRadius         The radius of the circle.
+ *  @note                   The reason there is an x and y radius is to compare which
+ *                          is smaller and set the circles radius to that size to stop
+ *                          the circle from being out of bounds or being distorted.
+ */
 juce::Path drawCircle(float x, float y, float xRadius, float yRadius);
