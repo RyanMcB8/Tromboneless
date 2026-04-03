@@ -367,6 +367,13 @@ Envelope::Envelope(int n_in, int octave_in, Notes::Notes_t note_in, float ascend
 void Envelope::StartEnvelope(){
     /* Determining the time at the start of the envelope. */
     deltaTime.setStartTime();
+    currentSynthState = attackState;
+    return;
+}
+
+void Envelope::ChangeNote(Notes::Notes_t note_in, int octave_in){
+    note = note_in;
+    octave = octave_in;
     return;
 }
 
@@ -375,37 +382,72 @@ float Envelope::GetAmplitude(){
     float time = deltaTime.getDifference();
 
     /* Checking if the note has been stopped. */
-    if(!ending){
+    if (currentSynthState == noSoundState){
+        return 0;
+    }
+    
+    else if(!ending){
         /* The sound is still in the ascent range. */
         if (ascendT >= time){
+            currentSynthState = attackState;
             float t = 1 - std::min((ascendT/time), (float)1);
             return DecayNoteWithHarmonics(n, octave, note, time, t, saturation);
         }
 
         /* The sound is in the decay stage. */
         else if ((ascendT+decayT) >= time){
+            currentSynthState = decayState;
             float t = 1 - (decayT/(time-ascendT));
             return StartNoteWithHarmonics(n, octave, note, time, t);
         }
 
         /* The sound is still in the saturation range. */
         else if ((ascendT+decayT) < time){
+            currentSynthState = sustainState;
             return PlayingNoteWithHarmonics(n, octave, note, time, saturation);
         }
     }
     else{
         /* The system is now nearing the end. */
-        t = deltaTime
-        return EndNoteWithHarmonics(n, octave, note, time, )
+        float t = (float)(endTime.getDifference / restT);
+        currentSynthState = restState;
+        if (t >= 1){
+            ending = 0;
+            currentSynthState = noSoundState;
+        }
+        return EndNoteWithHarmonics(n, octave, note, time, t);
     }
-    
-
 }
 
 void Envelope::EndEnvelope(){
     ending = 1;
     gettimeofday(&endTime, NULL);
 
+}
+void Envelope::KillEnvelope(){
+    this->~Envelope();
+}
+
+struct timeval Envelope::getStartTime(){
+    return deltaTime.getStartTime;
+}
+
+float Envelope::getTimeDifference(){
+    return deltaTime.getDifference();
+}
+
+float Envelope::getAttackDecayTime(){
+    return (float)(ascendT + decayT);
+}
+
+void Envelope::setNote(Notes_t note_in){
+    note = note_in;
+    return
+}
+
+void Envelope::setOctave(int octave_in){
+    octave = octave_in;
+    return;
 }
 
 /* ========================================================================================== */
@@ -420,6 +462,11 @@ DeltaTime::DeltaTime(){
 
 void DeltaTime::setStartTime(){
     gettimeofday(&startTime, NULL);
+}
+
+void DeltaTime::resetStartTime(){
+    startTime.tv_sec = 0;
+    startTime.tv_usec = 0;
 }
 
 void DeltaTime::setCurrentTime(){

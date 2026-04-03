@@ -1,4 +1,15 @@
+/** @file       Layput.hpp
+ *  @author     Ryan McBride
+ *  @brief      This file holds the declarations of all functions and variables
+ *              needed by the Tromboneless project to define the layout of the
+ *              window which is being displayed to the end user.
+ */
+
+
+/*  Preventing recurssive definitons. */
 #pragma once
+
+/*  Adding all the necessary header files to be included in the file */
 #include "tromboneless_data.hpp"
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
@@ -8,10 +19,7 @@
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "Widgets.hpp"
 #include "Panels.hpp"
-
 #include <stdio.h>
-
-// #define DBG_MSG
 
 /** @brief Main class that creates the window
  */
@@ -73,14 +81,10 @@ class Layout final : public juce::Component,
         DropDownMenus   dropDownMenus;
 
         /* Sliders and labels for calibrating the range. */
-        // CalibrationSlider distanceSlider;
-        // CalibrationSliderLookAndFeel LandF;
         Sliders sliders;
 
         /* Sliders and labels for calibrating the pressure maximum and minimum. */
         Barometer pressureSlider;
-        BarometerLookAndFeel barometerLandF;
-        BarometerOuterLookAndFeel barometerOuterLandF;
 
         /* Adding an option to calibrate the embouchure. */
         CalibrateEmbouchure calibrateEmbouchure;
@@ -104,8 +108,6 @@ class Layout final : public juce::Component,
             );
         }
         
-        
-
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Layout)
 };
 
