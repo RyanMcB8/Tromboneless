@@ -36,10 +36,16 @@
          *                          rest state.
         */
         void EndTromboneAudio(void);
+
+        /** @brief          A function which returns the difference in time between
+         *                  start and current in milliseconds.
+         */
+        float getTimeDifference();
+        
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
         permanently but the note and octave may be changed throughout the use of
         the device. */
-        Envelope tromboneSynth = Envelope(6, 2, Notes_t::note_B, 10, 2, 0.6, 1);
+        Envelope tromboneSynth = Envelope(6, 2, Notes::Notes_t::note_B, 10, 2, 0.6, 1);
  };

@@ -13,7 +13,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 enable_testing()
 
 # Should add an executable for each section.
-add_executable(TrombonelessCoreTests testCore.cpp)
+add_executable(TrombonelessCoreTests synth_audio_test.cpp)
 
 target_include_directories(TrombonelessCore PRIVATE
     ${PROJECT_SOURCE_DIR}/include

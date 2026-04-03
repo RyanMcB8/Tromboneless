@@ -11,7 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 
 # Enabling the unit tests:
-# enable_testing()
+enable_testing()
 
 add_executable(TrombonelessCore src/main.cpp)
 
