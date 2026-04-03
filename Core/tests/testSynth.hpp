@@ -1,4 +1,4 @@
-/** @file   testSynth.cpp
+/** @file   testSynth.hpp
     @brief  This file contains all of the necessary unit tests
             for the functions declared within the `synth.hpp`
             header file. If there is a failure, the system
@@ -9,29 +9,14 @@
             defined within this file.
 */
 
-#include "testSynth.hpp"
+#include "synth.hpp"
+#include <iostream>
+#define OUT std::cout
 
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                      DeltaTime                                             */
 /*                                                                                            */
 /* ========================================================================================== */
-void TestDeltaTime(){
-    DeltaTime deltaTime = DeltaTime();
+void TestDeltaTime();
 
-    if ( 0 > (deltaTime.getStartTime()).tv_usec){
-        OUT << "Error reading the start time. \n";
-        throw;
-    }
-    /* Adding a slight delay to allow the start time to be more than the end time. */
-    for(int i=0; i< 1000; i++){
-
-    }
-
-    /* Checking that the */
-    if (0 > deltaTime.getDifference()){
-        OUT << "Error reading the difference in time in deltaTime";
-        throw;
-    }
-
-}
