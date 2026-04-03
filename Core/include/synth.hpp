@@ -570,6 +570,9 @@ class DeltaTime
         */
         void setStartTime();
 
+        /** @brief          A function which will set the start time values to 0. */
+        void resetStartTime();
+
         /** @brief          A function which returns the current start time.
             @retval         returns the start timeval struct containing the
                             time.
@@ -601,6 +604,17 @@ class DeltaTime
 class Envelope    :   public OctavesWithHarmonics
 {
     public:
+        typedef enum{
+            noSoundState,
+            attackState,
+            decayState,
+            sustainState,
+            restState,
+        } synth_states_t;
+
+        synth_states_t currentSynthState = noSoundState;
+
+
     /** @brief                  Constructor for the Envelope class which initialises
                                 an envelope for a specified note. 
         @param  n_in            The number of harmonics which should be included in the
@@ -629,6 +643,17 @@ class Envelope    :   public OctavesWithHarmonics
         */
         void StartEnvelope();
 
+        /** @brief              A function which may be called upon to change the note
+         *                      which is currently being played in a continuous manner.
+         *                      I.e. there is no attack or decay within the envelope
+         *                      for this new note.
+         *  @param  note_in     The note which it is being changed to.
+         *  @param  octave_in   The octave which the note is in.
+         *  @note               This is for a contious noise such as changing the pitch
+         *                      bend on a trombone.
+         */
+        void ChangeNote(Notes::Notes_t note_in, int octave_in);
+
         /** @brief              A function which may be called to update the value of the
                                 amplitude.
             @retval             Returns a floating point value representing the amplitude
@@ -640,6 +665,47 @@ class Envelope    :   public OctavesWithHarmonics
                                 instantly unless `restT` has been set to 0.
                                 */
         void EndEnvelope();
+
+        /** @brief              This function will stop all sound from playing from the
+         *                      note and skip the R stage of the ADSR.  It does this by
+         *                      calling upon the destructor.
+         */
+        void KillEnvelope();
+
+        /** @brief          A function which returns the current start time
+         *                  of the object.
+         *  @retval         Returns the timeval struct containing the
+         *                  start time values.
+         */
+        struct timeval getStartTime();
+
+        /** @brief          A function which returns the difference in time between
+         *                  start and current in milliseconds.
+         */
+        float getTimeDifference();
+
+        /** @brief          A function which returns the sum of the attack and
+         *                  the decay times in milliseconds.
+         *  @retval         A floating point value representing the time in 
+         *                  milliseconds from when the note has started to first
+         *                  reach the sustain stage.
+         */
+        float getAttackDecayTime();
+
+        /** @brief              A function which will allow the user to change
+         *                      the note which is being played without needing
+         *                      to create a new instance of the class.
+         *  @param  note_in     The note which will start to be played.
+         */
+        void setNote(Notes_t note_in);
+
+        /** @brief              A function which will allow for the user to
+         *                      change the octave which the note is playing
+         *                      without needing to create a new instance of the
+         *                      Envelope class.
+         *  @param  octave_in   The octave which the new note will be in;
+         */
+        void setOctave(int octave_in)
         
     private:
         /* initialising parameters. */

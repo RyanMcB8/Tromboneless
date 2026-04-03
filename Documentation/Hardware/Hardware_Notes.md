@@ -31,6 +31,8 @@ There are alternative choices for measuring the hand distance such as sonar or l
 #### Touch sensor
 To measure the amount of pressure the user puts onto the mouthpiece to simulate the change in embouchure or 'buzz' of the trombonists lips, a capacitive touch sensor was developed. This custom sensor was created wrapping a sheet of copper and an electronically insulating material around a curved surface. This created a capacitor. The amount of pressure the user places on the device changes the distance between each of the copper layers which changes the capacitance. This capacitance may be fed directly into the touch sensor board used, the [CAP1188](https://www.microchip.com/en-us/product/cap1188) by Microchip on a breakout board [from Adafruit](https://www.adafruit.com/product/1602?srsltid=AfmBOorhr3tcgvVw9TzywvyCsA9vLKghejZftADR245YXpShDvVI9MMv).
 
+As the touch sensor and the ToF sensor both have the same I2C address as default, a 390K resister connected to the AD pin of the touch sensor was pulled to ground changing its I2C address from 0x29 to 0x28.
+
 ### Outputs
 #### MIDI
 To read the MIDI data which is being output by the Pi, a MIDI compatible device such as a portable synthesiser may be connected to any of the USB-A connectors on the front of the Pi.
