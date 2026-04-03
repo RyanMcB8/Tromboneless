@@ -4,3 +4,6 @@
 [submodule "App/modules/freetype2"]
 	path = App/modules/freetype2
 	url = https://github.com/aseprite/freetype2.git
+[submodule "Core/modules/external/libgpiod"]
+	path = Core/modules/external/libgpiod
+	url = https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git
