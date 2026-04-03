@@ -478,7 +478,7 @@ struct timeval DeltaTime::getStartTime(){
 }
 
 float DeltaTime::getDifference(){
-    float delta = ((currentTime.tv_sec - startTime.tv_sec)/1000);
-    delta += ((currentTime.tv_usec - startTime.tv_usec)*1000);
+    float delta = ((currentTime.tv_sec - startTime.tv_sec)/1e6);
+    delta += ((currentTime.tv_usec - startTime.tv_usec));
     return delta;
 }

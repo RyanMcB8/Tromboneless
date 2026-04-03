@@ -680,14 +680,14 @@ class Envelope    :   public OctavesWithHarmonics
         struct timeval getStartTime();
 
         /** @brief          A function which returns the difference in time between
-         *                  start and current in milliseconds.
+         *                  start and current in microseconds.
          */
         float getTimeDifference();
 
         /** @brief          A function which returns the sum of the attack and
-         *                  the decay times in milliseconds.
+         *                  the decay times in microseconds.
          *  @retval         A floating point value representing the time in 
-         *                  milliseconds from when the note has started to first
+         *                  microseconds from when the note has started to first
          *                  reach the sustain stage.
          */
         float getAttackDecayTime();
