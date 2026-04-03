@@ -11,12 +11,12 @@
 
  void TromboneSynth::NewTromboneNote(Notes::Notes_t note_in, int octave_in){
    if ((tromboneSynth.getTimeDifference()) < tromboneSynth.getAttackDecayTime()){
-        ChangeNote(Notes::Notes_t note_in, int octave_in);
+        tromboneSynth.ChangeNote(note_in, octave_in);
      }
    else{
-      setNote(note_in);
-      setOctave(octave_in);
-      StartEnvelope();
+      tromboneSynth.setNote(note_in);
+      tromboneSynth.setOctave(octave_in);
+      tromboneSynth.StartEnvelope();
    }
  }
  
@@ -27,3 +27,7 @@
  void TromboneSynth::EndTromboneAudio(void){
    tromboneSynth.EndEnvelope();
  }
+
+ float TromboneSynth::getTimeDifference(){
+    return tromboneSynth.getTimeDifference();
+}

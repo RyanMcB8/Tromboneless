@@ -18,29 +18,30 @@ public:
     }
 };
 char key;
+TromboneSynth synth;
 int main()
 {
     std::cout << "Input key for note \n";
-    std::cin >> key >> "\n";
+    std::cin >> key;
     switch(key){
-        case "a":
-            NewTromboneNote(Notes::Notes_t::note_A, 4);
+        case 'a':
+            synth.NewTromboneNote(Notes::Notes_t::note_A, 4);
         case "b":
-            NewTromboneNote(Notes::Notes_t::note_B, 4);
+            synth.NewTromboneNote(Notes::Notes_t::note_B, 4);
         case "c":
-            NewTromboneNote(Notes::Notes_t::note_C, 4);
+            synth.NewTromboneNote(Notes::Notes_t::note_C, 4);
         case "d":
-            NewTromboneNote(Notes::Notes_t::note_D, 4);
+            synth.NewTromboneNote(Notes::Notes_t::note_D, 4);
         case "e":
-            NewTromboneNote(Notes::Notes_t::note_E, 4);
+            synth.NewTromboneNote(Notes::Notes_t::note_E, 4);
         case "f":
-            NewTromboneNote(Notes::Notes_t::note_F, 4);
+            synth.NewTromboneNote(Notes::Notes_t::note_F, 4);
             
         default:
-            NewTromboneNote(Notes::Notes_t::note_G, 4);
+            synth.NewTromboneNote(Notes::Notes_t::note_G, 4);
     }
     while(true){
-        ReadTromboneAudio();
+        synth.ReadTromboneAudio();
     }
     // try
     // {

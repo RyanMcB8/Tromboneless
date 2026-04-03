@@ -705,7 +705,7 @@ class Envelope    :   public OctavesWithHarmonics
          *                      Envelope class.
          *  @param  octave_in   The octave which the new note will be in;
          */
-        void setOctave(int octave_in)
+        void setOctave(int octave_in);
         
     private:
         /* initialising parameters. */
