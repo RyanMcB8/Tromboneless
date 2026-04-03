@@ -21,6 +21,7 @@ target_link_libraries(TrombonelessCore PRIVATE asound)
 
 target_include_directories(TrombonelessCore PRIVATE
     ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/include/drivers
     ${PROJECT_SOURCE_DIR}/lib/rtmidi
     ${PROJECT_SOURCE_DIR}/shared
     )

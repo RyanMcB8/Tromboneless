@@ -2,11 +2,12 @@
 #include <thread>
 #include <chrono>
 #include "tromboneSynth.hpp"
-#include "audio_output.hpp"
+#include "drivers/audio_output.hpp"
 
 int main(){
     TromboneSynth synth;
     AudioOutput output;
+    int16_t amplitude;
     char key;
     std::cout << "Input key for note \n";
     std::cin >> key;
@@ -32,8 +33,10 @@ int main(){
         default:
             synth.NewTromboneNote(Notes::Notes_t::note_G, 4);
     }
+
     while(true){
-        if(synth.getTimeDifference())
-        const int16_t amplitude = (const int16_t)(synth.ReadTromboneAudio()*32000);
+        amplitude = (int16_t)(synth.ReadTromboneAudio()*32000);
         output.writeSamples((const int16_t*)amplitude, 1);
     }
+    return 0;
+}

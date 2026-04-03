@@ -409,19 +409,19 @@ float Envelope::GetAmplitude(){
     }
     else{
         /* The system is now nearing the end. */
-        float t = (float)(endTime.getDifference / restT);
+        float t = (float)(endTime.getDifference() / restT);
         currentSynthState = restState;
         if (t >= 1){
             ending = 0;
             currentSynthState = noSoundState;
         }
-        return EndNoteWithHarmonics(n, octave, note, time, t);
+        return EndNoteWithHarmonics(n, octave, note, time, t, saturation);
     }
 }
 
 void Envelope::EndEnvelope(){
     ending = 1;
-    gettimeofday(&endTime, NULL);
+    //gettimeofday(&endTime, NULL);
 
 }
 void Envelope::KillEnvelope(){
@@ -429,7 +429,7 @@ void Envelope::KillEnvelope(){
 }
 
 struct timeval Envelope::getStartTime(){
-    return deltaTime.getStartTime;
+    return deltaTime.getStartTime();
 }
 
 float Envelope::getTimeDifference(){
@@ -442,7 +442,7 @@ float Envelope::getAttackDecayTime(){
 
 void Envelope::setNote(Notes_t note_in){
     note = note_in;
-    return
+    return;
 }
 
 void Envelope::setOctave(int octave_in){
