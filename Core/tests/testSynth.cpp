@@ -9,29 +9,47 @@
             defined within this file.
 */
 
-#include "testSynth.hpp"
+#include <iostream>
+#include "synth.hpp"
+#include <thread>
+#include <chrono>
 
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                      DeltaTime                                             */
 /*                                                                                            */
 /* ========================================================================================== */
-void TestDeltaTime(){
+bool TestDeltaTime(){
     DeltaTime deltaTime = DeltaTime();
 
     if ( 0 > (deltaTime.getStartTime()).tv_usec){
-        OUT << "Error reading the start time. \n";
-        throw;
+        std::cerr << "[FAIL] Error reading the start time." << "\n";
+        return false;
     }
     /* Adding a slight delay to allow the start time to be more than the end time. */
-    for(int i=0; i< 1000; i++){
+    std::this_thread::sleep_for(std::chrono::microseconds(100));
 
-    }
 
     /* Checking that the */
     if (0 > deltaTime.getDifference()){
-        OUT << "Error reading the difference in time in deltaTime";
-        throw;
+        std::cerr << "[FAIL] Error reading the difference in time in deltaTime" << "\n";
+        return false;
     }
+    std::cout << "[PASS] TestDeltaTime passed all tests. \n";
+    return true;
 
+}
+
+int main() {
+    bool success = true;
+
+    success &= TestDeltaTime();
+
+
+
+    if (success) {
+        return 0; 
+    } else {
+        return 1; 
+    }
 }

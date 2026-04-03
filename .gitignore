@@ -57,3 +57,6 @@
 # ignoring the app side build
 App/build/
 App/JUCE
+
+#ignoring cmake testing
+*/Testing/*

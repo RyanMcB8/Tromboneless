@@ -417,6 +417,7 @@ float Envelope::GetAmplitude(){
         }
         return EndNoteWithHarmonics(n, octave, note, time, t, saturation);
     }
+    return 0;
 }
 
 void Envelope::EndEnvelope(){
