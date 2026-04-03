@@ -385,20 +385,20 @@ float Envelope::GetAmplitude(){
     if (currentSynthState == noSoundState){
         return 0;
     }
-    
+
     else if(!ending){
         /* The sound is still in the ascent range. */
         if (ascendT >= time){
             currentSynthState = attackState;
             float t = 1 - std::min((ascendT/time), (float)1);
-            return DecayNoteWithHarmonics(n, octave, note, time, t, saturation);
+            return StartNoteWithHarmonics(n, octave, note, time, t);
         }
-
+        
         /* The sound is in the decay stage. */
         else if ((ascendT+decayT) >= time){
             currentSynthState = decayState;
             float t = 1 - (decayT/(time-ascendT));
-            return StartNoteWithHarmonics(n, octave, note, time, t);
+            return DecayNoteWithHarmonics(n, octave, note, time, t, saturation);
         }
 
         /* The sound is still in the saturation range. */
