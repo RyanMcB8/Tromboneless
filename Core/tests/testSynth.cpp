@@ -170,7 +170,69 @@ bool TestOctaves(){
     return true;
 }
 
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                 OctavesWithHarmonics                                       */
+/*                                                                                            */
+/* ========================================================================================== */
+bool TestOctavesWithHarmonics(){
+    OctavesWithHarmonics harmonics = OctavesWithHarmonics();
+    /* Testing that the harmonic decay function has a maximum of 1 and minimum approach 0. */
+    if ((0.99 > harmonics.HarmonicDecay(0, 0, Notes::Notes_t::note_C)) ||
+        (1.01 < harmonics.HarmonicDecay(0, 0, Notes::Notes_t::note_C))){
+        std::cerr << "[FAIL] Error with HarmonicDecay() function.\n      Does not have a maxmimum of 1 at n=0." << "\n";
+        return false;
+    }
+    if (0.00 < harmonics.HarmonicDecay(10e3, 0, Notes::Notes_t::note_C) && 0.01 > harmonics.HarmonicDecay(10e3, 0, Notes::Notes_t::note_C)){
+        std::cerr << "[FAIL] Error with HarmonicDecay() function.\n      Does not have a minimum approach 0 at n=10e3." << "\n";
+        return false;
+    }
 
+    /* Testing that the output values are in the correct bounds. */
+    float saturation = 0.5;
+    int nHarmonics = 5;
+    for (int i=0; i < 20; i++){
+        /* A */
+        if ((1 < harmonics.StartNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, i/20)) ||
+            (-1 > harmonics.StartNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, i/20))){
+                std::cerr << "[FAIL] Error with StartNoteWithHarmonics() function.\n         Exits expected bounds of -1 and 1." << "\n";
+                return false;
+        }
+        /* D */
+        if ((1 < harmonics.DecayNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, i/20, saturation)) ||
+            (-1 > harmonics.DecayNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, i/20, saturation))){
+                std::cerr << "[FAIL] Error with DecayNoteWithHarmonics() function.\n         Exits expected bounds of -1 and 1." << "\n";
+                return false;
+        }
+        /* S */
+        if ((saturation < harmonics.PlayingNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, saturation)) ||
+            (-saturation > harmonics.PlayingNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, saturation))){
+                std::cerr << "[FAIL] Error with PlayingNoteWithHarmonics() function.\n       Exits expected bounds of +/-saturation." << "\n";
+                std::cerr << "Expected +/-" << saturation << " but got " << harmonics.PlayingNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, saturation) << "\n";
+                return false;
+        }
+        /* R */
+        if ((saturation < harmonics.EndNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, i/20, saturation)) ||
+            (-saturation > harmonics.EndNoteWithHarmonics(nHarmonics, 0, Notes::Notes_t::note_C, i, i/20, saturation))){
+                std::cerr << "[FAIL] Error with EndNoteWithHarmonics() function.\n       Exits expected bounds of +/-saturation." << "\n";
+                return false;
+        }
+    }
+    
+
+    std::cout << "[PASS] OctavesWithHarmonics passed all tests. \n";
+    return true;
+}
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                      Envelope                                              */
+/*                                                                                            */
+/* ========================================================================================== */
+
+bool testEnvelope(){
+    return true;
+}
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -204,7 +266,8 @@ int main() {
     /* Calling upon the test funtions to run. */
     success &= TestDeltaTime();
     success &= TestNotes();
+    success &= TestOctavesWithHarmonics();
 
-
+    /* Ternary method for finding if all test functions have passed the tests. */
     return (success) ? 0 : 1;
 }
