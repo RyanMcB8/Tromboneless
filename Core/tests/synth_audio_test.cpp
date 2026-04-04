@@ -1,41 +1,36 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include "tromboneSynth.hpp"
+#include <vector>
+#include "synth.hpp"
+#include "drivers/audio_output.hpp"
+#include <string>
 
 int main(){
-    // TromboneSynth synth;
-    // AudioOutput output;
-    // int16_t amplitude;
-    // char key;
-    // std::cout << "Input key for note \n";
-    // std::cin >> key;
-    // switch(key){
-    //     case 'a':
-    //         synth.NewTromboneNote(Notes::Notes_t::note_A, 4);
-    //         break;
-    //     case 's':
-    //         synth.NewTromboneNote(Notes::Notes_t::note_B, 4);
-    //         break;
-    //     case 'd':
-    //         synth.NewTromboneNote(Notes::Notes_t::note_C, 4);
-    //         break;
-    //     case 'f':
-    //         synth.NewTromboneNote(Notes::Notes_t::note_D, 4);
-    //         break;
-    //     case 'g':
-    //         synth.NewTromboneNote(Notes::Notes_t::note_E, 4);
-    //         break;
-    //     case 'h':
-    //         synth.NewTromboneNote(Notes::Notes_t::note_F, 4);
-    //         break;
-    //     default:
-    //         synth.NewTromboneNote(Notes::Notes_t::note_G, 4);
-    // }
+    Octaves synth = Octaves();
+    AudioOutput output;
+    float amplitude;
 
-    // while(true){
-    //     amplitude = (int16_t)(synth.ReadTromboneAudio()*32000);
-    //     output.writeSamples((const int16_t*)amplitude, 1);
-    // }
+    const int frames = 512;
+    int sample_rate = 44100;
+    int16_t buffer[frames];
+
+    int second = int(sample_rate/frames);
+    int multiplier = 1;
+    int duration = second*multiplier;
+
+    for(int s = 0; s<8; s++)
+    {    
+        for(int i=0; i<duration; i++)
+        {
+            for(int t = 0; t<frames; t++){
+
+                amplitude = synth.PlayingNote(4, Notes::Notes_t(s), (float)(t))*32767.0f;
+                buffer[t] = static_cast<int16_t>(amplitude);
+                std::cout << buffer[t];
+
+            }
+            output.writeSamples(buffer, frames);
+        }}
     return 0;
 }

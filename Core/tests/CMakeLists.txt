@@ -20,10 +20,20 @@ add_executable(TrombonelessCoreTests
 
 # Include directories for the core library and any headers needed
 target_include_directories(TrombonelessCoreTests PRIVATE
+    ${PROJECT_ROOT}/include/drivers
     ${PROJECT_ROOT}/include
     ${PROJECT_ROOT}/tests
 )
 
+# Add source files
+target_sources(TrombonelessCoreTests PRIVATE
+    ${PROJECT_ROOT}/src/drivers/audio_output.cpp
+    ${PROJECT_ROOT}/src/synth.cpp
+)
+
+target_link_libraries(TrombonelessCoreTests PRIVATE
+    asound    
+)
 
 # Enable CTest for this test executable
 enable_testing()

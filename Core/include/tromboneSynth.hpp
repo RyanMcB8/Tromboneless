@@ -28,7 +28,7 @@
          *                         current amplitude of the audio signal being 
          *                         generated.
          *     @retval             Returns a floating point representation of the
-         *                         amplitude normalised between 0 and 1. 
+         *                         amplitude normalised between -1 and 1. 
          */
         float ReadTromboneAudio(void);
 
