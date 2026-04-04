@@ -532,9 +532,6 @@ class OctavesWithHarmonics :    public Octaves
          */
         float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation);
         
-    private:
-        float decayConstant = 2;
-        
         /** @brief          A function which calculates how much the amplitude of 
          *                  the harmonic should decay in comparison to the first
          *                  harmonic.
@@ -549,6 +546,10 @@ class OctavesWithHarmonics :    public Octaves
          *                  over the various harmonic frequencies. 
          */
         float HarmonicDecay(int n, int octave, Notes::Notes_t note);
+        
+    private:
+        float decayConstant = 2;
+        
 };
 
 

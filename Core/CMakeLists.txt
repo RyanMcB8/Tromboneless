@@ -9,16 +9,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-
-# Generate compile_commands.json for IDEs / tooling
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Enable unit tests
 enable_testing()
 include(CTest)
 
+# ========================================
 # Core Library
-# -------------------------------
+# ========================================
 
 # Add source files
 file(GLOB_RECURSE CORE_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
@@ -30,7 +29,6 @@ list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/eventHandler\\.cpp$")
 list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/ads1115rpi\\.cpp$")
 
 add_library(TrombonelessCoreLibrary STATIC ${CORE_SOURCES} ${RTMIDI_SOURCES})
-# add_dependencies(TrombonelessCoreLibrary)
 
 # Include directories for the library
 target_include_directories(TrombonelessCoreLibrary PUBLIC
@@ -47,9 +45,9 @@ target_link_libraries(TrombonelessCoreLibrary PRIVATE
     asound
 )
 
-# -------------------------------
-# Main executable
-# -------------------------------
+# ========================================
+#               Main executable
+# ========================================
 add_executable(TrombonelessCore
     src/main.cpp
 )
@@ -57,12 +55,13 @@ add_executable(TrombonelessCore
 
 target_link_libraries(TrombonelessCore PRIVATE TrombonelessCoreLibrary)
 
-# -------------------------------
-# Tests
-# -------------------------------
+# ========================================
+#                   Tests
+# ========================================
 # Automatically find all test cpp files in tests/
 file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
 
+# Searches through all C files within the tests directory and treats them as test script.
 foreach(TEST_FILE ${TEST_SOURCES})
     # Extract the file name without path and extension
     get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
@@ -74,6 +73,6 @@ foreach(TEST_FILE ${TEST_SOURCES})
         ${PROJECT_SOURCE_DIR}/tests
         )
 
-    # Register with CTest
+    # Add the test to the CTest list of tests.
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()

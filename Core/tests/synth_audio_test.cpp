@@ -4,9 +4,9 @@
 #include "tromboneSynth.hpp"
 
 int main(){
-    // TromboneSynth synth;
+    TromboneSynth synth;
     // AudioOutput output;
-    // int16_t amplitude;
+    int16_t amplitude;
     // char key;
     // std::cout << "Input key for note \n";
     // std::cin >> key;
@@ -32,10 +32,12 @@ int main(){
     //     default:
     //         synth.NewTromboneNote(Notes::Notes_t::note_G, 4);
     // }
-
-    // while(true){
-    //     amplitude = (int16_t)(synth.ReadTromboneAudio()*32000);
-    //     output.writeSamples((const int16_t*)amplitude, 1);
-    // }
+     synth.NewTromboneNote(Notes::Notes_t::note_G, 4);
+    for (int i=0; i < 50; i++){
+        std::this_thread::sleep_for(std::chrono::microseconds(10));
+        amplitude = (int16_t)(synth.ReadTromboneAudio()*32000);
+        std::cout << amplitude << "\n";
+        // output.writeSamples((const int16_t*)amplitude, 1);
+    }
     return 0;
 }
