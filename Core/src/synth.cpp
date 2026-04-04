@@ -332,7 +332,7 @@ float OctavesWithHarmonics::DecayNoteWithHarmonics(int n, int octave, Notes_t no
 float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation){
     float outputAmplitude = 0;
     for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * PlayingNote(n, note, time);
+        outputAmplitude += HarmonicDecay(n, octave, note) * SaturatedNote(n, note, time, saturation);
     } 
     return (outputAmplitude/n);
 }
