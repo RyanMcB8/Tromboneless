@@ -92,40 +92,40 @@ float Notes::setNote(Notes_t note, float freq){
     switch(note){
         case note_C:
             setC(freq);
-
+            break;
         case note_Db:
             setDb(freq);
-
+            break;
         case note_D:
             setD(freq);
-
+            break;
         case note_Eb:
             setEb(freq);
-
+            break;
         case note_E:
             setE(freq);
-
+            break;
         case note_F:
             setF(freq);
-
+            break;
         case note_Gb:
             setGb(freq);
-
+            break;
         case note_G:
             setG(freq);
-
+            break;
         case note_Ab:
             setAb(freq);
-
+            break;
         case note_A:
             setA(freq);
-
+            break;
         case note_Bb:
             setBb(freq);
-
+            break;
         case note_B:
             setB(freq);
-
+            break;
         default:
             return 0.0f;
     }
@@ -284,7 +284,7 @@ float Octaves::TimeRest(float t, float saturation){
 }
 
 float Octaves::PlayingNote(int octave, Notes_t note, float time){
-    return (float) cos((1/octaves[octave].getNote(note)) * time * 2 * M_PI);
+    return (float) cos((octaves[octave].getNote(note)) * time * 2 * M_PI);
 }
 
 float Octaves::StartNote(int octave, Notes_t note, float time, float t){

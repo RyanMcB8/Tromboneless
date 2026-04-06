@@ -29,6 +29,7 @@ target_include_directories(TrombonelessCoreTests PRIVATE
 target_sources(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/src/drivers/audio_output.cpp
     ${PROJECT_ROOT}/src/synth.cpp
+    ${PROJECT_ROOT}/src/tromboneSynth.cpp
 )
 
 target_link_libraries(TrombonelessCoreTests PRIVATE
