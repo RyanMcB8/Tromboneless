@@ -241,7 +241,7 @@ bool TestEnvelope(){
     /*  StartEnvelope() method. */
     testEnvelope.StartEnvelope();
     std::this_thread::sleep_for(std::chrono::microseconds(10));
-    if (0 >= testEnvelope.getTimeDifference){
+    if (0 >= testEnvelope.getTimeDifference()){
         std::cerr << "[FAIL] Error with Envelope.StartEnvelope() function.\n       Envelope timer not working as expected." << "\n";
         return false;
     }
