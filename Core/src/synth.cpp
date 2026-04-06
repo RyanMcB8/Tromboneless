@@ -360,6 +360,7 @@ Envelope::Envelope(int n_in, int octave_in, Notes::Notes_t note_in, float ascend
     /** Setting the initial values of the parameters. */
     n = n_in;   octave = octave_in;     note = note_in;     ascendT = ascendT_in;
     decayT = decayT_in;     saturation = saturation_in;     restT = restT_in;
+    currentSynthState = noSoundState;
 
 
 }
@@ -449,6 +450,14 @@ void Envelope::setNote(Notes_t note_in){
 void Envelope::setOctave(int octave_in){
     octave = octave_in;
     return;
+}
+
+Notes::Notes_t Envelope::getNote(void){
+    return note;
+}
+
+int Envelope::getOctave(void){
+    return octave;
 }
 
 /* ========================================================================================== */

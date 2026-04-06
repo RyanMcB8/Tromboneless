@@ -230,7 +230,48 @@ bool TestOctavesWithHarmonics(){
 /*                                                                                            */
 /* ========================================================================================== */
 
-bool testEnvelope(){
+bool TestEnvelope(){
+    /*  Initialising the Envelope instance. */
+    Envelope testEnvelope = Envelope(1, 2, Notes::Notes_t::note_C, 4.0, 5.0, 0.6, 7.0);
+    if (testEnvelope.currentSynthState != Envelope::synth_states_t::noSoundState){
+        std::cerr << "[FAIL] Error with Envelope() constructor function.\n       Incorrect synth state after initialisation." << "\n";
+        return false;
+    }
+
+    /*  StartEnvelope() method. */
+    testEnvelope.StartEnvelope();
+    std::this_thread::sleep_for(std::chrono::microseconds(10));
+    if (0 >= testEnvelope.getTimeDifference){
+        std::cerr << "[FAIL] Error with Envelope.StartEnvelope() function.\n       Envelope timer not working as expected." << "\n";
+        return false;
+    }
+    if (Envelope::synth_states_t::attackState != testEnvelope.currentSynthState){
+        std::cerr << "[FAIL] Error with Envelope.StartEnvelope() function.\n       Incorrect synth state after initialisation." << "\n";
+        return false;
+    }
+
+    /* Testing that the getters and setters work. */
+    Notes::Notes_t tempNote = testEnvelope.getNote();
+    if (Notes::Notes_t::note_A == tempNote){
+        testEnvelope.setNote(Notes::Notes_t::note_C);
+    }
+    else{
+        testEnvelope.setNote(Notes::Notes_t::note_A);
+    }
+    if (testEnvelope.getNote() == tempNote){
+        std::cerr << "[FAIL] Error with Envelope note setter or getter functions.\n       Incorrect values set or returned." << "\n";
+        return false;
+    }
+
+    int tempOctave = testEnvelope.getOctave();
+    testEnvelope.setOctave((tempOctave + 1) % 8);
+    if (testEnvelope.getOctave() == tempOctave){
+        std::cerr << "[FAIL] Error with Envelope octave setter or getter functions.\n       Incorrect values set or returned." << "\n";
+        return false;
+    }
+    
+
+
     return true;
 }
 
@@ -264,9 +305,10 @@ int main() {
     bool success = true;
 
     /* Calling upon the test funtions to run. */
-    success &= TestDeltaTime();
     success &= TestNotes();
     success &= TestOctavesWithHarmonics();
+    success &= TestEnvelope();
+    success &= TestDeltaTime();
 
     /* Ternary method for finding if all test functions have passed the tests. */
     return (success) ? 0 : 1;
