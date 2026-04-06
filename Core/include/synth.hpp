@@ -707,6 +707,19 @@ class Envelope    :   public OctavesWithHarmonics
          *  @param  octave_in   The octave which the new note will be in;
          */
         void setOctave(int octave_in);
+
+        /** @brief              A function which returns the instance's current note
+         *                      which is being played.
+         *  @retval             The note of type Notes_t which is currently being
+         *                      used within the envelope.
+         */
+        Notes::Notes_t Envelope::getNote(void);
+
+        /** @brief              A function which returns the instance's current 
+         *                      octave which theh note being played is in.
+         *  @retval             The integer representation of the octave.
+        */
+        int Envelope::getOctave(void);
         
     private:
         /* initialising parameters. */
