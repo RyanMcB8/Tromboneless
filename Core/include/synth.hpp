@@ -717,13 +717,13 @@ class Envelope    :   public OctavesWithHarmonics
          *  @retval             The note of type Notes_t which is currently being
          *                      used within the envelope.
          */
-        Notes::Notes_t Envelope::getNote(void);
+        Notes::Notes_t getNote(void);
 
         /** @brief              A function which returns the instance's current 
          *                      octave which theh note being played is in.
          *  @retval             The integer representation of the octave.
         */
-        int Envelope::getOctave(void);
+        int getOctave(void);
         
     private:
         /* initialising parameters. */
