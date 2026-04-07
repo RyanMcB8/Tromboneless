@@ -3,6 +3,10 @@
  *  @brief      A header file containing all the necessary declarations and references to
  *              allow for the Tromboneless to synthesise the noise a trombone would make
  *              when playing the same notes.
+ *  @note       The envelope class lacks set/get functionality for its initialised parameters
+ *              such as the attack, decay and rest times. This should be added in the next
+ *              revision to allow for the sound to be modified without needing to create a
+ *              new object each time.
  */
 
 /* Preventing recursion. */
