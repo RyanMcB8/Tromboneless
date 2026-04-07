@@ -11,6 +11,7 @@
 
 #include "MidiCoordinator.hpp"
 #include "tromboneSynth.hpp"
+#include "USBMidi.hpp"
 
 class GetDistance {
 public:
