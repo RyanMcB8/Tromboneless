@@ -1,5 +1,5 @@
 #include "ads1115rpi.h"
-
+#include <stdexcept>
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>

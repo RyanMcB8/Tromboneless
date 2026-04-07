@@ -1,6 +1,6 @@
 #include <cstdint>
 #include <iostream>
-
+#include "main.hpp"
 #include "tromboneSynth.hpp"
 
 class GetDistance {
