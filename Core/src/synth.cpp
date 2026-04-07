@@ -316,7 +316,7 @@ OctavesWithHarmonics::OctavesWithHarmonics(){
 float OctavesWithHarmonics::StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
     float outputAmplitude = 0;
     for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * StartNote(n, note, time, t);
+        outputAmplitude += HarmonicDecay(i, octave, note) * StartNote(i, note, time, t);
     } 
     return (outputAmplitude/n);
 }
@@ -340,13 +340,14 @@ float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t 
 float OctavesWithHarmonics::EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation){
     float outputAmplitude = 0;
     for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t, saturation);
+        outputAmplitude += HarmonicDecay(i, octave, note) * EndNote(n, note, time, t, saturation);
     } 
     return (outputAmplitude/n);
 }
 
 float OctavesWithHarmonics::HarmonicDecay(int n, int octave, Notes::Notes_t note){
-    return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
+    return 1.0;
+    //return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
 }
 
 /* ========================================================================================== */

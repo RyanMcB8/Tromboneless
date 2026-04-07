@@ -8,7 +8,7 @@
 #include <string>
 
 int main(){
-    OctavesWithHarmonics synth = OctavesWithHarmonics();
+    Envelope synth = Envelope();
 
     AudioOutput output;
     float amplitude;
@@ -34,7 +34,7 @@ int main(){
                 float time = static_cast<float>(sample_index) / static_cast<float>(sample_rate);
                 float attack_progress = time / attack_time;
 
-                amplitude = synth.StartNoteWithHarmonics(4, 3, Notes::Notes_t(n), time, attack_progress) * 32767.0f;
+                amplitude = synth.StartNoteWithHarmonics(4, 2, Notes::Notes_t(n), time, attack_progress) * 32767.0f;
                 buffer[t] = static_cast<int16_t>(amplitude);
 
                 sample_index++;

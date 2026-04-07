@@ -1,4 +1,4 @@
-#include "RtMidi.h"
+#include <RtMidi.h>
 #include "MidiMessage.hpp"
 
 class RtMidiSink {
