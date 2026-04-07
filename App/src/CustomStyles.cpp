@@ -1,3 +1,10 @@
+/** @file       CustomStyles.cpp
+ *  @author     Ryan McBride
+ *  @brief      This file holds the defintions of all functions and variables
+ *              needed by the Tromboneless project to change the looks and feel
+ *              of various different widgets which are being displayed to the
+ *              end user.
+ */
 
 #include "CustomStyles.hpp"
 
@@ -169,6 +176,12 @@ juce::Path PaintTrombone(float x, float y, float width, float height, bool incPi
     return tromboneShape;
 }
 
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                          PaintArc                                          */
+/*                                                                                            */
+/* ========================================================================================== */
+
 juce::Path PaintArc(float x, float y, float thickness, float gap, bool direction)
 {
     juce::Path arcShape;
@@ -280,6 +293,12 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
 
 }
 
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                          RotaryArc                                         */
+/*                                                                                            */
+/* ========================================================================================== */
+
 juce::Path RotaryArc(float x, float y, float thickness, float width, float height, float angularRange, float rotation)
 {
     juce::Path arcShape;
@@ -289,9 +308,6 @@ juce::Path RotaryArc(float x, float y, float thickness, float width, float heigh
     float endRad = angularRange/2;
     float startRad = -angularRange/2;
 
-    // rotation = rotation - (angularRange/2);
-    
-    // arcShape.startNewSubPath(x+(xRadius*sin(startRad)) , y+(yRadius*sin(startRad)));
     arcShape.startNewSubPath(x , y);
 
     arcShape.addCentredArc (x, y, 
@@ -302,6 +318,12 @@ juce::Path RotaryArc(float x, float y, float thickness, float width, float heigh
     return arcShape;
 
 }
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                        drawCircle                                          */
+/*                                                                                            */
+/* ========================================================================================== */
 
 juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
 
@@ -316,87 +338,9 @@ juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
 
 /* ========================================================================================== */
 /*                                                                                            */
-/*                                     BarometerSlider                                        */
+/*                                   NeedleLookAndFeel                                        */
 /*                                                                                            */
 /* ========================================================================================== */
-
-BarometerLookAndFeel::BarometerLookAndFeel(){
-
-}
-
-void BarometerLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
-    int height, float sliderPos, const float rotaryStartAngle,
-    const float rotaryEndAngle, juce::Slider& slider){
-        /* Finding the centre point. */
-        float middleX = x + (width)/2;
-        float middleY = y + (height)/2;
-
-        /* Finding the radius of the circle. */
-        float radius = std::min(width/2, height/2);
-
-        /* Setting the relative sizes of component parts. */
-        float fingerThickness = std::min((float) 5, (float) (width*0.05));
-        float pathThickness = radius*0.08;
-        float edgeThickness = radius*0.1;
-
-        /* Drawing the main circle */
-        g.setColour(backgroundColour);
-        juce::Path background = drawCircle(middleX, middleY, radius, radius);
-        g.fillPath(background);
-
-        /* Adding the path that the sliders will follow. */
-        g.setColour(emptyTrackColour);
-        juce::Path sliderPath = RotaryArc(middleX, middleY, pathThickness, radius-edgeThickness,
-                                            radius - edgeThickness, rotaryEndAngle - rotaryStartAngle);
-        g.fillPath(sliderPath);
-
-        /* Adding the inner circle (Background). */
-        g.setColour(backgroundColour);
-        background = drawCircle(middleX, middleY, radius-edgeThickness - pathThickness,
-            radius - edgeThickness - pathThickness);
-        g.fillPath(background);
-
-        /* Adding one of the fingers. */
-        juce::Path p;
-        float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
-        p.addRectangle (-fingerThickness * 0.5f, -radius, fingerThickness, radius-edgeThickness);
-        p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
-        g.setColour (juce::Colours::black);
-        g.fillPath (p);
-        
-}
-
-
-BarometerOuterLookAndFeel::BarometerOuterLookAndFeel(){
-
-}
-
-void BarometerOuterLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
-    int height, float sliderPos, const float rotaryStartAngle,
-    const float rotaryEndAngle, juce::Slider& slider){
-        /* Finding the centre point. */
-        float middleX = x + (width)/2;
-        float middleY = y + (height)/2;
-
-        /* Finding the radius of the circle. */
-        float radius = std::min(width/2, height/2);
-
-        /* Setting the relative sizes of component parts. */
-        float fingerThickness = std::min((float) 5, (float) (width*0.05));
-        float edgeThickness = radius*0.1;
-
-        /* Adding the outer finger. */
-        juce::Path p;
-        g.setColour(thumbColour);
-        float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
-        p.addRectangle (-fingerThickness, -(radius+2*(edgeThickness)), fingerThickness, edgeThickness);
-        p.applyTransform (juce::AffineTransform::translation (x, y));
-        p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
-        g.setColour (juce::Colours::black);
-        g.fillPath (p);
-        
-}
-
 
 void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
             int height, float sliderPos, const float rotaryStartAngle,
@@ -423,6 +367,4 @@ void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
     p.applyTransform (juce::AffineTransform::rotation (angle).translated (centreX, centreY));
     g.setColour(needleColour);
     g.fillPath(p);
-
-
 }

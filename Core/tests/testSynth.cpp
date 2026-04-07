@@ -9,9 +9,7 @@
             defined within this file.
 */
 
-#include "synth.hpp"
-#include <iostream>
-#define OUT std::cout
+#include "testSynth.hpp"
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -25,18 +23,15 @@ void TestDeltaTime(){
         OUT << "Error reading the start time. \n";
         throw;
     }
+    /* Adding a slight delay to allow the start time to be more than the end time. */
+    for(int i=0; i< 1000; i++){
 
-    // if (0 > deltaTime.getDifference()){
-    //     OUT << "Error reading the difference in time in deltaTime";
-    //     throw;
-    // }
+    }
 
-}
+    /* Checking that the */
+    if (0 > deltaTime.getDifference()){
+        OUT << "Error reading the difference in time in deltaTime";
+        throw;
+    }
 
-// deltaTime.setStartTime();
-
-
-int main(){
-    TestDeltaTime();
-    return 0;
 }
