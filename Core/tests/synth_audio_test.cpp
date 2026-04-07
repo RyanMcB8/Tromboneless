@@ -8,39 +8,46 @@
 #include <string>
 
 int main(){
-    Octaves synth = Octaves();
-    TromboneSynth synth2;
-    
+    OctavesWithHarmonics synth = OctavesWithHarmonics();
+
     AudioOutput output;
     float amplitude;
 
-    constexpr int frames = 512;
+    constexpr int frames = 512; // Samples in a buffer
     int sample_rate = 44100;
-    int16_t buffer[frames];
+    int16_t buffer[frames]; // Raw C-style array
 
-    int second = int(sample_rate/frames);
-    int multiplier = 1;
-    int duration = second*multiplier;
+    // How long notes will play
+    int buffers_per_sec = int(sample_rate / frames); 
+    float multiplier = 0.5;
+    int duration = int(buffers_per_sec * multiplier);
 
-    //synth2.NewTromboneNote(Notes::Notes_t::note_B,  4);
+    int sample_index = 0;
+    float attack_time = 0.1f;
 
-    for(int i=0; i<duration; i++)
+    for(int n; n<9; n++)
     {
-        for(int t = 0; t<frames; t++){
+        for(int i = 0; i < duration; i++)
+        {
+            for(int t = 0; t < frames; t++)
+            {
+                float time = static_cast<float>(sample_index) / static_cast<float>(sample_rate);
+                float attack_progress = time / attack_time;
 
-            //amplitude = synth.PlayingNote(4, Notes::Notes_t(s), (float)(t))*32767.0f;
-            amplitude = synth2.ReadTromboneAudio()*32767.0f;
-            buffer[t] = static_cast<int16_t>(amplitude);
+                amplitude = synth.StartNoteWithHarmonics(4, 3, Notes::Notes_t(n), time, attack_progress) * 32767.0f;
+                buffer[t] = static_cast<int16_t>(amplitude);
 
+                sample_index++;
+            }
+
+            output.writeSamples(buffer, frames);
         }
-        output.writeSamples(buffer, frames);
     }
 
-    for(int i = 0; i<frames; i++)
-    {       
+    for(int i = 0; i < frames; i++)
+    {
         std::cout << buffer[i] << " ";
     }
 
-    synth2.EndTromboneAudio();
     return 0;
 }
