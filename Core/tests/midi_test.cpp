@@ -16,9 +16,11 @@
 class GetDistance {
 public:
     int hasTOFsample(uint16_t distance) {
-        if (distance > 500) distance = 500;
-        int scaled_bend = 8192 - (distance * 8192) / 500;
-        std::cout << scaled_bend << "\n";
+        int mm_limit = 100;
+        if (distance > mm_limit) distance = mm_limit;
+        int scaled_bend = 8192 - (distance * 8192) / mm_limit;
+        
+        //std::cout << scaled_bend << "\n";
         return scaled_bend;
     }
 };
@@ -46,7 +48,7 @@ try
         coordinator.RegisterCallback(
             [&](const MidiMessage& msg)
             {
-                std::cout << "Sending MIDI message of size " << msg.size() << "\n";
+                //std::cout << "Sending MIDI message of size " << msg.size() << "\n";
                 midiSink.send(msg);
             });
 
