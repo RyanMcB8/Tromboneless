@@ -2,6 +2,15 @@
 \hypertarget{classPanels}{}\label{classPanels}\index{Panels@{Panels}}
 
 
+A class which is inherited from Juce\+:Component reponsible for setting the general style of a panel within the main window.  
+
+
+
+
+{\ttfamily \#include $<$Panels.\+hpp$>$}
+
+
+
 Inheritance diagram for Panels\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,12 +32,46 @@ Collaboration diagram for Panels\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{classPanels_a0144464dbf363ac1cae6a6c1d978d526}\label{classPanels_a0144464dbf363ac1cae6a6c1d978d526} 
+{\bfseries Panels} ()=default
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classPanels}{Panels}} class which currently provides no other function than creating an instance of the {\ttfamily \doxylink{classPanels}{Panels}} class. I.\+e. no initialisation functions or settings. \end{DoxyCompactList}\item 
+\Hypertarget{classPanels_a9cf6e0c36d874dcc3d94e6dfed3bbc33}\label{classPanels_a9cf6e0c36d874dcc3d94e6dfed3bbc33} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Panels} ()=default
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classPanels}{Panels}} class which currently does nothing extra as there is no initialisation within the class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPanels_a0dbc535bb34f716890ef0c30911f39af}{paint}} (juce\+::\+Graphics \&g) override
+\begin{DoxyCompactList}\small\item\em This function draws onto the parent function the default shape and colour of the panels designed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which is inherited from Juce\+:Component reponsible for setting the general style of a panel within the main window. 
+
+\begin{DoxyNote}{Note}
+A panel should represent at least one component such as an image, label, slider or another widget type. Similar types should be grouped together such as all calibration settings. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{classPanels_a0dbc535bb34f716890ef0c30911f39af}\label{classPanels_a0dbc535bb34f716890ef0c30911f39af} 
-void {\bfseries paint} (juce\+::\+Graphics \&g) override
-\end{DoxyCompactItemize}
+\index{Panels@{Panels}!paint@{paint}}
+\index{paint@{paint}!Panels@{Panels}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void Panels\+::paint (\begin{DoxyParamCaption}\item[{juce\+::\+Graphics \&}]{g }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+This function draws onto the parent function the default shape and colour of the panels designed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The point to the {\ttfamily juce\+::\+Graphics} instance which is being modified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The current design uses a rounded rectangle with a dark colour and a slight transparency to have the panel have a slight contrast to the background. 
+\end{DoxyNote}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Panels_8hpp}{Panels.\+hpp}}\item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Panels_8cpp}{Panels.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Panels_8hpp}{Panels.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Panels_8cpp}{Panels.\+cpp}}\end{DoxyCompactItemize}

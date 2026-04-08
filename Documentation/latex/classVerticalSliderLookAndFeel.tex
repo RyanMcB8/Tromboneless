@@ -2,7 +2,7 @@
 \hypertarget{classVerticalSliderLookAndFeel}{}\label{classVerticalSliderLookAndFeel}\index{VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}}
 
 
-Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless projet.  
+Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless project.  
 
 
 
@@ -30,15 +30,71 @@ Collaboration diagram for Vertical\+Slider\+Look\+And\+Feel\+:\nopagebreak
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e}\label{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e} 
-virtual void {\bfseries draw\+Linear\+Slider} (juce\+::\+Graphics \&g, int x, int y, int width, int height, float slider\+Pos, float min\+Slider\+Pos, float max\+Slider\+Pos, const juce\+::\+Slider\+::\+Slider\+Style style, juce\+::\+Slider \&slider) override
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classVerticalSliderLookAndFeel_a55e59bdd0b182d197935c41ac3755e33}{Vertical\+Slider\+Look\+And\+Feel}} ()
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classVerticalSliderLookAndFeel}{Vertical\+Slider\+Look\+And\+Feel}} class that creates an instance of the look and feel style. \end{DoxyCompactList}\item 
+\Hypertarget{classVerticalSliderLookAndFeel_a758baf1d5599468b77b983fb16efd975}\label{classVerticalSliderLookAndFeel_a758baf1d5599468b77b983fb16efd975} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Vertical\+Slider\+Look\+And\+Feel} ()=default
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classVerticalSliderLookAndFeel}{Vertical\+Slider\+Look\+And\+Feel}} class which is currently set to default as there is no need for a deconstructor for this class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e}{draw\+Linear\+Slider}} (juce\+::\+Graphics \&g, int x, int y, int width, int height, float slider\+Pos, float min\+Slider\+Pos, float max\+Slider\+Pos, const juce\+::\+Slider\+::\+Slider\+Style style, juce\+::\+Slider \&slider) override
+\begin{DoxyCompactList}\small\item\em When this look and feel is attached to an object which has a vertical slider in it, this function sets the look and feel of the slider being used. This makes it look like an average equalizer slider. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless projet. 
+Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless project. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classVerticalSliderLookAndFeel_a55e59bdd0b182d197935c41ac3755e33}\label{classVerticalSliderLookAndFeel_a55e59bdd0b182d197935c41ac3755e33} 
+\index{VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}!VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}}
+\index{VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}!VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{VerticalSliderLookAndFeel()}{VerticalSliderLookAndFeel()}}
+{\footnotesize\ttfamily Vertical\+Slider\+Look\+And\+Feel\+::\+Vertical\+Slider\+Look\+And\+Feel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The constructor function for the {\ttfamily \doxylink{classVerticalSliderLookAndFeel}{Vertical\+Slider\+Look\+And\+Feel}} class that creates an instance of the look and feel style. 
+
+\begin{DoxyNote}{Note}
+Currently there is not extra functionality attached to the contructor as the style of the vertical slider is defined in the {\ttfamily \doxylink{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e}{draw\+Linear\+Slider()}} function and there are no other components being modified by this style currently. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e}\label{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e} 
+\index{VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}!drawLinearSlider@{drawLinearSlider}}
+\index{drawLinearSlider@{drawLinearSlider}!VerticalSliderLookAndFeel@{VerticalSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{drawLinearSlider()}{drawLinearSlider()}}
+{\footnotesize\ttfamily void Vertical\+Slider\+Look\+And\+Feel\+::draw\+Linear\+Slider (\begin{DoxyParamCaption}\item[{juce\+::\+Graphics \&}]{g,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{float}]{slider\+Pos,  }\item[{float}]{min\+Slider\+Pos,  }\item[{float}]{max\+Slider\+Pos,  }\item[{const juce\+::\+Slider\+::\+Slider\+Style}]{style,  }\item[{juce\+::\+Slider \&}]{slider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+When this look and feel is attached to an object which has a vertical slider in it, this function sets the look and feel of the slider being used. This makes it look like an average equalizer slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to the {\ttfamily juce\+::\+Graphics} instance which is being drawn to. This is likely the main window or else the parent component. \\
+\hline
+{\em x} & The integer representation of the slider\textquotesingle{}s left corner in the global window. \\
+\hline
+{\em y} & The integer representation of the sliders top corner in the global window. \\
+\hline
+{\em width} & The integer representation of the width of the slider. i.\+e. the difference between the left most and right most part of the slider. \\
+\hline
+{\em Height} & The integer representation of the width of the slider. i.\+e. the difference between the top most and bottom most parts of the slider\textquotesingle{}s bounds. \\
+\hline
+{\em slider\+Pos} & The position of the sliders finger. The position represents x if the slider is horizontal and y if the slider is vertical. \\
+\hline
+{\em min\+Slider\+Pos} & The minimum slider position. \\
+\hline
+{\em max\+Slider\+Pos} & The maximum slider position. \\
+\hline
+{\em style} & The style of the slider whose look and feel is getting modified. For example, Linear\+Vertical or Rotary. \\
+\hline
+{\em slider} & A pointer to the slider which is being modified. This can allow for extraction of more data from the slider. \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Custom\+Styles.\+hpp\item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/Custom\+Styles.\+cpp\end{DoxyCompactItemize}
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{CustomStyles_8hpp}{Custom\+Styles.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{CustomStyles_8cpp}{Custom\+Styles.\+cpp}}\end{DoxyCompactItemize}

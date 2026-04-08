@@ -1,4 +1,11 @@
 var searchData=
 [
-  ['resized_0',['resized',['../classLayout.html#ace00518b85cff7055509d7517c9340e9',1,'Layout::resized()'],['../classDropDownMenus.html#a647f0a2d6f08c2b8598acd560b0ef191',1,'DropDownMenus::resized()'],['../classSliderWithLabel.html#a8bafb51b5a3f26ecce9b6052ef470511',1,'SliderWithLabel::resized()'],['../classDualRotarySlider.html#ae41130a459061a74df75c3d2a75696ae',1,'DualRotarySlider::resized()'],['../classEqualizer.html#a13ce26627bc000f883fceb7fcce46a24',1,'Equalizer::resized()'],['../classDropDownMenu.html#af9677864aa76f756ea76bc0081a7f434',1,'DropDownMenu::resized()'],['../classCalibrationOnClick.html#aff5da726e335398bcb807ef53214ae6a',1,'CalibrationOnClick::resized()'],['../classCalibrateEmbouchure.html#adafc772c47e0473b4ce6901ff34392df',1,'CalibrateEmbouchure::resized()']]]
+  ['paint_0',['paint',['../classLayout.html#a1928c3c94ff880bd1ca446a6f0991d05',1,'Layout::paint()'],['../classPanels.html#a0dbc535bb34f716890ef0c30911f39af',1,'Panels::paint()'],['../classBarometer.html#a9cde3aede799c7b81c5a9836865c05a5',1,'Barometer::paint()']]],
+  ['paintarc_1',['paintarc',['../CustomStyles_8hpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp'],['../CustomStyles_8cpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp']]],
+  ['painttrombone_2',['painttrombone',['../CustomStyles_8hpp.html#a7cb6053776bd4ad715007c2eeafaeabc',1,'PaintTrombone(float x=300, float y=300, float width=50, float height=20, bool incPipes=true):&#160;CustomStyles.cpp'],['../CustomStyles_8cpp.html#a00af11f5a0b4e5fcf2da53abf56d497b',1,'PaintTrombone(float x, float y, float width, float height, bool incPipes):&#160;CustomStyles.cpp']]],
+  ['panels_3',['Panels',['../classPanels.html#a0144464dbf363ac1cae6a6c1d978d526',1,'Panels']]],
+  ['pitchbend_4',['pitchBend',['../classMidiMessageBuilder.html#a3569350d0a22a4dc1165bb475d9b52e7',1,'MidiMessageBuilder']]],
+  ['playingnote_5',['PlayingNote',['../classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810',1,'Octaves']]],
+  ['playingnotewithharmonics_6',['PlayingNoteWithHarmonics',['../classOctavesWithHarmonics.html#a5f46fee48c6f4eb0ba7e06f6289f8ed2',1,'OctavesWithHarmonics']]],
+  ['pressureedge_7',['PressureEdge',['../classMidiCoordinator.html#a976574199acbe5928d87286fb03bb321',1,'MidiCoordinator']]]
 ];

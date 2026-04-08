@@ -1,131 +1,120 @@
 \doxysection{Custom\+Styles.\+hpp}
-\hypertarget{CustomStyles_8hpp_source}{}\label{CustomStyles_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/App/inc/CustomStyles.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/App/inc/CustomStyles.hpp}}
-
+\hypertarget{CustomStyles_8hpp_source}{}\label{CustomStyles_8hpp_source}\index{/home/ryan/Tromboneless/App/inc/CustomStyles.hpp@{/home/ryan/Tromboneless/App/inc/CustomStyles.hpp}}
+\mbox{\hyperlink{CustomStyles_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <juce\_gui\_extra/juce\_gui\_extra.h>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <juce\_core/juce\_core.h>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <juce\_gui\_basics/juce\_gui\_basics.h>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <juce\_audio\_processors/juce\_audio\_processors.h>}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classVerticalSliderLookAndFeel}{VerticalSliderLookAndFeel}}\ :\ \textcolor{keyword}{public}\ juce::LookAndFeel\_V4}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVerticalSliderLookAndFeel}{VerticalSliderLookAndFeel}}();}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classVerticalSliderLookAndFeel}{\string~VerticalSliderLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ drawLinearSlider(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keywordtype}{float}\ minSliderPos,\ \textcolor{keywordtype}{float}\ maxSliderPos,}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Slider::SliderStyle\ style,\ juce::Slider\&\ slider)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ dialColour\ \ \ \ \ \ \ \ \ \ \ =\ juce::Colours::white;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ colour\ of\ the\ finger.\ */}}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ dialEdgeColour\ \ \ \ \ \ \ =\ juce::Colours::grey;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Setting\ the\ colour\ of\ the\ inner\ part\ of\ the\ finger.*/}}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ tickColour\ \ \ \ \ \ \ \ \ \ \ =\ juce::Colours::darkgrey;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ */}}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ trackColour\ \ \ \ \ \ \ \ \ \ =\ juce::Colours::darkgrey;}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ backgroundColour\ \ \ \ \ =\ juce::Colours::black;\ \textcolor{comment}{//juce::Colours::black;}}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ textColour\ \ \ \ \ \ \ \ \ \ \ =\ juce::Colours::white;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{/*\ Sizes.\ */}}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ trackWidth\ \ \ \ \ \ \ \ \ \ =\ 5;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ sets\ the\ track\ width\ of\ the\ slider.\ */}}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ tickThickness\ \ \ \ \ \ \ =\ 3.0;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ sets\ the\ height\ of\ the\ ticks\ along\ the\ slider.\ */}}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ tickWidth\ \ \ \ \ \ \ \ \ \ \ =\ 10;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ sets\ the\ width\ of\ the\ ticks\ along\ the\ slider.\ */}}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifdef\ USE\_CIRCLE\_FINGER\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ fingerRadius\ \ \ \ \ \ \ \ =\ 12;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ sets\ the\ radius\ of\ the\ finger\ of\ the\ dial\ position.\ */}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ fingerWidth\ \ \ \ \ \ \ \ \ =\ 25;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ sets\ the\ width\ of\ the\ finger\ of\ the\ slider.\ */}}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ fingerHeight\ \ \ \ \ \ \ \ =\ 10;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ This\ sets\ the\ height\ of\ the\ finger\ of\ the\ slider.\ */}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ }}
-\DoxyCodeLine{00041\ \};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationSliderLookAndFeel}{CalibrationSliderLookAndFeel}}\ \ :\ \ \textcolor{keyword}{public}\ \ \ juce::LookAndFeel\_V4\{}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationSliderLookAndFeel}{CalibrationSliderLookAndFeel}}();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCalibrationSliderLookAndFeel}{\string~CalibrationSliderLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ drawLinearSlider(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keywordtype}{float}\ minSliderPos,\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ maxSliderPos,\ \textcolor{keyword}{const}\ juce::Slider::SliderStyle\ style,\ }
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ juce::Slider\&\ slider);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ emptyTrackColour=\ juce::Colours::darkgrey;}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ fullTrackColour\ =\ juce::Colours::gold;}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbOneColour\ \ =\ juce::Colours::yellow;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbTwoColour\ \ =\ juce::Colours::pink;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ trackWidth\ \ \ \ \ \ \ \ =\ \ \ 5;}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00077\ juce::Path\ PaintTrombone(\textcolor{keywordtype}{float}\ x=300,\ \textcolor{keywordtype}{float}\ y=300,\ \textcolor{keywordtype}{float}\ width=50,\ \textcolor{keywordtype}{float}\ height\ =\ 20,\ \textcolor{keywordtype}{bool}\ incPipes\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <juce\_gui\_extra/juce\_gui\_extra.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <juce\_core/juce\_core.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <juce\_gui\_basics/juce\_gui\_basics.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <juce\_audio\_processors/juce\_audio\_processors.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classVerticalSliderLookAndFeel}{VerticalSliderLookAndFeel}}\ :\ \textcolor{keyword}{public}\ juce::LookAndFeel\_V4}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classVerticalSliderLookAndFeel_a55e59bdd0b182d197935c41ac3755e33}{VerticalSliderLookAndFeel}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classVerticalSliderLookAndFeel_a758baf1d5599468b77b983fb16efd975}{\string~VerticalSliderLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classVerticalSliderLookAndFeel_abf08887596a4d91c75eccc8b98c2c39e}{drawLinearSlider}}(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keywordtype}{float}\ minSliderPos,\ \textcolor{keywordtype}{float}\ maxSliderPos,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Slider::SliderStyle\ style,\ juce::Slider\&\ slider)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ main\ colour\ of\ the\ knob\ (dial)\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ dialColour\ \ \ \ \ \ \ \ \ \ \ =\ juce::Colours::white;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ secondary\ colour\ of\ the\ knob\ (dial)\ of\ the\ slider.}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ currently,\ this\ is\ for\ the\ lines\ within\ the\ knob.\ */}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ dialEdgeColour\ \ \ \ \ \ \ =\ juce::Colours::red;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ colour\ of\ the\ ticks\ along\ the\ slider.\ */}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ tickColour\ \ \ \ \ \ \ \ \ \ \ =\ juce::Colours::darkgrey;\ }
 \DoxyCodeLine{00079\ }
-\DoxyCodeLine{00095\ juce::Path\ PaintArc(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ thickness,\ \textcolor{keywordtype}{float}\ gap,\ \textcolor{keywordtype}{bool}\ direction);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ colour\ of\ the\ track\ which\ the\ knob\ will\ be\ moving}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ across.\ */}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ trackColour\ \ \ \ \ \ \ \ \ \ =\ juce::Colours::darkgrey;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ colour\ which\ will\ fill\ the\ bounds\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ backgroundColour\ \ \ \ \ =\ juce::Colours::black;\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ colour\ of\ the\ text\ which\ will\ be\ beside\ the\ slider.\ */}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ textColour\ \ \ \ \ \ \ \ \ \ \ =\ juce::Colours::white;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ Sizes.\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{/*\ \ This\ sets\ the\ track\ width\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{float}\ trackWidth\ \ \ \ \ \ \ \ \ \ =\ 5;}
+\DoxyCodeLine{00093\ \ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{/*\ \ This\ sets\ the\ height\ of\ the\ ticks\ along\ the\ slider.\ */}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ tickThickness\ \ \ \ \ \ \ =\ 3.0;\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBarometerLookAndFeel}{BarometerLookAndFeel}}\ \ :\ \ \textcolor{keyword}{public}\ \ \ juce::LookAndFeel\_V4\{}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometerLookAndFeel}{BarometerLookAndFeel}}();}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classBarometerLookAndFeel}{\string~BarometerLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ drawRotarySlider(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ }
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryStartAngle,}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryEndAngle,\ juce::Slider\&\ slider)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ emptyTrackColour=\ juce::Colours::darkgrey;}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ fullTrackColour\ =\ juce::Colours::gold;}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbOneColour\ \ =\ juce::Colours::yellow;}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbTwoColour\ \ =\ juce::Colours::pink;}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ backgroundColour=\ juce::Colours::white;}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ trackWidth\ \ \ \ \ \ \ \ =\ \ \ 5;}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \};}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBarometerOuterLookAndFeel}{BarometerOuterLookAndFeel}}\ \ :\ \ \textcolor{keyword}{public}\ \ \ juce::LookAndFeel\_V4\{}
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBarometerOuterLookAndFeel}{BarometerOuterLookAndFeel}}();}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classBarometerOuterLookAndFeel}{\string~BarometerOuterLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{/*\ \ This\ sets\ the\ width\ of\ the\ ticks\ along\ the\ slider.\ */}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{float}\ tickWidth\ \ \ \ \ \ \ \ \ \ \ =\ 10;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{comment}{/*\ \ Checking\ the\ he\ slider\ should\ use\ a\ circular\ finger\ or\ rectangular.\ */}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#ifdef\ USE\_CIRCLE\_FINGER\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{/*\ \ This\ sets\ the\ radius\ of\ the\ finger\ of\ the\ dial\ position.\ */}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ fingerRadius\ \ \ \ \ \ \ \ =\ 12;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#else\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{/*\ \ This\ sets\ the\ width\ of\ the\ finger\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{float}\ fingerWidth\ \ \ \ \ \ \ \ \ =\ 25;\ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{/*\ \ This\ sets\ the\ height\ of\ the\ finger\ of\ the\ slider.\ */}\ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{float}\ fingerHeight\ \ \ \ \ \ \ \ =\ 10;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCalibrationSliderLookAndFeel}{CalibrationSliderLookAndFeel}}\ \ :\ \ \textcolor{keyword}{public}\ \ \ juce::LookAndFeel\_V4\{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCalibrationSliderLookAndFeel}{CalibrationSliderLookAndFeel}}();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classCalibrationSliderLookAndFeel}{\string~CalibrationSliderLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ drawLinearSlider(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keywordtype}{float}\ minSliderPos,\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ maxSliderPos,\ \textcolor{keyword}{const}\ juce::Slider::SliderStyle\ style,\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ juce::Slider\&\ slider);}
 \DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ drawRotarySlider(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ }
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryStartAngle,}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryEndAngle,\ juce::Slider\&\ slider)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbColour\ \ =\ juce::Colours::yellow;}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \};}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNeedleLookAndFeel}{NeedleLookAndFeel}}\ :\ \ \ \textcolor{keyword}{public}\ juce::LookAndFeel\_V4}
-\DoxyCodeLine{00134\ \{}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNeedleLookAndFeel}{NeedleLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classNeedleLookAndFeel}{\string~NeedleLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ drawRotarySlider(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ }
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryStartAngle,}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryEndAngle,\ juce::Slider\&\ slider)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ virtual\ void\ setColour(juce::Colour\ colour);}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ needleColour\ =\ \ \ juce::Colours::black;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ emptyTrackColour=\ juce::Colours::darkgrey;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ fullTrackColour\ =\ juce::Colours::gold;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbOneColour\ \ =\ juce::Colours::yellow;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ \ thumbTwoColour\ \ =\ juce::Colours::pink;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ trackWidth\ \ \ \ \ \ \ \ =\ \ \ 5;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00147\ juce::Path\ \mbox{\hyperlink{CustomStyles_8hpp_a7cb6053776bd4ad715007c2eeafaeabc}{PaintTrombone}}(\textcolor{keywordtype}{float}\ x=300,\ \textcolor{keywordtype}{float}\ y=300,\ \textcolor{keywordtype}{float}\ width=50,\ \textcolor{keywordtype}{float}\ height\ =\ 20,\ \textcolor{keywordtype}{bool}\ incPipes\ =\ \textcolor{keyword}{true});}
 \DoxyCodeLine{00148\ }
 \DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \};}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ juce::Path\ RotaryArc(\textcolor{keywordtype}{float}\ x\ =\ 100,\ \textcolor{keywordtype}{float}\ y\ =\ 100,\ \textcolor{keywordtype}{float}\ thickness\ =\ 5,\ \textcolor{keywordtype}{float}\ width\ =\ 50,\ }
-\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{float}\ height\ =\ 50,\ \textcolor{keywordtype}{float}\ angularRange\ =\ 5,\ \textcolor{keywordtype}{float}\ rotation\ =\ 0);}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ juce::Path\ drawCircle(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ xRadius,\ \textcolor{keywordtype}{float}\ yRadius);}
+\DoxyCodeLine{00165\ juce::Path\ \mbox{\hyperlink{CustomStyles_8hpp_afc21cb77f4f503d5a2f12eea5f289563}{PaintArc}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ thickness,\ \textcolor{keywordtype}{float}\ gap,\ \textcolor{keywordtype}{bool}\ direction);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNeedleLookAndFeel}{NeedleLookAndFeel}}\ :\ \ \ \textcolor{keyword}{public}\ juce::LookAndFeel\_V4}
+\DoxyCodeLine{00173\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNeedleLookAndFeel_a0b0fbf7b09a81c1d031700cc8030a682}{NeedleLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classNeedleLookAndFeel_a5db1e44fd568bdbd97514d88b9baafb9}{\string~NeedleLookAndFeel}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNeedleLookAndFeel_a2aa793fe29c0c3231e986337f8c7a0fe}{drawRotarySlider}}(juce::Graphics\&\ g,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{float}\ sliderPos,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryStartAngle,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ rotaryEndAngle,\ juce::Slider\&\ slider)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ the\ colour\ of\ the\ needle/arrow\ which\ is\ being\ drawn.\ */}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ juce::Colour\ needleColour\ =\ \ \ juce::Colours::black;}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00243\ juce::Path\ \mbox{\hyperlink{CustomStyles_8hpp_acbad954f2389ad30dbc0a9d837c98b52}{RotaryArc}}(\textcolor{keywordtype}{float}\ x\ =\ 100,\ \textcolor{keywordtype}{float}\ y\ =\ 100,\ \textcolor{keywordtype}{float}\ thickness\ =\ 5,\ \textcolor{keywordtype}{float}\ width\ =\ 50,\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{float}\ height\ =\ 50,\ \textcolor{keywordtype}{float}\ angularRange\ =\ 5,\ \textcolor{keywordtype}{float}\ rotation\ =\ 0);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00258\ juce::Path\ \mbox{\hyperlink{CustomStyles_8hpp_a0f1d69784265b2e2918e2e84b1cfe263}{drawCircle}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ xRadius,\ \textcolor{keywordtype}{float}\ yRadius);}
 
 \end{DoxyCode}

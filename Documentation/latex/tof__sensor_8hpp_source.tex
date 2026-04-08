@@ -1,0 +1,93 @@
+\doxysection{tof\+\_\+sensor.\+hpp}
+\hypertarget{tof__sensor_8hpp_source}{}\label{tof__sensor_8hpp_source}\index{/home/ryan/Tromboneless/Core/include/drivers/tof\_sensor.hpp@{/home/ryan/Tromboneless/Core/include/drivers/tof\_sensor.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <gpiod.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}drivers/i2c\_bus.hpp"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ ToFSensor}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ -\/\ Handles\ VL53L1X\ sensor}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ -\/\ Uses\ GPIO\ interrupt\ (blocking)\ for\ data-\/ready}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ -\/\ Publishes\ distance\ via\ std::function\ callback}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classToFSensor}{ToFSensor}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Callback\ type:\ publishes\ distance\ in\ mm}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{using\ }DistanceCallbackInterface\ =\ std::function<void(uint16\_t)>;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classToFSensor}{ToFSensor}}(\mbox{\hyperlink{classI2CBus}{I2CBus}}\&\ bus,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ address\ =\ 0x29,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ gpioChipPath\ =\ \textcolor{stringliteral}{"{}/dev/gpiochip0"{}},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gpioLine\ =\ 4);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classToFSensor}{\string~ToFSensor}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Initialise\ sensor\ (writes\ config\ +\ prepares\ device)}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ initialise();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Register\ subscriber\ callback}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ registerCallback(DistanceCallbackInterface\ cb);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Start\ GPIO\ interrupt\ +\ ranging\ (spawns\ worker\ thread)}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ start();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Stop\ thread\ +\ ranging}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ stop();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Worker\ thread:\ blocks\ on\ GPIO\ edge\ events}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ worker();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Called\ when\ GPIO\ signals\ "{}data\ ready"{}}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ handleDataReady();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Sensor\ control\ helpers}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ startRanging();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ stopRanging();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDataReady();}
+\DoxyCodeLine{00055\ \ \ \ \ uint16\_t\ readDistanceMm();}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ clearInterrupt();}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ softReset();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classI2CBus}{I2CBus}}\&\ bus\_;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ I2C\ communication}}
+\DoxyCodeLine{00060\ \ \ \ \ uint8\_t\ address\_;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ sensor\ address}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ std::string\ gpioChipPath\_;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gpioLine\_;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t\ interruptPolarity\_\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ running\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Stored\ callback\ (publisher\ →\ subscriber)}}
+\DoxyCodeLine{00069\ \ \ \ \ DistanceCallbackInterface\ distanceCallbackInterface\_;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ GPIO\ objects\ (libgpiod)}}
+\DoxyCodeLine{00072\ \ \ \ \ std::shared\_ptr<gpiod::chip>\ chip\_;}
+\DoxyCodeLine{00073\ \ \ \ \ std::shared\_ptr<gpiod::line\_request>\ request\_;}
+\DoxyCodeLine{00074\ \ \ \ \ std::thread\ thread\_;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ Default\ config\ block\ (must\ be\ provided)}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint8\_t\ DEFAULT\_CONFIG[91];}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ Required\ register\ addresses}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ SYSTEM\_MODE\_START\ =\ 0x0087;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ GPIO\_TIO\_HV\_STATUS\ =\ 0x0031;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ SYSTEM\_INTERRUPT\_CLEAR\ =\ 0x0086;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ RESULT\_RANGE\_MM\ =\ 0x0096;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ GPIO\_HV\_MUX\_CTRL\ =\ 0x0030;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ VHV\_CONFIG\_TIMEOUT\_MACROP\_LOOP\_BOUND\ =\ 0x0008;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint16\_t\ VHV\_CONFIG\_INIT\ =\ 0x000B;}
+\DoxyCodeLine{00087\ \};}
+
+\end{DoxyCode}

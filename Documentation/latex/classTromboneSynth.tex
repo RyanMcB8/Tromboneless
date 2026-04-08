@@ -1,0 +1,56 @@
+\doxysection{Trombone\+Synth Class Reference}
+\hypertarget{classTromboneSynth}{}\label{classTromboneSynth}\index{TromboneSynth@{TromboneSynth}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTromboneSynth_af678c25ac98bb1a4e977a2a1a300b126}{New\+Trombone\+Note}} (Notes\+::\+Notes\+\_\+t note\+\_\+in, int octave\+\_\+in)
+\begin{DoxyCompactList}\small\item\em A function which may be called to set the note and octave of a new sound by the user. If there is already a note playing, this will stop the previous not and play this one without phase shifting (initially). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classTromboneSynth_ac781c21d38a2a47f01ac8c34f8963629}{Read\+Trombone\+Audio}} (void)
+\begin{DoxyCompactList}\small\item\em A function which may be called to read the current amplitude of the audio signal being generated. \end{DoxyCompactList}\item 
+\Hypertarget{classTromboneSynth_a163e4c123851e4b8f6cbf50ed8e5b12c}\label{classTromboneSynth_a163e4c123851e4b8f6cbf50ed8e5b12c} 
+void {\bfseries End\+Trombone\+Audio} (void)
+\begin{DoxyCompactList}\small\item\em A function which sends the synthesiser into its rest state. \end{DoxyCompactList}\item 
+\Hypertarget{classTromboneSynth_a48bfbefc6da70231e660df8a958b0592}\label{classTromboneSynth_a48bfbefc6da70231e660df8a958b0592} 
+float {\bfseries get\+Time\+Difference} ()
+\begin{DoxyCompactList}\small\item\em A function which returns the difference in time between start and current in milliseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTromboneSynth_af678c25ac98bb1a4e977a2a1a300b126}\label{classTromboneSynth_af678c25ac98bb1a4e977a2a1a300b126} 
+\index{TromboneSynth@{TromboneSynth}!NewTromboneNote@{NewTromboneNote}}
+\index{NewTromboneNote@{NewTromboneNote}!TromboneSynth@{TromboneSynth}}
+\doxysubsubsection{\texorpdfstring{NewTromboneNote()}{NewTromboneNote()}}
+{\footnotesize\ttfamily void Trombone\+Synth\+::\+New\+Trombone\+Note (\begin{DoxyParamCaption}\item[{Notes\+::\+Notes\+\_\+t}]{note\+\_\+in,  }\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+A function which may be called to set the note and octave of a new sound by the user. If there is already a note playing, this will stop the previous not and play this one without phase shifting (initially). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em note\+\_\+in} & The note which should start to play. \\
+\hline
+{\em octave\+\_\+in} & The octave which the note is in. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTromboneSynth_ac781c21d38a2a47f01ac8c34f8963629}\label{classTromboneSynth_ac781c21d38a2a47f01ac8c34f8963629} 
+\index{TromboneSynth@{TromboneSynth}!ReadTromboneAudio@{ReadTromboneAudio}}
+\index{ReadTromboneAudio@{ReadTromboneAudio}!TromboneSynth@{TromboneSynth}}
+\doxysubsubsection{\texorpdfstring{ReadTromboneAudio()}{ReadTromboneAudio()}}
+{\footnotesize\ttfamily float Trombone\+Synth\+::\+Read\+Trombone\+Audio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function which may be called to read the current amplitude of the audio signal being generated. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & a floating point representation of the amplitude normalised between -\/1 and 1. \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{tromboneSynth_8hpp}{trombone\+Synth.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{tromboneSynth_8cpp}{trombone\+Synth.\+cpp}}\end{DoxyCompactItemize}

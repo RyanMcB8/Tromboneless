@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tromboneless: /home/ryan-mcbride/Documents/Tromboneless/Core/include/synth.hpp Source File</title>
+<title>Tromboneless: /home/ryan/Tromboneless/Core/include/synth.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,275 +83,317 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="synth_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* Preventing recursion. */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* Addition of all necessary header files. */</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;sys/time.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/* Preventing recursion. */</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/* ========================================================================================== */</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">/*                                  Class definitions                                         */</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/* Addition of all necessary header files. */</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;sys/time.h&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/* Creation of a class to store the frequency of notes. */</span></div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classNotes.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classNotes.html">Notes</a>{</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/*                                  Class definitions                                         */</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/* ========================================================================================== */</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="comment">/* Creation of the enumerated list of possible notes. */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            note_C,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            note_Db,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            note_D,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            note_Eb,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            note_E,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            note_F,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            note_Gb,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            note_G,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            note_Ab,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            note_A,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            note_Bb,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            note_B,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="comment">/* Addition of sharp notes. */</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            note_C_sharp = note_Db,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            note_D_sharp = note_Eb,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            note_F_sharp = note_Gb,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            note_G_sharp = note_Ab,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            note_A_sharp = note_Bb,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }   Notes_t;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_class" href="classNotes.html">Notes</a>(<span class="keywordtype">float</span> C_in    =   16.35, <span class="keywordtype">float</span> Db_in   =   17.32,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordtype">float</span> D_in      =   18.35, <span class="keywordtype">float</span> Eb_in   =   19.45,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordtype">float</span> E_in      =   20.60, <span class="keywordtype">float</span> F_in    =   21.83,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordtype">float</span> Gb_in     =   23.12, <span class="keywordtype">float</span> G_in    =   24.50,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordtype">float</span> Ab_in     =   25.96, <span class="keywordtype">float</span> A_in    =   27.50,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordtype">float</span> Bb_in     =   29.14, <span class="keywordtype">float</span> B_in    =   30.87);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_class" href="classNotes.html">~Notes</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">/* ========================================================================================== */</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="comment">/*                               Note setters                                                 */</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="comment">/* ========================================================================================== */</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a1c9383818919d511ea9299d6ab7afa2f">setC</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a0a98769073819861f78bf78a5d95ab5a">setC_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a68a89e6e4d3bf6e41e9f91777f19dd0a">setDb</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a8f72cc825ba0afda8fa2b68ff0500a69">setD</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#abc39d5043dc8c8a49c39ff9a896a6cb6">setD_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a9c25afb38701d1ffc11b26d33653de4c">setEb</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ae959ad0889a5d45715d5c7482707c2ef">setE</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ac070bd5a7176dff547c6b6ee90a36b3b">setF</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ab7725bfa84744f9f3d56f1bc764b76b3">setF_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#acc37567c8e40bc527e33ba1a48f9a871">setGb</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#af875b2e96125592242dd1d6450b183c9">setG</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a8663bd612ca09569fc1ecbb4efacdf1a">setG_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#abca3eb1323651b1294797f2b72caba7c">setAb</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a04c47164cb0f449420fc0dbff35c405e">setA</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a2768afc7543a3e382d7c302d992e920e">setA_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ae65f2258ff7ad7714a0dc2ddb2d4c4a5">setBb</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a9073e06b45bf747f29dab9eae21eec76">setB</a>(<span class="keywordtype">float</span> frequency);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a289e578ebfa78942170e0733ea111f6b">setNote</a>(Notes_t note, <span class="keywordtype">float</span> freq);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="comment">/* ========================================================================================== */</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="comment">/*                               Note getters                                                 */</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/* Creation of a class to store the frequency of notes. */</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classNotes.html">   24</a></span><span class="keyword">class </span><a class="code hl_class" href="classNotes.html">Notes</a>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">/* Creation of the enumerated list of possible notes. */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            note_C,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            note_Db,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            note_D,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            note_Eb,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            note_E,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            note_F,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            note_Gb,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            note_G,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            note_Ab,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            note_A,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            note_Bb,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            note_B,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="comment">/* Addition of sharp notes. */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            note_C_sharp = note_Db,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            note_D_sharp = note_Eb,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            note_F_sharp = note_Gb,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            note_G_sharp = note_Ab,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            note_A_sharp = note_Bb,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        }   Notes_t;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <a class="code hl_class" href="classNotes.html">Notes</a>(<span class="keywordtype">float</span> C_in    =   16.35, <span class="keywordtype">float</span> Db_in   =   17.32,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordtype">float</span> D_in      =   18.35, <span class="keywordtype">float</span> Eb_in   =   19.45,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordtype">float</span> E_in      =   20.60, <span class="keywordtype">float</span> F_in    =   21.83,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordtype">float</span> Gb_in     =   23.12, <span class="keywordtype">float</span> G_in    =   24.50,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordtype">float</span> Ab_in     =   25.96, <span class="keywordtype">float</span> A_in    =   27.50,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordtype">float</span> Bb_in     =   29.14, <span class="keywordtype">float</span> B_in    =   30.87);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_class" href="classNotes.html">~Notes</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="comment">/*                               Note setters                                                 */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a1c9383818919d511ea9299d6ab7afa2f">setC</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a0a98769073819861f78bf78a5d95ab5a">setC_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a68a89e6e4d3bf6e41e9f91777f19dd0a">setDb</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a8f72cc825ba0afda8fa2b68ff0500a69">setD</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#abc39d5043dc8c8a49c39ff9a896a6cb6">setD_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a9c25afb38701d1ffc11b26d33653de4c">setEb</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ae959ad0889a5d45715d5c7482707c2ef">setE</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ac070bd5a7176dff547c6b6ee90a36b3b">setF</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ab7725bfa84744f9f3d56f1bc764b76b3">setF_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#acc37567c8e40bc527e33ba1a48f9a871">setGb</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#af875b2e96125592242dd1d6450b183c9">setG</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a8663bd612ca09569fc1ecbb4efacdf1a">setG_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#abca3eb1323651b1294797f2b72caba7c">setAb</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a04c47164cb0f449420fc0dbff35c405e">setA</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a2768afc7543a3e382d7c302d992e920e">setA_sharp</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#ae65f2258ff7ad7714a0dc2ddb2d4c4a5">setBb</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classNotes.html#a9073e06b45bf747f29dab9eae21eec76">setB</a>(<span class="keywordtype">float</span> frequency);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a289e578ebfa78942170e0733ea111f6b">setNote</a>(Notes_t note, <span class="keywordtype">float</span> freq);</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a69625a0a056e70309af328d42b2bf86e">getC</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a93c45ae9f68a5ac0d9a477c62ba3e9f0">getC_sharp</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a91f441551add80a7107bd711f84843e2">getDb</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a502adf6efaab7e823fddfd37815143b4">getD</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#ac4110d614686b1c27372d8ae6a67c147">getD_sharp</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#aa17abf1182c5fea036ce31f931c34173">getEb</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#abbf33c11e758d7a328eab1827afac4a6">getE</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a61b35c753de1fdb9b79af0a9c608a4c9">getF</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#ab3f08228e302766e7774e1a8f9b745e4">getF_sharp</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a311fdefd787800b894d716e1c3eba95d">getGb</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a11f96dd3199adab61b4414532053c193">getG</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#aeca30d05da5cf190f297b8d8ec396d55">getG_sharp</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#af8b381f1234fe9d08c49bf3f4754de3d">getAb</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a4164d3038052c4d3e8f4dbf830e9c9bb">getA</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#ae07a0a1815aefd649d95dc98a475ebc7">getA_sharp</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#aba2f8ad19fc1b28a8a5e9f2e1941e881">getBb</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a192de65337df2408c3e56ca10a4c4c10">getB</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a48d208550a87e540d1748253aae9516f">getNote</a>(Notes_t note);</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="comment">/* Initialisation of the possible note frequencies. */</span></div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordtype">float</span>   C, Db, D, Eb, E, F,</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                Gb, G, Ab, A, Bb, B;</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        </div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>};</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        <span class="comment">/*                               Note getters                                                 */</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        <span class="comment">/* ========================================================================================== */</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a69625a0a056e70309af328d42b2bf86e">getC</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a93c45ae9f68a5ac0d9a477c62ba3e9f0">getC_sharp</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a91f441551add80a7107bd711f84843e2">getDb</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a502adf6efaab7e823fddfd37815143b4">getD</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#ac4110d614686b1c27372d8ae6a67c147">getD_sharp</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#aa17abf1182c5fea036ce31f931c34173">getEb</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#abbf33c11e758d7a328eab1827afac4a6">getE</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a61b35c753de1fdb9b79af0a9c608a4c9">getF</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#ab3f08228e302766e7774e1a8f9b745e4">getF_sharp</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a311fdefd787800b894d716e1c3eba95d">getGb</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a11f96dd3199adab61b4414532053c193">getG</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#aeca30d05da5cf190f297b8d8ec396d55">getG_sharp</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#af8b381f1234fe9d08c49bf3f4754de3d">getAb</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a4164d3038052c4d3e8f4dbf830e9c9bb">getA</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#ae07a0a1815aefd649d95dc98a475ebc7">getA_sharp</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#aba2f8ad19fc1b28a8a5e9f2e1941e881">getBb</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a192de65337df2408c3e56ca10a4c4c10">getB</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classNotes.html#a48d208550a87e540d1748253aae9516f">getNote</a>(Notes_t note);</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="comment">/* Initialisation of the possible note frequencies. */</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordtype">float</span>   C, Db, D, Eb, E, F,</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                Gb, G, Ab, A, Bb, B;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>};</div>
 </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    </div>
-<div class="foldopen" id="foldopen00298" data-start="{" data-end="};">
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="classOctaves.html">  298</a></span><span class="keyword">class </span><a class="code hl_class" href="classOctaves.html">Octaves</a>   : <span class="keyword">public</span> <a class="code hl_class" href="classNotes.html">Notes</a></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>{</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <span class="keyword">public</span>:    </div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <span class="comment">/* Stores the number of octaves being used. */</span></div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> nOctaves = 9;</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="comment">/* Initialising an array of the octaves and their notes. */</span></div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <a class="code hl_class" href="classNotes.html">Notes</a> octaves[nOctaves];</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="comment">/* Constructor for the class*/</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <a class="code hl_class" href="classOctaves.html">Octaves</a>();</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <a class="code hl_class" href="classOctaves.html">~Octaves</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#af04b6ae0cbdc5aa7ff0060334cb4d1ad">Clamp01</a>(<span class="keywordtype">float</span> value);</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#acee7c34bb0f6ed6122f95de03d2dd763">TimeAscension</a>(<span class="keywordtype">float</span> t);</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#af0f059e50233446121ce94e0a8bd3a25">TimeDecay</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a521a1139df5d18a76ca830e8fb9a27a1">TimeRest</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810">PlayingNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time);</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a3f6a62befde733b18ebf3beb3259358f">StartNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t);</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a01d61ab40de2a20165a7e3526662484e">SaturatedNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a8ecedcceccf7743191fbfa849e529459">DecayNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#abcafe3ff87ac22860e5a5004f01ddf0f">EndNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>};</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    </div>
+<div class="foldopen" id="foldopen00302" data-start="{" data-end="};">
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno"><a class="line" href="classOctaves.html">  302</a></span><span class="keyword">class </span><a class="code hl_class" href="classOctaves.html">Octaves</a>   : <span class="keyword">public</span> <a class="code hl_class" href="classNotes.html">Notes</a></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>{</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keyword">public</span>:    </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <span class="comment">/* Stores the number of octaves being used. */</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> nOctaves = 9;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="comment">/* Initialising an array of the octaves and their notes. */</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        <a class="code hl_class" href="classNotes.html">Notes</a> octaves[nOctaves];</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="comment">/* Constructor for the class*/</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <a class="code hl_class" href="classOctaves.html">Octaves</a>();</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <a class="code hl_class" href="classOctaves.html">~Octaves</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#af04b6ae0cbdc5aa7ff0060334cb4d1ad">Clamp01</a>(<span class="keywordtype">float</span> value);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#acee7c34bb0f6ed6122f95de03d2dd763">TimeAscension</a>(<span class="keywordtype">float</span> t);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#af0f059e50233446121ce94e0a8bd3a25">TimeDecay</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a521a1139df5d18a76ca830e8fb9a27a1">TimeRest</a>(<span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810">PlayingNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time);</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a3f6a62befde733b18ebf3beb3259358f">StartNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t);</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a01d61ab40de2a20165a7e3526662484e">SaturatedNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#a8ecedcceccf7743191fbfa849e529459">DecayNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctaves.html#abcafe3ff87ac22860e5a5004f01ddf0f">EndNote</a>(<span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>};</div>
 </div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span> </div>
-<div class="foldopen" id="foldopen00444" data-start="{" data-end="};">
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno"><a class="line" href="classOctavesWithHarmonics.html">  444</a></span><span class="keyword">class </span><a class="code hl_class" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a> :    <span class="keyword">public</span> <a class="code hl_class" href="classOctaves.html">Octaves</a></div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>{</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>        <a class="code hl_function" href="classOctavesWithHarmonics.html#aed7ad26de7c252c787b11d1a88b6cb30">OctavesWithHarmonics</a>();</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>        <a class="code hl_class" href="classOctavesWithHarmonics.html">~OctavesWithHarmonics</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> </div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>        </div>
-<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a">StartNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t);</div>
-<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span> </div>
-<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a5d034e862555d58fca91a2af1e77ffe0">DecayNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>        </div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a5f46fee48c6f4eb0ba7e06f6289f8ed2">PlayingNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>        </div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a4d6d82460255f5f8d4a8cb80881babb2">EndNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>        </div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>        <span class="keywordtype">float</span> decayConstant = 2;</div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>        </div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>        <span class="keywordtype">float</span> HarmonicDecay(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes::Notes_t note);</div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>};</div>
+<div class="foldopen" id="foldopen00448" data-start="{" data-end="};">
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno"><a class="line" href="classOctavesWithHarmonics.html">  448</a></span><span class="keyword">class </span><a class="code hl_class" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a> :    <span class="keyword">public</span> <a class="code hl_class" href="classOctaves.html">Octaves</a></div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>{</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>        <a class="code hl_function" href="classOctavesWithHarmonics.html#aed7ad26de7c252c787b11d1a88b6cb30">OctavesWithHarmonics</a>();</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span> </div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>        <a class="code hl_class" href="classOctavesWithHarmonics.html">~OctavesWithHarmonics</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>        </div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a">StartNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t);</div>
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span> </div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a5d034e862555d58fca91a2af1e77ffe0">DecayNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>        </div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a5f46fee48c6f4eb0ba7e06f6289f8ed2">PlayingNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>        </div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a4d6d82460255f5f8d4a8cb80881babb2">EndNoteWithHarmonics</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes_t note, <span class="keywordtype">float</span> time, <span class="keywordtype">float</span> t, <span class="keywordtype">float</span> saturation);</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        </div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classOctavesWithHarmonics.html#a6e54a83b3bcd7975479e02c4ec7230e8">HarmonicDecay</a>(<span class="keywordtype">int</span> n, <span class="keywordtype">int</span> octave, Notes::Notes_t note);</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>        </div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>        <span class="keywordtype">float</span> decayConstant = 2;</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>        </div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>};</div>
 </div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span> </div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span> </div>
-<div class="foldopen" id="foldopen00555" data-start="{" data-end="};">
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno"><a class="line" href="classDeltaTime.html">  555</a></span><span class="keyword">class </span><a class="code hl_class" href="classDeltaTime.html">DeltaTime</a></div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>{</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>        <a class="code hl_function" href="classDeltaTime.html#affbf76b13847559816171bd272076051">DeltaTime</a>();</div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span> </div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno"><a class="line" href="classDeltaTime.html#a4cb8b96a0e8e5b85bd0547f60f017863">  566</a></span>        <a class="code hl_function" href="classDeltaTime.html#a4cb8b96a0e8e5b85bd0547f60f017863">~DeltaTime</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span> </div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classDeltaTime.html#a7a32bf9e7b9ee81377dc777a32b819e8">setStartTime</a>();</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span> </div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span> </div>
+<div class="foldopen" id="foldopen00560" data-start="{" data-end="};">
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno"><a class="line" href="classDeltaTime.html">  560</a></span><span class="keyword">class </span><a class="code hl_class" href="classDeltaTime.html">DeltaTime</a></div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>{</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>        <a class="code hl_function" href="classDeltaTime.html#affbf76b13847559816171bd272076051">DeltaTime</a>();</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span> </div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno"><a class="line" href="classDeltaTime.html#a4cb8b96a0e8e5b85bd0547f60f017863">  571</a></span>        <a class="code hl_function" href="classDeltaTime.html#a4cb8b96a0e8e5b85bd0547f60f017863">~DeltaTime</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span> </div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>        <span class="keyword">struct </span>timeval <a class="code hl_function" href="classDeltaTime.html#aa33cb3a670a625db48cc3af51e72121a">getStartTime</a>();</div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span> </div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classDeltaTime.html#ad6d46bb38e3d31583a24bc32ec286fc0">setCurrentTime</a>();</div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span> </div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classDeltaTime.html#afed820accb2ec5d565d0b2c98ce46619">getDifference</a>();</div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classDeltaTime.html#a7a32bf9e7b9ee81377dc777a32b819e8">setStartTime</a>();</div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span> </div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classDeltaTime.html#a569b4d8c66f9bc22227dae4e31f67159">resetStartTime</a>();</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span> </div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>        <span class="keyword">struct </span>timeval <a class="code hl_function" href="classDeltaTime.html#aa33cb3a670a625db48cc3af51e72121a">getStartTime</a>();</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span> </div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classDeltaTime.html#ad6d46bb38e3d31583a24bc32ec286fc0">setCurrentTime</a>();</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span> </div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>        <span class="comment">/* Setting the variables which will hold the time structs.*/</span></div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>        <span class="keyword">struct </span>timeval startTime;</div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>        <span class="keyword">struct </span>timeval currentTime;</div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span> </div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>};    </div>
-</div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span> </div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classDeltaTime.html#afed820accb2ec5d565d0b2c98ce46619">getDifference</a>();</div>
 <div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
-<div class="foldopen" id="foldopen00601" data-start="{" data-end="};">
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno"><a class="line" href="classEnvelope.html">  601</a></span><span class="keyword">class </span><a class="code hl_class" href="classEnvelope.html">Envelope</a>    :   <span class="keyword">public</span> <a class="code hl_class" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>{</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>        <a class="code hl_class" href="classEnvelope.html">Envelope</a>(<span class="keywordtype">int</span> n_in = 5, <span class="keywordtype">int</span> octave_in = 2, Notes::Notes_t note_in = note_C,</div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>            <span class="keywordtype">float</span> ascendT_in = 1, <span class="keywordtype">float</span> decayT_in = 2, </div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>            <span class="keywordtype">float</span> saturation_in = 0.8, <span class="keywordtype">float</span> restT_in = 15);</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>        </div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>        <span class="comment">/* Destructor for the class. */</span></div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>        <a class="code hl_class" href="classEnvelope.html">~Envelope</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>            </div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#a055b521678bf21efe6a1ded92e123aed">StartEnvelope</a>();</div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span> </div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classEnvelope.html#a2e443c0d2892bed58c9dd51d520e221a">GetAmplitude</a>();</div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>        </div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#a05262c2cb0ca05d344b0d89c4ca9ee59">EndEnvelope</a>();</div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        </div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>        <span class="comment">/* initialising parameters. */</span></div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>        <span class="keywordtype">int</span>             n, octave;</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        Notes::Notes_t  note;</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>        <span class="keywordtype">float</span>           ascendT, decayT, saturation, restT;</div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        </div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>        <span class="keywordtype">float</span> amplitude = 0;</div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>        <a class="code hl_class" href="classDeltaTime.html">DeltaTime</a> deltaTime;</div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>        </div>
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>        <span class="keywordtype">bool</span> ending = 0;</div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        <a class="code hl_class" href="classDeltaTime.html">DeltaTime</a> endTime;</div>
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    };</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>        <span class="comment">/* Setting the variables which will hold the time structs.*/</span></div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>        <span class="keyword">struct </span>timeval startTime;</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>        <span class="keyword">struct </span>timeval currentTime;</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span> </div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>};    </div>
 </div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span> </div>
-<div class="ttc" id="aclassDeltaTime_html"><div class="ttname"><a href="classDeltaTime.html">DeltaTime</a></div><div class="ttdef"><b>Definition</b> synth.hpp:556</div></div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span> </div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span> </div>
+<div class="foldopen" id="foldopen00609" data-start="{" data-end="};">
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno"><a class="line" href="classEnvelope.html">  609</a></span><span class="keyword">class </span><a class="code hl_class" href="classEnvelope.html">Envelope</a>    :   <span class="keyword">public</span> <a class="code hl_class" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>{</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        <span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>            noSoundState,</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>            attackState,</div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>            decayState,</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>            sustainState,</div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>            restState,</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>        } synth_states_t;</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span> </div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>        synth_states_t currentSynthState = noSoundState;</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span> </div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span> </div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>        <a class="code hl_class" href="classEnvelope.html">Envelope</a>(<span class="keywordtype">int</span> n_in = 5, <span class="keywordtype">int</span> octave_in = 2, Notes::Notes_t note_in = note_C,</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>            <span class="keywordtype">float</span> ascendT_in = 1, <span class="keywordtype">float</span> decayT_in = 2, </div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>            <span class="keywordtype">float</span> saturation_in = 0.8, <span class="keywordtype">float</span> restT_in = 15);</div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>        </div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        <span class="comment">/* Destructor for the class. */</span></div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>        <a class="code hl_class" href="classEnvelope.html">~Envelope</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            </div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#a055b521678bf21efe6a1ded92e123aed">StartEnvelope</a>();</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span> </div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#a5036f809cc4d026cbb41a96dc29de7d4">ChangeNote</a>(Notes::Notes_t note_in, <span class="keywordtype">int</span> octave_in);</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classEnvelope.html#a2e443c0d2892bed58c9dd51d520e221a">GetAmplitude</a>();</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        </div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#a05262c2cb0ca05d344b0d89c4ca9ee59">EndEnvelope</a>();</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span> </div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#acab458aa138890697aa035152b4ac525">KillEnvelope</a>();</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span> </div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>        <span class="keyword">struct </span>timeval <a class="code hl_function" href="classEnvelope.html#af0e9c100a91ca695142fd832203a9903">getStartTime</a>();</div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span> </div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classEnvelope.html#a240c90bdbb48f3140ea01b7bb4b14f38">getTimeDifference</a>();</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span> </div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>        <span class="keywordtype">float</span> <a class="code hl_function" href="classEnvelope.html#ad0d8ce0f9c72ef50313f00ab8a3b4bcf">getAttackDecayTime</a>();</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span> </div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#aa29ca401a9d7e8e2f1b22bdc218aba49">setNote</a>(Notes_t note_in);</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span> </div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classEnvelope.html#a4382858dba9455ffed7a08e7ed7790a0">setOctave</a>(<span class="keywordtype">int</span> octave_in);</div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span> </div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>        Notes::Notes_t <a class="code hl_function" href="classEnvelope.html#abad7e7a6a070ee55aa5606b0bac92b0a">getNote</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span> </div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classEnvelope.html#a0cd0ce08290363a0eba6dd6516bca3ac">getOctave</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        </div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>        <span class="comment">/* initialising parameters. */</span></div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        <span class="keywordtype">int</span>             n, octave;</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>        Notes::Notes_t  note;</div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>        <span class="keywordtype">float</span>           ascendT, decayT, saturation, restT;</div>
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        </div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        <span class="keywordtype">float</span> amplitude = 0;</div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>        <a class="code hl_class" href="classDeltaTime.html">DeltaTime</a> deltaTime;</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        </div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>        <span class="keywordtype">bool</span> ending = 0;</div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>        <a class="code hl_class" href="classDeltaTime.html">DeltaTime</a> endTime;</div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>    };</div>
+</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span> </div>
+<div class="ttc" id="aclassDeltaTime_html"><div class="ttname"><a href="classDeltaTime.html">DeltaTime</a></div><div class="ttdef"><b>Definition</b> synth.hpp:561</div></div>
 <div class="ttc" id="aclassDeltaTime_html_a4cb8b96a0e8e5b85bd0547f60f017863"><div class="ttname"><a href="classDeltaTime.html#a4cb8b96a0e8e5b85bd0547f60f017863">DeltaTime::~DeltaTime</a></div><div class="ttdeci">~DeltaTime()=default</div><div class="ttdoc">Destructor for the DeltaTime class.</div></div>
-<div class="ttc" id="aclassDeltaTime_html_a7a32bf9e7b9ee81377dc777a32b819e8"><div class="ttname"><a href="classDeltaTime.html#a7a32bf9e7b9ee81377dc777a32b819e8">DeltaTime::setStartTime</a></div><div class="ttdeci">void setStartTime()</div><div class="ttdoc">A function that can change the start time of the instance an change the reference time of the delta t...</div><div class="ttdef"><b>Definition</b> synth.cpp:421</div></div>
-<div class="ttc" id="aclassDeltaTime_html_aa33cb3a670a625db48cc3af51e72121a"><div class="ttname"><a href="classDeltaTime.html#aa33cb3a670a625db48cc3af51e72121a">DeltaTime::getStartTime</a></div><div class="ttdeci">struct timeval getStartTime()</div><div class="ttdoc">A function which returns the current start time.</div><div class="ttdef"><b>Definition</b> synth.cpp:429</div></div>
-<div class="ttc" id="aclassDeltaTime_html_ad6d46bb38e3d31583a24bc32ec286fc0"><div class="ttname"><a href="classDeltaTime.html#ad6d46bb38e3d31583a24bc32ec286fc0">DeltaTime::setCurrentTime</a></div><div class="ttdeci">void setCurrentTime()</div><div class="ttdoc">A function that can change the current time of the instance an change the reference time of the delta...</div><div class="ttdef"><b>Definition</b> synth.cpp:425</div></div>
-<div class="ttc" id="aclassDeltaTime_html_afed820accb2ec5d565d0b2c98ce46619"><div class="ttname"><a href="classDeltaTime.html#afed820accb2ec5d565d0b2c98ce46619">DeltaTime::getDifference</a></div><div class="ttdeci">float getDifference()</div><div class="ttdoc">A function which returns the current difference in time compared to start time and the current.</div><div class="ttdef"><b>Definition</b> synth.cpp:433</div></div>
-<div class="ttc" id="aclassDeltaTime_html_affbf76b13847559816171bd272076051"><div class="ttname"><a href="classDeltaTime.html#affbf76b13847559816171bd272076051">DeltaTime::DeltaTime</a></div><div class="ttdeci">DeltaTime()</div><div class="ttdoc">Constructor for the DeltaTime class which simply creates an instance of the class and sets the initia...</div><div class="ttdef"><b>Definition</b> synth.cpp:417</div></div>
-<div class="ttc" id="aclassEnvelope_html"><div class="ttname"><a href="classEnvelope.html">Envelope</a></div><div class="ttdef"><b>Definition</b> synth.hpp:602</div></div>
-<div class="ttc" id="aclassEnvelope_html_a05262c2cb0ca05d344b0d89c4ca9ee59"><div class="ttname"><a href="classEnvelope.html#a05262c2cb0ca05d344b0d89c4ca9ee59">Envelope::EndEnvelope</a></div><div class="ttdeci">void EndEnvelope()</div><div class="ttdoc">A function which stops this instances audio from playing. This enters the rest stage of the sound and...</div><div class="ttdef"><b>Definition</b> synth.cpp:405</div></div>
-<div class="ttc" id="aclassEnvelope_html_a055b521678bf21efe6a1ded92e123aed"><div class="ttname"><a href="classEnvelope.html#a055b521678bf21efe6a1ded92e123aed">Envelope::StartEnvelope</a></div><div class="ttdeci">void StartEnvelope()</div><div class="ttdoc">A function which may be used to begin playing the sound specified. This will run indefinitely.</div><div class="ttdef"><b>Definition</b> synth.cpp:367</div></div>
-<div class="ttc" id="aclassEnvelope_html_a2e443c0d2892bed58c9dd51d520e221a"><div class="ttname"><a href="classEnvelope.html#a2e443c0d2892bed58c9dd51d520e221a">Envelope::GetAmplitude</a></div><div class="ttdeci">float GetAmplitude()</div><div class="ttdoc">A function which may be called to update the value of the amplitude.</div><div class="ttdef"><b>Definition</b> synth.cpp:373</div></div>
-<div class="ttc" id="aclassNotes_html"><div class="ttname"><a href="classNotes.html">Notes</a></div><div class="ttdef"><b>Definition</b> synth.hpp:20</div></div>
+<div class="ttc" id="aclassDeltaTime_html_a569b4d8c66f9bc22227dae4e31f67159"><div class="ttname"><a href="classDeltaTime.html#a569b4d8c66f9bc22227dae4e31f67159">DeltaTime::resetStartTime</a></div><div class="ttdeci">void resetStartTime()</div><div class="ttdoc">A function which will set the start time values to 0.</div><div class="ttdef"><b>Definition</b> synth.cpp:478</div></div>
+<div class="ttc" id="aclassDeltaTime_html_a7a32bf9e7b9ee81377dc777a32b819e8"><div class="ttname"><a href="classDeltaTime.html#a7a32bf9e7b9ee81377dc777a32b819e8">DeltaTime::setStartTime</a></div><div class="ttdeci">void setStartTime()</div><div class="ttdoc">A function that can change the start time of the instance an change the reference time of the delta t...</div><div class="ttdef"><b>Definition</b> synth.cpp:474</div></div>
+<div class="ttc" id="aclassDeltaTime_html_aa33cb3a670a625db48cc3af51e72121a"><div class="ttname"><a href="classDeltaTime.html#aa33cb3a670a625db48cc3af51e72121a">DeltaTime::getStartTime</a></div><div class="ttdeci">struct timeval getStartTime()</div><div class="ttdoc">A function which returns the current start time.</div><div class="ttdef"><b>Definition</b> synth.cpp:487</div></div>
+<div class="ttc" id="aclassDeltaTime_html_ad6d46bb38e3d31583a24bc32ec286fc0"><div class="ttname"><a href="classDeltaTime.html#ad6d46bb38e3d31583a24bc32ec286fc0">DeltaTime::setCurrentTime</a></div><div class="ttdeci">void setCurrentTime()</div><div class="ttdoc">A function that can change the current time of the instance an change the reference time of the delta...</div><div class="ttdef"><b>Definition</b> synth.cpp:483</div></div>
+<div class="ttc" id="aclassDeltaTime_html_afed820accb2ec5d565d0b2c98ce46619"><div class="ttname"><a href="classDeltaTime.html#afed820accb2ec5d565d0b2c98ce46619">DeltaTime::getDifference</a></div><div class="ttdeci">float getDifference()</div><div class="ttdoc">A function which returns the current difference in time compared to start time and the current.</div><div class="ttdef"><b>Definition</b> synth.cpp:491</div></div>
+<div class="ttc" id="aclassDeltaTime_html_affbf76b13847559816171bd272076051"><div class="ttname"><a href="classDeltaTime.html#affbf76b13847559816171bd272076051">DeltaTime::DeltaTime</a></div><div class="ttdeci">DeltaTime()</div><div class="ttdoc">Constructor for the DeltaTime class which simply creates an instance of the class and sets the initia...</div><div class="ttdef"><b>Definition</b> synth.cpp:470</div></div>
+<div class="ttc" id="aclassEnvelope_html"><div class="ttname"><a href="classEnvelope.html">Envelope</a></div><div class="ttdef"><b>Definition</b> synth.hpp:610</div></div>
+<div class="ttc" id="aclassEnvelope_html_a05262c2cb0ca05d344b0d89c4ca9ee59"><div class="ttname"><a href="classEnvelope.html#a05262c2cb0ca05d344b0d89c4ca9ee59">Envelope::EndEnvelope</a></div><div class="ttdeci">void EndEnvelope()</div><div class="ttdoc">A function which stops this instances audio from playing. This enters the rest stage of the sound and...</div><div class="ttdef"><b>Definition</b> synth.cpp:425</div></div>
+<div class="ttc" id="aclassEnvelope_html_a055b521678bf21efe6a1ded92e123aed"><div class="ttname"><a href="classEnvelope.html#a055b521678bf21efe6a1ded92e123aed">Envelope::StartEnvelope</a></div><div class="ttdeci">void StartEnvelope()</div><div class="ttdoc">A function which may be used to begin playing the sound specified. This will run indefinitely.</div><div class="ttdef"><b>Definition</b> synth.cpp:369</div></div>
+<div class="ttc" id="aclassEnvelope_html_a0cd0ce08290363a0eba6dd6516bca3ac"><div class="ttname"><a href="classEnvelope.html#a0cd0ce08290363a0eba6dd6516bca3ac">Envelope::getOctave</a></div><div class="ttdeci">int getOctave(void)</div><div class="ttdoc">A function which returns the instance's current octave which theh note being played is in.</div><div class="ttdef"><b>Definition</b> synth.cpp:460</div></div>
+<div class="ttc" id="aclassEnvelope_html_a240c90bdbb48f3140ea01b7bb4b14f38"><div class="ttname"><a href="classEnvelope.html#a240c90bdbb48f3140ea01b7bb4b14f38">Envelope::getTimeDifference</a></div><div class="ttdeci">float getTimeDifference()</div><div class="ttdoc">A function which returns the difference in time between start and current in microseconds.</div><div class="ttdef"><b>Definition</b> synth.cpp:438</div></div>
+<div class="ttc" id="aclassEnvelope_html_a2e443c0d2892bed58c9dd51d520e221a"><div class="ttname"><a href="classEnvelope.html#a2e443c0d2892bed58c9dd51d520e221a">Envelope::GetAmplitude</a></div><div class="ttdeci">float GetAmplitude()</div><div class="ttdoc">A function which may be called to update the value of the amplitude.</div><div class="ttdef"><b>Definition</b> synth.cpp:382</div></div>
+<div class="ttc" id="aclassEnvelope_html_a4382858dba9455ffed7a08e7ed7790a0"><div class="ttname"><a href="classEnvelope.html#a4382858dba9455ffed7a08e7ed7790a0">Envelope::setOctave</a></div><div class="ttdeci">void setOctave(int octave_in)</div><div class="ttdoc">A function which will allow for the user to change the octave which the note is playing without needi...</div><div class="ttdef"><b>Definition</b> synth.cpp:451</div></div>
+<div class="ttc" id="aclassEnvelope_html_a5036f809cc4d026cbb41a96dc29de7d4"><div class="ttname"><a href="classEnvelope.html#a5036f809cc4d026cbb41a96dc29de7d4">Envelope::ChangeNote</a></div><div class="ttdeci">void ChangeNote(Notes::Notes_t note_in, int octave_in)</div><div class="ttdoc">A function which may be called upon to change the note which is currently being played in a continuou...</div><div class="ttdef"><b>Definition</b> synth.cpp:376</div></div>
+<div class="ttc" id="aclassEnvelope_html_aa29ca401a9d7e8e2f1b22bdc218aba49"><div class="ttname"><a href="classEnvelope.html#aa29ca401a9d7e8e2f1b22bdc218aba49">Envelope::setNote</a></div><div class="ttdeci">void setNote(Notes_t note_in)</div><div class="ttdoc">A function which will allow the user to change the note which is being played without needing to crea...</div><div class="ttdef"><b>Definition</b> synth.cpp:446</div></div>
+<div class="ttc" id="aclassEnvelope_html_abad7e7a6a070ee55aa5606b0bac92b0a"><div class="ttname"><a href="classEnvelope.html#abad7e7a6a070ee55aa5606b0bac92b0a">Envelope::getNote</a></div><div class="ttdeci">Notes::Notes_t getNote(void)</div><div class="ttdoc">A function which returns the instance's current note which is being played.</div><div class="ttdef"><b>Definition</b> synth.cpp:456</div></div>
+<div class="ttc" id="aclassEnvelope_html_acab458aa138890697aa035152b4ac525"><div class="ttname"><a href="classEnvelope.html#acab458aa138890697aa035152b4ac525">Envelope::KillEnvelope</a></div><div class="ttdeci">void KillEnvelope()</div><div class="ttdoc">This function will stop all sound from playing from the note and skip the R stage of the ADSR....</div><div class="ttdef"><b>Definition</b> synth.cpp:430</div></div>
+<div class="ttc" id="aclassEnvelope_html_ad0d8ce0f9c72ef50313f00ab8a3b4bcf"><div class="ttname"><a href="classEnvelope.html#ad0d8ce0f9c72ef50313f00ab8a3b4bcf">Envelope::getAttackDecayTime</a></div><div class="ttdeci">float getAttackDecayTime()</div><div class="ttdoc">A function which returns the sum of the attack and the decay times in microseconds.</div><div class="ttdef"><b>Definition</b> synth.cpp:442</div></div>
+<div class="ttc" id="aclassEnvelope_html_af0e9c100a91ca695142fd832203a9903"><div class="ttname"><a href="classEnvelope.html#af0e9c100a91ca695142fd832203a9903">Envelope::getStartTime</a></div><div class="ttdeci">struct timeval getStartTime()</div><div class="ttdoc">A function which returns the current start time of the object.</div><div class="ttdef"><b>Definition</b> synth.cpp:434</div></div>
+<div class="ttc" id="aclassNotes_html"><div class="ttname"><a href="classNotes.html">Notes</a></div><div class="ttdef"><b>Definition</b> synth.hpp:24</div></div>
 <div class="ttc" id="aclassNotes_html_a04c47164cb0f449420fc0dbff35c405e"><div class="ttname"><a href="classNotes.html#a04c47164cb0f449420fc0dbff35c405e">Notes::setA</a></div><div class="ttdeci">void setA(float frequency)</div><div class="ttdoc">A function that can change the value of the frequency that the A note plays.</div><div class="ttdef"><b>Definition</b> synth.cpp:75</div></div>
 <div class="ttc" id="aclassNotes_html_a0a98769073819861f78bf78a5d95ab5a"><div class="ttname"><a href="classNotes.html#a0a98769073819861f78bf78a5d95ab5a">Notes::setC_sharp</a></div><div class="ttdeci">void setC_sharp(float frequency)</div><div class="ttdoc">A function that can change the value of the frequency that the C# note plays.</div><div class="ttdef"><b>Definition</b> synth.cpp:27</div></div>
 <div class="ttc" id="aclassNotes_html_a11f96dd3199adab61b4414532053c193"><div class="ttname"><a href="classNotes.html#a11f96dd3199adab61b4414532053c193">Notes::getG</a></div><div class="ttdeci">float getG(void)</div><div class="ttdoc">A function that returns the frequency of the G note for the specified object.</div><div class="ttdef"><b>Definition</b> synth.cpp:174</div></div>
@@ -388,13 +430,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassNotes_html_aeca30d05da5cf190f297b8d8ec396d55"><div class="ttname"><a href="classNotes.html#aeca30d05da5cf190f297b8d8ec396d55">Notes::getG_sharp</a></div><div class="ttdeci">float getG_sharp(void)</div><div class="ttdoc">A function that returns the frequency of the G# note for the specified object.</div><div class="ttdef"><b>Definition</b> synth.cpp:178</div></div>
 <div class="ttc" id="aclassNotes_html_af875b2e96125592242dd1d6450b183c9"><div class="ttname"><a href="classNotes.html#af875b2e96125592242dd1d6450b183c9">Notes::setG</a></div><div class="ttdeci">void setG(float frequency)</div><div class="ttdoc">A function that can change the value of the frequency that the G note plays.</div><div class="ttdef"><b>Definition</b> synth.cpp:63</div></div>
 <div class="ttc" id="aclassNotes_html_af8b381f1234fe9d08c49bf3f4754de3d"><div class="ttname"><a href="classNotes.html#af8b381f1234fe9d08c49bf3f4754de3d">Notes::getAb</a></div><div class="ttdeci">float getAb(void)</div><div class="ttdoc">A function that returns the frequency of the Ab note for the specified object.</div><div class="ttdef"><b>Definition</b> synth.cpp:182</div></div>
-<div class="ttc" id="aclassOctavesWithHarmonics_html"><div class="ttname"><a href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></div><div class="ttdef"><b>Definition</b> synth.hpp:445</div></div>
+<div class="ttc" id="aclassOctavesWithHarmonics_html"><div class="ttname"><a href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></div><div class="ttdef"><b>Definition</b> synth.hpp:449</div></div>
 <div class="ttc" id="aclassOctavesWithHarmonics_html_a29e2db83a144661711a68017d67c3f5a"><div class="ttname"><a href="classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a">OctavesWithHarmonics::StartNoteWithHarmonics</a></div><div class="ttdeci">float StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t)</div><div class="ttdoc">A function which may be called upon to stop playing a range of harmonic notes when a specific note is...</div><div class="ttdef"><b>Definition</b> synth.cpp:316</div></div>
 <div class="ttc" id="aclassOctavesWithHarmonics_html_a4d6d82460255f5f8d4a8cb80881babb2"><div class="ttname"><a href="classOctavesWithHarmonics.html#a4d6d82460255f5f8d4a8cb80881babb2">OctavesWithHarmonics::EndNoteWithHarmonics</a></div><div class="ttdeci">float EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation)</div><div class="ttdoc">A function which may be called upon to stop playing a range of harmonic notes when a specific note is...</div><div class="ttdef"><b>Definition</b> synth.cpp:340</div></div>
 <div class="ttc" id="aclassOctavesWithHarmonics_html_a5d034e862555d58fca91a2af1e77ffe0"><div class="ttname"><a href="classOctavesWithHarmonics.html#a5d034e862555d58fca91a2af1e77ffe0">OctavesWithHarmonics::DecayNoteWithHarmonics</a></div><div class="ttdeci">float DecayNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation)</div><div class="ttdoc">A function which may be called upon to stop playing a range of harmonic notes when a specific note is...</div><div class="ttdef"><b>Definition</b> synth.cpp:324</div></div>
 <div class="ttc" id="aclassOctavesWithHarmonics_html_a5f46fee48c6f4eb0ba7e06f6289f8ed2"><div class="ttname"><a href="classOctavesWithHarmonics.html#a5f46fee48c6f4eb0ba7e06f6289f8ed2">OctavesWithHarmonics::PlayingNoteWithHarmonics</a></div><div class="ttdeci">float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation)</div><div class="ttdoc">A function which may be called upon to stop playing a range of harmonic notes when a specific note is...</div><div class="ttdef"><b>Definition</b> synth.cpp:332</div></div>
+<div class="ttc" id="aclassOctavesWithHarmonics_html_a6e54a83b3bcd7975479e02c4ec7230e8"><div class="ttname"><a href="classOctavesWithHarmonics.html#a6e54a83b3bcd7975479e02c4ec7230e8">OctavesWithHarmonics::HarmonicDecay</a></div><div class="ttdeci">float HarmonicDecay(int n, int octave, Notes::Notes_t note)</div><div class="ttdoc">A function which calculates how much the amplitude of the harmonic should decay in comparison to the ...</div><div class="ttdef"><b>Definition</b> synth.cpp:348</div></div>
 <div class="ttc" id="aclassOctavesWithHarmonics_html_aed7ad26de7c252c787b11d1a88b6cb30"><div class="ttname"><a href="classOctavesWithHarmonics.html#aed7ad26de7c252c787b11d1a88b6cb30">OctavesWithHarmonics::OctavesWithHarmonics</a></div><div class="ttdeci">OctavesWithHarmonics()</div><div class="ttdoc">Creates an instance of the OctavesWithHarmonics.</div><div class="ttdef"><b>Definition</b> synth.cpp:312</div></div>
-<div class="ttc" id="aclassOctaves_html"><div class="ttname"><a href="classOctaves.html">Octaves</a></div><div class="ttdoc">Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class...</div><div class="ttdef"><b>Definition</b> synth.hpp:299</div></div>
+<div class="ttc" id="aclassOctaves_html"><div class="ttname"><a href="classOctaves.html">Octaves</a></div><div class="ttdoc">Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class...</div><div class="ttdef"><b>Definition</b> synth.hpp:303</div></div>
 <div class="ttc" id="aclassOctaves_html_a01d61ab40de2a20165a7e3526662484e"><div class="ttname"><a href="classOctaves.html#a01d61ab40de2a20165a7e3526662484e">Octaves::SaturatedNote</a></div><div class="ttdeci">float SaturatedNote(int octave, Notes_t note, float time, float saturation)</div><div class="ttdoc">A function which may be called to determine the amplitude of a specified note at a specified time.</div><div class="ttdef"><b>Definition</b> synth.cpp:294</div></div>
 <div class="ttc" id="aclassOctaves_html_a3f6a62befde733b18ebf3beb3259358f"><div class="ttname"><a href="classOctaves.html#a3f6a62befde733b18ebf3beb3259358f">Octaves::StartNote</a></div><div class="ttdeci">float StartNote(int octave, Notes_t note, float time, float t)</div><div class="ttdoc">A function which determines that maximum amplitude the note may reach depending upon the amount of ti...</div><div class="ttdef"><b>Definition</b> synth.cpp:290</div></div>
 <div class="ttc" id="aclassOctaves_html_a521a1139df5d18a76ca830e8fb9a27a1"><div class="ttname"><a href="classOctaves.html#a521a1139df5d18a76ca830e8fb9a27a1">Octaves::TimeRest</a></div><div class="ttdeci">float TimeRest(float t, float saturation)</div><div class="ttdoc">A function which determines the relative maximum amplitude of sound depending on how long ago the not...</div><div class="ttdef"><b>Definition</b> synth.cpp:281</div></div>

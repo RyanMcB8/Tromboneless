@@ -1,6 +1,6 @@
 <map id="Sliders" name="Sliders">
-<area shape="rect" id="Node000001" title=" " alt="" coords="227,267,294,292"/>
-<area shape="rect" id="Node000002" href="$classPanels.html" title=" " alt="" coords="45,129,109,155"/>
+<area shape="rect" id="Node000001" title="A class which adds all the linear sliders being used within the calibration section to be within the ..." alt="" coords="227,267,294,292"/>
+<area shape="rect" id="Node000002" href="$classPanels.html" title="A class which is inherited from Juce:Component reponsible for setting the general style of a panel wi..." alt="" coords="45,129,109,155"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,164,126,202,181,239,233,264,231,269,178,243,123,206,89,168"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="5,5,137,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,44,79,129,74,129,70,45"/>

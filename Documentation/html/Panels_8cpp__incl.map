@@ -1,30 +1,30 @@
-<map id="/home/ryan&#45;mcbride/Documents/Tromboneless/App/src/Panels.cpp" name="/home/ryan&#45;mcbride/Documents/Tromboneless/App/src/Panels.cpp">
-<area shape="rect" id="Node000001" title="This file contains the function defintions for to create the necessary panels that may be used within..." alt="" coords="370,5,565,60"/>
-<area shape="rect" id="Node000002" href="$Panels_8hpp.html" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="464,108,556,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="483,59,500,94,496,97,478,61"/>
-<area shape="rect" id="Node000003" href="$Widgets_8hpp_source.html" title=" " alt="" coords="416,181,519,207"/>
-<area shape="poly" id="edge17_Node000001_Node000003" title=" " alt="" coords="462,61,455,95,454,133,462,168,457,169,449,134,449,95,456,60"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="505,135,483,171,479,168,501,132"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,328,153,368"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="427,209,358,230,280,257,200,291,130,324,128,319,198,286,278,252,356,225,425,204"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="177,335,264,361"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="426,209,372,229,317,257,274,291,241,327,237,323,270,287,314,252,370,224,424,204"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="289,335,347,361"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="417,207,371,225,351,239,333,256,325,271,320,288,318,322,313,321,315,287,320,269,329,253,347,235,369,221,415,202"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="371,335,534,361"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="478,206,495,239,500,259,498,281,487,305,474,326,469,323,483,302,493,279,494,260,490,240,473,208"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="558,328,713,368"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="482,205,606,316,602,320,478,209"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="737,328,923,368"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="492,205,650,278,763,321,761,326,648,282,489,209"/>
-<area shape="rect" id="Node000010" href="$CustomStyles_8hpp_source.html" title=" " alt="" coords="344,255,484,280"/>
-<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="461,209,433,245,429,242,456,205"/>
-<area shape="rect" id="Node000011" href="$tromboneless__data_8hpp_source.html" title=" " alt="" coords="661,255,836,280"/>
-<area shape="poly" id="edge16_Node000003_Node000011" title=" " alt="" coords="513,204,691,249,689,254,512,209"/>
-<area shape="poly" id="edge10_Node000010_Node000004" title=" " alt="" coords="366,283,167,329,166,324,365,277"/>
-<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="387,282,262,333,260,328,385,278"/>
-<area shape="poly" id="edge12_Node000010_Node000006" title=" " alt="" coords="402,282,344,329,341,325,398,278"/>
-<area shape="poly" id="edge13_Node000010_Node000007" title=" " alt="" coords="422,279,443,322,438,324,417,281"/>
-<area shape="poly" id="edge14_Node000010_Node000008" title=" " alt="" coords="447,277,570,321,568,326,445,283"/>
-<area shape="poly" id="edge15_Node000010_Node000009" title=" " alt="" coords="475,277,724,324,723,329,474,283"/>
+<map id="/home/ryan/Tromboneless/App/src/Panels.cpp" name="/home/ryan/Tromboneless/App/src/Panels.cpp">
+<area shape="rect" id="Node000001" title="This file contains the function defintions for to create the necessary panels that may be used within..." alt="" coords="372,5,563,45"/>
+<area shape="rect" id="Node000002" href="$Panels_8hpp.html" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="464,93,556,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="480,44,500,80,495,83,475,47"/>
+<area shape="rect" id="Node000003" href="$Widgets_8hpp_source.html" title=" " alt="" coords="416,167,519,192"/>
+<area shape="poly" id="edge17_Node000001_Node000003" title=" " alt="" coords="463,46,455,80,454,118,462,153,457,154,449,119,450,79,458,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="505,120,483,156,479,154,501,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,313,153,353"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="427,195,358,216,280,242,200,276,130,310,128,305,198,271,278,238,356,210,425,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="177,321,264,346"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="426,195,372,214,317,242,274,277,241,312,237,308,270,273,314,238,370,209,424,190"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="289,321,347,346"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="417,193,371,211,351,224,333,242,325,257,320,274,318,307,313,307,315,273,320,255,329,238,347,220,369,206,415,188"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="371,321,534,346"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="478,191,495,224,500,245,498,266,487,290,474,311,469,308,483,288,493,265,494,245,490,226,473,193"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="558,313,713,353"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="482,190,606,302,602,306,478,194"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="737,313,923,353"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="492,190,650,263,763,306,761,311,648,268,489,195"/>
+<area shape="rect" id="Node000010" href="$CustomStyles_8hpp.html" title="This file holds the declarations of all functions and variables needed by the Tromboneless project to..." alt="" coords="344,240,484,265"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="461,194,433,231,429,228,456,191"/>
+<area shape="rect" id="Node000011" href="$tromboneless__data_8hpp_source.html" title=" " alt="" coords="661,240,836,265"/>
+<area shape="poly" id="edge16_Node000003_Node000011" title=" " alt="" coords="513,189,691,234,689,239,512,195"/>
+<area shape="poly" id="edge10_Node000010_Node000004" title=" " alt="" coords="366,268,167,314,166,309,365,263"/>
+<area shape="poly" id="edge11_Node000010_Node000005" title=" " alt="" coords="387,268,262,318,260,313,385,263"/>
+<area shape="poly" id="edge12_Node000010_Node000006" title=" " alt="" coords="402,268,344,314,341,310,398,263"/>
+<area shape="poly" id="edge13_Node000010_Node000007" title=" " alt="" coords="422,264,443,307,438,309,417,267"/>
+<area shape="poly" id="edge14_Node000010_Node000008" title=" " alt="" coords="447,263,570,306,568,311,445,268"/>
+<area shape="poly" id="edge15_Node000010_Node000009" title=" " alt="" coords="475,263,724,309,723,315,474,268"/>
 </map>

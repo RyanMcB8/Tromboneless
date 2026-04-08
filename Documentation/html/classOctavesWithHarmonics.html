@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d6d82460255f5f8d4a8cb80881babb2" id="r_a4d6d82460255f5f8d4a8cb80881babb2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a4d6d82460255f5f8d4a8cb80881babb2">EndNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time, float t, float saturation)</td></tr>
 <tr class="memdesc:a4d6d82460255f5f8d4a8cb80881babb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
 <tr class="separator:a4d6d82460255f5f8d4a8cb80881babb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e54a83b3bcd7975479e02c4ec7230e8" id="r_a6e54a83b3bcd7975479e02c4ec7230e8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a6e54a83b3bcd7975479e02c4ec7230e8">HarmonicDecay</a> (int n, int octave, Notes::Notes_t note)</td></tr>
+<tr class="memdesc:a6e54a83b3bcd7975479e02c4ec7230e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic.  <br /></td></tr>
+<tr class="separator:a6e54a83b3bcd7975479e02c4ec7230e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classOctaves')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
 <tr class="memitem:af04b6ae0cbdc5aa7ff0060334cb4d1ad inherit pub_methods_classOctaves" id="r_af04b6ae0cbdc5aa7ff0060334cb4d1ad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#af04b6ae0cbdc5aa7ff0060334cb4d1ad">Clamp01</a> (float value)</td></tr>
 <tr class="memdesc:af04b6ae0cbdc5aa7ff0060334cb4d1ad inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which clamps the value passed to it to be within 0 and 1 so that it can remain within normalisation bounds;.  <br /></td></tr>
@@ -444,6 +447,57 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 
 </div>
 </div>
+<a id="a6e54a83b3bcd7975479e02c4ec7230e8" name="a6e54a83b3bcd7975479e02c4ec7230e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e54a83b3bcd7975479e02c4ec7230e8">&#9670;&#160;</a></span>HarmonicDecay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float OctavesWithHarmonics::HarmonicDecay </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>octave</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Notes::Notes_t&#160;</td>
+          <td class="paramname"><em>note</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The integer multiple of the harmonic whose relative amplitude is being calculated. </td></tr>
+    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
+    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>a floating point value which represents the ratio of amplitudes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function needs to be modified to better match the relationship between the frequency and the decay rate over the various harmonic frequencies. </dd></dl>
+
+</div>
+</div>
 <a id="a5f46fee48c6f4eb0ba7e06f6289f8ed2" name="a5f46fee48c6f4eb0ba7e06f6289f8ed2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f46fee48c6f4eb0ba7e06f6289f8ed2">&#9670;&#160;</a></span>PlayingNoteWithHarmonics()</h2>
 
@@ -574,8 +628,8 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan-mcbride/Documents/Tromboneless/Core/include/<a class="el" href="synth_8hpp_source.html">synth.hpp</a></li>
-<li>/home/ryan-mcbride/Documents/Tromboneless/Core/src/<a class="el" href="synth_8cpp.html">synth.cpp</a></li>
+<li>/home/ryan/Tromboneless/Core/include/<a class="el" href="synth_8hpp_source.html">synth.hpp</a></li>
+<li>/home/ryan/Tromboneless/Core/src/<a class="el" href="synth_8cpp.html">synth.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
