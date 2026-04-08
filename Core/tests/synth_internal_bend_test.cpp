@@ -29,15 +29,8 @@ int main() {
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
 
-        // Sweep up from minimum to maximum
-        for (int bend = 0; bend <= 16383; bend += 128) {
-            coordinator.setBend(bend);
-            std::cout << "Bend: " << bend << "\n";
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        }
-
-        // Sweep back to centre
-        for (int bend = 16383; bend >= 8192; bend -= 128) {
+        // Sweep up from minimum to centre
+        for (int bend = 0; bend <= 8192; bend += 128) {
             coordinator.setBend(bend);
             std::cout << "Bend: " << bend << "\n";
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
