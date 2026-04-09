@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['octaves_0',['Octaves',['../classOctaves.html',1,'']]],
-  ['octaveswithharmonics_1',['OctavesWithHarmonics',['../classOctavesWithHarmonics.html',1,'']]]
+  ['mainwindow_0',['MainWindow',['../classGuiAppApplication_1_1MainWindow.html',1,'GuiAppApplication']]],
+  ['midicoordinator_1',['MidiCoordinator',['../classMidiCoordinator.html',1,'']]],
+  ['midimessage_2',['MidiMessage',['../classMidiMessage.html',1,'']]],
+  ['midimessagebuilder_3',['MidiMessageBuilder',['../classMidiMessageBuilder.html',1,'']]]
 ];

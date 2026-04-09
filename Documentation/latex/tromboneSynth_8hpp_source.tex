@@ -1,0 +1,31 @@
+\doxysection{trombone\+Synth.\+hpp}
+\hypertarget{tromboneSynth_8hpp_source}{}\label{tromboneSynth_8hpp_source}\index{/home/ryan/Tromboneless/Core/include/tromboneSynth.hpp@{/home/ryan/Tromboneless/Core/include/tromboneSynth.hpp}}
+\mbox{\hyperlink{tromboneSynth_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \ \textcolor{comment}{/*\ Preventing\ recurssion\ */}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \textcolor{comment}{/*\ Adding\ the\ necessary\ header\ files\ to\ be\ included.\ */}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \#include\ "{}\mbox{\hyperlink{synth_8hpp}{synth.hpp}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTromboneSynth}{TromboneSynth}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTromboneSynth_af678c25ac98bb1a4e977a2a1a300b126}{NewTromboneNote}}(Notes::Notes\_t\ note\_in,\ \textcolor{keywordtype}{int}\ octave\_in);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classTromboneSynth_ac781c21d38a2a47f01ac8c34f8963629}{ReadTromboneAudio}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTromboneSynth_a163e4c123851e4b8f6cbf50ed8e5b12c}{EndTromboneAudio}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classTromboneSynth_a48bfbefc6da70231e660df8a958b0592}{getTimeDifference}}();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Initialising\ the\ envelope\ class\ which\ will\ be\ used\ to\ create\ the\ various}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ different\ noises\ for\ the\ trombone.\ This\ sets\ the\ sound\ of\ the\ trombone}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ permanently\ but\ the\ note\ and\ octave\ may\ be\ changed\ throughout\ the\ use\ of}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ the\ device.\ */}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEnvelope}{Envelope}}\ tromboneSynth\ =\ \mbox{\hyperlink{classEnvelope}{Envelope}}(6,\ 2,\ Notes::Notes\_t::note\_B,\ 10,\ 2,\ 0.6,\ 1);}
+\DoxyCodeLine{00051\ \ \};}
+
+\end{DoxyCode}

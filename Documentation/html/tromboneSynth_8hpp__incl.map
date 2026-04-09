@@ -1,0 +1,9 @@
+<map id="/home/ryan/Tromboneless/Core/include/tromboneSynth.hpp" name="/home/ryan/Tromboneless/Core/include/tromboneSynth.hpp">
+<area shape="rect" id="Node000001" title="A file to declare the synthesiser parameters and functions for the trombone specifically using the cl..." alt="" coords="5,5,244,45"/>
+<area shape="rect" id="Node000002" href="$synth_8hpp.html" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="81,93,168,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,46,127,79,122,79,122,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="43,167,105,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,121,92,157,88,154,114,117"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="130,167,221,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="135,117,161,154,157,157,131,121"/>
+</map>

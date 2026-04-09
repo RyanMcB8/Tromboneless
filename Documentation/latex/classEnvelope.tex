@@ -18,6 +18,47 @@ Collaboration diagram for Envelope\+:\nopagebreak
 \includegraphics[width=211pt]{classEnvelope__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEnvelope_a036c84bc7102b5793698b38cc683e110}\label{classEnvelope_a036c84bc7102b5793698b38cc683e110} 
+enum {\bfseries synth\+\_\+states\+\_\+t} \{ \newline
+{\bfseries no\+Sound\+State}
+, {\bfseries attack\+State}
+, {\bfseries decay\+State}
+, {\bfseries sustain\+State}
+, \newline
+{\bfseries rest\+State}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classNotes}{Notes}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}\label{classNotes_a8734fb9c1094a3becd78fe783ad43c0c} 
+enum {\bfseries Notes\+\_\+t} \{ \newline
+{\bfseries note\+\_\+C}
+, {\bfseries note\+\_\+\+Db}
+, {\bfseries note\+\_\+D}
+, {\bfseries note\+\_\+\+Eb}
+, \newline
+{\bfseries note\+\_\+E}
+, {\bfseries note\+\_\+F}
+, {\bfseries note\+\_\+\+Gb}
+, {\bfseries note\+\_\+G}
+, \newline
+{\bfseries note\+\_\+\+Ab}
+, {\bfseries note\+\_\+A}
+, {\bfseries note\+\_\+\+Bb}
+, {\bfseries note\+\_\+B}
+, \newline
+{\bfseries note\+\_\+\+C\+\_\+sharp} = note\+\_\+\+Db
+, {\bfseries note\+\_\+\+D\+\_\+sharp} = note\+\_\+\+Eb
+, {\bfseries note\+\_\+\+F\+\_\+sharp} = note\+\_\+\+Gb
+, {\bfseries note\+\_\+\+G\+\_\+sharp} = note\+\_\+\+Ab
+, \newline
+{\bfseries note\+\_\+\+A\+\_\+sharp} = note\+\_\+\+Bb
+ \}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,11 +67,31 @@ Collaboration diagram for Envelope\+:\nopagebreak
 \Hypertarget{classEnvelope_a055b521678bf21efe6a1ded92e123aed}\label{classEnvelope_a055b521678bf21efe6a1ded92e123aed} 
 void {\bfseries Start\+Envelope} ()
 \begin{DoxyCompactList}\small\item\em A function which may be used to begin playing the sound specified. This will run indefinitely. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnvelope_a5036f809cc4d026cbb41a96dc29de7d4}{Change\+Note}} (Notes\+::\+Notes\+\_\+t note\+\_\+in, int octave\+\_\+in)
+\begin{DoxyCompactList}\small\item\em A function which may be called upon to change the note which is currently being played in a continuous manner. I.\+e. there is no attack or decay within the envelope for this new note. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classEnvelope_a2e443c0d2892bed58c9dd51d520e221a}{Get\+Amplitude}} ()
 \begin{DoxyCompactList}\small\item\em A function which may be called to update the value of the amplitude. \end{DoxyCompactList}\item 
 \Hypertarget{classEnvelope_a05262c2cb0ca05d344b0d89c4ca9ee59}\label{classEnvelope_a05262c2cb0ca05d344b0d89c4ca9ee59} 
 void {\bfseries End\+Envelope} ()
-\begin{DoxyCompactList}\small\item\em A function which stops this instances audio from playing. This enters the rest stage of the sound and does not stop instantly unless {\ttfamily restT} has been set to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function which stops this instances audio from playing. This enters the rest stage of the sound and does not stop instantly unless {\ttfamily restT} has been set to 0. \end{DoxyCompactList}\item 
+\Hypertarget{classEnvelope_acab458aa138890697aa035152b4ac525}\label{classEnvelope_acab458aa138890697aa035152b4ac525} 
+void {\bfseries Kill\+Envelope} ()
+\begin{DoxyCompactList}\small\item\em This function will stop all sound from playing from the note and skip the R stage of the ADSR. It does this by calling upon the destructor. \end{DoxyCompactList}\item 
+struct timeval \mbox{\hyperlink{classEnvelope_af0e9c100a91ca695142fd832203a9903}{get\+Start\+Time}} ()
+\begin{DoxyCompactList}\small\item\em A function which returns the current start time of the object. \end{DoxyCompactList}\item 
+\Hypertarget{classEnvelope_a240c90bdbb48f3140ea01b7bb4b14f38}\label{classEnvelope_a240c90bdbb48f3140ea01b7bb4b14f38} 
+float {\bfseries get\+Time\+Difference} ()
+\begin{DoxyCompactList}\small\item\em A function which returns the difference in time between start and current in microseconds. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classEnvelope_ad0d8ce0f9c72ef50313f00ab8a3b4bcf}{get\+Attack\+Decay\+Time}} ()
+\begin{DoxyCompactList}\small\item\em A function which returns the sum of the attack and the decay times in microseconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnvelope_aa29ca401a9d7e8e2f1b22bdc218aba49}{set\+Note}} (Notes\+\_\+t note\+\_\+in)
+\begin{DoxyCompactList}\small\item\em A function which will allow the user to change the note which is being played without needing to create a new instance of the class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnvelope_a4382858dba9455ffed7a08e7ed7790a0}{set\+Octave}} (int octave\+\_\+in)
+\begin{DoxyCompactList}\small\item\em A function which will allow for the user to change the octave which the note is playing without needing to create a new instance of the \doxylink{classEnvelope}{Envelope} class. \end{DoxyCompactList}\item 
+Notes\+::\+Notes\+\_\+t \mbox{\hyperlink{classEnvelope_abad7e7a6a070ee55aa5606b0bac92b0a}{get\+Note}} (void)
+\begin{DoxyCompactList}\small\item\em A function which returns the instance\textquotesingle{}s current note which is being played. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEnvelope_a0cd0ce08290363a0eba6dd6516bca3ac}{get\+Octave}} (void)
+\begin{DoxyCompactList}\small\item\em A function which returns the instance\textquotesingle{}s current octave which theh note being played is in. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,7 +104,9 @@ float \mbox{\hyperlink{classOctavesWithHarmonics_a5d034e862555d58fca91a2af1e77ff
 float \mbox{\hyperlink{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2}{Playing\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float saturation)
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctavesWithHarmonics_a4d6d82460255f5f8d4a8cb80881babb2}{End\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8}{Harmonic\+Decay}} (int n, int octave, Notes\+::\+Notes\+\_\+t note)
+\begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -142,40 +205,18 @@ float \mbox{\hyperlink{classNotes_a192de65337df2408c3e56ca10a4c4c10}{getB}} (voi
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the B note for the specified object. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (Notes\+\_\+t note)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to request a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classNotes}{Notes}}}
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}\label{classNotes_a8734fb9c1094a3becd78fe783ad43c0c} 
-enum {\bfseries Notes\+\_\+t} \{ \newline
-{\bfseries note\+\_\+C}
-, {\bfseries note\+\_\+\+Db}
-, {\bfseries note\+\_\+D}
-, {\bfseries note\+\_\+\+Eb}
-, \newline
-{\bfseries note\+\_\+E}
-, {\bfseries note\+\_\+F}
-, {\bfseries note\+\_\+\+Gb}
-, {\bfseries note\+\_\+G}
-, \newline
-{\bfseries note\+\_\+\+Ab}
-, {\bfseries note\+\_\+A}
-, {\bfseries note\+\_\+\+Bb}
-, {\bfseries note\+\_\+B}
-, \newline
-{\bfseries note\+\_\+\+C\+\_\+sharp} = note\+\_\+\+Db
-, {\bfseries note\+\_\+\+D\+\_\+sharp} = note\+\_\+\+Eb
-, {\bfseries note\+\_\+\+F\+\_\+sharp} = note\+\_\+\+Gb
-, {\bfseries note\+\_\+\+G\+\_\+sharp} = note\+\_\+\+Ab
-, \newline
-{\bfseries note\+\_\+\+A\+\_\+sharp} = note\+\_\+\+Bb
- \}
+\Hypertarget{classEnvelope_ac2f5a5028587a4b6419da1110d343252}\label{classEnvelope_ac2f5a5028587a4b6419da1110d343252} 
+synth\+\_\+states\+\_\+t {\bfseries current\+Synth\+State} = no\+Sound\+State
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}n\+Octaves\mbox{]}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -214,6 +255,26 @@ Constructor for the \doxylink{classEnvelope}{Envelope} class which initialises a
 Setting the initial values of the parameters.
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classEnvelope_a5036f809cc4d026cbb41a96dc29de7d4}\label{classEnvelope_a5036f809cc4d026cbb41a96dc29de7d4} 
+\index{Envelope@{Envelope}!ChangeNote@{ChangeNote}}
+\index{ChangeNote@{ChangeNote}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{ChangeNote()}{ChangeNote()}}
+{\footnotesize\ttfamily void Envelope\+::\+Change\+Note (\begin{DoxyParamCaption}\item[{Notes\+::\+Notes\+\_\+t}]{note\+\_\+in,  }\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+A function which may be called upon to change the note which is currently being played in a continuous manner. I.\+e. there is no attack or decay within the envelope for this new note. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em note\+\_\+in} & The note which it is being changed to. \\
+\hline
+{\em octave\+\_\+in} & The octave which the note is in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is for a contious noise such as changing the pitch bend on a trombone. 
+\end{DoxyNote}
 \Hypertarget{classEnvelope_a2e443c0d2892bed58c9dd51d520e221a}\label{classEnvelope_a2e443c0d2892bed58c9dd51d520e221a} 
 \index{Envelope@{Envelope}!GetAmplitude@{GetAmplitude}}
 \index{GetAmplitude@{GetAmplitude}!Envelope@{Envelope}}
@@ -229,9 +290,99 @@ A function which may be called to update the value of the amplitude.
 {\em Returns} & a floating point value representing the amplitude of the noise at the time of request. Maxium value is 1. \\
 \hline
 \end{DoxyRetVals}
+\Hypertarget{classEnvelope_ad0d8ce0f9c72ef50313f00ab8a3b4bcf}\label{classEnvelope_ad0d8ce0f9c72ef50313f00ab8a3b4bcf} 
+\index{Envelope@{Envelope}!getAttackDecayTime@{getAttackDecayTime}}
+\index{getAttackDecayTime@{getAttackDecayTime}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{getAttackDecayTime()}{getAttackDecayTime()}}
+{\footnotesize\ttfamily float Envelope\+::get\+Attack\+Decay\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A function which returns the sum of the attack and the decay times in microseconds. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em A} & floating point value representing the time in microseconds from when the note has started to first reach the sustain stage. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classEnvelope_abad7e7a6a070ee55aa5606b0bac92b0a}\label{classEnvelope_abad7e7a6a070ee55aa5606b0bac92b0a} 
+\index{Envelope@{Envelope}!getNote@{getNote}}
+\index{getNote@{getNote}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{getNote()}{getNote()}}
+{\footnotesize\ttfamily Notes\+::\+Notes\+\_\+t Envelope\+::get\+Note (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function which returns the instance\textquotesingle{}s current note which is being played. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & note of type Notes\+\_\+t which is currently being used within the envelope. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classEnvelope_a0cd0ce08290363a0eba6dd6516bca3ac}\label{classEnvelope_a0cd0ce08290363a0eba6dd6516bca3ac} 
+\index{Envelope@{Envelope}!getOctave@{getOctave}}
+\index{getOctave@{getOctave}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{getOctave()}{getOctave()}}
+{\footnotesize\ttfamily int Envelope\+::get\+Octave (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function which returns the instance\textquotesingle{}s current octave which theh note being played is in. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & integer representation of the octave. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classEnvelope_af0e9c100a91ca695142fd832203a9903}\label{classEnvelope_af0e9c100a91ca695142fd832203a9903} 
+\index{Envelope@{Envelope}!getStartTime@{getStartTime}}
+\index{getStartTime@{getStartTime}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{getStartTime()}{getStartTime()}}
+{\footnotesize\ttfamily struct timeval Envelope\+::get\+Start\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A function which returns the current start time of the object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the timeval struct containing the start time values. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classEnvelope_aa29ca401a9d7e8e2f1b22bdc218aba49}\label{classEnvelope_aa29ca401a9d7e8e2f1b22bdc218aba49} 
+\index{Envelope@{Envelope}!setNote@{setNote}}
+\index{setNote@{setNote}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{setNote()}{setNote()}}
+{\footnotesize\ttfamily void Envelope\+::set\+Note (\begin{DoxyParamCaption}\item[{Notes\+\_\+t}]{note\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+A function which will allow the user to change the note which is being played without needing to create a new instance of the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em note\+\_\+in} & The note which will start to be played. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEnvelope_a4382858dba9455ffed7a08e7ed7790a0}\label{classEnvelope_a4382858dba9455ffed7a08e7ed7790a0} 
+\index{Envelope@{Envelope}!setOctave@{setOctave}}
+\index{setOctave@{setOctave}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{setOctave()}{setOctave()}}
+{\footnotesize\ttfamily void Envelope\+::set\+Octave (\begin{DoxyParamCaption}\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+A function which will allow for the user to change the octave which the note is playing without needing to create a new instance of the \doxylink{classEnvelope}{Envelope} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em octave\+\_\+in} & The octave which the new note will be in; \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}

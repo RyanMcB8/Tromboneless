@@ -2,6 +2,16 @@
 \hypertarget{classSliders}{}\label{classSliders}\index{Sliders@{Sliders}}
 
 
+A class which adds all the linear sliders being used within the calibration section to be within the same ~\newline
+ panel.  
+
+
+
+
+{\ttfamily \#include $<$Panels.\+hpp$>$}
+
+
+
 Inheritance diagram for Sliders\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,17 +33,25 @@ Collaboration diagram for Sliders\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classSliders_af167ae4dd46cb6f8964d194f00ca7c13}\label{classSliders_af167ae4dd46cb6f8964d194f00ca7c13} 
-void {\bfseries resized} () override
-\item 
-\Hypertarget{classSliders_ace72961d967240e0a72a5a9ce3d49cb8}\label{classSliders_ace72961d967240e0a72a5a9ce3d49cb8} 
-void {\bfseries slider\+Value\+Changed} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
-\end{DoxyCompactItemize}
+\Hypertarget{classSliders_a3ea351f1480b1e1a54dc10bedb8059e0}\label{classSliders_a3ea351f1480b1e1a54dc10bedb8059e0} 
+{\bfseries Sliders} ()
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classSliders}{Sliders}} class which sets the maximum and minimum distance of the slider as well as its knobs\textquotesingle{} initial positions and other such initialisation steps. \end{DoxyCompactList}\item 
+\Hypertarget{classSliders_a9b83c7b0a2e863f1862115837f0e0306}\label{classSliders_a9b83c7b0a2e863f1862115837f0e0306} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Sliders} ()
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classSliders}{Sliders}} class which removes the look and feel of the sliders from the sliders as well as their listeners. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliders_af167ae4dd46cb6f8964d194f00ca7c13}{resized}} () override
+\begin{DoxyCompactList}\small\item\em Adding a function that will allow for the {\ttfamily \doxylink{classSliders}{Sliders}} class to be resized when the window size is adjusted to fit best. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliders_ace72961d967240e0a72a5a9ce3d49cb8}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A callback function which is automatically called upon when one of the sliders present has the value of one of it\textquotesingle{}s knobs changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classPanels}{Panels}}}
 \begin{DoxyCompactItemize}
 \item 
-void {\bfseries paint} (juce\+::\+Graphics \&g) override
-\end{DoxyCompactItemize}
+{\bfseries Panels} ()=default
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classPanels}{Panels}} class which currently provides no other function than creating an instance of the {\ttfamily \doxylink{classPanels}{Panels}} class. I.\+e. no initialisation functions or settings. \end{DoxyCompactList}\item 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Panels} ()=default
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classPanels}{Panels}} class which currently does nothing extra as there is no initialisation within the class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPanels_a0dbc535bb34f716890ef0c30911f39af}{paint}} (juce\+::\+Graphics \&g) override
+\begin{DoxyCompactList}\small\item\em This function draws onto the parent function the default shape and colour of the panels designed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,7 +63,46 @@ void {\bfseries paint} (juce\+::\+Graphics \&g) override
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A class which adds all the linear sliders being used within the calibration section to be within the same ~\newline
+ panel. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSliders_af167ae4dd46cb6f8964d194f00ca7c13}\label{classSliders_af167ae4dd46cb6f8964d194f00ca7c13} 
+\index{Sliders@{Sliders}!resized@{resized}}
+\index{resized@{resized}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{resized()}{resized()}}
+{\footnotesize\ttfamily void Sliders\+::resized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Adding a function that will allow for the {\ttfamily \doxylink{classSliders}{Sliders}} class to be resized when the window size is adjusted to fit best. 
+
+\begin{DoxyNote}{Note}
+For this function, this sets the size of the labels to be a maximum size and scales them downwards if the relative size of the window is too small to fit the phrase. This scales the length of the trombone to be able to fit in a window with a width of any size. ~\newline
+ 
+\end{DoxyNote}
+\Hypertarget{classSliders_ace72961d967240e0a72a5a9ce3d49cb8}\label{classSliders_ace72961d967240e0a72a5a9ce3d49cb8} 
+\index{Sliders@{Sliders}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void Sliders\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A callback function which is automatically called upon when one of the sliders present has the value of one of it\textquotesingle{}s knobs changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em slider\+Change} & A pointer to the slider which has been modified. This allows for the comparison between the different sliders within the class to detect which one has been affected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is where the interaction with the Core side of the Tromboneless takes place by referring to the specific variable which stores all the calibration data for the Tromboneless. 
+\end{DoxyNote}
+
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Panels_8hpp}{Panels.\+hpp}}\item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/\mbox{\hyperlink{Panels_8cpp}{Panels.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Panels_8hpp}{Panels.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Panels_8cpp}{Panels.\+cpp}}\end{DoxyCompactItemize}

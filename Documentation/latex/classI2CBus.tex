@@ -1,0 +1,26 @@
+\doxysection{I2\+CBus Class Reference}
+\hypertarget{classI2CBus}{}\label{classI2CBus}\index{I2CBus@{I2CBus}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classI2CBus_a01105c1dc2694ce503275d31f4d12e81}\label{classI2CBus_a01105c1dc2694ce503275d31f4d12e81} 
+{\bfseries I2\+CBus} (const char \texorpdfstring{$\ast$}{*}device\+Path="{}/dev/i2c-\/1"{})
+\item 
+\Hypertarget{classI2CBus_a0629e6e70044e1f55f9a1db34fd839cc}\label{classI2CBus_a0629e6e70044e1f55f9a1db34fd839cc} 
+bool {\bfseries open\+Bus} ()
+\item 
+\Hypertarget{classI2CBus_a0f89a7670e4a264ce76b8c5d11c8b6ef}\label{classI2CBus_a0f89a7670e4a264ce76b8c5d11c8b6ef} 
+void {\bfseries close\+Bus} ()
+\item 
+\Hypertarget{classI2CBus_ab576d3b32f579dd6e45e7203c952cc79}\label{classI2CBus_ab576d3b32f579dd6e45e7203c952cc79} 
+int {\bfseries write\+Block} (uint8\+\_\+t address, uint16\+\_\+t reg, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\item 
+\Hypertarget{classI2CBus_a7d6e67800cf48e5bb96906fb0284f87f}\label{classI2CBus_a7d6e67800cf48e5bb96906fb0284f87f} 
+int {\bfseries read\+Block} (uint8\+\_\+t address, uint16\+\_\+t reg, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, uint8\+\_\+t length)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+Core/include/drivers/i2c\+\_\+bus.\+hpp\item 
+/home/ryan/\+Tromboneless/\+Core/src/drivers/i2c\+\_\+bus.\+cpp\end{DoxyCompactItemize}

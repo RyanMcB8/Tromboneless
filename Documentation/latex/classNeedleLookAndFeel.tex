@@ -2,6 +2,15 @@
 \hypertarget{classNeedleLookAndFeel}{}\label{classNeedleLookAndFeel}\index{NeedleLookAndFeel@{NeedleLookAndFeel}}
 
 
+A class which may be attached to a rotary slider from the juce framework to change its look and feel. This changes the look of the slider to have an arrow rotate about the centre of the slider pointing to the different values rather than a knob moving in an arc as the basic rotary slider.  
+
+
+
+
+{\ttfamily \#include $<$Custom\+Styles.\+hpp$>$}
+
+
+
 Inheritance diagram for Needle\+Look\+And\+Feel\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,12 +32,57 @@ Collaboration diagram for Needle\+Look\+And\+Feel\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{classNeedleLookAndFeel_a0b0fbf7b09a81c1d031700cc8030a682}\label{classNeedleLookAndFeel_a0b0fbf7b09a81c1d031700cc8030a682} 
+{\bfseries Needle\+Look\+And\+Feel} ()=default
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classNeedleLookAndFeel}{Needle\+Look\+And\+Feel}} class which is set to default. \end{DoxyCompactList}\item 
+\Hypertarget{classNeedleLookAndFeel_a5db1e44fd568bdbd97514d88b9baafb9}\label{classNeedleLookAndFeel_a5db1e44fd568bdbd97514d88b9baafb9} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Needle\+Look\+And\+Feel} ()=default
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classNeedleLookAndFeel}{Needle\+Look\+And\+Feel}} class which is set to default. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classNeedleLookAndFeel_a2aa793fe29c0c3231e986337f8c7a0fe}{draw\+Rotary\+Slider}} (juce\+::\+Graphics \&g, int x, int y, int width, int height, float slider\+Pos, const float rotary\+Start\+Angle, const float rotary\+End\+Angle, juce\+::\+Slider \&slider) override
+\begin{DoxyCompactList}\small\item\em A function which is used to redraw the rotary slider whose look and feel is being changed. This will full describe how it should appear to the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which may be attached to a rotary slider from the juce framework to change its look and feel. This changes the look of the slider to have an arrow rotate about the centre of the slider pointing to the different values rather than a knob moving in an arc as the basic rotary slider. 
+
+\doxysubsection{Member Function Documentation}
 \Hypertarget{classNeedleLookAndFeel_a2aa793fe29c0c3231e986337f8c7a0fe}\label{classNeedleLookAndFeel_a2aa793fe29c0c3231e986337f8c7a0fe} 
-virtual void {\bfseries draw\+Rotary\+Slider} (juce\+::\+Graphics \&g, int x, int y, int width, int height, float slider\+Pos, const float rotary\+Start\+Angle, const float rotary\+End\+Angle, juce\+::\+Slider \&slider) override
-\end{DoxyCompactItemize}
+\index{NeedleLookAndFeel@{NeedleLookAndFeel}!drawRotarySlider@{drawRotarySlider}}
+\index{drawRotarySlider@{drawRotarySlider}!NeedleLookAndFeel@{NeedleLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{drawRotarySlider()}{drawRotarySlider()}}
+{\footnotesize\ttfamily void Needle\+Look\+And\+Feel\+::draw\+Rotary\+Slider (\begin{DoxyParamCaption}\item[{juce\+::\+Graphics \&}]{g,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{float}]{slider\+Pos,  }\item[{const float}]{rotary\+Start\+Angle,  }\item[{const float}]{rotary\+End\+Angle,  }\item[{juce\+::\+Slider \&}]{slider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A function which is used to redraw the rotary slider whose look and feel is being changed. This will full describe how it should appear to the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to the {\ttfamily juce\+::\+Graphics} instance which is being updated. This is the parent component or the main window. \\
+\hline
+{\em x} & The x position of the slider. \\
+\hline
+{\em y} & The y position of the slider. \\
+\hline
+{\em width} & The width of the slider. \\
+\hline
+{\em height} & The maximum height of the slider. \\
+\hline
+{\em slider\+Pos} & The position of the slider finger. \\
+\hline
+{\em rotary\+Start\+Angle} & The minimum angle which the slider starts at. This represents the minimum value, typically bottom left. \\
+\hline
+{\em rotary\+End\+Angle} & The maximum angle which the slider ends at. This represents the maximum value, typically bottom right. \\
+\hline
+{\em slider} & This is a pointer to the slider which is being drawn. Extra data may be extracted from it if necessary. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function is a call back which is automatically called to redraw the slider to look how described. It should not need to be called by any high level function. 
+\end{DoxyNote}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/inc/Custom\+Styles.\+hpp\item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+App/src/Custom\+Styles.\+cpp\end{DoxyCompactItemize}
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{CustomStyles_8hpp}{Custom\+Styles.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{CustomStyles_8cpp}{Custom\+Styles.\+cpp}}\end{DoxyCompactItemize}

@@ -31,7 +31,9 @@ float \mbox{\hyperlink{classOctavesWithHarmonics_a5d034e862555d58fca91a2af1e77ff
 float \mbox{\hyperlink{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2}{Playing\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float saturation)
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctavesWithHarmonics_a4d6d82460255f5f8d4a8cb80881babb2}{End\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8}{Harmonic\+Decay}} (int n, int octave, Notes\+::\+Notes\+\_\+t note)
+\begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -236,6 +238,33 @@ A function which may be called upon to stop playing a range of harmonic notes wh
 \begin{DoxyNote}{Note}
 This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. 
 \end{DoxyNote}
+\Hypertarget{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8}\label{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8} 
+\index{OctavesWithHarmonics@{OctavesWithHarmonics}!HarmonicDecay@{HarmonicDecay}}
+\index{HarmonicDecay@{HarmonicDecay}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{HarmonicDecay()}{HarmonicDecay()}}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Harmonic\+Decay (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+::\+Notes\+\_\+t}]{note }\end{DoxyParamCaption})}
+
+
+
+A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The integer multiple of the harmonic whose relative amplitude is being calculated. \\
+\hline
+{\em octave} & The octave in which the first harmonic is in. \\
+\hline
+{\em note} & The note which is being played. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & a floating point value which represents the ratio of amplitudes. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+This function needs to be modified to better match the relationship between the frequency and the decay rate over the various harmonic frequencies. 
+\end{DoxyNote}
 \Hypertarget{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2}\label{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2} 
 \index{OctavesWithHarmonics@{OctavesWithHarmonics}!PlayingNoteWithHarmonics@{PlayingNoteWithHarmonics}}
 \index{PlayingNoteWithHarmonics@{PlayingNoteWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
@@ -300,5 +329,5 @@ This function could be made to produce a much cleaner response by increasing the
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
-/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
