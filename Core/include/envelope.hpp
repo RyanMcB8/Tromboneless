@@ -12,6 +12,16 @@
 
 class Envelope{
     public:
+
+        /*  Enumerated type to describe which part of the ADSR the object is in. */
+        typedef enum{
+            no_stage,
+            attack_stage,
+            decay_stage,
+            sustain_stage,
+            rest_stage,
+        }   envelope_stages_t;
+        
         /** @brief                  The constructor function for the `Envelope` class
          *                          which sets the values of the ADSR of the envelope
          *                          and initialises the beginning of it.
@@ -147,16 +157,9 @@ class Envelope{
          */
         float restFunction(void);
 
-    private:
-        /*  Enumerated type to describe which part of the ADSR the object is in. */
-        typedef enum{
-            no_stage,
-            attack_stage,
-            decay_stage,
-            sustain_stage,
-            rest_stage,
-        }   envelope_stages_t;
+        envelope_stages_t getStage(void);
 
+    private:
         /*  ADSR Variables */
         int attack;
         int decay;

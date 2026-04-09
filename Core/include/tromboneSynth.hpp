@@ -10,9 +10,17 @@
 
  /* Adding the necessary header files to be included. */
  #include "synth.hpp"
+ #include "envelope.hpp"
 
- class TromboneSynth{
+ class TromboneSynth    :   public OctavesWithHarmonics
+ {
     public:
+        /** @brief                  The constructor function for the `TromboneSynth`
+         *                          class.
+         *  @param  sampleRate      The sample rate which will be used to measure
+         *                          the amplitude of the sound wave being synthesised.
+         */
+        TromboneSynth(int sampleRate, int attack, int decay, float sustain, int rest);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -37,15 +45,21 @@
         */
         void EndTromboneAudio(void);
 
-        /** @brief          A function which returns the difference in time between
-         *                  start and current in milliseconds.
-         */
-        float getTimeDifference();
+
         
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
-        permanently but the note and octave may be changed throughout the use of
-        the device. */
-        Envelope tromboneSynth = Envelope(6, 2, Notes::Notes_t::note_B, 10, 2, 0.6, 1);
+        permanently. The ADSR values may need to be adjusted but this should sound
+        brassy. */
+        Envelope tromboneEnvelope = Envelope(100, 10, 0.95, 50);
+        float attack_ms;        /*  The attack time in milliseconds of the envelope. */
+        float decay_ms;         /*  The decay time in milliseconds of the envelope. */
+        float rest_ms;          /*  The rest time in milliseconds of the envelope. */
+        float saturation;       /*  The saturation level of the envelope. */
+
+        /*  synth   */
+        int nHarmonics = 2;     /*  The number of harmonics which will be present in the final signal. */
+        int octave = 2;         /*  The octave which the note will be present in. */
+        Notes::Notes_t note;    /*  The note which will be played. */
  };
