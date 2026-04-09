@@ -115,8 +115,58 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         juce::LookAndFeel_V4::drawLinearSlider(g, x, y, width, height, sliderPos, minSliderPos, 
             maxSliderPos, style, slider);
     }
-}        
+}      
 
+void VerticalSliderLookAndFeel::setTrackWidth(float width){
+    trackWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getTrackWidth(void){
+    return trackWidth;
+}
+
+void VerticalSliderLookAndFeel::setTickThickness(float thickness){
+    tickThickness = thickness;
+}
+
+float VerticalSliderLookAndFeel::getTickThickness(void){
+    return tickThickness;
+}
+
+void VerticalSliderLookAndFeel::setTickWidth(float width){
+    tickWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getTickWidth(void){
+    return tickWidth;
+}
+
+#ifdef USE_CIRCLE_FINGER 
+void VerticalSliderLookAndFeel::setFingerRadius(float radius){
+    fingerRadius = radius;
+}
+
+float VerticalSliderLookAndFeel::getFingerRadius(void){
+    return fingerRadius;
+}
+
+#else
+void VerticalSliderLookAndFeel::setFingerWidth(float width){
+    fingerWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getFingerWidth(void){
+    return fingerWidth;
+}
+
+void VerticalSliderLookAndFeel::setFingerHeight(float height){
+    fingerHeight = height;
+}
+
+float VerticalSliderLookAndFeel::getFingerHeight(void){
+    return fingerHeight;
+}
+#endif
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                       PaintTrombone                                        */
