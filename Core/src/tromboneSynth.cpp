@@ -9,18 +9,18 @@
  #include "tromboneSynth.hpp"
 
  TromboneSynth::TromboneSynth(int sampleRate, float attack, float decay, float sustain, float rest){
-  /*  Storing the ADR inputs as their time in milliseconds and then passing the N sample equivalent
-      into the envelope object. */
+    /*  Storing the ADR inputs as their time in milliseconds and then passing the N sample equivalent
+        into the envelope object. */
     /* Ignoring any negative frequencies or times being input*/
     sampleRate = abs(sampleRate);
     attack_ms = abs(attack);
-    attack = (1000 * abs(attack))/sampleRate;
+    attack = (abs(attack) / 1000) * sampleRate;
 
     decay_ms = abs(decay);
-    decay = (1000 * abs(decay))/sampleRate;
+    decay = (abs(decay) / 1000) * sampleRate;
 
     rest_ms = abs(rest);
-    rest = (1000 * abs(rest))/sampleRate;
+    rest = (abs(rest) / 1000) * sampleRate;
 
     tromboneEnvelope.setAttack(attack);
     tromboneEnvelope.setDecay(decay);
@@ -67,3 +67,54 @@
     octave = (int)(MIDINote/nNotes) + octaveOffset;
     note = (Notes::Notes_t)(MIDINote % nNotes);
  }
+
+ void TromboneSynth::setAttackMS(float attack_time){
+    attack_ms = attack_time;
+    return;
+ }
+
+float TromboneSynth::getAttackMS(void){
+    return attack_ms;
+}
+
+void TromboneSynth::setDecayMS(float decay_time){
+    decay_ms = decay_time;
+    return;
+}
+
+float TromboneSynth::getDecayMS(void){
+    return decay_ms;
+}
+
+void TromboneSynth::setRestMS(float rest_time){
+    rest_ms = rest_time;
+    return;
+}
+
+float TromboneSynth::getRestMS(void){
+    return rest_ms;
+}
+
+void TromboneSynth::setSustain(float sustain_in){
+    sustain = sustain_in;
+}
+
+float TromboneSynth::getSustain(void){
+    return sustain;
+}
+
+void TromboneSynth::setNHarmonics(int n){
+    nHarmonics = n;
+}
+
+int TromboneSynth::getNHarmonics(void){
+    return nHarmonics;
+}
+
+int TromboneSynth::getOctave(void){
+    return octave;
+}
+
+Notes::Notes_t TromboneSynth::getNote(void){
+    return note;
+}

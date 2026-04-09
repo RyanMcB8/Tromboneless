@@ -405,7 +405,7 @@ class OctavesWithHarmonics :    public Octaves
         float getDecayConstant(void);
         
     private:
-        float decayConstant = 2;
+        float decayConstant = 0.1;
         
 };
 

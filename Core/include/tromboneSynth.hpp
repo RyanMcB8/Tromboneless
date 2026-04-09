@@ -12,6 +12,9 @@
  #include "synth.hpp"
  #include "envelope.hpp"
 
+ /**    @brief                      A class which may be used to create a custom synth
+  *                                 with an envelope attached to it.
+  */
  class TromboneSynth    :   public OctavesWithHarmonics
  {
     public:
@@ -23,9 +26,10 @@
          *  @param  attack          The amount of time in ms that the attack should
          *                          last for.
          *  @param  decay           The amount of time in ms that the decay should
-         *                          last fpr/
+         *                          last for.
          */
-        TromboneSynth(int sampleRate, float attack, float decay, float sustain, float rest);
+        TromboneSynth(int sampleRate = 44100, float attack = 500, float decay = 50,
+             float sustain = 0.96, float rest = 10);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -59,20 +63,95 @@
          */
         void NewTromboneNoteMIDI(int MIDINote);
 
-        
+        /** @brief                  A function to set the amount of time in milliseconds
+         *                          that the attack stage takes.
+         *  @param  attack_time     The time in milliseconds.
+         */
+        void setAttackMS(float attack_time);
+
+        /** @brief                  A function to get the current attack time in
+         *                          milliseconds.
+         *  @retval                 The time in milliseconds as a floating point
+         *                          value.
+         */
+        float getAttackMS(void);
+
+        /** @brief                  A function to set the amount of time in milliseconds
+         *                          that the decay stage takes.
+         *  @param  decay_time     The time in milliseconds.
+         */
+        void setDecayMS(float decay_time);
+
+        /** @brief                  A function to get the current decay time in
+         *                          milliseconds.
+         *  @retval                 The time in milliseconds as a floating point
+         *                          value.
+         */
+        float getDecayMS(void);
+
+        /** @brief                  A function to set the amount of time in milliseconds
+         *                          that the rest stage takes.
+         *  @param  rest_time     The time in milliseconds.
+         */
+        void setRestMS(float rest_time);
+
+        /** @brief                  A function to get the current rest time in
+         *                          milliseconds.
+         *  @retval                 The time in milliseconds as a floating point
+         *                          value.
+         */
+        float getRestMS(void);
+
+        /** @brief                  A function to set the relative amplitude of the
+         *                          sustain stage.
+         *  @param  sustain_in      The floating point relative amplitde between 0
+         *                          and 1.
+         */
+        void setSustain(float sustain_in);
+
+        /** @brief                  A function to get the current sustain value.
+         *  @retval                 The floating point relative amplitude
+         */
+        float getSustain(void);
+
+        /** @brief                  A function to set the number of harmonics which are
+         *                          being generated for every note being played.
+         *  @param  n               The number of harmonics which should be added to each
+         *                          note.
+         */
+        void setNHarmonics(int n);
+
+        /** @brief                  A function to get the number of harmonics which are
+         *                          being generated for every note being played.
+         *  @retval                 The integer representation of the number of harmonics.
+         */
+        int getNHarmonics(void);
+
+        /** @brief                  A function to get the current octave which the current
+         *                          note is in.
+         *  @retval                 The octave as an integer representation.
+         */
+        int getOctave(void);
+
+        /** @brief                  A function to get the current note which is
+         *                          being used.
+         *  @retval                 The note of type Notes::Notes_t being played.
+         */
+        Notes::Notes_t getNote(void);
+
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
         permanently. The ADSR values may need to be adjusted but this should sound
         brassy. */
-        Envelope tromboneEnvelope = Envelope(100, 10, 0.95, 50);
+        Envelope tromboneEnvelope = Envelope(500, 50, 0.95, 10);
         float attack_ms;        /*  The attack time in milliseconds of the envelope. */
         float decay_ms;         /*  The decay time in milliseconds of the envelope. */
         float rest_ms;          /*  The rest time in milliseconds of the envelope. */
-        float sustain;       /*  The saturation level of the envelope. */
+        float sustain;          /*  The sustain level of the envelope. */
 
         /*  synth   */
-        int nHarmonics = 17;     /*  The number of harmonics which will be present in the final signal. */
+        int nHarmonics = 17;    /*  The number of harmonics which will be present in the final signal. */
         int octave = 2;         /*  The octave which the note will be present in. */
         Notes::Notes_t note;    /*  The note which will be played. */
  };

@@ -310,7 +310,7 @@ float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t 
 
 float OctavesWithHarmonics::HarmonicDecay(int n){
     /*  Setting the minimum influence of the harmonics being tested to be 1%. */
-    return std::max(1 - (0.1 * std::abs(n-1)), 0.01);
+    return std::max(1 - (decayConstant * std::abs(n-1)), 0.01);
 }
 
 float OctavesWithHarmonics::getHarmomicDecayMax(int n){
