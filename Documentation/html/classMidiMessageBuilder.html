@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tromboneless: MidiMessageBuilder Class Reference</title>
+<title>Tromboneless: MIDIMessageBuilder Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,51 +73,49 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classMidiMessageBuilder-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">MidiMessageBuilder Class Reference</div></div>
+<a href="classMIDIMessageBuilder-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">MIDIMessageBuilder Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Factory class for constructing common MIDI channel messages.  
- <a href="classMidiMessageBuilder.html#details">More...</a></p>
+ <a href="classMIDIMessageBuilder.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="MidiMessageBuilder_8hpp_source.html">MidiMessageBuilder.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="MIDIMessageBuilder_8hpp_source.html">MIDIMessageBuilder.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a91e7751889ede57a05fef5d7e10c3b91" id="r_a91e7751889ede57a05fef5d7e10c3b91"><td class="memItemLeft" align="right" valign="top"><a id="a91e7751889ede57a05fef5d7e10c3b91" name="a91e7751889ede57a05fef5d7e10c3b91"></a>
+<tr class="memitem:a8ebdf3350b3df5ab4cfac486b2bbd1ec" id="r_a8ebdf3350b3df5ab4cfac486b2bbd1ec"><td class="memItemLeft" align="right" valign="top"><a id="a8ebdf3350b3df5ab4cfac486b2bbd1ec" name="a8ebdf3350b3df5ab4cfac486b2bbd1ec"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Byte</b> = MidiMessage::Byte</td></tr>
-<tr class="separator:a91e7751889ede57a05fef5d7e10c3b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a8ebdf3350b3df5ab4cfac486b2bbd1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afec866a91fd98c33c4a1bd1a4a7b245a" id="r_afec866a91fd98c33c4a1bd1a4a7b245a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMidiMessage.html">MidiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiMessageBuilder.html#afec866a91fd98c33c4a1bd1a4a7b245a">noteOn</a> (int channel, Byte note, Byte velocity) const</td></tr>
-<tr class="memdesc:afec866a91fd98c33c4a1bd1a4a7b245a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a MIDI Note On message.  <br /></td></tr>
-<tr class="separator:afec866a91fd98c33c4a1bd1a4a7b245a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afed51e1a8f65ecfa622a0668a504e922" id="r_afed51e1a8f65ecfa622a0668a504e922"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMidiMessage.html">MidiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiMessageBuilder.html#afed51e1a8f65ecfa622a0668a504e922">noteOff</a> (int channel, Byte note, Byte velocity=0) const</td></tr>
-<tr class="memdesc:afed51e1a8f65ecfa622a0668a504e922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a MIDI Note Off message.  <br /></td></tr>
-<tr class="separator:afed51e1a8f65ecfa622a0668a504e922"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3569350d0a22a4dc1165bb475d9b52e7" id="r_a3569350d0a22a4dc1165bb475d9b52e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMidiMessage.html">MidiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiMessageBuilder.html#a3569350d0a22a4dc1165bb475d9b52e7">pitchBend</a> (int channel, int value) const</td></tr>
-<tr class="memdesc:a3569350d0a22a4dc1165bb475d9b52e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pitch bend message constructor.  <br /></td></tr>
-<tr class="separator:a3569350d0a22a4dc1165bb475d9b52e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4775ec17897c63697d75bc81c82baf77" id="r_a4775ec17897c63697d75bc81c82baf77"><td class="memItemLeft" align="right" valign="top"><a id="a4775ec17897c63697d75bc81c82baf77" name="a4775ec17897c63697d75bc81c82baf77"></a>
-<a class="el" href="classMidiMessage.html">MidiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><b>expr</b> (int channel, int value) const</td></tr>
-<tr class="separator:a4775ec17897c63697d75bc81c82baf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1a1d5275808d86aaf835f8e4f3da3a8" id="r_ad1a1d5275808d86aaf835f8e4f3da3a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMidiMessage.html">MidiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMIDIMessageBuilder.html#ad1a1d5275808d86aaf835f8e4f3da3a8">noteOn</a> (int channel, Byte note, Byte velocity) const</td></tr>
+<tr class="memdesc:ad1a1d5275808d86aaf835f8e4f3da3a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a MIDI Note On message.  <br /></td></tr>
+<tr class="separator:ad1a1d5275808d86aaf835f8e4f3da3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85223a9564f5dd4b9e433f75251ea296" id="r_a85223a9564f5dd4b9e433f75251ea296"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMidiMessage.html">MidiMessage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMIDIMessageBuilder.html#a85223a9564f5dd4b9e433f75251ea296">noteOff</a> (int channel, Byte note, Byte velocity=0) const</td></tr>
+<tr class="memdesc:a85223a9564f5dd4b9e433f75251ea296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a MIDI Note Off message.  <br /></td></tr>
+<tr class="separator:a85223a9564f5dd4b9e433f75251ea296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Factory class for constructing common MIDI channel messages. </p>
 <p>This class encapsulates the encoding logic required to construct correctly formatted MIDI channel voice messages.</p>
 <p>It separates message construction from message transmission, supporting a clean single-responsibility design.</p>
+<p>Currently supported:</p><ul>
+<li>Note On (0x9n)</li>
+<li>Note Off (0x8n)</li>
+</ul>
 <p>Channels are specified using human-friendly numbering (1–16) and internally converted to zero-based encoding (0–15). </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="afed51e1a8f65ecfa622a0668a504e922" name="afed51e1a8f65ecfa622a0668a504e922"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afed51e1a8f65ecfa622a0668a504e922">&#9670;&#160;</a></span>noteOff()</h2>
+<a id="a85223a9564f5dd4b9e433f75251ea296" name="a85223a9564f5dd4b9e433f75251ea296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85223a9564f5dd4b9e433f75251ea296">&#9670;&#160;</a></span>noteOff()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classMidiMessage.html">MidiMessage</a> MidiMessageBuilder::noteOff </td>
+          <td class="memname"><a class="el" href="classMidiMessage.html">MidiMessage</a> MIDIMessageBuilder::noteOff </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>channel</em>, </td>
@@ -156,14 +154,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afec866a91fd98c33c4a1bd1a4a7b245a" name="afec866a91fd98c33c4a1bd1a4a7b245a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec866a91fd98c33c4a1bd1a4a7b245a">&#9670;&#160;</a></span>noteOn()</h2>
+<a id="ad1a1d5275808d86aaf835f8e4f3da3a8" name="ad1a1d5275808d86aaf835f8e4f3da3a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1a1d5275808d86aaf835f8e4f3da3a8">&#9670;&#160;</a></span>noteOn()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classMidiMessage.html">MidiMessage</a> MidiMessageBuilder::noteOn </td>
+          <td class="memname"><a class="el" href="classMidiMessage.html">MidiMessage</a> MIDIMessageBuilder::noteOn </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>channel</em>, </td>
@@ -201,47 +199,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3569350d0a22a4dc1165bb475d9b52e7" name="a3569350d0a22a4dc1165bb475d9b52e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3569350d0a22a4dc1165bb475d9b52e7">&#9670;&#160;</a></span>pitchBend()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classMidiMessage.html">MidiMessage</a> MidiMessageBuilder::pitchBend </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>channel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pitch bend message constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">channel</td><td>MIDI channel number (1–16). </td></tr>
-    <tr><td class="paramname">value</td><td>Pitch bend value (0–8192). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Constructed <a class="el" href="classMidiMessage.html" title="Represents a raw MIDI message as a sequence of bytes.">MidiMessage</a>. </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/Core/include/<a class="el" href="MidiMessageBuilder_8hpp_source.html">MidiMessageBuilder.hpp</a></li>
-<li>/home/ryan/Tromboneless/Core/src/<b>MidiMessageBuilder.cpp</b></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/include/<a class="el" href="MIDIMessageBuilder_8hpp_source.html">MIDIMessageBuilder.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/src/<b>MIDIMessageBuilder.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

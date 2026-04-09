@@ -120,3 +120,8 @@ float Envelope::clamp01(float value){
 Envelope::envelope_stages_t Envelope::getStage(void){
     return stage;
 }
+
+void Envelope::setStage(envelope_stages_t stage_in){
+    stage = stage_in;
+    counter = 0;
+}

@@ -19,8 +19,13 @@
          *                          class.
          *  @param  sampleRate      The sample rate which will be used to measure
          *                          the amplitude of the sound wave being synthesised.
+         *                          This should be passed through in Hz.
+         *  @param  attack          The amount of time in ms that the attack should
+         *                          last for.
+         *  @param  decay           The amount of time in ms that the decay should
+         *                          last fpr/
          */
-        TromboneSynth(int sampleRate, int attack, int decay, float sustain, int rest);
+        TromboneSynth(int sampleRate, float attack, float decay, float sustain, float rest);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -35,16 +40,24 @@
         /**    @brief              A function which may be called to read the
          *                         current amplitude of the audio signal being 
          *                         generated.
+         *     @param   time       The time step which is being called. 
          *     @retval             Returns a floating point representation of the
          *                         amplitude normalised between -1 and 1. 
          */
-        float ReadTromboneAudio(void);
+        float ReadTromboneAudio(float time);
 
         /** @brief                  A function which sends the synthesiser into its
          *                          rest state.
         */
         void EndTromboneAudio(void);
 
+        /** @brief                  A function which can take in the MIDI equivalent
+         *                          note and map it to the Notes_t options to match
+         *                          the rest of the synth interface.
+         *  @param  MIDINote        The integer value between 0 and 127 representing
+         *                          the note which is being played.
+         */
+        void NewTromboneNoteMIDI(int MIDINote);
 
         
     private:
@@ -56,10 +69,10 @@
         float attack_ms;        /*  The attack time in milliseconds of the envelope. */
         float decay_ms;         /*  The decay time in milliseconds of the envelope. */
         float rest_ms;          /*  The rest time in milliseconds of the envelope. */
-        float saturation;       /*  The saturation level of the envelope. */
+        float sustain;       /*  The saturation level of the envelope. */
 
         /*  synth   */
-        int nHarmonics = 2;     /*  The number of harmonics which will be present in the final signal. */
+        int nHarmonics = 17;     /*  The number of harmonics which will be present in the final signal. */
         int octave = 2;         /*  The octave which the note will be present in. */
         Notes::Notes_t note;    /*  The note which will be played. */
  };

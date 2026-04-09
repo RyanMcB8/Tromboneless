@@ -159,6 +159,8 @@ class Envelope{
 
         envelope_stages_t getStage(void);
 
+        void setStage(envelope_stages_t stage_in);
+
     private:
         /*  ADSR Variables */
         int attack;
