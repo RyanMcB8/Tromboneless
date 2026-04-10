@@ -285,14 +285,14 @@ OctavesWithHarmonics::OctavesWithHarmonics(){
 
 }
 
-float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation){
-    float outputAmplitude = 0;
-    float noteFrequency = octaves[octave].getNote(note);
+float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time){
+    return PlayingFrequencyWithHarmonics(n, octaves[octave].getNote(note), time);
+}
 
+float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float freq, float time){
+    float outputAmplitude = 0;
     /*  Ensuring that there has been a value of n above 1 being passed. */
-    if (n <= 0){
-        n = 1;
-    }
+    n = std::max(n, 1);
 
     /*  Checking if the lower harmonics should be included. This is limited to just 1. */
     else if (n > 1){
@@ -304,6 +304,7 @@ float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t 
         outputAmplitude += HarmonicDecay(n) * PlayingFrequency(noteFrequency, time);
         noteFrequency = noteFrequency*2;
     } 
+
     /*  Returning the normalised ampltide.*/
     return (outputAmplitude/getHarmomicDecayMax(n));
 }

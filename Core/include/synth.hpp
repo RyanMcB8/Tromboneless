@@ -367,7 +367,19 @@ class OctavesWithHarmonics :    public Octaves
          *                  by increasing the number of harmonics present and using non
          *                  integer harmonics too.
          */
-        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation);
+        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time);
+
+        /** @brief          A function which may be called upon to stop playing a range
+         *                  of harmonic frequencies when a specific note is called upon to
+         *                  be played.
+         *  @param  freq    The frequency in Hz that should be played.
+         *  @param  time    The amount of time the signal has been playing. This corresponds
+         *                  to the phase that the waveform is at.
+         *  @retval         This function will return a floating point value representing
+         *                  the normalised changed amplitude of the sigal at that point in
+         *                  time.
+         */
+        float PlayingFrequencyWithHarmonics(int n, float freq, float time);
         
         /** @brief          A function which calculates how much the amplitude of 
          *                  the harmonic should decay in comparison to the first

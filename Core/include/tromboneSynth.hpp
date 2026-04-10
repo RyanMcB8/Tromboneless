@@ -40,6 +40,16 @@
          *     @param  octave_in   The octave which the note is in.
          */
         void NewTromboneNote(Notes::Notes_t note_in, int octave_in);
+        /* break up trombone note into start and change note. */
+
+        /** @brief                  A function that can change the current note
+         *                          without needed to change the stage that the 
+         *                          envelope is in.
+         *  @param  note_in         The note which the synthesiser should start
+         *                          to play.
+         *  @param  octave_in       The octave in which the note is in.
+         */
+        void ChangeTromboneNote(Notes::Notes_t note_in, int octave_in);
 
         /**    @brief              A function which may be called to read the
          *                         current amplitude of the audio signal being 
@@ -53,7 +63,7 @@
         /** @brief                  A function which sends the synthesiser into its
          *                          rest state.
         */
-        void EndTromboneAudio(void);
+        void StopTromboneNote(void);
 
         /** @brief                  A function which can take in the MIDI equivalent
          *                          note and map it to the Notes_t options to match
