@@ -29,14 +29,21 @@
  }
 
  void TromboneSynth::NewTromboneNote(Notes::Notes_t note_in, int octave_in){
-    
+    note = note_in;
+    octave = octave_in;
+    tromboneEnvelope.startEnvelope();
+ }
+
+ void TromboneSynth::ChangeTromboneNote(Notes::Notes_t note_in, int octave_in){
+    note = note_in;
+    octave = octave_in;
  }
  
  /* Change this to be based on frequency with the base note and using the pitch bend.*/
  float TromboneSynth::ReadTromboneAudio(void){
     samples += 1;
     samples = samples % sampleRate;
-   return tromboneEnvelope.getAmplitude() * PlayingNoteWithHarmonics(nHarmonics, octave, note, (float)(samples/sampleRate));
+   return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), (float)(samples/sampleRate));
  }
 
  void TromboneSynth::StopTromboneNote(void){
@@ -99,4 +106,37 @@ int TromboneSynth::getOctave(void){
 
 Notes::Notes_t TromboneSynth::getNote(void){
     return note;
+}
+
+void TromboneSynth::setPitchBend(int bend){
+    pitchBend = bend;
+    return;
+}
+
+int TromboneSynth::getPitchBend(void){
+    return pitchBend;
+}
+
+float TromboneSynth::getAdjustedFrequency(void){
+
+    /*  Finding the relative note indices of the pitch bend notes which the true pitch bend frequency is between. */
+    int rangeNoteHigh = pitchBendSpread - (int) (pitchBend / semitoneSpread);
+    int rangeNoteLow = rangeNoteHigh + 1;
+
+    /* Finding the LERP of the pitch bend between the the 2 nearest semitones. This will be between 0 and 1. */
+    float interpolationValue = (float)(((pitchBend - rangeNoteHigh) % int(semitoneSpread)) / semitoneSpread);
+
+    /* Changing the octave and notes to be repesented as one value instead of 2. */
+    int initialNote = (octave * nNotes) + note;
+    int highNote = initialNote - rangeNoteHigh;
+    int lowNote = initialNote - rangeNoteLow;
+
+    /*  Finding the frequencies of the chosen values.   */
+    float highNoteFreq = octaves[(int)(highNote / nNotes)].getNote((Notes::Notes_t) (highNote % nNotes));
+    float lowNoteFreq = octaves[(int)(lowNote / nNotes)].getNote((Notes::Notes_t) (lowNote % nNotes));
+
+    /*  Finding the interpolated frequency of due to the pitch bend. */
+    float frequency = (highNoteFreq * interpolationValue) + (lowNoteFreq * (1 - interpolationValue));
+    
+    return frequency;
 }

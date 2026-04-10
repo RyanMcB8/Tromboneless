@@ -149,6 +149,25 @@
          */
         Notes::Notes_t getNote(void);
 
+        /** @brief                  A function to set the pitch bend of the device.
+         *  @param  bend            The integer representation between 8192 and 0 of how
+         *                          much of the pitch has been bent.
+         */
+        void setPitchBend(int bend);
+
+        /** @brief                  A function to get the pitch bend of the device.
+         *  @retval                 The integer representation between 8192 and 0 of how
+         *                          much of the pitch has been bent.
+         */
+        int getPitchBend(void);
+
+        /** @brief                  A function which determines the new frequency which should
+         *                          be being played depending upon the current note and octave
+         *                          as well as the pitch bend being input.
+         *  @retval                 The floating point representation of the frequency.
+         */
+        float getAdjustedFrequency(void);
+
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
@@ -164,7 +183,13 @@
         int nHarmonics = 17;    /*  The number of harmonics which will be present in the final signal. */
         int octave = 2;         /*  The octave which the note will be present in. */
         Notes::Notes_t note;    /*  The note which will be played. */
+        int pitchBend   =   8192;  /*  The MIDI message pitch bend dependent upon the position of the slider. */
 
-        int samples = 0;
-        int sampleRate = 44100;
- };
+        unsigned int samples = 0;
+        unsigned int sampleRate = 44100;
+
+        const unsigned int pitchBendMax = 8192;    /*  The maximum number which may be passed to the the pitch bending function by the MIDI input. */
+        const unsigned int pitchBendSpread = 7;    /*  The maximum number of semitones that the pitch bend may change the playing note by*/
+        const float semitoneSpread = pitchBendMax/pitchBendSpread;  /*   The number of data points between each adjacent semitone. */
+        const int nNotes = 12;          /*  The number of notes per octave. */
+};
