@@ -48,7 +48,7 @@
          *     @retval             Returns a floating point representation of the
          *                         amplitude normalised between -1 and 1. 
          */
-        float ReadTromboneAudio(float time);
+        float ReadTromboneAudio(void);
 
         /** @brief                  A function which sends the synthesiser into its
          *                          rest state.
@@ -154,4 +154,6 @@
         int nHarmonics = 17;    /*  The number of harmonics which will be present in the final signal. */
         int octave = 2;         /*  The octave which the note will be present in. */
         Notes::Notes_t note;    /*  The note which will be played. */
+
+        int samples = 0;
  };

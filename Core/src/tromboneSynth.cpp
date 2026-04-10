@@ -53,8 +53,10 @@
     }
  }
  
- float TromboneSynth::ReadTromboneAudio(float time){
-   return tromboneEnvelope.getAmplitude() * PlayingNoteWithHarmonics(nHarmonics, octave, note, time, sustain);
+ float TromboneSynth::ReadTromboneAudio(void){
+    samples += 1;
+    samples = samples % sampleRate;
+   return tromboneEnvelope.getAmplitude() * PlayingNoteWithHarmonics(nHarmonics, octave, note, (float)(samples/sampleRate), sustain);
  }
 
  void TromboneSynth::EndTromboneAudio(void){
