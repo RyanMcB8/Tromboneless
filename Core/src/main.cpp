@@ -2,6 +2,7 @@
 #include <iostream>
 #include "main.hpp"
 #include "tromboneSynth.hpp"
+#include "tof_sensor.hpp"
 
 class GetDistance {
 public:
@@ -20,7 +21,7 @@ int main()
     // GPIO line must match wiring of VL53L1X interrupt pin
     ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
 
-    ToFPrinter printer;
+    // ToFPrinter printer;
 
     if (!sensor.initialise())
     {
@@ -31,7 +32,7 @@ int main()
     // Connect publisher -> subscriber via lambda
     sensor.registerCallback([&](uint16_t distance)
     {
-        printer.hasToFSample(distance);
+        // printer.hasToFSample(distance);
     });
 
     // Start blocking GPIO + sensor

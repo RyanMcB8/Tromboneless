@@ -11,6 +11,9 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Adding the necessary submodules
+add_subdirectory(modules/rtmidi)
+
 # Enable unit tests
 enable_testing()
 include(CTest)
@@ -21,25 +24,23 @@ include(CTest)
 
 # Add source files
 file(GLOB_RECURSE CORE_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
-file(GLOB_RECURSE RTMIDI_SOURCES "${PROJECT_SOURCE_DIR}/lib/rtmidi/*.cpp")
 
 #  Ignoring the hardware files to build on none Pi computer.
-list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/tof_sensor\\.cpp$")
-list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/eventHandler\\.cpp$")
-list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/ads1115rpi\\.cpp$")
+# list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/tof_sensor\\.cpp$")
+# list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/eventHandler\\.cpp$")
+# list(FILTER CORE_SOURCES EXCLUDE REGEX ".*/ads1115rpi\\.cpp$")
 
-add_library(TrombonelessCoreLibrary STATIC ${CORE_SOURCES} ${RTMIDI_SOURCES})
+add_library(TrombonelessCoreLibrary STATIC ${CORE_SOURCES})
 
 # Include directories for the library
 target_include_directories(TrombonelessCoreLibrary PUBLIC
     ${PROJECT_SOURCE_DIR}/include
     ${PROJECT_SOURCE_DIR}/include/drivers
     ${PROJECT_SOURCE_DIR}/shared
-    ${PROJECT_SOURCE_DIR}/lib/rtmidi
     ${LIBGPIOD_INCLUDE_DIRS}
 )
 
-target_include_directories(TrombonelessCoreLibrary PUBLIC ${LIBGPIOD_INCLUDE_DIRS})
+target_link_libraries(TrombonelessCoreLibrary PUBLIC rtmidi)
 target_link_libraries(TrombonelessCoreLibrary PRIVATE 
     ${LIBGPIOD_LIB}
     asound
