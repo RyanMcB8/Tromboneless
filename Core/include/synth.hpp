@@ -337,7 +337,7 @@ class Octaves   : public Notes
          *                  depending on the volume. The maxmimum and minimum will always
          *                  be 1 and -1 respectively.
         */
-        float Octaves::PlayingFrequency(float freq, float time);
+        float PlayingFrequency(float freq, float time);
 
         
     private:

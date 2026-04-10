@@ -295,14 +295,14 @@ float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float freq, flo
     n = std::max(n, 1);
 
     /*  Checking if the lower harmonics should be included. This is limited to just 1. */
-    else if (n > 1){
-        noteFrequency = noteFrequency/2;
+    if (n > 1){
+        freq = freq/2;
     }
 
     /* Looping through all the harmonics from 1 below to n-2 above. */
     for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n) * PlayingFrequency(noteFrequency, time);
-        noteFrequency = noteFrequency*2;
+        outputAmplitude += HarmonicDecay(n) * PlayingFrequency(freq, time);
+        freq = freq*2;
     } 
 
     /*  Returning the normalised ampltide.*/

@@ -8,11 +8,11 @@
  /* Adding the necessary header files to be included. */
  #include "tromboneSynth.hpp"
 
- TromboneSynth::TromboneSynth(int sampleRate, float attack, float decay, float sustain, float rest){
+ TromboneSynth::TromboneSynth(int sampleRate_in, float attack, float decay, float sustain, float rest){
     /*  Storing the ADR inputs as their time in milliseconds and then passing the N sample equivalent
         into the envelope object. */
     /* Ignoring any negative frequencies or times being input*/
-    sampleRate = abs(sampleRate);
+    sampleRate = abs(sampleRate_in);
     attack_ms = abs(attack);
     attack = (abs(attack) / 1000) * sampleRate;
 
@@ -36,7 +36,7 @@
  float TromboneSynth::ReadTromboneAudio(void){
     samples += 1;
     samples = samples % sampleRate;
-   return tromboneEnvelope.getAmplitude() * PlayingNoteWithHarmonics(nHarmonics, octave, note, (float)(samples/sampleRate), sustain);
+   return tromboneEnvelope.getAmplitude() * PlayingNoteWithHarmonics(nHarmonics, octave, note, (float)(samples/sampleRate));
  }
 
  void TromboneSynth::StopTromboneNote(void){

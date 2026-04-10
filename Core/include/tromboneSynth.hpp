@@ -166,4 +166,5 @@
         Notes::Notes_t note;    /*  The note which will be played. */
 
         int samples = 0;
+        int sampleRate = 44100;
  };

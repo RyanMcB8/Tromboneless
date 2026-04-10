@@ -117,7 +117,7 @@ float Envelope::restFunction(void){
 }
 
 float Envelope::clamp01(float value){
-    return (float) (std::max(std::min(value, 1), 0));
+    return (float) (std::max(std::min((float) (value) , (float) (1.0)), 0.0f));
 }
 
 Envelope::envelope_stages_t Envelope::getStage(void){
