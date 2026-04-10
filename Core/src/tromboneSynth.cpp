@@ -28,7 +28,7 @@
     tromboneEnvelope.setRest(rest);
  }
 
- void TromboneSynth::NewTromboneNote(Notes::Notes_t note_in, int octave_in){
+ void TromboneSynth::StartTromboneNote(Notes::Notes_t note_in, int octave_in){
     note = note_in;
     octave = octave_in;
     tromboneEnvelope.startEnvelope();

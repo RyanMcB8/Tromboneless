@@ -39,8 +39,7 @@
          *     @param  note_in     The note which should start to play.
          *     @param  octave_in   The octave which the note is in.
          */
-        void NewTromboneNote(Notes::Notes_t note_in, int octave_in);
-        /* break up trombone note into start and change note. */
+        void StartTromboneNote(Notes::Notes_t note_in, int octave_in);
 
         /** @brief                  A function that can change the current note
          *                          without needed to change the stage that the 
