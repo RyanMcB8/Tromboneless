@@ -66,72 +66,72 @@ class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
             int height, float sliderPos, float minSliderPos, float maxSliderPos,
             const juce::Slider::SliderStyle style, juce::Slider& slider) override;
 
-        // /** @brief                  A function to set the colour of the finger/dial of the slider.
-        //  *  @param  colour          The colour to which the dial should be set to.
-        //  */
-        // void setDialColour(const juce::Colour& colour);
+        /** @brief                  A function to set the colour of the finger/dial of the slider.
+         *  @param  colour          The colour to which the dial should be set to.
+         */
+        void setDialColour(const juce::Colour colour);
 
-        // /** @brief                  A function to get the current colour of the finger/dial of the
-        //  *                          slider.
-        //  *  @retval                 Returns the colour as a juce::Colour type.
-        //  */
-        // juce::Colour getDialColour(juce::Colour colour);
+        /** @brief                  A function to get the current colour of the finger/dial of the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getDialColour(void);
 
-        // /** @brief                  A function to set the colour of the edge of the finger/dial on
-        //  *                          the slider.
-        //  *  @param  colour          The colour to which the edge of the dial should be set to.
-        //  */
-        // void setDialEdgeColour(const juce::Colour& colour);
+        /** @brief                  A function to set the colour of the edge of the finger/dial on
+         *                          the slider.
+         *  @param  colour          The colour to which the edge of the dial should be set to.
+         */
+        void setDialEdgeColour(const juce::Colour& colour);
 
-        // /** @brief                  A function to get the current colour of the edge of the finger
-        //  *                          /dial of the slider.
-        //  *  @retval                 Returns the colour as a juce::Colour type.
-        //  */
-        // juce::Colour getDialEdgeColour(juce::Colour colour);
+        /** @brief                  A function to get the current colour of the edge of the finger
+         *                          /dial of the slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getDialEdgeColour(void);
 
-        // /** @brief                  A function to set the colour of the ticks on the slider.
-        //  *  @param  colour          The colour to which the ticks should be set to.
-        //  */
-        // void setTickColour(juce::Colour colour);
+        /** @brief                  A function to set the colour of the ticks on the slider.
+         *  @param  colour          The colour to which the ticks should be set to.
+         */
+        void setTickColour(juce::Colour colour);
 
-        // /** @brief                  A function to get the current colour of the ticks on the
-        //  *                          slider.
-        //  *  @retval                 Returns the colour as a juce::Colour type.
-        //  */
-        // juce::Colour getTickColour(juce::Colour colour);
+        /** @brief                  A function to get the current colour of the ticks on the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getTickColour(void);
 
-        // /** @brief                  A function to set the colour of the track of the slider.
-        //  *  @param  colour          The colour to which the track should be set to.
-        //  */
-        // void setTrackColour(juce::Colour colour);
+        /** @brief                  A function to set the colour of the track of the slider.
+         *  @param  colour          The colour to which the track should be set to.
+         */
+        void setTrackColour(juce::Colour colour);
 
-        // /** @brief                  A function to get the current colour of the track of the
-        //  *                          slider.
-        //  *  @retval                 Returns the colour as a juce::Colour type.
-        //  */
-        // juce::Colour getTrackColour(juce::Colour colour);
+        /** @brief                  A function to get the current colour of the track of the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getTrackColour(void);
 
-        // /** @brief                  A function to set the colour of the background of the slider.
-        //  *  @param  colour          The colour to which the background should be set to.
-        //  */
-        // void setBackgroundColour(juce::Colour colour);
+        /** @brief                  A function to set the colour of the background of the slider.
+         *  @param  colour          The colour to which the background should be set to.
+         */
+        void setBackgroundColour(juce::Colour colour);
 
-        // /** @brief                  A function to get the current colour of the background of the
-        //  *                          slider.
-        //  *  @retval                 Returns the colour as a juce::Colour type.
-        //  */
-        // juce::Colour getBackgroundColour(juce::Colour colour);
+        /** @brief                  A function to get the current colour of the background of the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getBackgroundColour(void);
 
-        // /** @brief                  A function to set the colour of the text around the slider.
-        //  *  @param  colour          The colour to which the text should be set to.
-        //  */
-        // void setTextColour(juce::Colour colour);
+        /** @brief                  A function to set the colour of the text around the slider.
+         *  @param  colour          The colour to which the text should be set to.
+         */
+        void setTextColour(juce::Colour colour);
 
-        // /** @brief                  A function to get the current colour of the text around the
-        //  *                          slider.
-        //  *  @retval                 Returns the colour as a juce::Colour type.
-        //  */
-        // juce::Colour getTextColour(juce::Colour colour);
+        /** @brief                  A function to get the current colour of the text around the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getTextColour(void);
 
         /** @brief                     A function to set the size of the track width of the slider.
          *  @param  width               The floating point representation of the width of the track
@@ -222,21 +222,21 @@ class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
 
 private:
     /*  Setting the main colour of the knob (dial) of the slider. */
-    const juce::Colour dialColour           = juce::Colours::white;
+    juce::Colour dialColour           = juce::Colours::white;
 
     /*  Setting the secondary colour of the knob (dial) of the slider.
         currently, this is for the lines within the knob. */
-    const juce::Colour dialEdgeColour       = juce::Colours::red;
+    juce::Colour dialEdgeColour       = juce::Colours::red;
 
     /*  Setting the colour of the ticks along the slider. */
-    const juce::Colour tickColour           = juce::Colours::darkgrey; 
+    juce::Colour tickColour           = juce::Colours::darkgrey; 
 
     /*  Setting the colour of the track which the knob will be moving
         across. */
-    const juce::Colour trackColour          = juce::Colours::darkgrey;
+    juce::Colour trackColour          = juce::Colours::darkgrey;
 
     /*  Setting the colour which will fill the bounds of the slider. */
-    const juce::Colour backgroundColour     = juce::Colours::black; 
+    juce::Colour backgroundColour     = juce::Colours::black; 
 
     /*  Setting the colour of the text which will be beside the slider. */
     juce::Colour textColour           = juce::Colours::white;
@@ -289,10 +289,10 @@ class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
         float getTrackWidth(void);
 
     private:
-        const juce::Colour  emptyTrackColour= juce::Colours::darkgrey;
-        const juce::Colour  fullTrackColour = juce::Colours::gold;
-        const juce::Colour  thumbOneColour  = juce::Colours::yellow;
-        const juce::Colour  thumbTwoColour  = juce::Colours::pink;
+        juce::Colour  emptyTrackColour= juce::Colours::darkgrey;
+        juce::Colour  fullTrackColour = juce::Colours::gold;
+        juce::Colour  thumbOneColour  = juce::Colours::yellow;
+        juce::Colour  thumbTwoColour  = juce::Colours::pink;
 
         float trackWidth        =   5;
 
@@ -377,7 +377,7 @@ class NeedleLookAndFeel :   public juce::LookAndFeel_V4
 
     private:
         /*  Setting the colour of the needle/arrow which is being drawn. */
-        const juce::Colour needleColour =   juce::Colours::black;
+        juce::Colour needleColour =   juce::Colours::black;
 
 
 };

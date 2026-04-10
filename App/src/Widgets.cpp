@@ -332,43 +332,75 @@ float DualRotarySlider::getMinDifference(void){
 }
 
 void DualRotarySlider::setMinSliderRadius(float radius){
-
+    minSliderRadius = radius;
+    return;
 }
 
 float DualRotarySlider::getMinSliderRadius(void){
-return 0.0f;
+    return minSliderRadius; 
 }
 
 void DualRotarySlider::setMaxSliderRadius(float radius){
-
+    maxSliderRadius = radius;
+    return;
 }
 
 float DualRotarySlider::getMaxSliderRadius(void){
-    return 0.0f;
+    return maxSliderRadius;
 }
 
 void  DualRotarySlider::updateMinAngleDifference(void){
     minAngleDifference = (maxAngle - minAngle)*(minDifference/(maxLimit - minLimit));
 }
 
+void DualRotarySlider::setLabelHeight(float height){
+    labelHeight = height;
+    return;
+}
+
 float DualRotarySlider::getLabelHeight(void){
     return labelHeight;
+}
+
+void DualRotarySlider::setMinLimit(float limit){
+    minLimit = std::min(limit, getMaxLimit()-minDifference);
+    return;
 }
 
 float DualRotarySlider::getMinLimit(void){
     return minLimit;
 }
 
+void DualRotarySlider::setMaxLimit(float limit){
+    maxLimit = limit;
+    return;
+}
+
 float DualRotarySlider::getMaxLimit(void){
     return maxLimit;
+}
+
+void DualRotarySlider::setInterval(float step){
+    interval = step;
+    return;
 }
 
 float DualRotarySlider::getInterval(void){
     return interval;
 }
 
+void DualRotarySlider::setMinAngle(float angle){
+    minAngle = std::min(angle, getMaxAngle() - minAngleDifference);
+    return;
+}
+
 float DualRotarySlider::getMinAngle(void){
     return minAngle;
+}
+
+void DualRotarySlider::setMaxAngle(float angle){
+    maxAngle = std::max(angle, getMinAngle() + minAngleDifference);
+    return;
 }
 
 float DualRotarySlider::getMaxAngle(void){

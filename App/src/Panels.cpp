@@ -104,6 +104,7 @@ void Sliders::resized(){
 
 
 void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
+    
 
 }
 

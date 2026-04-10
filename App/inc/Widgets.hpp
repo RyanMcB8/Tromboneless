@@ -283,15 +283,27 @@ public:
      */
     float getMaxSliderRadius(void);
 
+    void setLabelHeight(float height);
+
     float getLabelHeight(void);
+
+    void setMinLimit(float limit);
 
     float getMinLimit(void);
 
+    void setMaxLimit(float limit);
+
     float getMaxLimit(void);
+
+    void setInterval(float step);
 
     float getInterval(void);
 
+    void setMinAngle(float angle);
+
     float getMinAngle(void);
+
+    void setMaxAngle(float angle);
 
     float getMaxAngle(void);
     

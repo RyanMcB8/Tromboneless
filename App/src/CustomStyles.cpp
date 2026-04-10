@@ -117,6 +117,60 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
     }
 }      
 
+void VerticalSliderLookAndFeel::setDialColour(const juce::Colour colour){
+    dialColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getDialColour(void){
+    return dialColour;
+}
+
+void VerticalSliderLookAndFeel::setDialEdgeColour(const juce::Colour& colour){
+    dialEdgeColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getDialEdgeColour(void){
+    return dialEdgeColour;
+}
+
+void VerticalSliderLookAndFeel::setTickColour(juce::Colour colour){
+    tickColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTickColour(void){
+    return tickColour;
+}
+
+void VerticalSliderLookAndFeel::setTrackColour(juce::Colour colour){
+    trackColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTrackColour(void){
+    return trackColour;
+}
+
+void VerticalSliderLookAndFeel::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getBackgroundColour(void){
+    return backgroundColour;
+}
+
+void VerticalSliderLookAndFeel::setTextColour(juce::Colour colour){
+    textColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTextColour(void){
+    return textColour;
+}
+
 void VerticalSliderLookAndFeel::setTrackWidth(float width){
     trackWidth = width;
 }
@@ -408,6 +462,9 @@ void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
     /* Finding the centere of the slider. */
     float centreX = x + (width/2);
     float centreY = y + (height/2);
+
+    /* This line is bad practice but it does remove the unused parameter error without needing to adjust the Juce library. */
+    slider.getBounds();     
 
     float thickness = 5;
     /* How much extra length relative to the radius is added to the other side of the slider. */
