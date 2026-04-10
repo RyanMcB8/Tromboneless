@@ -59,6 +59,9 @@ class Envelope{
          */
         float getAmplitude(void);
 
+        /** @brief                  A function that enters the device into the attack stage. */
+        void startEnvelope(void);
+
         /** @brief                  A function which sets the envelope to enter the rest
          *                          stage and begin to approach 0.
          */

@@ -26,7 +26,6 @@ float Envelope::getAmplitude(void){
     {
         case no_stage:
             amplitude = 0;
-            stage = attack_stage;
             break;
             
         case attack_stage:
@@ -58,6 +57,10 @@ float Envelope::getAmplitude(void){
     }
     counter ++;
     return amplitude;
+}
+
+void Envelope::startEnvelope(void){
+    stage = attack_stage;
 }
 
 void Envelope::endEnvelope(void){
