@@ -282,6 +282,18 @@ public:
      *                              relative radius.
      */
     float getMaxSliderRadius(void);
+
+    float getLabelHeight(void);
+
+    float getMinLimit(void);
+
+    float getMaxLimit(void);
+
+    float getInterval(void);
+
+    float getMinAngle(void);
+
+    float getMaxAngle(void);
     
 private:
 
