@@ -145,25 +145,77 @@ class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
          */
         float getTrackWidth(void);
 
+        /** @brief                      A function to set the thickness of the ticks to indicate
+         *                              what step the slider is positioned in.
+         *  @param  thickness           The thickess of the ticks (vertical height) in terms of the
+         *                              resolution.
+         */
         void setTickThickness(float thickness);
 
+        /** @brief                      A function to get what the current tick thickness is for
+         *                              the object.
+         *  @retval                     Returns the floating point representation of the tick
+         *                              thickness of the object.
+         */
         float getTickThickness(void);
 
+        /** @brief                      A function to set the width of the ticks to indicate
+         *                              what step the slider is positioned in.
+         *  @param  width               The width of the ticks (horizontal) in terms of the
+         *                              resolution.
+         */
         void setTickWidth(float width);
 
+        /** @brief                      A function which may be used to find the current tick width
+         *                              of the object.
+         *  @retval                     Returns the floating point representation of the tick's
+         *                              width.
+         */
         float getTickWidth(void);
 
 #ifdef USE_CIRCLE_FINGER 
+        /** @brief                      A function to set the radius of the finger/knob of the slider
+         *                              when the finger is set to have a circular shape.
+         *  @param  radius              The radius of the finger as a floating point value in terms
+         *                              of the resoltuion.
+         */
         void setFingerRadius(float radius);
 
+        /** @brief                      A function to get the radius of the finger/knov of the slider
+         *                              when the finger is set to have a circular shape.
+         *  @retval                     The floating point representation of the radius in terms of
+         *                              the resolution.
+         */
         float getFingerRadius(void);
 #else
+        /** @brief                      A function to set the width of the slider's finger/knob
+         *                              when the slider is set to have a rectangular shape.
+         *  @param  width               The floating point representation of the width of the 
+         *                              finger/knob in terms of the resolution.
+        */
         void setFingerWidth(float width);
 
+        /** @brief                      A function to get the current width of the slider's
+         *                              finger/knob within the object when the slider is 
+         *                              set to have a rectangular shape.
+         *  @retval                     The floating point representation of the width of the
+         *                              object's finger/knob.
+         */
         float getFingerWidth(void);
 
+        /** @brief                      A function to set the height of the slider's finger/knob
+         *                              when the slider is set to have a rectangular shape.
+         *  @param  height              The floating point representation of the height of the 
+         *                              finger/knob in terms of the resolution.
+        */
         void setFingerHeight(float height);
 
+        /** @brief                      A function to get the current height of the slider's
+         *                              finger/knob within the object when the slider is 
+         *                              set to have a rectangular shape.
+         *  @retval                     The floating point representation of the height of the
+         *                              object's finger/knob.
+         */
         float getFingerHeight(void);
 
 #endif
@@ -187,7 +239,7 @@ private:
     const juce::Colour backgroundColour     = juce::Colours::black; 
 
     /*  Setting the colour of the text which will be beside the slider. */
-    const juce::Colour textColour           = juce::Colours::white;
+    juce::Colour textColour           = juce::Colours::white;
 
     /*          Sizes.       */
     /*  This sets the track width of the slider. */
@@ -222,6 +274,19 @@ class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
             int width, int height, float sliderPos, float minSliderPos, 
             float maxSliderPos, const juce::Slider::SliderStyle style, 
             juce::Slider& slider);
+
+        /** @brief                      A function to set the width of the track to indicate
+         *                              what step the slider is positioned in.
+         *  @param  width               The width of the track in terms of the resolution.
+         */
+        void setTrackWidth(float width);
+
+        /** @brief                      A function which may be used to find the current track width
+         *                              of the object.
+         *  @retval                     Returns the floating point representation of the track's
+         *                              width.
+         */
+        float getTrackWidth(void);
 
     private:
         const juce::Colour  emptyTrackColour= juce::Colours::darkgrey;

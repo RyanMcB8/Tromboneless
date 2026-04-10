@@ -343,6 +343,15 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
 
 }
 
+void CalibrationSliderLookAndFeel::setTrackWidth(float width){
+    trackWidth = width;
+    return;
+}
+
+float CalibrationSliderLookAndFeel::getTrackWidth(void){
+    return trackWidth;
+}
+
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                          RotaryArc                                         */
