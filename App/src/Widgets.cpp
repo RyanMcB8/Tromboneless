@@ -125,6 +125,42 @@ void SliderWithLabel::labelSetup(juce::Label* Label, juce::String phrase,
 }
 
 
+void SliderWithLabel::setTopLabelBounds(int bound){
+    topLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getTopLabelBounds(void){
+    return topLabelBounds;
+}
+
+void SliderWithLabel::setLeftLabelBounds(int bound){
+    leftLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getLeftLabelBounds(void){
+    return leftLabelBounds;
+}
+
+void SliderWithLabel::setRightLabelBounds(int bound){
+    rightLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getRightLabelBounds(void){
+    return rightLabelBounds;
+}
+
+void SliderWithLabel::setBottomLabelBounds(int bound){
+    bottomLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getBottomLabelBounds(void){
+    return bottomLabelBounds;
+}
+
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                   CalibrationSlider                                        */
@@ -143,6 +179,10 @@ CalibrationSlider::~CalibrationSlider(){
  void CalibrationSlider::setMinDifference(double difference){
      minDistance = difference;
  }
+
+double CalibrationSlider::getMinDifference(void){
+    return minDistance;
+}
 
  void CalibrationSlider::sliderValueChanged(juce::Slider* sliderChanged) 
  {
@@ -277,6 +317,30 @@ void DualRotarySlider::resized()
     maxSlider.setBounds(totalArea.withSizeKeepingCentre(bounds*maxSliderRadius, bounds*maxSliderRadius));
     minSlider.setBounds(totalArea.withSizeKeepingCentre(bounds*minSliderRadius, bounds*minSliderRadius));
     
+}
+
+void DualRotarySlider::setMinDifference(float difference){
+    
+    /*  Instantly limit the differece to be a maximum of 80% and minimum of 0%. */
+    minDifference = std::min((float)((maxLimit-minLimit) * 0.8), abs(difference));
+    updateMinAngleDifference();
+    return;
+}
+
+float DualRotarySlider::getMinDifference(void){
+    return minDifference;
+}
+
+void DualRotarySlider::setMinSliderRadius(float radius);
+
+float DualRotarySlider::getMinSliderRadius(void);
+
+void DualRotarySlider::setMaxSliderRadius(float radius);
+
+float DualRotarySlider::getMaxSliderRadius(void);
+
+void  DualRotarySlider::updateMinAngleDifference(void){
+    minAngleDifference = (maxAngle - minAngle)*(minDifference/(maxLimit - minLimit));
 }
 
 /* ========================================================================================== */

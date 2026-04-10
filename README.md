@@ -24,6 +24,11 @@ If you wish to create your very own Tromboneless, the hardware used to create th
 
 For documentation of the code used, please refer to the [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation) directory where there are both LaTex and HTML versions of the documentation for this project.<br>
 
+## Social Media
+Feel free to follow our social media accounts for frequent updates on the progress off the project including showcase videos and demonstrations:<br>
+[Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
+[Instagram](https://www.instagram.com/tromboneless.tech/)<br>
+
 ## SSH Steps
 The following steps are to allow for a remote access connection into your Raspberry Pi if you wish to use another computer as your input terminal.<br>
 
