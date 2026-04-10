@@ -15,11 +15,18 @@
 void Panels::paint(juce::Graphics& g){
     juce::Rectangle <int> area = getLocalBounds();
     juce::Rectangle <float> outlineRectangle = area.toFloat();
-    g.setColour(edgeColour);
+    g.setColour(backgroundColour);
     g.fillRoundedRectangle(outlineRectangle , (float) 20);
 }
 
+void Panels::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
 
+juce::Colour Panels::getBackgroundColour(void){
+    return backgroundColour;
+}
 
 
 /* ========================================================================================== */
@@ -100,6 +107,41 @@ void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
 
 }
 
+void Sliders::setMinimumDistance(float distance){
+    minimumDistance = distance;
+    return;
+}
+
+float Sliders::getMinimumDistance(void){
+    return minimumDistance;
+}
+
+void Sliders::setMaximumDistance(float distance){
+    maximumDistance = distance;
+    return;
+}
+
+float Sliders::getMaximumDistance(void){
+    return maximumDistance;
+}
+
+void Sliders::setStepDistance(float distance){
+    stepDistance = distance;
+    return;
+}
+
+float Sliders::getStepDistance(void){
+    return stepDistance;
+}
+
+void Sliders::setDistanceRange(float range){
+    distanceRange = range;
+    return;
+}
+
+float Sliders::getDistanceRange(void){
+    return distanceRange;
+}
 
 /* ========================================================================================== */
 /*                                                                                            */
