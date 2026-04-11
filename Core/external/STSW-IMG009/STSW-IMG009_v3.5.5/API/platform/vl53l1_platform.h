@@ -21,6 +21,11 @@
 #include "vl53l1_types.h"
 
 #ifdef __cplusplus
+class I2CBus;
+void VL53L1_PlatformInit(I2CBus& bus);
+#endif
+
+#ifdef __cplusplus
 extern "C"
 {
 #endif
