@@ -14,13 +14,13 @@
     /* Ignoring any negative frequencies or times being input*/
     sampleRate = abs(sampleRate_in);
     attack_ms = abs(attack);
-    attack = (abs(attack) / 1000) * sampleRate;
+    attack = (abs(attack) / 1000.0) * float(sampleRate);
 
     decay_ms = abs(decay);
-    decay = (abs(decay) / 1000) * sampleRate;
+    decay = (abs(decay) / 1000.0) * sampleRate;
 
     rest_ms = abs(rest);
-    rest = (abs(rest) / 1000) * sampleRate;
+    rest = (abs(rest) / 1000.0) * sampleRate;
 
     tromboneEnvelope.setAttack(attack);
     tromboneEnvelope.setDecay(decay);
@@ -43,7 +43,7 @@
  float TromboneSynth::ReadTromboneAudio(void){
     samples += 1;
     samples = samples % sampleRate;
-   return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), (float)(samples/sampleRate));
+   return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), static_cast<float>(samples) / static_cast<float>(sampleRate));
  }
 
  void TromboneSynth::StopTromboneNote(void){

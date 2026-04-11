@@ -28,8 +28,8 @@
          *  @param  decay           The amount of time in ms that the decay should
          *                          last for.
          */
-        TromboneSynth(int sampleRate = 44100, float attack = 500, float decay = 50,
-             float sustain = 0.96, float rest = 10);
+        TromboneSynth(int sampleRate = 44100, float attack = 500.0, float decay = 50.0,
+             float sustain = 0.96, float rest = 10.0);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -181,7 +181,7 @@
         /*  synth   */
         int nHarmonics = 17;    /*  The number of harmonics which will be present in the final signal. */
         int octave = 2;         /*  The octave which the note will be present in. */
-        Notes::Notes_t note;    /*  The note which will be played. */
+        Notes::Notes_t note = Notes::Notes::note_A;  /*  The note which will be played. */
         int pitchBend   =   8192;  /*  The MIDI message pitch bend dependent upon the position of the slider. */
 
         unsigned int samples = 0;
