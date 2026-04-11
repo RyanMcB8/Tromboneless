@@ -373,7 +373,7 @@ float DualRotarySlider::getMinLimit(void){
 }
 
 void DualRotarySlider::setMaxLimit(float limit){
-    maxLimit = limit;
+    maxLimit = std::max(limit, getMinLimit()+minDifference);;
     return;
 }
 
@@ -382,7 +382,7 @@ float DualRotarySlider::getMaxLimit(void){
 }
 
 void DualRotarySlider::setInterval(float step){
-    interval = step;
+    interval = std::min(step, (maxLimit - minLimit)/2);
     return;
 }
 
@@ -585,6 +585,65 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
 
 }
 
+void Barometer::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getBackgroundColour(void){
+    return backgroundColour;
+}
+
+void Barometer::setTextColour(juce::Colour colour){
+    textColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getTextColour(void){
+    return textColour;
+}
+
+void Barometer::setBoarderColour(juce::Colour colour){
+    boarderColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getBoarderColour(void){
+    return boarderColour;
+}
+
+void Barometer::setEdgeColour(juce::Colour colour){
+    edgeColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getEdgeColour(void){
+    return edgeColour;
+}
+
+void Barometer::setOuterRadius(float radius){
+    relativeOuterRadius = radius;
+}
+
+float Barometer::getOuterRadius(void){
+    return relativeOuterRadius;
+}
+
+void Barometer::setInnerRadius(float radius){
+    relativeInnerRadius = radius;
+}
+
+float Barometer::getInnerRadius(void){
+    return relativeInnerRadius;
+}
+
+void Barometer::setLabelRadius(float radius){
+    relativeLabelRadius = radius;
+}
+
+float Barometer::getLabelRadius(void){
+    return relativeLabelRadius;
+}
 
 /* ========================================================================================== */
 /*                                                                                            */
