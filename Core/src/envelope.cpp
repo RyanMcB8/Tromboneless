@@ -7,6 +7,7 @@
  /* Adding the necessary header files. */
  #include "envelope.hpp"
  #include <stdio.h>
+ #include <algorithm>
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -30,7 +31,7 @@ float Envelope::getAmplitude(void){
             
         case attack_stage:
             amplitude = attackFunction();
-            if (counter == attack){
+            if (counter >= attack){
                 stage = decay_stage;
                 counter = 0;
             }
@@ -117,7 +118,8 @@ float Envelope::restFunction(void){
 }
 
 float Envelope::clamp01(float value){
-    return (float) (std::max(std::min((float) (value) , (float) (1.0)), 0.0f));
+    float clamped = std::clamp(value, 0.0f, 1.0f);
+    return clamped;
 }
 
 Envelope::envelope_stages_t Envelope::getStage(void){
