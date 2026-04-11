@@ -8,7 +8,6 @@
 
 int main(){
     TromboneSynth synth = TromboneSynth();
-    //500, 50, 0.95, 10
 
     AudioOutput output;
 
@@ -16,7 +15,7 @@ int main(){
 
     constexpr int frames = 512; // Samples in a buffer
     int sample_rate = 44100;
-    int16_t buffer[frames]; // Raw C-style array
+    int16_t buffer[frames]{0}; // Raw C-style array
 
     // How long notes will play
     int buffers_per_sec = int(sample_rate / frames); 
@@ -33,10 +32,10 @@ int main(){
             for(int t = 0; t < frames; t++)
             {
                 buffer[t] = static_cast<int16_t>(synth.ReadTromboneAudio()*32767.0f);
-                std::cout << buffer[t] << " ";      
+                // std::cout << buffer[t] << " ";      
             }
 
-            //output.writeSamples(buffer, frames);
+            output.writeSamples(buffer, frames);
         }
     // }
 

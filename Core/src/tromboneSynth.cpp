@@ -44,11 +44,11 @@
  
  /* Change this to be based on frequency with the base note and using the pitch bend.*/
  float TromboneSynth::ReadTromboneAudio(void){
-    samples += 1;
     samples = samples % sampleRate;
-    float time_increment = 1 / static_cast<float>(sampleRate);
-    float accum_time_increment = time_increment * static_cast<float>(samples);
-    return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), accum_time_increment);
+    samples += 1;
+    float time_increment = 1.0f / static_cast<float>(sampleRate);
+    float accum_time = time_increment * static_cast<float>(samples);
+    return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), accum_time);
  }
 
  void TromboneSynth::StopTromboneNote(void){
@@ -91,6 +91,7 @@ float TromboneSynth::getRestMS(void){
 
 void TromboneSynth::setSustain(float sustain_in){
     sustain = sustain_in;
+
 }
 
 float TromboneSynth::getSustain(void){
