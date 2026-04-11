@@ -9,6 +9,7 @@
  /* Adding the necessary headers. */
  #include   "Panels.hpp"
  #include   "Widgets.hpp"
+ #include   "tromboneless_data.hpp"
 
  /* Initialisation of class members.*/
 
@@ -52,7 +53,7 @@ juce::Colour Panels::getBackgroundColour(void){
     shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
 
     addAndMakeVisible(calibrateEmbouchure);
-
+    return;
 }
 
 void DropDownMenus::resized(){
@@ -64,6 +65,7 @@ void DropDownMenus::resized(){
     shiftKeyChoice.setBounds (topDropDownBound);
 
     calibrateEmbouchure.setBounds (workingArea.removeFromBottom(workingArea.getHeight()*0.4));
+    return;
 }
 
 
@@ -84,7 +86,7 @@ Sliders::Sliders(){
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider distance");
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, (juce::String)(((juce::String) minimumDistance) + (juce::String)" cm"));
     distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, (juce::String)(((juce::String) maximumDistance) + (juce::String)" cm"));
-
+    return;
 }
 
 Sliders::~Sliders(){
@@ -104,8 +106,13 @@ void Sliders::resized(){
 
 
 void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
-    
-
+    if (sliderChanged == &distanceSlider.slider){
+        /*  Update the calibrated distance of the slider in the main window. */
+        trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
+        trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+        return;
+    }
+    return;
 }
 
 void Sliders::setMinimumDistance(float distance){
@@ -188,9 +195,11 @@ void EqualizerPanel::resized(){
 void EqualizerPanel::buttonClicked(juce::Button* buttonClicked)
 {
     if (buttonClicked == &button){
+        /*  Alternating between showing the equalizer and hiding it. */
         synthesiserParameters.synthEnable = !synthesiserParameters.synthEnable;
         equalizer.setVisible(synthesiserParameters.synthEnable);
 
+        /*  Changing the displayed lbale depending upon on the visibility of the equalizer. */
         if (false == synthesiserParameters.synthEnable){
             buttonLabel.setText((juce::String) "Enable equalizer", juce::dontSendNotification);
         }

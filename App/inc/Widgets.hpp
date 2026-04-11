@@ -1,3 +1,12 @@
+/** @file           Widgets.hpp
+ *  @author         Ryan McBride
+ *  @brief          A file which sets the declarations of any custom widgets
+ *                  which have been built off of the juce framework. A large
+ *                  portion of these widgets have been created specifically
+ *                  for the Tromboneless project.
+ */
+
+
 #pragma once
 
 #include <juce_gui_extra/juce_gui_extra.h>
@@ -283,10 +292,20 @@ public:
      */
     float getMaxSliderRadius(void);
 
+    /** @brief                      A function to set the maximum height of the label attached
+     *                              to the rotary slider.
+     *  @param  height              The height of the label in terms of the resolution as a
+     *                              floating point value.
+     */
     void setLabelHeight(float height);
 
+    /** @brief                      A function to get the current height of the label which is
+     *                              attached to the rotary slider.
+     *  @retval                     The height of the label as a floating point value.
+     */
     float getLabelHeight(void);
 
+    
     void setMinLimit(float limit);
 
     float getMinLimit(void);

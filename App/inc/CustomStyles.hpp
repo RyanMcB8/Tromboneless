@@ -275,6 +275,54 @@ class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
             float maxSliderPos, const juce::Slider::SliderStyle style, 
             juce::Slider& slider);
 
+        /** @brief                      A function to allow for the empty track colour to be changed.
+         *  @param  colour              The colour which the emptry track should be set to.
+         */
+        void setEmptyTrackColour(juce::Colour colour);
+
+        /** @brief                      A function to get the current colour of the empty track of
+         *                              the slider.
+         *  @retval                     The colour as a juce::Colour type.
+         */
+        juce::Colour getEmptyTrackColour(void);
+
+        /** @brief                      A function to allow for the full track colour to be changed.
+         *  @param  colour              The colour which the full track should be set to.
+         *  @note                       The full track refers to the part of the track between
+         *                              the two fingers/knobs
+         */
+        void setFullTrackColour(juce::Colour colour);
+
+        /** @brief                      A function to get the current colour of the full track of
+         *                              the slider.
+         *  @retval                     The colour as a juce::Colour type.
+         *  @note                       The full track refers to the part of the track between
+         *                              the two fingers/knobs
+         */
+        juce::Colour getFullTrackColour(void);
+
+        /** @brief                      A function to allow for the colour of the first thumb to be changed.
+         *  @param  colour              The colour which the thumb should be set to.
+         */
+        void setMinThumbColour(juce::Colour colour);
+
+        /** @brief                      A function to get the current colour of the minimum finger of
+         *                              the slider.
+         *  @retval                     The colour as a juce::Colour type.
+         */
+        juce::Colour getMinThumbColour(void);
+
+        /** @brief                      A function to allow for the colour of the second thumb to be changed.
+         *  @param  colour              The colour which the thumb should be set to.
+         */
+        void setMaxThumbColour(juce::Colour colour);
+
+        /** @brief                      A function to get the current colour of the maximum finger of
+         *                              the slider.
+         *  @retval                     The colour as a juce::Colour type.
+         */
+        juce::Colour getMaxThumbColour(void);
+
         /** @brief                      A function to set the width of the track to indicate
          *                              what step the slider is positioned in.
          *  @param  width               The width of the track in terms of the resolution.
@@ -374,6 +422,18 @@ class NeedleLookAndFeel :   public juce::LookAndFeel_V4
         virtual void drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
             int height, float sliderPos, const float rotaryStartAngle,
                 const float rotaryEndAngle, juce::Slider& slider) override;
+
+        /** @brief                      A function to set the colour of the needle which represents
+         *                              the position of the slider.
+         *  @param  colour              The colour which the needle should be set to.
+         */
+        void setNeedleColour(juce::Colour colour);
+
+        /** @brief                      A function to get the current colour of the needle which
+         *                              represents the position of the slider.
+         *  @retval                     The colour of the needle as a juce::Colour type.
+         */
+        juce::Colour getNeedleColour(void);
 
     private:
         /*  Setting the colour of the needle/arrow which is being drawn. */

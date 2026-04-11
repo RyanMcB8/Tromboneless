@@ -177,7 +177,8 @@ CalibrationSlider::~CalibrationSlider(){
 }
 
  void CalibrationSlider::setMinDifference(double difference){
-     minDistance = difference;
+     minDistance = std::min(abs(difference), slider.getMaxValue() - slider.getMinValue());
+     return;
  }
 
 double CalibrationSlider::getMinDifference(void){

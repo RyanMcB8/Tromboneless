@@ -397,6 +397,47 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
 
 }
 
+void CalibrationSliderLookAndFeel::setEmptyTrackColour(juce::Colour colour){
+    emptyTrackColour = colour;
+    return;
+}
+
+juce::Colour CalibrationSliderLookAndFeel::getEmptyTrackColour(void){
+    return emptyTrackColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setFullTrackColour(juce::Colour colour){
+    fullTrackColour = colour;
+    return;
+}
+
+
+juce::Colour CalibrationSliderLookAndFeel::getFullTrackColour(void){
+    return fullTrackColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setMinThumbColour(juce::Colour colour){
+    thumbOneColour = colour;
+    return;
+}
+
+juce::Colour CalibrationSliderLookAndFeel::getMinThumbColour(void){
+    return thumbOneColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setMaxThumbColour(juce::Colour colour){
+    thumbTwoColour = colour;
+    return;
+}
+
+
+juce::Colour CalibrationSliderLookAndFeel::getMaxThumbColour(void){
+    return thumbTwoColour;
+}
+
 void CalibrationSliderLookAndFeel::setTrackWidth(float width){
     trackWidth = width;
     return;
@@ -442,8 +483,9 @@ juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
 
     juce::Path circleShape;
     circleShape.startNewSubPath(x , y);
+    float radius = std::min(xRadius, yRadius);
 
-    circleShape.addCentredArc (x, y, xRadius, yRadius, 0, 0, 2*M_PI);
+    circleShape.addCentredArc (x, y, radius, radius, 0, 0, 2*M_PI);
 
     circleShape.closeSubPath();
     return circleShape;
@@ -483,4 +525,13 @@ void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
     p.applyTransform (juce::AffineTransform::rotation (angle).translated (centreX, centreY));
     g.setColour(needleColour);
     g.fillPath(p);
+}
+
+void NeedleLookAndFeel::setNeedleColour(juce::Colour colour){
+    needleColour = colour;
+    return;
+}
+
+juce::Colour NeedleLookAndFeel::getNeedleColour(void){
+    return needleColour;
 }
