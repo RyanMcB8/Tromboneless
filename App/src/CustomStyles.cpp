@@ -115,8 +115,112 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         juce::LookAndFeel_V4::drawLinearSlider(g, x, y, width, height, sliderPos, minSliderPos, 
             maxSliderPos, style, slider);
     }
-}        
+}      
 
+void VerticalSliderLookAndFeel::setDialColour(const juce::Colour colour){
+    dialColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getDialColour(void){
+    return dialColour;
+}
+
+void VerticalSliderLookAndFeel::setDialEdgeColour(const juce::Colour& colour){
+    dialEdgeColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getDialEdgeColour(void){
+    return dialEdgeColour;
+}
+
+void VerticalSliderLookAndFeel::setTickColour(juce::Colour colour){
+    tickColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTickColour(void){
+    return tickColour;
+}
+
+void VerticalSliderLookAndFeel::setTrackColour(juce::Colour colour){
+    trackColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTrackColour(void){
+    return trackColour;
+}
+
+void VerticalSliderLookAndFeel::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getBackgroundColour(void){
+    return backgroundColour;
+}
+
+void VerticalSliderLookAndFeel::setTextColour(juce::Colour colour){
+    textColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTextColour(void){
+    return textColour;
+}
+
+void VerticalSliderLookAndFeel::setTrackWidth(float width){
+    trackWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getTrackWidth(void){
+    return trackWidth;
+}
+
+void VerticalSliderLookAndFeel::setTickThickness(float thickness){
+    tickThickness = thickness;
+}
+
+float VerticalSliderLookAndFeel::getTickThickness(void){
+    return tickThickness;
+}
+
+void VerticalSliderLookAndFeel::setTickWidth(float width){
+    tickWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getTickWidth(void){
+    return tickWidth;
+}
+
+#ifdef USE_CIRCLE_FINGER 
+void VerticalSliderLookAndFeel::setFingerRadius(float radius){
+    fingerRadius = radius;
+}
+
+float VerticalSliderLookAndFeel::getFingerRadius(void){
+    return fingerRadius;
+}
+
+#else
+void VerticalSliderLookAndFeel::setFingerWidth(float width){
+    fingerWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getFingerWidth(void){
+    return fingerWidth;
+}
+
+void VerticalSliderLookAndFeel::setFingerHeight(float height){
+    fingerHeight = height;
+}
+
+float VerticalSliderLookAndFeel::getFingerHeight(void){
+    return fingerHeight;
+}
+#endif
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                       PaintTrombone                                        */
@@ -293,6 +397,56 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
 
 }
 
+void CalibrationSliderLookAndFeel::setEmptyTrackColour(juce::Colour colour){
+    emptyTrackColour = colour;
+    return;
+}
+
+juce::Colour CalibrationSliderLookAndFeel::getEmptyTrackColour(void){
+    return emptyTrackColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setFullTrackColour(juce::Colour colour){
+    fullTrackColour = colour;
+    return;
+}
+
+
+juce::Colour CalibrationSliderLookAndFeel::getFullTrackColour(void){
+    return fullTrackColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setMinThumbColour(juce::Colour colour){
+    thumbOneColour = colour;
+    return;
+}
+
+juce::Colour CalibrationSliderLookAndFeel::getMinThumbColour(void){
+    return thumbOneColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setMaxThumbColour(juce::Colour colour){
+    thumbTwoColour = colour;
+    return;
+}
+
+
+juce::Colour CalibrationSliderLookAndFeel::getMaxThumbColour(void){
+    return thumbTwoColour;
+}
+
+void CalibrationSliderLookAndFeel::setTrackWidth(float width){
+    trackWidth = width;
+    return;
+}
+
+float CalibrationSliderLookAndFeel::getTrackWidth(void){
+    return trackWidth;
+}
+
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                          RotaryArc                                         */
@@ -329,8 +483,9 @@ juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
 
     juce::Path circleShape;
     circleShape.startNewSubPath(x , y);
+    float radius = std::min(xRadius, yRadius);
 
-    circleShape.addCentredArc (x, y, xRadius, yRadius, 0, 0, 2*M_PI);
+    circleShape.addCentredArc (x, y, radius, radius, 0, 0, 2*M_PI);
 
     circleShape.closeSubPath();
     return circleShape;
@@ -350,6 +505,9 @@ void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
     float centreX = x + (width/2);
     float centreY = y + (height/2);
 
+    /* This line is bad practice but it does remove the unused parameter error without needing to adjust the Juce library. */
+    slider.getBounds();     
+
     float thickness = 5;
     /* How much extra length relative to the radius is added to the other side of the slider. */
     float extra = 0.1;
@@ -367,4 +525,13 @@ void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int wi
     p.applyTransform (juce::AffineTransform::rotation (angle).translated (centreX, centreY));
     g.setColour(needleColour);
     g.fillPath(p);
+}
+
+void NeedleLookAndFeel::setNeedleColour(juce::Colour colour){
+    needleColour = colour;
+    return;
+}
+
+juce::Colour NeedleLookAndFeel::getNeedleColour(void){
+    return needleColour;
 }

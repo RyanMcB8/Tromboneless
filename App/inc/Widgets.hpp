@@ -1,3 +1,12 @@
+/** @file           Widgets.hpp
+ *  @author         Ryan McBride
+ *  @brief          A file which sets the declarations of any custom widgets
+ *                  which have been built off of the juce framework. A large
+ *                  portion of these widgets have been created specifically
+ *                  for the Tromboneless project.
+ */
+
+
 #pragma once
 
 #include <juce_gui_extra/juce_gui_extra.h>
@@ -17,17 +26,7 @@
 class SliderWithLabel : public juce::Component{
     public:
     
-    
         juce::Slider slider;
-
-        /* Top label bound parameter (maximum height of the above the slider). */
-        int topLabelBounds = 50;
-        /* Left label bound parameter (maximum width of the label to the left of the slider). */
-        int leftLabelBounds = 200;
-        /* Right label bound parameter (maximum width of the label to the right of the slider). */
-        int rightLabelBounds = 200;
-        /* Bottom label bound parameter (maximum height of the label under the slider). */
-        int bottomLabelBounds = 50; 
 
         /* Constructor which sets the style of the slider being used and removes the text entry option. */
         SliderWithLabel(juce::Slider::SliderStyle style){
@@ -79,6 +78,58 @@ class SliderWithLabel : public juce::Component{
          */
         void resized() override;
 
+        /** @brief                      A function to set the bounds for which the top labels
+         *                              may be situated in.
+         *  @param  bound               The integer representation of the bounds which are to
+         *                              be set.
+         */
+        void setTopLabelBounds(int bound);
+
+        /** @brief                      A function to get the bounds for which the top labels
+         *                              are situated in.
+         *  @retval                     The integer representation of the top label bounds.
+         */
+        int getTopLabelBounds(void);
+
+        /** @brief                      A function to set the bounds for which the labels on
+         *                              the left may be situated in.
+         *  @param  bound               The integer representation of the bounds which are to
+         *                              be set.
+         */
+        void setLeftLabelBounds(int bound);
+
+        /** @brief                      A function to get the bounds for which the labels on
+         *                              the left are situated in.
+         *  @retval                     The integer representation of the left label bounds.
+         */
+        int getLeftLabelBounds(void);
+
+        /** @brief                      A function to set the bounds for which the labels on
+         *                              the right may be situated in.
+         *  @param  bound               The integer representation of the bounds which are to
+         *                              be set.
+         */
+        void setRightLabelBounds(int bound);
+
+        /** @brief                      A function to get the bounds for which the labels on
+         *                              the right are situated in.
+         *  @retval                     The integer representation of the right label bounds.
+         */
+        int getRightLabelBounds(void);
+
+        /** @brief                      A function to set the bounds for which the bottom labels
+         *                              may be situated in.
+         *  @param  bound               The integer representation of the bounds which are to
+         *                              be set.
+         */
+        void setBottomLabelBounds(int bound);
+
+        /** @brief                      A function to get the bounds for which the bottom labels
+         *                              are situated in.
+         *  @retval                     The integer representation of the bottom label bounds.
+         */
+        int getBottomLabelBounds(void);
+
     private:
         
         /** @brief                      A simple function which writes to the label referenced
@@ -94,7 +145,16 @@ class SliderWithLabel : public juce::Component{
          */
         void labelSetup(juce::Label* Label, juce::String phrase,
                         juce::NotificationType NotificationEnable);
-    private:
+    
+        /* Top label bound parameter (maximum height of the above the slider). */
+        int topLabelBounds = 50;
+        /* Left label bound parameter (maximum width of the label to the left of the slider). */
+        int leftLabelBounds = 200;
+        /* Right label bound parameter (maximum width of the label to the right of the slider). */
+        int rightLabelBounds = 200;
+        /* Bottom label bound parameter (maximum height of the label under the slider). */
+        int bottomLabelBounds = 50; 
+
         /* Creation of labels that may be used with the slider. */
         juce::Label UpperLeftLabel;
         juce::Label UpperCentreLabel;
@@ -128,6 +188,13 @@ public:
      *  @param difference           The value of the minimum distance between the slider knobs.
      */
     void setMinDifference(double difference);
+
+    /** @brief                      A function which returns the current minimum distance that the
+     *                              slider fingers may be apart.
+     *  @retval                     The double precision representation of the minimum distance
+     *                              between the slider fingers.
+     */
+    double getMinDifference(void);
 
 
     /** @brief                      A function that is called upon when either of the fingers are
@@ -167,18 +234,6 @@ public:
      */
     ~DualRotarySlider();
 
-    /*  Setting the minimum limit of the slider. */
-    float minLimit = 0.1;
-    /*  Setting the maximum limit of the slider. */
-    float maxLimit = 2.0;
-
-    /*  Setting the minimum step to which the slider may be moved. */
-    float interval = 0.1;
-
-    /* This is the minimum difference between the min and max sliders with respect ot the non normalised values. */
-    float minDifference = 0.2;
-
-
     /** @brief                      A function that is called upon when either of the fingers
      *                              are moved.
      *  @note                       This function automatically moves the fingers to ensure that
@@ -194,6 +249,152 @@ public:
      */
     void resized() override;
 
+    /** @brief                      A function to set the minimum difference between the sliders 2
+     *                              fingers.
+     *  @param  difference          The difference in terms of the chosen maximum and minimum
+     *                              values as a floating point value.
+     */
+    void setMinDifference(float difference);
+
+    /** @brief                      A function to get the current minimum difference between the
+     *                              2 slider fingers.
+     *  @retval                     Returns the floating point representation of the minimum
+     *                              difference between the 2 sliders in terms of the chosen maximum
+     *                              and minimum values.
+     */
+    float getMinDifference(void);
+
+    /** @brief                      A function to set the relative radius of the minimum
+     *                              finger slider. It should always be less than or equal to
+     *                              the maximum slider radius and be between 0 and 1.
+     *  @param  radius              The relative radius that the minimum slider should have.
+     */
+    void setMinSliderRadius(float radius);
+
+    /** @brief                      A function to get the relative radius of the minimum
+     *                              finger slider for this object.
+     *  @retval                     Returns the floating point representation of the
+     *                              relative radius.
+     */
+    float getMinSliderRadius(void);
+
+    /** @brief                      A function to set the relative radius of the maximum
+     *                              finger slider. It should always be more than or equal to
+     *                              the minimum slider radius and be between 0 and 1.
+     *  @param  radius              The relative radius that the maximum slider should have.
+     */
+    void setMaxSliderRadius(float radius);
+
+    /** @brief                      A function to get the relative radius of the maximum
+     *                              finger slider for this object.
+     *  @retval                     Returns the floating point representation of the
+     *                              relative radius.
+     */
+    float getMaxSliderRadius(void);
+
+    /** @brief                      A function to set the maximum height of the label attached
+     *                              to the rotary slider.
+     *  @param  height              The height of the label in terms of the resolution as a
+     *                              floating point value.
+     */
+    void setLabelHeight(float height);
+
+    /** @brief                      A function to get the current height of the label which is
+     *                              attached to the rotary slider.
+     *  @retval                     The height of the label as a floating point value.
+     */
+    float getLabelHeight(void);
+
+    /** @brief                      A function to set the minimum limit of the rotary slider.
+     *                              This may be any floating point value that is less than the
+     *                              difference between the maximum value and the minimum 
+     *                              difference between the slider fingers.
+     *  @param  limit               The floating point representation of the limit. 
+     */
+    void setMinLimit(float limit);
+
+    /** @brief                      A function to get the current minium limit of the rotary
+     *                              slider.
+     *  @retval                     The floating point representation of the minimum limit.
+     */
+    float getMinLimit(void);
+
+    /** @brief                      A function to set the maximum limit of the rotary slider.
+     *                              This may be any floating point value that is more than the
+     *                              sum of the minium value and the minimum difference between
+     *                              the slider fingers.
+     *  @param  limit               The floating point representation of the limit. 
+     */
+    void setMaxLimit(float limit);
+
+    /** @brief                      A function to get the current maximum limit of the rotary
+     *                              slider.
+     *  @retval                     The floating point representation of the minimum limit.
+     */
+    float getMaxLimit(void);
+
+    /** @brief                      A function to set the minimum step the slider may be moved
+     *                              by the user. This value is in the same scale as the maxLimit
+     *                              and minLimit.
+     *  @param  step                The minimum step as a floating point value.
+     */
+    void setInterval(float step);
+
+    /** @brief                      A function to get the current minimum step which the
+     *                              slider may be adjusted by the user. This value is in
+     *                              the same scale as the maxLimit and minLimit.
+     *  @retval                     The floating point representation of the current
+     *                              minimum step.
+     */
+    float getInterval(void);
+
+    /** @brief                      A function to allow for the minimum angle (furtherest
+     *                              anticlockwise) that the slider may be rotated to be set.
+     *                              This is measured in radians.
+     *  @param  angle               The angle in radians as a floating point value.
+     */
+    void setMinAngle(float angle);
+
+    /** @brief                      A function to return the current minimum angle (furtherest
+     *                              anticlockwise) that the slider may be rotated. This
+     *                              is measured in radians.
+     *  @retval                     The angle in radians as a floating point value.
+     */
+    float getMinAngle(void);
+
+    /** @brief                      A function to allow for the maximum angle (furtherest
+     *                              clockwise) that the slider may be rotated to be set.
+     *                              This is measured in radians.
+     *  @param  angle               The angle in radians as a floating point value.
+     */
+    void setMaxAngle(float angle);
+
+    /** @brief                      A function to return the current maximum angle (furtherest
+     *                              clockwise) that the slider may be rotated. This
+     *                              is measured in radians.
+     *  @retval                     The angle in radians as a floating point value.
+     */
+    float getMaxAngle(void);
+    
+private:
+
+    /* Setting the relative radius of the minimum slider. */
+    float minSliderRadius =   0.6;
+
+    /* Setting the relative radius of the maximum slider. */
+    float maxSliderRadius =   0.9;
+
+    /*  Setting the minimum limit of the slider. */
+    float minLimit = 0.1;
+    /*  Setting the maximum limit of the slider. */
+    float maxLimit = 2.0;
+
+    /*  Setting the minimum step to which the slider may be moved. */
+    float interval = 0.1;
+
+    /* This is the minimum difference between the min and max sliders with respect ot the non normalised values. */
+    float minDifference = 0.2;
+
     /* Setting the relative height of the label. */
     float labelHeight;
 
@@ -202,22 +403,18 @@ public:
     float minAngle      =   M_PI + 0.5;
     /*  Setting the maximum angle which the slider can reach. */
     float maxAngle      =   3*M_PI - 0.5;
-private:
-
-    /* Adding the limits to the slider angles. */
+    
     /* Finding the minimum difference in angle for the finger differences by
        normalising the minDifference with respect to the max and min limits
        and then mulitplying it by the difference betweent the max and min
        angles. */
     float minAngleDifference = (maxAngle - minAngle)*(minDifference/(maxLimit - minLimit));
 
-    /* Setting the relative radius of the minimum slider. */
-    float minSliderRadius =   0.6;
-
-    /* Setting the relative radius of the maximum slider. */
-    float maxSliderRadius =   0.9;
-
-
+    /** @brief                      A function to update the minimum angle difference between
+     *                              the 2 sliders when one of the parameters has changed
+     *                              within its calculation.
+     */
+    void updateMinAngleDifference(void);
 };
 
 class Barometer :   public DualRotarySlider
@@ -261,6 +458,86 @@ class Barometer :   public DualRotarySlider
          *                          the possible settings.
          */
         void paint (juce::Graphics& g) override;
+
+        /** @brief                  A function to set the colour of the background of the slider.
+         *  @param  colour          The colour to which the background should be set to.
+         */
+        void setBackgroundColour(juce::Colour colour);
+
+        /** @brief                  A function to get the current colour of the background of the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getBackgroundColour(void);
+
+        /** @brief                  A function to set the colour of the text around the slider.
+         *  @param  colour          The colour to which the text should be set to.
+         */
+        void setTextColour(juce::Colour colour);
+
+        /** @brief                  A function to get the current colour of the text around the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getTextColour(void);
+
+        /** @brief                  A function to set the colour of the boarder of the slider.
+         *  @param  colour          The colour to which the boarder should be set to.
+         */
+        void setBoarderColour(juce::Colour colour);
+
+        /** @brief                  A function to get the current colour of the boarder of the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getBoarderColour(void);
+
+        /** @brief                  A function to set the colour of the edge around the slider.
+         *  @param  colour          The colour to which the edge should be set to.
+         */
+        void setEdgeColour(juce::Colour colour);
+
+        /** @brief                  A function to get the current colour of the edge around the
+         *                          slider.
+         *  @retval                 Returns the colour as a juce::Colour type.
+         */
+        juce::Colour getEdgeColour(void);
+
+        /** @brief                      A function to set the relative radius of the outer rotary slider.
+         *  @param  radius              The floating point representation of the relative radius with
+         *                              respect to the widgets (barometer instance) bounds.
+         */
+        void setOuterRadius(float radius);
+
+        /** @brief                      A function to get the relative radius of the outer rotary slider.
+         *  @retval                     The floating point representation of the relative radius with
+         *                              respect to the widgets (barometer instance) bounds.
+         */
+        float getOuterRadius(void);
+
+        /** @brief                      A function to set the relative radius of the inner rotary slider.
+         *  @param  radius              The floating point representation of the relative radius with
+         *                              respect to the widgets (barometer instance) bounds.
+         */
+        void setInnerRadius(float radius);
+
+        /** @brief                      A function to get the relative radius of the inner rotary slider.
+         *  @retval                     The floating point representation of the relative radius with
+         *                              respect to the widgets (barometer instance) bounds.
+         */
+        float getInnerRadius(void);
+
+        /** @brief                      A function to set the relative radius of the label.
+         *  @param  radius              The floating point representation of the relative radius with
+         *                              respect to the widgets (barometer instance) bounds.
+         */
+        void setLabelRadius(float radius);
+
+        /** @brief                      A function to get the relative radius of the label.
+         *  @retval                     The floating point representation of the relative radius with
+         *                              respect to the widgets (barometer instance) bounds.
+         */
+        float getLabelRadius(void);
 
     private:
         /*  Creation of an instance of the NeedleLookAndFeel class to be
