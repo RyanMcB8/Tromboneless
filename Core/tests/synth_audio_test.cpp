@@ -2,13 +2,13 @@
 #include <thread>
 #include <chrono>
 #include <vector>
-#include "synth.hpp"
 #include "tromboneSynth.hpp"
 #include "drivers/audio_output.hpp"
 #include <string>
 
 int main(){
     TromboneSynth synth = TromboneSynth();
+    //500, 50, 0.95, 10
 
     AudioOutput output;
 
@@ -23,9 +23,6 @@ int main(){
     float multiplier = 3.0;
     int duration = int(buffers_per_sec * multiplier);
 
-    int sample_index = 0;
-    float attack_time = 0.1f;
-
     synth.ChangeTromboneNote(Notes::Notes::note_A, 3);
     synth.StartTromboneNote(Notes::Notes::note_A, 3);
 
@@ -35,17 +32,11 @@ int main(){
         {
             for(int t = 0; t < frames; t++)
             {
-                //float time = static_cast<float>(sample_index) / static_cast<float>(sample_rate);
-                //float attack_progress = time / attack_time;
-
-                //synth.StartNoteWithHarmonics(4, 2, Notes::Notes_t(n), time, attack_progress) * 32767.0f;
-                //amplitude = 1;
                 buffer[t] = static_cast<int16_t>(synth.ReadTromboneAudio()*32767.0f);
-                std::cout << buffer[i] << " ";      
-                sample_index++;
+                std::cout << buffer[t] << " ";      
             }
 
-            output.writeSamples(buffer, frames);
+            //output.writeSamples(buffer, frames);
         }
     // }
 
