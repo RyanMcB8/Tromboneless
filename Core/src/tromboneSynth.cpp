@@ -12,7 +12,10 @@
     /*  Storing the ADR inputs as their time in milliseconds and then passing the N sample equivalent
         into the envelope object. */
     /* Ignoring any negative frequencies or times being input*/
+
+    using std::abs;
     sampleRate = abs(sampleRate_in);
+
     attack_ms = abs(attack);
     attack = (abs(attack) / 1000.0) * float(sampleRate);
 
@@ -43,7 +46,9 @@
  float TromboneSynth::ReadTromboneAudio(void){
     samples += 1;
     samples = samples % sampleRate;
-   return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), static_cast<float>(samples) / static_cast<float>(sampleRate));
+    float time_increment = 1 / static_cast<float>(sampleRate);
+    float accum_time_increment = time_increment * static_cast<float>(samples);
+    return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), accum_time_increment);
  }
 
  void TromboneSynth::StopTromboneNote(void){
