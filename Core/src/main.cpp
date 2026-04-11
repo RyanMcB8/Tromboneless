@@ -4,6 +4,7 @@
 #include "tromboneSynth.hpp"
 #include <thread>
 #include <chrono>
+#include "tof_sensor.hpp"
 
 // class GetDistance {
 // public:

@@ -129,6 +129,7 @@ float Notes::setNote(Notes_t note, float freq){
         default:
             return 0.0f;
     }
+    return 0.0f;
 }
 
 float Notes::getC(void){

@@ -1,7 +1,7 @@
 # Tromboneless
 An open source device which is capable of measuring the users oral input to synthesise the output a brass trombone would using the MIDI protocol.
 
-Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see componenent, sequence and state diagrams for the MIDI implementation.
+Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see component, sequence and state diagrams for the MIDI implementation.
 
 ## Steps to install:
 1) Install Raspberry Pi OS onto your Raspberry Pi.<br>
@@ -18,6 +18,8 @@ Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see
 ## Dependencies
 The app side of this project uses the juce framework to create all the widgets necessary.
  - Juce <br>
+ - RTMidi <br>
+ - libgpiod (specifically for interacting with the GPIO pins on the Pi) <br>
 
 ## Documentation
 If you wish to create your very own Tromboneless, the hardware used to create the protoype may be seen in the [Hardware](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation/Hardware) directory under Documentation. This includes a full circuit diagram.<br>
