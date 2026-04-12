@@ -7,6 +7,7 @@
 
  /* Adding the necessary header files to be included. */
  #include "tromboneSynth.hpp"
+ #include <algorithm>
 
  TromboneSynth::TromboneSynth(int sampleRate_in, float attack, float decay, float sustain, float rest){
     /*  Storing the ADR inputs as their time in milliseconds and then passing the N sample equivalent
@@ -55,12 +56,19 @@
    tromboneEnvelope.endEnvelope();
  }
 
- void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
-    int nNotes = 12;            /*  The number of notes per octave. */
-    int octaveOffset = 0;       /*  set the octave which matches the note of 0. Set to octave 0.*/
-    octave = (int)(MIDINote/nNotes) + octaveOffset;
-    note = (Notes::Notes_t)(MIDINote % nNotes);
- }
+void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
+    MIDINote = std::clamp(MIDINote, 0, 127);
+
+    const int nNotes = 12;
+
+    note = static_cast<Notes::Notes_t>(MIDINote % nNotes);
+
+    // MIDI standard: C4 = 60 → octave 4
+    octave = (MIDINote / nNotes) - 1;
+
+    // clamp to available octave range
+    octave = std::clamp(octave, 0, nOctaves - 1);
+}
 
  void TromboneSynth::setAttackMS(float attack_time){
     attack_ms = attack_time;
