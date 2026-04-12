@@ -26,42 +26,35 @@ int main() {
     int16_t buffer[frames]{0};
 
     int buffers_per_sec = sample_rate / frames;
-    float multiplier = 1.0f;
-    int duration = static_cast<int>(buffers_per_sec * multiplier);
 
+    synth.NewTromboneNoteMIDI(0);
     synth.StartTromboneNote(static_cast<Notes::Notes_t>(0), 0);
 
-    for(int octave = 0; octave < 8 && keepRunning; octave++)
+    for (int midi = 21; midi <108 && keepRunning; midi++)
     {
-        for (int note = 0; note < 12 && keepRunning; note++)
+        synth.NewTromboneNoteMIDI(midi);
+
+        for (int i = 0; i < 15 && keepRunning; i++)
         {
-            synth.ChangeTromboneNote(static_cast<Notes::Notes_t>(note), octave);
-
-            for (int i = 0; i < 20 && keepRunning; i++)
+            for (int t = 0; t < frames; t++)
             {
-                for (int t = 0; t < frames; t++)
-                {
-                    float sample = synth.ReadTromboneAudio() * 32767.0f;
-                    buffer[t] = static_cast<int16_t>(sample);
-                    //std::cout << buffer[t];
-                }
-
-                output.writeSamples(buffer, frames);
+                float sample = synth.ReadTromboneAudio() * 32767.0f;
+                buffer[t] = static_cast<int16_t>(sample);
             }
+
+            output.writeSamples(buffer, frames);
         }
     }
 
     synth.StopTromboneNote();
 
-    // Let the release/rest stage play out briefly before exiting.
-    int release_buffers = buffers_per_sec / 2; // about 0.5 s
+    int release_buffers = buffers_per_sec / 2;
     for (int i = 0; i < release_buffers; i++)
     {
         for (int t = 0; t < frames; t++)
         {
             float sample = synth.ReadTromboneAudio() * 32767.0f;
             buffer[t] = static_cast<int16_t>(sample);
-            std::cout << buffer[t];
         }
 
         output.writeSamples(buffer, frames);
