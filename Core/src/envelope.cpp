@@ -66,6 +66,7 @@ float Envelope::getAmplitude(void){
 
 void Envelope::startEnvelope(void){
     stage = attack_stage;
+    counter = 0;
 }
 
 void Envelope::endEnvelope(void){
@@ -118,7 +119,7 @@ float Envelope::decayFunction(void){
 
 float Envelope::restFunction(void){
     /*  currently this is just a linear ramp function. */
-    return (1.0f - (float)(static_cast<float>(counter)/static_cast<float>(decay))) * (sustain);
+    return (1.0f - (float)(static_cast<float>(counter)/static_cast<float>(rest))) * (sustain);
 }
 
 float Envelope::clamp01(float value){

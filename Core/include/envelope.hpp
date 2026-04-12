@@ -178,6 +178,6 @@ class Envelope{
          */
         float clamp01(float value);
         /*  Timing Variables */
-        int counter;
+        int counter = 0;
         envelope_stages_t stage = no_stage;        
 };
