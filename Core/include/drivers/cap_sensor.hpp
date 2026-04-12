@@ -13,19 +13,37 @@
 #include "drivers/i2c_bus.hpp"
 #include "drivers/cap1188_registers.hpp"
  
+class CAP1188;
+
+class CAP1188Channel{
+    public:
+        bool isPinTouched();
+        int8_t pinDelta();
+        int getThreshold();
+        void setThreshold(int threshold);
+        void pinRecalibrate();
+    private:
+        friend class CAP1188;
+        CAP1188Channel();
+        ~CAP1188Channel();
+        void initialise(CAP1188* cap1188, int pin);
+        CAP1188* cap1188_;
+        int pin_;
+};
 
 class CAP1188
 {
     public:
-        using CAP1188CallbackInterface = std::function<void(float)>;
+        using CAP1188CallbackInterface = std::function<void(uint8_t)>;
 
         // Class constructor, includes setting
         CAP1188(I2CBus& bus,
                 uint8_t address                 = 0x28,
                 const std::string& gpioChipPath = "/dev/gpiochip0",
                 unsigned int gpioLine = 27,
-                uint8_t enabledChannels = 0b0000'0001,
-                uint8_t interruptEnabledChannels = 0b0000'0001);
+                unsigned int gpioReset = 22,
+                uint8_t enabledChannels = 0x01,
+                uint8_t interruptEnabledChannels = 0x01);
         
         // Destructor
         ~CAP1188();
@@ -34,7 +52,6 @@ class CAP1188
         void stop();
 
         // Initialise sensor
-        CAP1188Channel channels[8];
         bool initialise();
         
         // Sensitivity Getter & Setter
@@ -52,7 +69,7 @@ class CAP1188
 
         std::array<bool, 8> touched_pins();
         int touched();
-        uint8_t deltaCount(int pin);
+        int8_t deltaCount(int pin);
         void recalibratePins(uint8_t pins);
         std::array<uint8_t, 8> getThresholds();
         void setThresholds(std::array<uint8_t, 8> newThresholds);
@@ -65,13 +82,13 @@ class CAP1188
         void handleDataReady();
 
         void disableStandby();
+        void clearInterrupt();
 
 
         // Register subscriber callback
         void registerCallback(CAP1188CallbackInterface ci);
 
-
-
+        void tester();
 
     private:
 
@@ -79,8 +96,11 @@ class CAP1188
         uint8_t address_;
         std::string gpioChipPath_;
         unsigned int gpioLine_;
+        unsigned int gpioReset_;
         uint8_t enabledChannels_;
         uint8_t interruptEnabledChannels_;
+        CAP1188Channel channels[8];
+
         uint8_t interruptPolarity_ = 0;
         bool running_ = false;
 
@@ -93,22 +113,7 @@ class CAP1188
 
 };
 
-class CAP1188Channel{
-    public:
-        CAP1188Channel();
-        ~CAP1188Channel();
 
-        void initialise(CAP1188& cap1188, int pin);
-        bool isPinTouched();
-        int pinDelta();
-        int getThreshold();
-        void setThreshold(int threshold);
-        void pinRecalibrate();
-
-    private:
-        CAP1188* cap1188;
-        int pin;
-};
 
 
 
