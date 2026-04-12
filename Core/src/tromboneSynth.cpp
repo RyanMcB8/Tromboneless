@@ -8,6 +8,7 @@
  /* Adding the necessary header files to be included. */
  #include "tromboneSynth.hpp"
  #include <algorithm>
+ #include <iostream>
 
  TromboneSynth::TromboneSynth(int sampleRate_in, float attack, float decay, float sustain, float rest){
     /*  Storing the ADR inputs as their time in milliseconds and then passing the N sample equivalent
@@ -45,11 +46,15 @@
  
  /* Change this to be based on frequency with the base note and using the pitch bend.*/
  float TromboneSynth::ReadTromboneAudio(void){
-    //samples = samples % sampleRate;
-    samples += 1;
-    float time_increment = 1.0f / static_cast<float>(sampleRate);
-    float accum_time = time_increment * static_cast<float>(samples);
-    return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, getAdjustedFrequency(), accum_time);
+    float freq = getAdjustedFrequency();
+    float phaseIncrement = 2.0f * static_cast<float>(M_PI) * freq / static_cast<float>(sampleRate);
+
+    phase += phaseIncrement;
+    if (phase >= 2.0f * static_cast<float>(M_PI))
+    {
+        phase = std::fmod(phase, 2.0f * static_cast<float>(M_PI));
+    }
+    return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, phase);
  }
 
  void TromboneSynth::StopTromboneNote(void){
@@ -133,24 +138,53 @@ int TromboneSynth::getPitchBend(void){
 
 float TromboneSynth::getAdjustedFrequency(void){
 
-    /*  Finding the relative note indices of the pitch bend notes which the true pitch bend frequency is between. */
-    int rangeNoteHigh = pitchBendSpread - (int) (pitchBend / semitoneSpread);
-    int rangeNoteLow = rangeNoteHigh + 1;
+    /*  Clamp the bend to the expected one-sided range.
+        8192 = no bend, 0 = maximum downward bend. */
+    int clampedBend = std::clamp(pitchBend, 0, 8192);
 
-    /* Finding the LERP of the pitch bend between the the 2 nearest semitones. This will be between 0 and 1. */
-    float interpolationValue = (float)(((pitchBend - rangeNoteHigh) % int(semitoneSpread)) / semitoneSpread);
+    /*  Convert the bend into a downward semitone offset.
+        8192 -> 0 semitones, 0 -> -pitchBendSpread semitones. */
+    float semitoneOffset =
+        -static_cast<float>(pitchBendSpread) *
+        (1.0f - (static_cast<float>(clampedBend) / 8192.0f));
 
-    /* Changing the octave and notes to be repesented as one value instead of 2. */
-    int initialNote = (octave * nNotes) + note;
-    int highNote = initialNote - rangeNoteHigh;
-    int lowNote = initialNote - rangeNoteLow;
+    /*  Split into neighbouring semitone positions for interpolation. */
+    int lowerSemitone = static_cast<int>(std::floor(semitoneOffset));
+    int upperSemitone = lowerSemitone + 1;
 
-    /*  Finding the frequencies of the chosen values.   */
-    float highNoteFreq = octaves[(int)(highNote / nNotes)].getNote((Notes::Notes_t) (highNote % nNotes));
-    float lowNoteFreq = octaves[(int)(lowNote / nNotes)].getNote((Notes::Notes_t) (lowNote % nNotes));
+    /*  Interpolation between the two neighbouring semitone frequencies. */
+    float interpolationValue = semitoneOffset - static_cast<float>(lowerSemitone);
 
-    /*  Finding the interpolated frequency of due to the pitch bend. */
-    float frequency = (highNoteFreq * interpolationValue) + (lowNoteFreq * (1 - interpolationValue));
-    
+    /*  Represent the current note and octave as a single linear note index. */
+    int baseNoteIndex = (octave * nNotes) + static_cast<int>(note);
+
+    int lowerNoteIndex = baseNoteIndex + lowerSemitone;
+    int upperNoteIndex = baseNoteIndex + upperSemitone;
+
+    /*  Helper to convert a linear note index back into octave + note. */
+    auto getFrequencyFromIndex = [&](int noteIndex) {
+        int octaveIndex = noteIndex / nNotes;
+        int noteInOctave = noteIndex % nNotes;
+
+        /*  Correct negative modulo behaviour. */
+        if (noteInOctave < 0) {
+            noteInOctave += nNotes;
+            octaveIndex -= 1;
+        }
+
+        /*  Clamp octave to the available synth range. */
+        octaveIndex = std::clamp(octaveIndex, 0, nOctaves - 1);
+
+        return octaves[octaveIndex].getNote(static_cast<Notes::Notes_t>(noteInOctave));
+    };
+
+    float lowerFreq = getFrequencyFromIndex(lowerNoteIndex);
+    float upperFreq = getFrequencyFromIndex(upperNoteIndex);
+
+    /*  Linearly interpolate between the two neighbouring semitone frequencies. */
+    float frequency =
+        (1.0f - interpolationValue) * lowerFreq +
+        interpolationValue * upperFreq;
+
     return frequency;
 }

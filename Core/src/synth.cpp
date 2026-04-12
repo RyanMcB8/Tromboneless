@@ -266,12 +266,12 @@ Octaves::Octaves(){
     }
 }
 
-float Octaves::PlayingNote(int octave, Notes_t note, float time){
-    return PlayingFrequency(octaves[octave].getNote(note), time);
+float Octaves::PlayingNote(int octave, Notes_t note, float phase){
+    return PlayingFrequency(phase);
 }
 
-float Octaves::PlayingFrequency(float freq, float time){
-    return (float) cos(freq * time * 2 * M_PI);
+float Octaves::PlayingFrequency(float phase){
+    return (float) cos(phase);
 }
 
 
@@ -286,25 +286,23 @@ OctavesWithHarmonics::OctavesWithHarmonics(){
 
 }
 
-float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time){
-    return PlayingFrequencyWithHarmonics(n, octaves[octave].getNote(note), time);
+float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float phase){
+    return PlayingFrequencyWithHarmonics(n, phase);
 }
 
-float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float freq, float time){
-    float outputAmplitude = 0;
+float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float phase){
+    float outputAmplitude = 0.0f;
     /*  Ensuring that there has been a value of n above 1 being passed. */
     n = std::max(n, 1);
 
-    for (int i=0; i < n; i++){
-
+    for (int i=0; i < n; i++)
+    {
         int harmonicNumber = i + 1;
-        float harmonicFreq = freq * static_cast<float>(harmonicNumber);
-
-        outputAmplitude += HarmonicDecay(harmonicNumber) * PlayingFrequency(harmonicFreq, time);
+        outputAmplitude += HarmonicDecay(harmonicNumber) * std::cos(phase*harmonicNumber);
     } 
 
     /*  Returning the normalised ampltide.*/
-    return (outputAmplitude/getHarmomicDecayMax(n));
+    return outputAmplitude/getHarmomicDecayMax(n);
 }
 
 float OctavesWithHarmonics::HarmonicDecay(int n){
@@ -315,7 +313,7 @@ float OctavesWithHarmonics::HarmonicDecay(int n){
 float OctavesWithHarmonics::getHarmomicDecayMax(int n){
     float amplitude = 0.0f;
     for (int i=0; i<n; i++){
-        amplitude += HarmonicDecay(i);
+        amplitude += HarmonicDecay(i+1);
     }
     return amplitude;
 
