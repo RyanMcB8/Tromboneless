@@ -41,7 +41,7 @@ typedef struct{
     double lowPressure;
     double highPressure;
 
-    int embouchureOption;
+    EmbachureOptions_t embouchureOption;
     bool triggerEmbouchureCalibrate;
 } TrombonelessParameters_t;
 
