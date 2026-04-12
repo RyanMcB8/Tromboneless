@@ -64,11 +64,12 @@
 #define SET_GET_INT(object, setter, getter, newValue, className, result)\
 {                                                                   \
     int original = object.getter();                                 \
+    if ((int)newValue == original) newValue += 1;                 \
     object.setter(newValue);                                        \
     int updated = object.getter();                                  \
     if (updated != newValue || updated == original)                 \
     {                                                               \
-        std::cout << "[FAIL]    " #setter "/" #getter " in "        \
+        std::cerr << "[FAIL]    " #setter "/" #getter " in "        \
         #className "failed\n";                                      \
         result &= false;                                            \
     }                                                               \

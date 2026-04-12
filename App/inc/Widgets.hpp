@@ -187,14 +187,14 @@ public:
      *                              and lower fingers of the slider.
      *  @param difference           The value of the minimum distance between the slider knobs.
      */
-    void setMinDifference(double difference);
+    void setMinDifference(float difference);
 
     /** @brief                      A function which returns the current minimum distance that the
      *                              slider fingers may be apart.
      *  @retval                     The double precision representation of the minimum distance
      *                              between the slider fingers.
      */
-    double getMinDifference(void);
+    float getMinDifference(void);
 
 
     /** @brief                      A function that is called upon when either of the fingers are
@@ -206,7 +206,7 @@ public:
 
     private:
         /** A variable which sets the minimum distance between the maxmimum and minimum slider knobs. */
-        double minDistance = 1;
+        float minDistance = 1.0;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
@@ -732,6 +732,8 @@ class Equalizer : public verticalMixSlider
          *                          `juce::dontSendNotification`.
          */
         void ChangeLabelText(juce::String text, juce::NotificationType notification = juce::dontSendNotification);
+
+        juce::String getLabelText(void);
 
     private:
         /* Adding the label which will be next to the drop down menu. */  

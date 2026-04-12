@@ -176,12 +176,12 @@ CalibrationSlider::~CalibrationSlider(){
     this->slider.removeListener(this);
 }
 
- void CalibrationSlider::setMinDifference(double difference){
-     minDistance = std::min(abs(difference), slider.getMaxValue() - slider.getMinValue());
+ void CalibrationSlider::setMinDifference(float difference){
+     minDistance = std::min(abs(difference), (float) (slider.getMaxValue() - slider.getMinValue()));
      return;
  }
 
-double CalibrationSlider::getMinDifference(void){
+float CalibrationSlider::getMinDifference(void){
     return minDistance;
 }
 
@@ -787,6 +787,9 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
     dropDownLabel.setText(text, notification);
  }
 
+ juce::String DropDownMenu::getLabelText(void){
+    return dropDownLabel.getText();
+ }
 
 
 /* ========================================================================================== */
