@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <vector>
 #include <cstring>
+#include <cstdio>
 
 /*
  * Constructor
@@ -60,7 +61,7 @@ void I2CBus::closeBus()
  * Transaction format:
  * [reg_high][reg_low][data...]
  */
-int I2CBus::writeBlock(uint8_t address, uint16_t reg, const uint8_t* data, uint8_t length)
+int I2CBus::writeBlock16(uint8_t address, uint16_t reg, const uint8_t* data, uint8_t length)
 {
     if (fd_ < 0)
     {
@@ -98,16 +99,18 @@ int I2CBus::writeBlock(uint8_t address, uint16_t reg, const uint8_t* data, uint8
  * 1. Write register address (2 bytes)
  * 2. Read data back
  */
-int I2CBus::readBlock(uint8_t address, uint16_t reg, uint8_t* data, uint8_t length)
+int I2CBus::readBlock16(uint8_t address, uint16_t reg, uint8_t* data, uint8_t length)
 {
     if (fd_ < 0)
     {
+        printf("File descriptor < 0");
         return -1;
     }
 
     // Select target device
     if (ioctl(fd_, I2C_SLAVE, address) < 0)
     {
+        printf("Select target device failed");
         return -1;
     }
 
@@ -119,6 +122,7 @@ int I2CBus::readBlock(uint8_t address, uint16_t reg, uint8_t* data, uint8_t leng
     ssize_t regWriteResult = write(fd_, regBytes, 2);
     if (regWriteResult != 2)
     {
+        printf("regWriteResult != 2");
         return -1;
     }
 
@@ -127,3 +131,58 @@ int I2CBus::readBlock(uint8_t address, uint16_t reg, uint8_t* data, uint8_t leng
 
     return (bytesRead == length) ? 0 : -1;
 }
+
+/*
+ * Write data to a 8-bit register
+ *
+ * Transaction format:
+ * [reg_high][reg_low][data...]
+ */
+int I2CBus::writeBlock8(uint8_t address, uint8_t reg,
+                        const uint8_t* data, uint8_t length)
+{
+    if (fd_ < 0)
+        return -1;
+
+    if (ioctl(fd_, I2C_SLAVE, address) < 0)
+        return -1;
+
+    std::vector<uint8_t> buffer(1 + length);
+
+    buffer[0] = reg;
+
+    if (length > 0)
+        std::memcpy(&buffer[1], data, length);
+
+    ssize_t result = write(fd_, buffer.data(), buffer.size());
+
+    return (result == static_cast<ssize_t>(buffer.size())) ? 0 : -1;
+}
+
+/*
+ * Read data from a 16-bit register
+ *
+ * Transaction:
+ * 1. Write register address (2 bytes)
+ * 2. Read data back
+ */
+ 
+int I2CBus::readBlock8(uint8_t address, uint8_t reg,
+                       uint8_t* data, uint8_t length)
+{
+    if (fd_ < 0)
+        return -1;
+
+    if (ioctl(fd_, I2C_SLAVE, address) < 0)
+        return -1;
+
+    // Send register (1 byte)
+    if (write(fd_, &reg, 1) != 1)
+        return -1;
+
+    // Read data
+    ssize_t bytesRead = read(fd_, data, length);
+
+    return (bytesRead == length) ? 0 : -1;
+}
+

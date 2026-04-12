@@ -39,7 +39,7 @@ public:
      *
      * Returns 0 on success, -1 on failure
      */
-    int writeBlock(uint8_t address, uint16_t reg, const uint8_t* data, uint8_t length);
+    int writeBlock16(uint8_t address, uint16_t reg, const uint8_t* data, uint8_t length);
 
     /*
      * Read a block of data from a device register
@@ -51,7 +51,31 @@ public:
      *
      * Returns 0 on success, -1 on failure
      */
-    int readBlock(uint8_t address, uint16_t reg, uint8_t* data, uint8_t length);
+    int readBlock16(uint8_t address, uint16_t reg, uint8_t* data, uint8_t length);
+
+        /*
+     * Write a block of data to a device register
+     *
+     * address : 7-bit I2C device address
+     * reg     : 8-bit register address
+     * data    : pointer to data buffer
+     * length  : number of bytes to write
+     *
+     * Returns 0 on success, -1 on failure
+     */
+    int writeBlock8(uint8_t address, uint8_t reg, const uint8_t* data, uint8_t length);
+
+        /*
+     * Read a block of data to a device register
+     *
+     * address : 7-bit I2C device address
+     * reg     : 8-bit register address
+     * data    : pointer to data buffer
+     * length  : number of bytes to write
+     *
+     * Returns 0 on success, -1 on failure
+     */
+    int readBlock8(uint8_t address, uint8_t reg, uint8_t* data, uint8_t length);
 
 private:
     const char* devicePath_;   // e.g. "/dev/i2c-1"
