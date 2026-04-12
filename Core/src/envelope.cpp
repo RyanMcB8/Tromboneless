@@ -39,6 +39,10 @@ float Envelope::getAmplitude(void){
 
         case decay_stage:
             amplitude = decayFunction();
+            if (counter >= decay) {
+                stage = sustain_stage;
+                counter = 0;
+            }
             break;
 
         case sustain_stage:
@@ -104,17 +108,17 @@ int Envelope::getRest(void){
 
 float Envelope::attackFunction(void){
     /*  currently this is just a linear ramp function. */
-    return (float)(counter/attack);
+    return (float)(static_cast<float>(counter)/static_cast<float>(attack));
 }
 
 float Envelope::decayFunction(void){
     /*  currently this is just a linear ramp function. */
-    return (1 - (float)(counter/decay)) * (1 - sustain) + sustain;
+    return (1.0f - (float)(static_cast<float>(counter)/static_cast<float>(decay))) * (1.0f - sustain) + sustain;
 }
 
 float Envelope::restFunction(void){
     /*  currently this is just a linear ramp function. */
-    return (1 - (float)(counter/decay)) * (sustain);
+    return (1.0f - (float)(static_cast<float>(counter)/static_cast<float>(decay))) * (sustain);
 }
 
 float Envelope::clamp01(float value){
