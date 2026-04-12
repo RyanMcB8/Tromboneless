@@ -13,7 +13,6 @@
 #include <string>
 #include <juce_core/juce_core.h>
 #include <juce_gui_basics/juce_gui_basics.h>
-#include <juce_audio_processors/juce_audio_processors.h>
 
 /** @brief      Creation of a class which can be used to change the look of the sliders
  *              used within the equalizer for the Tromboneless project. 
