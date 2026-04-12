@@ -26,28 +26,28 @@ int main() {
     int16_t buffer[frames]{0};
 
     int buffers_per_sec = sample_rate / frames;
-    float multiplier = 3.0f;
+    float multiplier = 1.0f;
     int duration = static_cast<int>(buffers_per_sec * multiplier);
 
-    synth.StartTromboneNote(static_cast<Notes::Notes_t>(0), 3);
+    synth.StartTromboneNote(static_cast<Notes::Notes_t>(0), 0);
 
-    for (int n = 0; n < 12 && keepRunning; n++)
+    for(int octave = 0; octave < 8 && keepRunning; octave++)
     {
-        if (n > 0)
+        for (int note = 0; note < 12 && keepRunning; note++)
         {
-            synth.ChangeTromboneNote(static_cast<Notes::Notes_t>(n), 3);
-        }
+            synth.ChangeTromboneNote(static_cast<Notes::Notes_t>(note), octave);
 
-        for (int i = 0; i < duration && keepRunning; i++)
-        {
-            for (int t = 0; t < frames; t++)
+            for (int i = 0; i < 20 && keepRunning; i++)
             {
-                float sample = synth.ReadTromboneAudio() * 32767.0f;
-                buffer[t] = static_cast<int16_t>(sample);
-                //std::cout << buffer[t];
-            }
+                for (int t = 0; t < frames; t++)
+                {
+                    float sample = synth.ReadTromboneAudio() * 32767.0f;
+                    buffer[t] = static_cast<int16_t>(sample);
+                    //std::cout << buffer[t];
+                }
 
-            output.writeSamples(buffer, frames);
+                output.writeSamples(buffer, frames);
+            }
         }
     }
 
