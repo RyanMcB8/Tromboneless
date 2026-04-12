@@ -44,7 +44,7 @@
  
  /* Change this to be based on frequency with the base note and using the pitch bend.*/
  float TromboneSynth::ReadTromboneAudio(void){
-    samples = samples % sampleRate;
+    //samples = samples % sampleRate;
     samples += 1;
     float time_increment = 1.0f / static_cast<float>(sampleRate);
     float accum_time = time_increment * static_cast<float>(samples);

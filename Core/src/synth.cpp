@@ -295,15 +295,12 @@ float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float freq, flo
     /*  Ensuring that there has been a value of n above 1 being passed. */
     n = std::max(n, 1);
 
-    /*  Checking if the lower harmonics should be included. This is limited to just 1. */
-    if (n > 1){
-        freq = freq/2;
-    }
-
-    /* Looping through all the harmonics from 1 below to n-2 above. */
     for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n) * PlayingFrequency(freq, time);
-        freq = freq*2;
+
+        int harmonicNumber = i + 1;
+        float harmonicFreq = freq * static_cast<float>(harmonicNumber);
+
+        outputAmplitude += HarmonicDecay(harmonicNumber) * PlayingFrequency(harmonicFreq, time);
     } 
 
     /*  Returning the normalised ampltide.*/
@@ -312,11 +309,11 @@ float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float freq, flo
 
 float OctavesWithHarmonics::HarmonicDecay(int n){
     /*  Setting the minimum influence of the harmonics being tested to be 1%. */
-    return std::max(double(1 - (decayConstant * std::abs(n-1))), 0.01);
+    return std::max(1.0f - (decayConstant * std::abs(n - 1)), 0.01f);
 }
 
 float OctavesWithHarmonics::getHarmomicDecayMax(int n){
-    float amplitude;
+    float amplitude = 0.0f;
     for (int i=0; i<n; i++){
         amplitude += HarmonicDecay(i);
     }
