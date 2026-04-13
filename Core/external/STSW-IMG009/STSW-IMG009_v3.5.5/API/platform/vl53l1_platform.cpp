@@ -69,7 +69,7 @@ static uint8_t to7BitAddress(uint16_t dev)
  *
  * ST calls this when it wants to write a block of data.
  *
- * We simply forward it to your I2CBus::writeBlock().
+ * We simply forward it to your I2CBus::writeBlock16().
  */
 int8_t VL53L1_WriteMulti(uint16_t dev, uint16_t index, uint8_t *pdata, uint32_t count)
 {
@@ -78,7 +78,7 @@ int8_t VL53L1_WriteMulti(uint16_t dev, uint16_t index, uint8_t *pdata, uint32_t 
         return -1;
 
     return static_cast<int8_t>(
-        platformBus().writeBlock(
+        platformBus().writeBlock16(
             to7BitAddress(dev),
             index,
             pdata,
@@ -96,7 +96,7 @@ int8_t VL53L1_ReadMulti(uint16_t dev, uint16_t index, uint8_t *pdata, uint32_t c
         return -1;
 
     return static_cast<int8_t>(
-        platformBus().readBlock(
+        platformBus().readBlock16(
             to7BitAddress(dev),
             index,
             pdata,
@@ -113,7 +113,7 @@ int8_t VL53L1_ReadMulti(uint16_t dev, uint16_t index, uint8_t *pdata, uint32_t c
 int8_t VL53L1_WrByte(uint16_t dev, uint16_t index, uint8_t data)
 {
     return static_cast<int8_t>(
-        platformBus().writeBlock(
+        platformBus().writeBlock16(
             to7BitAddress(dev),
             index,
             &data,
@@ -137,7 +137,7 @@ int8_t VL53L1_WrWord(uint16_t dev, uint16_t index, uint16_t data)
     };
 
     return static_cast<int8_t>(
-        platformBus().writeBlock(
+        platformBus().writeBlock16(
             to7BitAddress(dev),
             index,
             buffer,
@@ -159,7 +159,7 @@ int8_t VL53L1_WrDWord(uint16_t dev, uint16_t index, uint32_t data)
     };
 
     return static_cast<int8_t>(
-        platformBus().writeBlock(
+        platformBus().writeBlock16(
             to7BitAddress(dev),
             index,
             buffer,
@@ -174,7 +174,7 @@ int8_t VL53L1_WrDWord(uint16_t dev, uint16_t index, uint32_t data)
 int8_t VL53L1_RdByte(uint16_t dev, uint16_t index, uint8_t *data)
 {
     return static_cast<int8_t>(
-        platformBus().readBlock(
+        platformBus().readBlock16(
             to7BitAddress(dev),
             index,
             data,
@@ -192,7 +192,7 @@ int8_t VL53L1_RdWord(uint16_t dev, uint16_t index, uint16_t *data)
 {
     uint8_t buffer[2] = {0, 0};
 
-    int rc = platformBus().readBlock(
+    int rc = platformBus().readBlock16(
         to7BitAddress(dev),
         index,
         buffer,
@@ -216,7 +216,7 @@ int8_t VL53L1_RdDWord(uint16_t dev, uint16_t index, uint32_t *data)
 {
     uint8_t buffer[4] = {0, 0, 0, 0};
 
-    int rc = platformBus().readBlock(
+    int rc = platformBus().readBlock16(
         to7BitAddress(dev),
         index,
         buffer,
