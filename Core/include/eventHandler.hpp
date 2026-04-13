@@ -42,6 +42,8 @@ private:
 
     void handleKeyControl(char key);
 
+    void handlePressureReading(float pressure);
+
     EventQueue& eventQueue;
     std::mutex& eventQueueMutex;
     std::condition_variable& eventQueueCv;

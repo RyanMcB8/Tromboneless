@@ -47,3 +47,16 @@ void EventHandler::handleKeyControl(char key){
     event.type = RawInputEvent::Type::Keycontrol;
     event.keycontrol = key;
 }
+
+void EventHandler::handlePressureReading(float pressure){
+    RawInputEvent event{};
+    event.type = RawInputEvent::Type::PressureReading;
+    event.pressureReading = pressure;
+    
+    {
+    std::lock_guard<std::mutex> lock(eventQueueMutex);
+    eventQueue.push(event);
+    }
+
+    eventQueueCv.notify_one();
+};
