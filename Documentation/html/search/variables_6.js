@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['highpressure_0',['highPressure',['../structTrombonelessParameters__t.html#a7e43ecfad9a1eef1cb3cf7933227b136',1,'TrombonelessParameters_t']]]
+  ['gains_0',['gains',['../struct_synthesiser_parameters__t.html#ab4276d413e10d7ee952f12ae21c62080',1,'SynthesiserParameters_t']]]
 ];

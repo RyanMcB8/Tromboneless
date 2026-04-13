@@ -1,0 +1,18 @@
+<map id="C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/src/tromboneSynth.cpp" name="C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/src/tromboneSynth.cpp">
+<area shape="rect" id="Node000001" title="A file to define the synthesiser parameters and functions for the trombone specifically using the cla..." alt="" coords="142,5,335,64"/>
+<area shape="rect" id="Node000002" href="$trombone_synth_8hpp.html" title="A file to declare the synthesiser parameters and functions for the trombone specifically using the cl..." alt="" coords="43,112,178,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,67,143,105,139,101,199,63"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="201,112,276,139"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="240,62,241,97,236,95,237,67"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="300,112,372,139"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="270,62,313,101,308,101,269,67"/>
+<area shape="rect" id="Node000003" href="$synth_8hpp.html" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="127,187,206,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,137,150,174,145,175,120,142"/>
+<area shape="rect" id="Node000006" href="$envelope_8hpp.html" title="A header file containing all the necessary declarations and references to create a functional envelop..." alt="" coords="5,187,104,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="99,141,75,176,71,173,102,137"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="35,261,92,288"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="151,213,96,254,93,250,146,215"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="125,261,208,288"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="168,212,169,247,164,244,165,216"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="58,212,63,246,58,246,55,216"/>
+</map>

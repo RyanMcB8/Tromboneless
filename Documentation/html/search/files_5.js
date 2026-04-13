@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unittestmacros_2ehpp_0',['unitTestMacros.hpp',['../unitTestMacros_8hpp.html',1,'']]]
+  ['trombonesynth_2ecpp_0',['tromboneSynth.cpp',['../trombone_synth_8cpp.html',1,'']]],
+  ['trombonesynth_2ehpp_1',['tromboneSynth.hpp',['../trombone_synth_8hpp.html',1,'']]]
 ];

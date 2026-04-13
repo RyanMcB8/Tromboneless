@@ -1,0 +1,284 @@
+\doxysection{cmsis\+\_\+compiler.\+h}
+\hypertarget{cmsis__compiler_8h_source}{}\label{cmsis__compiler_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/CMSIS/Include/cmsis\_compiler.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/CMSIS/Include/cmsis\_compiler.h}}
+\doxymbox{\hyperlink{cmsis__compiler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/**************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2009-\/2018\ Arm\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ \_\_CMSIS\_COMPILER\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ \_\_CMSIS\_COMPILER\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ Arm\ Compiler\ 4/5}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ \ \ defined\ (\ \_\_CC\_ARM\ )}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \#include\ "{}\doxymbox{\hyperlink{cmsis__armcc_8h}{cmsis\_armcc.h}}"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ Arm\ Compiler\ 6.6\ LTM\ (armclang)}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#elif\ defined\ (\_\_ARMCC\_VERSION)\ \&\&\ (\_\_ARMCC\_VERSION\ >=\ 6010050)\ \&\&\ (\_\_ARMCC\_VERSION\ <\ 6100100)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \#include\ "{}\doxymbox{\hyperlink{cmsis__armclang__ltm_8h}{cmsis\_armclang\_ltm.h}}"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ Arm\ Compiler\ above\ 6.10.1\ (armclang)}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#elif\ defined\ (\_\_ARMCC\_VERSION)\ \&\&\ (\_\_ARMCC\_VERSION\ >=\ 6100100)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \#include\ "{}\doxymbox{\hyperlink{cmsis__armclang_8h}{cmsis\_armclang.h}}"{}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ GNU\ Compiler}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_GNUC\_\_\ )}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \#include\ "{}\doxymbox{\hyperlink{cmsis__gcc_8h}{cmsis\_gcc.h}}"{}}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ IAR\ Compiler}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_ICCARM\_\_\ )}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \#include\ <\doxymbox{\hyperlink{cmsis__iccarm_8h}{cmsis\_iccarm.h}}>}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ TI\ Arm\ Compiler}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_TI\_ARM\_\_\ )}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \#include\ <cmsis\_ccs.h>}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_ASM}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ASM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_INLINE}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inline}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ static\ inline}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_STATIC\_FORCEINLINE}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_FORCEINLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_NO\_RETURN}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_NO\_RETURN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((noreturn))}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_USED}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((used))}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_WEAK}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_WEAK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED\_STRUCT}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_STRUCT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ struct\ \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED\_UNION}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_UNION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ union\ \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ deprecated\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gae84a2733711339c5eefeb0d899506b96}{\_\_attribute\_\_}}((packed))\ T\_UINT32\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((struct\ T\_UINT32\ *)(x))-\/>v)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT16\_WRITE}}
+\DoxyCodeLine{00105\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT16\_WRITE\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ v;\ \};}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT16\_WRITE(addr,\ val)\ \ \ \ (void)((((struct\ T\_UINT16\_WRITE\ *)(void*)(addr))-\/>v)\ =\ (val))}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT16\_READ}}
+\DoxyCodeLine{00109\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT16\_READ\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ v;\ \};}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT16\_READ(addr)\ \ \ \ \ \ \ \ \ \ (((const\ struct\ T\_UINT16\_READ\ *)(const\ void\ *)(addr))-\/>v)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\_WRITE}}
+\DoxyCodeLine{00113\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT32\_WRITE\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32\_WRITE(addr,\ val)\ \ \ \ (void)((((struct\ T\_UINT32\_WRITE\ *)(void\ *)(addr))-\/>v)\ =\ (val))}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\_READ}}
+\DoxyCodeLine{00117\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT32\_READ\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32\_READ(addr)\ \ \ \ \ \ \ \ \ \ (((const\ struct\ T\_UINT32\_READ\ *)(const\ void\ *)(addr))-\/>v)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_ALIGNED}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGNED(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((aligned(x)))}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_RESTRICT}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_RESTRICT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_restrict}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_COMPILER\_BARRIER}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_COMPILER\_BARRIER.\ \_\_COMPILER\_BARRIER\ is\ ignored.}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_COMPILER\_BARRIER()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void)0}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ TASKING\ Compiler}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_TASKING\_\_\ )}}
+\DoxyCodeLine{00136\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ *\ The\ CMSIS\ functions\ have\ been\ implemented\ as\ intrinsics\ in\ the\ compiler.}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ \ \ *\ Please\ use\ "{}carm\ -\/?i"{}\ to\ get\ an\ up\ to\ date\ list\ of\ all\ intrinsics,}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ *\ Including\ the\ CMSIS\ ones.}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_ASM}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ASM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_asm}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_INLINE}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inline}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ static\ inline}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_STATIC\_FORCEINLINE}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_FORCEINLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_NO\_RETURN}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_NO\_RETURN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((noreturn))}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_USED}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((used))}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_WEAK}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_WEAK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_packed\_\_}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED\_STRUCT}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_STRUCT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ struct\ \_\_packed\_\_}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED\_UNION}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_UNION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ union\ \_\_packed\_\_}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ deprecated\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{struct\ }\_\_packed\_\_\ T\_UINT32\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((struct\ T\_UINT32\ *)(x))-\/>v)}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT16\_WRITE}}
+\DoxyCodeLine{00177\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT16\_WRITE\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ v;\ \};}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT16\_WRITE(addr,\ val)\ \ \ \ (void)((((struct\ T\_UINT16\_WRITE\ *)(void\ *)(addr))-\/>v)\ =\ (val))}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT16\_READ}}
+\DoxyCodeLine{00181\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT16\_READ\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ v;\ \};}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT16\_READ(addr)\ \ \ \ \ \ \ \ \ \ (((const\ struct\ T\_UINT16\_READ\ *)(const\ void\ *)(addr))-\/>v)}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\_WRITE}}
+\DoxyCodeLine{00185\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT32\_WRITE\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32\_WRITE(addr,\ val)\ \ \ \ (void)((((struct\ T\_UINT32\_WRITE\ *)(void\ *)(addr))-\/>v)\ =\ (val))}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\_READ}}
+\DoxyCodeLine{00189\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT32\_READ\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32\_READ(addr)\ \ \ \ \ \ \ \ \ \ (((const\ struct\ T\_UINT32\_READ\ *)(const\ void\ *)(addr))-\/>v)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_ALIGNED}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGNED(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_align(x)}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_RESTRICT}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_RESTRICT.\ \_\_RESTRICT\ is\ ignored.}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_RESTRICT}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_COMPILER\_BARRIER}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_COMPILER\_BARRIER.\ \_\_COMPILER\_BARRIER\ is\ ignored.}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_COMPILER\_BARRIER()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void)0}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ *\ COSMIC\ Compiler}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_CSMC\_\_\ )}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \#include\ <cmsis\_csm.h>}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \#ifndef\ \ \ \_\_ASM}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ASM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_asm}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_INLINE}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inline}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_INLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ static\ inline}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_STATIC\_FORCEINLINE}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_STATIC\_FORCEINLINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_STATIC\_INLINE}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_NO\_RETURN}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ NO\ RETURN\ is\ automatically\ detected\ hence\ no\ warning\ here}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_NO\_RETURN}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_USED}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_USED.\ \_\_USED\ is\ ignored.}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_USED}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_WEAK}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_WEAK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_weak}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @packed}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED\_STRUCT}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_STRUCT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @packed\ struct}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_PACKED\_UNION}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_PACKED\_UNION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ @packed\ union}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ deprecated\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00244\ \ \ \ \ @packed\ \textcolor{keyword}{struct\ }T\_UINT32\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((struct\ T\_UINT32\ *)(x))-\/>v)}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT16\_WRITE}}
+\DoxyCodeLine{00248\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT16\_WRITE\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ v;\ \};}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT16\_WRITE(addr,\ val)\ \ \ \ (void)((((struct\ T\_UINT16\_WRITE\ *)(void\ *)(addr))-\/>v)\ =\ (val))}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT16\_READ}}
+\DoxyCodeLine{00252\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT16\_READ\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\_t}}\ v;\ \};}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT16\_READ(addr)\ \ \ \ \ \ \ \ \ \ (((const\ struct\ T\_UINT16\_READ\ *)(const\ void\ *)(addr))-\/>v)}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\_WRITE}}
+\DoxyCodeLine{00256\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT32\_WRITE\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32\_WRITE(addr,\ val)\ \ \ \ (void)((((struct\ T\_UINT32\_WRITE\ *)(void\ *)(addr))-\/>v)\ =\ (val))}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_UNALIGNED\_UINT32\_READ}}
+\DoxyCodeLine{00260\ \ \ \ \ \_\_PACKED\_STRUCT\ T\_UINT32\_READ\ \{\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ v;\ \};}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_UNALIGNED\_UINT32\_READ(addr)\ \ \ \ \ \ \ \ \ \ (((const\ struct\ T\_UINT32\_READ\ *)(const\ void\ *)(addr))-\/>v)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_ALIGNED}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_ALIGNED.\ \_\_ALIGNED\ is\ ignored.}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGNED(x)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_RESTRICT}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_RESTRICT.\ \_\_RESTRICT\ is\ ignored.}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_RESTRICT}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \#ifndef\ \ \ \_\_COMPILER\_BARRIER}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \#warning\ No\ compiler\ specific\ solution\ for\ \_\_COMPILER\_BARRIER.\ \_\_COMPILER\_BARRIER\ is\ ignored.}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_COMPILER\_BARRIER()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void)0}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \#error\ Unknown\ compiler.}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_CMSIS\_COMPILER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00283\ }
+
+\end{DoxyCode}

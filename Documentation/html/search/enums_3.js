@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['samplingrates_0',['SamplingRates',['../structADS1115settings.html#aa3a33d5f6c7f14bb708a70499a225357',1,'ADS1115settings']]]
+  ['notes_5ft_0',['Notes_t',['../class_notes.html#a8734fb9c1094a3becd78fe783ad43c0c',1,'Notes']]]
 ];

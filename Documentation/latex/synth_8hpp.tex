@@ -1,20 +1,20 @@
-\doxysection{/home/ryan/\+Tromboneless/\+Core/include/synth.hpp File Reference}
-\hypertarget{synth_8hpp}{}\label{synth_8hpp}\index{/home/ryan/Tromboneless/Core/include/synth.hpp@{/home/ryan/Tromboneless/Core/include/synth.hpp}}
+\doxysection{C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+include/\+synth.hpp File Reference}
+\hypertarget{synth_8hpp}{}\label{synth_8hpp}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/synth.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/synth.hpp}}
 
 
 A header file containing all the necessary declarations and references to allow for the Tromboneless to synthesise the noise a trombone would make when playing the same notes.  
 
 
-{\ttfamily \#include $<$cmath$>$}\newline
-{\ttfamily \#include $<$sys/time.\+h$>$}\newline
-Include dependency graph for synth.\+hpp\+:\nopagebreak
+{\ttfamily \+\#include $<$cmath$>$}\newline
+{\ttfamily \+\#include $<$sys/\+time.\+h$>$}\newline
+Include dependency graph for synth.\+hpp:\+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=224pt]{synth_8hpp__incl}
+\includegraphics[width=219pt]{synth_8hpp__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file:\+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,21 +24,20 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classNotes}{Notes}}
-\item 
-class \mbox{\hyperlink{classOctaves}{Octaves}}
-\begin{DoxyCompactList}\small\item\em Creation of a class to store the frequencies of notes at different octaves. Inherits from {\ttfamily \doxylink{classNotes}{Notes}} class. ~\newline
- \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}
-\end{DoxyCompactItemize}
+class \doxymbox{\hyperlink{class_notes}{Notes}}
+\begin{DoxyCompactList}\small\item\em A class to store the frequency of the notes which may be referenced. The notes are stored in an enum {\ttfamily \doxylink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} which allow for the higher level functions to call upon the specific note as opposed to frequency. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_octaves}{Octaves}}
+\begin{DoxyCompactList}\small\item\em Creation of a class to store the frequencies of notes at different octaves. Inherits from {\ttfamily \doxylink{class_notes}{Notes}} class. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_octaves_with_harmonics}{Octaves\+With\+Harmonics}}
+\begin{DoxyCompactList}\small\item\em A class which inherits functions and variables from the {\ttfamily \doxylink{class_octaves}{Octaves}} class allowing for the notes being output to have a set of harmonic frequencies attached to them too. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A header file containing all the necessary declarations and references to allow for the Tromboneless to synthesise the noise a trombone would make when playing the same notes. 
 
 \begin{DoxyAuthor}{Author}
-@\+Ryan\+Mc\+B8 
+Ryan Mc\+Bride 
 \end{DoxyAuthor}
 \begin{DoxyNote}{Note}
-The envelope class lacks set/get functionality for its initialised parameters such as the attack, decay and rest times. This should be added in the next revision to allow for the sound to be modified without needing to create a new object each time. 
+The envelope class lacks set/\+get functionality for its initialised parameters such as the attack, decay and rest times. This should be added in the next revision to allow for the sound to be modified without needing to create a new object each time. 
 \end{DoxyNote}

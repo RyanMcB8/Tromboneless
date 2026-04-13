@@ -1,5 +1,5 @@
 \doxysection{tromboneless\+\_\+data.\+hpp}
-\hypertarget{tromboneless__data_8hpp_source}{}\label{tromboneless__data_8hpp_source}\index{/home/ryan/Tromboneless/App/shared/tromboneless\_data.hpp@{/home/ryan/Tromboneless/App/shared/tromboneless\_data.hpp}}
+\hypertarget{tromboneless__data_8hpp_source}{}\label{tromboneless__data_8hpp_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/App/shared/tromboneless\_data.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/App/shared/tromboneless\_data.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{/*\ Header\ file\ to\ pass\ functions\ which\ may\ have\ an\ effect\ on\ both\ the\ app\ and\ core\ functionality.\ */}}
@@ -8,59 +8,49 @@
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{comment}{/*\ ==============================\ This\ is\ where\ the\ types\ are\ defined\ ==============================\ */}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{comment}{/*\ \ Creation\ of\ an\ enum\ which\ corresponds\ to\ different\ shift\ keying}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ initial\ positions\ which\ may\ adjusted\ by\ the\ user\ through\ the\ app.\ }}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ These\ represent\ the\ different\ types\ of\ trombones\ which\ may\ be}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ synthesised\ by\ calibrating\ the\ correct\ note\ and\ octave.\ */}}
 \DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
-\DoxyCodeLine{00012\ \ \ \ \ SKOpt\_EMPTY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00013\ \ \ \ \ SKOpt\_BASS,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00014\ \ \ \ \ SKOpt\_PICCOLO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00015\ \ \ \ \ SKOpt\_ALTO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00016\ \ \ \ \ SKOpt\_TENOR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00017\ \ \ \ \ SKOpt\_CONTRABASS,\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00018\ \ \ \ \ SKOpt\_SOPRANO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00019\ \}\ ShiftKeyingOptions\_t;}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{comment}{/*\ \ Creation\ of\ an\ enum\ which\ corresponds\ to\ the\ different}}
-\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ embouchure\ options\ that\ the\ user\ may\ select\ to\ calibrate.}}
-\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ This\ should\ be\ adjusted\ before\ release\ the\ have\ the\ correct}}
-\DoxyCodeLine{00024\ \textcolor{comment}{\ \ \ \ names\ and\ number\ of\ options.\ */}}
-\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
-\DoxyCodeLine{00026\ \ \ \ \ EMBCR\_EMPTY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00027\ \ \ \ \ EMBCR\_LowPlacement,\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00028\ \ \ \ \ EMBCR\_MediumPlacement,\ \ \ \ \ \ }
-\DoxyCodeLine{00029\ \ \ \ \ EMBCR\_HighPlacement,\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00030\ \}\ EmbachureOptions\_t;}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{comment}{/*\ \ A\ struct\ which\ stores\ all\ the\ necessary\ parameters\ that\ may\ be}}
-\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ changed\ on\ the\ app\ side\ effecting\ the\ core\ functionality.\ This}}
-\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ struct\ should\ add\ a\ flag\ which\ is\ triggered\ whenever\ a\ parameter}}
-\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ has\ been\ changed.*/}}
-\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
-\DoxyCodeLine{00037\ \ \ \ \ ShiftKeyingOptions\_t\ shiftKeyingOption;\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTrombonelessParameters__t_a17c00b5a025feede88952c5b484c6f4f}{nearDistance}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTrombonelessParameters__t_a35769bf7bf7dd2d05ff57328e6c7bd88}{farDistance}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTrombonelessParameters__t_a362040e7af460e17532fe456f8a16983}{lowPressure}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structTrombonelessParameters__t_a7e43ecfad9a1eef1cb3cf7933227b136}{highPressure}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00044\ \ \ \ \ EmbachureOptions\_t\ \mbox{\hyperlink{structTrombonelessParameters__t_ad58556b928e44bd32a9b4d06bd328d6c}{embouchureOption}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structTrombonelessParameters__t_a3971c5a598b40eeda1693f73e4f4d71d}{triggerEmbouchureCalibrate}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{structTrombonelessParameters__t}{TrombonelessParameters\_t}};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{comment}{/*\ \ A\ struct\ to\ store\ any\ of\ the\ synthesier\ parameters\ that\ may\ be}}
-\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ changed\ within\ the\ app.\ A\ data\ changed\ flag\ variable\ should\ be}}
-\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ added\ to\ this\ struct\ to\ tell\ the\ core\ to\ read\ the\ new\ values.\ */}}
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ synthEnable;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{float}\ gains[10]\ =\ \{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\};\ \ \ }
-\DoxyCodeLine{00054\ \}\ \mbox{\hyperlink{structSynthesiserParameters__t}{SynthesiserParameters\_t}};}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{/*\ \ Creating\ an\ instance\ of\ the\ trombonelessParameters\_t\ struct\ to\ }}
-\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ store\ the\ active\ parameter\ variables.\ */}}
-\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structTrombonelessParameters__t}{TrombonelessParameters\_t}}\ trombonelessParameters;\ }
-\DoxyCodeLine{00060\ \textcolor{comment}{/*\ \ Creating\ an\ instance\ of\ the\ SynthethiserParameters\_t\ struct\ to}}
-\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ store\ the\ active\ parameter\ variables.\ */}}
-\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structSynthesiserParameters__t}{SynthesiserParameters\_t}}\ synthesiserParameters;\ \ \ }
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00013\ \ \ \ \ SKOpt\_EMPTY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \ \ \ \ SKOpt\_BASS,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ SKOpt\_PICCOLO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ SKOpt\_ALTO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ SKOpt\_TENOR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ SKOpt\_CONTRABASS,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ SKOpt\_SOPRANO,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \}\ ShiftKeyingOptions\_t;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00034\ \ \ \ \ EMBCR\_EMPTY,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ EMBCR\_LowPlacement,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ EMBCR\_MediumPlacement,\ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ EMBCR\_HighPlacement,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \}\ EmbachureOptions\_t;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00050\ \ \ \ \ ShiftKeyingOptions\_t\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_a2a6d163fbc02f502a99659ed60c2ffcc}{shiftKeyingOption}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_a17c00b5a025feede88952c5b484c6f4f}{nearDistance}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_a35769bf7bf7dd2d05ff57328e6c7bd88}{farDistance}};\ \ \ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_a362040e7af460e17532fe456f8a16983}{lowPressure}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_a7e43ecfad9a1eef1cb3cf7933227b136}{highPressure}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ EmbachureOptions\_t\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_ad58556b928e44bd32a9b4d06bd328d6c}{embouchureOption}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t_a3971c5a598b40eeda1693f73e4f4d71d}{triggerEmbouchureCalibrate}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t}{TrombonelessParameters\_t}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{struct_synthesiser_parameters__t_a412fa82e26f1a63a66eabd3fe6d14e88}{synthEnable}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{struct_synthesiser_parameters__t_ab4276d413e10d7ee952f12ae21c62080}{gains}}[10]\ =\ \{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\};\ \ }
+\DoxyCodeLine{00077\ \}\ \doxymbox{\hyperlink{struct_synthesiser_parameters__t}{SynthesiserParameters\_t}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{/*\ \ Creating\ an\ instance\ of\ the\ trombonelessParameters\_t\ struct\ to\ }}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ store\ the\ active\ parameter\ variables.\ */}}
+\DoxyCodeLine{00081\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_tromboneless_parameters__t}{TrombonelessParameters\_t}}\ trombonelessParameters;\ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*\ \ Creating\ an\ instance\ of\ the\ SynthethiserParameters\_t\ struct\ to}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ store\ the\ active\ parameter\ variables.\ */}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_synthesiser_parameters__t}{SynthesiserParameters\_t}}\ synthesiserParameters;\ \ \ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

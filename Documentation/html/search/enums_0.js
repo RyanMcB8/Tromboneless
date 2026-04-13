@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['initialiselabelerrors_5ft_0',['InitialiseLabelErrors_t',['../classSliderWithLabel.html#ab9bc346c16ea8bf568905afc99ab9bc3',1,'SliderWithLabel']]],
-  ['input_1',['Input',['../structADS1115settings.html#a17845a1a94f94bb7d2406dbe13bc560d',1,'ADS1115settings']]]
+  ['envelope_5fstages_5ft_0',['envelope_stages_t',['../class_envelope.html#a193b41a10053414287e7bc5d0f49296c',1,'Envelope']]]
 ];

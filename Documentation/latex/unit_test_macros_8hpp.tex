@@ -1,0 +1,144 @@
+\doxysection{C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+tests/\+unit\+Test\+Macros.hpp File Reference}
+\hypertarget{unit_test_macros_8hpp}{}\label{unit_test_macros_8hpp}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/App/tests/unitTestMacros.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/App/tests/unitTestMacros.hpp}}
+
+
+This file defines a set of macros which may be called upon to test various different tests for the Tromboneless App.  
+
+
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$juce\+\_\+core/\+juce\+\_\+core.\+h$>$}\newline
+{\ttfamily \+\#include $<$juce\+\_\+gui\+\_\+basics/\+juce\+\_\+gui\+\_\+basics.\+h$>$}\newline
+Include dependency graph for unit\+Test\+Macros.\+hpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit_test_macros_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit_test_macros_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{unit_test_macros_8hpp_af7aae92dc6f1a9fcb695fc38264eede6}{SET\+\_\+\+GET\+\_\+\+FLOAT}}(object,  setter,  getter,  new\+Value,  class\+Name,  result)
+\begin{DoxyCompactList}\small\item\em Set/\+get test for float types. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{unit_test_macros_8hpp_ab0ba7a005c86c6e2095622840294bd34}{SET\+\_\+\+GET\+\_\+\+COLOUR}}(object,  setter,  getter,  class\+Name,  result)
+\item 
+\+\#define \doxymbox{\hyperlink{unit_test_macros_8hpp_aa7a53a556a82f1f2b2b9f33685968bd2}{SET\+\_\+\+GET\+\_\+\+INT}}(object,  setter,  getter,  new\+Value,  class\+Name,  result)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file defines a set of macros which may be called upon to test various different tests for the Tromboneless App. 
+
+\begin{DoxyAuthor}{Author}
+@\+Ryan\+Mc\+B8 
+\end{DoxyAuthor}
+
+
+\label{doc-define-members}
+\Hypertarget{unit_test_macros_8hpp_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{unit_test_macros_8hpp_ab0ba7a005c86c6e2095622840294bd34}\index{unitTestMacros.hpp@{unitTestMacros.hpp}!SET\_GET\_COLOUR@{SET\_GET\_COLOUR}}
+\index{SET\_GET\_COLOUR@{SET\_GET\_COLOUR}!unitTestMacros.hpp@{unitTestMacros.hpp}}
+\doxysubsubsection{\texorpdfstring{SET\_GET\_COLOUR}{SET\_GET\_COLOUR}}
+{\footnotesize\ttfamily \label{unit_test_macros_8hpp_ab0ba7a005c86c6e2095622840294bd34} 
+\+\#define SET\+\_\+\+GET\+\_\+\+COLOUR(\begin{DoxyParamCaption}\item[{}]{object}{, }\item[{}]{setter}{, }\item[{}]{getter}{, }\item[{}]{class\+Name}{, }\item[{}]{result}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ juce::Colour\ original\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ juce::Colour\ newValue\ =\ juce::Colours::red;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (original\ ==\ juce::Colours::red)\ newValue\ =\ juce::Colours::blue;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{object}.setter(newValue);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ juce::Colour\ updated\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (updated\ !=\ newValue\ ||\ updated\ ==\ original)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}[FAIL]\ \ \ \ "{}}\ \#setter\ \textcolor{stringliteral}{"{}/"{}}\ \#getter\ \textcolor{stringliteral}{"{}\ in\ "{}}\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#className\ "{}failed\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ false;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ else\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ true;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\}}}
+
+\end{DoxyCode}
+\Hypertarget{unit_test_macros_8hpp_af7aae92dc6f1a9fcb695fc38264eede6}\index{unitTestMacros.hpp@{unitTestMacros.hpp}!SET\_GET\_FLOAT@{SET\_GET\_FLOAT}}
+\index{SET\_GET\_FLOAT@{SET\_GET\_FLOAT}!unitTestMacros.hpp@{unitTestMacros.hpp}}
+\doxysubsubsection{\texorpdfstring{SET\_GET\_FLOAT}{SET\_GET\_FLOAT}}
+{\footnotesize\ttfamily \label{unit_test_macros_8hpp_af7aae92dc6f1a9fcb695fc38264eede6} 
+\+\#define SET\+\_\+\+GET\+\_\+\+FLOAT(\begin{DoxyParamCaption}\item[{}]{object}{, }\item[{}]{setter}{, }\item[{}]{getter}{, }\item[{}]{new\+Value}{, }\item[{}]{class\+Name}{, }\item[{}]{result}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ original\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ ((\textcolor{keywordtype}{float})newValue\ ==\ original)\ newValue\ +=\ 0.1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{object}.setter((\textcolor{keywordtype}{float})newValue);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ updated\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (updated\ !=\ (\textcolor{keywordtype}{float})newValue\ ||\ updated\ ==\ original)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}[FAIL]\ \ \ \ "{}}\ \#setter\ \textcolor{stringliteral}{"{}/"{}}\ \#getter\ \textcolor{stringliteral}{"{}\ in\ "{}}\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#className\ "{}failed\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ false;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ else\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ true;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\}}}
+
+\end{DoxyCode}
+
+
+Set/\+get test for float types. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & The object which is being iterated/\+referenced. \\
+\hline
+{\em setter} & The name of the method which is used to set the new value of the private variable. \\
+\hline
+{\em getter} & The name of the method which is used to get the current value of the private variable. \\
+\hline
+{\em new\+Value} & The value which the variable should be set to. \\
+\hline
+{\em class\+Name} & The name of the class which the object is an instance of. \\
+\hline
+{\em result} & The name of the variable used to give a pass/\+fail result at the end of the test. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{unit_test_macros_8hpp_aa7a53a556a82f1f2b2b9f33685968bd2}\index{unitTestMacros.hpp@{unitTestMacros.hpp}!SET\_GET\_INT@{SET\_GET\_INT}}
+\index{SET\_GET\_INT@{SET\_GET\_INT}!unitTestMacros.hpp@{unitTestMacros.hpp}}
+\doxysubsubsection{\texorpdfstring{SET\_GET\_INT}{SET\_GET\_INT}}
+{\footnotesize\ttfamily \label{unit_test_macros_8hpp_aa7a53a556a82f1f2b2b9f33685968bd2} 
+\+\#define SET\+\_\+\+GET\+\_\+\+INT(\begin{DoxyParamCaption}\item[{}]{object}{, }\item[{}]{setter}{, }\item[{}]{getter}{, }\item[{}]{new\+Value}{, }\item[{}]{class\+Name}{, }\item[{}]{result}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ original\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ ((\textcolor{keywordtype}{int})newValue\ ==\ original)\ newValue\ +=\ 1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{object}.setter(newValue);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ updated\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (updated\ !=\ newValue\ ||\ updated\ ==\ original)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}[FAIL]\ \ \ \ "{}}\ \#setter\ \textcolor{stringliteral}{"{}/"{}}\ \#getter\ \textcolor{stringliteral}{"{}\ in\ "{}}\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#className\ "{}failed\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ false;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ else\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ true;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\}}}
+
+\end{DoxyCode}

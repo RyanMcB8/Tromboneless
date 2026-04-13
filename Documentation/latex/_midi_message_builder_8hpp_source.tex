@@ -1,0 +1,32 @@
+\doxysection{Midi\+Message\+Builder.\+hpp}
+\hypertarget{_midi_message_builder_8hpp_source}{}\label{_midi_message_builder_8hpp_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/MidiMessageBuilder.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/MidiMessageBuilder.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}MidiMessage.hpp"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_midi_message_builder}{MidiMessageBuilder}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{using\ }Byte\ =\ MidiMessage::Byte;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00030\ \ \ \ \ \doxymbox{\hyperlink{class_midi_message}{MidiMessage}}\ \doxymbox{\hyperlink{class_midi_message_builder_afec866a91fd98c33c4a1bd1a4a7b245a}{noteOn}}(\textcolor{keywordtype}{int}\ channel,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Byte\ note,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Byte\ velocity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{class_midi_message}{MidiMessage}}\ \doxymbox{\hyperlink{class_midi_message_builder_afed51e1a8f65ecfa622a0668a504e922}{noteOff}}(\textcolor{keywordtype}{int}\ channel,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Byte\ note,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Byte\ velocity\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{class_midi_message}{MidiMessage}}\ \doxymbox{\hyperlink{class_midi_message_builder_a3569350d0a22a4dc1165bb475d9b52e7}{pitchBend}}(\textcolor{keywordtype}{int}\ channel,\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \doxymbox{\hyperlink{class_midi_message}{MidiMessage}}\ expr(\textcolor{keywordtype}{int}\ channel,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ Byte\ clampChannel(\textcolor{keywordtype}{int}\ channel);}
+\DoxyCodeLine{00072\ \};}
+
+\end{DoxyCode}

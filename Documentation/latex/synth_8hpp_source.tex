@@ -1,8 +1,9 @@
 \doxysection{synth.\+hpp}
-\hypertarget{synth_8hpp_source}{}\label{synth_8hpp_source}\index{/home/ryan/Tromboneless/Core/include/synth.hpp@{/home/ryan/Tromboneless/Core/include/synth.hpp}}
-\mbox{\hyperlink{synth_8hpp}{Go to the documentation of this file.}}
+\hypertarget{synth_8hpp_source}{}\label{synth_8hpp_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/synth.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/synth.hpp}}
+\doxymbox{\hyperlink{synth_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
+\DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{comment}{/*\ Preventing\ recursion.\ */}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00014\ }
@@ -14,175 +15,174 @@
 \DoxyCodeLine{00020\ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Class\ definitions\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
 \DoxyCodeLine{00021\ \textcolor{comment}{/*\ ==========================================================================================\ */}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{comment}{/*\ Creation\ of\ a\ class\ to\ store\ the\ frequency\ of\ notes.\ */}}
-\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNotes}{Notes}}\{}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00026\ }
- Creation of the enumerated list of possible notes. */\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ note\_C,}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Db,}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ note\_D,}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Eb,}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ note\_E,}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ note\_F,}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Gb,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ note\_G,}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Ab,}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ note\_A,}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Bb,}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ note\_B,}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Addition\ of\ sharp\ notes.\ */}}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ note\_C\_sharp\ =\ note\_Db,}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ note\_D\_sharp\ =\ note\_Eb,}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ note\_F\_sharp\ =\ note\_Gb,}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ note\_G\_sharp\ =\ note\_Ab,}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ note\_A\_sharp\ =\ note\_Bb,}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}\ \ \ Notes\_t;}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNotes}{Notes}}(\textcolor{keywordtype}{float}\ C\_in\ \ \ \ =\ \ \ 16.35,\ \textcolor{keywordtype}{float}\ Db\_in\ \ \ =\ \ \ 17.32,}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ D\_in\ \ \ \ \ \ =\ \ \ 18.35,\ \textcolor{keywordtype}{float}\ Eb\_in\ \ \ =\ \ \ 19.45,}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ E\_in\ \ \ \ \ \ =\ \ \ 20.60,\ \textcolor{keywordtype}{float}\ F\_in\ \ \ \ =\ \ \ 21.83,}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Gb\_in\ \ \ \ \ =\ \ \ 23.12,\ \textcolor{keywordtype}{float}\ G\_in\ \ \ \ =\ \ \ 24.50,}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Ab\_in\ \ \ \ \ =\ \ \ 25.96,\ \textcolor{keywordtype}{float}\ A\_in\ \ \ \ =\ \ \ 27.50,}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Bb\_in\ \ \ \ \ =\ \ \ 29.14,\ \textcolor{keywordtype}{float}\ B\_in\ \ \ \ =\ \ \ 30.87);}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNotes}{\string~Notes}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Note\ setters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a1c9383818919d511ea9299d6ab7afa2f}{setC}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a0a98769073819861f78bf78a5d95ab5a}{setC\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a68a89e6e4d3bf6e41e9f91777f19dd0a}{setDb}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a8f72cc825ba0afda8fa2b68ff0500a69}{setD}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_abc39d5043dc8c8a49c39ff9a896a6cb6}{setD\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a9c25afb38701d1ffc11b26d33653de4c}{setEb}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_ae959ad0889a5d45715d5c7482707c2ef}{setE}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_ac070bd5a7176dff547c6b6ee90a36b3b}{setF}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_ab7725bfa84744f9f3d56f1bc764b76b3}{setF\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_acc37567c8e40bc527e33ba1a48f9a871}{setGb}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_af875b2e96125592242dd1d6450b183c9}{setG}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a8663bd612ca09569fc1ecbb4efacdf1a}{setG\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_abca3eb1323651b1294797f2b72caba7c}{setAb}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a04c47164cb0f449420fc0dbff35c405e}{setA}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a2768afc7543a3e382d7c302d992e920e}{setA\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_ae65f2258ff7ad7714a0dc2ddb2d4c4a5}{setBb}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNotes_a9073e06b45bf747f29dab9eae21eec76}{setB}}(\textcolor{keywordtype}{float}\ frequency);}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{setNote}}(Notes\_t\ note,\ \textcolor{keywordtype}{float}\ freq);}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Note\ getters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
-\DoxyCodeLine{00196\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a69625a0a056e70309af328d42b2bf86e}{getC}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a93c45ae9f68a5ac0d9a477c62ba3e9f0}{getC\_sharp}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a91f441551add80a7107bd711f84843e2}{getDb}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00211\ }
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a502adf6efaab7e823fddfd37815143b4}{getD}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00216\ }
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_ac4110d614686b1c27372d8ae6a67c147}{getD\_sharp}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_aa17abf1182c5fea036ce31f931c34173}{getEb}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00226\ }
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_abbf33c11e758d7a328eab1827afac4a6}{getE}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a61b35c753de1fdb9b79af0a9c608a4c9}{getF}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_ab3f08228e302766e7774e1a8f9b745e4}{getF\_sharp}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00241\ }
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a311fdefd787800b894d716e1c3eba95d}{getGb}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a11f96dd3199adab61b4414532053c193}{getG}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_aeca30d05da5cf190f297b8d8ec396d55}{getG\_sharp}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_af8b381f1234fe9d08c49bf3f4754de3d}{getAb}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a4164d3038052c4d3e8f4dbf830e9c9bb}{getA}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00266\ }
-\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_ae07a0a1815aefd649d95dc98a475ebc7}{getA\_sharp}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00271\ }
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_aba2f8ad19fc1b28a8a5e9f2e1941e881}{getBb}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00276\ }
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a192de65337df2408c3e56ca10a4c4c10}{getB}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{getNote}}(Notes\_t\ note);}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ of\ the\ possible\ note\ frequencies.\ */}}
-\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ C,\ Db,\ D,\ Eb,\ E,\ F,}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Gb,\ G,\ Ab,\ A,\ Bb,\ B;}
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00296\ \};}
-\DoxyCodeLine{00297\ \ \ \ \ }
-\DoxyCodeLine{00298\ \ \ \ \ }
-\DoxyCodeLine{00302\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classOctaves}{Octaves}}\ \ \ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classNotes}{Notes}}}
-\DoxyCodeLine{00303\ \{}
-\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{public}:\ \ \ \ }
-\DoxyCodeLine{00305\ \ \ \ \ }
- Stores the number of octaves being used. */\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ nOctaves\ =\ 9;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_notes_ae11cec41480227782d457e4829d5a06f}{Notes}}\{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ note\_C,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Db,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ note\_D,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Eb,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ note\_E,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ note\_F,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Gb,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ note\_G,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Ab,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ note\_A,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ note\_Bb,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ note\_B,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Addition\ of\ sharp\ notes.\ */}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ note\_C\_sharp\ =\ note\_Db,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ note\_D\_sharp\ =\ note\_Eb,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ note\_F\_sharp\ =\ note\_Gb,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ note\_G\_sharp\ =\ note\_Ab,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ note\_A\_sharp\ =\ note\_Bb,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}\ \ \ \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\_t}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_notes_ae11cec41480227782d457e4829d5a06f}{Notes}}(\textcolor{keywordtype}{float}\ C\_in\ \ \ \ =\ \ \ 16.35,\ \textcolor{keywordtype}{float}\ Db\_in\ \ \ =\ \ \ 17.32,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ D\_in\ \ \ \ \ \ =\ \ \ 18.35,\ \textcolor{keywordtype}{float}\ Eb\_in\ \ \ =\ \ \ 19.45,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ E\_in\ \ \ \ \ \ =\ \ \ 20.60,\ \textcolor{keywordtype}{float}\ F\_in\ \ \ \ =\ \ \ 21.83,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Gb\_in\ \ \ \ \ =\ \ \ 23.12,\ \textcolor{keywordtype}{float}\ G\_in\ \ \ \ =\ \ \ 24.50,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Ab\_in\ \ \ \ \ =\ \ \ 25.96,\ \textcolor{keywordtype}{float}\ A\_in\ \ \ \ =\ \ \ 27.50,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ Bb\_in\ \ \ \ \ =\ \ \ 29.14,\ \textcolor{keywordtype}{float}\ B\_in\ \ \ \ =\ \ \ 30.87);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_notes}{\string~Notes}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Note\ setters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a1c9383818919d511ea9299d6ab7afa2f}{setC}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a0a98769073819861f78bf78a5d95ab5a}{setC\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a68a89e6e4d3bf6e41e9f91777f19dd0a}{setDb}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a8f72cc825ba0afda8fa2b68ff0500a69}{setD}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_abc39d5043dc8c8a49c39ff9a896a6cb6}{setD\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a9c25afb38701d1ffc11b26d33653de4c}{setEb}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_ae959ad0889a5d45715d5c7482707c2ef}{setE}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_ac070bd5a7176dff547c6b6ee90a36b3b}{setF}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_ab7725bfa84744f9f3d56f1bc764b76b3}{setF\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_acc37567c8e40bc527e33ba1a48f9a871}{setGb}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_af875b2e96125592242dd1d6450b183c9}{setG}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a8663bd612ca09569fc1ecbb4efacdf1a}{setG\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_abca3eb1323651b1294797f2b72caba7c}{setAb}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a04c47164cb0f449420fc0dbff35c405e}{setA}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a2768afc7543a3e382d7c302d992e920e}{setA\_sharp}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_ae65f2258ff7ad7714a0dc2ddb2d4c4a5}{setBb}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_notes_a9073e06b45bf747f29dab9eae21eec76}{setB}}(\textcolor{keywordtype}{float}\ frequency);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a289e578ebfa78942170e0733ea111f6b}{setNote}}(\doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\_t}}\ note,\ \textcolor{keywordtype}{float}\ freq);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Note\ getters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ ==========================================================================================\ */}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a69625a0a056e70309af328d42b2bf86e}{getC}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a93c45ae9f68a5ac0d9a477c62ba3e9f0}{getC\_sharp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a91f441551add80a7107bd711f84843e2}{getDb}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a502adf6efaab7e823fddfd37815143b4}{getD}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_ac4110d614686b1c27372d8ae6a67c147}{getD\_sharp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_aa17abf1182c5fea036ce31f931c34173}{getEb}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_abbf33c11e758d7a328eab1827afac4a6}{getE}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a61b35c753de1fdb9b79af0a9c608a4c9}{getF}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_ab3f08228e302766e7774e1a8f9b745e4}{getF\_sharp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a311fdefd787800b894d716e1c3eba95d}{getGb}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a11f96dd3199adab61b4414532053c193}{getG}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_aeca30d05da5cf190f297b8d8ec396d55}{getG\_sharp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_af8b381f1234fe9d08c49bf3f4754de3d}{getAb}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a4164d3038052c4d3e8f4dbf830e9c9bb}{getA}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_ae07a0a1815aefd649d95dc98a475ebc7}{getA\_sharp}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_aba2f8ad19fc1b28a8a5e9f2e1941e881}{getBb}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a192de65337df2408c3e56ca10a4c4c10}{getB}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_notes_a48d208550a87e540d1748253aae9516f}{getNote}}(\doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\_t}}\ note);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Initialisation\ of\ the\ possible\ note\ frequencies.\ */}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ C,\ Db,\ D,\ Eb,\ E,\ F,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Gb,\ G,\ Ab,\ A,\ Bb,\ B;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00299\ \};}
+\DoxyCodeLine{00300\ \ \ \ \ }
+\DoxyCodeLine{00301\ \ \ \ \ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{class\ }Octaves\ \ \ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{class_notes_ae11cec41480227782d457e4829d5a06f}{Notes}}}
+\DoxyCodeLine{00306\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{public}:\ \ \ \ }
 \DoxyCodeLine{00308\ \ \ \ \ }
- Initialising an array of the octaves and their notes. */\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNotes}{Notes}}\ octaves[nOctaves];}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Constructor\ for\ the\ class*/}}
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOctaves}{Octaves}}();}
-\DoxyCodeLine{00314\ }
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOctaves}{\string~Octaves}}()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00316\ }
-\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctaves_a8f560ad8bf3c5ad4bdec4094e2119810}{PlayingNote}}(\textcolor{keywordtype}{int}\ octave,\ Notes\_t\ note,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00329\ }
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctaves_abfcba4d0b4f936d1bef9f5458c65fc36}{PlayingFrequency}}(\textcolor{keywordtype}{float}\ freq,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00341\ }
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00344\ \};}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00346\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classOctavesWithHarmonics}{OctavesWithHarmonics}}\ :\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classOctaves}{Octaves}}}
-\DoxyCodeLine{00347\ \{}
-\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00349\ }
-\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOctavesWithHarmonics_aed7ad26de7c252c787b11d1a88b6cb30}{OctavesWithHarmonics}}();}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOctavesWithHarmonics}{\string~OctavesWithHarmonics}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00354\ }
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctavesWithHarmonics_aa2f7c9edb2eef430f0c18795747e4c41}{PlayingNoteWithHarmonics}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ octave,\ Notes\_t\ note,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00371\ }
-\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctavesWithHarmonics_aada12badc25785e82187af576d49d606}{PlayingFrequencyWithHarmonics}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{float}\ freq,\ \textcolor{keywordtype}{float}\ time);}
-\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}{HarmonicDecay}}(\textcolor{keywordtype}{int}\ n);}
-\DoxyCodeLine{00395\ }
-\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{getHarmomicDecayMax}}(\textcolor{keywordtype}{int}\ n);}
-\DoxyCodeLine{00403\ }
-\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9}{setDecayConstant}}(\textcolor{keywordtype}{float}\ decayC);}
-\DoxyCodeLine{00411\ }
-\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classOctavesWithHarmonics_a617c4acb3379692aa05736cf9747b87b}{getDecayConstant}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00419\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ decayConstant\ =\ 0.1;}
-\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00422\ \};}
-\DoxyCodeLine{00423\ }
-\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \doxymbox{\hyperlink{class_octaves_aab55dc1e4e61330511e61c2c302ada6e}{nOctaves}}\ =\ 9;}
+\DoxyCodeLine{00311\ \ \ \ \ }
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_notes_ae11cec41480227782d457e4829d5a06f}{Notes}}\ \doxymbox{\hyperlink{class_octaves_aa6c0bbc5933997052bb27a71cb6de574}{octaves}}[\doxymbox{\hyperlink{class_octaves_aab55dc1e4e61330511e61c2c302ada6e}{nOctaves}}];}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Constructor\ for\ the\ class*/}}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ Octaves();}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \string~Octaves()\ =\ \textcolor{keywordflow}{default};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_a023ab71a119c0bc8bb8c6c4919f0064f}{PlayingNote}}(\textcolor{keywordtype}{int}\ octave,\ \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\_t}}\ note,\ \textcolor{keywordtype}{float}\ phase);}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_ab77d9f9b4116757b6968606040af1c8c}{PlayingFrequency}}(\textcolor{keywordtype}{float}\ phase);}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00347\ \};}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_octaves_with_harmonics_aed7ad26de7c252c787b11d1a88b6cb30}{OctavesWithHarmonics}}\ :\ \ \ \ \textcolor{keyword}{public}\ Octaves}
+\DoxyCodeLine{00354\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_octaves_with_harmonics_aed7ad26de7c252c787b11d1a88b6cb30}{OctavesWithHarmonics}}();}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_octaves_with_harmonics_aed7ad26de7c252c787b11d1a88b6cb30}{\string~OctavesWithHarmonics}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_with_harmonics_a80740c914b3cdda4e8cf4c8b194b623a}{PlayingNoteWithHarmonics}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ octave,\ \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\_t}}\ note,\ \textcolor{keywordtype}{float}\ phase);}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_with_harmonics_a4b66d3a6df6849de730aad0966330f41}{PlayingFrequencyWithHarmonics}}(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{float}\ phase);}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_with_harmonics_af9d14fab35feae14d4ce9f14f2080324}{HarmonicDecay}}(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_with_harmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{getHarmomicDecayMax}}(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_octaves_with_harmonics_ab7e6deb44d098e704519df09bbd189e9}{setDecayConstant}}(\textcolor{keywordtype}{float}\ decayC);}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{class_octaves_with_harmonics_a617c4acb3379692aa05736cf9747b87b}{getDecayConstant}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ decayConstant\ =\ 0.1;}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00429\ \};}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ }
 
 \end{DoxyCode}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['layout_0',['Layout',['../classLayout.html',1,'']]]
+  ['layout_0',['Layout',['../class_layout.html',1,'']]]
 ];
