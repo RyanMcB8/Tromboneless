@@ -1,5 +1,5 @@
 /** @file       synth.hpp
- *  @author     @RyanMcB8
+ *  @author     Ryan McBride
  *  @brief      A header file containing all the necessary declarations and references to
  *              allow for the Tromboneless to synthesise the noise a trombone would make
  *              when playing the same notes.
@@ -20,11 +20,14 @@
 /*                                  Class definitions                                         */
 /* ========================================================================================== */
 
-/* Creation of a class to store the frequency of notes. */
+/** @brief      A class to store the frequency of the notes which may be referenced. The
+ *              notes are stored in an enum `Notes_t` which allow for the higher level functions
+ *              to call upon the specific note as opposed to frequency.
+ */
 class Notes{
     public:
 
-        /** @brief */ Creation of the enumerated list of possible notes. */
+        /** @brief Creation of the enumerated list of possible notes. */
         typedef enum{
             note_C,
             note_Db,
@@ -303,10 +306,10 @@ class Octaves   : public Notes
 {
     public:    
     
-        /** @brief */ Stores the number of octaves being used. */
+        /** @brief Stores the number of octaves being used. */
         static const char nOctaves = 9;
     
-        /** @brief */ Initialising an array of the octaves and their notes. */
+        /** @brief Initialising an array of the octaves and their notes. */
         Notes octaves[nOctaves];
         
         /* Constructor for the class*/
@@ -343,6 +346,10 @@ class Octaves   : public Notes
     private:
 };
 
+/** @brief      A class which inherits functions and variables from the `Octaves` class
+ *              allowing for the notes being output to have a set of harmonic frequencies 
+ *              attached to them too.
+ */
 class OctavesWithHarmonics :    public Octaves
 {
     public:

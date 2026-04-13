@@ -1,5 +1,5 @@
 /** @file           envelope.cpp 
- *  @author         @RyanMcB8
+ *  @author         RyanMcBride
  *  @brief          Contains the defintions of the functions and variables
  *                  needed to create an envelope.
  */
@@ -14,6 +14,7 @@
 /*                                      Envelope                                              */
 /*                                                                                            */
 /* ========================================================================================== */
+
 Envelope::Envelope(int attack_in, int decay_in, float sustain_in, int rest_in){
     attack = attack_in;
     decay = decay_in;

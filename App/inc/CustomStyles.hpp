@@ -263,12 +263,44 @@ private:
 #endif        
 };
 
+/** @brief      A class to set the look and feel of a two finger linear slider to 
+ *              look like a trombone where the left most finger is the main body
+ *              and the right most is the end of the trombones slide.
+ *  @note       This is used in the Tromboneless project to calibrate the maximum
+ *              and minimum distances of the slider by the users preference.
+ */
 class CalibrationSliderLookAndFeel  :  public   juce::LookAndFeel_V4{
     public:
         CalibrationSliderLookAndFeel();
 
         virtual ~CalibrationSliderLookAndFeel() = default;
 
+        /** @brief                  When this look and feel is attached to an object which has
+         *                          a vertical slider in it, this function sets the look and
+         *                          feel of the slider being used. This makes it look like
+         *                          an average equalizer slider.
+         *  @param  g               A pointer to the `juce::Graphics` instance which is being
+         *                          drawn to. This is likely the main window or else the parent
+         *                          component.
+         *  @param  x               The integer representation of the slider's left corner in
+         *                          the global window.
+         *  @param  y               The integer representation of the sliders top corner in
+         *                          the global window.
+         *  @param  width           The integer representation of the width of the slider.
+         *                          i.e. the difference between the left most and right most
+         *                          part of the slider.
+         *  @param  height          The integer representation of the width of the slider.
+         *                          i.e. the difference between the top most and bottom
+         *                          most parts of the slider's bounds.
+         *  @param  sliderPos       The position of the sliders finger. The position represents
+         *                          x if the slider is horizontal and y if the slider is vertical.
+         *  @param  minSliderPos    The minimum slider position.
+         *  @param  maxSliderPos    The maximum slider position.
+         *  @param  style           The style of the slider whose look and feel is getting 
+         *                          modified. For example, LinearVertical or Rotary.
+         *  @param  slider          A pointer to the slider which is being modified. This
+         *                          can allow for extraction of more data from the slider.
+         */
         virtual void drawLinearSlider(juce::Graphics& g, int x, int y,
             int width, int height, float sliderPos, float minSliderPos, 
             float maxSliderPos, const juce::Slider::SliderStyle style, 

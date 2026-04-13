@@ -1,5 +1,5 @@
 /** @file       synth.cpp
- *  @author     @RyanMcB8
+ *  @author     Ryan McBride
  *  @brief      C file which contains the defintions for the 
  *              functions declared in the `synth.hpp` file.
  */

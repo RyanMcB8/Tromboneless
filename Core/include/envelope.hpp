@@ -1,5 +1,5 @@
 /** @file       envelope.hpp
- *  @author     @RyanMcB8
+ *  @author     Ryan McBride
  *  @brief      A header file containing all the necessary declarations and references to
  *              create a functional envelope class using the ADSR standard.
  */
@@ -10,10 +10,18 @@
 /* Addition of all necessary header files. */
 #include <cmath>
 
+/** @brief      A class which can allow for the create of an envelope function which outputs
+ *              a value between 0 and 1 depending on what stage the envelope is in. This uses
+ *              the ADSR standard in music synthesis where A is the Attack, D is the decay, 
+ *              S is the saturation and R is the rest stage.
+ *  @note       The public functions to set up the envelope take the time in milliseconds for
+ *              each parameter as well as the sample rate to determine the number of samples
+ *              each stage should last for.
+ */
 class Envelope{
     public:
 
-        /*  Enumerated type to describe which part of the ADSR the object is in. */
+        /** @brief  Enumerated type to describe which part of the ADSR the object is in. */
         typedef enum{
             no_stage,
             attack_stage,
@@ -33,7 +41,7 @@ class Envelope{
          *                          the sustain level.
          *  @param  sustain_in      The relative amplitude of the signal after the
          *                          decay stage.
-         *  @param  rest_in         The number of times the 'getAmplitde()` function
+         *  @param  rest_in         The number of times the `getAmplitde()` function
          *                          should be called once the endNote flag has been
          *                          triggered before the noise reaches an amplitude
          *                          of 0.
@@ -160,8 +168,14 @@ class Envelope{
          */
         float restFunction(void);
 
+        /** @brief              A function which gets the current stage which the envelope is in.
+         *  @retval             The stage at which the envelope is in as type `envelope_stages_t`.
+         */
         envelope_stages_t getStage(void);
 
+        /** @brief              A function which sets the current stage which the envelope is in.
+         *  @param  stage_in    The stage at which the envelope should enter or already be in.
+        */
         void setStage(envelope_stages_t stage_in);
 
     private:

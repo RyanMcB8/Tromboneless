@@ -110,7 +110,7 @@
                 public juce::Slider::Listener
  {
     public:
-        /*  Creating an instance of the CalibrationSlider class to be
+        /** Creating an instance of the CalibrationSlider class to be
             used for calibrating the maximum and minimum distance 
             which the trombonist wishes to have their hand for the
             pitch bend. 
@@ -143,7 +143,7 @@
         /** @brief                  A callback function which is automatically called upon when
          *                          one of the sliders present has the value of one of it's
          *                          knobs changed.
-         *  @param  sliderChange    A pointer to the slider which has been modified. This
+         *  @param  sliderChanged   A pointer to the slider which has been modified. This
          *                          allows for the comparison between the different sliders
          *                          within the class to detect which one has been affected.
          *  @note                   This is where the interaction with the Core side of the

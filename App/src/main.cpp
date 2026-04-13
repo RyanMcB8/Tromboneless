@@ -16,16 +16,31 @@ class GuiAppApplication final : public juce::JUCEApplication
 {
 public:
     //==============================================================================
+    /** @brief              Defining the GuiAppApplication function. */
     GuiAppApplication() {}
 
-    // We inject these as compile definitions from the CMakeLists.txt
-    // If you've enabled the juce header with `juce_generate_juce_header(<thisTarget>)`
-    // you could `#include <JuceHeader.h>` and use `ProjectInfo::projectName` etc. instead.
+    /** @brief              A function which returns the name of the applicaiton.
+     *  @note               We inject the name as compile definitions from the CMakeLists.txt
+     */
     const juce::String getApplicationName() override       { return JUCE_APPLICATION_NAME_STRING; }
+
+    /** @brief              A function which gets the current juce version and returns the name of the 
+     *                      one being used.
+     *  @note               We inject the name as compile definitions from the CMakeLists.txt
+     */
     const juce::String getApplicationVersion() override    { return JUCE_APPLICATION_VERSION_STRING; }
-    bool moreThanOneInstanceAllowed() override             { return false; }
+
+    /** @brief      A function which determines whether multiple instances of the window may be opened
+     *              simultaneously. This is currently set to be false so that there may on be one
+     *              window in use at a time.
+     */
+    bool moreThanOneInstanceAllowed() override             { return false; }    
 
     //==============================================================================
+    /** @brief                  The function which initialises the main window when the code is executed.
+     *  @param  commandLine     The arguments which the user has input on the terminal when executing
+     *                          the code. This is currently not used.
+     */
     void initialise (const juce::String& commandLine) override
     {
         // This method is where you should put your application's initialisation code..
@@ -45,6 +60,8 @@ public:
     }
 
     //==============================================================================
+
+    /** @brief      A function used to close the window. This is requested when the user presses the 'X' button. */
     void systemRequestedQuit() override
     {
         // This is called when the app is being asked to quit: you can ignore this
@@ -68,7 +85,7 @@ public:
     {
     public:
 
-        // Generation fo what the main window will look like
+        /** Generation of what the main window will look like. */
         explicit MainWindow (juce::String name)
             : DocumentWindow (name,
                               juce::Desktop::getInstance().getDefaultLookAndFeel()

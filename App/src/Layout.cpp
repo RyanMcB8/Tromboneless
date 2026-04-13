@@ -1,4 +1,4 @@
-/** @file       Layput.cpp
+/** @file       Layout.cpp
  *  @author     Ryan McBride
  *  @brief      This file holds the defintions of all functions and variables
  *              needed by the Tromboneless project to define the layout of the

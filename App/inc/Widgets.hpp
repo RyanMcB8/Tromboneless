@@ -216,11 +216,11 @@ class DualRotarySlider : public juce::Component,
 {
 public:
 
-    /* The slider which will represent the high end of the calibration. */
+    /** The slider which will represent the high end of the calibration. */
     juce::Slider    maxSlider;
-    /* The slider which will represent the low end of the calibration. */
+    /** The slider which will represent the low end of the calibration. */
     juce::Slider    minSlider;
-    /* The label of the component. */
+    /** The label of the component. */
     juce::Label     rotaryLabel;
     
     /** @brief                      The constructor function for the `DualRotarySlider` class
@@ -418,6 +418,11 @@ private:
     void updateMinAngleDifference(void);
 };
 
+/** @brief  A class which can allow for the look and feel of a set of rotary sliders be modified
+ *          to look like a barometer (pressure gauge).
+ *  @note   This is used in the Tromboneless project to calibrate the maximum and minimum gains on
+ *          the mouthpiece.
+ */
 class Barometer :   public DualRotarySlider
 {
     public:
@@ -602,7 +607,7 @@ class Equalizer : public verticalMixSlider
 {
     public:
 
-        /* Creating an array of sliders for the equalizer. */
+        /** @brief Creating an array of sliders for the equalizer. */
         juce::OwnedArray <verticalMixSlider> eqSliders;
         
         /** @brief                  Contructor for the Equalizer class which creates a set
@@ -714,7 +719,7 @@ class Equalizer : public verticalMixSlider
 
         /** @brief                  This function sets what will happen when the option wihtin
          *                          the drop down menu has been changed by the user.
-         *  @param  updateVaraible  This should be a pointer to the variable which is being 
+         *  @param  updateVariable  This should be a pointer to the variable which is being 
          *                          set to the item index which has been chosen.
          *  @note                   This function uses a lambda function to update the specified
          *                          variable to ensure that the specified variable may be changed
@@ -734,6 +739,9 @@ class Equalizer : public verticalMixSlider
          */
         void ChangeLabelText(juce::String text, juce::NotificationType notification = juce::dontSendNotification);
 
+        /** @brief                  A function which returns the current text which the label is displaying.
+         *  @retval                 Returns the text being distplayed as a type `juce::String`.
+         */
         juce::String getLabelText(void);
 
     private:
@@ -777,7 +785,7 @@ class Equalizer : public verticalMixSlider
          */
         void resized() override;
 
-        /*  Creating the TextButton instance for the CalibrationOnClick class
+        /**  Creating the TextButton instance for the CalibrationOnClick class
             to have a button within it. */
         juce::TextButton button;
         

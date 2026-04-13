@@ -1,4 +1,4 @@
-/** @file       Layput.hpp
+/** @file       Layout.hpp
  *  @author     Ryan McBride
  *  @brief      This file holds the declarations of all functions and variables
  *              needed by the Tromboneless project to define the layout of the
@@ -31,19 +31,17 @@ class Layout final : public juce::Component
         // Deconstructor
         ~Layout() = default;
 
-        /** @brief functions that sets the background colour of the window
-        @param  g The panel which should be modified
-        @retval void
-        @note Always sets the background to the user preference for the background.
-        * This function also adds a title to be within the window.
-        */  
+        /** @brief      Function that sets the background colour of the window.
+         *  @param  g   The panel which should be modified.
+         *  @note       Always sets the background to the user preference for the background.
+         *              This function also adds a title to be within the window.
+         */  
         void paint (juce::Graphics& g) override;
 
 
         /** @brief Function that changes the size of the profiler
-        @retval no return value: void
-        @note Resizes the contents of the window including dropdown menus, labels and buttons
-        */
+         *  @note Resizes the contents of the window including dropdown menus, labels and buttons
+         */
         void resized() override;
 
         
