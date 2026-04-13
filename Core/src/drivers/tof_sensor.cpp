@@ -115,11 +115,11 @@ void ToFSensor::softReset()
 {
     // Direct reset register write
     uint8_t resetLow = 0x00;
-    bus_.writeBlock(i2cAddress7Bit_, SOFT_RESET, &resetLow, 1);
+    bus_.writeBlock16(i2cAddress7Bit_, SOFT_RESET, &resetLow, 1);
     std::this_thread::sleep_for(2ms);
 
     uint8_t resetHigh = 0x01;
-    bus_.writeBlock(i2cAddress7Bit_, SOFT_RESET, &resetHigh, 1);
+    bus_.writeBlock16(i2cAddress7Bit_, SOFT_RESET, &resetHigh, 1);
     std::this_thread::sleep_for(2ms);
 }
 

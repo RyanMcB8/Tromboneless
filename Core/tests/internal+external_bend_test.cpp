@@ -25,28 +25,6 @@ public:
     }
 };
 
-class MapEmbouchure {
-    public:
-    int noteMapping(int8_t delta) {
-
-        int strength;
-        if (delta >= 80)
-            strength = 62; //D4
-        else if (delta >= 70)
-            strength = 58; //Bb3
-        else if (delta >= 60)
-            strength = 53; //F3 = 53
-        else if (delta >= 50)
-            strength = 46; // Bb2 = 46
-        else
-            strength = 34; // Bb1 = 34
-
-    std::cout << strength << std::endl;
-    
-    return strength;
-    }
-};
-
 char key;
 
 int main(){
@@ -60,9 +38,7 @@ try
 
         MidiCoordinator coordinator;
         RtMidiSink midiSink;
-
         GetDistance distanceGetter;
-        MapEmbouchure mapembouchure;
 
         if (!eventHandler.initialise()) {
             std::cerr << "Initialisation failed\n";
@@ -100,18 +76,9 @@ try
                 break;
 
             case RawInputEvent::Type::PressureReading:
-                //std::cout << event.pressureReading << std::endl;
-                if(event.pressureReading > 0.0029f)
-                {
-                    coordinator.PressureEdge(true);
-                }
-                else{
-                    coordinator.PressureEdge(false);
-                }
                 break;
 
             case RawInputEvent::Type::MouthpieceReading:
-                coordinator.ChangeNote(mapembouchure.noteMapping(event.mouthpieceReading));
                 break;
             }
         }
