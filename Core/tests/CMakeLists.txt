@@ -15,9 +15,9 @@ set(PROJECT_ROOT ..)
 
 # Add test executable
 add_executable(TrombonelessCoreTests
-    synth_audio_test.cpp
+    # synth_audio_test.cpp
     # midi_test.cpp
-    # synth_internal_bend_test.cpp
+    internal_synth_bend_test.cpp
 )
 
 # Include directories for the core library and any headers needed

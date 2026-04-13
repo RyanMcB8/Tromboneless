@@ -30,9 +30,10 @@ int main() {
     synth.NewTromboneNoteMIDI(0);
     synth.StartTromboneNote(static_cast<Notes::Notes_t>(0), 0);
 
-    for (int midi = 21; midi <108 && keepRunning; midi++)
+    for (int midi = 60; midi <108 && keepRunning; midi++)
     {
         synth.NewTromboneNoteMIDI(midi);
+        std::cout << synth.getAdjustedFrequency() << " ";
 
         for (int i = 0; i < 15 && keepRunning; i++)
         {
