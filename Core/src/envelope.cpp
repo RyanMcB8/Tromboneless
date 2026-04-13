@@ -17,12 +17,12 @@
 Envelope::Envelope(int attack_in, int decay_in, float sustain_in, int rest_in){
     attack = attack_in;
     decay = decay_in;
-    sustain = sustain_in;
+    sustain = clamp01(sustain_in);
     rest = rest_in;
 }
 
 float Envelope::getAmplitude(void){
-    float amplitude;
+    float amplitude = 0.0f;
     switch (stage)
     {
         case no_stage:
@@ -47,11 +47,10 @@ float Envelope::getAmplitude(void){
 
         case sustain_stage:
             return sustain;
-            break;
 
         case rest_stage:
             amplitude = restFunction();
-            if (sustain == counter - 1){
+            if (counter >= rest){
                 stage = no_stage;
                 counter = 0;
             }
@@ -66,6 +65,7 @@ float Envelope::getAmplitude(void){
 
 void Envelope::startEnvelope(void){
     stage = attack_stage;
+    counter = 0;
 }
 
 void Envelope::endEnvelope(void){
@@ -118,7 +118,7 @@ float Envelope::decayFunction(void){
 
 float Envelope::restFunction(void){
     /*  currently this is just a linear ramp function. */
-    return (1.0f - (float)(static_cast<float>(counter)/static_cast<float>(decay))) * (sustain);
+    return (1.0f - (float)(static_cast<float>(counter)/static_cast<float>(rest))) * (sustain);
 }
 
 float Envelope::clamp01(float value){

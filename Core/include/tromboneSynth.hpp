@@ -181,6 +181,8 @@
         float rest_ms;          /*  The rest time in milliseconds of the envelope. */
         float sustain;          /*  The sustain level of the envelope. */
 
+        float phase = 0.0f; /* Phase of oscillator wave */
+
         /*  synth   */
         int nHarmonics = 17;    /*  The number of harmonics which will be present in the final signal. */
         int octave = 2;         /*  The octave which the note will be present in. */

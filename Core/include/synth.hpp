@@ -325,7 +325,7 @@ class Octaves   : public Notes
          *                  depending on the volume. The maxmimum and minimum will always
          *                  be 1 and -1 respectively.
         */
-        float PlayingNote(int octave, Notes_t note, float time);
+        float PlayingNote(int octave, Notes_t note, float phase);
 
         /** @brief          A function which may be called to determine the amplitude of 
          *                  a specified frequency at a specified time.
@@ -337,7 +337,7 @@ class Octaves   : public Notes
          *                  depending on the volume. The maxmimum and minimum will always
          *                  be 1 and -1 respectively.
         */
-        float PlayingFrequency(float freq, float time);
+        float PlayingFrequency(float phase);
 
         
     private:
@@ -367,7 +367,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  by increasing the number of harmonics present and using non
          *                  integer harmonics too.
          */
-        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time);
+        float PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float phase);
 
         /** @brief          A function which may be called upon to stop playing a range
          *                  of harmonic frequencies when a specific note is called upon to
@@ -379,7 +379,7 @@ class OctavesWithHarmonics :    public Octaves
          *                  the normalised changed amplitude of the sigal at that point in
          *                  time.
          */
-        float PlayingFrequencyWithHarmonics(int n, float freq, float time);
+        float PlayingFrequencyWithHarmonics(int n, float phase);
         
         /** @brief          A function which calculates how much the amplitude of 
          *                  the harmonic should decay in comparison to the first
