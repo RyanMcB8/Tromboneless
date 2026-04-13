@@ -1,6 +1,30 @@
 var searchData=
 [
-  ['verticalmixslider_0',['verticalmixslider',['../classverticalMixSlider.html',1,'verticalMixSlider'],['../classverticalMixSlider.html#a64196197ca6240b83ad300ea23fe1f1c',1,'verticalMixSlider::verticalMixSlider()']]],
-  ['verticalsliderlookandfeel_1',['verticalsliderlookandfeel',['../classVerticalSliderLookAndFeel.html',1,'VerticalSliderLookAndFeel'],['../classVerticalSliderLookAndFeel.html#a55e59bdd0b182d197935c41ac3755e33',1,'VerticalSliderLookAndFeel::VerticalSliderLookAndFeel()']]],
-  ['video_2',['Video',['../md_Hardware_2Hardware__Notes.html#autotoc_md16',1,'']]]
+  ['testbarometer_0',['testBarometer',['../testWidgets_8cpp.html#a9d9ca6330a62e59f2c14e294b0f01014',1,'testWidgets.cpp']]],
+  ['testcalibrationslider_1',['testCalibrationSlider',['../testWidgets_8cpp.html#aa1a4a4dc621b6d7a3b93473197391fb6',1,'testWidgets.cpp']]],
+  ['testcalibrationsliderlookandfeel_2',['testCalibrationSliderLookAndFeel',['../testCustomStyles_8cpp.html#a669c24fd3b273463206b280a83be3316',1,'testCustomStyles.cpp']]],
+  ['testcustomstyles_2ecpp_3',['testCustomStyles.cpp',['../testCustomStyles_8cpp.html',1,'']]],
+  ['testdropdownmenu_4',['testDropDownMenu',['../testWidgets_8cpp.html#a7b2116f527617af16dc542dc84fff636',1,'testWidgets.cpp']]],
+  ['testdualrotaryslider_5',['testDualRotarySlider',['../testWidgets_8cpp.html#a67608b64d4b590b4272b7150be7dc5e2',1,'testWidgets.cpp']]],
+  ['testneedlelookandfeel_6',['testNeedleLookAndFeel',['../testCustomStyles_8cpp.html#a48cc968894bef779964c432fb4040f01',1,'testCustomStyles.cpp']]],
+  ['testpanels_2ecpp_7',['testPanels.cpp',['../testPanels_8cpp.html',1,'']]],
+  ['testsliderwithlabel_8',['testSliderWithLabel',['../testWidgets_8cpp.html#a17a449c19aa1130d78fdc81abe40ac2b',1,'testWidgets.cpp']]],
+  ['testsynth_2ecpp_9',['testSynth.cpp',['../testSynth_8cpp.html',1,'']]],
+  ['testwidgets_2ecpp_10',['testWidgets.cpp',['../testWidgets_8cpp.html',1,'']]],
+  ['the_20changes_20made_20to_20the_20firmware_11',['Notes for the changes made to the firmware',['../md__2home_2ryan_2Tromboneless_2Core_2Firmware__Notes.html',1,'']]],
+  ['the_20code_12',['Map of the code',['../md__2home_2ryan_2Tromboneless_2App_2Notes.html#autotoc_md1',1,'']]],
+  ['the_20hardware_20implementation_20and_20design_13',['Notes for the Hardware implementation and design',['../md_Hardware_2Hardware__Notes.html',1,'']]],
+  ['the_20same_20network_20as_20pi_3a_14',['If on the same network as pi:',['../index.html#autotoc_md25',1,'']]],
+  ['to_20install_3a_15',['Steps to install:',['../index.html#autotoc_md18',1,'']]],
+  ['to_20the_20firmware_16',['Notes for the changes made to the firmware',['../md__2home_2ryan_2Tromboneless_2Core_2Firmware__Notes.html',1,'']]],
+  ['tof_20sensor_17',['ToF sensor',['../md_Hardware_2Hardware__Notes.html#autotoc_md12',1,'']]],
+  ['tofsensor_18',['ToFSensor',['../classToFSensor.html',1,'']]],
+  ['touch_20sensor_19',['Touch sensor',['../md_Hardware_2Hardware__Notes.html#autotoc_md13',1,'']]],
+  ['triggerembouchurecalibrate_20',['triggerEmbouchureCalibrate',['../structTrombonelessParameters__t.html#a3971c5a598b40eeda1693f73e4f4d71d',1,'TrombonelessParameters_t']]],
+  ['tromboneless_21',['Tromboneless',['../index.html',1,'']]],
+  ['trombonelessparameters_5ft_22',['TrombonelessParameters_t',['../structTrombonelessParameters__t.html',1,'']]],
+  ['trombonesynth_23',['trombonesynth',['../classTromboneSynth.html#ace1f00c513be279271cb58c3e6926e17',1,'TromboneSynth::TromboneSynth()'],['../classTromboneSynth.html',1,'TromboneSynth']]],
+  ['trombonesynth_2ecpp_24',['tromboneSynth.cpp',['../tromboneSynth_8cpp.html',1,'']]],
+  ['trombonesynth_2ehpp_25',['tromboneSynth.hpp',['../tromboneSynth_8hpp.html',1,'']]],
+  ['tutorials_20specifically_20for_20juce_3a_26',['Code tutorials specifically for JUCE:',['../md__2home_2ryan_2Tromboneless_2App_2Notes.html#autotoc_md2',1,'']]]
 ];

@@ -49,7 +49,7 @@ class VerticalSliderLookAndFeel : public juce::LookAndFeel_V4
          *  @param  width           The integer representation of the width of the slider.
          *                          i.e. the difference between the left most and right most
          *                          part of the slider.
-         *  @param  Height          The integer representation of the width of the slider.
+         *  @param  height          The integer representation of the width of the slider.
          *                          i.e. the difference between the top most and bottom
          *                          most parts of the slider's bounds.
          *  @param  sliderPos       The position of the sliders finger. The position represents

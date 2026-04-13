@@ -1,0 +1,74 @@
+\doxysection{/home/ryan/\+Tromboneless/\+App/tests/test\+Custom\+Styles.cpp File Reference}
+\hypertarget{testCustomStyles_8cpp}{}\label{testCustomStyles_8cpp}\index{/home/ryan/Tromboneless/App/tests/testCustomStyles.cpp@{/home/ryan/Tromboneless/App/tests/testCustomStyles.cpp}}
+
+
+A file which stores the necessary test scripts for all the testable functions within the {\ttfamily Custom\+Styles} files.  
+
+
+{\ttfamily \#include "{}Custom\+Styles.\+hpp"{}}\newline
+{\ttfamily \#include "{}unit\+Test\+Macros.\+hpp"{}}\newline
+Include dependency graph for test\+Custom\+Styles.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{testCustomStyles_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{testCustomStyles_8cpp_aa7a53a556a82f1f2b2b9f33685968bd2}{SET\+\_\+\+GET\+\_\+\+INT}}(object,  setter,  getter,  new\+Value,  class\+Name,  result)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{testCustomStyles_8cpp_a407bccd720bd31035947d68d9020a9ae}\label{testCustomStyles_8cpp_a407bccd720bd31035947d68d9020a9ae} 
+bool {\bfseries test\+Vertical\+Slider\+Look\+And\+Feel} (void)
+\item 
+\Hypertarget{testCustomStyles_8cpp_a669c24fd3b273463206b280a83be3316}\label{testCustomStyles_8cpp_a669c24fd3b273463206b280a83be3316} 
+bool {\bfseries test\+Calibration\+Slider\+Look\+And\+Feel} (void)
+\begin{DoxyCompactList}\small\item\em Testing the \doxylink{classCalibrationSliderLookAndFeel}{Calibration\+Slider\+Look\+And\+Feel} class\textquotesingle{}s methods. ~\newline
+ \end{DoxyCompactList}\item 
+\Hypertarget{testCustomStyles_8cpp_a48cc968894bef779964c432fb4040f01}\label{testCustomStyles_8cpp_a48cc968894bef779964c432fb4040f01} 
+bool {\bfseries test\+Needle\+Look\+And\+Feel} (void)
+\begin{DoxyCompactList}\small\item\em Testing the \doxylink{classNeedleLookAndFeel}{Needle\+Look\+And\+Feel} class\textquotesingle{}s methods. ~\newline
+ \end{DoxyCompactList}\item 
+\Hypertarget{testCustomStyles_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{testCustomStyles_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A file which stores the necessary test scripts for all the testable functions within the {\ttfamily Custom\+Styles} files. 
+
+\begin{DoxyAuthor}{Author}
+@\+Ryan\+Mc\+B8 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{testCustomStyles_8cpp_aa7a53a556a82f1f2b2b9f33685968bd2}\label{testCustomStyles_8cpp_aa7a53a556a82f1f2b2b9f33685968bd2} 
+\index{testCustomStyles.cpp@{testCustomStyles.cpp}!SET\_GET\_INT@{SET\_GET\_INT}}
+\index{SET\_GET\_INT@{SET\_GET\_INT}!testCustomStyles.cpp@{testCustomStyles.cpp}}
+\doxysubsubsection{\texorpdfstring{SET\_GET\_INT}{SET\_GET\_INT}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+GET\+\_\+\+INT(\begin{DoxyParamCaption}\item[{}]{object,  }\item[{}]{setter,  }\item[{}]{getter,  }\item[{}]{new\+Value,  }\item[{}]{class\+Name,  }\item[{}]{result }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ original\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ ((\textcolor{keywordtype}{int})newValue\ ==\ original)\ newValue\ +=\ 1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{object}.setter(newValue);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ updated\ =\ \textcolor{keywordtype}{object}.getter();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (updated\ !=\ newValue\ ||\ updated\ ==\ original)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}[FAIL]\ \ \ \ "{}}\ \#setter\ \textcolor{stringliteral}{"{}/"{}}\ \#getter\ \textcolor{stringliteral}{"{}\ in\ "{}}\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#className\ "{}failed\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ false;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ else\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \ \ \ \ result\ \&=\ true;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\}}}
+
+\end{DoxyCode}

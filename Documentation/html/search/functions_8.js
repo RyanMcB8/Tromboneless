@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['midicoordinator_0',['MidiCoordinator',['../classMidiCoordinator.html#a86a4fdd03bbf379c3c1292c1e799a0ed',1,'MidiCoordinator']]],
-  ['midimessage_1',['midimessage',['../classMidiMessage.html#a998d00149b819311591df66d490bffe5',1,'MidiMessage::MidiMessage()=default'],['../classMidiMessage.html#a14dce23060dfa893a47f3c0e01e5bfb7',1,'MidiMessage::MidiMessage(std::vector&lt; Byte &gt; bytes)'],['../classMidiMessage.html#aaf80831ccd1c19fbc836246b67895389',1,'MidiMessage::MidiMessage(std::initializer_list&lt; Byte &gt; bytes)']]]
+  ['needlelookandfeel_0',['NeedleLookAndFeel',['../classNeedleLookAndFeel.html#a0b0fbf7b09a81c1d031700cc8030a682',1,'NeedleLookAndFeel']]],
+  ['newtrombonenotemidi_1',['NewTromboneNoteMIDI',['../classTromboneSynth.html#aa92885853f7411684a70ae0909b66103',1,'TromboneSynth']]],
+  ['noteoff_2',['noteOff',['../classMidiMessageBuilder.html#afed51e1a8f65ecfa622a0668a504e922',1,'MidiMessageBuilder']]],
+  ['noteon_3',['noteOn',['../classMidiMessageBuilder.html#afec866a91fd98c33c4a1bd1a4a7b245a',1,'MidiMessageBuilder']]],
+  ['notes_4',['Notes',['../classNotes.html#ae11cec41480227782d457e4829d5a06f',1,'Notes']]]
 ];

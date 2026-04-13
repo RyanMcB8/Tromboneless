@@ -82,7 +82,7 @@ Inheritance diagram for OctavesWithHarmonics:</div>
 <div class="center"><img src="classOctavesWithHarmonics__inherit__graph.png" border="0" usemap="#aOctavesWithHarmonics_inherit__map" alt="Inheritance graph"/></div>
 <map name="aOctavesWithHarmonics_inherit__map" id="aOctavesWithHarmonics_inherit__map">
 <area shape="rect" title=" " alt="" coords="5,152,180,177"/>
-<area shape="rect" href="classEnvelope.html" title=" " alt="" coords="51,225,134,251"/>
+<area shape="rect" href="classTromboneSynth.html" title="A class which may be used to create a custom synth with an envelope attached to it." alt="" coords="31,225,154,251"/>
 <area shape="poly" title=" " alt="" coords="95,191,95,225,90,225,90,191"/>
 <area shape="rect" href="classOctaves.html" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class..." alt="" coords="55,79,130,104"/>
 <area shape="poly" title=" " alt="" coords="95,118,95,152,90,152,90,118"/>
@@ -110,49 +110,31 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>OctavesWithHarmonics</b> ()</td></tr>
 <tr class="memdesc:aed7ad26de7c252c787b11d1a88b6cb30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of the <code><a class="el" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></code>. <br /></td></tr>
 <tr class="separator:aed7ad26de7c252c787b11d1a88b6cb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29e2db83a144661711a68017d67c3f5a" id="r_a29e2db83a144661711a68017d67c3f5a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a29e2db83a144661711a68017d67c3f5a">StartNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time, float t)</td></tr>
-<tr class="memdesc:a29e2db83a144661711a68017d67c3f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
-<tr class="separator:a29e2db83a144661711a68017d67c3f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d034e862555d58fca91a2af1e77ffe0" id="r_a5d034e862555d58fca91a2af1e77ffe0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a5d034e862555d58fca91a2af1e77ffe0">DecayNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time, float t, float saturation)</td></tr>
-<tr class="memdesc:a5d034e862555d58fca91a2af1e77ffe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
-<tr class="separator:a5d034e862555d58fca91a2af1e77ffe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f46fee48c6f4eb0ba7e06f6289f8ed2" id="r_a5f46fee48c6f4eb0ba7e06f6289f8ed2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a5f46fee48c6f4eb0ba7e06f6289f8ed2">PlayingNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time, float saturation)</td></tr>
-<tr class="memdesc:a5f46fee48c6f4eb0ba7e06f6289f8ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
-<tr class="separator:a5f46fee48c6f4eb0ba7e06f6289f8ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d6d82460255f5f8d4a8cb80881babb2" id="r_a4d6d82460255f5f8d4a8cb80881babb2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a4d6d82460255f5f8d4a8cb80881babb2">EndNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time, float t, float saturation)</td></tr>
-<tr class="memdesc:a4d6d82460255f5f8d4a8cb80881babb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
-<tr class="separator:a4d6d82460255f5f8d4a8cb80881babb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e54a83b3bcd7975479e02c4ec7230e8" id="r_a6e54a83b3bcd7975479e02c4ec7230e8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a6e54a83b3bcd7975479e02c4ec7230e8">HarmonicDecay</a> (int n, int octave, Notes::Notes_t note)</td></tr>
-<tr class="memdesc:a6e54a83b3bcd7975479e02c4ec7230e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic.  <br /></td></tr>
-<tr class="separator:a6e54a83b3bcd7975479e02c4ec7230e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f7c9edb2eef430f0c18795747e4c41" id="r_aa2f7c9edb2eef430f0c18795747e4c41"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#aa2f7c9edb2eef430f0c18795747e4c41">PlayingNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time)</td></tr>
+<tr class="memdesc:aa2f7c9edb2eef430f0c18795747e4c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
+<tr class="separator:aa2f7c9edb2eef430f0c18795747e4c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada12badc25785e82187af576d49d606" id="r_aada12badc25785e82187af576d49d606"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#aada12badc25785e82187af576d49d606">PlayingFrequencyWithHarmonics</a> (int n, float freq, float time)</td></tr>
+<tr class="memdesc:aada12badc25785e82187af576d49d606"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played.  <br /></td></tr>
+<tr class="separator:aada12badc25785e82187af576d49d606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d14fab35feae14d4ce9f14f2080324" id="r_af9d14fab35feae14d4ce9f14f2080324"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#af9d14fab35feae14d4ce9f14f2080324">HarmonicDecay</a> (int n)</td></tr>
+<tr class="memdesc:af9d14fab35feae14d4ce9f14f2080324"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic.  <br /></td></tr>
+<tr class="separator:af9d14fab35feae14d4ce9f14f2080324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a278ebf6d96d2a86441eb6d1348aa5d13" id="r_a278ebf6d96d2a86441eb6d1348aa5d13"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a278ebf6d96d2a86441eb6d1348aa5d13">getHarmomicDecayMax</a> (int n)</td></tr>
+<tr class="memdesc:a278ebf6d96d2a86441eb6d1348aa5d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering.  <br /></td></tr>
+<tr class="separator:a278ebf6d96d2a86441eb6d1348aa5d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e6deb44d098e704519df09bbd189e9" id="r_ab7e6deb44d098e704519df09bbd189e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#ab7e6deb44d098e704519df09bbd189e9">setDecayConstant</a> (float decayC)</td></tr>
+<tr class="memdesc:ab7e6deb44d098e704519df09bbd189e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic.  <br /></td></tr>
+<tr class="separator:ab7e6deb44d098e704519df09bbd189e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617c4acb3379692aa05736cf9747b87b" id="r_a617c4acb3379692aa05736cf9747b87b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a617c4acb3379692aa05736cf9747b87b">getDecayConstant</a> (void)</td></tr>
+<tr class="memdesc:a617c4acb3379692aa05736cf9747b87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic.  <br /></td></tr>
+<tr class="separator:a617c4acb3379692aa05736cf9747b87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classOctaves')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
-<tr class="memitem:af04b6ae0cbdc5aa7ff0060334cb4d1ad inherit pub_methods_classOctaves" id="r_af04b6ae0cbdc5aa7ff0060334cb4d1ad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#af04b6ae0cbdc5aa7ff0060334cb4d1ad">Clamp01</a> (float value)</td></tr>
-<tr class="memdesc:af04b6ae0cbdc5aa7ff0060334cb4d1ad inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which clamps the value passed to it to be within 0 and 1 so that it can remain within normalisation bounds;.  <br /></td></tr>
-<tr class="separator:af04b6ae0cbdc5aa7ff0060334cb4d1ad inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acee7c34bb0f6ed6122f95de03d2dd763 inherit pub_methods_classOctaves" id="r_acee7c34bb0f6ed6122f95de03d2dd763"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#acee7c34bb0f6ed6122f95de03d2dd763">TimeAscension</a> (float t)</td></tr>
-<tr class="memdesc:acee7c34bb0f6ed6122f95de03d2dd763 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines the relative maximum amplitude of a sound depending on how long ago the user started playing the note. This grows as time goes on.  <br /></td></tr>
-<tr class="separator:acee7c34bb0f6ed6122f95de03d2dd763 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0f059e50233446121ce94e0a8bd3a25 inherit pub_methods_classOctaves" id="r_af0f059e50233446121ce94e0a8bd3a25"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#af0f059e50233446121ce94e0a8bd3a25">TimeDecay</a> (float t, float saturation)</td></tr>
-<tr class="memdesc:af0f059e50233446121ce94e0a8bd3a25 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines the relative maximum amplitude of sound depending on how long ago the note was released.  <br /></td></tr>
-<tr class="separator:af0f059e50233446121ce94e0a8bd3a25 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a521a1139df5d18a76ca830e8fb9a27a1 inherit pub_methods_classOctaves" id="r_a521a1139df5d18a76ca830e8fb9a27a1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a521a1139df5d18a76ca830e8fb9a27a1">TimeRest</a> (float t, float saturation)</td></tr>
-<tr class="memdesc:a521a1139df5d18a76ca830e8fb9a27a1 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines the relative maximum amplitude of sound depending on how long ago the note was released.  <br /></td></tr>
-<tr class="separator:a521a1139df5d18a76ca830e8fb9a27a1 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f560ad8bf3c5ad4bdec4094e2119810 inherit pub_methods_classOctaves" id="r_a8f560ad8bf3c5ad4bdec4094e2119810"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810">PlayingNote</a> (int octave, Notes_t note, float time)</td></tr>
 <tr class="memdesc:a8f560ad8bf3c5ad4bdec4094e2119810 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified time.  <br /></td></tr>
 <tr class="separator:a8f560ad8bf3c5ad4bdec4094e2119810 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f6a62befde733b18ebf3beb3259358f inherit pub_methods_classOctaves" id="r_a3f6a62befde733b18ebf3beb3259358f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a3f6a62befde733b18ebf3beb3259358f">StartNote</a> (int octave, Notes_t note, float time, float t)</td></tr>
-<tr class="memdesc:a3f6a62befde733b18ebf3beb3259358f inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines that maximum amplitude the note may reach depending upon the amount of time it has been since the user started the input.  <br /></td></tr>
-<tr class="separator:a3f6a62befde733b18ebf3beb3259358f inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01d61ab40de2a20165a7e3526662484e inherit pub_methods_classOctaves" id="r_a01d61ab40de2a20165a7e3526662484e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a01d61ab40de2a20165a7e3526662484e">SaturatedNote</a> (int octave, Notes_t note, float time, float saturation)</td></tr>
-<tr class="memdesc:a01d61ab40de2a20165a7e3526662484e inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified time.  <br /></td></tr>
-<tr class="separator:a01d61ab40de2a20165a7e3526662484e inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ecedcceccf7743191fbfa849e529459 inherit pub_methods_classOctaves" id="r_a8ecedcceccf7743191fbfa849e529459"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a8ecedcceccf7743191fbfa849e529459">DecayNote</a> (int octave, Notes_t note, float time, float t, float saturation)</td></tr>
-<tr class="memdesc:a8ecedcceccf7743191fbfa849e529459 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to play a single note in a specified octave and reduce it from its peak to its normal amplitude.  <br /></td></tr>
-<tr class="separator:a8ecedcceccf7743191fbfa849e529459 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcafe3ff87ac22860e5a5004f01ddf0f inherit pub_methods_classOctaves" id="r_abcafe3ff87ac22860e5a5004f01ddf0f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#abcafe3ff87ac22860e5a5004f01ddf0f">EndNote</a> (int octave, Notes_t note, float time, float t, float saturation)</td></tr>
-<tr class="memdesc:abcafe3ff87ac22860e5a5004f01ddf0f inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to play a single note in a specified octave.  <br /></td></tr>
-<tr class="separator:abcafe3ff87ac22860e5a5004f01ddf0f inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcba4d0b4f936d1bef9f5458c65fc36 inherit pub_methods_classOctaves" id="r_abfcba4d0b4f936d1bef9f5458c65fc36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#abfcba4d0b4f936d1bef9f5458c65fc36">PlayingFrequency</a> (float freq, float time)</td></tr>
+<tr class="memdesc:abfcba4d0b4f936d1bef9f5458c65fc36 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified frequency at a specified time.  <br /></td></tr>
+<tr class="separator:abfcba4d0b4f936d1bef9f5458c65fc36 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNotes"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNotes')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNotes.html">Notes</a></td></tr>
 <tr class="memitem:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes" id="r_ae11cec41480227782d457e4829d5a06f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#ae11cec41480227782d457e4829d5a06f">Notes</a> (float C_in=16.35, float Db_in=17.32, float D_in=18.35, float Eb_in=19.45, float E_in=20.60, float F_in=21.83, float Gb_in=23.12, float G_in=24.50, float Ab_in=25.96, float A_in=27.50, float Bb_in=29.14, float B_in=30.87)</td></tr>
 <tr class="memdesc:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <code><a class="el" href="classNotes.html">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default.  <br /></td></tr>
@@ -295,160 +277,75 @@ Additional Inherited Members</h2></td></tr>
  }</td></tr>
 <tr class="separator:a8734fb9c1094a3becd78fe783ad43c0c inherit pub_types_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classOctaves')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
-<tr class="memitem:aa6c0bbc5933997052bb27a71cb6de574 inherit pub_attribs_classOctaves" id="r_aa6c0bbc5933997052bb27a71cb6de574"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="classNotes.html">Notes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> [nOctaves]</td></tr>
-<tr class="separator:aa6c0bbc5933997052bb27a71cb6de574 inherit pub_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f4560f7a1b18a1c239ebde202b9dc0 inherit pub_attribs_classOctaves" id="r_a07f4560f7a1b18a1c239ebde202b9dc0"><td class="memItemLeft" align="right" valign="top">
+Initialising an array of the octaves and their notes *<a class="el" href="classNotes.html">Notes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> [nOctaves]</td></tr>
+<tr class="separator:a07f4560f7a1b18a1c239ebde202b9dc0 inherit pub_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classOctaves')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
-<tr class="memitem:aab55dc1e4e61330511e61c2c302ada6e inherit pub_static_attribs_classOctaves" id="r_aab55dc1e4e61330511e61c2c302ada6e"><td class="memItemLeft" align="right" valign="top">
-static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves</b> = 9</td></tr>
-<tr class="separator:aab55dc1e4e61330511e61c2c302ada6e inherit pub_static_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c2f9ad52711d91c154a80772d7e972 inherit pub_static_attribs_classOctaves" id="r_a23c2f9ad52711d91c154a80772d7e972"><td class="memItemLeft" align="right" valign="top">
+Stores the number of octaves being used *static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves</b> = 9</td></tr>
+<tr class="separator:a23c2f9ad52711d91c154a80772d7e972 inherit pub_static_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5d034e862555d58fca91a2af1e77ffe0" name="a5d034e862555d58fca91a2af1e77ffe0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d034e862555d58fca91a2af1e77ffe0">&#9670;&#160;</a></span>DecayNoteWithHarmonics()</h2>
+<a id="a617c4acb3379692aa05736cf9747b87b" name="a617c4acb3379692aa05736cf9747b87b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a617c4acb3379692aa05736cf9747b87b">&#9670;&#160;</a></span>getDecayConstant()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float OctavesWithHarmonics::DecayNoteWithHarmonics </td>
+          <td class="memname">float OctavesWithHarmonics::getDecayConstant </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>The number of harmonics which should be applied to the signal. </td></tr>
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. </td></tr>
-    <tr><td class="paramname">t</td><td>A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When <code>t=0</code>, the waveforms are at their maximum amplitude and when<code>t=0</code>, their amplitudes = 0. </td></tr>
-    <tr><td class="paramname">saturation</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
+    <tr><td class="paramname">The</td><td>floating point representation of the decay constant. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. </dd></dl>
 
 </div>
 </div>
-<a id="a4d6d82460255f5f8d4a8cb80881babb2" name="a4d6d82460255f5f8d4a8cb80881babb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d6d82460255f5f8d4a8cb80881babb2">&#9670;&#160;</a></span>EndNoteWithHarmonics()</h2>
+<a id="a278ebf6d96d2a86441eb6d1348aa5d13" name="a278ebf6d96d2a86441eb6d1348aa5d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a278ebf6d96d2a86441eb6d1348aa5d13">&#9670;&#160;</a></span>getHarmomicDecayMax()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float OctavesWithHarmonics::EndNoteWithHarmonics </td>
+          <td class="memname">float OctavesWithHarmonics::getHarmomicDecayMax </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. </p>
+<p>A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>The number of harmonics which should be applied to the signal. </td></tr>
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. </td></tr>
-    <tr><td class="paramname">t</td><td>A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When <code>t=0</code>, the waveforms are at their maximum amplitude and when<code>t=0</code>, their amplitudes = 0. </td></tr>
+    <tr><td class="paramname">n</td><td>The number of harmonics </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
+    <tr><td class="paramname">The</td><td>maximum amplitude possible as a floating point value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. </dd></dl>
 
 </div>
 </div>
-<a id="a6e54a83b3bcd7975479e02c4ec7230e8" name="a6e54a83b3bcd7975479e02c4ec7230e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e54a83b3bcd7975479e02c4ec7230e8">&#9670;&#160;</a></span>HarmonicDecay()</h2>
+<a id="af9d14fab35feae14d4ce9f14f2080324" name="af9d14fab35feae14d4ce9f14f2080324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9d14fab35feae14d4ce9f14f2080324">&#9670;&#160;</a></span>HarmonicDecay()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -457,24 +354,8 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
           <td class="memname">float OctavesWithHarmonics::HarmonicDecay </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes::Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -482,9 +363,7 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 <p>A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>The integer multiple of the harmonic whose relative amplitude is being calculated. </td></tr>
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
+    <tr><td class="paramname">n</td><td>The harmonic which is being used. </td></tr>
   </table>
   </dd>
 </dl>
@@ -498,8 +377,57 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 
 </div>
 </div>
-<a id="a5f46fee48c6f4eb0ba7e06f6289f8ed2" name="a5f46fee48c6f4eb0ba7e06f6289f8ed2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f46fee48c6f4eb0ba7e06f6289f8ed2">&#9670;&#160;</a></span>PlayingNoteWithHarmonics()</h2>
+<a id="aada12badc25785e82187af576d49d606" name="aada12badc25785e82187af576d49d606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aada12badc25785e82187af576d49d606">&#9670;&#160;</a></span>PlayingFrequencyWithHarmonics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float OctavesWithHarmonics::PlayingFrequencyWithHarmonics </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>freq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freq</td><td>The frequency in Hz that should be played. </td></tr>
+    <tr><td class="paramname">time</td><td>The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa2f7c9edb2eef430f0c18795747e4c41" name="aa2f7c9edb2eef430f0c18795747e4c41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2f7c9edb2eef430f0c18795747e4c41">&#9670;&#160;</a></span>PlayingNoteWithHarmonics()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,13 +454,7 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -562,68 +484,29 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 
 </div>
 </div>
-<a id="a29e2db83a144661711a68017d67c3f5a" name="a29e2db83a144661711a68017d67c3f5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29e2db83a144661711a68017d67c3f5a">&#9670;&#160;</a></span>StartNoteWithHarmonics()</h2>
+<a id="ab7e6deb44d098e704519df09bbd189e9" name="ab7e6deb44d098e704519df09bbd189e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e6deb44d098e704519df09bbd189e9">&#9670;&#160;</a></span>setDecayConstant()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float OctavesWithHarmonics::StartNoteWithHarmonics </td>
+          <td class="memname">void OctavesWithHarmonics::setDecayConstant </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>decayC</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. </p>
+<p>A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">n</td><td>The number of harmonics which should be applied to the signal. </td></tr>
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. </td></tr>
-    <tr><td class="paramname">t</td><td>A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When <code>t=0</code>, the waveforms are at their maximum amplitude and when<code>t=0</code>, their amplitudes = 0. </td></tr>
+    <tr><td class="paramname">decayC</td><td>The floating point value which the decay constant should be set to. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. </dd></dl>
 
 </div>
 </div>

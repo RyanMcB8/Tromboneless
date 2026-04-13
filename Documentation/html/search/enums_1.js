@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pga_0',['PGA',['../structADS1115settings.html#a831970032a15754ead970931dd25ac5f',1,'ADS1115settings']]]
+  ['labelpositions_5ft_0',['LabelPositions_t',['../classSliderWithLabel.html#ad8662ad2ad354d6769f15e555f32f2fe',1,'SliderWithLabel']]]
 ];

@@ -27,6 +27,10 @@
          *                          last for.
          *  @param  decay           The amount of time in ms that the decay should
          *                          last for.
+         *  @param  sustain         The relative amplitude that is being output at the
+         *                          steady state.
+         *  @param  rest            The amount of time in milliseconds that the rest
+                                    stage should last for.
          */
         TromboneSynth(int sampleRate = 44100, float attack = 500.0, float decay = 50.0,
              float sustain = 0.96, float rest = 10.0);
@@ -53,7 +57,6 @@
         /**    @brief              A function which may be called to read the
          *                         current amplitude of the audio signal being 
          *                         generated.
-         *     @param   time       The time step which is being called. 
          *     @retval             Returns a floating point representation of the
          *                         amplitude normalised between -1 and 1. 
          */

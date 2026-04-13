@@ -4,11 +4,20 @@
 \Hypertarget{index_md__2home_2ryan_2Tromboneless_2README}%
 An open source device which is capable of measuring the users oral input to synthesise the output a brass trombone would using the MIDI protocol.
 
-Please refer to our \href{https://github.com/RyanMcB8/Tromboneless/wiki}{\texttt{ wiki}} to see componenent, sequence and state diagrams for the MIDI implementation.\hypertarget{index_autotoc_md18}{}\doxysection{\texorpdfstring{Steps to install\+:}{Steps to install:}}\label{index_autotoc_md18}
+Please refer to our \href{https://github.com/RyanMcB8/Tromboneless/wiki}{\texttt{ wiki}} to see component, sequence and state diagrams for the MIDI implementation.\hypertarget{index_autotoc_md18}{}\doxysection{\texorpdfstring{Steps to install\+:}{Steps to install:}}\label{index_autotoc_md18}
 1) Install Raspberry Pi OS onto your Raspberry Pi.~\newline
  If you need a guide on how to flash a Pi with the OS, please follow \href{https://www.raspberrypi.com/documentation/computers/getting-started.html\#installing-the-operating-system}{\texttt{ this guide}} ~\newline
  ~\newline
- 2) clone this git repository using the command\+:~\newline
+\hypertarget{index_autotoc_md19}{}\doxysubsection{\texorpdfstring{Option 1}{Option 1}}\label{index_autotoc_md19}
+2) clone this git repository and its submodule dependencies using one line one the command line\+:~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/RyanMcB8/Tromboneless.git\ }
+
+\end{DoxyCode}
+ ~\newline
+\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Option 2}{Option 2}}\label{index_autotoc_md20}
+2) clone this git repository using the command\+:~\newline
  
 \begin{DoxyCode}{0}
 \DoxyCodeLine{git\ clone\ https://github.com/RyanMcB8/Tromboneless.git\ }
@@ -30,17 +39,25 @@ Please refer to our \href{https://github.com/RyanMcB8/Tromboneless/wiki}{\texttt
 
 \end{DoxyCode}
  ~\newline
-\hypertarget{index_autotoc_md19}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md19}
+\hypertarget{index_autotoc_md21}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md21}
 The app side of this project uses the juce framework to create all the widgets necessary.
 \begin{DoxyItemize}
 \item Juce ~\newline
 
-\end{DoxyItemize}\hypertarget{index_autotoc_md20}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md20}
+\item RTMidi ~\newline
+
+\item libgpiod (specifically for interacting with the GPIO pins on the Pi) ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md22}
 If you wish to create your very own Tromboneless, the hardware used to create the protoype may be seen in the \href{https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation/Hardware}{\texttt{ Hardware}} directory under Documentation. This includes a full circuit diagram.~\newline
 
 
 For documentation of the code used, please refer to the \href{https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation}{\texttt{ Documentation}} directory where there are both La\+Tex and HTML versions of the documentation for this project.~\newline
-\hypertarget{index_autotoc_md21}{}\doxysection{\texorpdfstring{SSH Steps}{SSH Steps}}\label{index_autotoc_md21}
+\hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{Social Media}{Social Media}}\label{index_autotoc_md23}
+Feel free to follow our social media accounts for frequent updates on the progress off the project including showcase videos and demonstrations\+:~\newline
+ \href{https://www.reddit.com/user/Forward_Vehicle4096/}{\texttt{ Reddit}}~\newline
+ \href{https://www.instagram.com/tromboneless.tech/}{\texttt{ Instagram}}~\newline
+\hypertarget{index_autotoc_md24}{}\doxysection{\texorpdfstring{SSH Steps}{SSH Steps}}\label{index_autotoc_md24}
 The following steps are to allow for a remote access connection into your Raspberry Pi if you wish to use another computer as your input terminal.~\newline
 
 
@@ -49,8 +66,8 @@ The following steps are to allow for a remote access connection into your Raspbe
 \item SSH pair created on Raspberry with Located in /home/tromboneless/.ssh
 \end{DoxyItemize}
 
-1) When generating own pair, make ssh of ed25519 format\+: {\ttfamily ssh-\/keygen -\/t ed25519} 2) Add your public key to /home/yourusername/.ssh/authorized\+\_\+keys. If connected to the same network as the pi, you can do this automatically with {\ttfamily ssh-\/copy-\/id yourusername@IP\+\_\+\+Address}\hypertarget{index_autotoc_md22}{}\doxysubsection{\texorpdfstring{If on the same network as pi\+:}{If on the same network as pi:}}\label{index_autotoc_md22}
-ssh in with eg {\ttfamily ssh name@IP\+\_\+\+Address}\hypertarget{index_autotoc_md23}{}\doxysubsection{\texorpdfstring{If on a different network\+:}{If on a different network:}}\label{index_autotoc_md23}
+1) When generating own pair, make ssh of ed25519 format\+: {\ttfamily ssh-\/keygen -\/t ed25519} 2) Add your public key to /home/yourusername/.ssh/authorized\+\_\+keys. If connected to the same network as the pi, you can do this automatically with {\ttfamily ssh-\/copy-\/id yourusername@IP\+\_\+\+Address}\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{If on the same network as pi\+:}{If on the same network as pi:}}\label{index_autotoc_md25}
+ssh in with eg {\ttfamily ssh name@IP\+\_\+\+Address}\hypertarget{index_autotoc_md26}{}\doxysubsection{\texorpdfstring{If on a different network\+:}{If on a different network:}}\label{index_autotoc_md26}
 1.) You need to set up your own personal tailscale account. Invitations to share access to the pi are made on the owner account, then you need to be logged in to your personal account when you follow the invitation link. After this is set up, you work from your personal account.
 
 2.) Make sure your public ssh key is on the pi

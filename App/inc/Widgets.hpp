@@ -26,23 +26,24 @@
 class SliderWithLabel : public juce::Component{
     public:
     
+        /** @brief  The slider which is having the labels added to it. */
         juce::Slider slider;
 
-        /* Constructor which sets the style of the slider being used and removes the text entry option. */
+        /** @brief Constructor which sets the style of the slider being used and removes the text entry option. */
         SliderWithLabel(juce::Slider::SliderStyle style){
             slider.setSliderStyle(style);
             slider.setTextBoxStyle(juce::Slider::TextEntryBoxPosition::NoTextBox, true, 0, 0);
             addAndMakeVisible(slider);
         }
 
-        /* Enumerated list of possible positions for the label to be attached relative to the slider. */
+        /** @brief Enumerated list of possible positions for the label to be attached relative to the slider. */
         typedef enum{
             UpperLeft, UpperCentre, UpperRight,
             MiddleLeft,              MiddleRight,
             LowerLeft, LowerCentre, LowerRight,
         } LabelPositions_t;
 
-        /* Enumerated list of possible errors when initialising the labels within this component. */
+        /** @brief Enumerated list of possible errors when initialising the labels within this component. */
         typedef enum{
             LabelOK,
             PositonNotAccepted,

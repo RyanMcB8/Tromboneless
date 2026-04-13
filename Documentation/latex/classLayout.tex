@@ -15,7 +15,7 @@ Inheritance diagram for Layout\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=314pt]{classLayout__inherit__graph}
+\includegraphics[width=179pt]{classLayout__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -24,7 +24,7 @@ Collaboration diagram for Layout\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=314pt]{classLayout__coll__graph}
+\includegraphics[width=179pt]{classLayout__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -33,64 +33,13 @@ Collaboration diagram for Layout\+:\nopagebreak
 void \mbox{\hyperlink{classLayout_a1928c3c94ff880bd1ca446a6f0991d05}{paint}} (juce\+::\+Graphics \&g) override
 \begin{DoxyCompactList}\small\item\em functions that sets the background colour of the window \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classLayout_ace00518b85cff7055509d7517c9340e9}{resized}} () override
-\begin{DoxyCompactList}\small\item\em Function that changes the size of the profiler. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classLayout_a3551f4e4bd3e11521e3b61108defc168}{key\+Pressed}} (const juce\+::\+Key\+Press \&key) override
-\begin{DoxyCompactList}\small\item\em Function that is triggered when a key is pressed. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classLayout_a990ca39aae090b72660e5be5a4d7f18b}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider) override
-\begin{DoxyCompactList}\small\item\em A function handler for when any of the sliders on screen are moved. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classLayout_a08a4acad4e9326a30badf5d258890e16}\label{classLayout_a08a4acad4e9326a30badf5d258890e16} 
-double {\bfseries minimum\+Distance}
-\item 
-\Hypertarget{classLayout_ae5eb44818854eb335b002e1548bedf0b}\label{classLayout_ae5eb44818854eb335b002e1548bedf0b} 
-double {\bfseries maximum\+Distance}
-\item 
-\Hypertarget{classLayout_a36835b012435ee9916fcbfa99024d4c7}\label{classLayout_a36835b012435ee9916fcbfa99024d4c7} 
-double {\bfseries distance\+Range}
-\item 
-\Hypertarget{classLayout_a942b69eba5097f1f12dc459cbc6f5b7b}\label{classLayout_a942b69eba5097f1f12dc459cbc6f5b7b} 
-double {\bfseries step\+Distance}
-\item 
-\Hypertarget{classLayout_a6b0d4bb75ec545a98210b8c6210a3f21}\label{classLayout_a6b0d4bb75ec545a98210b8c6210a3f21} 
-double {\bfseries minimum\+Pressure}
-\item 
-\Hypertarget{classLayout_a8a633fa88da334dbfd60e3640f268559}\label{classLayout_a8a633fa88da334dbfd60e3640f268559} 
-double {\bfseries maximum\+Pressure}
-\item 
-\Hypertarget{classLayout_a5c8543c0e981ae1a5c3d0bde36394142}\label{classLayout_a5c8543c0e981ae1a5c3d0bde36394142} 
-double {\bfseries step\+Pressure}
-\item 
-\Hypertarget{classLayout_a12006a9f71b017a1008de09ec2d18a5e}\label{classLayout_a12006a9f71b017a1008de09ec2d18a5e} 
-double {\bfseries pressure\+Range}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function that changes the size of the profiler. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Main class that creates the window. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classLayout_a3551f4e4bd3e11521e3b61108defc168}\label{classLayout_a3551f4e4bd3e11521e3b61108defc168} 
-\index{Layout@{Layout}!keyPressed@{keyPressed}}
-\index{keyPressed@{keyPressed}!Layout@{Layout}}
-\doxysubsubsection{\texorpdfstring{keyPressed()}{keyPressed()}}
-{\footnotesize\ttfamily bool Layout\+::key\+Pressed (\begin{DoxyParamCaption}\item[{const juce\+::\+Key\+Press \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
-
-
-
-Function that is triggered when a key is pressed. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em key} & An instance of Key\+Press that stores the value of the key being pressed \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em boolean} & value of true if a key is has been handled, otherwise false \\
-\hline
-\end{DoxyRetVals}
 \Hypertarget{classLayout_a1928c3c94ff880bd1ca446a6f0991d05}\label{classLayout_a1928c3c94ff880bd1ca446a6f0991d05} 
 \index{Layout@{Layout}!paint@{paint}}
 \index{paint@{paint}!Layout@{Layout}}
@@ -131,24 +80,6 @@ Function that changes the size of the profiler.
 \end{DoxyRetVals}
 \begin{DoxyNote}{Note}
 Resizes the contents of the window including dropdown menus, labels and buttons 
-\end{DoxyNote}
-\Hypertarget{classLayout_a990ca39aae090b72660e5be5a4d7f18b}\label{classLayout_a990ca39aae090b72660e5be5a4d7f18b} 
-\index{Layout@{Layout}!sliderValueChanged@{sliderValueChanged}}
-\index{sliderValueChanged@{sliderValueChanged}!Layout@{Layout}}
-\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
-{\footnotesize\ttfamily void Layout\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
-
-
-
-A function handler for when any of the sliders on screen are moved. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em slider} & A pointer to the slider that has been modified \\
-\hline
-\end{DoxyParams}
-\begin{DoxyNote}{Note}
-This function must check which slider has been modified before making any changes. 
 \end{DoxyNote}
 
 
