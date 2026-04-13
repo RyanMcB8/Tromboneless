@@ -31,7 +31,7 @@ Collaboration diagram for Octaves:\+\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 float \doxymbox{\hyperlink{class_octaves_a023ab71a119c0bc8bb8c6c4919f0064f}{Playing\+Note}} (int octave, \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
-\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified time. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified phase. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{class_octaves_ab77d9f9b4116757b6968606040af1c8c}{Playing\+Frequency}} (float phase)
 \begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified frequency at a specified time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_notes}{Notes}}}
@@ -172,9 +172,7 @@ A function which may be called to determine the amplitude of a specified frequen
 
 
 \begin{DoxyParams}{Parameters}
-{\em freq} & The frequency (in Hz) which should be played. \\
-\hline
-{\em time} & The time at which the sound should be sampled at. \\
+{\em phase} & The phase of the frequency at the time of sampling. \\
 \hline
 \end{DoxyParams}
 
@@ -193,7 +191,7 @@ float Octaves::\+\+Playing\+Note (\begin{DoxyParamCaption}\item[{int}]{octave}{,
 
 
 
-A function which may be called to determine the amplitude of a specified note at a specified time. 
+A function which may be called to determine the amplitude of a specified note at a specified phase. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -201,7 +199,7 @@ A function which may be called to determine the amplitude of a specified note at
 \hline
 {\em note} & The note which is currently being played. \\
 \hline
-{\em time} & The time at which the sound should be sampled at. \\
+{\em phase} & The phase of the wave at the time of sampling. \\
 \hline
 \end{DoxyParams}
 

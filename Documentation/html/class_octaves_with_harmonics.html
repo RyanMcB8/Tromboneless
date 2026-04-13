@@ -130,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a617c4acb3379692aa05736cf9747b87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_octaves"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_octaves')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_octaves.html">Octaves</a></td></tr>
 <tr class="memitem:a023ab71a119c0bc8bb8c6c4919f0064f inherit pub_methods_class_octaves" id="r_a023ab71a119c0bc8bb8c6c4919f0064f"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="class_octaves.html#a023ab71a119c0bc8bb8c6c4919f0064f">PlayingNote</a> (int octave, <a class="el" href="class_notes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note, float phase)</td></tr>
-<tr class="memdesc:a023ab71a119c0bc8bb8c6c4919f0064f inherit pub_methods_class_octaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified time.  <br /></td></tr>
+<tr class="memdesc:a023ab71a119c0bc8bb8c6c4919f0064f inherit pub_methods_class_octaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified phase.  <br /></td></tr>
 <tr class="memitem:ab77d9f9b4116757b6968606040af1c8c inherit pub_methods_class_octaves" id="r_ab77d9f9b4116757b6968606040af1c8c"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="class_octaves.html#ab77d9f9b4116757b6968606040af1c8c">PlayingFrequency</a> (float phase)</td></tr>
 <tr class="memdesc:ab77d9f9b4116757b6968606040af1c8c inherit pub_methods_class_octaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified frequency at a specified time.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_notes"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_notes')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_notes.html">Notes</a></td></tr>
@@ -408,13 +408,13 @@ static const char&#160;</td><td class="memItemRight"><b>nOctaves</b> = 9</td></t
     <tr><td class="paramname">n</td><td>The number of harmonics which should be applied to the signal. </td></tr>
     <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
     <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. </td></tr>
+    <tr><td class="paramname">phase</td><td>The phase of the waveform at the time of sampling. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
+    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the signal at that point in time. </td></tr>
   </table>
   </dd>
 </dl>

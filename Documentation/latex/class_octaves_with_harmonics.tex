@@ -49,7 +49,7 @@ float \doxymbox{\hyperlink{class_octaves_with_harmonics_a617c4acb3379692aa05736c
 \begin{DoxyCompactItemize}
 \item 
 float \doxymbox{\hyperlink{class_octaves_a023ab71a119c0bc8bb8c6c4919f0064f}{Playing\+Note}} (int octave, \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
-\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified time. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified phase. \end{DoxyCompactList}\item 
 float \doxymbox{\hyperlink{class_octaves_ab77d9f9b4116757b6968606040af1c8c}{Playing\+Frequency}} (float phase)
 \begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified frequency at a specified time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_notes}{Notes}}}
@@ -274,12 +274,12 @@ A function which may be called upon to stop playing a range of harmonic notes wh
 \hline
 {\em note} & The note which is being played. \\
 \hline
-{\em time} & The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. \\
+{\em phase} & The phase of the waveform at the time of sampling. \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
-{\em This} & function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. \\
+{\em This} & function will return a floating point value representing the normalised changed amplitude of the signal at that point in time. \\
 \hline
 \end{DoxyRetVals}
 \begin{DoxyNote}{Note}

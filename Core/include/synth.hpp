@@ -318,10 +318,10 @@ class Octaves   : public Notes
         ~Octaves() = default;        
 
         /** @brief          A function which may be called to determine the amplitude of 
-         *                  a specified note at a specified time.
+         *                  a specified note at a specified phase.
          *  @param  octave  The octave in which the note being played is in.
          *  @param  note    The note which is currently being played.
-         *  @param  time    The time at which the sound should be sampled at.
+         *  @param  phase   The phase of the wave at the time of sampling.
          *  @retval         Returns a floating point value representing the ampliude
          *                  of the note at the time it was sampled.
          *  @note           This function only uses unit amplitudes and does not change
@@ -332,8 +332,7 @@ class Octaves   : public Notes
 
         /** @brief          A function which may be called to determine the amplitude of 
          *                  a specified frequency at a specified time.
-         *  @param  freq    The frequency (in Hz) which should be played.
-         *  @param  time    The time at which the sound should be sampled at.
+         *  @param  phase   The phase of the frequency at the time of sampling.
          *  @retval         Returns a floating point value representing the ampliude
          *                  of the note at the time it was sampled.
          *  @note           This function only uses unit amplitudes and does not change
@@ -365,10 +364,9 @@ class OctavesWithHarmonics :    public Octaves
          *  @param  n       The number of harmonics which should be applied to the signal.
          *  @param  octave  The octave in which the first harmonic is in.
          *  @param  note    The note which is being played.
-         *  @param  time    The amount of time the signal has been playing. This corresponds
-         *                  to the phase that the waveform is at.
+         *  @param  phase   The phase of the waveform at the time of sampling.
          *  @retval         This function will return a floating point value representing
-         *                  the normalised changed amplitude of the sigal at that point in
+         *                  the normalised changed amplitude of the signal at that point in
          *                  time.
          *  @note           This function could be made to produce a much cleaner response
          *                  by increasing the number of harmonics present and using non

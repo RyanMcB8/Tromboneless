@@ -295,9 +295,8 @@ float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float phase){
     /*  Ensuring that there has been a value of n above 1 being passed. */
     n = std::max(n, 1);
 
-    for (int i=0; i < n; i++)
+    for (int harmonicNumber=1; harmonicNumber < n+1; harmonicNumber++)
     {
-        int harmonicNumber = i + 1;
         outputAmplitude += HarmonicDecay(harmonicNumber) * std::cos(phase*harmonicNumber);
     } 
 
