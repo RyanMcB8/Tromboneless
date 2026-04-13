@@ -102,9 +102,37 @@ bool CAP1188::initialise()
     &interruptEnabledChannels_, 1);
     
     // LED Linking on, so Sensor trips LED on board
-    uint8_t setHigh = 0b1111'1111;
     bus_.writeBlock8(address_, CAP1188_REG_LED_LINKING,
-    &setHigh, 1);
+    &enabledChannels_, 1);
+
+    // Set averaging window, sample time, cycle time
+    CAP1188::setAveraging(8);
+    CAP1188::setSampleTime("1.28ms");
+    CAP1188::setCycleTime("35ms");
+    
+    uint8_t cs1_thresh = 0x30;
+    bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, &cs1_thresh, 1);
+
+    // Set interrupt repeat rate to lowest resolution of 35ms
+    uint8_t sensor_cfg1;
+    bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
+    sensor_cfg1 &= 0xF0;
+    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
+
+    // Disable interrupt on touch release
+    uint8_t sensor_cfg2;
+    bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
+    sensor_cfg2 |= 0x01;
+    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
+
+    // Lowest sensitivity = 111b or 7
+    // Highest sensitivity = 0
+    uint8_t sensitivity = 0x05;
+    CAP1188::sensitivitySetter(sensitivity);
+
+    
+    
+
 
     disableStandby();
     clearInterrupt();
