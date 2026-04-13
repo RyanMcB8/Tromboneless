@@ -6,6 +6,16 @@
 #include <iostream>
 #include <thread>
 
+class ToFPrinter
+{
+public:
+    void hasToFSample(uint16_t distance)
+    {
+        std::cout << "Distance: " << distance << " mm\n";
+    }
+};
+
+
 int main()
 {
     // Create shared Linux I2C bus object
@@ -14,11 +24,12 @@ int main()
     // Create sensor object
     ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
 
-    // Register callback
-    // This is where incoming distance samples will be printed.
-    sensor.registerCallback([](uint16_t distanceMm)
+    ToFPrinter printer;
+
+  // Connect publisher -> subscriber via lambda
+    sensor.registerCallback([&](uint16_t distance)
     {
-        std::cout << "Distance: " << distanceMm << " mm" << std::endl;
+        printer.hasToFSample(distance);
     });
 
     // Initialise sensor
