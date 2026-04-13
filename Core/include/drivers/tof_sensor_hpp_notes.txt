@@ -1,0 +1,207 @@
+##Personal notation for the structuring of tof_sensor.hpp##
+
+
+Firstly has the #includes : 
+
+#pragma once  //  this is standard practice to stop the file being included more than once in the same compilation.
+
+#include <cstdint> // allows for fixed-width integer types i.e. uint8_t, uint16_t
+#include <functional> // allows for std::function which is used for the callback
+#include <thread>  // allows for std::thread, since this class runs a worker thread
+#include <memory> // allows for smart pointers, i.e. shared_ptr
+#include <gpiod.hpp> // this is for the libgpiod cpp interface, which is used to work with gpio lines in linux
+
+#include "drivers/i2c_bus.hpp"  // so this class can use the I2CBus class for comms with the sensor
+
+
+##
+
+the class, of type ToFSensor is then defined - 
+
+' class ToFSensor ' 
+
+This class: 
+- handles the VL53L1X sensor 
+- uses a blocking GPIO interrupt to know when data is ready
+- published the measured distance using a std::function callback
+(This class is the main link between physical sensor and the rest of the system)
+
+
+Unlike the test publisher (ToFPrinter) class, it is stateful i.e. has member variables, storing information over time.
+ (which i2c bus its using, sensor address, what GPIO line, is it running, what callback has been registered, its worker thread)
+Meaning its not just reacting to a value, it is managing the state and behaviour of the sensor system. 
+
+##
+
+Inside the public section
+ ## 
+
+Firstly :
+
+
+' public: '
+
+a type alias named 'DistanceCallbackInterface' for 'std::function<void(uint16_t)>; ' ,
+which is a callable wrapper type that can store any function matching that signature.
+
+This allows the system to store and use a callback function later, enabling the sensor to publish distance data without knowing how it will be used. 
+
+It basically represents any callable object that takes a uint16_t (i.e. a distance in mm) and returns nothing. 
+
+std::function = “a variable that holds behaviour instead of data” enables callbacks
+
+
+'  using DistanceCallbackInterface = std::function<void(uint16_t)>;  '
+
+' using ' is used to define the type alias (a nickname for the type), happens at compile time (no runtime cost)
+
+
+Intuitively, ToFSensor producs data, it doesn't know what to do with it, so it asks 'give me a function to call when I have a result' ...
+That function is stored using 'DistanceCallbackInterface'....
+
+
+##
+
+Then the constructor is declared: 
+
+'ToFSensor(I2CBus& bus,
+          uint8_t address = 0x29,
+          const std::string& gpioChipPath = "/dev/gpiochip0",
+          unsigned int gpioLine = 4); '
+
+Which is called when a ToFSensor object is created. 
+
+It takes: 
+
+I2CBus& bus -> a reference to the I2C bus (not owned, just used)
+uint8_t address -> the sensors I2C adress (0x29 in this case)
+std::string gpioChipPath -> which GPIO chip to use (/dev/gpiochip0)
+unsigned int gpioLine -> which GPIO line/pin is connected to the interrupt. 
+
+This sets the object up with all the info it needs to interact with the hardware. 
+
+
+##
+
+Then the destructor: 
+
+' ~ToFSensor(); ' 
+
+This runs when the object is destroyed, essentially cleans up after it is gone i.e. stopping the worker thread, releasimg GPIO
+resources and shutting down the sensor. I think this is just standard good practice. 
+
+##
+
+Then the main public methods are initialised/listed:
+
+initialise -> writes config and prepares device, returns a boolean. 
+
+registerCallback -> this has the argument 'DistanceCallbackInterface' and 'cb' ... this allows another part of the program to provide a function
+to be called when new data is available. This is how the sensor publishes its results. 
+
+start -> beings sensor ranging, starts the worker thread, begins listenin for interrupts
+
+stop -> stops the thread, stops sensor ranging
+
+##
+
+The private section then includes the internal methods:
+
+worker -> main worker thread function
+handleDataReady -> called when the sensor signals that new data is ready. 
+
+then helper methods: 
+
+startRanging
+stopRanging
+isDataReady -> this is a (bool)
+readDistanceMm -> this is a unit16_t
+clearInterrupt
+softReset
+
+These break the sensor logic into smaller steps. 
+
+
+##
+
+The member variables (state of the object) are then listed. They represent the state of the specifc object, meaning all of the information the sensor needs to remember
+while it is running. 
+
+##
+
+I2CBus& bus_;
+uint8_t address_;
+
+these store the communication interface and sensor address. notice that bus_ is a reference to the I2C bus object created earlier, meaning the sesnor uses an external bus rather
+than owning one.  
+
+the '_' on the end of the variables is just a naming convention it means 'this is a member variable of the class' ... this helps confusion between: 
+- function parameters
+- class variables 
+
+
+##
+std::string gpioChipPath_;  (e.g. /dev/gpiochip0)
+unsigned int gpioLine_; (this is the line connected to the sensors data ready signal)
+
+These store GPIO config. 'Where should I listen for the sensor interrupt?'
+
+
+##
+
+uint8_t interruptPolarity_ = 0; (defines whether the interupt is active high or active low)
+bool running_ = false; (tracks whether the system is currently running)
+
+These store internal control state. 
+
+##
+
+DistanceCallbackInterface distanceCallbackInterface_; 
+
+This stores the callback function provided by the user. This is what gets called wehn a new distance measurement is available. 
+
+This is what connects the sensor to the rest of the system.
+
+##
+
+std::shared_ptr<gpiod::chip> chip_; (represents the gpio chip device)
+std::shared_ptr<gpiod::line_request> request_; (represents the confgured gpio line and its interupt behaviour)
+std::thread thread_; (this is the worker thread running in the background)
+
+These manage system resources.
+
+std::shared_ptr is a smart pointer, meaning it manages memory automatically, so you dont have to manually delete anything. when nothing is using the resource anymore 
+it gets cleaned up. Makes the code safer and avoids memory leaks. 
+
+std::thread thread_ is the actual thread object. This is what allows the system to:
+- wait for gpio interrupts 
+- read sensor data
+- trigger callbacks
+
+While main is just sleeping. 
+
+##
+
+static const uint8_t DEFAULT_CONFIG[91];
+
+This is a static configuration array. 'static' means that only one copy exists for the whole class (not per object).
+This in set up so in cpp the default settings written to the sensor during initialise can be stored. 
+
+##
+
+Finally there are register defintions:
+
+static constexpr uint16_t SYSTEM_MODE_START = 0x0087;
+    static constexpr uint16_t GPIO_TIO_HV_STATUS = 0x0031;
+    static constexpr uint16_t SYSTEM_INTERRUPT_CLEAR = 0x0086;
+    static constexpr uint16_t RESULT_RANGE_MM = 0x0096;
+    static constexpr uint16_t GPIO_HV_MUX_CTRL = 0x0030;
+    static constexpr uint16_t VHV_CONFIG_TIMEOUT_MACROP_LOOP_BOUND = 0x0008;
+    static constexpr uint16_t VHV_CONFIG_INIT = 0x000B;
+
+these are named constants for sensor register addresses. 
+
+'constexpr' means that the value is known at compile time and that it behaves like a constant. 
+
+###
+

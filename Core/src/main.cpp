@@ -1,46 +1,52 @@
+#include "drivers/i2c_bus.hpp"
+#include "drivers/tof_sensor.hpp"
+
+#include <chrono>
 #include <cstdint>
 #include <iostream>
-#include "main.hpp"
-#include "tromboneSynth.hpp"
 #include <thread>
-#include <chrono>
-#include "tof_sensor.hpp"
 
-// class GetDistance {
-// public:
-//     int hasTOFsample(uint16_t distance) {
-//         if (distance > 500) distance = 500;
-//         int scaled_bend = 8192 - (distance * 8192) / 500;
-//         std::cout << scaled_bend << "\n";
-//         return scaled_bend;
-//     }
-// };
+class ToFPrinter
+{
+public:
+    void hasToFSample(uint16_t distance)
+    {
+        std::cout << "Distance: " << distance << " mm\n";
+    }
+};
+
 
 int main()
 {
-    // I2CBus bus("/dev/i2c-1");
+    // Create shared Linux I2C bus object
+    I2CBus bus("/dev/i2c-1");
 
-    // // GPIO line must match wiring of VL53L1X interrupt pin
-    // ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
+    // Create sensor object
+    ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
 
     // ToFPrinter printer;
 
-    // if (!sensor.initialise())
-    // {
-    //     std::cerr << "Initialisation failed\n";
-    //     return 1;
-    // }
+  // Connect publisher -> subscriber via lambda
+    sensor.registerCallback([&](uint16_t distance)
+    {
+        printer.hasToFSample(distance);
+    });
 
-    // // Connect publisher -> subscriber via lambda
-    // sensor.registerCallback([&](uint16_t distance)
-    // {
-    //     printer.hasToFSample(distance);
-    // });
+    // Initialise sensor
+    if (!sensor.initialise())
+    {
+        std::cerr << "Sensor initialisation failed" << std::endl;
+        return 1;
+    }
 
-    // Start blocking GPIO + sensor
-    // sensor.start();
+    std::cout << "Sensor initialised successfully" << std::endl;
 
-    // Main thread idle (system is event-driven now)
+    // Start ranging + worker thread
+    sensor.start();
+
+    std::cout << "Sensor started, waiting for data..." << std::endl;
+
+    // Keep main alive so the worker thread can continue running
     while (true)
     {
         std::this_thread::sleep_for(std::chrono::seconds(1));
