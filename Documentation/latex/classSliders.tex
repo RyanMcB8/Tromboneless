@@ -12,8 +12,7 @@ A class which adds all the linear sliders being used within the calibration sect
 
 
 
-Inheritance diagram for Sliders\+:
-\nopagebreak
+Inheritance diagram for Sliders\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -22,8 +21,7 @@ Inheritance diagram for Sliders\+:
 \end{figure}
 
 
-Collaboration diagram for Sliders\+:
-\nopagebreak
+Collaboration diagram for Sliders\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -42,7 +40,23 @@ Collaboration diagram for Sliders\+:
 void \mbox{\hyperlink{classSliders_af167ae4dd46cb6f8964d194f00ca7c13}{resized}} () override
 \begin{DoxyCompactList}\small\item\em Adding a function that will allow for the {\ttfamily \doxylink{classSliders}{Sliders}} class to be resized when the window size is adjusted to fit best. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSliders_ace72961d967240e0a72a5a9ce3d49cb8}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
-\begin{DoxyCompactList}\small\item\em A callback function which is automatically called upon when one of the sliders present has the value of one of it\textquotesingle{}s knobs changed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A callback function which is automatically called upon when one of the sliders present has the value of one of it\textquotesingle{}s knobs changed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliders_a80570724ce3b89bb611a5931a0c35ca9}{set\+Minimum\+Distance}} (float distance)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum distance to which the slider may be set to. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSliders_aa0f8bf23a7065f2b20c54fdd8ca56453}{get\+Minimum\+Distance}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum distance to which the slider may be set to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliders_ac239706a29002ec6467ea5d422155f9b}{set\+Maximum\+Distance}} (float distance)
+\begin{DoxyCompactList}\small\item\em A function to set the maximum distance to which the slider may be set to. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSliders_a0fd1be629de0dce53b56517ff729d608}{get\+Maximum\+Distance}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current maximum distance to which the slider may be set to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliders_a963447e6cdd328bc5ebde52f0d4de8a6}{set\+Step\+Distance}} (float step)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum step to which the slider may be moved by the user. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSliders_aaba277dd36f7a8121ba013b1127e87fb}{get\+Step\+Distance}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum distance to which the slider may be moved by the user (step size or interval). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliders_a2b0eba041a225c0800ce02804035a260}{set\+Distance\+Range}} (float range)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum range between the maximum and minimum fingers on the slider. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSliders_a71538adc2299067b0340fa3c34eeaaaf}{get\+Distance\+Range}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum distance to which the sliders lower finger may be away from the higher finger. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classPanels}{Panels}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,15 +65,16 @@ void \mbox{\hyperlink{classSliders_ace72961d967240e0a72a5a9ce3d49cb8}{slider\+Va
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Panels} ()=default
 \begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classPanels}{Panels}} class which currently does nothing extra as there is no initialisation within the class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPanels_a0dbc535bb34f716890ef0c30911f39af}{paint}} (juce\+::\+Graphics \&g) override
-\begin{DoxyCompactList}\small\item\em This function draws onto the parent function the default shape and colour of the panels designed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This function draws onto the parent function the default shape and colour of the panels designed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPanels_ac150956601b5fb29d429fef93976d566}{set\+Background\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the background colour of the panels for the main window. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classPanels_a7a046b513adc7309c21c35ecc393d4a7}{get\+Background\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current background colour being used for the panels within the main window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c}\label{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c} 
 \mbox{\hyperlink{classCalibrationSlider}{Calibration\+Slider}} {\bfseries distance\+Slider}
-\item 
-\Hypertarget{classSliders_aded5af746043109807c6ecf695a29ad0}\label{classSliders_aded5af746043109807c6ecf695a29ad0} 
-\mbox{\hyperlink{classCalibrationSliderLookAndFeel}{Calibration\+Slider\+Look\+And\+Feel}} {\bfseries LandF}
 \end{DoxyCompactItemize}
 
 
@@ -68,6 +83,66 @@ A class which adds all the linear sliders being used within the calibration sect
  panel. 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classSliders_a71538adc2299067b0340fa3c34eeaaaf}\label{classSliders_a71538adc2299067b0340fa3c34eeaaaf} 
+\index{Sliders@{Sliders}!getDistanceRange@{getDistanceRange}}
+\index{getDistanceRange@{getDistanceRange}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{getDistanceRange()}{getDistanceRange()}}
+{\footnotesize\ttfamily float Sliders\+::get\+Distance\+Range (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current minimum distance to which the sliders lower finger may be away from the higher finger. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representaion of the minimum distance the between the slider fingers. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classSliders_a0fd1be629de0dce53b56517ff729d608}\label{classSliders_a0fd1be629de0dce53b56517ff729d608} 
+\index{Sliders@{Sliders}!getMaximumDistance@{getMaximumDistance}}
+\index{getMaximumDistance@{getMaximumDistance}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{getMaximumDistance()}{getMaximumDistance()}}
+{\footnotesize\ttfamily float Sliders\+::get\+Maximum\+Distance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current maximum distance to which the slider may be set to. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representaion of the maximum distance the slider is currently set to. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classSliders_aa0f8bf23a7065f2b20c54fdd8ca56453}\label{classSliders_aa0f8bf23a7065f2b20c54fdd8ca56453} 
+\index{Sliders@{Sliders}!getMinimumDistance@{getMinimumDistance}}
+\index{getMinimumDistance@{getMinimumDistance}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{getMinimumDistance()}{getMinimumDistance()}}
+{\footnotesize\ttfamily float Sliders\+::get\+Minimum\+Distance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current minimum distance to which the slider may be set to. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representaion of the minimum distance the slider is currently set to. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classSliders_aaba277dd36f7a8121ba013b1127e87fb}\label{classSliders_aaba277dd36f7a8121ba013b1127e87fb} 
+\index{Sliders@{Sliders}!getStepDistance@{getStepDistance}}
+\index{getStepDistance@{getStepDistance}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{getStepDistance()}{getStepDistance()}}
+{\footnotesize\ttfamily float Sliders\+::get\+Step\+Distance (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current minimum distance to which the slider may be moved by the user (step size or interval). 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representaion of the minimum distance the slider can currently be moved by. \\
+\hline
+\end{DoxyRetVals}
 \Hypertarget{classSliders_af167ae4dd46cb6f8964d194f00ca7c13}\label{classSliders_af167ae4dd46cb6f8964d194f00ca7c13} 
 \index{Sliders@{Sliders}!resized@{resized}}
 \index{resized@{resized}!Sliders@{Sliders}}
@@ -82,6 +157,66 @@ Adding a function that will allow for the {\ttfamily \doxylink{classSliders}{Sli
 For this function, this sets the size of the labels to be a maximum size and scales them downwards if the relative size of the window is too small to fit the phrase. This scales the length of the trombone to be able to fit in a window with a width of any size. ~\newline
  
 \end{DoxyNote}
+\Hypertarget{classSliders_a2b0eba041a225c0800ce02804035a260}\label{classSliders_a2b0eba041a225c0800ce02804035a260} 
+\index{Sliders@{Sliders}!setDistanceRange@{setDistanceRange}}
+\index{setDistanceRange@{setDistanceRange}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{setDistanceRange()}{setDistanceRange()}}
+{\footnotesize\ttfamily void Sliders\+::set\+Distance\+Range (\begin{DoxyParamCaption}\item[{float}]{range }\end{DoxyParamCaption})}
+
+
+
+A function to set the minimum range between the maximum and minimum fingers on the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em range} & The floating point representation of the minimum range. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSliders_ac239706a29002ec6467ea5d422155f9b}\label{classSliders_ac239706a29002ec6467ea5d422155f9b} 
+\index{Sliders@{Sliders}!setMaximumDistance@{setMaximumDistance}}
+\index{setMaximumDistance@{setMaximumDistance}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{setMaximumDistance()}{setMaximumDistance()}}
+{\footnotesize\ttfamily void Sliders\+::set\+Maximum\+Distance (\begin{DoxyParamCaption}\item[{float}]{distance }\end{DoxyParamCaption})}
+
+
+
+A function to set the maximum distance to which the slider may be set to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & The floating point representation of the maximum distance. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSliders_a80570724ce3b89bb611a5931a0c35ca9}\label{classSliders_a80570724ce3b89bb611a5931a0c35ca9} 
+\index{Sliders@{Sliders}!setMinimumDistance@{setMinimumDistance}}
+\index{setMinimumDistance@{setMinimumDistance}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{setMinimumDistance()}{setMinimumDistance()}}
+{\footnotesize\ttfamily void Sliders\+::set\+Minimum\+Distance (\begin{DoxyParamCaption}\item[{float}]{distance }\end{DoxyParamCaption})}
+
+
+
+A function to set the minimum distance to which the slider may be set to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & The floating point representation of the minimum distance. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSliders_a963447e6cdd328bc5ebde52f0d4de8a6}\label{classSliders_a963447e6cdd328bc5ebde52f0d4de8a6} 
+\index{Sliders@{Sliders}!setStepDistance@{setStepDistance}}
+\index{setStepDistance@{setStepDistance}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{setStepDistance()}{setStepDistance()}}
+{\footnotesize\ttfamily void Sliders\+::set\+Step\+Distance (\begin{DoxyParamCaption}\item[{float}]{step }\end{DoxyParamCaption})}
+
+
+
+A function to set the minimum step to which the slider may be moved by the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step} & The floating point representation of the minimum step. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classSliders_ace72961d967240e0a72a5a9ce3d49cb8}\label{classSliders_ace72961d967240e0a72a5a9ce3d49cb8} 
 \index{Sliders@{Sliders}!sliderValueChanged@{sliderValueChanged}}
 \index{sliderValueChanged@{sliderValueChanged}!Sliders@{Sliders}}

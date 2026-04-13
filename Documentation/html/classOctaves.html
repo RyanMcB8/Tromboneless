@@ -94,7 +94,7 @@ Inheritance diagram for Octaves:</div>
 <area shape="poly" title=" " alt="" coords="95,118,95,152,90,152,90,118"/>
 <area shape="rect" href="classNotes.html" title=" " alt="" coords="63,5,123,31"/>
 <area shape="poly" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
-<area shape="rect" href="classEnvelope.html" title=" " alt="" coords="51,225,134,251"/>
+<area shape="rect" href="classTromboneSynth.html" title="A class which may be used to create a custom synth with an envelope attached to it." alt="" coords="31,225,154,251"/>
 <area shape="poly" title=" " alt="" coords="95,191,95,225,90,225,90,191"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -112,33 +112,12 @@ Collaboration diagram for Octaves:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af04b6ae0cbdc5aa7ff0060334cb4d1ad" id="r_af04b6ae0cbdc5aa7ff0060334cb4d1ad"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#af04b6ae0cbdc5aa7ff0060334cb4d1ad">Clamp01</a> (float value)</td></tr>
-<tr class="memdesc:af04b6ae0cbdc5aa7ff0060334cb4d1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which clamps the value passed to it to be within 0 and 1 so that it can remain within normalisation bounds;.  <br /></td></tr>
-<tr class="separator:af04b6ae0cbdc5aa7ff0060334cb4d1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acee7c34bb0f6ed6122f95de03d2dd763" id="r_acee7c34bb0f6ed6122f95de03d2dd763"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#acee7c34bb0f6ed6122f95de03d2dd763">TimeAscension</a> (float t)</td></tr>
-<tr class="memdesc:acee7c34bb0f6ed6122f95de03d2dd763"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines the relative maximum amplitude of a sound depending on how long ago the user started playing the note. This grows as time goes on.  <br /></td></tr>
-<tr class="separator:acee7c34bb0f6ed6122f95de03d2dd763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0f059e50233446121ce94e0a8bd3a25" id="r_af0f059e50233446121ce94e0a8bd3a25"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#af0f059e50233446121ce94e0a8bd3a25">TimeDecay</a> (float t, float saturation)</td></tr>
-<tr class="memdesc:af0f059e50233446121ce94e0a8bd3a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines the relative maximum amplitude of sound depending on how long ago the note was released.  <br /></td></tr>
-<tr class="separator:af0f059e50233446121ce94e0a8bd3a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a521a1139df5d18a76ca830e8fb9a27a1" id="r_a521a1139df5d18a76ca830e8fb9a27a1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a521a1139df5d18a76ca830e8fb9a27a1">TimeRest</a> (float t, float saturation)</td></tr>
-<tr class="memdesc:a521a1139df5d18a76ca830e8fb9a27a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines the relative maximum amplitude of sound depending on how long ago the note was released.  <br /></td></tr>
-<tr class="separator:a521a1139df5d18a76ca830e8fb9a27a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f560ad8bf3c5ad4bdec4094e2119810" id="r_a8f560ad8bf3c5ad4bdec4094e2119810"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810">PlayingNote</a> (int octave, Notes_t note, float time)</td></tr>
 <tr class="memdesc:a8f560ad8bf3c5ad4bdec4094e2119810"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified time.  <br /></td></tr>
 <tr class="separator:a8f560ad8bf3c5ad4bdec4094e2119810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f6a62befde733b18ebf3beb3259358f" id="r_a3f6a62befde733b18ebf3beb3259358f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a3f6a62befde733b18ebf3beb3259358f">StartNote</a> (int octave, Notes_t note, float time, float t)</td></tr>
-<tr class="memdesc:a3f6a62befde733b18ebf3beb3259358f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines that maximum amplitude the note may reach depending upon the amount of time it has been since the user started the input.  <br /></td></tr>
-<tr class="separator:a3f6a62befde733b18ebf3beb3259358f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01d61ab40de2a20165a7e3526662484e" id="r_a01d61ab40de2a20165a7e3526662484e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a01d61ab40de2a20165a7e3526662484e">SaturatedNote</a> (int octave, Notes_t note, float time, float saturation)</td></tr>
-<tr class="memdesc:a01d61ab40de2a20165a7e3526662484e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified time.  <br /></td></tr>
-<tr class="separator:a01d61ab40de2a20165a7e3526662484e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ecedcceccf7743191fbfa849e529459" id="r_a8ecedcceccf7743191fbfa849e529459"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a8ecedcceccf7743191fbfa849e529459">DecayNote</a> (int octave, Notes_t note, float time, float t, float saturation)</td></tr>
-<tr class="memdesc:a8ecedcceccf7743191fbfa849e529459"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to play a single note in a specified octave and reduce it from its peak to its normal amplitude.  <br /></td></tr>
-<tr class="separator:a8ecedcceccf7743191fbfa849e529459"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcafe3ff87ac22860e5a5004f01ddf0f" id="r_abcafe3ff87ac22860e5a5004f01ddf0f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#abcafe3ff87ac22860e5a5004f01ddf0f">EndNote</a> (int octave, Notes_t note, float time, float t, float saturation)</td></tr>
-<tr class="memdesc:abcafe3ff87ac22860e5a5004f01ddf0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to play a single note in a specified octave.  <br /></td></tr>
-<tr class="separator:abcafe3ff87ac22860e5a5004f01ddf0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfcba4d0b4f936d1bef9f5458c65fc36" id="r_abfcba4d0b4f936d1bef9f5458c65fc36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#abfcba4d0b4f936d1bef9f5458c65fc36">PlayingFrequency</a> (float freq, float time)</td></tr>
+<tr class="memdesc:abfcba4d0b4f936d1bef9f5458c65fc36"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified frequency at a specified time.  <br /></td></tr>
+<tr class="separator:abfcba4d0b4f936d1bef9f5458c65fc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNotes"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNotes')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNotes.html">Notes</a></td></tr>
 <tr class="memitem:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes" id="r_ae11cec41480227782d457e4829d5a06f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#ae11cec41480227782d457e4829d5a06f">Notes</a> (float C_in=16.35, float Db_in=17.32, float D_in=18.35, float Eb_in=19.45, float E_in=20.60, float F_in=21.83, float Gb_in=23.12, float G_in=24.50, float Ab_in=25.96, float A_in=27.50, float Bb_in=29.14, float B_in=30.87)</td></tr>
 <tr class="memdesc:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <code><a class="el" href="classNotes.html">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default.  <br /></td></tr>
@@ -254,15 +233,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa6c0bbc5933997052bb27a71cb6de574" id="r_aa6c0bbc5933997052bb27a71cb6de574"><td class="memItemLeft" align="right" valign="top"><a id="aa6c0bbc5933997052bb27a71cb6de574" name="aa6c0bbc5933997052bb27a71cb6de574"></a>
-<a class="el" href="classNotes.html">Notes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> [nOctaves]</td></tr>
-<tr class="separator:aa6c0bbc5933997052bb27a71cb6de574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f4560f7a1b18a1c239ebde202b9dc0" id="r_a07f4560f7a1b18a1c239ebde202b9dc0"><td class="memItemLeft" align="right" valign="top"><a id="a07f4560f7a1b18a1c239ebde202b9dc0" name="a07f4560f7a1b18a1c239ebde202b9dc0"></a>
+Initialising an array of the octaves and their notes *<a class="el" href="classNotes.html">Notes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> [nOctaves]</td></tr>
+<tr class="separator:a07f4560f7a1b18a1c239ebde202b9dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:aab55dc1e4e61330511e61c2c302ada6e" id="r_aab55dc1e4e61330511e61c2c302ada6e"><td class="memItemLeft" align="right" valign="top"><a id="aab55dc1e4e61330511e61c2c302ada6e" name="aab55dc1e4e61330511e61c2c302ada6e"></a>
-static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves</b> = 9</td></tr>
-<tr class="separator:aab55dc1e4e61330511e61c2c302ada6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23c2f9ad52711d91c154a80772d7e972" id="r_a23c2f9ad52711d91c154a80772d7e972"><td class="memItemLeft" align="right" valign="top"><a id="a23c2f9ad52711d91c154a80772d7e972" name="a23c2f9ad52711d91c154a80772d7e972"></a>
+Stores the number of octaves being used *static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves</b> = 9</td></tr>
+<tr class="separator:a23c2f9ad52711d91c154a80772d7e972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -297,73 +276,23 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Creation of a class to store the frequencies of notes at different octaves. Inherits from <code><a class="el" href="classNotes.html">Notes</a></code> class. <br  />
  </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af04b6ae0cbdc5aa7ff0060334cb4d1ad" name="af04b6ae0cbdc5aa7ff0060334cb4d1ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af04b6ae0cbdc5aa7ff0060334cb4d1ad">&#9670;&#160;</a></span>Clamp01()</h2>
+<a id="abfcba4d0b4f936d1bef9f5458c65fc36" name="abfcba4d0b4f936d1bef9f5458c65fc36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfcba4d0b4f936d1bef9f5458c65fc36">&#9670;&#160;</a></span>PlayingFrequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Octaves::Clamp01 </td>
+          <td class="memname">float Octaves::PlayingFrequency </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which clamps the value passed to it to be within 0 and 1 so that it can remain within normalisation bounds;. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>The value of which that should be clamped. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">The</td><td>floating point value which has been clamped between 0 and 1. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8ecedcceccf7743191fbfa849e529459" name="a8ecedcceccf7743191fbfa849e529459"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ecedcceccf7743191fbfa849e529459">&#9670;&#160;</a></span>DecayNote()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::DecayNote </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
+          <td class="paramname"><em>freq</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -373,89 +302,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A function which may be called upon to play a single note in a specified octave and reduce it from its peak to its normal amplitude. </p>
+<p>A function which may be called to determine the amplitude of a specified frequency at a specified time. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The total amount of time the signal has been playing for. </td></tr>
-    <tr><td class="paramname">t</td><td>A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When <code>t=0</code>, the waveforms are at their maximum amplitude and when<code>t=0</code>, their amplitudes = 0. </td></tr>
-    <tr><td class="paramname">saturation</td><td>The normal relative amplitude of the signal to its peak. </td></tr>
+    <tr><td class="paramname">freq</td><td>The frequency (in Hz) which should be played. </td></tr>
+    <tr><td class="paramname">time</td><td>The time at which the sound should be sampled at. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
+    <tr><td class="paramname">Returns</td><td>a floating point value representing the ampliude of the note at the time it was sampled. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The number of steps between 0 and 1 for the time value should be kept as high as possible as this represents the stage of oscillation the cosine wave is at. </dd></dl>
-
-</div>
-</div>
-<a id="abcafe3ff87ac22860e5a5004f01ddf0f" name="abcafe3ff87ac22860e5a5004f01ddf0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcafe3ff87ac22860e5a5004f01ddf0f">&#9670;&#160;</a></span>EndNote()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::EndNote </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which may be called upon to play a single note in a specified octave. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The total amount of time the signal has been playing for. </td></tr>
-    <tr><td class="paramname">t</td><td>A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When <code>t=0</code>, the waveforms are at their maximum amplitude and when<code>t=0</code>, their amplitudes = 0. </td></tr>
-    <tr><td class="paramname">saturation</td><td>The normal relative amplitude of the signal to its peak. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">This</td><td>function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The number of steps between 0 and 1 for the time value should be kept as high as possible as this represents the stage of oscillation the cosine wave is at. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function only uses unit amplitudes and does not change depending on the volume. The maxmimum and minimum will always be 1 and -1 respectively. </dd></dl>
 
 </div>
 </div>
@@ -507,240 +368,6 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This function only uses unit amplitudes and does not change depending on the volume. The maxmimum and minimum will always be 1 and -1 respectively. </dd></dl>
-
-</div>
-</div>
-<a id="a01d61ab40de2a20165a7e3526662484e" name="a01d61ab40de2a20165a7e3526662484e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01d61ab40de2a20165a7e3526662484e">&#9670;&#160;</a></span>SaturatedNote()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::SaturatedNote </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which may be called to determine the amplitude of a specified note at a specified time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">octave</td><td>The octave in which the note being played is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is currently being played. </td></tr>
-    <tr><td class="paramname">time</td><td>The time at which the sound should be sampled at. </td></tr>
-    <tr><td class="paramname">saturation</td><td>Sets the saturation level. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">Returns</td><td>a floating point value representing the ampliude of the note at the time it was sampled. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>This function only uses unit amplitudes and does not change depending on the volume. The maxmimum and minimum will always be 1 and -1 respectively. </dd></dl>
-
-</div>
-</div>
-<a id="a3f6a62befde733b18ebf3beb3259358f" name="a3f6a62befde733b18ebf3beb3259358f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f6a62befde733b18ebf3beb3259358f">&#9670;&#160;</a></span>StartNote()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::StartNote </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>octave</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Notes_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which determines that maximum amplitude the note may reach depending upon the amount of time it has been since the user started the input. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">octave</td><td>The octave in which the first harmonic is in. </td></tr>
-    <tr><td class="paramname">note</td><td>The note which is starting to be played. </td></tr>
-    <tr><td class="paramname">time</td><td>The current time. This is used to set phase of the sinusoidal wave used to synthesise the note. </td></tr>
-    <tr><td class="paramname">t</td><td>This is a parametric value representing the relative time of the ascension. At <code>t=0</code>, the maximum amplitude is 0, and at <code>t=1</code>, the maximum amplitude is 1. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">Returns</td><td>a floating point value between 0 and 1 representing the notes maximmum frequency. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acee7c34bb0f6ed6122f95de03d2dd763" name="acee7c34bb0f6ed6122f95de03d2dd763"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acee7c34bb0f6ed6122f95de03d2dd763">&#9670;&#160;</a></span>TimeAscension()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::TimeAscension </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which determines the relative maximum amplitude of a sound depending on how long ago the user started playing the note. This grows as time goes on. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>The relative time (between 0 and 1) in which the note has been playing for. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">Returns</td><td>a floating point value between 0 and 1 representing the maximum amplitude that the note may reach depending on the t parameter. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Currently this function is just a ramp function but should be modified in the future to better match that of real world noise. </dd></dl>
-
-</div>
-</div>
-<a id="af0f059e50233446121ce94e0a8bd3a25" name="af0f059e50233446121ce94e0a8bd3a25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0f059e50233446121ce94e0a8bd3a25">&#9670;&#160;</a></span>TimeDecay()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::TimeDecay </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which determines the relative maximum amplitude of sound depending on how long ago the note was released. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>The normalised amount of time in which the note was released. </td></tr>
-    <tr><td class="paramname">saturation</td><td>The relative amplitude of the normal amplitude to the peak. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">Returns</td><td>a floating point value between saturation value and 1 representing the maximum amplitude. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a521a1139df5d18a76ca830e8fb9a27a1" name="a521a1139df5d18a76ca830e8fb9a27a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a521a1139df5d18a76ca830e8fb9a27a1">&#9670;&#160;</a></span>TimeRest()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Octaves::TimeRest </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>saturation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A function which determines the relative maximum amplitude of sound depending on how long ago the note was released. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>The normalised amount of time in which the note was released. </td></tr>
-    <tr><td class="paramname">saturation</td><td>The relative amplitude of the normal amplitude to the peak. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">Returns</td><td>a floating point value between 0 and 1 representing the maximum amplitude. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

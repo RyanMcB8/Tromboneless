@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tromboneless: /home/ryan-mcbride/Documents/Tromboneless/Core/include/MIDIMessageBuilder.hpp Source File</title>
+<title>Tromboneless: /home/ryan/Tromboneless/Core/include/MidiMessageBuilder.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,34 +79,41 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">MIDIMessageBuilder.hpp</div></div>
+  <div class="headertitle"><div class="title">MidiMessageBuilder.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;MidiMessage.hpp&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classMIDIMessageBuilder.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classMIDIMessageBuilder.html">MIDIMessageBuilder</a></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">using </span>Byte = MidiMessage::Byte;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="classMidiMessage.html">MidiMessage</a> <a class="code hl_function" href="classMIDIMessageBuilder.html#ad1a1d5275808d86aaf835f8e4f3da3a8">noteOn</a>(<span class="keywordtype">int</span> channel,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                       Byte note,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                       Byte velocity) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classMidiMessage.html">MidiMessage</a> <a class="code hl_function" href="classMIDIMessageBuilder.html#a85223a9564f5dd4b9e433f75251ea296">noteOff</a>(<span class="keywordtype">int</span> channel,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                        Byte note,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                        Byte velocity = 0) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">static</span> Byte clampChannel(<span class="keywordtype">int</span> channel);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classMidiMessageBuilder.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classMidiMessageBuilder.html">MidiMessageBuilder</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">using </span>Byte = MidiMessage::Byte;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="classMidiMessage.html">MidiMessage</a> <a class="code hl_function" href="classMidiMessageBuilder.html#afec866a91fd98c33c4a1bd1a4a7b245a">noteOn</a>(<span class="keywordtype">int</span> channel,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                       Byte note,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                       Byte velocity) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_class" href="classMidiMessage.html">MidiMessage</a> <a class="code hl_function" href="classMidiMessageBuilder.html#afed51e1a8f65ecfa622a0668a504e922">noteOff</a>(<span class="keywordtype">int</span> channel,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                        Byte note,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                        Byte velocity = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="classMidiMessage.html">MidiMessage</a> <a class="code hl_function" href="classMidiMessageBuilder.html#a3569350d0a22a4dc1165bb475d9b52e7">pitchBend</a>(<span class="keywordtype">int</span> channel, </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                          <span class="keywordtype">int</span> value) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_class" href="classMidiMessage.html">MidiMessage</a> expr(<span class="keywordtype">int</span> channel,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    <span class="keywordtype">int</span> value) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">static</span> Byte clampChannel(<span class="keywordtype">int</span> channel);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>};</div>
 </div>
-<div class="ttc" id="aclassMIDIMessageBuilder_html"><div class="ttname"><a href="classMIDIMessageBuilder.html">MIDIMessageBuilder</a></div><div class="ttdoc">Factory class for constructing common MIDI channel messages.</div><div class="ttdef"><b>Definition</b> MIDIMessageBuilder.hpp:22</div></div>
-<div class="ttc" id="aclassMIDIMessageBuilder_html_a85223a9564f5dd4b9e433f75251ea296"><div class="ttname"><a href="classMIDIMessageBuilder.html#a85223a9564f5dd4b9e433f75251ea296">MIDIMessageBuilder::noteOff</a></div><div class="ttdeci">MidiMessage noteOff(int channel, Byte note, Byte velocity=0) const</div><div class="ttdoc">Create a MIDI Note Off message.</div><div class="ttdef"><b>Definition</b> MIDIMessageBuilder.cpp:11</div></div>
-<div class="ttc" id="aclassMIDIMessageBuilder_html_ad1a1d5275808d86aaf835f8e4f3da3a8"><div class="ttname"><a href="classMIDIMessageBuilder.html#ad1a1d5275808d86aaf835f8e4f3da3a8">MIDIMessageBuilder::noteOn</a></div><div class="ttdeci">MidiMessage noteOn(int channel, Byte note, Byte velocity) const</div><div class="ttdoc">Create a MIDI Note On message.</div><div class="ttdef"><b>Definition</b> MIDIMessageBuilder.cpp:4</div></div>
+<div class="ttc" id="aclassMidiMessageBuilder_html"><div class="ttname"><a href="classMidiMessageBuilder.html">MidiMessageBuilder</a></div><div class="ttdoc">Factory class for constructing common MIDI channel messages.</div><div class="ttdef"><b>Definition</b> MidiMessageBuilder.hpp:18</div></div>
+<div class="ttc" id="aclassMidiMessageBuilder_html_a3569350d0a22a4dc1165bb475d9b52e7"><div class="ttname"><a href="classMidiMessageBuilder.html#a3569350d0a22a4dc1165bb475d9b52e7">MidiMessageBuilder::pitchBend</a></div><div class="ttdeci">MidiMessage pitchBend(int channel, int value) const</div><div class="ttdoc">Pitch bend message constructor.</div><div class="ttdef"><b>Definition</b> MidiMessageBuilder.cpp:18</div></div>
+<div class="ttc" id="aclassMidiMessageBuilder_html_afec866a91fd98c33c4a1bd1a4a7b245a"><div class="ttname"><a href="classMidiMessageBuilder.html#afec866a91fd98c33c4a1bd1a4a7b245a">MidiMessageBuilder::noteOn</a></div><div class="ttdeci">MidiMessage noteOn(int channel, Byte note, Byte velocity) const</div><div class="ttdoc">Create a MIDI Note On message.</div><div class="ttdef"><b>Definition</b> MidiMessageBuilder.cpp:4</div></div>
+<div class="ttc" id="aclassMidiMessageBuilder_html_afed51e1a8f65ecfa622a0668a504e922"><div class="ttname"><a href="classMidiMessageBuilder.html#afed51e1a8f65ecfa622a0668a504e922">MidiMessageBuilder::noteOff</a></div><div class="ttdeci">MidiMessage noteOff(int channel, Byte note, Byte velocity=0) const</div><div class="ttdoc">Create a MIDI Note Off message.</div><div class="ttdef"><b>Definition</b> MidiMessageBuilder.cpp:11</div></div>
 <div class="ttc" id="aclassMidiMessage_html"><div class="ttname"><a href="classMidiMessage.html">MidiMessage</a></div><div class="ttdoc">Represents a raw MIDI message as a sequence of bytes.</div><div class="ttdef"><b>Definition</b> MidiMessage.hpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

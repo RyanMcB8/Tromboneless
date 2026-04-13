@@ -24,37 +24,25 @@ Collaboration diagram for Octaves\+With\+Harmonics\+:\nopagebreak
 \Hypertarget{classOctavesWithHarmonics_aed7ad26de7c252c787b11d1a88b6cb30}\label{classOctavesWithHarmonics_aed7ad26de7c252c787b11d1a88b6cb30} 
 {\bfseries Octaves\+With\+Harmonics} ()
 \begin{DoxyCompactList}\small\item\em Creates an instance of the {\ttfamily \doxylink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a29e2db83a144661711a68017d67c3f5a}{Start\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float t)
+float \mbox{\hyperlink{classOctavesWithHarmonics_aa2f7c9edb2eef430f0c18795747e4c41}{Playing\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time)
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a5d034e862555d58fca91a2af1e77ffe0}{Decay\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2}{Playing\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a4d6d82460255f5f8d4a8cb80881babb2}{End\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time, float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8}{Harmonic\+Decay}} (int n, int octave, Notes\+::\+Notes\+\_\+t note)
-\begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+float \mbox{\hyperlink{classOctavesWithHarmonics_aada12badc25785e82187af576d49d606}{Playing\+Frequency\+With\+Harmonics}} (int n, float freq, float time)
+\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}{Harmonic\+Decay}} (int n)
+\begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{get\+Harmomic\+Decay\+Max}} (int n)
+\begin{DoxyCompactList}\small\item\em A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9}{set\+Decay\+Constant}} (float decayC)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctavesWithHarmonics_a617c4acb3379692aa05736cf9747b87b}{get\+Decay\+Constant}} (void)
+\begin{DoxyCompactList}\small\item\em A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{classOctaves_af04b6ae0cbdc5aa7ff0060334cb4d1ad}{Clamp01}} (float value)
-\begin{DoxyCompactList}\small\item\em A function which clamps the value passed to it to be within 0 and 1 so that it can remain within normalisation bounds;. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_acee7c34bb0f6ed6122f95de03d2dd763}{Time\+Ascension}} (float t)
-\begin{DoxyCompactList}\small\item\em A function which determines the relative maximum amplitude of a sound depending on how long ago the user started playing the note. This grows as time goes on. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_af0f059e50233446121ce94e0a8bd3a25}{Time\+Decay}} (float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which determines the relative maximum amplitude of sound depending on how long ago the note was released. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_a521a1139df5d18a76ca830e8fb9a27a1}{Time\+Rest}} (float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which determines the relative maximum amplitude of sound depending on how long ago the note was released. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctaves_a8f560ad8bf3c5ad4bdec4094e2119810}{Playing\+Note}} (int octave, Notes\+\_\+t note, float time)
 \begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified time. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_a3f6a62befde733b18ebf3beb3259358f}{Start\+Note}} (int octave, Notes\+\_\+t note, float time, float t)
-\begin{DoxyCompactList}\small\item\em A function which determines that maximum amplitude the note may reach depending upon the amount of time it has been since the user started the input. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_a01d61ab40de2a20165a7e3526662484e}{Saturated\+Note}} (int octave, Notes\+\_\+t note, float time, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified time. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_a8ecedcceccf7743191fbfa849e529459}{Decay\+Note}} (int octave, Notes\+\_\+t note, float time, float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to play a single note in a specified octave and reduce it from its peak to its normal amplitude. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_abcafe3ff87ac22860e5a5004f01ddf0f}{End\+Note}} (int octave, Notes\+\_\+t note, float time, float t, float saturation)
-\begin{DoxyCompactList}\small\item\em A function which may be called upon to play a single note in a specified octave. \end{DoxyCompactList}\end{DoxyCompactItemize}
+float \mbox{\hyperlink{classOctaves_abfcba4d0b4f936d1bef9f5458c65fc36}{Playing\+Frequency}} (float freq, float time)
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified frequency at a specified time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNotes}{Notes}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -164,85 +152,56 @@ enum {\bfseries Notes\+\_\+t} \{ \newline
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}n\+Octaves\mbox{]}
+Initialising an array of the octaves and their notes \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}n\+Octaves\mbox{]}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
-static const char {\bfseries n\+Octaves} = 9
+Stores the number of octaves being used \texorpdfstring{$\ast$}{*}static const char {\bfseries n\+Octaves} = 9
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classOctavesWithHarmonics_a5d034e862555d58fca91a2af1e77ffe0}\label{classOctavesWithHarmonics_a5d034e862555d58fca91a2af1e77ffe0} 
-\index{OctavesWithHarmonics@{OctavesWithHarmonics}!DecayNoteWithHarmonics@{DecayNoteWithHarmonics}}
-\index{DecayNoteWithHarmonics@{DecayNoteWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
-\doxysubsubsection{\texorpdfstring{DecayNoteWithHarmonics()}{DecayNoteWithHarmonics()}}
-{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Decay\+Note\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+\_\+t}]{note,  }\item[{float}]{time,  }\item[{float}]{t,  }\item[{float}]{saturation }\end{DoxyParamCaption})}
+\Hypertarget{classOctavesWithHarmonics_a617c4acb3379692aa05736cf9747b87b}\label{classOctavesWithHarmonics_a617c4acb3379692aa05736cf9747b87b} 
+\index{OctavesWithHarmonics@{OctavesWithHarmonics}!getDecayConstant@{getDecayConstant}}
+\index{getDecayConstant@{getDecayConstant}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{getDecayConstant()}{getDecayConstant()}}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::get\+Decay\+Constant (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
-A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. 
+A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the decay constant. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}\label{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13} 
+\index{OctavesWithHarmonics@{OctavesWithHarmonics}!getHarmomicDecayMax@{getHarmomicDecayMax}}
+\index{getHarmomicDecayMax@{getHarmomicDecayMax}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{getHarmomicDecayMax()}{getHarmomicDecayMax()}}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::get\+Harmomic\+Decay\+Max (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em n} & The number of harmonics which should be applied to the signal. \\
-\hline
-{\em octave} & The octave in which the first harmonic is in. \\
-\hline
-{\em note} & The note which is being played. \\
-\hline
-{\em time} & The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. \\
-\hline
-{\em t} & A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When {\ttfamily t=0}, the waveforms are at their maximum amplitude and when{\ttfamily t=0}, their amplitudes = 0. \\
-\hline
-{\em saturation} & \\
+{\em n} & The number of harmonics \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
-{\em This} & function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. \\
+{\em The} & maximum amplitude possible as a floating point value. \\
 \hline
 \end{DoxyRetVals}
-\begin{DoxyNote}{Note}
-This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. 
-\end{DoxyNote}
-\Hypertarget{classOctavesWithHarmonics_a4d6d82460255f5f8d4a8cb80881babb2}\label{classOctavesWithHarmonics_a4d6d82460255f5f8d4a8cb80881babb2} 
-\index{OctavesWithHarmonics@{OctavesWithHarmonics}!EndNoteWithHarmonics@{EndNoteWithHarmonics}}
-\index{EndNoteWithHarmonics@{EndNoteWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
-\doxysubsubsection{\texorpdfstring{EndNoteWithHarmonics()}{EndNoteWithHarmonics()}}
-{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+End\+Note\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+\_\+t}]{note,  }\item[{float}]{time,  }\item[{float}]{t,  }\item[{float}]{saturation }\end{DoxyParamCaption})}
-
-
-
-A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em n} & The number of harmonics which should be applied to the signal. \\
-\hline
-{\em octave} & The octave in which the first harmonic is in. \\
-\hline
-{\em note} & The note which is being played. \\
-\hline
-{\em time} & The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. \\
-\hline
-{\em t} & A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When {\ttfamily t=0}, the waveforms are at their maximum amplitude and when{\ttfamily t=0}, their amplitudes = 0. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em This} & function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. \\
-\hline
-\end{DoxyRetVals}
-\begin{DoxyNote}{Note}
-This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. 
-\end{DoxyNote}
-\Hypertarget{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8}\label{classOctavesWithHarmonics_a6e54a83b3bcd7975479e02c4ec7230e8} 
+\Hypertarget{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}\label{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324} 
 \index{OctavesWithHarmonics@{OctavesWithHarmonics}!HarmonicDecay@{HarmonicDecay}}
 \index{HarmonicDecay@{HarmonicDecay}!OctavesWithHarmonics@{OctavesWithHarmonics}}
 \doxysubsubsection{\texorpdfstring{HarmonicDecay()}{HarmonicDecay()}}
-{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Harmonic\+Decay (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+::\+Notes\+\_\+t}]{note }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Harmonic\+Decay (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
@@ -250,11 +209,7 @@ A function which calculates how much the amplitude of the harmonic should decay 
 
 
 \begin{DoxyParams}{Parameters}
-{\em n} & The integer multiple of the harmonic whose relative amplitude is being calculated. \\
-\hline
-{\em octave} & The octave in which the first harmonic is in. \\
-\hline
-{\em note} & The note which is being played. \\
+{\em n} & The harmonic which is being used. \\
 \hline
 \end{DoxyParams}
 
@@ -265,11 +220,33 @@ A function which calculates how much the amplitude of the harmonic should decay 
 \begin{DoxyNote}{Note}
 This function needs to be modified to better match the relationship between the frequency and the decay rate over the various harmonic frequencies. 
 \end{DoxyNote}
-\Hypertarget{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2}\label{classOctavesWithHarmonics_a5f46fee48c6f4eb0ba7e06f6289f8ed2} 
+\Hypertarget{classOctavesWithHarmonics_aada12badc25785e82187af576d49d606}\label{classOctavesWithHarmonics_aada12badc25785e82187af576d49d606} 
+\index{OctavesWithHarmonics@{OctavesWithHarmonics}!PlayingFrequencyWithHarmonics@{PlayingFrequencyWithHarmonics}}
+\index{PlayingFrequencyWithHarmonics@{PlayingFrequencyWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{PlayingFrequencyWithHarmonics()}{PlayingFrequencyWithHarmonics()}}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Playing\+Frequency\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{float}]{freq,  }\item[{float}]{time }\end{DoxyParamCaption})}
+
+
+
+A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & The frequency in Hz that should be played. \\
+\hline
+{\em time} & The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em This} & function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classOctavesWithHarmonics_aa2f7c9edb2eef430f0c18795747e4c41}\label{classOctavesWithHarmonics_aa2f7c9edb2eef430f0c18795747e4c41} 
 \index{OctavesWithHarmonics@{OctavesWithHarmonics}!PlayingNoteWithHarmonics@{PlayingNoteWithHarmonics}}
 \index{PlayingNoteWithHarmonics@{PlayingNoteWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
 \doxysubsubsection{\texorpdfstring{PlayingNoteWithHarmonics()}{PlayingNoteWithHarmonics()}}
-{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Playing\+Note\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+\_\+t}]{note,  }\item[{float}]{time,  }\item[{float}]{saturation }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Playing\+Note\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+\_\+t}]{note,  }\item[{float}]{time }\end{DoxyParamCaption})}
 
 
 
@@ -294,37 +271,21 @@ A function which may be called upon to stop playing a range of harmonic notes wh
 \begin{DoxyNote}{Note}
 This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. 
 \end{DoxyNote}
-\Hypertarget{classOctavesWithHarmonics_a29e2db83a144661711a68017d67c3f5a}\label{classOctavesWithHarmonics_a29e2db83a144661711a68017d67c3f5a} 
-\index{OctavesWithHarmonics@{OctavesWithHarmonics}!StartNoteWithHarmonics@{StartNoteWithHarmonics}}
-\index{StartNoteWithHarmonics@{StartNoteWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
-\doxysubsubsection{\texorpdfstring{StartNoteWithHarmonics()}{StartNoteWithHarmonics()}}
-{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::\+Start\+Note\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{int}]{octave,  }\item[{Notes\+\_\+t}]{note,  }\item[{float}]{time,  }\item[{float}]{t }\end{DoxyParamCaption})}
+\Hypertarget{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9}\label{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9} 
+\index{OctavesWithHarmonics@{OctavesWithHarmonics}!setDecayConstant@{setDecayConstant}}
+\index{setDecayConstant@{setDecayConstant}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{setDecayConstant()}{setDecayConstant()}}
+{\footnotesize\ttfamily void Octaves\+With\+Harmonics\+::set\+Decay\+Constant (\begin{DoxyParamCaption}\item[{float}]{decayC }\end{DoxyParamCaption})}
 
 
 
-A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. 
+A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em n} & The number of harmonics which should be applied to the signal. \\
-\hline
-{\em octave} & The octave in which the first harmonic is in. \\
-\hline
-{\em note} & The note which is being played. \\
-\hline
-{\em time} & The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. \\
-\hline
-{\em t} & A parametric value which is used to determine how much the amplitudes of the waveforms should be reduced. When {\ttfamily t=0}, the waveforms are at their maximum amplitude and when{\ttfamily t=0}, their amplitudes = 0. \\
+{\em decayC} & The floating point value which the decay constant should be set to. \\
 \hline
 \end{DoxyParams}
-
-\begin{DoxyRetVals}{Return values}
-{\em This} & function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. \\
-\hline
-\end{DoxyRetVals}
-\begin{DoxyNote}{Note}
-This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. 
-\end{DoxyNote}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

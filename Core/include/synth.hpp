@@ -24,7 +24,7 @@
 class Notes{
     public:
 
-        /* Creation of the enumerated list of possible notes. */
+        /** @brief */ Creation of the enumerated list of possible notes. */
         typedef enum{
             note_C,
             note_Db,
@@ -303,10 +303,10 @@ class Octaves   : public Notes
 {
     public:    
     
-        /* Stores the number of octaves being used. */
+        /** @brief */ Stores the number of octaves being used. */
         static const char nOctaves = 9;
     
-        /* Initialising an array of the octaves and their notes. */
+        /** @brief */ Initialising an array of the octaves and their notes. */
         Notes octaves[nOctaves];
         
         /* Constructor for the class*/

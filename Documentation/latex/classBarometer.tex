@@ -30,7 +30,35 @@ Collaboration diagram for Barometer\+:\nopagebreak
 void \mbox{\hyperlink{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
 \begin{DoxyCompactList}\small\item\em A callback function which is automatically called upon when either of the sliders knobs are adjusted. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classBarometer_a9cde3aede799c7b81c5a9836865c05a5}{paint}} (juce\+::\+Graphics \&g) override
-\begin{DoxyCompactList}\small\item\em A function which is used to change the background of the component to look like it is a barometer/ pressure gauge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function which is used to change the background of the component to look like it is a barometer/ pressure gauge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a10ae7820671a49ee5b31970e5e56facc}{set\+Background\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the colour of the background of the slider. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classBarometer_aa1c63dad94b2f07d5a7ada860ce07344}{get\+Background\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the background of the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a4c8382b5040bdf57df8388571fa33f7b}{set\+Text\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the colour of the text around the slider. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classBarometer_a429e890899029a433dfaa6a8bd4f131a}{get\+Text\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the text around the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a586b3bbe00e296569d4787876836d533}{set\+Boarder\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the colour of the boarder of the slider. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classBarometer_ad20bdc163a6b407e06fd0bac2cf026cb}{get\+Boarder\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the boarder of the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a6c495431a8abfd11643eef2fa2a6220b}{set\+Edge\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the colour of the edge around the slider. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classBarometer_ac342ac02994cb3f1d17fa14f0d530586}{get\+Edge\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the edge around the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a170a818b943bb53e8a8cbd7f012a4fbe}{set\+Outer\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the outer rotary slider. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBarometer_a9a2f169560af0ce92b3c5c53bac4fe89}{get\+Outer\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the outer rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a434e40c30030e0a720c50469c65f88d2}{set\+Inner\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the inner rotary slider. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBarometer_a184c9a146f3efab5e921828ccd57bdbd}{get\+Inner\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the inner rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBarometer_a7fe2d85909177c4d9b78931e46ac72cc}{set\+Label\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the label. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classBarometer_a072da2eadcb701fb6210afec656fc991}{get\+Label\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the label. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classDualRotarySlider}{Dual\+Rotary\+Slider}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -41,7 +69,43 @@ void \mbox{\hyperlink{classBarometer_a9cde3aede799c7b81c5a9836865c05a5}{paint}} 
 void \mbox{\hyperlink{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
 \begin{DoxyCompactList}\small\item\em A function that is called upon when either of the fingers are moved. \end{DoxyCompactList}\item 
 void {\bfseries resized} () override
-\begin{DoxyCompactList}\small\item\em A callback function for when the window size has changed. This allows for the labels and sliders to be resized to be the best relative size. This can either be set to a predetermined size like 100px x 200px, but it is currrently set to be relative to the size of the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A callback function for when the window size has changed. This allows for the labels and sliders to be resized to be the best relative size. This can either be set to a predetermined size like 100px x 200px, but it is currrently set to be relative to the size of the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a6d7fdf64bb167dc5a396550fb557cc3b}{set\+Min\+Difference}} (float difference)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum difference between the sliders 2 fingers. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a22e117cfdbe4e082890fd79a5cd5543c}{get\+Min\+Difference}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum difference between the 2 slider fingers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a3cbf8ff09a2ca305dba7ada524d942a9}{set\+Min\+Slider\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the minimum finger slider. It should always be less than or equal to the maximum slider radius and be between 0 and 1. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_ae2b75d288783ce33f75d389bfbccd0bc}{get\+Min\+Slider\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the minimum finger slider for this object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_ac9d7e4793d1c613e36cddb6cc931c6fc}{set\+Max\+Slider\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the maximum finger slider. It should always be more than or equal to the minimum slider radius and be between 0 and 1. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a70a9ca4347d4271b508f7a0d3c1ff3fc}{get\+Max\+Slider\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the maximum finger slider for this object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a94805761767bab06da5c11014572d802}{set\+Label\+Height}} (float height)
+\begin{DoxyCompactList}\small\item\em A function to set the maximum height of the label attached to the rotary slider. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a21244ddf20d2b5cb94f41e71fc99dd6b}{get\+Label\+Height}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current height of the label which is attached to the rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_aafb38c246936a7ef085d6fd3573d2c25}{set\+Min\+Limit}} (float limit)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum limit of the rotary slider. This may be any floating point value that is less than the difference between the maximum value and the minimum difference between the slider fingers. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_aed0f3b994fefe2f00273ca171008d1f0}{get\+Min\+Limit}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minium limit of the rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a777a6c1af50c812e9336f2f4c7d2ce5d}{set\+Max\+Limit}} (float limit)
+\begin{DoxyCompactList}\small\item\em A function to set the maximum limit of the rotary slider. This may be any floating point value that is more than the sum of the minium value and the minimum difference between the slider fingers. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a84a83b3b4d77bdf9bb0303c4dfa679b9}{get\+Max\+Limit}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current maximum limit of the rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a65e89304a864aba483c6c76bf0a78fc2}{set\+Interval}} (float step)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum step the slider may be moved by the user. This value is in the same scale as the max\+Limit and min\+Limit. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a68a34bf9438ec9cf086c7230f2e85be7}{get\+Interval}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum step which the slider may be adjusted by the user. This value is in the same scale as the max\+Limit and min\+Limit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_adf82a863e0347aa7a3fe8bf19b8e2531}{set\+Min\+Angle}} (float angle)
+\begin{DoxyCompactList}\small\item\em A function to allow for the minimum angle (furtherest anticlockwise) that the slider may be rotated to be set. This is measured in radians. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a0214bb41de1c087ccd99a89f179a9f1c}{get\+Min\+Angle}} (void)
+\begin{DoxyCompactList}\small\item\em A function to return the current minimum angle (furtherest anticlockwise) that the slider may be rotated. This is measured in radians. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a393264374ff3ef5efd1c767ee8bbf247}{set\+Max\+Angle}} (float angle)
+\begin{DoxyCompactList}\small\item\em A function to allow for the maximum angle (furtherest clockwise) that the slider may be rotated to be set. This is measured in radians. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_aca45804387ada9d8184bf6783a230c95}{get\+Max\+Angle}} (void)
+\begin{DoxyCompactList}\small\item\em A function to return the current maximum angle (furtherest clockwise) that the slider may be rotated. This is measured in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classDualRotarySlider}{Dual\+Rotary\+Slider}}}
 \begin{DoxyCompactItemize}
@@ -51,24 +115,115 @@ juce\+::\+Slider {\bfseries max\+Slider}
 juce\+::\+Slider {\bfseries min\+Slider}
 \item 
 juce\+::\+Label {\bfseries rotary\+Label}
-\item 
-float {\bfseries min\+Limit} = 0.\+1
-\item 
-float {\bfseries max\+Limit} = 2.\+0
-\item 
-float {\bfseries interval} = 0.\+1
-\item 
-float {\bfseries min\+Difference} = 0.\+2
-\item 
-float {\bfseries label\+Height}
-\item 
-float {\bfseries min\+Angle} = M\+\_\+\+PI + 0.\+5
-\item 
-float {\bfseries max\+Angle} = 3\texorpdfstring{$\ast$}{*}M\+\_\+\+PI -\/ 0.\+5
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classBarometer_aa1c63dad94b2f07d5a7ada860ce07344}\label{classBarometer_aa1c63dad94b2f07d5a7ada860ce07344} 
+\index{Barometer@{Barometer}!getBackgroundColour@{getBackgroundColour}}
+\index{getBackgroundColour@{getBackgroundColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getBackgroundColour()}{getBackgroundColour()}}
+{\footnotesize\ttfamily juce\+::\+Colour Barometer\+::get\+Background\+Colour (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the background of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the colour as a juce\+::\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classBarometer_ad20bdc163a6b407e06fd0bac2cf026cb}\label{classBarometer_ad20bdc163a6b407e06fd0bac2cf026cb} 
+\index{Barometer@{Barometer}!getBoarderColour@{getBoarderColour}}
+\index{getBoarderColour@{getBoarderColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getBoarderColour()}{getBoarderColour()}}
+{\footnotesize\ttfamily juce\+::\+Colour Barometer\+::get\+Boarder\+Colour (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the boarder of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the colour as a juce\+::\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classBarometer_ac342ac02994cb3f1d17fa14f0d530586}\label{classBarometer_ac342ac02994cb3f1d17fa14f0d530586} 
+\index{Barometer@{Barometer}!getEdgeColour@{getEdgeColour}}
+\index{getEdgeColour@{getEdgeColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getEdgeColour()}{getEdgeColour()}}
+{\footnotesize\ttfamily juce\+::\+Colour Barometer\+::get\+Edge\+Colour (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the edge around the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the colour as a juce\+::\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classBarometer_a184c9a146f3efab5e921828ccd57bdbd}\label{classBarometer_a184c9a146f3efab5e921828ccd57bdbd} 
+\index{Barometer@{Barometer}!getInnerRadius@{getInnerRadius}}
+\index{getInnerRadius@{getInnerRadius}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getInnerRadius()}{getInnerRadius()}}
+{\footnotesize\ttfamily float Barometer\+::get\+Inner\+Radius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the relative radius of the inner rotary slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the relative radius with respect to the widgets (barometer instance) bounds. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classBarometer_a072da2eadcb701fb6210afec656fc991}\label{classBarometer_a072da2eadcb701fb6210afec656fc991} 
+\index{Barometer@{Barometer}!getLabelRadius@{getLabelRadius}}
+\index{getLabelRadius@{getLabelRadius}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getLabelRadius()}{getLabelRadius()}}
+{\footnotesize\ttfamily float Barometer\+::get\+Label\+Radius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the relative radius of the label. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the relative radius with respect to the widgets (barometer instance) bounds. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classBarometer_a9a2f169560af0ce92b3c5c53bac4fe89}\label{classBarometer_a9a2f169560af0ce92b3c5c53bac4fe89} 
+\index{Barometer@{Barometer}!getOuterRadius@{getOuterRadius}}
+\index{getOuterRadius@{getOuterRadius}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getOuterRadius()}{getOuterRadius()}}
+{\footnotesize\ttfamily float Barometer\+::get\+Outer\+Radius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the relative radius of the outer rotary slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the relative radius with respect to the widgets (barometer instance) bounds. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classBarometer_a429e890899029a433dfaa6a8bd4f131a}\label{classBarometer_a429e890899029a433dfaa6a8bd4f131a} 
+\index{Barometer@{Barometer}!getTextColour@{getTextColour}}
+\index{getTextColour@{getTextColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{getTextColour()}{getTextColour()}}
+{\footnotesize\ttfamily juce\+::\+Colour Barometer\+::get\+Text\+Colour (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the text around the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the colour as a juce\+::\+Colour type. \\
+\hline
+\end{DoxyRetVals}
 \Hypertarget{classBarometer_a9cde3aede799c7b81c5a9836865c05a5}\label{classBarometer_a9cde3aede799c7b81c5a9836865c05a5} 
 \index{Barometer@{Barometer}!paint@{paint}}
 \index{paint@{paint}!Barometer@{Barometer}}
@@ -87,6 +242,111 @@ A function which is used to change the background of the component to look like 
 \begin{DoxyNote}{Note}
 This function may be altered to change the look of the device but it currently adds a white circle as a background, golden outer circle for the edge of it, 2 arcs around it corresponding to bounds, with lines connecting them representing the possible settings. 
 \end{DoxyNote}
+\Hypertarget{classBarometer_a10ae7820671a49ee5b31970e5e56facc}\label{classBarometer_a10ae7820671a49ee5b31970e5e56facc} 
+\index{Barometer@{Barometer}!setBackgroundColour@{setBackgroundColour}}
+\index{setBackgroundColour@{setBackgroundColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setBackgroundColour()}{setBackgroundColour()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Background\+Colour (\begin{DoxyParamCaption}\item[{juce\+::\+Colour}]{colour }\end{DoxyParamCaption})}
+
+
+
+A function to set the colour of the background of the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour to which the background should be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBarometer_a586b3bbe00e296569d4787876836d533}\label{classBarometer_a586b3bbe00e296569d4787876836d533} 
+\index{Barometer@{Barometer}!setBoarderColour@{setBoarderColour}}
+\index{setBoarderColour@{setBoarderColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setBoarderColour()}{setBoarderColour()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Boarder\+Colour (\begin{DoxyParamCaption}\item[{juce\+::\+Colour}]{colour }\end{DoxyParamCaption})}
+
+
+
+A function to set the colour of the boarder of the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour to which the boarder should be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBarometer_a6c495431a8abfd11643eef2fa2a6220b}\label{classBarometer_a6c495431a8abfd11643eef2fa2a6220b} 
+\index{Barometer@{Barometer}!setEdgeColour@{setEdgeColour}}
+\index{setEdgeColour@{setEdgeColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setEdgeColour()}{setEdgeColour()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Edge\+Colour (\begin{DoxyParamCaption}\item[{juce\+::\+Colour}]{colour }\end{DoxyParamCaption})}
+
+
+
+A function to set the colour of the edge around the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour to which the edge should be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBarometer_a434e40c30030e0a720c50469c65f88d2}\label{classBarometer_a434e40c30030e0a720c50469c65f88d2} 
+\index{Barometer@{Barometer}!setInnerRadius@{setInnerRadius}}
+\index{setInnerRadius@{setInnerRadius}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setInnerRadius()}{setInnerRadius()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Inner\+Radius (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+A function to set the relative radius of the inner rotary slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & The floating point representation of the relative radius with respect to the widgets (barometer instance) bounds. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBarometer_a7fe2d85909177c4d9b78931e46ac72cc}\label{classBarometer_a7fe2d85909177c4d9b78931e46ac72cc} 
+\index{Barometer@{Barometer}!setLabelRadius@{setLabelRadius}}
+\index{setLabelRadius@{setLabelRadius}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setLabelRadius()}{setLabelRadius()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Label\+Radius (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+A function to set the relative radius of the label. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & The floating point representation of the relative radius with respect to the widgets (barometer instance) bounds. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBarometer_a170a818b943bb53e8a8cbd7f012a4fbe}\label{classBarometer_a170a818b943bb53e8a8cbd7f012a4fbe} 
+\index{Barometer@{Barometer}!setOuterRadius@{setOuterRadius}}
+\index{setOuterRadius@{setOuterRadius}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setOuterRadius()}{setOuterRadius()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Outer\+Radius (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+A function to set the relative radius of the outer rotary slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & The floating point representation of the relative radius with respect to the widgets (barometer instance) bounds. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBarometer_a4c8382b5040bdf57df8388571fa33f7b}\label{classBarometer_a4c8382b5040bdf57df8388571fa33f7b} 
+\index{Barometer@{Barometer}!setTextColour@{setTextColour}}
+\index{setTextColour@{setTextColour}!Barometer@{Barometer}}
+\doxysubsubsection{\texorpdfstring{setTextColour()}{setTextColour()}}
+{\footnotesize\ttfamily void Barometer\+::set\+Text\+Colour (\begin{DoxyParamCaption}\item[{juce\+::\+Colour}]{colour }\end{DoxyParamCaption})}
+
+
+
+A function to set the colour of the text around the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour to which the text should be set to. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d}\label{classBarometer_a3bfa01d333610a674db18ead6e1a7b2d} 
 \index{Barometer@{Barometer}!sliderValueChanged@{sliderValueChanged}}
 \index{sliderValueChanged@{sliderValueChanged}!Barometer@{Barometer}}
@@ -106,5 +366,5 @@ A callback function which is automatically called upon when either of the slider
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/inc/Widgets.\+hpp\item 
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Widgets_8hpp}{Widgets.\+hpp}}\item 
 /home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

@@ -11,8 +11,7 @@ A class which may be attached to a rotary slider from the juce framework to chan
 
 
 
-Inheritance diagram for Needle\+Look\+And\+Feel\+:
-\nopagebreak
+Inheritance diagram for Needle\+Look\+And\+Feel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Needle\+Look\+And\+Feel\+:
 \end{figure}
 
 
-Collaboration diagram for Needle\+Look\+And\+Feel\+:
-\nopagebreak
+Collaboration diagram for Needle\+Look\+And\+Feel\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,7 +37,11 @@ Collaboration diagram for Needle\+Look\+And\+Feel\+:
 virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Needle\+Look\+And\+Feel} ()=default
 \begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classNeedleLookAndFeel}{Needle\+Look\+And\+Feel}} class which is set to default. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classNeedleLookAndFeel_a2aa793fe29c0c3231e986337f8c7a0fe}{draw\+Rotary\+Slider}} (juce\+::\+Graphics \&g, int x, int y, int width, int height, float slider\+Pos, const float rotary\+Start\+Angle, const float rotary\+End\+Angle, juce\+::\+Slider \&slider) override
-\begin{DoxyCompactList}\small\item\em A function which is used to redraw the rotary slider whose look and feel is being changed. This will full describe how it should appear to the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A function which is used to redraw the rotary slider whose look and feel is being changed. This will full describe how it should appear to the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNeedleLookAndFeel_aab5ffc6f2c5106f80089f5b1317e7fe2}{set\+Needle\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the colour of the needle which represents the position of the slider. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classNeedleLookAndFeel_a3cadd54a525f3a5ac5df2f97045ef551}{get\+Needle\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the needle which represents the position of the slider. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -80,6 +82,36 @@ A function which is used to redraw the rotary slider whose look and feel is bein
 \begin{DoxyNote}{Note}
 This function is a call back which is automatically called to redraw the slider to look how described. It should not need to be called by any high level function. 
 \end{DoxyNote}
+\Hypertarget{classNeedleLookAndFeel_a3cadd54a525f3a5ac5df2f97045ef551}\label{classNeedleLookAndFeel_a3cadd54a525f3a5ac5df2f97045ef551} 
+\index{NeedleLookAndFeel@{NeedleLookAndFeel}!getNeedleColour@{getNeedleColour}}
+\index{getNeedleColour@{getNeedleColour}!NeedleLookAndFeel@{NeedleLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{getNeedleColour()}{getNeedleColour()}}
+{\footnotesize\ttfamily juce\+::\+Colour Needle\+Look\+And\+Feel\+::get\+Needle\+Colour (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the needle which represents the position of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & colour of the needle as a juce\+::\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classNeedleLookAndFeel_aab5ffc6f2c5106f80089f5b1317e7fe2}\label{classNeedleLookAndFeel_aab5ffc6f2c5106f80089f5b1317e7fe2} 
+\index{NeedleLookAndFeel@{NeedleLookAndFeel}!setNeedleColour@{setNeedleColour}}
+\index{setNeedleColour@{setNeedleColour}!NeedleLookAndFeel@{NeedleLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{setNeedleColour()}{setNeedleColour()}}
+{\footnotesize\ttfamily void Needle\+Look\+And\+Feel\+::set\+Needle\+Colour (\begin{DoxyParamCaption}\item[{juce\+::\+Colour}]{colour }\end{DoxyParamCaption})}
+
+
+
+A function to set the colour of the needle which represents the position of the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour which the needle should be set to. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,7 +1,9 @@
 <map id="/home/ryan/Tromboneless/App/inc/Panels.hpp" name="/home/ryan/Tromboneless/App/inc/Panels.hpp">
-<area shape="rect" id="Node000001" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="112,5,303,45"/>
+<area shape="rect" id="Node000001" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="220,5,411,45"/>
 <area shape="rect" id="Node000002" href="$Layout_8hpp_source.html" title=" " alt="" coords="5,93,196,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,56,126,95,123,91,171,52"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,53,149,96,147,91,255,48"/>
 <area shape="rect" id="Node000003" href="$Panels_8cpp.html" title="This file contains the function defintions for to create the necessary panels that may be used within..." alt="" coords="220,93,411,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,52,293,91,290,95,240,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="318,59,318,93,313,93,313,59"/>
+<area shape="rect" id="Node000004" href="$testPanels_8cpp.html" title="A file which stores the necessary test scripts for all the testable functions within the Panels files..." alt="" coords="435,93,625,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="376,48,484,91,482,96,374,53"/>
 </map>

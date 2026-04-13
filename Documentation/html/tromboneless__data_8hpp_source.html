@@ -93,13 +93,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    These represent the different types of trombones which may be</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    synthesised by calibrating the correct note and octave. */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    SKOpt_EMPTY,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    SKOpt_BASS,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    SKOpt_PICCOLO,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    SKOpt_ALTO,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    SKOpt_TENOR,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    SKOpt_CONTRABASS,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    SKOpt_SOPRANO,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    SKOpt_EMPTY,                </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    SKOpt_BASS,                 </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    SKOpt_PICCOLO,              </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    SKOpt_ALTO,                 </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    SKOpt_TENOR,                </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    SKOpt_CONTRABASS,           </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    SKOpt_SOPRANO,              </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>} ShiftKeyingOptions_t;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*  Creation of an enum which corresponds to the different</span></div>
@@ -107,10 +107,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">    This should be adjusted before release the have the correct</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    names and number of options. */</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    EMBCR_EMPTY,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    EMBCR_LowPlacement,</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    EMBCR_MediumPlacement,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    EMBCR_HighPlacement,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    EMBCR_EMPTY,                </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    EMBCR_LowPlacement,         </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    EMBCR_MediumPlacement,      </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    EMBCR_HighPlacement,        </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} EmbachureOptions_t;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*  A struct which stores all the necessary parameters that may be</span></div>
@@ -119,15 +119,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    has been changed.*/</span></div>
 <div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ShiftKeyingOptions_t shiftKeyingOption;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">double</span> nearDistance;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span> farDistance;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">double</span> lowPressure;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">double</span> highPressure;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> embouchureOption;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> triggerEmbouchureCalibrate;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ShiftKeyingOptions_t shiftKeyingOption;         </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html#a17c00b5a025feede88952c5b484c6f4f">   38</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structTrombonelessParameters__t.html#a17c00b5a025feede88952c5b484c6f4f">nearDistance</a>;                            </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html#a35769bf7bf7dd2d05ff57328e6c7bd88">   39</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structTrombonelessParameters__t.html#a35769bf7bf7dd2d05ff57328e6c7bd88">farDistance</a>;                             </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html#a362040e7af460e17532fe456f8a16983">   41</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structTrombonelessParameters__t.html#a362040e7af460e17532fe456f8a16983">lowPressure</a>;                             </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html#a7e43ecfad9a1eef1cb3cf7933227b136">   42</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structTrombonelessParameters__t.html#a7e43ecfad9a1eef1cb3cf7933227b136">highPressure</a>;                            </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html#ad58556b928e44bd32a9b4d06bd328d6c">   44</a></span>    EmbachureOptions_t <a class="code hl_variable" href="structTrombonelessParameters__t.html#ad58556b928e44bd32a9b4d06bd328d6c">embouchureOption</a>;            </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structTrombonelessParameters__t.html#a3971c5a598b40eeda1693f73e4f4d71d">   45</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structTrombonelessParameters__t.html#a3971c5a598b40eeda1693f73e4f4d71d">triggerEmbouchureCalibrate</a>;                </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>} <a class="code hl_struct" href="structTrombonelessParameters__t.html">TrombonelessParameters_t</a>;</div>
 </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
@@ -136,22 +134,26 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">    added to this struct to tell the core to read the new values. */</span></div>
 <div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structSynthesiserParameters__t.html">   51</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> synthEnable;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">float</span> gains[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">bool</span> synthEnable;                                   </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structSynthesiserParameters__t.html#ab4276d413e10d7ee952f12ae21c62080">   53</a></span>    <span class="keywordtype">float</span> gains[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};   </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>} <a class="code hl_struct" href="structSynthesiserParameters__t.html">SynthesiserParameters_t</a>;</div>
 </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/*  Creating an instance of the trombonelessParameters_t struct to </span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    store the active parameter variables. */</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">extern</span> <a class="code hl_struct" href="structTrombonelessParameters__t.html">TrombonelessParameters_t</a> trombonelessParameters;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">extern</span> <a class="code hl_struct" href="structTrombonelessParameters__t.html">TrombonelessParameters_t</a> trombonelessParameters; </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/*  Creating an instance of the SynthethiserParameters_t struct to</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    store the active parameter variables. */</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">extern</span> <a class="code hl_struct" href="structSynthesiserParameters__t.html">SynthesiserParameters_t</a> synthesiserParameters;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">extern</span> <a class="code hl_struct" href="structSynthesiserParameters__t.html">SynthesiserParameters_t</a> synthesiserParameters;   </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="astructSynthesiserParameters__t_html"><div class="ttname"><a href="structSynthesiserParameters__t.html">SynthesiserParameters_t</a></div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:51</div></div>
 <div class="ttc" id="astructTrombonelessParameters__t_html"><div class="ttname"><a href="structTrombonelessParameters__t.html">TrombonelessParameters_t</a></div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:36</div></div>
+<div class="ttc" id="astructTrombonelessParameters__t_html_a17c00b5a025feede88952c5b484c6f4f"><div class="ttname"><a href="structTrombonelessParameters__t.html#a17c00b5a025feede88952c5b484c6f4f">TrombonelessParameters_t::nearDistance</a></div><div class="ttdeci">double nearDistance</div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:38</div></div>
+<div class="ttc" id="astructTrombonelessParameters__t_html_a35769bf7bf7dd2d05ff57328e6c7bd88"><div class="ttname"><a href="structTrombonelessParameters__t.html#a35769bf7bf7dd2d05ff57328e6c7bd88">TrombonelessParameters_t::farDistance</a></div><div class="ttdeci">double farDistance</div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:39</div></div>
+<div class="ttc" id="astructTrombonelessParameters__t_html_a362040e7af460e17532fe456f8a16983"><div class="ttname"><a href="structTrombonelessParameters__t.html#a362040e7af460e17532fe456f8a16983">TrombonelessParameters_t::lowPressure</a></div><div class="ttdeci">double lowPressure</div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:41</div></div>
+<div class="ttc" id="astructTrombonelessParameters__t_html_a3971c5a598b40eeda1693f73e4f4d71d"><div class="ttname"><a href="structTrombonelessParameters__t.html#a3971c5a598b40eeda1693f73e4f4d71d">TrombonelessParameters_t::triggerEmbouchureCalibrate</a></div><div class="ttdeci">bool triggerEmbouchureCalibrate</div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:45</div></div>
+<div class="ttc" id="astructTrombonelessParameters__t_html_a7e43ecfad9a1eef1cb3cf7933227b136"><div class="ttname"><a href="structTrombonelessParameters__t.html#a7e43ecfad9a1eef1cb3cf7933227b136">TrombonelessParameters_t::highPressure</a></div><div class="ttdeci">double highPressure</div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:42</div></div>
+<div class="ttc" id="astructTrombonelessParameters__t_html_ad58556b928e44bd32a9b4d06bd328d6c"><div class="ttname"><a href="structTrombonelessParameters__t.html#ad58556b928e44bd32a9b4d06bd328d6c">TrombonelessParameters_t::embouchureOption</a></div><div class="ttdeci">EmbachureOptions_t embouchureOption</div><div class="ttdef"><b>Definition</b> tromboneless_data.hpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

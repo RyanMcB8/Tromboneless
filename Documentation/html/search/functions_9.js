@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['needlelookandfeel_0',['NeedleLookAndFeel',['../classNeedleLookAndFeel.html#a0b0fbf7b09a81c1d031700cc8030a682',1,'NeedleLookAndFeel']]],
-  ['newtrombonenote_1',['NewTromboneNote',['../classTromboneSynth.html#af678c25ac98bb1a4e977a2a1a300b126',1,'TromboneSynth']]],
-  ['noteoff_2',['noteOff',['../classMidiMessageBuilder.html#afed51e1a8f65ecfa622a0668a504e922',1,'MidiMessageBuilder']]],
-  ['noteon_3',['noteOn',['../classMidiMessageBuilder.html#afec866a91fd98c33c4a1bd1a4a7b245a',1,'MidiMessageBuilder']]],
-  ['notes_4',['Notes',['../classNotes.html#ae11cec41480227782d457e4829d5a06f',1,'Notes']]]
+  ['octaveswithharmonics_0',['OctavesWithHarmonics',['../classOctavesWithHarmonics.html#aed7ad26de7c252c787b11d1a88b6cb30',1,'OctavesWithHarmonics']]],
+  ['onchange_1',['OnChange',['../classDropDownMenu.html#ac3b09c656d7b30ea9aab2dd6938a08df',1,'DropDownMenu']]]
 ];

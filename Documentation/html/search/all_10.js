@@ -1,11 +1,20 @@
 var searchData=
 [
-  ['rawinputevent_0',['RawInputEvent',['../structRawInputEvent.html',1,'']]],
-  ['reading_20data_1',['Reading data',['../md_Hardware_2Hardware__Notes.html#autotoc_md10',1,'']]],
-  ['readtromboneaudio_2',['ReadTromboneAudio',['../classTromboneSynth.html#ac781c21d38a2a47f01ac8c34f8963629',1,'TromboneSynth']]],
-  ['registercallback_3',['registerCallback',['../classADS1115rpi.html#a720c2d3b7151367221af969ab436f299',1,'ADS1115rpi']]],
-  ['resetstarttime_4',['resetStartTime',['../classDeltaTime.html#a569b4d8c66f9bc22227dae4e31f67159',1,'DeltaTime']]],
-  ['resized_5',['resized',['../classSliderWithLabel.html#a8bafb51b5a3f26ecce9b6052ef470511',1,'SliderWithLabel::resized()'],['../classCalibrateEmbouchure.html#adafc772c47e0473b4ce6901ff34392df',1,'CalibrateEmbouchure::resized()'],['../classCalibrationOnClick.html#aff5da726e335398bcb807ef53214ae6a',1,'CalibrationOnClick::resized()'],['../classDropDownMenu.html#af9677864aa76f756ea76bc0081a7f434',1,'DropDownMenu::resized()'],['../classEqualizer.html#a13ce26627bc000f883fceb7fcce46a24',1,'Equalizer::resized()'],['../classDualRotarySlider.html#ae41130a459061a74df75c3d2a75696ae',1,'DualRotarySlider::resized()'],['../classEqualizerPanel.html#ad7cc3ebedfb2c2e780234421a58e3e65',1,'EqualizerPanel::resized()'],['../classSliders.html#af167ae4dd46cb6f8964d194f00ca7c13',1,'Sliders::resized()'],['../classDropDownMenus.html#a647f0a2d6f08c2b8598acd560b0ef191',1,'DropDownMenus::resized()'],['../classLayout.html#ace00518b85cff7055509d7517c9340e9',1,'Layout::resized()']]],
-  ['rotaryarc_6',['rotaryarc',['../CustomStyles_8hpp.html#acbad954f2389ad30dbc0a9d837c98b52',1,'RotaryArc(float x=100, float y=100, float thickness=5, float width=50, float height=50, float angularRange=5, float rotation=0):&#160;CustomStyles.cpp'],['../CustomStyles_8cpp.html#a4fc3816d889ddfe3f1df9c515f799d00',1,'RotaryArc(float x, float y, float thickness, float width, float height, float angularRange, float rotation):&#160;CustomStyles.cpp']]],
-  ['rtmidisink_7',['RtMidiSink',['../classRtMidiSink.html',1,'']]]
+  ['paint_0',['paint',['../classLayout.html#a1928c3c94ff880bd1ca446a6f0991d05',1,'Layout::paint()'],['../classPanels.html#a0dbc535bb34f716890ef0c30911f39af',1,'Panels::paint()'],['../classBarometer.html#a9cde3aede799c7b81c5a9836865c05a5',1,'Barometer::paint()']]],
+  ['paintarc_1',['paintarc',['../CustomStyles_8cpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp'],['../CustomStyles_8hpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp']]],
+  ['painttrombone_2',['painttrombone',['../CustomStyles_8cpp.html#a00af11f5a0b4e5fcf2da53abf56d497b',1,'PaintTrombone(float x, float y, float width, float height, bool incPipes):&#160;CustomStyles.cpp'],['../CustomStyles_8hpp.html#a7cb6053776bd4ad715007c2eeafaeabc',1,'PaintTrombone(float x=300, float y=300, float width=50, float height=20, bool incPipes=true):&#160;CustomStyles.cpp']]],
+  ['panels_3',['panels',['../classPanels.html#a0144464dbf363ac1cae6a6c1d978d526',1,'Panels::Panels()'],['../classPanels.html',1,'Panels']]],
+  ['panels_2ecpp_4',['Panels.cpp',['../Panels_8cpp.html',1,'']]],
+  ['panels_2ehpp_5',['Panels.hpp',['../Panels_8hpp.html',1,'']]],
+  ['pga_6',['PGA',['../structADS1115settings.html#a831970032a15754ead970931dd25ac5f',1,'ADS1115settings']]],
+  ['pgagain_7',['pgaGain',['../structADS1115settings.html#a9c5013fdbef7376faec2df49d123e67e',1,'ADS1115settings']]],
+  ['pi_3a_8',['If on the same network as pi:',['../index.html#autotoc_md25',1,'']]],
+  ['pitchbend_9',['pitchBend',['../classMidiMessageBuilder.html#a3569350d0a22a4dc1165bb475d9b52e7',1,'MidiMessageBuilder']]],
+  ['playingfrequency_10',['PlayingFrequency',['../classOctaves.html#abfcba4d0b4f936d1bef9f5458c65fc36',1,'Octaves']]],
+  ['playingfrequencywithharmonics_11',['PlayingFrequencyWithHarmonics',['../classOctavesWithHarmonics.html#aada12badc25785e82187af576d49d606',1,'OctavesWithHarmonics']]],
+  ['playingnote_12',['PlayingNote',['../classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810',1,'Octaves']]],
+  ['playingnotewithharmonics_13',['PlayingNoteWithHarmonics',['../classOctavesWithHarmonics.html#aa2f7c9edb2eef430f0c18795747e4c41',1,'OctavesWithHarmonics']]],
+  ['power_14',['Power',['../md_Hardware_2Hardware__Notes.html#autotoc_md9',1,'']]],
+  ['pressureedge_15',['PressureEdge',['../classMidiCoordinator.html#a976574199acbe5928d87286fb03bb321',1,'MidiCoordinator']]],
+  ['processing_16',['Processing',['../md_Hardware_2Hardware__Notes.html#autotoc_md8',1,'']]]
 ];

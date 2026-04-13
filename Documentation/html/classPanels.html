@@ -121,11 +121,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0dbc535bb34f716890ef0c30911f39af" id="r_a0dbc535bb34f716890ef0c30911f39af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanels.html#a0dbc535bb34f716890ef0c30911f39af">paint</a> (juce::Graphics &amp;g) override</td></tr>
 <tr class="memdesc:a0dbc535bb34f716890ef0c30911f39af"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function draws onto the parent function the default shape and colour of the panels designed.  <br /></td></tr>
 <tr class="separator:a0dbc535bb34f716890ef0c30911f39af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac150956601b5fb29d429fef93976d566" id="r_ac150956601b5fb29d429fef93976d566"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanels.html#ac150956601b5fb29d429fef93976d566">setBackgroundColour</a> (juce::Colour colour)</td></tr>
+<tr class="memdesc:ac150956601b5fb29d429fef93976d566"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the background colour of the panels for the main window.  <br /></td></tr>
+<tr class="separator:ac150956601b5fb29d429fef93976d566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a046b513adc7309c21c35ecc393d4a7" id="r_a7a046b513adc7309c21c35ecc393d4a7"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPanels.html#a7a046b513adc7309c21c35ecc393d4a7">getBackgroundColour</a> (void)</td></tr>
+<tr class="memdesc:a7a046b513adc7309c21c35ecc393d4a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current background colour being used for the panels within the main window.  <br /></td></tr>
+<tr class="separator:a7a046b513adc7309c21c35ecc393d4a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class which is inherited from Juce:Component reponsible for setting the general style of a panel within the main window. </p>
 <dl class="section note"><dt>Note</dt><dd>A panel should represent at least one component such as an image, label, slider or another widget type. Similar types should be grouped together such as all calibration settings. </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7a046b513adc7309c21c35ecc393d4a7" name="a7a046b513adc7309c21c35ecc393d4a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a046b513adc7309c21c35ecc393d4a7">&#9670;&#160;</a></span>getBackgroundColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour Panels::getBackgroundColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current background colour being used for the panels within the main window. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>colour being used as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0dbc535bb34f716890ef0c30911f39af" name="a0dbc535bb34f716890ef0c30911f39af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0dbc535bb34f716890ef0c30911f39af">&#9670;&#160;</a></span>paint()</h2>
 
@@ -158,6 +190,32 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The current design uses a rounded rectangle with a dark colour and a slight transparency to have the panel have a slight contrast to the background. </dd></dl>
+
+</div>
+</div>
+<a id="ac150956601b5fb29d429fef93976d566" name="ac150956601b5fb29d429fef93976d566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac150956601b5fb29d429fef93976d566">&#9670;&#160;</a></span>setBackgroundColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Panels::setBackgroundColour </td>
+          <td>(</td>
+          <td class="paramtype">juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the background colour of the panels for the main window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour which the background should be set to. Must be of type juce::Colour. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

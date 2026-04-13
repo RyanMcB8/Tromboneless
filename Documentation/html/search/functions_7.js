@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['keypressed_0',['keyPressed',['../classLayout.html#a3551f4e4bd3e11521e3b61108defc168',1,'Layout']]],
-  ['killenvelope_1',['KillEnvelope',['../classEnvelope.html#acab458aa138890697aa035152b4ac525',1,'Envelope']]]
+  ['midicoordinator_0',['MidiCoordinator',['../classMidiCoordinator.html#a86a4fdd03bbf379c3c1292c1e799a0ed',1,'MidiCoordinator']]],
+  ['midimessage_1',['midimessage',['../classMidiMessage.html#a998d00149b819311591df66d490bffe5',1,'MidiMessage::MidiMessage()=default'],['../classMidiMessage.html#a14dce23060dfa893a47f3c0e01e5bfb7',1,'MidiMessage::MidiMessage(std::vector&lt; Byte &gt; bytes)'],['../classMidiMessage.html#aaf80831ccd1c19fbc836246b67895389',1,'MidiMessage::MidiMessage(std::initializer_list&lt; Byte &gt; bytes)']]]
 ];

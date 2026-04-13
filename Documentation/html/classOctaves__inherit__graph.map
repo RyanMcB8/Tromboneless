@@ -4,6 +4,6 @@
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,118,95,152,90,152,90,118"/>
 <area shape="rect" id="Node000002" href="$classNotes.html" title=" " alt="" coords="63,5,123,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
-<area shape="rect" id="Node000004" href="$classEnvelope.html" title=" " alt="" coords="51,225,134,251"/>
+<area shape="rect" id="Node000004" href="$classTromboneSynth.html" title="A class which may be used to create a custom synth with an envelope attached to it." alt="" coords="31,225,154,251"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,191,95,225,90,225,90,191"/>
 </map>

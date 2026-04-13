@@ -11,8 +11,7 @@ A class which is inherited from Juce\+:Component reponsible for setting the gene
 
 
 
-Inheritance diagram for Panels\+:
-\nopagebreak
+Inheritance diagram for Panels\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Panels\+:
 \end{figure}
 
 
-Collaboration diagram for Panels\+:
-\nopagebreak
+Collaboration diagram for Panels\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,7 +37,11 @@ Collaboration diagram for Panels\+:
 {\bfseries \texorpdfstring{$\sim$}{\string~}\+Panels} ()=default
 \begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classPanels}{Panels}} class which currently does nothing extra as there is no initialisation within the class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classPanels_a0dbc535bb34f716890ef0c30911f39af}{paint}} (juce\+::\+Graphics \&g) override
-\begin{DoxyCompactList}\small\item\em This function draws onto the parent function the default shape and colour of the panels designed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This function draws onto the parent function the default shape and colour of the panels designed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPanels_ac150956601b5fb29d429fef93976d566}{set\+Background\+Colour}} (juce\+::\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to set the background colour of the panels for the main window. \end{DoxyCompactList}\item 
+juce\+::\+Colour \mbox{\hyperlink{classPanels_a7a046b513adc7309c21c35ecc393d4a7}{get\+Background\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current background colour being used for the panels within the main window. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -51,6 +53,21 @@ A panel should represent at least one component such as an image, label, slider 
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classPanels_a7a046b513adc7309c21c35ecc393d4a7}\label{classPanels_a7a046b513adc7309c21c35ecc393d4a7} 
+\index{Panels@{Panels}!getBackgroundColour@{getBackgroundColour}}
+\index{getBackgroundColour@{getBackgroundColour}!Panels@{Panels}}
+\doxysubsubsection{\texorpdfstring{getBackgroundColour()}{getBackgroundColour()}}
+{\footnotesize\ttfamily juce\+::\+Colour Panels\+::get\+Background\+Colour (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current background colour being used for the panels within the main window. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & colour being used as a juce\+::\+Colour type. \\
+\hline
+\end{DoxyRetVals}
 \Hypertarget{classPanels_a0dbc535bb34f716890ef0c30911f39af}\label{classPanels_a0dbc535bb34f716890ef0c30911f39af} 
 \index{Panels@{Panels}!paint@{paint}}
 \index{paint@{paint}!Panels@{Panels}}
@@ -69,6 +86,21 @@ This function draws onto the parent function the default shape and colour of the
 \begin{DoxyNote}{Note}
 The current design uses a rounded rectangle with a dark colour and a slight transparency to have the panel have a slight contrast to the background. 
 \end{DoxyNote}
+\Hypertarget{classPanels_ac150956601b5fb29d429fef93976d566}\label{classPanels_ac150956601b5fb29d429fef93976d566} 
+\index{Panels@{Panels}!setBackgroundColour@{setBackgroundColour}}
+\index{setBackgroundColour@{setBackgroundColour}!Panels@{Panels}}
+\doxysubsubsection{\texorpdfstring{setBackgroundColour()}{setBackgroundColour()}}
+{\footnotesize\ttfamily void Panels\+::set\+Background\+Colour (\begin{DoxyParamCaption}\item[{juce\+::\+Colour}]{colour }\end{DoxyParamCaption})}
+
+
+
+A function to set the background colour of the panels for the main window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour which the background should be set to. Must be of type juce\+::\+Colour. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

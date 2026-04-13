@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['samplingrate_0',['samplingRate',['../structADS1115settings.html#aab5ef57bb9aef08aac7a7fd7de33a451',1,'ADS1115settings']]]
+  ['gains_0',['gains',['../structSynthesiserParameters__t.html#ab4276d413e10d7ee952f12ae21c62080',1,'SynthesiserParameters_t']]]
 ];
