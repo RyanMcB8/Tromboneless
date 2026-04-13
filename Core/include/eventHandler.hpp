@@ -6,7 +6,9 @@
 #include <queue>
 
 #include "drivers/i2c_bus.hpp"
+#include "drivers/ads1115rpi.h"
 #include "drivers/tof_sensor.hpp"
+#include "drivers/cap_sensor.hpp"
 
 struct RawInputEvent {
     enum class Type {
@@ -19,7 +21,7 @@ struct RawInputEvent {
     Type type;
     uint16_t tofDistance;
     float pressureReading;
-    float mouthpieceReading;
+    int8_t mouthpieceReading;
     char keycontrol;
 };
 
@@ -42,10 +44,18 @@ private:
 
     void handleKeyControl(char key);
 
+    void handleEmbouchure(int8_t embouchure);
+    
+    /* Takes pressure value as a float */
+    void handlePressureReading(float pressure);
+
     EventQueue& eventQueue;
     std::mutex& eventQueueMutex;
     std::condition_variable& eventQueueCv;
 
     I2CBus bus;
     ToFSensor tofSensor;
+    ADS1115rpi ads1115rpi;
+    CAP1188 cap1188;
+
 };
