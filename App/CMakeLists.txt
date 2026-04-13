@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Generate compile_commands.json for better IntelliSense
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Adding the shared file for intercommunication between the App and core
+add_subdirectory(shared)
+
 # Add JUCE as a subdirectory (assuming it's added as a git submodule)
 add_subdirectory(modules/JUCE)
 
@@ -21,13 +24,11 @@ include(CTest)
 # ========================================
 # Add source files
 file(GLOB_RECURSE APP_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
-# Add shared source files
-file(GLOB_RECURSE SHARED_SOURCES "${PROJECT_SOURCE_DIR}/shared/*.cpp")
-add_library(TrombonelessCoreLibrary STATIC ${APP_SOURCES} ${SHARED_SOURCES})
+
+add_library(TrombonelessAppLibrary STATIC ${APP_SOURCES})
 
 target_include_directories(TrombonelessAppLibrary PUBLIC
 ${PROJECT_SOURCE_DIR}/inc
-${PROJECT_SOURCE_DIR}/shared
 )
 
 # Create the GUI application
