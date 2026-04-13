@@ -47,6 +47,7 @@ target_compile_definitions(TrombonelessAppLibrary
 target_link_libraries(TrombonelessAppLibrary
     PUBLIC
         juce::juce_gui_extra
+        TrombonelessSharedLibrary
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags

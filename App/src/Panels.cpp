@@ -9,7 +9,7 @@
  /* Adding the necessary headers. */
  #include   "Panels.hpp"
  #include   "Widgets.hpp"
- #include   "tromboneless_data.hpp"
+ #include   <tromboneless_data.hpp>
 
  /* Initialisation of class members.*/
 

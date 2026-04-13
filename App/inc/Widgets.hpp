@@ -16,7 +16,7 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "CustomStyles.hpp"
-#include "tromboneless_data.hpp"
+#include <tromboneless_data.hpp>
 
 /* A header file containing custom widgets to appear on the screen to reduce and repetitive definitions within the main Layout.cpp file. */
 
