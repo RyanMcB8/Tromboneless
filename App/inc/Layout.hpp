@@ -10,7 +10,7 @@
 #pragma once
 
 /*  Adding all the necessary header files to be included in the file */
-#include <juce_gui_extra/juce_gui_extra.h>
+// #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
 #include <juce_core/juce_core.h>
