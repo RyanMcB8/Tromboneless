@@ -77,3 +77,8 @@
         result &= true;                                             \
     }                                                               \
 }
+#define APPROX_EQUAL(arg1, arg2)                                    \
+{                                                                   \
+    float epsilon = 0.0000001;                                      \
+    ((arg1 + epilson) > arg2 && (arg1 - epsilon) < arg2) ? true : false; \
+}                                                                   \
