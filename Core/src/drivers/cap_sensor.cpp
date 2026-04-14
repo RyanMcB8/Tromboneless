@@ -113,16 +113,17 @@ bool CAP1188::initialise()
     uint8_t cs1_thresh = 0x30;
     bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, &cs1_thresh, 1);
 
-    // Set interrupt repeat rate to lowest resolution of 35ms
+    // Set interrupt repeat rate to period of 70ms
     uint8_t sensor_cfg1;
     bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
     sensor_cfg1 &= 0xF0;
+    sensor_cfg1 |= 0x00;
     bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
 
-    // Disable interrupt on touch release
+    // Enable interrupt on touch release
     uint8_t sensor_cfg2;
     bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
-    sensor_cfg2 |= 0x01;
+    sensor_cfg2 &= ~0x01;
     bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
 
     // Lowest sensitivity = 111b or 7
