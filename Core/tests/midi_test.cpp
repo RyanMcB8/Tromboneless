@@ -1,14 +1,11 @@
-
 #include "main.hpp"
 #include <eventHandler.hpp>
-
 #include <condition_variable>
 #include <cstdint>
 #include <iostream>
 #include <thread>
 #include <mutex>
 #include <queue>
-
 #include "MidiCoordinator.hpp"
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
@@ -19,48 +16,42 @@ public:
         int mm_limit = 500;
         if (distance > mm_limit) distance = mm_limit;
         int scaled_bend = 8192 - (distance * 8192) / mm_limit;
-        
-        //std::cout << scaled_bend << "\n";
         return scaled_bend;
     }
 };
 
 class MapEmbouchure {
-    public:
+public:
     int noteMapping(int8_t delta) {
 
-        int strength;
-        if (delta >= 80)
-            strength = 62; //D4
-        else if (delta >= 70)
-            strength = 58; //Bb3
-        else if (delta >= 60)
-            strength = 53; //F3 = 53
-        else if (delta >= 50)
-            strength = 46; // Bb2 = 46
-        else
-            strength = 34; // Bb1 = 34
+        int strength = 34;
 
-    std::cout << strength << std::endl;
-    
-    return strength;
+        if (delta >= 75)
+            strength = 62; // D4
+        else if (delta >= 70)
+            strength = 58; // Bb3
+        else if (delta >= 60)
+            strength = 53; // F3
+        else if (delta >= 50)
+            strength = 46; // Bb2
+        else if (delta >= 40)
+            strength = 34; // Bb1
+        else
+            strength = 0;
+        //std::cout << strength << std::endl;
+        return strength;
     }
 };
 
-char key;
-
-int main(){
-try
-    {
+int main() {
+    try {
         std::queue<RawInputEvent> eventQueue;
         std::mutex eventQueueMutex;
         std::condition_variable eventQueueCv;
 
         EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
-
         MidiCoordinator coordinator;
         RtMidiSink midiSink;
-
         GetDistance distanceGetter;
         MapEmbouchure mapembouchure;
 
@@ -70,54 +61,59 @@ try
         }
 
         coordinator.RegisterCallback(
-            [&](const MidiMessage& msg)
-            {
-                //std::cout << "Sending MIDI message of size " << msg.size() << "\n";
+            [&](const MidiMessage& msg) {
                 midiSink.send(msg);
             });
 
         coordinator.setExpr(100);
         coordinator.setBend(0);
         coordinator.ChangeNote(60);
-        coordinator.PressureEdge(true);
+        coordinator.PressureEdge(false);
 
         eventHandler.start();
 
+        bool pressure_gate = false;
+        int current_note = 0;
+        int new_note = 0;
+
         while (true) {
             RawInputEvent event;
-
             {
                 std::unique_lock<std::mutex> lock(eventQueueMutex);
                 eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
-
                 event = eventQueue.front();
                 eventQueue.pop();
             }
 
             switch (event.type) {
-            case RawInputEvent::Type::ToFDistance:
-                coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
-                break;
+                case RawInputEvent::Type::ToFDistance:
+                    coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
+                    break;
 
-            case RawInputEvent::Type::PressureReading:
-                //std::cout << event.pressureReading << std::endl;
-                if(event.pressureReading > 0.0029f)
-                {
-                    coordinator.PressureEdge(true);
-                }
-                else{
-                    coordinator.PressureEdge(false);
-                }
-                break;
+                case RawInputEvent::Type::PressureReading:
+                    //std::cout << event.pressureReading << std::endl;
+                    if (event.pressureReading > 0.0035f && pressure_gate == false) {
+                        coordinator.PressureEdge(true);
+                        pressure_gate = true;
+                    } else if (event.pressureReading < 0.0035f && pressure_gate == true) {
+                        coordinator.PressureEdge(false);
+                        pressure_gate = false;
+                    }
+                    break;
 
-            case RawInputEvent::Type::MouthpieceReading:
-                coordinator.ChangeNote(mapembouchure.noteMapping(event.mouthpieceReading));
-                break;
+                case RawInputEvent::Type::MouthpieceReading:
+                    new_note = mapembouchure.noteMapping(event.mouthpieceReading);
+                    if (current_note != new_note && new_note != 0) 
+                    {
+                        current_note = new_note;
+                       // std::cout << current_note << std::endl;
+                        coordinator.ChangeNote(current_note);
+                    }
+                    break;
             }
         }
     }
-    catch (const std::exception& e)
-    {
+    catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << "\n";
         return 1;
     }
