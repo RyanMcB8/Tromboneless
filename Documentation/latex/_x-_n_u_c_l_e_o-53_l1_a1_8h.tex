@@ -1,0 +1,101 @@
+\doxysection{C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+external/\+\+STSW-\/\+IMG009/\+\+STSW-\/\+IMG009\+\_\+v3.5.5/\+\+Example/\+\+Drivers/\+\+BSP/\+\+X-\/\+NUCLEO-\/53\+L1\+A1/\+\+X-\/\+NUCLEO-\/53\+L1\+A1.h File Reference}
+\hypertarget{_x-_n_u_c_l_e_o-53_l1_a1_8h}{}\label{_x-_n_u_c_l_e_o-53_l1_a1_8h}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/X-\/NUCLEO-\/53L1A1/X-\/NUCLEO-\/53L1A1.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/X-\/NUCLEO-\/53L1A1/X-\/NUCLEO-\/53L1A1.h}}
+{\ttfamily \+\#include "{}stm32xxx\+\_\+hal.\+h"{}}\newline
+Include dependency graph for X-\/\+NUCLEO-\/53\+L1\+A1.h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{_x-_n_u_c_l_e_o-53_l1_a1_8h_aa6f2a2bc9d39169bd08cf046244e6f0e}{VL53\+L1\+A1\+\_\+\+INTR\+\_\+\+PIN\+\_\+\+PUPD}}~\doxymbox{\hyperlink{group___g_p_i_o__pull__define_gae689bc8f5c42d6df7bd54a8dd372e072}{GPIO\+\_\+\+PULLUP}}
+\item 
+\+\#define \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___debugging_ga658340831d879b8aec7b897fe299562c}{XNUCLEO53\+L1\+A1\+\_\+\+TRACE}}~TRACE\+\_\+\+UART
+\begin{DoxyCompactList}\small\item\em enable error output via trace \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___debugging_ga85b230003fb2260a15f985fac404411a}{XNUCLEO53\+L1\+A1\+\_\+\+Err\+Log}}(...)
+\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___v_l53_l1_a1__config_gace5446271d3771e66d53cb35901f6296}{VL53\+L1\+A1\+\_\+\+HAVE\+\_\+\+UART}}~0
+\item 
+\+\#define \doxymbox{\hyperlink{group___v_l53_l1_a1__config_ga1ea06acb10262b351b6b95f3b37cea7f}{XNUCLEO53\+L1\+A1\+\_\+\+USART2\+\_\+\+UART\+\_\+\+Init}}(...)
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___v_l53_l1_a1___g_p_i_o1___m_a_p_ga76328fa152633ccf71698d1df924146f}{VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+SHARED}}~0
+\begin{DoxyCompactList}\small\item\em select use of shared interrupt \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___v_l53_l1_a1___g_p_i_o1___m_a_p_ga552c72602a318244532ea1a8541c830d}{VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+C\+\_\+\+OPTION}}~0
+\begin{DoxyCompactList}\small\item\em select GPIO1 to exti mapping for center or shared interrupt \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___v_l53_l1_a1___g_p_i_o1___m_a_p_ga224998f54bf6a12aaf6894df4f2606aa}{VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+L\+\_\+\+OPTION}}~0
+\begin{DoxyCompactList}\small\item\em control left sensor GPIO1 routing solder option \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___v_l53_l1_a1___g_p_i_o1___m_a_p_gaffe84af681ea147aabf53c68a83183ef}{VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+R\+\_\+\+OPTION}}~0
+\begin{DoxyCompactList}\small\item\em control right sensor GPIO1 routing solder option \end{DoxyCompactList}\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+C\+\_\+\+GPIO\+\_\+\+PORT}~GPIOA
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+C\+\_\+\+CLK\+\_\+\+ENABLE}~\+\_\+\+\_\+\+GPIOA\+\_\+\+CLK\+\_\+\+ENABLE
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+C\+\_\+\+GPIO\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+4
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+L\+\_\+\+GPIO\+\_\+\+PORT}~GPIOC
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+L\+\_\+\+CLK\+\_\+\+ENABLE}~\+\_\+\+\_\+\+GPIOC\+\_\+\+CLK\+\_\+\+ENABLE
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+L\+\_\+\+GPIO\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+7
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+R\+\_\+\+GPIO\+\_\+\+PORT}~GPIOA
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+R\+\_\+\+CLK\+\_\+\+ENABLE}~\+\_\+\+\_\+\+GPIOA\+\_\+\+CLK\+\_\+\+ENABLE
+\item 
+\+\#define {\bfseries VL53\+L1\+A1\+\_\+\+GPIO1\+\_\+\+R\+\_\+\+GPIO\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+10
+\end{DoxyCompactItemize}
+
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_ga9c46de687ca1cc27ac9e423b51d2dce0}{XNUCLEO53\+L1\+A1\+\_\+dev\+\_\+e}} \{ \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gga9c46de687ca1cc27ac9e423b51d2dce0a61c15901bd8cdad62054c59411ec048d}{XNUCLEO53\+L1\+A1\+\_\+\+DEV\+\_\+\+LEFT}} = 0
+, \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gga9c46de687ca1cc27ac9e423b51d2dce0abfd0e1040f566e98e95f4940b20e43c7}{XNUCLEO53\+L1\+A1\+\_\+\+DEV\+\_\+\+CENTER}} = 1
+, \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gga9c46de687ca1cc27ac9e423b51d2dce0a6bafca0f0876f0f3a16114350552e3a7}{XNUCLEO53\+L1\+A1\+\_\+\+DEV\+\_\+\+RIGHT}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gaba75589fec6ae0f4d6abfb134db4d8a2}{XNUCLEO53\+L1\+A1\+\_\+\+Init}} (void)
+\item 
+int \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gacd51db502c296ab579852c142f721b1d}{XNUCLEO53\+L1\+A1\+\_\+\+Reset\+Id}} (int Dev\+No, int state)
+\item 
+int \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gaa69c2372269f9e9a18c45afb523b0629}{XNUCLEO53\+L1\+A1\+\_\+\+Get\+PB1}} (int \texorpdfstring{$\ast$}{*}state)
+\item 
+int \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_gabb3723a0e8be2a3678d7993a86577e2b}{XNUCLEO53\+L1\+A1\+\_\+\+Set\+Display\+String}} (const char \texorpdfstring{$\ast$}{*}str)
+\item 
+int \doxymbox{\hyperlink{group___m_s_p__implement__common_ga14031fec20a2f8c9c5f5a2f2cacc60cb}{XNUCLEO53\+L1\+A1\+\_\+\+Set\+Intr\+State\+Id}} (int Enable\+Intr, int Dev\+No)
+\item 
+void \doxymbox{\hyperlink{group___m_s_p__implement_ga84e3895c77fd7c6ab88754347cc8295e}{VL53\+L1\+A1\+\_\+\+EXTI\+\_\+\+IOConfigure}} (int Dev\+No, int Int\+Priority, int Sub\+Priority)
+\item 
+void \doxymbox{\hyperlink{group___m_s_p__implement_gaabf567a37c7da71cf5a0d8408e94bcaf}{VL53\+L1\+A1\+\_\+\+EXTI\+\_\+\+IOUnconfigure}} (int Dev\+No)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_i2_c___handle_type_def}{I2\+C\+\_\+\+Handle\+Type\+Def}} \doxymbox{\hyperlink{group___x_n_u_c_l_e_o53_l1_a1___interface_ga019d727d704250e65f6133113cd661fb}{XNUCLEO53\+L1\+A1\+\_\+hi2c}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Created on:\+ Nov 3, 2015 Author:\+ ST Imaging 
+
+\label{doc-define-members}
+\Hypertarget{_x-_n_u_c_l_e_o-53_l1_a1_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_x-_n_u_c_l_e_o-53_l1_a1_8h_aa6f2a2bc9d39169bd08cf046244e6f0e}\index{X-\/NUCLEO-\/53L1A1.h@{X-\/NUCLEO-\/53L1A1.h}!VL53L1A1\_INTR\_PIN\_PUPD@{VL53L1A1\_INTR\_PIN\_PUPD}}
+\index{VL53L1A1\_INTR\_PIN\_PUPD@{VL53L1A1\_INTR\_PIN\_PUPD}!X-\/NUCLEO-\/53L1A1.h@{X-\/NUCLEO-\/53L1A1.h}}
+\doxysubsubsection{\texorpdfstring{VL53L1A1\_INTR\_PIN\_PUPD}{VL53L1A1\_INTR\_PIN\_PUPD}}
+{\footnotesize\ttfamily \label{_x-_n_u_c_l_e_o-53_l1_a1_8h_aa6f2a2bc9d39169bd08cf046244e6f0e} 
+\+\#define VL53\+L1\+A1\+\_\+\+INTR\+\_\+\+PIN\+\_\+\+PUPD~\doxymbox{\hyperlink{group___g_p_i_o__pull__define_gae689bc8f5c42d6df7bd54a8dd372e072}{GPIO\+\_\+\+PULLUP}}}
+
+Configure interrupt pins pins pull up/\+down
+
+set to GPIO\+\_\+\+NOPULL or GPIO\+\_\+\+PULLUP or GPIO\+\_\+\+PULLDOWN 

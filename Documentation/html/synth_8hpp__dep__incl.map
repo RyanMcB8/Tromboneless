@@ -1,9 +1,9 @@
-<map id="/home/ryan&#45;mcbride/Documents/Tromboneless/Core/include/synth.hpp" name="/home/ryan&#45;mcbride/Documents/Tromboneless/Core/include/synth.hpp">
-<area shape="rect" id="Node000001" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="224,5,419,60"/>
-<area shape="rect" id="Node000002" href="$main_8hpp_source.html" title=" " alt="" coords="5,108,200,163"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="253,68,161,110,159,106,251,63"/>
-<area shape="rect" id="Node000003" href="$synth_8cpp.html" title="C file which contains the defintions for the functions declared in the synth.hpp file." alt="" coords="224,108,419,163"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="324,74,324,108,319,108,319,74"/>
-<area shape="rect" id="Node000004" href="$testSynth_8cpp.html" title="This file contains all of the necessary unit tests for the functions declared within the synth...." alt="" coords="443,108,637,163"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="392,63,484,106,482,110,390,68"/>
+<map id="C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/synth.hpp" name="C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/synth.hpp">
+<area shape="rect" id="Node000001" title="A header file containing all the necessary declarations and references to allow for the Tromboneless ..." alt="" coords="132,5,318,64"/>
+<area shape="rect" id="Node000002" href="$trombone_synth_8hpp.html" title="A file to declare the synthesiser parameters and functions for the trombone specifically using the cl..." alt="" coords="5,112,221,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,77,145,113,142,110,185,73"/>
+<area shape="rect" id="Node000004" href="$synth_8cpp.html" title="C file which contains the defintions for the functions declared in the synth.hpp file." alt="" coords="244,112,430,171"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="267,72,309,112,304,112,266,77"/>
+<area shape="rect" id="Node000003" href="$trombone_synth_8cpp.html" title="A file to define the synthesiser parameters and functions for the trombone specifically using the cla..." alt="" coords="17,219,209,277"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,184,115,219,111,217,111,188"/>
 </map>

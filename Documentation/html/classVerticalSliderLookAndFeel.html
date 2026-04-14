@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless projet.  
+<p>Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless project.  
  <a href="classVerticalSliderLookAndFeel.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="CustomStyles_8hpp_source.html">CustomStyles.hpp</a>&gt;</code></p>
@@ -104,15 +104,783 @@ Collaboration diagram for VerticalSliderLookAndFeel:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abf08887596a4d91c75eccc8b98c2c39e" id="r_abf08887596a4d91c75eccc8b98c2c39e"><td class="memItemLeft" align="right" valign="top"><a id="abf08887596a4d91c75eccc8b98c2c39e" name="abf08887596a4d91c75eccc8b98c2c39e"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>drawLinearSlider</b> (juce::Graphics &amp;g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle style, juce::Slider &amp;slider) override</td></tr>
+<tr class="memitem:a55e59bdd0b182d197935c41ac3755e33" id="r_a55e59bdd0b182d197935c41ac3755e33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a55e59bdd0b182d197935c41ac3755e33">VerticalSliderLookAndFeel</a> ()</td></tr>
+<tr class="memdesc:a55e59bdd0b182d197935c41ac3755e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor function for the <code><a class="el" href="classVerticalSliderLookAndFeel.html" title="Creation of a class which can be used to change the look of the sliders used within the equalizer for...">VerticalSliderLookAndFeel</a></code> class that creates an instance of the look and feel style.  <br /></td></tr>
+<tr class="separator:a55e59bdd0b182d197935c41ac3755e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758baf1d5599468b77b983fb16efd975" id="r_a758baf1d5599468b77b983fb16efd975"><td class="memItemLeft" align="right" valign="top"><a id="a758baf1d5599468b77b983fb16efd975" name="a758baf1d5599468b77b983fb16efd975"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~VerticalSliderLookAndFeel</b> ()=default</td></tr>
+<tr class="memdesc:a758baf1d5599468b77b983fb16efd975"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor function for the <code><a class="el" href="classVerticalSliderLookAndFeel.html" title="Creation of a class which can be used to change the look of the sliders used within the equalizer for...">VerticalSliderLookAndFeel</a></code> class which is currently set to default as there is no need for a deconstructor for this class. <br /></td></tr>
+<tr class="separator:a758baf1d5599468b77b983fb16efd975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf08887596a4d91c75eccc8b98c2c39e" id="r_abf08887596a4d91c75eccc8b98c2c39e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#abf08887596a4d91c75eccc8b98c2c39e">drawLinearSlider</a> (juce::Graphics &amp;g, int x, int y, int width, int height, float sliderPos, float minSliderPos, float maxSliderPos, const juce::Slider::SliderStyle style, juce::Slider &amp;slider) override</td></tr>
+<tr class="memdesc:abf08887596a4d91c75eccc8b98c2c39e"><td class="mdescLeft">&#160;</td><td class="mdescRight">When this look and feel is attached to an object which has a vertical slider in it, this function sets the look and feel of the slider being used. This makes it look like an average equalizer slider.  <br /></td></tr>
 <tr class="separator:abf08887596a4d91c75eccc8b98c2c39e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90463ce360c13b3c163dd5f1d9d6f3e1" id="r_a90463ce360c13b3c163dd5f1d9d6f3e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a90463ce360c13b3c163dd5f1d9d6f3e1">setDialColour</a> (const juce::Colour colour)</td></tr>
+<tr class="memdesc:a90463ce360c13b3c163dd5f1d9d6f3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the colour of the finger/dial of the slider.  <br /></td></tr>
+<tr class="separator:a90463ce360c13b3c163dd5f1d9d6f3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2adfa0402be60498a14a11aa46702b5d" id="r_a2adfa0402be60498a14a11aa46702b5d"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a2adfa0402be60498a14a11aa46702b5d">getDialColour</a> (void)</td></tr>
+<tr class="memdesc:a2adfa0402be60498a14a11aa46702b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current colour of the finger/dial of the slider.  <br /></td></tr>
+<tr class="separator:a2adfa0402be60498a14a11aa46702b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195" id="r_a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195">setDialEdgeColour</a> (const juce::Colour &amp;colour)</td></tr>
+<tr class="memdesc:a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the colour of the edge of the finger/dial on the slider.  <br /></td></tr>
+<tr class="separator:a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c6ac2a3176ae68fea38af8e93ecbf7" id="r_ab9c6ac2a3176ae68fea38af8e93ecbf7"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#ab9c6ac2a3176ae68fea38af8e93ecbf7">getDialEdgeColour</a> (void)</td></tr>
+<tr class="memdesc:ab9c6ac2a3176ae68fea38af8e93ecbf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current colour of the edge of the finger /dial of the slider.  <br /></td></tr>
+<tr class="separator:ab9c6ac2a3176ae68fea38af8e93ecbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1caaa75768a6efa9796eea96bf8d76b" id="r_ad1caaa75768a6efa9796eea96bf8d76b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#ad1caaa75768a6efa9796eea96bf8d76b">setTickColour</a> (juce::Colour colour)</td></tr>
+<tr class="memdesc:ad1caaa75768a6efa9796eea96bf8d76b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the colour of the ticks on the slider.  <br /></td></tr>
+<tr class="separator:ad1caaa75768a6efa9796eea96bf8d76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5860e4c0c76c955ea5dd694667516b68" id="r_a5860e4c0c76c955ea5dd694667516b68"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a5860e4c0c76c955ea5dd694667516b68">getTickColour</a> (void)</td></tr>
+<tr class="memdesc:a5860e4c0c76c955ea5dd694667516b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current colour of the ticks on the slider.  <br /></td></tr>
+<tr class="separator:a5860e4c0c76c955ea5dd694667516b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a855e8ec6e7895cfd507c500276e5354e" id="r_a855e8ec6e7895cfd507c500276e5354e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a855e8ec6e7895cfd507c500276e5354e">setTrackColour</a> (juce::Colour colour)</td></tr>
+<tr class="memdesc:a855e8ec6e7895cfd507c500276e5354e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the colour of the track of the slider.  <br /></td></tr>
+<tr class="separator:a855e8ec6e7895cfd507c500276e5354e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aba845e02a9a4873f0dfc58d6693d28" id="r_a4aba845e02a9a4873f0dfc58d6693d28"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a4aba845e02a9a4873f0dfc58d6693d28">getTrackColour</a> (void)</td></tr>
+<tr class="memdesc:a4aba845e02a9a4873f0dfc58d6693d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current colour of the track of the slider.  <br /></td></tr>
+<tr class="separator:a4aba845e02a9a4873f0dfc58d6693d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75a21b2c40f5aa55610ee8cf80b7116e" id="r_a75a21b2c40f5aa55610ee8cf80b7116e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a75a21b2c40f5aa55610ee8cf80b7116e">setBackgroundColour</a> (juce::Colour colour)</td></tr>
+<tr class="memdesc:a75a21b2c40f5aa55610ee8cf80b7116e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the colour of the background of the slider.  <br /></td></tr>
+<tr class="separator:a75a21b2c40f5aa55610ee8cf80b7116e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684caa716bb2ba5600a1f870e7ff3486" id="r_a684caa716bb2ba5600a1f870e7ff3486"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a684caa716bb2ba5600a1f870e7ff3486">getBackgroundColour</a> (void)</td></tr>
+<tr class="memdesc:a684caa716bb2ba5600a1f870e7ff3486"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current colour of the background of the slider.  <br /></td></tr>
+<tr class="separator:a684caa716bb2ba5600a1f870e7ff3486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4a3ca006d7c13318a813a8038aad9a" id="r_a0c4a3ca006d7c13318a813a8038aad9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a0c4a3ca006d7c13318a813a8038aad9a">setTextColour</a> (juce::Colour colour)</td></tr>
+<tr class="memdesc:a0c4a3ca006d7c13318a813a8038aad9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the colour of the text around the slider.  <br /></td></tr>
+<tr class="separator:a0c4a3ca006d7c13318a813a8038aad9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b5f07264970ef19258497f672bff7e" id="r_a51b5f07264970ef19258497f672bff7e"><td class="memItemLeft" align="right" valign="top">juce::Colour&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a51b5f07264970ef19258497f672bff7e">getTextColour</a> (void)</td></tr>
+<tr class="memdesc:a51b5f07264970ef19258497f672bff7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current colour of the text around the slider.  <br /></td></tr>
+<tr class="separator:a51b5f07264970ef19258497f672bff7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eea9c6a91498cfe9a7a97ceae33a42a" id="r_a6eea9c6a91498cfe9a7a97ceae33a42a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a6eea9c6a91498cfe9a7a97ceae33a42a">setTrackWidth</a> (float width)</td></tr>
+<tr class="memdesc:a6eea9c6a91498cfe9a7a97ceae33a42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the size of the track width of the slider.  <br /></td></tr>
+<tr class="separator:a6eea9c6a91498cfe9a7a97ceae33a42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b5f16f18f2eab616a351fe83b55276" id="r_a69b5f16f18f2eab616a351fe83b55276"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a69b5f16f18f2eab616a351fe83b55276">getTrackWidth</a> (void)</td></tr>
+<tr class="memdesc:a69b5f16f18f2eab616a351fe83b55276"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the track width of the slider.  <br /></td></tr>
+<tr class="separator:a69b5f16f18f2eab616a351fe83b55276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178a2640ad4d7ac2dbfd88473da8629f" id="r_a178a2640ad4d7ac2dbfd88473da8629f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a178a2640ad4d7ac2dbfd88473da8629f">setTickThickness</a> (float thickness)</td></tr>
+<tr class="memdesc:a178a2640ad4d7ac2dbfd88473da8629f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the thickness of the ticks to indicate what step the slider is positioned in.  <br /></td></tr>
+<tr class="separator:a178a2640ad4d7ac2dbfd88473da8629f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1942a0a9359094bb69b991ab135ded9" id="r_af1942a0a9359094bb69b991ab135ded9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#af1942a0a9359094bb69b991ab135ded9">getTickThickness</a> (void)</td></tr>
+<tr class="memdesc:af1942a0a9359094bb69b991ab135ded9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get what the current tick thickness is for the object.  <br /></td></tr>
+<tr class="separator:af1942a0a9359094bb69b991ab135ded9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc5cc19e32a5e0d69e2ed310fccbbb3a" id="r_adc5cc19e32a5e0d69e2ed310fccbbb3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#adc5cc19e32a5e0d69e2ed310fccbbb3a">setTickWidth</a> (float width)</td></tr>
+<tr class="memdesc:adc5cc19e32a5e0d69e2ed310fccbbb3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the width of the ticks to indicate what step the slider is positioned in.  <br /></td></tr>
+<tr class="separator:adc5cc19e32a5e0d69e2ed310fccbbb3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63889d33576b0a966d65aa3293b68ecb" id="r_a63889d33576b0a966d65aa3293b68ecb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a63889d33576b0a966d65aa3293b68ecb">getTickWidth</a> (void)</td></tr>
+<tr class="memdesc:a63889d33576b0a966d65aa3293b68ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be used to find the current tick width of the object.  <br /></td></tr>
+<tr class="separator:a63889d33576b0a966d65aa3293b68ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32304e5708479115097f6b51282cb88e" id="r_a32304e5708479115097f6b51282cb88e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a32304e5708479115097f6b51282cb88e">setFingerWidth</a> (float width)</td></tr>
+<tr class="memdesc:a32304e5708479115097f6b51282cb88e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the width of the slider's finger/knob when the slider is set to have a rectangular shape.  <br /></td></tr>
+<tr class="separator:a32304e5708479115097f6b51282cb88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a963bab0d709860e324b63dc4390ff6b9" id="r_a963bab0d709860e324b63dc4390ff6b9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a963bab0d709860e324b63dc4390ff6b9">getFingerWidth</a> (void)</td></tr>
+<tr class="memdesc:a963bab0d709860e324b63dc4390ff6b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current width of the slider's finger/knob within the object when the slider is set to have a rectangular shape.  <br /></td></tr>
+<tr class="separator:a963bab0d709860e324b63dc4390ff6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343db13e11a62894cc26bc4af23f5763" id="r_a343db13e11a62894cc26bc4af23f5763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a343db13e11a62894cc26bc4af23f5763">setFingerHeight</a> (float height)</td></tr>
+<tr class="memdesc:a343db13e11a62894cc26bc4af23f5763"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to set the height of the slider's finger/knob when the slider is set to have a rectangular shape.  <br /></td></tr>
+<tr class="separator:a343db13e11a62894cc26bc4af23f5763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6de53c905be55a37f6c4881cdd336806" id="r_a6de53c905be55a37f6c4881cdd336806"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVerticalSliderLookAndFeel.html#a6de53c905be55a37f6c4881cdd336806">getFingerHeight</a> (void)</td></tr>
+<tr class="memdesc:a6de53c905be55a37f6c4881cdd336806"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current height of the slider's finger/knob within the object when the slider is set to have a rectangular shape.  <br /></td></tr>
+<tr class="separator:a6de53c905be55a37f6c4881cdd336806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless projet. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan-mcbride/Documents/Tromboneless/App/inc/<a class="el" href="CustomStyles_8hpp_source.html">CustomStyles.hpp</a></li>
-<li>/home/ryan-mcbride/Documents/Tromboneless/App/src/<b>CustomStyles.cpp</b></li>
+<div class="textblock"><p>Creation of a class which can be used to change the look of the sliders used within the equalizer for the Tromboneless project. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a55e59bdd0b182d197935c41ac3755e33" name="a55e59bdd0b182d197935c41ac3755e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55e59bdd0b182d197935c41ac3755e33">&#9670;&#160;</a></span>VerticalSliderLookAndFeel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VerticalSliderLookAndFeel::VerticalSliderLookAndFeel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The constructor function for the <code><a class="el" href="classVerticalSliderLookAndFeel.html" title="Creation of a class which can be used to change the look of the sliders used within the equalizer for...">VerticalSliderLookAndFeel</a></code> class that creates an instance of the look and feel style. </p>
+<dl class="section note"><dt>Note</dt><dd>Currently there is not extra functionality attached to the contructor as the style of the vertical slider is defined in the <code><a class="el" href="classVerticalSliderLookAndFeel.html#abf08887596a4d91c75eccc8b98c2c39e" title="When this look and feel is attached to an object which has a vertical slider in it,...">drawLinearSlider()</a></code> function and there are no other components being modified by this style currently. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abf08887596a4d91c75eccc8b98c2c39e" name="abf08887596a4d91c75eccc8b98c2c39e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf08887596a4d91c75eccc8b98c2c39e">&#9670;&#160;</a></span>drawLinearSlider()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::drawLinearSlider </td>
+          <td>(</td>
+          <td class="paramtype">juce::Graphics &amp;&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>sliderPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>minSliderPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>maxSliderPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const juce::Slider::SliderStyle&#160;</td>
+          <td class="paramname"><em>style</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::Slider &amp;&#160;</td>
+          <td class="paramname"><em>slider</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>When this look and feel is attached to an object which has a vertical slider in it, this function sets the look and feel of the slider being used. This makes it look like an average equalizer slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>A pointer to the <code>juce::Graphics</code> instance which is being drawn to. This is likely the main window or else the parent component. </td></tr>
+    <tr><td class="paramname">x</td><td>The integer representation of the slider's left corner in the global window. </td></tr>
+    <tr><td class="paramname">y</td><td>The integer representation of the sliders top corner in the global window. </td></tr>
+    <tr><td class="paramname">width</td><td>The integer representation of the width of the slider. i.e. the difference between the left most and right most part of the slider. </td></tr>
+    <tr><td class="paramname">height</td><td>The integer representation of the width of the slider. i.e. the difference between the top most and bottom most parts of the slider's bounds. </td></tr>
+    <tr><td class="paramname">sliderPos</td><td>The position of the sliders finger. The position represents x if the slider is horizontal and y if the slider is vertical. </td></tr>
+    <tr><td class="paramname">minSliderPos</td><td>The minimum slider position. </td></tr>
+    <tr><td class="paramname">maxSliderPos</td><td>The maximum slider position. </td></tr>
+    <tr><td class="paramname">style</td><td>The style of the slider whose look and feel is getting modified. For example, LinearVertical or Rotary. </td></tr>
+    <tr><td class="paramname">slider</td><td>A pointer to the slider which is being modified. This can allow for extraction of more data from the slider. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a684caa716bb2ba5600a1f870e7ff3486" name="a684caa716bb2ba5600a1f870e7ff3486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684caa716bb2ba5600a1f870e7ff3486">&#9670;&#160;</a></span>getBackgroundColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour VerticalSliderLookAndFeel::getBackgroundColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current colour of the background of the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the colour as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2adfa0402be60498a14a11aa46702b5d" name="a2adfa0402be60498a14a11aa46702b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2adfa0402be60498a14a11aa46702b5d">&#9670;&#160;</a></span>getDialColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour VerticalSliderLookAndFeel::getDialColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current colour of the finger/dial of the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the colour as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab9c6ac2a3176ae68fea38af8e93ecbf7" name="ab9c6ac2a3176ae68fea38af8e93ecbf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9c6ac2a3176ae68fea38af8e93ecbf7">&#9670;&#160;</a></span>getDialEdgeColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour VerticalSliderLookAndFeel::getDialEdgeColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current colour of the edge of the finger /dial of the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the colour as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6de53c905be55a37f6c4881cdd336806" name="a6de53c905be55a37f6c4881cdd336806"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6de53c905be55a37f6c4881cdd336806">&#9670;&#160;</a></span>getFingerHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VerticalSliderLookAndFeel::getFingerHeight </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current height of the slider's finger/knob within the object when the slider is set to have a rectangular shape. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>floating point representation of the height of the object's finger/knob. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a963bab0d709860e324b63dc4390ff6b9" name="a963bab0d709860e324b63dc4390ff6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963bab0d709860e324b63dc4390ff6b9">&#9670;&#160;</a></span>getFingerWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VerticalSliderLookAndFeel::getFingerWidth </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current width of the slider's finger/knob within the object when the slider is set to have a rectangular shape. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>floating point representation of the width of the object's finger/knob. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a51b5f07264970ef19258497f672bff7e" name="a51b5f07264970ef19258497f672bff7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b5f07264970ef19258497f672bff7e">&#9670;&#160;</a></span>getTextColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour VerticalSliderLookAndFeel::getTextColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current colour of the text around the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the colour as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5860e4c0c76c955ea5dd694667516b68" name="a5860e4c0c76c955ea5dd694667516b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5860e4c0c76c955ea5dd694667516b68">&#9670;&#160;</a></span>getTickColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour VerticalSliderLookAndFeel::getTickColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current colour of the ticks on the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the colour as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af1942a0a9359094bb69b991ab135ded9" name="af1942a0a9359094bb69b991ab135ded9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1942a0a9359094bb69b991ab135ded9">&#9670;&#160;</a></span>getTickThickness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VerticalSliderLookAndFeel::getTickThickness </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get what the current tick thickness is for the object. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the floating point representation of the tick thickness of the object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63889d33576b0a966d65aa3293b68ecb" name="a63889d33576b0a966d65aa3293b68ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63889d33576b0a966d65aa3293b68ecb">&#9670;&#160;</a></span>getTickWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VerticalSliderLookAndFeel::getTickWidth </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function which may be used to find the current tick width of the object. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the floating point representation of the tick's width. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4aba845e02a9a4873f0dfc58d6693d28" name="a4aba845e02a9a4873f0dfc58d6693d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aba845e02a9a4873f0dfc58d6693d28">&#9670;&#160;</a></span>getTrackColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Colour VerticalSliderLookAndFeel::getTrackColour </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the current colour of the track of the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the colour as a juce::Colour type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a69b5f16f18f2eab616a351fe83b55276" name="a69b5f16f18f2eab616a351fe83b55276"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b5f16f18f2eab616a351fe83b55276">&#9670;&#160;</a></span>getTrackWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VerticalSliderLookAndFeel::getTrackWidth </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to get the track width of the slider. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>floating point representation of the width of the track in terms of the resoltion. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a75a21b2c40f5aa55610ee8cf80b7116e" name="a75a21b2c40f5aa55610ee8cf80b7116e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75a21b2c40f5aa55610ee8cf80b7116e">&#9670;&#160;</a></span>setBackgroundColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setBackgroundColour </td>
+          <td>(</td>
+          <td class="paramtype">juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the colour of the background of the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour to which the background should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90463ce360c13b3c163dd5f1d9d6f3e1" name="a90463ce360c13b3c163dd5f1d9d6f3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90463ce360c13b3c163dd5f1d9d6f3e1">&#9670;&#160;</a></span>setDialColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setDialColour </td>
+          <td>(</td>
+          <td class="paramtype">const juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the colour of the finger/dial of the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour to which the dial should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195" name="a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2ccb6c9c73b2c9f9ce6ba5b6a4f195">&#9670;&#160;</a></span>setDialEdgeColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setDialEdgeColour </td>
+          <td>(</td>
+          <td class="paramtype">const juce::Colour &amp;&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the colour of the edge of the finger/dial on the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour to which the edge of the dial should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a343db13e11a62894cc26bc4af23f5763" name="a343db13e11a62894cc26bc4af23f5763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a343db13e11a62894cc26bc4af23f5763">&#9670;&#160;</a></span>setFingerHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setFingerHeight </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the height of the slider's finger/knob when the slider is set to have a rectangular shape. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">height</td><td>The floating point representation of the height of the finger/knob in terms of the resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a32304e5708479115097f6b51282cb88e" name="a32304e5708479115097f6b51282cb88e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32304e5708479115097f6b51282cb88e">&#9670;&#160;</a></span>setFingerWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setFingerWidth </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the width of the slider's finger/knob when the slider is set to have a rectangular shape. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The floating point representation of the width of the finger/knob in terms of the resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c4a3ca006d7c13318a813a8038aad9a" name="a0c4a3ca006d7c13318a813a8038aad9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c4a3ca006d7c13318a813a8038aad9a">&#9670;&#160;</a></span>setTextColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setTextColour </td>
+          <td>(</td>
+          <td class="paramtype">juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the colour of the text around the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour to which the text should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad1caaa75768a6efa9796eea96bf8d76b" name="ad1caaa75768a6efa9796eea96bf8d76b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1caaa75768a6efa9796eea96bf8d76b">&#9670;&#160;</a></span>setTickColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setTickColour </td>
+          <td>(</td>
+          <td class="paramtype">juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the colour of the ticks on the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour to which the ticks should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a178a2640ad4d7ac2dbfd88473da8629f" name="a178a2640ad4d7ac2dbfd88473da8629f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a178a2640ad4d7ac2dbfd88473da8629f">&#9670;&#160;</a></span>setTickThickness()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setTickThickness </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>thickness</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the thickness of the ticks to indicate what step the slider is positioned in. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">thickness</td><td>The thickess of the ticks (vertical height) in terms of the resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adc5cc19e32a5e0d69e2ed310fccbbb3a" name="adc5cc19e32a5e0d69e2ed310fccbbb3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc5cc19e32a5e0d69e2ed310fccbbb3a">&#9670;&#160;</a></span>setTickWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setTickWidth </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the width of the ticks to indicate what step the slider is positioned in. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the ticks (horizontal) in terms of the resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a855e8ec6e7895cfd507c500276e5354e" name="a855e8ec6e7895cfd507c500276e5354e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a855e8ec6e7895cfd507c500276e5354e">&#9670;&#160;</a></span>setTrackColour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setTrackColour </td>
+          <td>(</td>
+          <td class="paramtype">juce::Colour&#160;</td>
+          <td class="paramname"><em>colour</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the colour of the track of the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">colour</td><td>The colour to which the track should be set to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6eea9c6a91498cfe9a7a97ceae33a42a" name="a6eea9c6a91498cfe9a7a97ceae33a42a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eea9c6a91498cfe9a7a97ceae33a42a">&#9670;&#160;</a></span>setTrackWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VerticalSliderLookAndFeel::setTrackWidth </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function to set the size of the track width of the slider. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The floating point representation of the width of the track in terms of the resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/ryan/Tromboneless/App/inc/<a class="el" href="CustomStyles_8hpp_source.html">CustomStyles.hpp</a></li>
+<li>/home/ryan/Tromboneless/App/src/<a class="el" href="CustomStyles_8cpp.html">CustomStyles.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

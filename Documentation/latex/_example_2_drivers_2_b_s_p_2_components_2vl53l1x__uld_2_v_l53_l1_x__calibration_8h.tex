@@ -1,0 +1,76 @@
+\doxysection{C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+external/\+\+STSW-\/\+IMG009/\+\+STSW-\/\+IMG009\+\_\+v3.5.5/\+\+Example/\+\+Drivers/\+\+BSP/\+\+Components/\+vl53l1x\+\_\+uld/\+\+VL53\+L1\+X\+\_\+calibration.h File Reference}
+\hypertarget{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h}{}\label{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/Components/vl53l1x\_uld/VL53L1X\_calibration.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/Components/vl53l1x\_uld/VL53L1X\_calibration.h}}
+
+
+Calibration Functions definition.  
+
+
+This graph shows which files directly or indirectly include this file:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} \doxymbox{\hyperlink{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_a86320c9eff0091a4f0fb32e6c6715559}{VL53\+L1\+X\+\_\+\+Calibrate\+Offset}} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} Target\+Dist\+In\+Mm, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aa343fa3b3d06292b959ffdd4c4703b06}{int16\+\_\+t}} \texorpdfstring{$\ast$}{*}offset)
+\begin{DoxyCompactList}\small\item\em This function performs the offset calibration.~\newline
+The function returns the offset value found and programs the offset compensation into the device. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} \doxymbox{\hyperlink{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_a157137ae6596c371bb85c4e821e88552}{VL53\+L1\+X\+\_\+\+Calibrate\+Xtalk}} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} Target\+Dist\+In\+Mm, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \texorpdfstring{$\ast$}{*}xtalk)
+\begin{DoxyCompactList}\small\item\em This function performs the xtalk calibration.~\newline
+The function returns the xtalk value found and programs the xtalk compensation to the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calibration Functions definition. 
+
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\label{doc-func-members}
+\Hypertarget{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_a86320c9eff0091a4f0fb32e6c6715559}\index{VL53L1X\_calibration.h@{VL53L1X\_calibration.h}!VL53L1X\_CalibrateOffset@{VL53L1X\_CalibrateOffset}}
+\index{VL53L1X\_CalibrateOffset@{VL53L1X\_CalibrateOffset}!VL53L1X\_calibration.h@{VL53L1X\_calibration.h}}
+\doxysubsubsection{\texorpdfstring{VL53L1X\_CalibrateOffset()}{VL53L1X\_CalibrateOffset()}}
+{\footnotesize\ttfamily \label{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_a86320c9eff0091a4f0fb32e6c6715559} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} VL53\+L1\+X\+\_\+\+Calibrate\+Offset (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{dev}{, }\item[{\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{Target\+Dist\+In\+Mm}{, }\item[{\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aa343fa3b3d06292b959ffdd4c4703b06}{int16\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{offset}{}\end{DoxyParamCaption})}
+
+
+
+This function performs the offset calibration.~\newline
+The function returns the offset value found and programs the offset compensation into the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Target\+Dist\+In\+Mm} & target distance in mm, ST recommended 100 mm Target reflectance = grey17\% \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0:\+success, !=0:\+ failed 
+
+offset pointer contains the offset found in mm 
+\end{DoxyReturn}
+\Hypertarget{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_a157137ae6596c371bb85c4e821e88552}\index{VL53L1X\_calibration.h@{VL53L1X\_calibration.h}!VL53L1X\_CalibrateXtalk@{VL53L1X\_CalibrateXtalk}}
+\index{VL53L1X\_CalibrateXtalk@{VL53L1X\_CalibrateXtalk}!VL53L1X\_calibration.h@{VL53L1X\_calibration.h}}
+\doxysubsubsection{\texorpdfstring{VL53L1X\_CalibrateXtalk()}{VL53L1X\_CalibrateXtalk()}}
+{\footnotesize\ttfamily \label{_example_2_drivers_2_b_s_p_2_components_2vl53l1x__uld_2_v_l53_l1_x__calibration_8h_a157137ae6596c371bb85c4e821e88552} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} VL53\+L1\+X\+\_\+\+Calibrate\+Xtalk (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{dev}{, }\item[{\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{Target\+Dist\+In\+Mm}{, }\item[{\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{xtalk}{}\end{DoxyParamCaption})}
+
+
+
+This function performs the xtalk calibration.~\newline
+The function returns the xtalk value found and programs the xtalk compensation to the device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Target\+Dist\+In\+Mm} & target distance in mm~\newline
+The target distance :\+ the distance where the sensor start to "{}under range"{}~\newline
+due to the influence of the photons reflected back from the cover glass becoming strong~\newline
+It\textquotesingle{}s also called inflection point~\newline
+Target reflectance = grey 17\% \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0:\+ success, !=0:\+ failed 
+
+xtalk pointer contains the xtalk value found in cps (number of photons in count per second) 
+\end{DoxyReturn}

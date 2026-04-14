@@ -1,0 +1,186 @@
+\doxysection{stm32f4xx\+\_\+nucleo.\+h}
+\hypertarget{stm32f4xx__nucleo_8h_source}{}\label{stm32f4xx__nucleo_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/STM32F4xx-\/Nucleo/stm32f4xx\_nucleo.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/STM32F4xx-\/Nucleo/stm32f4xx\_nucleo.h}}
+\doxymbox{\hyperlink{stm32f4xx__nucleo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \ }
+\DoxyCodeLine{00039\ \ \ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32F4XX\_NUCLEO\_H}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ \_\_STM32F4XX\_NUCLEO\_H}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00045\ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f4xx__hal_8h}{stm32f4xx\_hal.h}}"{}}}
+\DoxyCodeLine{00050\ \ \ \ }
+\DoxyCodeLine{00051\ \textcolor{comment}{/*\ To\ be\ defined\ only\ if\ the\ board\ is\ provided\ with\ the\ related\ shield\ */}}
+\DoxyCodeLine{00052\ \textcolor{comment}{/*\ https://www.adafruit.com/products/802\ */}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ ADAFRUIT\_TFT\_JOY\_SD\_ID802}}
+\DoxyCodeLine{00054\ \ \ \ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ LED2\ =\ 0}
+\DoxyCodeLine{00073\ \}Led\_TypeDef;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{00076\ \{\ \ }
+\DoxyCodeLine{00077\ \ \ BUTTON\_USER\ =\ 0,}
+\DoxyCodeLine{00078\ \ \ \textcolor{comment}{/*\ Alias\ */}}
+\DoxyCodeLine{00079\ \ \ BUTTON\_KEY\ \ =\ BUTTON\_USER}
+\DoxyCodeLine{00080\ \}\ Button\_TypeDef;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{00083\ \{\ \ }
+\DoxyCodeLine{00084\ \ \ BUTTON\_MODE\_GPIO\ =\ 0,}
+\DoxyCodeLine{00085\ \ \ BUTTON\_MODE\_EXTI\ =\ 1}
+\DoxyCodeLine{00086\ \}ButtonMode\_TypeDef;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{00089\ \{\ }
+\DoxyCodeLine{00090\ \ \ JOY\_NONE\ \ =\ 0,}
+\DoxyCodeLine{00091\ \ \ JOY\_SEL\ \ \ =\ 1,}
+\DoxyCodeLine{00092\ \ \ JOY\_DOWN\ \ =\ 2,}
+\DoxyCodeLine{00093\ \ \ JOY\_LEFT\ \ =\ 3,}
+\DoxyCodeLine{00094\ \ \ JOY\_RIGHT\ =\ 4,}
+\DoxyCodeLine{00095\ \ \ JOY\_UP\ \ \ \ =\ 5}
+\DoxyCodeLine{00096\ \}JOYState\_TypeDef;}
+\DoxyCodeLine{00097\ \ }
+\DoxyCodeLine{00101\ \ }
+\DoxyCodeLine{00105\ \ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#if\ !defined\ (USE\_STM32F4XX\_NUCLEO)}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \#define\ USE\_STM32F4XX\_NUCLEO}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ LEDn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ LED2\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_5}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ LED2\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ LED2\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE()}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ LED2\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE()\ \ }}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ LEDx\_GPIO\_CLK\_ENABLE(\_\_INDEX\_\_)\ \ \ \ \ \ \ \ \ LED2\_GPIO\_CLK\_ENABLE()}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ LEDx\_GPIO\_CLK\_DISABLE(\_\_INDEX\_\_)\ \ \ \ \ \ \ \ LED2\_GPIO\_CLK\_DISABLE()}\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{00128\ \ \ \ \ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ BUTTONn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ \ }}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ USER\_BUTTON\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_13}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ USER\_BUTTON\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOC}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ USER\_BUTTON\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE()\ \ \ }}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ USER\_BUTTON\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE()\ \ }}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ USER\_BUTTON\_EXTI\_LINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_13}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ USER\_BUTTON\_EXTI\_IRQn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI15\_10\_IRQn}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ BUTTONx\_GPIO\_CLK\_ENABLE(\_\_INDEX\_\_)\ \ \ \ \ \ \ USER\_BUTTON\_GPIO\_CLK\_ENABLE()}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ BUTTONx\_GPIO\_CLK\_DISABLE(\_\_INDEX\_\_)\ \ \ \ \ \ USER\_BUTTON\_GPIO\_CLK\_DISABLE()}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{/*\ Aliases\ */}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ KEY\_BUTTON\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USER\_BUTTON\_PIN}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ KEY\_BUTTON\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USER\_BUTTON\_GPIO\_PORT}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ KEY\_BUTTON\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ USER\_BUTTON\_GPIO\_CLK\_ENABLE()}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ KEY\_BUTTON\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ USER\_BUTTON\_GPIO\_CLK\_DISABLE()}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ KEY\_BUTTON\_EXTI\_LINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USER\_BUTTON\_EXTI\_LINE}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ KEY\_BUTTON\_EXTI\_IRQn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USER\_BUTTON\_EXTI\_IRQn}}
+\DoxyCodeLine{00154\ \ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{/*\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ SPI1\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#*/}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#ifdef\ HAL\_SPI\_MODULE\_ENABLED}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPI1}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_SPI1\_CLK\_ENABLE()}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_SCK\_AF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_AF5\_SPI1}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_SCK\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_SCK\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_5}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_SCK\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE()}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_SCK\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE()}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_MISO\_MOSI\_AF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_AF5\_SPI1}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_MISO\_MOSI\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_MISO\_MOSI\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE()}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_MISO\_MOSI\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE()}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_MISO\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_6}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_MOSI\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_7}}
+\DoxyCodeLine{00180\ \textcolor{comment}{/*\ Maximum\ Timeout\ values\ for\ flags\ waiting\ loops.\ These\ timeouts\ are\ not\ based}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ on\ accurate\ values,\ they\ just\ guarantee\ that\ the\ application\ will\ not\ remain}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ stuck\ if\ the\ SPI\ communication\ is\ corrupted.}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ You\ may\ modify\ these\ timeout\ values\ depending\ on\ CPU\ frequency\ and\ application}}
+\DoxyCodeLine{00184\ \textcolor{comment}{\ \ \ conditions\ (interrupts\ routines\ ...).\ */}\ \ \ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ NUCLEO\_SPIx\_TIMEOUT\_MAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ SD\_CS\_LOW()\ \ \ \ \ \ \ HAL\_GPIO\_WritePin(SD\_CS\_GPIO\_PORT,\ SD\_CS\_PIN,\ GPIO\_PIN\_RESET)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ SD\_CS\_HIGH()\ \ \ \ \ \ HAL\_GPIO\_WritePin(SD\_CS\_GPIO\_PORT,\ SD\_CS\_PIN,\ GPIO\_PIN\_SET)}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ LCD\_CS\_LOW()\ \ \ \ \ \ HAL\_GPIO\_WritePin(LCD\_CS\_GPIO\_PORT,\ LCD\_CS\_PIN,\ GPIO\_PIN\_RESET)}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ LCD\_CS\_HIGH()\ \ \ \ \ HAL\_GPIO\_WritePin(LCD\_CS\_GPIO\_PORT,\ LCD\_CS\_PIN,\ GPIO\_PIN\_SET)}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ LCD\_DC\_LOW()\ \ \ \ \ \ HAL\_GPIO\_WritePin(LCD\_DC\_GPIO\_PORT,\ LCD\_DC\_PIN,\ GPIO\_PIN\_RESET)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ LCD\_DC\_HIGH()\ \ \ \ \ HAL\_GPIO\_WritePin(LCD\_DC\_GPIO\_PORT,\ LCD\_DC\_PIN,\ GPIO\_PIN\_SET)}}
+\DoxyCodeLine{00200\ \ \ \ \ \ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ SD\_CS\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_5}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ SD\_CS\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ SD\_CS\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE()}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ SD\_CS\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE()}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ LCD\_CS\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_6}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ LCD\_CS\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ LCD\_CS\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE()}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ LCD\_CS\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE()}}
+\DoxyCodeLine{00216\ \ \ \ \ }
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ LCD\_DC\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_9}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ LCD\_DC\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOA}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ LCD\_DC\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE()}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ LCD\_DC\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE()}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_SPI\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{comment}{/*\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ ADC1\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#*/}}
+\DoxyCodeLine{00232\ \ \ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#ifdef\ HAL\_ADC\_MODULE\_ENABLED}}
+\DoxyCodeLine{00234\ \ \ }
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC1}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_ADC1\_CLK\_ENABLE()}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_ADC1\_CLK\_DISABLE()}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ADC\_CHANNEL\_8}}
+\DoxyCodeLine{00240\ \ \ \ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_GPIO\_PORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIOB}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_GPIO\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GPIO\_PIN\_0}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_GPIO\_CLK\_ENABLE()\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE()}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ NUCLEO\_ADCx\_GPIO\_CLK\_DISABLE()\ \ \ \ \ \ \ \ \ \ \ \ \_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE()}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_ADC\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00253\ \ \ \ }
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00264\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga65d13608f7010a8068614154cb142cd6}{BSP\_GetVersion}}(\textcolor{keywordtype}{void});\ \ }
+\DoxyCodeLine{00265\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gab58a4f16a476a53653c5c400e3bed158}{BSP\_LED\_Init}}(Led\_TypeDef\ Led);}
+\DoxyCodeLine{00266\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga8cb1d5b32557d492b8bf0f7109bd6d3f}{BSP\_LED\_DeInit}}(Led\_TypeDef\ Led);}
+\DoxyCodeLine{00267\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gaee9c16b16384834c69efabf58f423d6f}{BSP\_LED\_On}}(Led\_TypeDef\ Led);}
+\DoxyCodeLine{00268\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gaef268680154ca15c45066d64d41f9467}{BSP\_LED\_Off}}(Led\_TypeDef\ Led);}
+\DoxyCodeLine{00269\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga1b9eabba7d498f41d6f16587ec0f9732}{BSP\_LED\_Toggle}}(Led\_TypeDef\ Led);}
+\DoxyCodeLine{00270\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gad31c8db50a71c1f6dbfe132d72ba0bc6}{BSP\_PB\_Init}}(Button\_TypeDef\ Button,\ ButtonMode\_TypeDef\ ButtonMode);}
+\DoxyCodeLine{00271\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gac1bd746e7f6037d50ca3784ebe05686e}{BSP\_PB\_DeInit}}(Button\_TypeDef\ Button);}
+\DoxyCodeLine{00272\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga8f0978b6cffda9c67266ddfdb3a0abf7}{BSP\_PB\_GetState}}(Button\_TypeDef\ Button);}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#ifdef\ HAL\_ADC\_MODULE\_ENABLED}}
+\DoxyCodeLine{00274\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\_t}}\ \ \ \ \ \ \ \ \ \ BSP\_JOY\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00275\ JOYState\_TypeDef\ BSP\_JOY\_GetState(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00276\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ BSP\_JOY\_DeInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HAL\_ADC\_MODULE\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ }
+\DoxyCodeLine{00283\ \ }
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00297\ \}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_STM32F4XX\_NUCLEO\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{comment}{/************************\ (C)\ COPYRIGHT\ STMicroelectronics\ *****END\ OF\ FILE****/}}
+
+\end{DoxyCode}

@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['needlelookandfeel_0',['NeedleLookAndFeel',['../classNeedleLookAndFeel.html',1,'']]],
-  ['network_20as_20pi_3a_1',['If on the same network as pi:',['../index.html#autotoc_md10',1,'']]],
-  ['network_3a_2',['If on a different network:',['../index.html#autotoc_md11',1,'']]],
-  ['noteoff_3',['noteOff',['../classMIDIMessageBuilder.html#a85223a9564f5dd4b9e433f75251ea296',1,'MIDIMessageBuilder']]],
-  ['noteon_4',['noteOn',['../classMIDIMessageBuilder.html#ad1a1d5275808d86aaf835f8e4f3da3a8',1,'MIDIMessageBuilder']]],
-  ['notes_5',['notes',['../classNotes.html',1,'Notes'],['../classNotes.html#ae11cec41480227782d457e4829d5a06f',1,'Notes::Notes()']]],
-  ['notes_20for_20the_20changes_20made_20to_20the_20firmware_6',['Notes for the changes made to the firmware',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Core_2Firmware__Notes.html',1,'']]],
-  ['notes_20for_20the_20hardware_20implementation_20and_20design_7',['Notes for the Hardware implementation and design',['../md_Hardware_2Hardware__Notes.html',1,'']]],
-  ['notes_20on_20app_8',['Notes on App',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html',1,'']]]
+  ['made_20to_20the_20firmware_0',['Notes for the changes made to the firmware',['../md__c_1_2_users_2ryanm_2_documents_2_real_time_2_tromboneless_2_core_2_firmware___notes.html',1,'']]],
+  ['mainwindow_1',['MainWindow',['../class_gui_app_application_1_1_main_window.html',1,'GuiAppApplication::MainWindow'],['../class_gui_app_application_1_1_main_window.html#a7976393ee9b152238035c604d53363fb',1,'GuiAppApplication::MainWindow::MainWindow()']]],
+  ['map_20of_20the_20code_2',['Map of the code',['../md__c_1_2_users_2ryanm_2_documents_2_real_time_2_tromboneless_2_app_2_notes.html#autotoc_md1',1,'']]],
+  ['maxslider_3',['maxSlider',['../class_dual_rotary_slider.html#ac0f3e0e5574427d2b02ff7974fa301d5',1,'DualRotarySlider']]],
+  ['media_4',['Social Media',['../index.html#autotoc_md23',1,'']]],
+  ['menus_5',['For drop down menus',['../md__c_1_2_users_2ryanm_2_documents_2_real_time_2_tromboneless_2_app_2_notes.html#autotoc_md4',1,'']]],
+  ['midi_6',['MIDI',['../md__hardware_2_hardware___notes.html#autotoc_md15',1,'']]],
+  ['midicoordinator_7',['MidiCoordinator',['../class_midi_coordinator.html',1,'MidiCoordinator'],['../class_midi_coordinator.html#a86a4fdd03bbf379c3c1292c1e799a0ed',1,'MidiCoordinator::MidiCoordinator()']]],
+  ['midimessage_8',['MidiMessage',['../class_midi_message.html',1,'MidiMessage'],['../class_midi_message.html#a998d00149b819311591df66d490bffe5',1,'MidiMessage::MidiMessage()=default'],['../class_midi_message.html#a14dce23060dfa893a47f3c0e01e5bfb7',1,'MidiMessage::MidiMessage(std::vector&lt; Byte &gt; bytes)'],['../class_midi_message.html#aaf80831ccd1c19fbc836246b67895389',1,'MidiMessage::MidiMessage(std::initializer_list&lt; Byte &gt; bytes)']]],
+  ['midimessagebuilder_9',['MidiMessageBuilder',['../class_midi_message_builder.html',1,'']]],
+  ['minslider_10',['minSlider',['../class_dual_rotary_slider.html#a5046c6bcf193000398e6e7bc96a173a0',1,'DualRotarySlider']]],
+  ['morethanoneinstanceallowed_11',['moreThanOneInstanceAllowed',['../class_gui_app_application.html#a7999cf961cd78be4e6bd3ff0df80d116',1,'GuiAppApplication']]]
 ];

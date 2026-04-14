@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['widgets_2ecpp_0',['Widgets.cpp',['../Widgets_8cpp.html',1,'']]]
+  ['verticalmixslider_0',['verticalMixSlider',['../classvertical_mix_slider.html',1,'verticalMixSlider'],['../classvertical_mix_slider.html#a64196197ca6240b83ad300ea23fe1f1c',1,'verticalMixSlider::verticalMixSlider()']]],
+  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../class_vertical_slider_look_and_feel.html',1,'VerticalSliderLookAndFeel'],['../class_vertical_slider_look_and_feel.html#a55e59bdd0b182d197935c41ac3755e33',1,'VerticalSliderLookAndFeel::VerticalSliderLookAndFeel()']]],
+  ['video_2',['Video',['../md__hardware_2_hardware___notes.html#autotoc_md16',1,'']]]
 ];

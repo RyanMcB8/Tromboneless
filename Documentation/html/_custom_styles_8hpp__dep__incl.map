@@ -1,0 +1,21 @@
+<map id="C:/Users/ryanm/Documents/RealTime/Tromboneless/App/inc/CustomStyles.hpp" name="C:/Users/ryanm/Documents/RealTime/Tromboneless/App/inc/CustomStyles.hpp">
+<area shape="rect" id="Node000001" title="This file holds the declarations of all functions and variables needed by the Tromboneless project to..." alt="" coords="261,5,446,64"/>
+<area shape="rect" id="Node000002" href="$_widgets_8hpp.html" title="A file which sets the declarations of any custom widgets which have been built off of the juce framew..." alt="" coords="157,112,342,171"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="313,77,280,113,276,110,316,73"/>
+<area shape="rect" id="Node000008" href="$_custom_styles_8cpp.html" title="This file holds the defintions of all functions and variables needed by the Tromboneless project to c..." alt="" coords="366,112,552,171"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="394,73,433,111,428,112,393,78"/>
+<area shape="rect" id="Node000003" href="$_layout_8hpp.html" title="This file holds the declarations of all functions and variables needed by the Tromboneless project to..." alt="" coords="26,325,212,384"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,182,165,200,148,220,135,246,128,274,121,326,116,324,122,273,130,244,143,217,161,196,185,178"/>
+<area shape="rect" id="Node000004" href="$_layout_8cpp.html" title="This file holds the defintions of all functions and variables needed by the Tromboneless project to d..." alt="" coords="26,432,212,491"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="167,180,126,206,82,239,44,279,16,326,8,355,16,383,36,409,62,430,57,432,32,412,11,385,3,355,11,324,40,276,79,235,123,202,171,176"/>
+<area shape="rect" id="Node000005" href="$_panels_8hpp.html" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="157,219,342,277"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="251,184,252,219,247,217,249,189"/>
+<area shape="rect" id="Node000006" href="$_panels_8cpp.html" title="This file contains the function defintions for to create the necessary panels that may be used within..." alt="" coords="288,325,473,384"/>
+<area shape="poly" id="edge9_Node000002_Node000006" title=" " alt="" coords="317,177,340,196,357,217,370,244,378,273,383,326,379,324,373,274,365,246,353,220,336,199,317,182"/>
+<area shape="rect" id="Node000007" href="$_widgets_8cpp.html" title="A file which defines the functions which have been declared within the Widgets.hpp file." alt="" coords="418,219,604,277"/>
+<area shape="poly" id="edge10_Node000002_Node000007" title=" " alt="" coords="336,174,442,217,437,219,336,180"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="121,398,122,433,117,431,117,402"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="200,289,157,327,153,323,204,285"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="251,291,245,339,238,363,227,385,204,412,176,434,173,429,200,409,222,383,233,361,240,338,248,295"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="298,284,347,325,342,325,297,290"/>
+</map>

@@ -1,0 +1,68 @@
+\doxysection{C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+external/\+\+STSW-\/\+IMG009/\+\+STSW-\/\+IMG009\+\_\+v3.5.5/\+\+API/\+platform/\+vl53l1\+\_\+platform.h File Reference}
+\hypertarget{_a_p_i_2platform_2vl53l1__platform_8h}{}\label{_a_p_i_2platform_2vl53l1__platform_8h}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/API/platform/vl53l1\_platform.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/API/platform/vl53l1\_platform.h}}
+
+
+Those platform functions are platform dependent and have to be implemented by the user.  
+
+
+{\ttfamily \+\#include "{}vl53l1\+\_\+types.\+h"{}}\newline
+Include dependency graph for vl53l1\+\_\+platform.\+h:\+
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_v_l53_l1___dev__t}{VL53\+L1\+\_\+\+Dev\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_aff2180f6401addaf4701700ec4c1e9bb}\label{_a_p_i_2platform_2vl53l1__platform_8h_aff2180f6401addaf4701700ec4c1e9bb} 
+typedef \doxymbox{\hyperlink{struct_v_l53_l1___dev__t}{VL53\+L1\+\_\+\+Dev\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries VL53\+L1\+\_\+\+DEV}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_a837e02c5d200d439935a5e9813572e2b}\label{_a_p_i_2platform_2vl53l1__platform_8h_a837e02c5d200d439935a5e9813572e2b} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Write\+Multi} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \texorpdfstring{$\ast$}{*}pdata, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} count)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_a837e02c5d200d439935a5e9813572e2b}{VL53\+L1\+\_\+\+Write\+Multi()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_a5005e5666c0dcfe32fa0ad97f6392e31}\label{_a_p_i_2platform_2vl53l1__platform_8h_a5005e5666c0dcfe32fa0ad97f6392e31} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Read\+Multi} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \texorpdfstring{$\ast$}{*}pdata, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} count)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_a5005e5666c0dcfe32fa0ad97f6392e31}{VL53\+L1\+\_\+\+Read\+Multi()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_a3ff714533deebf1a54c3596b1681a8d3}\label{_a_p_i_2platform_2vl53l1__platform_8h_a3ff714533deebf1a54c3596b1681a8d3} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Wr\+Byte} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} data)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_a3ff714533deebf1a54c3596b1681a8d3}{VL53\+L1\+\_\+\+Wr\+Byte()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_a79dafd64b8435d306696839614382ef1}\label{_a_p_i_2platform_2vl53l1__platform_8h_a79dafd64b8435d306696839614382ef1} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Wr\+Word} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} data)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_a79dafd64b8435d306696839614382ef1}{VL53\+L1\+\_\+\+Wr\+Word()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_a2631e24821bb8d6ae0ef58fc060888e6}\label{_a_p_i_2platform_2vl53l1__platform_8h_a2631e24821bb8d6ae0ef58fc060888e6} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Wr\+DWord} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} data)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_a2631e24821bb8d6ae0ef58fc060888e6}{VL53\+L1\+\_\+\+Wr\+DWord()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_a37b75e3f2ac3a44abd5b600870c5888b}\label{_a_p_i_2platform_2vl53l1__platform_8h_a37b75e3f2ac3a44abd5b600870c5888b} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Rd\+Byte} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \texorpdfstring{$\ast$}{*}pdata)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_a37b75e3f2ac3a44abd5b600870c5888b}{VL53\+L1\+\_\+\+Rd\+Byte()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_aec99246aff36aec732a2451479d39da3}\label{_a_p_i_2platform_2vl53l1__platform_8h_aec99246aff36aec732a2451479d39da3} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Rd\+Word} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \texorpdfstring{$\ast$}{*}pdata)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_aec99246aff36aec732a2451479d39da3}{VL53\+L1\+\_\+\+Rd\+Word()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_add08bef8b78e81a212a80da93c3d0a05}\label{_a_p_i_2platform_2vl53l1__platform_8h_add08bef8b78e81a212a80da93c3d0a05} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Rd\+DWord} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} index, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \texorpdfstring{$\ast$}{*}pdata)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_add08bef8b78e81a212a80da93c3d0a05}{VL53\+L1\+\_\+\+Rd\+DWord()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\item 
+\Hypertarget{_a_p_i_2platform_2vl53l1__platform_8h_aea4eb170553a7c81523d34e16f15c7ea}\label{_a_p_i_2platform_2vl53l1__platform_8h_aea4eb170553a7c81523d34e16f15c7ea} 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\+\_\+t}} {\bfseries VL53\+L1\+\_\+\+Wait\+Ms} (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} dev, \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\+\_\+t}} wait\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em \doxylink{_a_p_i_2platform_2vl53l1__platform_8h_aea4eb170553a7c81523d34e16f15c7ea}{VL53\+L1\+\_\+\+Wait\+Ms()} definition.~\newline
+To be implemented by the developer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Those platform functions are platform dependent and have to be implemented by the user. 
+
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

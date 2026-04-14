@@ -1,83 +1,59 @@
-#include "main.hpp"
+#include <iostream>
+#include <thread>
+#include <chrono>
 
+#include "drivers/i2c_bus.hpp"
+#include "drivers/tof_sensor.hpp"
 
-#include <condition_variable>
+#include <chrono>
 #include <cstdint>
 #include <iostream>
-#include <mutex>
-#include <queue>
+#include <thread>
 
-class GetDistance {
+class ToFPrinter
+{
 public:
-    int hasTOFsample(uint16_t distance) {
-        if (distance > 500) distance = 500;
-        int scaled_bend = 8192 - (distance * 8192) / 500;
-        std::cout << scaled_bend << "\n";
-        return scaled_bend;
+    void hasToFSample(uint16_t distance)
+    {
+        std::cout << "Distance: " << distance << " mm\n";
     }
 };
 
+
 int main()
 {
-    try
+    // Create shared Linux I2C bus object
+    I2CBus bus("/dev/i2c-1");
+
+    // Create sensor object
+    ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
+
+    // ToFPrinter printer;
+
+  // Connect publisher -> subscriber via lambda
+    sensor.registerCallback([&](uint16_t distance)
     {
-        std::queue<RawInputEvent> eventQueue;
-        std::mutex eventQueueMutex;
-        std::condition_variable eventQueueCv;
+        printer.hasToFSample(distance);
+    });
 
-        EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
-
-        MidiCoordinator coordinator;
-        RtMidiSink midiSink;
-        GetDistance distanceGetter;
-
-        if (!eventHandler.initialise()) {
-            std::cerr << "Initialisation failed\n";
-            return 1;
-        }
-
-        coordinator.RegisterCallback(
-            [&](const MidiMessage& msg)
-            {
-                std::cout << "Sending MIDI message of size " << msg.size() << "\n";
-                midiSink.send(msg);
-            });
-
-        coordinator.setExpr(100);
-        coordinator.setBend(0);
-        coordinator.ChangeNote(60);
-        coordinator.PressureEdge(true);
-
-        eventHandler.start();
-
-        while (true) {
-            RawInputEvent event;
-
-            {
-                std::unique_lock<std::mutex> lock(eventQueueMutex);
-                eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
-
-                event = eventQueue.front();
-                eventQueue.pop();
-            }
-
-            switch (event.type) {
-            case RawInputEvent::Type::ToFDistance:
-                coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
-                break;
-
-            case RawInputEvent::Type::PressureReading:
-                break;
-
-            case RawInputEvent::Type::MouthpieceReading:
-                break;
-            }
-        }
-    }
-    catch (const std::exception& e)
+    // Initialise sensor
+    if (!sensor.initialise())
     {
-        std::cerr << "Error: " << e.what() << "\n";
+        std::cerr << "Sensor initialisation failed" << std::endl;
         return 1;
+    }
+
+    std::cout << "Sensor initialised successfully" << std::endl;
+
+    // Start ranging + worker thread
+    sensor.start();
+
+    std::cout << "Sensor started, waiting for data..." << std::endl;
+
+    // Keep main alive so the worker thread can continue running
+    while (true)
+    {
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
     return 0;

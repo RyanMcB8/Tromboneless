@@ -1,0 +1,15 @@
+<map id="Sliders" name="Sliders">
+<area shape="rect" id="Node000001" title="A class which adds all the linear sliders being used within the calibration section to be within the ..." alt="" coords="147,281,208,308"/>
+<area shape="rect" id="Node000002" href="$class_panels.html" title="A class which is inherited from Juce:Component reponsible for setting the general style of a panel wi..." alt="" coords="28,132,90,159"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,169,109,208,169,280,164,282,105,211,77,174"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,126,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="65,45,62,132,57,131,63,50"/>
+<area shape="rect" id="Node000006" href="$class_slider_with_label.html" title="A class which inherits attributes from the juce::Component class to create a new component containing..." alt="" coords="87,81,199,108"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="89,40,132,80,127,82,90,45"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="223,81,364,108"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="299,121,302,154,300,189,292,226,274,259,260,272,244,282,209,292,208,287,242,277,257,268,270,256,287,224,295,189,297,154,296,126"/>
+<area shape="rect" id="Node000005" href="$class_calibration_slider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="119,183,236,209"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="270,116,194,184,190,180,265,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="180,223,180,282,175,280,175,227"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="153,120,176,183,171,182,151,125"/>
+</map>

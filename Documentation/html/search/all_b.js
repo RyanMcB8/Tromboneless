@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['labels_3a_0',['For labels:',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html#autotoc_md3',1,'']]],
-  ['layout_1',['Layout',['../classLayout.html',1,'']]]
+  ['juce_3a_0',['Code tutorials specifically for JUCE:',['../md__c_1_2_users_2ryanm_2_documents_2_real_time_2_tromboneless_2_app_2_notes.html#autotoc_md2',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['envelope_0',['Envelope',['../classEnvelope.html',1,'']]],
-  ['equalizer_1',['Equalizer',['../classEqualizer.html',1,'']]],
-  ['equalizerpanel_2',['EqualizerPanel',['../classEqualizerPanel.html',1,'']]]
+  ['dropdownmenu_0',['DropDownMenu',['../class_drop_down_menu.html',1,'']]],
+  ['dropdownmenus_1',['DropDownMenus',['../class_drop_down_menus.html',1,'']]],
+  ['dualrotaryslider_2',['DualRotarySlider',['../class_dual_rotary_slider.html',1,'']]]
 ];

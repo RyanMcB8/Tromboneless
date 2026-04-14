@@ -1,0 +1,262 @@
+\doxysection{Calibration\+Slider\+Look\+And\+Feel Class Reference}
+\hypertarget{class_calibration_slider_look_and_feel}{}\label{class_calibration_slider_look_and_feel}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+
+
+A class to set the look and feel of a two finger linear slider to look like a trombone where the left most finger is the main body and the right most is the end of the trombones slide.  
+
+
+
+
+{\ttfamily \+\#include $<$Custom\+Styles.\+hpp$>$}
+
+
+
+Inheritance diagram for Calibration\+Slider\+Look\+And\+Feel:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_calibration_slider_look_and_feel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Calibration\+Slider\+Look\+And\+Feel:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_calibration_slider_look_and_feel__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_ae8a53aae08167b70ebae3a26895e51ec}{draw\+Linear\+Slider}} (juce::\+\+Graphics \&g, int x, int y, int width, int height, float slider\+Pos, float min\+Slider\+Pos, float max\+Slider\+Pos, const juce::\+\+Slider::\+\+Slider\+Style style, juce::\+\+Slider \&slider)
+\begin{DoxyCompactList}\small\item\em When this look and feel is attached to an object which has a vertical slider in it, this function sets the look and feel of the slider being used. This makes it look like an average equalizer slider. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a5266a0c47db1034cdc27841a11ce9ef3}{set\+Empty\+Track\+Colour}} (juce::\+\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to allow for the empty track colour to be changed. \end{DoxyCompactList}\item 
+juce::\+\+Colour \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a2593d3cdce91bc1815679125c6908f21}{get\+Empty\+Track\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the empty track of the slider. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a9a3b6070ba4f0024d161eb144d5a7191}{set\+Full\+Track\+Colour}} (juce::\+\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to allow for the full track colour to be changed. \end{DoxyCompactList}\item 
+juce::\+\+Colour \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_ac4fcf289131b2a24574f8ca96cde0f92}{get\+Full\+Track\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the full track of the slider. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a1fea94d56d77c38255bbb25899893ab2}{set\+Min\+Thumb\+Colour}} (juce::\+\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to allow for the colour of the first thumb to be changed. \end{DoxyCompactList}\item 
+juce::\+\+Colour \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a3267d8592693bb7a2d1b00430cbcb616}{get\+Min\+Thumb\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the minimum finger of the slider. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_ae4280f832e8d4b6881c92bf26a4b990d}{set\+Max\+Thumb\+Colour}} (juce::\+\+Colour colour)
+\begin{DoxyCompactList}\small\item\em A function to allow for the colour of the second thumb to be changed. \end{DoxyCompactList}\item 
+juce::\+\+Colour \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a7f5437bbb0b283c81cec92d5ac04f14d}{get\+Max\+Thumb\+Colour}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current colour of the maximum finger of the slider. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_a7206dea9292715920f2bddfbf6af1cdd}{set\+Track\+Width}} (float width)
+\begin{DoxyCompactList}\small\item\em A function to set the width of the track to indicate what step the slider is positioned in. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_calibration_slider_look_and_feel_ab509fd167f483d88c47cea65268fc86b}{get\+Track\+Width}} (void)
+\begin{DoxyCompactList}\small\item\em A function which may be used to find the current track width of the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to set the look and feel of a two finger linear slider to look like a trombone where the left most finger is the main body and the right most is the end of the trombones slide. 
+
+\begin{DoxyNote}{Note}
+This is used in the Tromboneless project to calibrate the maximum and minimum distances of the slider by the users preference. 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{class_calibration_slider_look_and_feel_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_calibration_slider_look_and_feel_ae8a53aae08167b70ebae3a26895e51ec}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!drawLinearSlider@{drawLinearSlider}}
+\index{drawLinearSlider@{drawLinearSlider}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{drawLinearSlider()}{drawLinearSlider()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_ae8a53aae08167b70ebae3a26895e51ec} 
+void Calibration\+Slider\+Look\+And\+Feel::\+draw\+Linear\+Slider (\begin{DoxyParamCaption}\item[{juce::\+\+Graphics \&}]{g}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{float}]{slider\+Pos}{, }\item[{float}]{min\+Slider\+Pos}{, }\item[{float}]{max\+Slider\+Pos}{, }\item[{const juce::\+\+Slider::\+\+Slider\+Style}]{style}{, }\item[{juce::\+\+Slider \&}]{slider}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+When this look and feel is attached to an object which has a vertical slider in it, this function sets the look and feel of the slider being used. This makes it look like an average equalizer slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to the {\ttfamily juce::\+\+Graphics} instance which is being drawn to. This is likely the main window or else the parent component. \\
+\hline
+{\em x} & The integer representation of the slider\textquotesingle{}s left corner in the global window. \\
+\hline
+{\em y} & The integer representation of the sliders top corner in the global window. \\
+\hline
+{\em width} & The integer representation of the width of the slider. i.\+e. the difference between the left most and right most part of the slider. \\
+\hline
+{\em height} & The integer representation of the width of the slider. i.\+e. the difference between the top most and bottom most parts of the slider\textquotesingle{}s bounds. \\
+\hline
+{\em slider\+Pos} & The position of the sliders finger. The position represents x if the slider is horizontal and y if the slider is vertical. \\
+\hline
+{\em min\+Slider\+Pos} & The minimum slider position. \\
+\hline
+{\em max\+Slider\+Pos} & The maximum slider position. \\
+\hline
+{\em style} & The style of the slider whose look and feel is getting modified. For example, Linear\+Vertical or Rotary. \\
+\hline
+{\em slider} & A pointer to the slider which is being modified. This can allow for extraction of more data from the slider. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_calibration_slider_look_and_feel_a2593d3cdce91bc1815679125c6908f21}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!getEmptyTrackColour@{getEmptyTrackColour}}
+\index{getEmptyTrackColour@{getEmptyTrackColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{getEmptyTrackColour()}{getEmptyTrackColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a2593d3cdce91bc1815679125c6908f21} 
+juce::\+\+Colour Calibration\+Slider\+Look\+And\+Feel::\+get\+Empty\+Track\+Colour (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the empty track of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & colour as a juce::\+\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_calibration_slider_look_and_feel_ac4fcf289131b2a24574f8ca96cde0f92}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!getFullTrackColour@{getFullTrackColour}}
+\index{getFullTrackColour@{getFullTrackColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{getFullTrackColour()}{getFullTrackColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_ac4fcf289131b2a24574f8ca96cde0f92} 
+juce::\+\+Colour Calibration\+Slider\+Look\+And\+Feel::\+get\+Full\+Track\+Colour (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the full track of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & colour as a juce::\+\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+The full track refers to the part of the track between the two fingers/\+knobs 
+\end{DoxyNote}
+\Hypertarget{class_calibration_slider_look_and_feel_a7f5437bbb0b283c81cec92d5ac04f14d}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!getMaxThumbColour@{getMaxThumbColour}}
+\index{getMaxThumbColour@{getMaxThumbColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{getMaxThumbColour()}{getMaxThumbColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a7f5437bbb0b283c81cec92d5ac04f14d} 
+juce::\+\+Colour Calibration\+Slider\+Look\+And\+Feel::\+get\+Max\+Thumb\+Colour (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the maximum finger of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & colour as a juce::\+\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_calibration_slider_look_and_feel_a3267d8592693bb7a2d1b00430cbcb616}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!getMinThumbColour@{getMinThumbColour}}
+\index{getMinThumbColour@{getMinThumbColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{getMinThumbColour()}{getMinThumbColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a3267d8592693bb7a2d1b00430cbcb616} 
+juce::\+\+Colour Calibration\+Slider\+Look\+And\+Feel::\+get\+Min\+Thumb\+Colour (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+A function to get the current colour of the minimum finger of the slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & colour as a juce::\+\+Colour type. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_calibration_slider_look_and_feel_ab509fd167f483d88c47cea65268fc86b}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!getTrackWidth@{getTrackWidth}}
+\index{getTrackWidth@{getTrackWidth}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{getTrackWidth()}{getTrackWidth()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_ab509fd167f483d88c47cea65268fc86b} 
+float Calibration\+Slider\+Look\+And\+Feel::\+get\+Track\+Width (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+A function which may be used to find the current track width of the object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the floating point representation of the track\textquotesingle{}s width. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_calibration_slider_look_and_feel_a5266a0c47db1034cdc27841a11ce9ef3}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!setEmptyTrackColour@{setEmptyTrackColour}}
+\index{setEmptyTrackColour@{setEmptyTrackColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{setEmptyTrackColour()}{setEmptyTrackColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a5266a0c47db1034cdc27841a11ce9ef3} 
+void Calibration\+Slider\+Look\+And\+Feel::\+set\+Empty\+Track\+Colour (\begin{DoxyParamCaption}\item[{juce::\+\+Colour}]{colour}{}\end{DoxyParamCaption})}
+
+
+
+A function to allow for the empty track colour to be changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour which the emptry track should be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_calibration_slider_look_and_feel_a9a3b6070ba4f0024d161eb144d5a7191}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!setFullTrackColour@{setFullTrackColour}}
+\index{setFullTrackColour@{setFullTrackColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{setFullTrackColour()}{setFullTrackColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a9a3b6070ba4f0024d161eb144d5a7191} 
+void Calibration\+Slider\+Look\+And\+Feel::\+set\+Full\+Track\+Colour (\begin{DoxyParamCaption}\item[{juce::\+\+Colour}]{colour}{}\end{DoxyParamCaption})}
+
+
+
+A function to allow for the full track colour to be changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour which the full track should be set to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The full track refers to the part of the track between the two fingers/\+knobs 
+\end{DoxyNote}
+\Hypertarget{class_calibration_slider_look_and_feel_ae4280f832e8d4b6881c92bf26a4b990d}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!setMaxThumbColour@{setMaxThumbColour}}
+\index{setMaxThumbColour@{setMaxThumbColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{setMaxThumbColour()}{setMaxThumbColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_ae4280f832e8d4b6881c92bf26a4b990d} 
+void Calibration\+Slider\+Look\+And\+Feel::\+set\+Max\+Thumb\+Colour (\begin{DoxyParamCaption}\item[{juce::\+\+Colour}]{colour}{}\end{DoxyParamCaption})}
+
+
+
+A function to allow for the colour of the second thumb to be changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour which the thumb should be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_calibration_slider_look_and_feel_a1fea94d56d77c38255bbb25899893ab2}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!setMinThumbColour@{setMinThumbColour}}
+\index{setMinThumbColour@{setMinThumbColour}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{setMinThumbColour()}{setMinThumbColour()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a1fea94d56d77c38255bbb25899893ab2} 
+void Calibration\+Slider\+Look\+And\+Feel::\+set\+Min\+Thumb\+Colour (\begin{DoxyParamCaption}\item[{juce::\+\+Colour}]{colour}{}\end{DoxyParamCaption})}
+
+
+
+A function to allow for the colour of the first thumb to be changed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colour} & The colour which the thumb should be set to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_calibration_slider_look_and_feel_a7206dea9292715920f2bddfbf6af1cdd}\index{CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}!setTrackWidth@{setTrackWidth}}
+\index{setTrackWidth@{setTrackWidth}!CalibrationSliderLookAndFeel@{CalibrationSliderLookAndFeel}}
+\doxysubsubsection{\texorpdfstring{setTrackWidth()}{setTrackWidth()}}
+{\footnotesize\ttfamily \label{class_calibration_slider_look_and_feel_a7206dea9292715920f2bddfbf6af1cdd} 
+void Calibration\+Slider\+Look\+And\+Feel::\+set\+Track\+Width (\begin{DoxyParamCaption}\item[{float}]{width}{}\end{DoxyParamCaption})}
+
+
+
+A function to set the width of the track to indicate what step the slider is positioned in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & The width of the track in terms of the resolution. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+inc/\+\doxymbox{\hyperlink{_custom_styles_8hpp}{Custom\+Styles.\+hpp}}\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+src/\+\doxymbox{\hyperlink{_custom_styles_8cpp}{Custom\+Styles.\+cpp}}\end{DoxyCompactItemize}

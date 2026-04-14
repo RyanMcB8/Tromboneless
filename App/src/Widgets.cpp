@@ -125,6 +125,42 @@ void SliderWithLabel::labelSetup(juce::Label* Label, juce::String phrase,
 }
 
 
+void SliderWithLabel::setTopLabelBounds(int bound){
+    topLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getTopLabelBounds(void){
+    return topLabelBounds;
+}
+
+void SliderWithLabel::setLeftLabelBounds(int bound){
+    leftLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getLeftLabelBounds(void){
+    return leftLabelBounds;
+}
+
+void SliderWithLabel::setRightLabelBounds(int bound){
+    rightLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getRightLabelBounds(void){
+    return rightLabelBounds;
+}
+
+void SliderWithLabel::setBottomLabelBounds(int bound){
+    bottomLabelBounds = bound;
+    return;
+}
+
+int SliderWithLabel::getBottomLabelBounds(void){
+    return bottomLabelBounds;
+}
+
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                   CalibrationSlider                                        */
@@ -140,9 +176,14 @@ CalibrationSlider::~CalibrationSlider(){
     this->slider.removeListener(this);
 }
 
- void CalibrationSlider::setMinDifference(double difference){
-     minDistance = difference;
+ void CalibrationSlider::setMinDifference(float difference){
+     minDistance = std::min(abs(difference), (float) (slider.getMaxValue() - slider.getMinValue()));
+     return;
  }
+
+float CalibrationSlider::getMinDifference(void){
+    return minDistance;
+}
 
  void CalibrationSlider::sliderValueChanged(juce::Slider* sliderChanged) 
  {
@@ -279,6 +320,94 @@ void DualRotarySlider::resized()
     
 }
 
+void DualRotarySlider::setMinDifference(float difference){
+    
+    /*  Instantly limit the differece to be a maximum of 80% and minimum of 0%. */
+    minDifference = std::min((float)((maxLimit-minLimit) * 0.8), (float)(abs(difference)));
+    updateMinAngleDifference();
+    return;
+}
+
+float DualRotarySlider::getMinDifference(void){
+    return minDifference;
+}
+
+void DualRotarySlider::setMinSliderRadius(float radius){
+    minSliderRadius = radius;
+    return;
+}
+
+float DualRotarySlider::getMinSliderRadius(void){
+    return minSliderRadius; 
+}
+
+void DualRotarySlider::setMaxSliderRadius(float radius){
+    maxSliderRadius = radius;
+    return;
+}
+
+float DualRotarySlider::getMaxSliderRadius(void){
+    return maxSliderRadius;
+}
+
+void  DualRotarySlider::updateMinAngleDifference(void){
+    minAngleDifference = (maxAngle - minAngle)*(minDifference/(maxLimit - minLimit));
+}
+
+void DualRotarySlider::setLabelHeight(float height){
+    labelHeight = height;
+    return;
+}
+
+float DualRotarySlider::getLabelHeight(void){
+    return labelHeight;
+}
+
+void DualRotarySlider::setMinLimit(float limit){
+    minLimit = std::min(limit, getMaxLimit()-minDifference);
+    return;
+}
+
+float DualRotarySlider::getMinLimit(void){
+    return minLimit;
+}
+
+void DualRotarySlider::setMaxLimit(float limit){
+    maxLimit = std::max(limit, getMinLimit()+minDifference);;
+    return;
+}
+
+float DualRotarySlider::getMaxLimit(void){
+    return maxLimit;
+}
+
+void DualRotarySlider::setInterval(float step){
+    interval = std::min(step, (maxLimit - minLimit)/2);
+    return;
+}
+
+float DualRotarySlider::getInterval(void){
+    return interval;
+}
+
+void DualRotarySlider::setMinAngle(float angle){
+    minAngle = std::min(angle, getMaxAngle() - minAngleDifference);
+    return;
+}
+
+float DualRotarySlider::getMinAngle(void){
+    return minAngle;
+}
+
+void DualRotarySlider::setMaxAngle(float angle){
+    maxAngle = std::max(angle, getMinAngle() + minAngleDifference);
+    return;
+}
+
+float DualRotarySlider::getMaxAngle(void){
+    return maxAngle;
+}
+
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                          Barometer                                         */
@@ -320,7 +449,7 @@ void Barometer::paint (juce::Graphics& g){
     g.fillRoundedRectangle(outlineRectangle , (float) 20);
 
     /* Not drawing over the area of where the label is. */
-    juce::Rectangle<int> labelArea = area.removeFromBottom(labelHeight);
+    juce::Rectangle<int> labelArea = area.removeFromBottom(getLabelHeight());
 
     /* Adding a margin around the box.*/
     area = area.withSizeKeepingCentre((float)(area.getWidth()*0.95), (float)(area.getHeight()*0.95));
@@ -353,8 +482,8 @@ void Barometer::paint (juce::Graphics& g){
     float centreY = area.getCentreY();
 
     g.setColour(textColour);
-    int nNotches = (maxLimit - minLimit)/interval;
-    int counter = (int) (minLimit*10);
+    int nNotches = (getMaxLimit() - getMinLimit())/getInterval();
+    int counter = (int) (getMinLimit()*10);
     float textWidth = 20;
     float textHeight = 15;
     for (int i = 0; i <= nNotches; i++)
@@ -362,7 +491,7 @@ void Barometer::paint (juce::Graphics& g){
         juce::Path rotated;
         rotated.startNewSubPath(centreX, centreY - (radius*relativeOuterRadius));
         rotated.lineTo(centreX, centreY - (radius*relativeInnerRadius));
-        float plotAngle = ((maxAngle - minAngle) * i / nNotches) + minAngle;
+        float plotAngle = ((getMaxAngle() - getMinAngle()) * i / nNotches) + getMinAngle();
 
         /* Checking if there is a step of 0.5 appearing.*/
         if (0 == (counter % 5)){
@@ -380,24 +509,24 @@ void Barometer::paint (juce::Graphics& g){
         rotated.applyTransform(juce::AffineTransform::rotation (plotAngle, centreX, centreY));
 
         g.strokePath (rotated, juce::PathStrokeType (1.0f));
-        counter += (int)(interval*10);
+        counter += (int)(getInterval()*10);
     }
 
     /* enclosing the notches in a circle */
     juce::Path p;
-    p.startNewSubPath(centreX + radius*relativeInnerRadius*sin(minAngle), centreY - radius*relativeInnerRadius*cos(minAngle));
+    p.startNewSubPath(centreX + radius*relativeInnerRadius*sin(getMinAngle()), centreY - radius*relativeInnerRadius*cos(getMinAngle()));
     p.addCentredArc(centreX, centreY,
                     radius*relativeInnerRadius, radius*relativeInnerRadius,
-                    0, minAngle, maxAngle);
+                    0, getMinAngle(), getMaxAngle());
     /* Drawing the arc. */
     g.strokePath(p, juce::PathStrokeType (1.0f));
 
     p.clear();
 
-    p.startNewSubPath(centreX + radius*relativeOuterRadius*sin(minAngle), centreY - radius*relativeOuterRadius*cos(minAngle));
+    p.startNewSubPath(centreX + radius*relativeOuterRadius*sin(getMinAngle()), centreY - radius*relativeOuterRadius*cos(getMinAngle()));
     p.addCentredArc(centreX,  centreY,
                   radius*relativeOuterRadius, radius*relativeOuterRadius,
-                  0, minAngle, maxAngle);
+                  0, getMinAngle(), getMaxAngle());
     /* Drawing the outer arc. */
     g.strokePath(p, juce::PathStrokeType (1.0f));
 
@@ -405,13 +534,13 @@ void Barometer::paint (juce::Graphics& g){
     textWidth = 25;
     textHeight = 15;
     g.setFont(18.0f);
-    g.drawText ((const juce::String) minLimit,
-                 (float) (centreX + radius*relativeOuterRadius*sin(minAngle)), (float) (centreY - radius*relativeOuterRadius*cos(minAngle)),
+    g.drawText ((const juce::String) getMinLimit(),
+                 (float) (centreX + radius*relativeOuterRadius*sin(getMinAngle())), (float) (centreY - radius*relativeOuterRadius*cos(getMinAngle())),
                  (float)textWidth, (float) textHeight,
                  juce::Justification::centred, true);
 
-    g.drawText ((const juce::String) maxLimit,
-                 (float) (centreX - radius*relativeOuterRadius*sin(minAngle) - textWidth), (float) (centreY - radius*relativeOuterRadius*cos(minAngle)),
+    g.drawText ((const juce::String) getMaxLimit(),
+                 (float) (centreX - radius*relativeOuterRadius*sin(getMinAngle()) - textWidth), (float) (centreY - radius*relativeOuterRadius*cos(getMinAngle())),
                  (float)textWidth, (float) textHeight,
                  juce::Justification::centred, true);
 }
@@ -421,32 +550,32 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
     float max = maxSlider.getValue();
 
     /* Checking if the values are out of range of each other. */
-    if (max - min < minDifference)
+    if (max - min < getMinDifference())
     {   
         /* Checking if the maximum value is already at the maximum. If it is, only the minimum finger is moved. */
-        if (max >= maxLimit){
-            max = maxLimit;
+        if (max >= getMaxLimit()){
+            max = getMaxLimit();
             maxSlider.setValue(max);
-            minSlider.setValue(max - minDifference);
+            minSlider.setValue(max - getMinDifference());
             return;
         }
 
         /* Checking if the minimum value is already at the minimum. If it is, only the maximum finger is moved. */
-        else if (min <= minLimit){
-            min = minLimit;
+        else if (min <= getMinLimit()){
+            min = getMinLimit();
             minSlider.setValue(min);
-            maxSlider.setValue(min + minDifference);
+            maxSlider.setValue(min + getMinDifference());
             return;
         }
         
         /* If neither finger is on the edge, onlt the finger not being dragged is adjusted to ensure the minimum range is maintained. */
         else if (sliderChanged == &minSlider){
-            maxSlider.setValue(min + minDifference);
+            maxSlider.setValue(min + getMinDifference());
             return;
         }
 
         else{
-            minSlider.setValue(max - minDifference);
+            minSlider.setValue(max - getMinDifference());
             return;
         }
     }
@@ -456,6 +585,65 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
 
 }
 
+void Barometer::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getBackgroundColour(void){
+    return backgroundColour;
+}
+
+void Barometer::setTextColour(juce::Colour colour){
+    textColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getTextColour(void){
+    return textColour;
+}
+
+void Barometer::setBoarderColour(juce::Colour colour){
+    boarderColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getBoarderColour(void){
+    return boarderColour;
+}
+
+void Barometer::setEdgeColour(juce::Colour colour){
+    edgeColour = colour;
+    return;
+}
+
+juce::Colour Barometer::getEdgeColour(void){
+    return edgeColour;
+}
+
+void Barometer::setOuterRadius(float radius){
+    relativeOuterRadius = radius;
+}
+
+float Barometer::getOuterRadius(void){
+    return relativeOuterRadius;
+}
+
+void Barometer::setInnerRadius(float radius){
+    relativeInnerRadius = radius;
+}
+
+float Barometer::getInnerRadius(void){
+    return relativeInnerRadius;
+}
+
+void Barometer::setLabelRadius(float radius){
+    relativeLabelRadius = radius;
+}
+
+float Barometer::getLabelRadius(void){
+    return relativeLabelRadius;
+}
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -467,10 +655,10 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
         this->slider.setRange(-9, 9, 3);                     /* Setting the maximum and minimum gain values for each band. */
         this->slider.setValue(0, juce::dontSendNotification);  /* Setting the initial value to be 1 so that there is no change in gain. */
         this->slider.setPopupMenuEnabled(false);
-        this->topLabelBounds = 30;
-        this->leftLabelBounds = 1;
-        this->rightLabelBounds = 1;
-        this->bottomLabelBounds = 30; 
+        this->setTopLabelBounds(30);
+        this->setLeftLabelBounds(1);
+        this->setRightLabelBounds(1);
+        this->setBottomLabelBounds(30); 
         this->slider.addListener(this);
     };
 
@@ -599,6 +787,9 @@ void Equalizer::sliderValueChanged(juce::Slider* sliderChanged) {
     dropDownLabel.setText(text, notification);
  }
 
+ juce::String DropDownMenu::getLabelText(void){
+    return dropDownLabel.getText();
+ }
 
 
 /* ========================================================================================== */

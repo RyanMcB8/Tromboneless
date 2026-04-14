@@ -1,0 +1,50 @@
+\doxysection{vl53l1\+\_\+platform\+\_\+user\+\_\+defines.\+h}
+\hypertarget{vl53l1__platform__user__defines_8h_source}{}\label{vl53l1__platform__user__defines_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Inc/vl53l1\_platform\_user\_defines.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Inc/vl53l1\_platform\_user\_defines.h}}
+\doxymbox{\hyperlink{vl53l1__platform__user__defines_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ \_VL53L1\_PLATFORM\_USER\_DEFINES\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ \_VL53L1\_PLATFORM\_USER\_DEFINES\_H\_}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ do\_division\_u(dividend,\ divisor)\ (dividend\ /\ divisor)}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ do\_division\_s(dividend,\ divisor)\ (dividend\ /\ divisor)}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ WARN\_OVERRIDE\_STATUS(\_\_X\_\_)\(\backslash\)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ trace\_print\ (VL53L1\_TRACE\_LEVEL\_WARNING,\ \#\_\_X\_\_);}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ DISABLE\_WARNINGS()\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \_\_pragma\ (warning\ (push));\ \(\backslash\)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\ \ \ \ \_\_pragma\ (warning\ (disable:4127));\ \(\backslash\)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ ENABLE\_WARNINGS()\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \_\_pragma\ (warning\ (pop));\ \(\backslash\)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \#define\ DISABLE\_WARNINGS()}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#define\ ENABLE\_WARNINGS()}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00076\ \}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_VL53L1\_PLATFORM\_USER\_DEFINES\_H\_}}
+\DoxyCodeLine{00080\ }
+
+\end{DoxyCode}

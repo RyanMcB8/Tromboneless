@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['mainwindow_0',['MainWindow',['../classGuiAppApplication_1_1MainWindow.html',1,'GuiAppApplication']]],
-  ['midimessage_1',['MidiMessage',['../classMidiMessage.html',1,'']]],
-  ['midimessagebuilder_2',['MIDIMessageBuilder',['../classMIDIMessageBuilder.html',1,'']]]
+  ['i2cbus_0',['I2CBus',['../class_i2_c_bus.html',1,'']]]
 ];

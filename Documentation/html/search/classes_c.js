@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['verticalmixslider_0',['verticalMixSlider',['../classverticalMixSlider.html',1,'']]],
-  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../classVerticalSliderLookAndFeel.html',1,'']]]
+  ['rawinputevent_0',['RawInputEvent',['../struct_raw_input_event.html',1,'']]],
+  ['rtmidisink_1',['RtMidiSink',['../class_rt_midi_sink.html',1,'']]]
 ];

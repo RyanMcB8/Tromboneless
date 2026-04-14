@@ -1,5 +1,5 @@
 /** @file       synth.cpp
- *  @author     @RyanMcB8
+ *  @author     Ryan McBride
  *  @brief      C file which contains the defintions for the 
  *              functions declared in the `synth.hpp` file.
  */
@@ -92,43 +92,44 @@ float Notes::setNote(Notes_t note, float freq){
     switch(note){
         case note_C:
             setC(freq);
-
+            break;
         case note_Db:
             setDb(freq);
-
+            break;
         case note_D:
             setD(freq);
-
+            break;
         case note_Eb:
             setEb(freq);
-
+            break;
         case note_E:
             setE(freq);
-
+            break;
         case note_F:
             setF(freq);
-
+            break;
         case note_Gb:
             setGb(freq);
-
+            break;
         case note_G:
             setG(freq);
-
+            break;
         case note_Ab:
             setAb(freq);
-
+            break;
         case note_A:
             setA(freq);
-
+            break;
         case note_Bb:
             setBb(freq);
-
+            break;
         case note_B:
             setB(freq);
-
+            break;
         default:
             return 0.0f;
     }
+    return 0.0f;
 }
 
 float Notes::getC(void){
@@ -265,43 +266,15 @@ Octaves::Octaves(){
     }
 }
 
-float Octaves::Clamp01(float value){
-    return std::max(std::min(value, 1.0f), 0.0f);
+float Octaves::PlayingNote(int octave, Notes_t note, float phase){
+    return PlayingFrequency(phase);
 }
 
-float Octaves::TimeAscension(float t){
-    return Clamp01(t);
+float Octaves::PlayingFrequency(float phase){
+    return (float) cos(phase);
 }
 
-float Octaves::TimeDecay(float t, float saturation){
-    t = Clamp01(t);
-    return ((1-saturation)*(1-t) + saturation);
-}
 
-float Octaves::TimeRest(float t, float saturation){
-    t = Clamp01(t);
-    return (saturation*(1 - Clamp01(t*t)));
-}
-
-float Octaves::PlayingNote(int octave, Notes_t note, float time){
-    return (float) cos(octaves[octave].getNote(note) * time * 2 * M_PI);
-}
-
-float Octaves::StartNote(int octave, Notes_t note, float time, float t){
-    return PlayingNote(octave, note, time) * TimeAscension(t);
-}
-
-float Octaves::SaturatedNote(int octave, Notes_t note, float time, float saturation){
-    return (PlayingNote(octave, note, time) * saturation);
-}
-
-float Octaves::DecayNote(int octave, Notes_t note, float time, float t, float saturation){
-    return PlayingNote(octave, note, time) * TimeDecay(t, saturation);
-}
-
-float Octaves::EndNote(int octave, Notes_t note, float time, float t, float saturation){
-    return PlayingNote(octave, note, time) * TimeRest(t, saturation);
-}
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -313,172 +286,42 @@ OctavesWithHarmonics::OctavesWithHarmonics(){
 
 }
 
-float OctavesWithHarmonics::StartNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t){
-    float outputAmplitude = 0;
-    for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * StartNote(n, note, time, t);
+float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float phase){
+    return PlayingFrequencyWithHarmonics(n, phase);
+}
+
+float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float phase){
+    float outputAmplitude = 0.0f;
+    /*  Ensuring that there has been a value of n above 1 being passed. */
+    n = std::max(n, 1);
+
+    for (int harmonicNumber=1; harmonicNumber < n+1; harmonicNumber++)
+    {
+        outputAmplitude += HarmonicDecay(harmonicNumber) * std::cos(phase*harmonicNumber);
     } 
-    return (outputAmplitude/n);
+
+    /*  Returning the normalised ampltide.*/
+    return outputAmplitude/getHarmomicDecayMax(n);
 }
 
-float OctavesWithHarmonics::DecayNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation){
-    float outputAmplitude = 0;
-    for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * StartNote(n, note, time, t);
-    } 
-    return (outputAmplitude/n);
+float OctavesWithHarmonics::HarmonicDecay(int n){
+    /*  Setting the minimum influence of the harmonics being tested to be 1%. */
+    return std::max(1.0f - (decayConstant * std::abs(n - 1)), 0.01f);
 }
 
-float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float time, float saturation){
-    float outputAmplitude = 0;
-    for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * PlayingNote(n, note, time);
-    } 
-    return (outputAmplitude/n);
-}
-
-float OctavesWithHarmonics::EndNoteWithHarmonics(int n, int octave, Notes_t note, float time, float t, float saturation){
-    float outputAmplitude = 0;
-    for (int i=0; i < n; i++){
-        outputAmplitude += HarmonicDecay(n, octave, note) * EndNote(n, note, time, t, saturation);
-    } 
-    return (outputAmplitude/n);
-}
-
-float OctavesWithHarmonics::HarmonicDecay(int n, int octave, Notes::Notes_t note){
-    return Clamp01(exp(-(n * (octave + note) * decayConstant)/100));
-}
-
-/* ========================================================================================== */
-/*                                                                                            */
-/*                                      Envelope                                              */
-/*                                                                                            */
-/* ========================================================================================== */
-
-Envelope::Envelope(int n_in, int octave_in, Notes::Notes_t note_in, float ascendT_in,
-                 float decayT_in, float saturation_in, float restT_in){
-    /** Setting the initial values of the parameters. */
-    n = n_in;   octave = octave_in;     note = note_in;     ascendT = ascendT_in;
-    decayT = decayT_in;     saturation = saturation_in;     restT = restT_in;
-
-
-}
-
-void Envelope::StartEnvelope(){
-    /* Determining the time at the start of the envelope. */
-    deltaTime.setStartTime();
-    currentSynthState = attackState;
-    return;
-}
-
-void Envelope::ChangeNote(Notes::Notes_t note_in, int octave_in){
-    note = note_in;
-    octave = octave_in;
-    return;
-}
-
-float Envelope::GetAmplitude(){
-    deltaTime.setCurrentTime();
-    float time = deltaTime.getDifference();
-
-    /* Checking if the note has been stopped. */
-    if (currentSynthState == noSoundState){
-        return 0;
+float OctavesWithHarmonics::getHarmomicDecayMax(int n){
+    float amplitude = 0.0f;
+    for (int i=0; i<n; i++){
+        amplitude += HarmonicDecay(i+1);
     }
-    
-    else if(!ending){
-        /* The sound is still in the ascent range. */
-        if (ascendT >= time){
-            currentSynthState = attackState;
-            float t = 1 - std::min((ascendT/time), (float)1);
-            return DecayNoteWithHarmonics(n, octave, note, time, t, saturation);
-        }
-
-        /* The sound is in the decay stage. */
-        else if ((ascendT+decayT) >= time){
-            currentSynthState = decayState;
-            float t = 1 - (decayT/(time-ascendT));
-            return StartNoteWithHarmonics(n, octave, note, time, t);
-        }
-
-        /* The sound is still in the saturation range. */
-        else if ((ascendT+decayT) < time){
-            currentSynthState = sustainState;
-            return PlayingNoteWithHarmonics(n, octave, note, time, saturation);
-        }
-    }
-    else{
-        /* The system is now nearing the end. */
-        float t = (float)(endTime.getDifference / restT);
-        currentSynthState = restState;
-        if (t >= 1){
-            ending = 0;
-            currentSynthState = noSoundState;
-        }
-        return EndNoteWithHarmonics(n, octave, note, time, t);
-    }
-}
-
-void Envelope::EndEnvelope(){
-    ending = 1;
-    gettimeofday(&endTime, NULL);
+    return amplitude;
 
 }
-void Envelope::KillEnvelope(){
-    this->~Envelope();
+
+void OctavesWithHarmonics::setDecayConstant(float decayC){
+    decayConstant = decayC;
 }
 
-struct timeval Envelope::getStartTime(){
-    return deltaTime.getStartTime;
-}
-
-float Envelope::getTimeDifference(){
-    return deltaTime.getDifference();
-}
-
-float Envelope::getAttackDecayTime(){
-    return (float)(ascendT + decayT);
-}
-
-void Envelope::setNote(Notes_t note_in){
-    note = note_in;
-    return
-}
-
-void Envelope::setOctave(int octave_in){
-    octave = octave_in;
-    return;
-}
-
-/* ========================================================================================== */
-/*                                                                                            */
-/*                                      DeltaTime                                             */
-/*                                                                                            */
-/* ========================================================================================== */
-
-DeltaTime::DeltaTime(){
-    gettimeofday(&startTime, NULL);
-}
-
-void DeltaTime::setStartTime(){
-    gettimeofday(&startTime, NULL);
-}
-
-void DeltaTime::resetStartTime(){
-    startTime.tv_sec = 0;
-    startTime.tv_usec = 0;
-}
-
-void DeltaTime::setCurrentTime(){
-    gettimeofday(&currentTime, NULL);
-}
-
-struct timeval DeltaTime::getStartTime(){
-    return startTime;
-}
-
-float DeltaTime::getDifference(){
-    float delta = ((currentTime.tv_sec - startTime.tv_sec)/1000);
-    delta += ((currentTime.tv_usec - startTime.tv_usec)*1000);
-    return delta;
+float OctavesWithHarmonics::getDecayConstant(void){
+    return decayConstant;
 }

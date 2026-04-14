@@ -1,0 +1,81 @@
+\doxysection{Layout Class Reference}
+\hypertarget{class_layout}{}\label{class_layout}\index{Layout@{Layout}}
+
+
+Main class that creates the window.  
+
+
+
+
+{\ttfamily \+\#include $<$Layout.\+hpp$>$}
+
+
+
+Inheritance diagram for Layout:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_layout__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Layout:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_layout__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_layout_a1928c3c94ff880bd1ca446a6f0991d05}{paint}} (juce::\+\+Graphics \&g) override
+\begin{DoxyCompactList}\small\item\em Function that sets the background colour of the window. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_layout_ace00518b85cff7055509d7517c9340e9}{resized}} () override
+\begin{DoxyCompactList}\small\item\em Function that changes the size of the profiler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main class that creates the window. 
+
+\label{doc-func-members}
+\Hypertarget{class_layout_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_layout_a1928c3c94ff880bd1ca446a6f0991d05}\index{Layout@{Layout}!paint@{paint}}
+\index{paint@{paint}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily \label{class_layout_a1928c3c94ff880bd1ca446a6f0991d05} 
+void Layout::\+paint (\begin{DoxyParamCaption}\item[{juce::\+\+Graphics \&}]{g}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Function that sets the background colour of the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The panel which should be modified. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Always sets the background to the user preference for the background. This function also adds a title to be within the window. 
+\end{DoxyNote}
+\Hypertarget{class_layout_ace00518b85cff7055509d7517c9340e9}\index{Layout@{Layout}!resized@{resized}}
+\index{resized@{resized}!Layout@{Layout}}
+\doxysubsubsection{\texorpdfstring{resized()}{resized()}}
+{\footnotesize\ttfamily \label{class_layout_ace00518b85cff7055509d7517c9340e9} 
+void Layout::\+resized (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Function that changes the size of the profiler. 
+
+\begin{DoxyNote}{Note}
+Resizes the contents of the window including dropdown menus, labels and buttons 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+inc/\+\doxymbox{\hyperlink{_layout_8hpp}{Layout.\+hpp}}\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+src/\+\doxymbox{\hyperlink{_layout_8cpp}{Layout.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+##Personal notation for the structuring of main.cpp##
+
+Firstly it has the includes, #include, to let the compiler know what names and interfaces exist.
+- <iostream> for printing to terminal
+- <thread> for sleeping the main thread
+- <chrono> for sleping the main thread 
+- "drivers/i2c_bus.hpp" for handling linux I2C communication
+- "drivers/tof_sensor.hpp" this wraps the VL53L1X sensor and the GPIO logic
+
+
+##
+
+
+Then a test subscriber class 'ToFPrinter' is written, to print the readings from the ToF sensor in the terminal.
+
+'class ToFPrinter' defines a class type named ToFPrinter
+
+Inside this class definition, there are no member variables, therefore it creates a stateless object.
+
+It has one member function/method called hasToFSample defined using: 
+    'void hasToFSample(uint16_t distance)'
+
+'void' means this function does not return a value, so when it finishes nothing is given back to the caller.
+
+within its parameter list:
+    '(uint16_t distance)'
+
+This method takes one input, an unsigned 16 bit integer 'uint16_t', and in our case this is intended to be a distance reading in mm.
+With this input, the method then performs its operation, which in this case is pining the distance value to the terminal using std::cout. 
+
+' std::cout << "Distance: " << distance << " mm\n"; '
+
+The method name 'hasToFSample' is chosn to reflect that this function is intended to react to an event, rather than commanding an action. i.e. a new 
+ToF sample has become available. This is the function that will be called when, and only when, data is ready. not manually by the main program. 
+
+##
+
+
+After defining this class, the program then enters the main function.
+
+' int main() ' 
+
+Insie main the first object created is:
+
+'  I2CBus bus("/dev/i2c-1");  '
+
+This creates an instance of the I2C bus class, called 'bus'. The constuctor in i2c_bus.cpp/hpp takes the device path as an argument
+The one provided is also in the constructor as the default so technically not required to be defined. 
+note that the device path takes you to the file used by linux to communicate with that bus.
+
+At this stage the instance of the I2C bus , 'bus' , is just being created - but the actual communication happens later.
+
+##
+
+Then the sensor object is created:
+
+'  ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);  '
+
+an instance of the ToFSensor class called - sensor. 
+
+It is given the I2C bus for communication (defined earlier), its actually a reference to the I2C bus but this will be discussed later.
+
+the address of the sensor on the bus - 0x29
+
+as well as the GPIO pin that the data ready interrupt signal is connected to - 4...
+
+
+##
+
+Then the printer object is created, called 'printer' - the subscriber to the ToF Sensor class. 
+
+' ToFPrinter printer; '
+
+This is the object that will handle he output when data becomes available. obviously this is just for testing purposes.
+A different subscriber class will be used for the actual system. 
+
+##
+
+The system then tries to initialise the sensor. 
+
+'  if (!sensor.initialise())
+    {
+        std::cerr << "Initialisation failed\n";
+        return 1;
+    }  '
+
+i.e. it calls the method, defined in the ToFSensor class, 'initialise'... if it fails it gos into the 'if' block, due to the logical not, '!'. 
+Which here, prints an error message and stops the progam 'return 1'. 
+
+
+##
+
+After successful initialisation, the callback is registered:
+
+'  sensor.registerCallback([&](uint16_t distance)
+    {
+        printer.hasToFSample(distance);
+    });
+'
+
+A lambda function is created which takes a distance value and passes it to the printer. 
+the '[&]' exists so that external variables, in this case 'printer', are captured by reference so the lambda can use the existing object
+rather than a copy. 
+
+The lambda is passed into the sensor, which stores it and will call it whenever a new measurement is available.
+
+This creates a connection between the sensor object (publisher) and the printer (subscriber).
+Without either needing to know about each other directly. 
+
+##
+
+
+The sensor is then started. 
+'sensor.start();'
+
+i.e the ToFSensor method 'start' which calls a sequence of other privately defined methods.
+From this point on the system becomes active
+
+##
+
+Finally, the main thread enters an infinite loop: 
+
+' while (true)
+{
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+} '
+
+This is what keeps the program running. The idea is that the main thread is now no longer doing the work, it simply just stays alive
+while the sensor operates in the background.
+It basically says - do nothing forever, but don't exit the program.
+Without this loop, the program would exit immediately after starting the sensor. 
+
+
+##
+
+

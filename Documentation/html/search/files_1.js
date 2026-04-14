@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['synth_2ecpp_0',['synth.cpp',['../synth_8cpp.html',1,'']]],
-  ['synth_2ehpp_1',['synth.hpp',['../synth_8hpp.html',1,'']]]
+  ['envelope_2ecpp_0',['envelope.cpp',['../envelope_8cpp.html',1,'']]],
+  ['envelope_2ehpp_1',['envelope.hpp',['../envelope_8hpp.html',1,'']]]
 ];

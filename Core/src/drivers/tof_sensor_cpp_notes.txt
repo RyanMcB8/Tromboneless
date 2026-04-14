@@ -1,0 +1,36 @@
+##Personal notation for the structuring of tof_sensor.cpp##
+
+tof_sensor.cpp is the implementation file for the ToFSensor class. 
+
+in the .hpp file, what the class contains and what functions it offers are shown. 
+
+The .cpp file shows: 
+- how those functions are actually carried out
+- how the sensor is configured
+- how the worker thread runs
+- how the callback is triggered.
+
+
+###
+
+#include "drivers/tof_sensor.hpp"
+#include <chrono>
+
+Includes its own header which brings in the class definition so the compiler knows which class
+and methods are being implemented. 
+
+chrono is needed for time-related things such as delyas an timeouts. 
+
+##
+
+using namespace std::chrono_literals;
+
+this allows time literals like '10ms', instead of having to write 'std::chrono::milliseconds(10)' every time.
+
+##
+
+The actual definition of the static configuration array that was declaed in the header. 
+
+const uint8_t ToFSensor::DEFAULT_CONFIG[91] = { ... };
+
+Creates one aray of 91 bytes containing default values to be written to the sensor registers. 

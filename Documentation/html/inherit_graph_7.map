@@ -1,9 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classNotes.html" title=" " alt="" coords="5,5,65,31"/>
-<area shape="rect" id="Node000001" href="$classOctaves.html" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class..." alt="" coords="113,5,188,31"/>
-<area shape="poly" id="edge29_Node000000_Node000001" title=" " alt="" coords="79,15,113,15,113,21,79,21"/>
-<area shape="rect" id="Node000002" href="$classOctavesWithHarmonics.html" title=" " alt="" coords="236,5,411,31"/>
-<area shape="poly" id="edge30_Node000001_Node000002" title=" " alt="" coords="202,15,236,15,236,21,202,21"/>
-<area shape="rect" id="Node000003" href="$classEnvelope.html" title=" " alt="" coords="459,5,541,31"/>
-<area shape="poly" id="edge31_Node000002_Node000003" title=" " alt="" coords="425,15,458,15,458,21,425,21"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,166,40"/>
+<area shape="rect" id="Node000001" href="$class_gui_app_application_1_1_main_window.html" title="This class implements the desktop window that contains an instance of the MainComponent class." alt="" coords="214,5,350,48"/>
+<area shape="poly" id="edge21_Node000000_Node000001" title=" " alt="" coords="181,24,216,26,211,27,181,29"/>
 </map>

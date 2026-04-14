@@ -1,4 +1,4 @@
-/** @file       Layput.hpp
+/** @file       Layout.hpp
  *  @author     Ryan McBride
  *  @brief      This file holds the declarations of all functions and variables
  *              needed by the Tromboneless project to define the layout of the
@@ -10,21 +10,18 @@
 #pragma once
 
 /*  Adding all the necessary header files to be included in the file */
-#include "tromboneless_data.hpp"
 #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
 #include <juce_core/juce_core.h>
 #include <juce_gui_basics/juce_gui_basics.h>
-#include <juce_audio_processors/juce_audio_processors.h>
 #include "Widgets.hpp"
 #include "Panels.hpp"
 #include <stdio.h>
 
 /** @brief Main class that creates the window
  */
-class Layout final : public juce::Component,
-                     public juce::Slider::Listener
+class Layout final : public juce::Component
 {
     public:
 
@@ -32,45 +29,20 @@ class Layout final : public juce::Component,
         Layout();
 
         // Deconstructor
-        ~Layout() override;
+        ~Layout() = default;
 
-        /** @brief functions that sets the background colour of the window
-        @param  g The panel which should be modified
-        @retval void
-        @note Always sets the background to the user preference for the background.
-        * This function also adds a title to be within the window.
-        */  
+        /** @brief      Function that sets the background colour of the window.
+         *  @param  g   The panel which should be modified.
+         *  @note       Always sets the background to the user preference for the background.
+         *              This function also adds a title to be within the window.
+         */  
         void paint (juce::Graphics& g) override;
 
 
         /** @brief Function that changes the size of the profiler
-        @retval no return value: void
-        @note Resizes the contents of the window including dropdown menus, labels and buttons
-        */
-        void resized() override;
-        
-        /** @brief Function that is triggered when a key is pressed
-        @param key An instance of KeyPress that stores the value of the key being pressed
-        @retval boolean value of true if a key is has been handled, otherwise false
-        */
-        bool keyPressed(const juce::KeyPress& key) override;
-
-        double minimumDistance;    /* Setting the minimum distance that the tromboneless' slider will reach. */ 
-        double maximumDistance;    /* Setting the maximum distance that the tromboneless' slider will reach. */
-        double distanceRange;      /* The minimum distance between the maximum and minimum distabces allowed. */
-        double stepDistance;       /* The minimum change between values when the user adjusts the distance slider. */
-        
-        double minimumPressure;    /* The gain factor of the minimum pressure that could be read relative to the normal maximum. */
-        double maximumPressure;    /* The gain factor of the maxmimum pressure that could be read relative to the normal maximum. */
-        double stepPressure;       /* The granularity of how fine the user may adjust the pressure slider relative to the normal maximum. */
-        double pressureRange;      /* The minimum pressure pressure difference between the maximum and minimum pressure values relative to the normal maximum. */
-
-            
-        /** @brief A function handler for when any of the sliders on screen are moved.
-         *  @param slider A pointer to the slider that has been modified
-         *  @note This function must check which slider has been modified before making any changes.
+         *  @note Resizes the contents of the window including dropdown menus, labels and buttons
          */
-        void sliderValueChanged (juce::Slider* slider) override;
+        void resized() override;
 
         
 

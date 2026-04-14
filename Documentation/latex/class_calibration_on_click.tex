@@ -1,0 +1,83 @@
+\doxysection{Calibration\+On\+Click Class Reference}
+\hypertarget{class_calibration_on_click}{}\label{class_calibration_on_click}\index{CalibrationOnClick@{CalibrationOnClick}}
+
+
+A class which allows for the additon of a button to the screen without inheriting the button directly. This allows for other widgets to be added to it later without compatibility issues.  
+
+
+
+
+{\ttfamily \+\#include $<$Widgets.\+hpp$>$}
+
+
+
+Inheritance diagram for Calibration\+On\+Click:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_calibration_on_click__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Calibration\+On\+Click:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_calibration_on_click__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_calibration_on_click_af1854f0843d28e3ca1de1cf3a79fe171}\label{class_calibration_on_click_af1854f0843d28e3ca1de1cf3a79fe171} 
+{\bfseries Calibration\+On\+Click} ()
+\begin{DoxyCompactList}\small\item\em A constructor for the \doxylink{class_calibration_on_click}{Calibration\+On\+Click} class which inherits characteristics from juce:\+:\+ Component and Button::\+\+Listener. It is used to receive a calibration message when clicked. \end{DoxyCompactList}\item 
+\Hypertarget{class_calibration_on_click_a716b529df6ca9dda09b6972a70917198}\label{class_calibration_on_click_a716b529df6ca9dda09b6972a70917198} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Calibration\+On\+Click} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxylink{class_calibration_on_click}{Calibration\+On\+Click} class which removes the listener from the attached button. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_calibration_on_click_aff5da726e335398bcb807ef53214ae6a}{resized}} () override
+\begin{DoxyCompactList}\small\item\em A function which is called upon whenever the user interface window has changed in size. This can change the size of the component so that it can either be kept at a constant size of scaled to fit a specified area of the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+juce::\+\+Text\+Button \doxymbox{\hyperlink{class_calibration_on_click_acfbee39178d96a1dd1d70eb873e63aff}{button}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which allows for the additon of a button to the screen without inheriting the button directly. This allows for other widgets to be added to it later without compatibility issues. 
+
+\label{doc-func-members}
+\Hypertarget{class_calibration_on_click_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_calibration_on_click_aff5da726e335398bcb807ef53214ae6a}\index{CalibrationOnClick@{CalibrationOnClick}!resized@{resized}}
+\index{resized@{resized}!CalibrationOnClick@{CalibrationOnClick}}
+\doxysubsubsection{\texorpdfstring{resized()}{resized()}}
+{\footnotesize\ttfamily \label{class_calibration_on_click_aff5da726e335398bcb807ef53214ae6a} 
+void Calibration\+On\+Click::\+resized (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A function which is called upon whenever the user interface window has changed in size. This can change the size of the component so that it can either be kept at a constant size of scaled to fit a specified area of the screen. 
+
+\begin{DoxyNote}{Note}
+Currently, this adds a small margin around the local area and fills the rest of the area with the attached button. 
+\end{DoxyNote}
+
+
+\label{doc-variable-members}
+\Hypertarget{class_calibration_on_click_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_calibration_on_click_acfbee39178d96a1dd1d70eb873e63aff}\index{CalibrationOnClick@{CalibrationOnClick}!button@{button}}
+\index{button@{button}!CalibrationOnClick@{CalibrationOnClick}}
+\doxysubsubsection{\texorpdfstring{button}{button}}
+{\footnotesize\ttfamily \label{class_calibration_on_click_acfbee39178d96a1dd1d70eb873e63aff} 
+juce::\+\+Text\+Button Calibration\+On\+Click::\+button}
+
+Creating the Text\+Button instance for the \doxylink{class_calibration_on_click}{Calibration\+On\+Click} class to have a button within it. 
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+inc/\+\doxymbox{\hyperlink{_widgets_8hpp}{Widgets.\+hpp}}\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+App/\+src/\+\doxymbox{\hyperlink{_widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

@@ -48,10 +48,24 @@
          *                          background.
          */
         void paint(juce::Graphics& g) override;
+
+        /** @brief                  A function to set the background colour of the
+         *                          panels for the main window.
+         *  @param  colour          The colour which the background should be set
+         *                          to. Must be of type juce::Colour. 
+         */
+        void setBackgroundColour(juce::Colour colour);
+
+        /** @brief                  A function to get the current background colour
+         *                          being used for the panels within the main window.
+         *  @retval                 The colour being used as a juce::Colour type.
+         */
+        juce::Colour getBackgroundColour(void);
+
     private:
         /*  Definition of the colour which the panel should be. Currently a dark 
             grey colour with a slight transparency.*/
-        juce::Colour edgeColour         = juce::Colour((unsigned int) (0x43080810));
+        juce::Colour backgroundColour         = juce::Colour((unsigned int) (0x43080810));
  };
 
  /**    @brief      A class which is created to display the drop down menus required
@@ -96,16 +110,12 @@
                 public juce::Slider::Listener
  {
     public:
-        /*  Creating an instance of the CalibrationSlider class to be
+        /** Creating an instance of the CalibrationSlider class to be
             used for calibrating the maximum and minimum distance 
             which the trombonist wishes to have their hand for the
-            pitch bend. */
+            pitch bend. 
+        */
         CalibrationSlider distanceSlider;
-
-        /*  Creating an instance of the CalibrationSliderLookAndFeel
-            class which will later be applied to the slider to look
-            like a trombone being actuated to its full length. */
-        CalibrationSliderLookAndFeel LandF;
 
         /** @brief          The constructor function for the `Sliders` class
          *                  which sets the maximum and minimum distance of 
@@ -133,7 +143,7 @@
         /** @brief                  A callback function which is automatically called upon when
          *                          one of the sliders present has the value of one of it's
          *                          knobs changed.
-         *  @param  sliderChange    A pointer to the slider which has been modified. This
+         *  @param  sliderChanged   A pointer to the slider which has been modified. This
          *                          allows for the comparison between the different sliders
          *                          within the class to detect which one has been affected.
          *  @note                   This is where the interaction with the Core side of the
@@ -143,7 +153,65 @@
          */
         void sliderValueChanged(juce::Slider* sliderChanged) override;
 
+        /** @brief                  A function to set the minimum distance to which the slider
+         *                          may be set to.
+         *  @param  distance        The floating point representation of the minimum distance.
+         */
+        void setMinimumDistance(float distance);
+
+        /** @brief                  A function to get the current minimum distance to which the
+         *                          slider may be set to.
+         *  @retval                 The floating point representaion of the minimum distance the
+         *                          slider is currently set to.
+         */
+        float getMinimumDistance(void);
+        
+        /** @brief                  A function to set the maximum distance to which the slider
+         *                          may be set to.
+         *  @param  distance        The floating point representation of the maximum distance.
+         */
+        void setMaximumDistance(float distance);
+
+        /** @brief                  A function to get the current maximum distance to which the
+         *                          slider may be set to.
+         *  @retval                 The floating point representaion of the maximum distance the
+         *                          slider is currently set to.
+         */
+        float getMaximumDistance(void);
+        
+        /** @brief                  A function to set the minimum step to which the slider
+         *                          may be moved by the user.
+         *  @param  step            The floating point representation of the minimum step.
+         */
+        void setStepDistance(float step);
+
+        /** @brief                  A function to get the current minimum distance to which the
+         *                          slider may be moved by the user (step size or interval).
+         *  @retval                 The floating point representaion of the minimum distance the
+         *                          slider can currently be moved by.
+         */
+        float getStepDistance(void);
+
+        /** @brief                  A function to set the minimum range between the maximum and
+         *                          minimum fingers on the slider.
+         *  @param  range           The floating point representation of the minimum range.
+         */
+        void setDistanceRange(float range);
+
+        /** @brief                  A function to get the current minimum distance to which the
+         *                          sliders lower finger may be away from the higher finger.
+         *  @retval                 The floating point representaion of the minimum distance the
+         *                          between the slider fingers.
+         */
+        float getDistanceRange(void);
+
     private:
+        /*  Creating an instance of the CalibrationSliderLookAndFeel
+            class which will later be applied to the slider to look
+            like a trombone being actuated to its full length. */
+        CalibrationSliderLookAndFeel LandF;
+
+
         /*  Sets the minimum distance the users hand may be from the Tromboneless for it to
             be detected and counted as a position on the pitch bend. */
         float minimumDistance = 5;

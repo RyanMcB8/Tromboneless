@@ -1,4 +1,13 @@
 var searchData=
 [
-  ['resized_0',['resized',['../classLayout.html#ace00518b85cff7055509d7517c9340e9',1,'Layout::resized()'],['../classDropDownMenus.html#a647f0a2d6f08c2b8598acd560b0ef191',1,'DropDownMenus::resized()'],['../classSliderWithLabel.html#a8bafb51b5a3f26ecce9b6052ef470511',1,'SliderWithLabel::resized()'],['../classDualRotarySlider.html#ae41130a459061a74df75c3d2a75696ae',1,'DualRotarySlider::resized()'],['../classEqualizer.html#a13ce26627bc000f883fceb7fcce46a24',1,'Equalizer::resized()'],['../classDropDownMenu.html#af9677864aa76f756ea76bc0081a7f434',1,'DropDownMenu::resized()'],['../classCalibrationOnClick.html#aff5da726e335398bcb807ef53214ae6a',1,'CalibrationOnClick::resized()'],['../classCalibrateEmbouchure.html#adafc772c47e0473b4ce6901ff34392df',1,'CalibrateEmbouchure::resized()']]]
+  ['paint_0',['paint',['../class_layout.html#a1928c3c94ff880bd1ca446a6f0991d05',1,'Layout::paint()'],['../class_panels.html#a0dbc535bb34f716890ef0c30911f39af',1,'Panels::paint()'],['../class_barometer.html#a9cde3aede799c7b81c5a9836865c05a5',1,'Barometer::paint()']]],
+  ['paintarc_1',['PaintArc',['../_custom_styles_8hpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp'],['../_custom_styles_8cpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp']]],
+  ['painttrombone_2',['PaintTrombone',['../_custom_styles_8hpp.html#a7cb6053776bd4ad715007c2eeafaeabc',1,'PaintTrombone(float x=300, float y=300, float width=50, float height=20, bool incPipes=true):&#160;CustomStyles.cpp'],['../_custom_styles_8cpp.html#a00af11f5a0b4e5fcf2da53abf56d497b',1,'PaintTrombone(float x, float y, float width, float height, bool incPipes):&#160;CustomStyles.cpp']]],
+  ['panels_3',['Panels',['../class_panels.html#a0144464dbf363ac1cae6a6c1d978d526',1,'Panels']]],
+  ['pitchbend_4',['pitchBend',['../class_midi_message_builder.html#a3569350d0a22a4dc1165bb475d9b52e7',1,'MidiMessageBuilder']]],
+  ['playingfrequency_5',['PlayingFrequency',['../class_octaves.html#ab77d9f9b4116757b6968606040af1c8c',1,'Octaves']]],
+  ['playingfrequencywithharmonics_6',['PlayingFrequencyWithHarmonics',['../class_octaves_with_harmonics.html#a4b66d3a6df6849de730aad0966330f41',1,'OctavesWithHarmonics']]],
+  ['playingnote_7',['PlayingNote',['../class_octaves.html#a023ab71a119c0bc8bb8c6c4919f0064f',1,'Octaves']]],
+  ['playingnotewithharmonics_8',['PlayingNoteWithHarmonics',['../class_octaves_with_harmonics.html#a80740c914b3cdda4e8cf4c8b194b623a',1,'OctavesWithHarmonics']]],
+  ['pressureedge_9',['PressureEdge',['../class_midi_coordinator.html#a976574199acbe5928d87286fb03bb321',1,'MidiCoordinator']]]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['empty_0',['empty',['../classMidiMessage.html#a11252b0c764da81cc28e31c3bf3cb031',1,'MidiMessage']]],
-  ['endenvelope_1',['EndEnvelope',['../classEnvelope.html#a05262c2cb0ca05d344b0d89c4ca9ee59',1,'Envelope']]],
-  ['endnote_2',['EndNote',['../classOctaves.html#abcafe3ff87ac22860e5a5004f01ddf0f',1,'Octaves']]],
-  ['endnotewithharmonics_3',['EndNoteWithHarmonics',['../classOctavesWithHarmonics.html#a4d6d82460255f5f8d4a8cb80881babb2',1,'OctavesWithHarmonics']]],
-  ['envelope_4',['Envelope',['../classEnvelope.html#a296b9c69b4446c477432d1bdc7d3a702',1,'Envelope']]],
-  ['equalizer_5',['Equalizer',['../classEqualizer.html#a504d4d05b8bf5494f8c139c0229fba97',1,'Equalizer']]]
+  ['empty_0',['empty',['../class_midi_message.html#a11252b0c764da81cc28e31c3bf3cb031',1,'MidiMessage']]],
+  ['endenvelope_1',['endEnvelope',['../class_envelope.html#a95539483aafeb8ecdbeecf5ebf14c09f',1,'Envelope']]],
+  ['envelope_2',['Envelope',['../class_envelope.html#a4a2ea654b4be00d5c64921ebecb880bf',1,'Envelope']]],
+  ['equalizer_3',['Equalizer',['../class_equalizer.html#a504d4d05b8bf5494f8c139c0229fba97',1,'Equalizer']]],
+  ['equalizerpanel_4',['EqualizerPanel',['../class_equalizer_panel.html#a43eae87142c4629afe876fb54ebc7908',1,'EqualizerPanel']]],
+  ['eventhandler_5',['EventHandler',['../class_event_handler.html#ae685941e8382c8acbd37ac1d5402af23',1,'EventHandler']]]
 ];

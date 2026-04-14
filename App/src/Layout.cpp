@@ -1,16 +1,21 @@
+/** @file       Layout.cpp
+ *  @author     Ryan McBride
+ *  @brief      This file holds the defintions of all functions and variables
+ *              needed by the Tromboneless project to define the layout of the
+ *              window which is being displayed to the end user.
+ */
+
+ /* Adding the necessary header files. */
 #include "Layout.hpp"
 #include "Widgets.hpp"
 #include "Panels.hpp"
 
-// #include <fcntl.h>
+/* Adding the necessary libraries. */
 #include <errno.h>
 #include <unistd.h>
-
 #include <stdexcept>
 #include <string>
 #include <system_error>
-
-#include "tromboneless_data.hpp"
 
 Layout::Layout()
 {
@@ -18,29 +23,16 @@ Layout::Layout()
     setSize (1200, 700);
 
     /* ============================== Creation of a dropdown menu that provides options for shift keying ============================== */
-    
     addAndMakeVisible (dropDownMenus);
 
     /* ============================== Creation of slider for the maximum and minimum ranges. ============================== */
     addAndMakeVisible (sliders);
 
-
     /* ============================== Creation of slider for adjusting maximum and minimum pressure amplitude. ============================== */
-    /* Slider */
     addAndMakeVisible (pressureSlider);
-
-    // addAndMakeVisible(calibrateEmbouchure);
-
 
     /* ============================== Creation of slider for adjusting gains for each frequency band. ============================== */
     addAndMakeVisible (equalizer);
-}
-
-Layout::~Layout()
-{
-    // distanceSlider.slider.removeListener(this);
-    // distanceSlider.slider.setLookAndFeel(nullptr);
-    return;
 }
 
 
@@ -99,39 +91,6 @@ void Layout::resized()
         equalizer.setBounds(equalizerBounds);
     }
 
-
-}
-
-bool Layout::keyPressed(const juce::KeyPress& key)
-{
-    if (key == juce::KeyPress::spaceKey)
-    {
-        return true;  // Key was handled
-    }
-    return false;  // Key was not handled
-}
-
-void Layout::sliderValueChanged (juce::Slider* slider) 
-{
-    /* Calibrated distance has changed. */
-    if (slider == &sliders.distanceSlider.slider){
-        trombonelessParameters.nearDistance = sliders.distanceSlider.slider.getMinValue();
-        trombonelessParameters.farDistance = sliders.distanceSlider.slider.getMaxValue();
-#ifdef DBG_MSG
-        std::cout << "DistanceSlider min:" <<  trombonelessParameters.nearDistance << "\n";
-        std::cout << "DistanceSlider max:" <<  trombonelessParameters.farDistance << "\n";
-#endif
-    }
-
-    /* Calibrated pressure has changed. */
-    // else if (slider == &pressureSlider.slider){
-    //     trombonelessParameters.lowPressure = pressureSlider.slider.getMinValue();
-    //     trombonelessParameters.highPressure = pressureSlider.slider.getMaxValue();
-#ifdef DBG_MSG
-        std::cout << "PressureSlider min:" <<  trombonelessParameters.lowPressure << "\n";
-        std::cout << "PressureSlider max:" <<  trombonelessParameters.highPressure << "\n";
-#endif
-    // }
 
 }
 

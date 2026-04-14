@@ -48,7 +48,7 @@
 /Core/build/
 
 # ignoring vscode settings
-*.vscode*
+.vscode/
 
 # ignoring CMake files excluding CMakeLists
 *CMakeCache.txt
@@ -57,3 +57,9 @@
 # ignoring the app side build
 App/build/
 App/JUCE
+.vscode
+.vscode/settings.json
+.vscode/
+
+#ignoring cmake testing
+*/Testing/*

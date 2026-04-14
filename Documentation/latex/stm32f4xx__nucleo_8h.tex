@@ -1,0 +1,125 @@
+\doxysection{C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+external/\+\+STSW-\/\+IMG009/\+\+STSW-\/\+IMG009\+\_\+v3.5.5/\+\+Example/\+\+Drivers/\+\+BSP/\+\+STM32\+F4xx-\/\+Nucleo/\+stm32f4xx\+\_\+nucleo.h File Reference}
+\hypertarget{stm32f4xx__nucleo_8h}{}\label{stm32f4xx__nucleo_8h}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/STM32F4xx-\/Nucleo/stm32f4xx\_nucleo.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/BSP/STM32F4xx-\/Nucleo/stm32f4xx\_nucleo.h}}
+
+
+This file contains definitions for:\+  
+
+
+{\ttfamily \+\#include "{}stm32f4xx\+\_\+hal.\+h"{}}\newline
+Include dependency graph for stm32f4xx\+\_\+nucleo.\+h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{stm32f4xx__nucleo_8h_aff61e80dee781d9163cfb51f3e0c7b69}\label{stm32f4xx__nucleo_8h_aff61e80dee781d9163cfb51f3e0c7b69} 
+\+\#define {\bfseries ADAFRUIT\+\_\+\+TFT\+\_\+\+JOY\+\_\+\+SD\+\_\+\+ID802}
+\item 
+\+\#define {\bfseries USE\+\_\+\+STM32\+F4\+XX\+\_\+\+NUCLEO}
+\begin{DoxyCompactList}\small\item\em Define for STM32\+F4\+XX\+\_\+\+NUCLEO board. \end{DoxyCompactList}\item 
+\+\#define {\bfseries LEDn}~1
+\item 
+\+\#define {\bfseries LED2\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+5
+\item 
+\+\#define {\bfseries LED2\+\_\+\+GPIO\+\_\+\+PORT}~GPIOA
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___l_e_d_ga810e6c23b9a3e66da601b0058ec7a245}{LED2\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___l_e_d_ga57f4d9343f3fe6d94d83ab2cb45c7d75}{LED2\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___l_e_d_ga32faaf3f04d44e7eddce1d781587fc57}{LEDx\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+ENABLE}}(\+\_\+\+\_\+\+INDEX\+\_\+\+\_\+)
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___l_e_d_gaced1ef8f2a770d8c516ebc499b291df1}{LEDx\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+DISABLE}}(\+\_\+\+\_\+\+INDEX\+\_\+\+\_\+)
+\item 
+\+\#define {\bfseries BUTTONn}~1
+\item 
+\+\#define {\bfseries USER\+\_\+\+BUTTON\+\_\+\+PIN}~GPIO\+\_\+\+PIN\+\_\+13
+\begin{DoxyCompactList}\small\item\em Key push-\/button. \end{DoxyCompactList}\item 
+\+\#define {\bfseries USER\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+PORT}~GPIOC
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_gaa1f35ca26b42710d057661b54ace7d82}{USER\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_ga71af1d1eec8f8b424b72f625abaad282}{USER\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define {\bfseries USER\+\_\+\+BUTTON\+\_\+\+EXTI\+\_\+\+LINE}~GPIO\+\_\+\+PIN\+\_\+13
+\item 
+\+\#define {\bfseries USER\+\_\+\+BUTTON\+\_\+\+EXTI\+\_\+\+IRQn}~\doxymbox{\hyperlink{group___peripheral__interrupt__number__definition_gga7e1129cd8a196f4284d41db3e82ad5c8a9fb0ad0c850234d1983fafdb17378e2f}{EXTI15\+\_\+10\+\_\+\+IRQn}}
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_gaa397abaece51f4d7aafb07fd79640f3e}{BUTTONx\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+ENABLE}}(\+\_\+\+\_\+\+INDEX\+\_\+\+\_\+)
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_gaf44f31971ce49524d0243b8e37048b8f}{BUTTONx\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+DISABLE}}(\+\_\+\+\_\+\+INDEX\+\_\+\+\_\+)
+\item 
+\+\#define {\bfseries KEY\+\_\+\+BUTTON\+\_\+\+PIN}~\doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_ga34df6915e3013d6a0c74131d3946b659}{USER\+\_\+\+BUTTON\+\_\+\+PIN}}
+\item 
+\+\#define {\bfseries KEY\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+PORT}~USER\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+PORT
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_ga6237d656da42b750f63cbf3e329096d5}{KEY\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___b_u_t_t_o_n_gacf1a6a3b79ec610401d7ffbc1b6115d4}{KEY\+\_\+\+BUTTON\+\_\+\+GPIO\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define {\bfseries KEY\+\_\+\+BUTTON\+\_\+\+EXTI\+\_\+\+LINE}~USER\+\_\+\+BUTTON\+\_\+\+EXTI\+\_\+\+LINE
+\item 
+\+\#define {\bfseries KEY\+\_\+\+BUTTON\+\_\+\+EXTI\+\_\+\+IRQn}~USER\+\_\+\+BUTTON\+\_\+\+EXTI\+\_\+\+IRQn
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_gaa059704b7ca945eb9c1e7f2c3d03fecd}\label{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_gaa059704b7ca945eb9c1e7f2c3d03fecd} 
+enum {\bfseries Led\+\_\+\+Type\+Def} \{ {\bfseries LED2} = 0
+ \}
+\item 
+\Hypertarget{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_ga643816dfbad5c734fc25a29ce8d35bb1}\label{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_ga643816dfbad5c734fc25a29ce8d35bb1} 
+enum {\bfseries Button\+\_\+\+Type\+Def} \{ {\bfseries BUTTON\+\_\+\+USER} = 0
+, {\bfseries BUTTON\+\_\+\+KEY} = BUTTON\+\_\+\+USER
+ \}
+\item 
+\Hypertarget{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_ga48825b7c7d851c440ef8e808fd9d8f0a}\label{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_ga48825b7c7d851c440ef8e808fd9d8f0a} 
+enum {\bfseries Button\+Mode\+\_\+\+Type\+Def} \{ {\bfseries BUTTON\+\_\+\+MODE\+\_\+\+GPIO} = 0
+, {\bfseries BUTTON\+\_\+\+MODE\+\_\+\+EXTI} = 1
+ \}
+\item 
+\Hypertarget{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_ga7466d9ae142b713772373c9ddfc90332}\label{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___types_ga7466d9ae142b713772373c9ddfc90332} 
+enum {\bfseries JOYState\+\_\+\+Type\+Def} \{ \newline
+{\bfseries JOY\+\_\+\+NONE} = 0
+, {\bfseries JOY\+\_\+\+SEL} = 1
+, {\bfseries JOY\+\_\+\+DOWN} = 2
+, {\bfseries JOY\+\_\+\+LEFT} = 3
+, \newline
+{\bfseries JOY\+\_\+\+RIGHT} = 4
+, {\bfseries JOY\+\_\+\+UP} = 5
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga65d13608f7010a8068614154cb142cd6}{BSP\+\_\+\+Get\+Version}} (void)
+\begin{DoxyCompactList}\small\item\em This method returns the STM32\+F4xx NUCLEO BSP Driver revision. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gab58a4f16a476a53653c5c400e3bed158}{BSP\+\_\+\+LED\+\_\+\+Init}} (Led\+\_\+\+Type\+Def Led)
+\begin{DoxyCompactList}\small\item\em Configures LED GPIO. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga8cb1d5b32557d492b8bf0f7109bd6d3f}{BSP\+\_\+\+LED\+\_\+\+De\+Init}} (Led\+\_\+\+Type\+Def Led)
+\begin{DoxyCompactList}\small\item\em De\+Init LEDs. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gaee9c16b16384834c69efabf58f423d6f}{BSP\+\_\+\+LED\+\_\+\+On}} (Led\+\_\+\+Type\+Def Led)
+\begin{DoxyCompactList}\small\item\em Turns selected LED On. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gaef268680154ca15c45066d64d41f9467}{BSP\+\_\+\+LED\+\_\+\+Off}} (Led\+\_\+\+Type\+Def Led)
+\begin{DoxyCompactList}\small\item\em Turns selected LED Off. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga1b9eabba7d498f41d6f16587ec0f9732}{BSP\+\_\+\+LED\+\_\+\+Toggle}} (Led\+\_\+\+Type\+Def Led)
+\begin{DoxyCompactList}\small\item\em Toggles the selected LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gad31c8db50a71c1f6dbfe132d72ba0bc6}{BSP\+\_\+\+PB\+\_\+\+Init}} (Button\+\_\+\+Type\+Def Button, Button\+Mode\+\_\+\+Type\+Def Button\+Mode)
+\begin{DoxyCompactList}\small\item\em Configures Button GPIO and EXTI Line. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_gac1bd746e7f6037d50ca3784ebe05686e}{BSP\+\_\+\+PB\+\_\+\+De\+Init}} (Button\+\_\+\+Type\+Def Button)
+\begin{DoxyCompactList}\small\item\em Push Button De\+Init. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \doxymbox{\hyperlink{group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___exported___functions_ga8f0978b6cffda9c67266ddfdb3a0abf7}{BSP\+\_\+\+PB\+\_\+\+Get\+State}} (Button\+\_\+\+Type\+Def Button)
+\begin{DoxyCompactList}\small\item\em Returns the selected Button state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains definitions for:\+ 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team
+\begin{DoxyItemize}
+\item LEDs and push-\/button available on STM32\+F4\+XX-\/\+Nucleo Kit from STMicroelectronics
+\item LCD, joystick and micro\+SD available on Adafruit 1.\+8"{} TFT LCD             shield (reference ID 802)  @attention  $<$h2$>$$<$center$>$\copyright{} COPYRIGHT(c) 2017 STMicroelectronics$<$/\+center$>$$<$/\+h2$>$  \+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\+   1. Redistributions of source code must retain the above copyright notice,      this list of conditions and the following disclaimer.   2. Redistributions in binary form must reproduce the above copyright notice,      this list of conditions and the following disclaimer in the documentation      and/\+or other materials provided with the distribution.   3. Neither the name of STMicroelectronics nor the names of its contributors      may be used to endorse or promote products derived from this software      without specific prior written permission.  \+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{} AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+\end{DoxyItemize}
+\end{DoxyAuthor}

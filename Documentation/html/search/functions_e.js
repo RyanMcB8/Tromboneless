@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['verticalmixslider_0',['verticalMixSlider',['../classverticalMixSlider.html#a64196197ca6240b83ad300ea23fe1f1c',1,'verticalMixSlider']]]
+  ['trombonesynth_0',['TromboneSynth',['../class_trombone_synth.html#ace1f00c513be279271cb58c3e6926e17',1,'TromboneSynth']]]
 ];

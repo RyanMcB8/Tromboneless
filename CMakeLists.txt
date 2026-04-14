@@ -12,5 +12,5 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Enabling the unit tests:
 enable_testing()
 
-add_subdirectory(${PROJECT SOURCE_DIR}/Core)
-add_subdirectory(${PROJECT SOURCE_DIR}/App)
+add_subdirectory(${PROJECT_SOURCE_DIR}/Core)
+#add_subdirectory(${PROJECT_SOURCE_DIR}/App)

@@ -1,0 +1,308 @@
+\doxysection{Octaves\+With\+Harmonics Class Reference}
+\hypertarget{class_octaves_with_harmonics}{}\label{class_octaves_with_harmonics}\index{OctavesWithHarmonics@{OctavesWithHarmonics}}
+
+
+A class which inherits functions and variables from the {\ttfamily \doxylink{class_octaves}{Octaves}} class allowing for the notes being output to have a set of harmonic frequencies attached to them too.  
+
+
+
+
+{\ttfamily \+\#include $<$synth.\+hpp$>$}
+
+
+
+Inheritance diagram for Octaves\+With\+Harmonics:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{class_octaves_with_harmonics__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Octaves\+With\+Harmonics:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{class_octaves_with_harmonics__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_octaves_with_harmonics_aed7ad26de7c252c787b11d1a88b6cb30}\label{class_octaves_with_harmonics_aed7ad26de7c252c787b11d1a88b6cb30} 
+{\bfseries Octaves\+With\+Harmonics} ()
+\begin{DoxyCompactList}\small\item\em Creates an instance of the {\ttfamily \doxylink{class_octaves_with_harmonics}{Octaves\+With\+Harmonics}}. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_octaves_with_harmonics_a80740c914b3cdda4e8cf4c8b194b623a}{Playing\+Note\+With\+Harmonics}} (int n, int octave, \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
+\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_octaves_with_harmonics_a4b66d3a6df6849de730aad0966330f41}{Playing\+Frequency\+With\+Harmonics}} (int n, float phase)
+\begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_octaves_with_harmonics_af9d14fab35feae14d4ce9f14f2080324}{Harmonic\+Decay}} (int n)
+\begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_octaves_with_harmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{get\+Harmomic\+Decay\+Max}} (int n)
+\begin{DoxyCompactList}\small\item\em A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_octaves_with_harmonics_ab7e6deb44d098e704519df09bbd189e9}{set\+Decay\+Constant}} (float decayC)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_octaves_with_harmonics_a617c4acb3379692aa05736cf9747b87b}{get\+Decay\+Constant}} (void)
+\begin{DoxyCompactList}\small\item\em A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_octaves}{Octaves}}}
+\begin{DoxyCompactItemize}
+\item 
+float \doxymbox{\hyperlink{class_octaves_a023ab71a119c0bc8bb8c6c4919f0064f}{Playing\+Note}} (int octave, \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified phase. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_octaves_ab77d9f9b4116757b6968606040af1c8c}{Playing\+Frequency}} (float phase)
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified frequency at a specified time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{class_notes}{Notes}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_notes_ae11cec41480227782d457e4829d5a06f}{Notes}} (float C\+\_\+in=16.\+35, float Db\+\_\+in=17.\+32, float D\+\_\+in=18.\+35, float Eb\+\_\+in=19.\+45, float E\+\_\+in=20.\+60, float F\+\_\+in=21.\+83, float Gb\+\_\+in=23.\+12, float G\+\_\+in=24.\+50, float Ab\+\_\+in=25.\+96, float A\+\_\+in=27.\+50, float Bb\+\_\+in=29.\+14, float B\+\_\+in=30.\+87)
+\begin{DoxyCompactList}\small\item\em Constructor for the {\ttfamily \doxylink{class_notes}{Notes}} class to create a new set of notes and assign specified frequencies to each. Each frequency is set to {\ttfamily Octave 0} by default. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a1c9383818919d511ea9299d6ab7afa2f}{setC}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the C note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a0a98769073819861f78bf78a5d95ab5a}{set\+C\+\_\+sharp}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the C\# note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a68a89e6e4d3bf6e41e9f91777f19dd0a}{set\+Db}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Db note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a8f72cc825ba0afda8fa2b68ff0500a69}{setD}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the D note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_abc39d5043dc8c8a49c39ff9a896a6cb6}{set\+D\+\_\+sharp}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the D\# note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a9c25afb38701d1ffc11b26d33653de4c}{set\+Eb}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Eb note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_ae959ad0889a5d45715d5c7482707c2ef}{setE}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the E note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_ac070bd5a7176dff547c6b6ee90a36b3b}{setF}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the F note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_ab7725bfa84744f9f3d56f1bc764b76b3}{set\+F\+\_\+sharp}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the F\# note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_acc37567c8e40bc527e33ba1a48f9a871}{set\+Gb}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Gb note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_af875b2e96125592242dd1d6450b183c9}{setG}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the G note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a8663bd612ca09569fc1ecbb4efacdf1a}{set\+G\+\_\+sharp}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the G\# note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_abca3eb1323651b1294797f2b72caba7c}{set\+Ab}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Ab note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a04c47164cb0f449420fc0dbff35c405e}{setA}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the A note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a2768afc7543a3e382d7c302d992e920e}{set\+A\+\_\+sharp}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the A\# note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_ae65f2258ff7ad7714a0dc2ddb2d4c4a5}{set\+Bb}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Bb note plays. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_notes_a9073e06b45bf747f29dab9eae21eec76}{setB}} (float frequency)
+\begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the B note plays. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (\doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float freq)
+\begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to alter the frequency of a specific note based upon the \doxylink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t} enumerated values rather than specifying a function call. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a69625a0a056e70309af328d42b2bf86e}{getC}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the C note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a93c45ae9f68a5ac0d9a477c62ba3e9f0}{get\+C\+\_\+sharp}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the C\# note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a91f441551add80a7107bd711f84843e2}{get\+Db}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Db note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a502adf6efaab7e823fddfd37815143b4}{getD}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the D note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_ac4110d614686b1c27372d8ae6a67c147}{get\+D\+\_\+sharp}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the D\# note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_aa17abf1182c5fea036ce31f931c34173}{get\+Eb}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Eb note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_abbf33c11e758d7a328eab1827afac4a6}{getE}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the E note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a61b35c753de1fdb9b79af0a9c608a4c9}{getF}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the F note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_ab3f08228e302766e7774e1a8f9b745e4}{get\+F\+\_\+sharp}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the F\# note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a311fdefd787800b894d716e1c3eba95d}{get\+Gb}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Gb note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a11f96dd3199adab61b4414532053c193}{getG}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the G note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_aeca30d05da5cf190f297b8d8ec396d55}{get\+G\+\_\+sharp}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the G\# note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_af8b381f1234fe9d08c49bf3f4754de3d}{get\+Ab}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Ab note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a4164d3038052c4d3e8f4dbf830e9c9bb}{getA}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the A note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_ae07a0a1815aefd649d95dc98a475ebc7}{get\+A\+\_\+sharp}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the A\# note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_aba2f8ad19fc1b28a8a5e9f2e1941e881}{get\+Bb}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Bb note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a192de65337df2408c3e56ca10a4c4c10}{getB}} (void)
+\begin{DoxyCompactList}\small\item\em A function that returns the frequency of the B note for the specified object. \end{DoxyCompactList}\item 
+float \doxymbox{\hyperlink{class_notes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (\doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note)
+\begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to request a specific note based upon the \doxylink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t} enumerated values rather than specifying a function call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \doxymbox{\hyperlink{class_notes}{Notes}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}\label{class_notes_a8734fb9c1094a3becd78fe783ad43c0c} 
+enum \doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} \{ \newline
+{\bfseries note\+\_\+C}
+, {\bfseries note\+\_\+\+Db}
+, {\bfseries note\+\_\+D}
+, {\bfseries note\+\_\+\+Eb}
+, \newline
+{\bfseries note\+\_\+E}
+, {\bfseries note\+\_\+F}
+, {\bfseries note\+\_\+\+Gb}
+, {\bfseries note\+\_\+G}
+, \newline
+{\bfseries note\+\_\+\+Ab}
+, {\bfseries note\+\_\+A}
+, {\bfseries note\+\_\+\+Bb}
+, {\bfseries note\+\_\+B}
+, \newline
+{\bfseries note\+\_\+\+C\+\_\+sharp} = note\+\_\+\+Db
+, {\bfseries note\+\_\+\+D\+\_\+sharp} = note\+\_\+\+Eb
+, {\bfseries note\+\_\+\+F\+\_\+sharp} = note\+\_\+\+Gb
+, {\bfseries note\+\_\+\+G\+\_\+sharp} = note\+\_\+\+Ab
+, \newline
+{\bfseries note\+\_\+\+A\+\_\+sharp} = note\+\_\+\+Bb
+ \}
+\begin{DoxyCompactList}\small\item\em Creation of the enumerated list of possible notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \doxymbox{\hyperlink{class_octaves}{Octaves}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_notes}{Notes}} {\bfseries octaves} \+[\doxymbox{\hyperlink{class_octaves_aab55dc1e4e61330511e61c2c302ada6e}{n\+Octaves}}]\+
+\begin{DoxyCompactList}\small\item\em Initialising an array of the octaves and their notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \doxymbox{\hyperlink{class_octaves}{Octaves}}}
+\begin{DoxyCompactItemize}
+\item 
+static const char {\bfseries n\+Octaves} = 9
+\begin{DoxyCompactList}\small\item\em Stores the number of octaves being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which inherits functions and variables from the {\ttfamily \doxylink{class_octaves}{Octaves}} class allowing for the notes being output to have a set of harmonic frequencies attached to them too. 
+
+\label{doc-func-members}
+\Hypertarget{class_octaves_with_harmonics_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_octaves_with_harmonics_a617c4acb3379692aa05736cf9747b87b}\index{OctavesWithHarmonics@{OctavesWithHarmonics}!getDecayConstant@{getDecayConstant}}
+\index{getDecayConstant@{getDecayConstant}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{getDecayConstant()}{getDecayConstant()}}
+{\footnotesize\ttfamily \label{class_octaves_with_harmonics_a617c4acb3379692aa05736cf9747b87b} 
+float Octaves\+With\+Harmonics::\+get\+Decay\+Constant (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the decay constant. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_octaves_with_harmonics_a278ebf6d96d2a86441eb6d1348aa5d13}\index{OctavesWithHarmonics@{OctavesWithHarmonics}!getHarmomicDecayMax@{getHarmomicDecayMax}}
+\index{getHarmomicDecayMax@{getHarmomicDecayMax}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{getHarmomicDecayMax()}{getHarmomicDecayMax()}}
+{\footnotesize\ttfamily \label{class_octaves_with_harmonics_a278ebf6d96d2a86441eb6d1348aa5d13} 
+float Octaves\+With\+Harmonics::\+get\+Harmomic\+Decay\+Max (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of harmonics \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & maximum amplitude possible as a floating point value. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_octaves_with_harmonics_af9d14fab35feae14d4ce9f14f2080324}\index{OctavesWithHarmonics@{OctavesWithHarmonics}!HarmonicDecay@{HarmonicDecay}}
+\index{HarmonicDecay@{HarmonicDecay}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{HarmonicDecay()}{HarmonicDecay()}}
+{\footnotesize\ttfamily \label{class_octaves_with_harmonics_af9d14fab35feae14d4ce9f14f2080324} 
+float Octaves\+With\+Harmonics::\+\+Harmonic\+Decay (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The harmonic which is being used. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & a floating point value which represents the ratio of amplitudes. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+This function needs to be modified to better match the relationship between the frequency and the decay rate over the various harmonic frequencies. 
+\end{DoxyNote}
+\Hypertarget{class_octaves_with_harmonics_a4b66d3a6df6849de730aad0966330f41}\index{OctavesWithHarmonics@{OctavesWithHarmonics}!PlayingFrequencyWithHarmonics@{PlayingFrequencyWithHarmonics}}
+\index{PlayingFrequencyWithHarmonics@{PlayingFrequencyWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{PlayingFrequencyWithHarmonics()}{PlayingFrequencyWithHarmonics()}}
+{\footnotesize\ttfamily \label{class_octaves_with_harmonics_a4b66d3a6df6849de730aad0966330f41} 
+float Octaves\+With\+Harmonics::\+\+Playing\+Frequency\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{float}]{phase}{}\end{DoxyParamCaption})}
+
+
+
+A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & The frequency in Hz that should be played. \\
+\hline
+{\em time} & The amount of time the signal has been playing. This corresponds to the phase that the waveform is at. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em This} & function will return a floating point value representing the normalised changed amplitude of the sigal at that point in time. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{class_octaves_with_harmonics_a80740c914b3cdda4e8cf4c8b194b623a}\index{OctavesWithHarmonics@{OctavesWithHarmonics}!PlayingNoteWithHarmonics@{PlayingNoteWithHarmonics}}
+\index{PlayingNoteWithHarmonics@{PlayingNoteWithHarmonics}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{PlayingNoteWithHarmonics()}{PlayingNoteWithHarmonics()}}
+{\footnotesize\ttfamily \label{class_octaves_with_harmonics_a80740c914b3cdda4e8cf4c8b194b623a} 
+float Octaves\+With\+Harmonics::\+\+Playing\+Note\+With\+Harmonics (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{int}]{octave}{, }\item[{\doxymbox{\hyperlink{class_notes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}}}]{note}{, }\item[{float}]{phase}{}\end{DoxyParamCaption})}
+
+
+
+A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of harmonics which should be applied to the signal. \\
+\hline
+{\em octave} & The octave in which the first harmonic is in. \\
+\hline
+{\em note} & The note which is being played. \\
+\hline
+{\em phase} & The phase of the waveform at the time of sampling. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em This} & function will return a floating point value representing the normalised changed amplitude of the signal at that point in time. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+This function could be made to produce a much cleaner response by increasing the number of harmonics present and using non integer harmonics too. 
+\end{DoxyNote}
+\Hypertarget{class_octaves_with_harmonics_ab7e6deb44d098e704519df09bbd189e9}\index{OctavesWithHarmonics@{OctavesWithHarmonics}!setDecayConstant@{setDecayConstant}}
+\index{setDecayConstant@{setDecayConstant}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{setDecayConstant()}{setDecayConstant()}}
+{\footnotesize\ttfamily \label{class_octaves_with_harmonics_ab7e6deb44d098e704519df09bbd189e9} 
+void Octaves\+With\+Harmonics::\+set\+Decay\+Constant (\begin{DoxyParamCaption}\item[{float}]{decayC}{}\end{DoxyParamCaption})}
+
+
+
+A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em decayC} & The floating point value which the decay constant should be set to. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+include/\+\doxymbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+src/\+\doxymbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
