@@ -11,6 +11,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(WEBKIT REQUIRED webkit2gtk-4.1)
+find_package(CURL REQUIRED)
 
 # Generate compile_commands.json for better IntelliSense
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -57,6 +58,7 @@ target_link_libraries(TrombonelessAppLibrary
         juce::juce_gui_basics
         TrombonelessSharedLibrary
         ${GTK3_LIBRARIES}
+        CURL::libcurl
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
@@ -67,7 +69,7 @@ target_link_libraries(TrombonelessAppLibrary
 # ========================================
 
 target_include_directories(TrombonelessApp PRIVATE ${GTK3_INCLUDE_DIRS})
-target_link_libraries(TrombonelessApp PRIVATE TrombonelessAppLibrary ${GTK3_LIBRARIES})
+target_link_libraries(TrombonelessApp PUBLIC TrombonelessAppLibrary CURL::libcurl ${GTK3_LIBRARIES})
 target_compile_options(TrombonelessApp PRIVATE ${GTK3_CFLAGS_OTHER})
 
 # ========================================
