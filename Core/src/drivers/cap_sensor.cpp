@@ -119,10 +119,10 @@ bool CAP1188::initialise()
     sensor_cfg1 &= 0xF0;
     bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
 
-    // Disable interrupt on touch release
+    // Enable interrupt on touch release
     uint8_t sensor_cfg2;
     bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
-    sensor_cfg2 |= 0x01;
+    sensor_cfg2 |= 0x00;
     bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
 
     // Lowest sensitivity = 111b or 7
@@ -178,6 +178,7 @@ void CAP1188::stop(){
 
     // Stop sensor measurements
 
+
     // Release GPIO resources
     if (request_)
         request_->release();
@@ -218,6 +219,7 @@ void CAP1188::handleDataReady()
     if (cap1188CallbackInterface_)
         cap1188CallbackInterface_(delta);
 }
+
 
 // Touched Pins
 std::array<bool, 8> CAP1188::touched_pins(){
@@ -393,8 +395,6 @@ void CAP1188::disableStandby()
 
 void CAP1188::clearInterrupt()
 {
-    uint8_t status = 0;
-    bus_.readBlock8(address_, CAP1188_REG_MAIN_CTRL, &status, 1);
-    status &= ~CAP1188_MAIN_INT_BIT;
-    bus_.writeBlock8(address_, CAP1188_REG_MAIN_CTRL, &status, 1);
+    uint8_t clear = 0x00;
+    bus_.writeBlock8(address_, CAP1188_REG_MAIN_CTRL, &clear, 1);
 }
