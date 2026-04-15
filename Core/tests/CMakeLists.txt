@@ -62,8 +62,9 @@ target_sources(TrombonelessCoreTests PRIVATE
 
 link_directories("/usr/local/lib/")
 target_link_libraries(TrombonelessCoreTests PRIVATE
-    asound    
-    libgpiodcxx.a
+    asound   
+    gpiod 
+    gpiodcxx
 )
 
 target_compile_definitions(TrombonelessCoreTests PRIVATE __LINUX_ALSA__)

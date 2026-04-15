@@ -38,7 +38,7 @@ public:
             strength = 34; // Bb1
         else
             strength = 0;
-        //std::cout << strength << std::endl;
+        std::cout << "Strength: " << strength << "\tDelta: " << static_cast<int>(delta) << std::endl;
         return strength;
     }
 };
@@ -91,7 +91,7 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::PressureReading:
-                    //std::cout << event.pressureReading << std::endl;
+
                     if (event.pressureReading > 0.0035f && pressure_gate == false) {
                         coordinator.PressureEdge(true);
                         pressure_gate = true;
@@ -106,7 +106,7 @@ int main() {
                     if (current_note != new_note && new_note != 0) 
                     {
                         current_note = new_note;
-                       // std::cout << current_note << std::endl;
+                        std::cout << "\tCurrent note: " << current_note << std::endl;
                         coordinator.ChangeNote(current_note);
                     }
                     break;
