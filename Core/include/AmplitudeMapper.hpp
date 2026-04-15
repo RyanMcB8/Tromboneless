@@ -6,11 +6,11 @@
 class AmplitudeMapper {
     public:
         // Attributes
-        float pressureSample;
-        float latestExpr;
-        float bottomLimit = 100;
-        float upperLimit = 200;
-        bool noteOn;
+        float pressureSample = 0.0f;
+        float latestExpr = 0.0f;
+        float bottomLimit = 100.0f;
+        float upperLimit = 200.0f;
+        bool noteOn = false;
 
         // Subscriber of ADS1115 driver. 
         float getADS1115Sample(float v) {
@@ -19,18 +19,18 @@ class AmplitudeMapper {
         void getLatestExpr(float pressureSample) {
 
             latestExpr = pressureSample - bottomLimit;
-            latestExpr = latestExpr * (127/upperLimit);
+            latestExpr = latestExpr * 127.0f/upperLimit;
             if (latestExpr<0){
                 latestExpr = 0;
-                noteOn = 0;
+                noteOn = false;
             }
-            else if (latestExpr>127){
-                latestExpr = 127;
-                noteOn = 1;
+            else if (latestExpr>127.0f){
+                latestExpr = 127.0f;
+                noteOn = true;
             }
             else{
                 //latestExpr = latestExpr
-                noteOn = 1;
+                noteOn = true;
             }
         }
 
