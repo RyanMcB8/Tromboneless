@@ -1,18 +1,27 @@
+/** @file   hpp.MidiCoordinator
+ *  @author Aidan McIntosh
+ *  @brief  File to define high-level musical coordination behaviour.
+ *          Takes premapped sensor inputs and either internal 
+ *          or external synth.
+ */
+
 #pragma once
 #include "MidiMessage.hpp"
 #include "MidiMessageBuilder.hpp"
 #include "functional"
 #include "tromboneSynth.hpp"
 
-/**
- * @brief Class to coordinate Midi message construction based on output from sensor mappers.
- * This class is stateful and responsible for translating high-level sensor data into Midi messages using MidiMessageBuilder.
+/** @brief 
+ *          Class to coordinate Midi message construction based on output from sensor mappers.
+ *          This class is stateful and responsible for translating high-level sensor data into Midi messages.
+ *          Utilises MidiMessageBuilder for external synths and directly controls internal synth.
  */
-
-
 class MidiCoordinator{
     private:
-
+/** @brief Initialising downstream classes for constructing, storing and sending
+ *         MIDI messages to internal and external synths.
+ * 
+ */
         MidiMessage message;
         MidiMessageBuilder builder;
         TromboneSynth internal_synth;

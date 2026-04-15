@@ -75,6 +75,11 @@
          */
         void NewTromboneNoteMIDI(int MIDINote);
 
+        /** @brief                  A method to handle NoteOn messages as passed from
+         *                          the MIDI Coordinator.
+        */
+        void HandleMIDINoteOn(void);
+
         /** @brief                  A function to set the amount of time in milliseconds
          *                          that the attack stage takes.
          *  @param  attack_time     The time in milliseconds.

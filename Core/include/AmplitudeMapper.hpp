@@ -20,8 +20,8 @@ class AmplitudeMapper {
 
             latestExpr = pressureSample - bottomLimit;
             latestExpr = latestExpr * 127.0f/upperLimit;
-            if (latestExpr<0){
-                latestExpr = 0;
+            if (latestExpr<0.0f){
+                latestExpr = 0.0f;
                 noteOn = false;
             }
             else if (latestExpr>127.0f){
