@@ -48,7 +48,8 @@ void MidiCoordinator::ChangeNote(int note)
     {
         callback(builder.noteOn(1, latestNote, velocity));
         callback(builder.noteOff(1, currentNote, velocity));
-        currentNote = latestNote;
+        internal_synth.HandleMIDINoteOn(latestNote, currentNote);
+        internal_synth.HandleMIDINoteOff(currentNote);
     }
 }
 

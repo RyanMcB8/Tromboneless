@@ -75,6 +75,16 @@ void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
     octave = std::clamp(octave, 0, nOctaves - 1);
 }
 
+void TromboneSynth::HandleMIDINoteOn(int latestNote, int currentNote){
+    NewTromboneNoteMIDI(latestNote);
+    StartTromboneNote(note, octave);
+};
+
+void TromboneSynth::HandleMIDINoteOff(int currentNote){
+
+};
+
+
  void TromboneSynth::setAttackMS(float attack_time){
     attack_ms = attack_time;
     return;
