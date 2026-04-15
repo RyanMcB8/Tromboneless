@@ -6,6 +6,13 @@ project(TrombonelessApp VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Adding the necessary packages for juce to build.
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(WEBKIT REQUIRED webkit2gtk-4.1)
+find_package(CURL REQUIRED)
+
 # Generate compile_commands.json for better IntelliSense
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -29,10 +36,12 @@ add_library(TrombonelessAppLibrary STATIC ${APP_SOURCES})
 
 target_include_directories(TrombonelessAppLibrary PUBLIC
 ${PROJECT_SOURCE_DIR}/inc
+PRIVATE
+${GTK3_INCLUDE_DIRS}
 )
 
 # Create the GUI application
-juce_add_gui_app(TrombonelessAppLibrary
+juce_add_gui_app(TrombonelessApp
     PRODUCT_NAME "Tromboneless")
 
 # Set compile definitions
@@ -46,8 +55,10 @@ target_compile_definitions(TrombonelessAppLibrary
 # Link libraries
 target_link_libraries(TrombonelessAppLibrary
     PUBLIC
-        juce::juce_gui_extra
+        juce::juce_gui_basics
         TrombonelessSharedLibrary
+        ${GTK3_LIBRARIES}
+        CURL::libcurl
     PUBLIC
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
@@ -56,11 +67,10 @@ target_link_libraries(TrombonelessAppLibrary
 # ========================================
 #               Main executable
 # ========================================
-add_executable(TrombonelessApp
-    src/main.cpp
-)
 
-target_link_libraries(TrombonelessApp PRIVATE TrombonelessAppLibrary)
+target_include_directories(TrombonelessApp PRIVATE ${GTK3_INCLUDE_DIRS})
+target_link_libraries(TrombonelessApp PUBLIC TrombonelessAppLibrary CURL::libcurl ${GTK3_LIBRARIES})
+target_compile_options(TrombonelessApp PRIVATE ${GTK3_CFLAGS_OTHER})
 
 # ========================================
 #                   Tests

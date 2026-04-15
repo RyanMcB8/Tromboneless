@@ -2,6 +2,7 @@
 #include "MidiMessage.hpp"
 #include "MidiMessageBuilder.hpp"
 #include "functional"
+#include "tromboneSynth.hpp"
 
 /**
  * @brief Class to coordinate Midi message construction based on output from sensor mappers.
@@ -14,6 +15,7 @@ class MidiCoordinator{
 
         MidiMessage message;
         MidiMessageBuilder builder;
+        TromboneSynth internal_synth;
 
         using CallbackInterface = std::function<void(const MidiMessage&)>;
         CallbackInterface callback;
