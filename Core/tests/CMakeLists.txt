@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# Debug Mode
+set(CMAKE_BUILD_TYPE Debug)
+
 # Generate compile_commands.json for tooling
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -57,9 +60,10 @@ target_sources(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/modules/rtmidi/RtMidi.cpp
 )
 
+link_directories("/usr/local/lib/")
 target_link_libraries(TrombonelessCoreTests PRIVATE
     asound    
-    gpiodcxx
+    libgpiodcxx.a
 )
 
 target_compile_definitions(TrombonelessCoreTests PRIVATE __LINUX_ALSA__)
