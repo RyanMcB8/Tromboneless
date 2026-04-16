@@ -82,3 +82,7 @@ void MidiCoordinator::setExpr(int expr)
 void MidiCoordinator::setState(State newstate){
     current_state = newstate;
 }
+
+TromboneSynth MidiCoordinator::getSynth(void){
+    return internal_synth;
+}

@@ -78,12 +78,10 @@ void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
 void TromboneSynth::HandleMIDINoteOn(int latestNote, int currentNote){
     NewTromboneNoteMIDI(latestNote);
     StartTromboneNote(note, octave);
-    audiorender.start();
 };
 
 void TromboneSynth::HandleMIDINoteOff(int currentNote){
     StopTromboneNote();
-    audiorender.stop();
 };
 
 void TromboneSynth::HandleMIDIPitchBend(int midipitchbend){
@@ -203,4 +201,8 @@ float TromboneSynth::getAdjustedFrequency(void){
         interpolationValue * upperFreq;
 
     return frequency;
+}
+
+Envelope TromboneSynth::getEnvelope(void){
+    return tromboneEnvelope;
 }

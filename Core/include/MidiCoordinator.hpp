@@ -93,4 +93,6 @@ class MidiCoordinator{
          * Method to set state of instrument.
          */
         void setState(State newstate);
+
+        TromboneSynth getSynth(void);
 };

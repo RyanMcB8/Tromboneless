@@ -1,4 +1,5 @@
 #include "audioRender.hpp"
+#include <iostream>
 
 AudioRender::AudioRender() 
     : synth(), output()
@@ -38,6 +39,7 @@ void AudioRender::renderLoop() {
     while (!stopRequested.load()) {
         for (int t = 0; t < frames; t++) {
             float sample = synth.ReadTromboneAudio() * 32767.0f;
+            // std::cout << "Sample: " << static_cast<int16_t>(sample) << std::endl;
             buffer[t] = static_cast<int16_t>(sample);
         }
         output.writeSamples(buffer, frames);

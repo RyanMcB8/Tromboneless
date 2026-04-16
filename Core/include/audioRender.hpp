@@ -35,7 +35,7 @@ private:
     void renderLoop();
     void renderReleaseTail();
 
-    TromboneSynth synth;
+    TromboneSynth synth = TromboneSynth();
     AudioOutput output;
 
     std::thread renderThread;

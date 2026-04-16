@@ -11,7 +11,6 @@
  /* Adding the necessary header files to be included. */
  #include "synth.hpp"
  #include "envelope.hpp"
- #include "audioRender.hpp"
 
  /**    @brief                      A class which may be used to create a custom synth
   *                                 with an envelope attached to it.
@@ -180,12 +179,14 @@
          */
         float getAdjustedFrequency(void);
 
+        Envelope getEnvelope(void);
+
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
         permanently. The ADSR values may need to be adjusted but this should sound
         brassy. */
-        AudioRender audiorender;
+
         Envelope tromboneEnvelope = Envelope(100, 50, 0.95f, 10);
         float attack_ms;        /*  The attack time in milliseconds of the envelope. */
         float decay_ms;         /*  The decay time in milliseconds of the envelope. */
