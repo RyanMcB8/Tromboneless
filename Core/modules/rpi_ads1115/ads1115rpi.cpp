@@ -1,5 +1,5 @@
 #include "ads1115rpi.h"
-#include <stdexcept>
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -17,7 +17,7 @@ void ADS1115rpi::start(ADS1115settings settings)
 	{
 		char i2copen[] = "Could not open I2C.\n";
 #ifdef DEBUG
-		fprintf(stderr, i2copen);
+		fprintf(stderr, i2open);
 #endif
 		throw std::invalid_argument(i2copen);
 	}
@@ -49,13 +49,8 @@ void ADS1115rpi::start(ADS1115settings settings)
 	fprintf(stderr, "Receiving data.\n");
 #endif
 
-	const std::string chipPath =
-		"/dev/gpiochip" + std::to_string(settings.drdy_chip);
-
-	const std::string consumername =
-		"gpioconsumer_" +
-		std::to_string(settings.drdy_chip) + "_" +
-		std::to_string(settings.drdy_gpio);
+	const std::string chipPath = std::format("/dev/gpiochip{}", settings.drdy_chip);
+	const std::string consumername = std::format("gpioconsumer_{}_{}", settings.drdy_chip, settings.drdy_gpio);
 
 	// Config the pin as input and detecting falling and rising edegs
 	gpiod::line_config line_cfg;

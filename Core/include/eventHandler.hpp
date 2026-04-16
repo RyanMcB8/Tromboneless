@@ -6,7 +6,7 @@
 #include <queue>
 
 #include "drivers/i2c_bus.hpp"
-#include "drivers/ads1115rpi.h"
+#include "drivers/pressure_sensor.hpp"
 #include "drivers/tof_sensor.hpp"
 #include "drivers/cap_sensor.hpp"
 
@@ -55,7 +55,7 @@ private:
 
     I2CBus bus;
     ToFSensor tofSensor;
-    ADS1115rpi ads1115rpi;
+    PressureSensor pressureSensor;
     CAP1188 cap1188;
 
 };

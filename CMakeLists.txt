@@ -14,3 +14,11 @@ enable_testing()
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/Core)
 #add_subdirectory(${PROJECT_SOURCE_DIR}/App)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${PROJECT_SOURCE_DIR}/Core/modules/rpi_ads1115
+)
+
+target_sources(${PROJECT_NAME} PRIVATE
+    ${PROJECT_SOURCE_DIR}/Core/modules/rpi_ads1115/ads1115rpi.cpp
+)
