@@ -13,7 +13,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 enable_testing()
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/Core)
-#add_subdirectory(${PROJECT_SOURCE_DIR}/App)
+add_subdirectory(${PROJECT_SOURCE_DIR}/App)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${PROJECT_SOURCE_DIR}/Core/modules/rpi_ads1115
