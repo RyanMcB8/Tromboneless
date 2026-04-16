@@ -20,6 +20,8 @@
 #include <assert.h>
 #include <linux/i2c-dev.h>
 #include <thread>
+#include "internal.h"
+#include <gpiod.h>
 #include <gpiod.hpp>
 #include <functional>
 
