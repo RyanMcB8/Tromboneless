@@ -14,15 +14,18 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 - [License](#license)
 
 ## Getting Started:
+
 1. Install Raspberry Pi OS onto your Raspberry Pi.<br>
    For set-up guidance for PiOS, please follow [this guide](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
    <br>
 
 ### Option 1
+
 2. clone this git repository and its submodule dependencies using one line one the command line:<br>
  ```  git clone --recursive https://github.com/RyanMcB8/Tromboneless.git ```<br>
 
 ### Option 2
+
 2. clone this git repository using the command:<br>
  ```  git clone https://github.com/RyanMcB8/Tromboneless.git ```<br>
 
@@ -32,7 +35,8 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 
 
 ## Dependencies
-The Tromboneless App utilises the JUCE framework to create all the widgets necessary.
+The Tromboneless App utilises the JUCE framework to create all the widgets necessary for operation.
+
  - Juce <br>
  - RTMidi <br>
  - libgpiod (specifically for interacting with the GPIO pins on the Pi) <br>
@@ -47,6 +51,8 @@ Below contains the materials required to construct the Tromboneless hardware, wi
 | Microcontroller  | Quantity | Cost (£) |
 |------------------|----------|----------|
 | Raspberry Pi 5   | 1        |     58.98|
+| Active Cooler for Raspberry Pi 5 (recommended)  | 1        |     4.80|
+
 
 ### Sensors
 
@@ -56,23 +62,25 @@ Below contains the materials required to construct the Tromboneless hardware, wi
 | CAP1188 8-Key Capacitive Touch Sensor                          | 1        |  7.70    |
 | ADS1115 16-bit ADC                                             | 1        |  6.49    |
 
+Total Cost: £34.59
 
 ### Additional Components
 
-| Additional Components                                          | Quantity | Cost (£) |
-|----------------------------------------------------------------|----------|----------|
-| 10.0 kΩ Resistor                                               | 1        |  20.40   |
-| 300.0 Ω Resistor                                               | 1        |  4.20    |
-| 390.0 kΩ Resistor                                              | 1        |  20.00   |
-| USB MIDI Cable                                                 | 1        |  20.00   |
-| ADS1115 16-bit ADC                                             | 1        |  20.00   |
-| Light-Dependant Resistor                                       | 1        |  20.00   |
+| Additional Components                                          | Quantity | 
+|----------------------------------------------------------------|----------|
+| 10.0 kΩ Resistor                                               | 1        |    
+| 300.0 Ω Resistor                                               | 1        |   
+| 390.0 kΩ Resistor                                              | 1        |   
+| USB MIDI Cable                                                 | 1        |    
+| Infrared LED                                                   | 1        |    
+| Photodiode                                                     | 1        |
 
 
 ### Circuit Diagram
 
+Circuit diagram showing how to assemble the Tromboneless :
 
-<img width="428" alt="image" src="https://github.com/RyanMcB8/Tromboneless/blob/main/Documentation/Hardware/Tromboneless_Circuit_Diagram.svg" />
+<img width="600" alt="image" src="https://github.com/RyanMcB8/Tromboneless/blob/main/Documentation/Hardware/Tromboneless_Circuit_Diagram.svg" />
 
 ## Documentation
 
@@ -104,6 +112,9 @@ Follow us for additional updates, including showcase videos and demonstrations:<
 - Ciaran Rogers -  
 
 ## License
+
+### ADS1115 
+- The ADS1115 library was adopted from [Bernd Porr](https://github.com/berndporr), which can be sourced [here](https://github.com/berndporr/rpi_ads1115).
 
 
 
