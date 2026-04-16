@@ -17,7 +17,7 @@ find_package(CURL REQUIRED)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Adding the shared file for intercommunication between the App and core
-add_subdirectory(shared)
+add_subdirectory(../Shared ${CMAKE_BINARY_DIR}/Shared)
 
 # Add JUCE as a subdirectory (assuming it's added as a git submodule)
 add_subdirectory(modules/JUCE)

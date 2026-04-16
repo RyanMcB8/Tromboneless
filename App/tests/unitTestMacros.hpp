@@ -80,6 +80,23 @@
 
 #define APPROX_EQUAL(arg1, arg2)                                    \
 {                                                                   \
-    float epsilon = 0.0000001;                                      \
+    float epsilon = 0.000001;                                      \
     ((arg1 + epilson) > arg2 && (arg1 - epsilon) < arg2) ? true : false; \
-}                                                                   
+}                                                
+
+#define SET_GET_FLOAT(object, setter, getter, newValue, className, result)      \
+{                                                                   \
+    float original = object.getter();                               \
+    if ((float)newValue == original) newValue += 0.1;                 \
+    object.setter((float)newValue);                                        \
+    float updated = object.getter();                                \
+    if (!APPROX_EQUAL(updated, (float)newValue) || APPROX_EQUAL(updated, original))                 \
+    {                                                               \
+        std::cerr << "[FAIL]    " #setter "/" #getter " in "        \
+        #className "failed\n";                                          \
+        result &= false;                                             \
+    }                                                               \
+    else{                                                           \
+        result &= true;                                            \
+    }                                                               \
+}

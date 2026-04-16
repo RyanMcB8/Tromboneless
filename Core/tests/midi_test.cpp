@@ -92,10 +92,10 @@ int main() {
 
                 case RawInputEvent::Type::PressureReading:
                     //std::cout << event.pressureReading << std::endl;
-                    if (event.pressureReading > 0.0035f && pressure_gate == false) {
+                    if (event.pressureReading > 0.0025f && pressure_gate == false) {
                         coordinator.PressureEdge(true);
                         pressure_gate = true;
-                    } else if (event.pressureReading < 0.0035f && pressure_gate == true) {
+                    } else if (event.pressureReading < 0.0025f && pressure_gate == true) {
                         coordinator.PressureEdge(false);
                         pressure_gate = false;
                     }
