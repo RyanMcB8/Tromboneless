@@ -10,6 +10,7 @@
 #include "MidiMessageBuilder.hpp"
 #include "functional"
 #include "tromboneSynth.hpp"
+#include "audioRender.hpp"
 
 /** @brief 
  *          Class to coordinate Midi message construction based on output from sensor mappers.
@@ -77,12 +78,12 @@ class MidiCoordinator{
          * @brief Method to update note from mouthpiece.
          * @param note MIDI standard 0-127 notes.
          */
-        void ChangeNote(int note);
+        void ChangeNote(int note, AudioRender internal_synth);
         /**
          * Method to update pitch bend from slide.
          * @param bend Values from -8192 to 0 (so only downward bends possible)
          */
-        void setBend(int bend);
+        void setBend(int bend, AudioRender internal_synth);
         /**
          * Method to update MIDI expression.
          * @param expr: Expression value, 0-127.

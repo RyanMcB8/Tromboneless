@@ -69,8 +69,8 @@ int main() {
             });
 
         coordinator.setExpr(100);
-        coordinator.setBend(0);
-        coordinator.ChangeNote(60);
+        coordinator.setBend(8192, render);
+        coordinator.ChangeNote(60, render);
         coordinator.PressureEdge(false);
 
         eventHandler.start();
@@ -83,7 +83,7 @@ int main() {
         while (true) {
             RawInputEvent event;
             {
-                std::cout << "Envelope Stage: " << coordinator.getSynth().getEnvelope().getStage() << std::endl;
+               // std::cout << "Envelope Stage: " << coordinator.getSynth().getEnvelope().getStage() << std::endl;
                 std::unique_lock<std::mutex> lock(eventQueueMutex);
                 eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
                 event = eventQueue.front();
@@ -92,7 +92,7 @@ int main() {
 
             switch (event.type) {
                 case RawInputEvent::Type::ToFDistance:
-                    coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
+                    coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance), render);
                     break;
 
                 case RawInputEvent::Type::PressureReading:
@@ -112,7 +112,7 @@ int main() {
                     {
                         current_note = new_note;
                         //std::cout << "\tCurrent note: " << current_note << std::endl;
-                        coordinator.ChangeNote(current_note);
+                        coordinator.ChangeNote(current_note, render);
                     }
                     break;
             }
