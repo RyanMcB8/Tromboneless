@@ -16,7 +16,7 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 ## Getting Started:
 
 1. Install Raspberry Pi OS onto your Raspberry Pi.<br>
-   For set-up guidance for PiOS, please follow [this guide](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
+   For set-up guidance for PiOS, please follow [this guide].(https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
    <br>
 
 ### Option 1
