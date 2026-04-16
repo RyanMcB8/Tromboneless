@@ -51,11 +51,11 @@ int main() {
         std::condition_variable eventQueueCv;
 
         EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
-        MidiCoordinator coordinator;
         RtMidiSink midiSink;
         GetDistance distanceGetter;
         MapEmbouchure mapembouchure;
         AudioRender render;
+        MidiCoordinator coordinator(render.getSynth());
         
 
         if (!eventHandler.initialise()) {

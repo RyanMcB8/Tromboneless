@@ -24,7 +24,7 @@ class MidiCoordinator{
  */
         MidiMessage message;
         MidiMessageBuilder builder;
-        TromboneSynth internal_synth;
+        TromboneSynth& internal_synth;
 
         using CallbackInterface = std::function<void(const MidiMessage&)>;
         CallbackInterface callback;
@@ -65,7 +65,7 @@ class MidiCoordinator{
         /**
          * Default constructor.
          */
-        MidiCoordinator();
+        MidiCoordinator(TromboneSynth& synth);
         void RegisterCallback(CallbackInterface cb);
 
         /**
@@ -94,5 +94,5 @@ class MidiCoordinator{
          */
         void setState(State newstate);
 
-        TromboneSynth getSynth(void);
+        TromboneSynth& getSynth(void);
 };

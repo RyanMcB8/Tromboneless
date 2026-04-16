@@ -1,7 +1,8 @@
 #include "MidiCoordinator.hpp"
 
-MidiCoordinator::MidiCoordinator(){
-
+MidiCoordinator::MidiCoordinator(TromboneSynth& synth)
+    : internal_synth(synth)
+{
 }
 
 void MidiCoordinator::RegisterCallback(CallbackInterface cb){
@@ -19,6 +20,9 @@ void MidiCoordinator::PressureEdge(bool on)
             callback(builder.expr(1, latestExpr));
             callback(builder.noteOn(1, latestNote, velocity));
 
+            internal_synth.setPitchBend(latestBend);
+            internal_synth.NewTromboneNoteMIDI(latestNote);
+
             currentNote = latestNote;
             setState(PLAYING);
         }
@@ -28,6 +32,8 @@ void MidiCoordinator::PressureEdge(bool on)
         if (!on)
         {
             callback(builder.noteOff(1, currentNote, velocity));
+
+            internal_synth.StopTromboneNote();
             setState(IDLE);
         }
         break;
@@ -83,6 +89,6 @@ void MidiCoordinator::setState(State newstate){
     current_state = newstate;
 }
 
-TromboneSynth MidiCoordinator::getSynth(void){
+TromboneSynth& MidiCoordinator::getSynth(){
     return internal_synth;
 }
