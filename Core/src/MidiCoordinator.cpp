@@ -37,7 +37,7 @@ void MidiCoordinator::PressureEdge(bool on)
     }
 }
 
-void MidiCoordinator::ChangeNote(int note)
+void MidiCoordinator::ChangeNote(int note, AudioRender internal_synth)
 {
     if (note < 0) note = 0;
     if (note > 127) note = 127;
@@ -53,7 +53,7 @@ void MidiCoordinator::ChangeNote(int note)
     }
 }
 
-void MidiCoordinator::setBend(int bend)
+void MidiCoordinator::setBend(int bend, AudioRender internal_synth)
 {
     if(bend < 0) bend = 0;
     if(bend > 8192) bend = 8192;
@@ -83,6 +83,3 @@ void MidiCoordinator::setState(State newstate){
     current_state = newstate;
 }
 
-TromboneSynth MidiCoordinator::getSynth(void){
-    return internal_synth;
-}
