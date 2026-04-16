@@ -10,3 +10,6 @@
 [submodule "Core/modules/rtmidi"]
 	path = Core/modules/rtmidi
 	url = https://github.com/thestk/rtmidi.git
+[submodule "Core/rpi_ads1115"]
+	path = Core/rpi_ads1115
+	url = https://github.com/berndporr/rpi_ads1115.git
