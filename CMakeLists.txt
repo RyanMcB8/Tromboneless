@@ -13,4 +13,4 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 enable_testing()
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/Core)
-#add_subdirectory(${PROJECT_SOURCE_DIR}/App)
+add_subdirectory(${PROJECT_SOURCE_DIR}/App)

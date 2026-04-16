@@ -41,6 +41,7 @@ bool testCalibrationSlider(void){
 
     int value = 2;
     SET_GET_FLOAT(testClass, setMinDifference, getMinDifference, value, CalibrationSlider, passFail);
+    return passFail;
 }
 
 /** @brief      A function to run unit tests on the various public functions within
