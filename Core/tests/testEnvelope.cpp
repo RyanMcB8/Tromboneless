@@ -40,14 +40,14 @@ bool testEnvelope(void){
         /*  Attack. */
         if (testClass.getStage() == envelope_stages_t::attack_stage){
             if(amplitude <= previousAmplitude){
-                std::cerr << "[FAIL]   Envelope attack stage is not increasing.\n";                                      \
+                std::cerr << "[FAIL]   Envelope attack stage is not increasing.\n";                                     
                 return false;
             }
         }
         /*  Decay.  */
         else if(testClass.getStage == envelope_stages_t::decay_stage){
             if(amplitude >= previousAmplitude){
-                std::cerr << "[FAIL]   Envelope decay stage is not decreasing.\n";                                      \
+                std::cerr << "[FAIL]   Envelope decay stage is not decreasing.\n";                                      
                 return false;
             }
         }
@@ -58,14 +58,14 @@ bool testEnvelope(void){
                 sustainFlag = true;
             }
             else if(amplitude != previousAmplitude){
-                std::cerr << "[FAIL]   Envelope sustain stage is not constant.\n";                                      \
+                std::cerr << "[FAIL]   Envelope sustain stage is not constant.\n";
                 return false;
             }
         }
         /*  Rest.   */
         else if(testClass.getStage == envelope_stages_t::rest_stage){
             if(amplitude >= previousAmplitude){
-                std::cerr << "[FAIL]   Envelope rest stage is not decreasing.\n";                                      \
+                std::cerr << "[FAIL]   Envelope rest stage is not decreasing.\n";
                 return false;
             }
         }
