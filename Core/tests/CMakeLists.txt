@@ -50,6 +50,8 @@ target_sources(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/src/MidiMessageBuilder.cpp
     ${PROJECT_ROOT}/src/eventHandler.cpp
 
+    ${PROJECT_ROOT}/src/audioRender.cpp
+
     ${PROJECT_ROOT}/src/synth.cpp
     ${PROJECT_ROOT}/src/tromboneSynth.cpp
     ${PROJECT_ROOT}/src/envelope.cpp  
