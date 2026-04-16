@@ -38,10 +38,20 @@ class MidiCoordinator{
         int lastSentBend = 10000; // Saves last bend sent to device
 
         const int velocity = 127; // Clamped to max
+        /**
+         * States dependent on whether external or internal synth is being used.
+         */
+        enum OutputType{
+            EXTERNAL,
+            INTERNAL
+        };
+
+        enum OutputType current_output = INTERNAL;
 
         /**
          * High-level states that device can be in.
          */
+
         enum State{
             IDLE,
             PLAYING,

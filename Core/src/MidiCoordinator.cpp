@@ -62,6 +62,7 @@ void MidiCoordinator::setBend(int bend)
     if (current_state == PLAYING)
     {
         callback(builder.pitchBend(1, latestBend));
+        internal_synth.HandleMIDIPitchBend(latestBend);
     }
 }
 
