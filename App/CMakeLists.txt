@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 3.22)
 
-project(TrombonelessApp VERSION 1.0.0)
+project(TrombonelessAppDemo VERSION 1.0.0)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -39,13 +39,13 @@ add_library(TrombonelessAppLibrary STATIC ${APP_SOURCES} ${PROJECT_SOURCE_DIR}/.
 target_include_directories(TrombonelessAppLibrary 
 PUBLIC
     ${PROJECT_SOURCE_DIR}/../Shared/
-    ${PROJECT_SOURCE_DIR}/inc
+    ${PROJECT_SOURCE_DIR}/inc/
 PRIVATE
     ${GTK3_INCLUDE_DIRS}
 )
 
 # Create the GUI application
-juce_add_gui_app(TrombonelessApp
+juce_add_gui_app(TrombonelessAppDemo
     PRODUCT_NAME "Tromboneless")
 
 # Set compile definitions
@@ -60,7 +60,6 @@ target_compile_definitions(TrombonelessAppLibrary
 target_link_libraries(TrombonelessAppLibrary
     PUBLIC
         juce::juce_gui_basics
-        TrombonelessSharedLibrary
         ${GTK3_LIBRARIES}
         CURL::libcurl
     PUBLIC
@@ -72,13 +71,13 @@ target_link_libraries(TrombonelessAppLibrary
 #               Main executable
 # ========================================
 
-target_include_directories(TrombonelessApp 
+target_include_directories(TrombonelessAppDemo 
     PRIVATE 
         ${GTK3_INCLUDE_DIRS}
         
 )
-target_link_libraries(TrombonelessApp PUBLIC TrombonelessAppLibrary CURL::libcurl ${GTK3_LIBRARIES})
-target_compile_options(TrombonelessApp PRIVATE ${GTK3_CFLAGS_OTHER})
+target_link_libraries(TrombonelessAppDemo PUBLIC TrombonelessAppLibrary CURL::libcurl ${GTK3_LIBRARIES})
+target_compile_options(TrombonelessAppDemo PRIVATE ${GTK3_CFLAGS_OTHER})
 
 # ========================================
 #                   Tests

@@ -18,7 +18,8 @@ find_package(CURL REQUIRED)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #   Adding the subdirectory.
-add_subdirectory(App/modules/JUCE)
+add_subdirectory(App)
+# add_subdirectory(App/modules/JUCE)
 add_subdirectory(Core)
 
 #   Enabling tests
@@ -39,8 +40,8 @@ target_sources(TrombonelessApp PRIVATE ${APP_SOURCES})
 #   Adding the include file directories. 
 target_include_directories(TrombonelessApp
     PUBLIC
-        ${PROJECT_SOURCE_DIR}/../Shared
-        ${PROJECT_SOURCE_DIR}/inc
+        ${PROJECT_SOURCE_DIR}/Shared
+        ${PROJECT_SOURCE_DIR}/App/inc
     PRIVATE
         ${GTK3_INCLUDE_DIRS}
 )
@@ -49,6 +50,8 @@ target_include_directories(TrombonelessApp
 target_compile_definitions(TrombonelessApp PRIVATE
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
+    JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:TrombonelessApp,JUCE_PRODUCT_NAME>"
+    JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:TrombonelessApp,JUCE_VERSION>"
 )
 
 #   Linking the libraries
@@ -60,6 +63,7 @@ target_link_libraries(TrombonelessApp
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags
+        TrombonelessCoreLibrary
 )
 
 #   GTK compile flags

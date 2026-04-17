@@ -22,7 +22,11 @@ add_subdirectory(modules/rtmidi)
 
 # Add source files
 file(GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
-add_library(TrombonelessCoreLibrary STATIC ${SOURCES} "${PROJECT_SOURCE_DIR}/modules/rpi_ads1115/ads1115rpi.cpp")
+add_library(TrombonelessCoreLibrary 
+STATIC 
+    ${SOURCES}
+    "${PROJECT_SOURCE_DIR}/modules/rpi_ads1115/ads1115rpi.cpp"
+    "${PROJECT_SOURCE_DIR}/../Shared/tromboneless_data.cpp")
 
 
 target_include_directories(TrombonelessCoreLibrary PUBLIC
