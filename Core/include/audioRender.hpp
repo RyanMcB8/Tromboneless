@@ -7,7 +7,7 @@
 #include "tromboneSynth.hpp"
 #include "drivers/audio_output.hpp"
 
-class AudioRender {
+class AudioRender : public TromboneSynth{
 public:
     static constexpr int frames = 512;
     static constexpr int sample_rate = 44100;
@@ -28,14 +28,11 @@ public:
     /** @brief Check if currently rendering */
     bool isRunning() const { return running.load(); }
 
-    /** @brief Get reference to synth for external control */
-    TromboneSynth& getSynth() { return synth; }
-
 private:
     void renderLoop();
     void renderReleaseTail();
 
-    TromboneSynth synth;
+    
     AudioOutput output;
 
     std::thread renderThread;

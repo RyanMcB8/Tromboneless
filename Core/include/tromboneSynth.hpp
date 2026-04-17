@@ -75,6 +75,17 @@
          */
         void NewTromboneNoteMIDI(int MIDINote);
 
+        /** @brief                  A method to handle NoteOn messages as passed from
+         *                          the MIDI Coordinator.
+        */
+        void HandleMIDINoteOn(int currentNote);
+
+        void HandleMIDINoteOff(int currentNote);
+
+        void HandleMIDIPitchBend(int midipitchbend);
+
+        void HandleMIDINoteChange(int new_note);
+
         /** @brief                  A function to set the amount of time in milliseconds
          *                          that the attack stage takes.
          *  @param  attack_time     The time in milliseconds.
@@ -170,11 +181,14 @@
          */
         float getAdjustedFrequency(void);
 
+        Envelope getEnvelope(void);
+
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
         permanently. The ADSR values may need to be adjusted but this should sound
         brassy. */
+
         Envelope tromboneEnvelope = Envelope(100, 50, 0.95f, 10);
         float attack_ms;        /*  The attack time in milliseconds of the envelope. */
         float decay_ms;         /*  The decay time in milliseconds of the envelope. */

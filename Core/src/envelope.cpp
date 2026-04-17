@@ -8,6 +8,7 @@
  #include "envelope.hpp"
  #include <stdio.h>
  #include <algorithm>
+ #include <iostream>
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -60,6 +61,7 @@ float Envelope::getAmplitude(void){
         default:
             break;
     }
+    // std::cout << "Envelope Amplitude " << static_cast<float>(amplitude) << std::endl;
     counter ++;
     return amplitude;
 }

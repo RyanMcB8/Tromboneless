@@ -9,6 +9,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# /srv/project/Tromboneless/Core/modules/external/libgpiod/bindings/cxx/internal.hpp
+# /srv/project/Tromboneless/Core/modules/external/libgpiod/lib/internal.h
+
+set(LIDAR_DIR ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API)
+
 # Debug Mode
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -21,8 +26,9 @@ set(PROJECT_ROOT ..)
 # Add test executable
 add_executable(TrombonelessCoreTests
     # synth_audio_test.cpp
-    midi_test.cpp
+    # midi_test.cpp
     # internal_synth_bend_test.cpp
+    rendering_internal_synth.cpp
 )
 
 # Include directories for the core library and any headers needed
@@ -33,6 +39,8 @@ target_include_directories(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/modules/rtmidi
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/core
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform
+    ${LIDAR_DIR}/core
+    ${LIDAR_DIR}/platform
 )
 
 # Add source files
@@ -49,6 +57,8 @@ target_sources(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/src/MidiMessage.cpp
     ${PROJECT_ROOT}/src/MidiMessageBuilder.cpp
     ${PROJECT_ROOT}/src/eventHandler.cpp
+
+    ${PROJECT_ROOT}/src/audioRender.cpp
 
     ${PROJECT_ROOT}/src/synth.cpp
     ${PROJECT_ROOT}/src/tromboneSynth.cpp

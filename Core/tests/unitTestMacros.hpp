@@ -7,19 +7,18 @@
  /* Adding the necessary libraries and headers.  */
  #include <stdio.h>
  #include <iostream>
- #include <juce_core/juce_core.h>
- #include <juce_gui_basics/juce_gui_basics.h>
  
 
 
-/*  Set/get test for juce::Colour types. */
-#define SET_GET_COLOUR(object, setter, getter, className, result)   \
+/*  Set/get test for int type. */
+#define SET_GET_INT(object, setter, getter, newValue, className, result)\
 {                                                                   \
-    juce::Colour original = object.getter();                        \
-    juce::Colour newValue = juce::Colours::red;                     \
-    if (original == juce::Colours::red) newValue = juce::Colours::blue;\
+    int original = object.getter();                                 \
+    if ((int)newValue == original) {                                \
+        newValue = newValue + 1;                                              \
+    }                                                               \
     object.setter(newValue);                                        \
-    juce::Colour updated = object.getter();                         \
+    int updated = object.getter();                                  \
     if (updated != newValue || updated == original)                 \
     {                                                               \
         std::cerr << "[FAIL]    " #setter "/" #getter " in "        \
@@ -31,11 +30,12 @@
     }                                                               \
 }
 
-/*  Set/get test for int type. */
 #define SET_GET_INT(object, setter, getter, newValue, className, result)\
 {                                                                   \
     int original = object.getter();                                 \
-    if ((int)newValue == original) newValue += 1;                 \
+    if ((int)newValue == original) {                                \
+        newValue = newValue + 1;                                              \
+    }                                                               \
     object.setter(newValue);                                        \
     int updated = object.getter();                                  \
     if (updated != newValue || updated == original)                 \
@@ -50,7 +50,7 @@
 }
 
 #define APPROX_EQUAL(arg1, arg2)                                    \
-    (std::fabs(arg1 - arg2) <  0.000001)
+    (std::fabs(arg1 - arg2) <  0.000000001)
 
 /** @brief                  Set/get test for float types.
  *  @param  object          The object which is being iterated/referenced.

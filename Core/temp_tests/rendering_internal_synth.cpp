@@ -9,6 +9,7 @@
 #include "MidiCoordinator.hpp"
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
+#include "audioRender.hpp"
 
 class GetDistance {
 public:
@@ -38,7 +39,7 @@ public:
             strength = 34; // Bb1
         else
             strength = 0;
-        std::cout << "Strength: " << strength << "\tDelta: " << static_cast<int>(delta) << std::endl;
+        //std::cout << "Strength: " << strength << "\tDelta: " << static_cast<int>(delta) << std::endl;
         return strength;
     }
 };
@@ -50,10 +51,12 @@ int main() {
         std::condition_variable eventQueueCv;
 
         EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
-        MidiCoordinator coordinator;
         RtMidiSink midiSink;
         GetDistance distanceGetter;
         MapEmbouchure mapembouchure;
+        AudioRender render;
+        MidiCoordinator coordinator(render);
+        
 
         if (!eventHandler.initialise()) {
             std::cerr << "Initialisation failed\n";
@@ -66,11 +69,12 @@ int main() {
             });
 
         coordinator.setExpr(100);
-        coordinator.setBend(0);
+        coordinator.setBend(8192);
         coordinator.ChangeNote(60);
         coordinator.PressureEdge(false);
 
         eventHandler.start();
+        render.start();
 
         bool pressure_gate = false;
         int current_note = 0;
@@ -79,6 +83,7 @@ int main() {
         while (true) {
             RawInputEvent event;
             {
+               // std::cout << "Envelope Stage: " << coordinator.getSynth().getEnvelope().getStage() << std::endl;
                 std::unique_lock<std::mutex> lock(eventQueueMutex);
                 eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
                 event = eventQueue.front();
@@ -91,11 +96,11 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::PressureReading:
-
-                    if (event.pressureReading > 0.0035f && pressure_gate == false) {
+                    // std::cout << "Pressure: "<< event.pressureReading << std::endl;
+                    if (event.pressureReading > 0.0024f && pressure_gate == false) {
                         coordinator.PressureEdge(true);
                         pressure_gate = true;
-                    } else if (event.pressureReading < 0.0035f && pressure_gate == true) {
+                    } else if (event.pressureReading < 0.0024f && pressure_gate == true) {
                         coordinator.PressureEdge(false);
                         pressure_gate = false;
                     }
@@ -106,7 +111,7 @@ int main() {
                     if (current_note != new_note && new_note != 0) 
                     {
                         current_note = new_note;
-                        std::cout << "\tCurrent note: " << current_note << std::endl;
+                        //std::cout << "\tCurrent note: " << current_note << std::endl;
                         coordinator.ChangeNote(current_note);
                     }
                     break;

@@ -1,7 +1,8 @@
 #include "audioRender.hpp"
+#include <iostream>
 
 AudioRender::AudioRender() 
-    : synth(), output()
+    : output()
 {
 }
 
@@ -37,7 +38,8 @@ void AudioRender::stop() {
 void AudioRender::renderLoop() {
     while (!stopRequested.load()) {
         for (int t = 0; t < frames; t++) {
-            float sample = synth.ReadTromboneAudio() * 32767.0f;
+            float sample = ReadTromboneAudio() * 32767.0f;
+            // std::cout << "Sample: " << static_cast<int16_t>(sample) << std::endl;
             buffer[t] = static_cast<int16_t>(sample);
         }
         output.writeSamples(buffer, frames);
@@ -48,14 +50,14 @@ void AudioRender::renderLoop() {
 }
 
 void AudioRender::renderReleaseTail() {
-    synth.StopTromboneNote();
+    StopTromboneNote();
 
     constexpr int buffersPerSec = sample_rate / frames;
     constexpr int releaseBuffers = buffersPerSec / 2; // 0.5 second tail
 
     for (int i = 0; i < releaseBuffers; i++) {
         for (int t = 0; t < frames; t++) {
-            float sample = synth.ReadTromboneAudio() * 32767.0f;
+            float sample = ReadTromboneAudio() * 32767.0f;
             buffer[t] = static_cast<int16_t>(sample);
         }
         output.writeSamples(buffer, frames);
