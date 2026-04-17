@@ -22,30 +22,49 @@ bool testSettersAndGetters(void){
     SET_GET_INT(testClass, setAttack, getAttack, newValue, Envelope, passFail);
     
     /*  Testing the stages. */
-    SET_GET_INT(testClass, setStage, getStage, 2, Envelope, passFail);
+    Envelope::envelope_stages_t newStage = Envelope::envelope_stages_t::attack_stage;
+    Envelope::envelope_stages_t original = testClass.getStage();
+    if ((Envelope::envelope_stages_t)newStage == original) {   
+        newStage = (Envelope::envelope_stages_t) (newStage + 1);                               
+    }                                                          
+    testClass.setStage(newStage);          
+    Envelope::envelope_stages_t updated = testClass.getStage();                            
+    if (updated != newStage || updated == original)                 
+    {                                                               
+        std::cerr << "[FAIL]     setStage() / getStage() in Envelope() failed\n";                                      
+        passFail &= false;                                            
+    }                                                               
+    else{                                                           
+        passFail &= true;                                             
+    }                                                               
     
-    return passFail
+    return passFail;
 }
 
 bool testEnvelope(void){
     bool passFail = true;
-    Envelope testClass = Envelope(100, 5, 0.95, 50);
+    Envelope testClass = Envelope(100, 100, 0.95, 100);
     /* Testing if the values change the expected amount*/
-    float previousAmplitude = -1
+    float previousAmplitude = -1;
     float amplitude = 0;
     bool sustainFlag = false;
-    for (int i=0, i < (newValue*4), i++){
-        ampltiude = testClass.getAmplitude();
+    for (int i=0; i < (100*4); i++){
+        amplitude = testClass.getAmplitude();
         previousAmplitude = amplitude;
+
+        if(i == 300){
+            testClass.endEnvelope();
+        }
+
         /*  Attack. */
-        if (testClass.getStage() == envelope_stages_t::attack_stage){
+        if (testClass.getStage() == Envelope::envelope_stages_t::attack_stage){
             if(amplitude <= previousAmplitude){
                 std::cerr << "[FAIL]   Envelope attack stage is not increasing.\n";                                     
                 return false;
             }
         }
         /*  Decay.  */
-        else if(testClass.getStage == envelope_stages_t::decay_stage){
+        else if(testClass.getStage() == Envelope::envelope_stages_t::decay_stage){
             if(amplitude >= previousAmplitude){
                 std::cerr << "[FAIL]   Envelope decay stage is not decreasing.\n";                                      
                 return false;
@@ -53,7 +72,7 @@ bool testEnvelope(void){
         }
 
         /*  Saturation. */
-        else if (testClass.getStage() == envelope_stages_t::sustain_stage){
+        else if (testClass.getStage() == Envelope::envelope_stages_t::sustain_stage){
             if (sustainFlag == false){
                 sustainFlag = true;
             }
@@ -63,7 +82,7 @@ bool testEnvelope(void){
             }
         }
         /*  Rest.   */
-        else if(testClass.getStage == envelope_stages_t::rest_stage){
+        else if(testClass.getStage() == Envelope::envelope_stages_t::rest_stage){
             if(amplitude >= previousAmplitude){
                 std::cerr << "[FAIL]   Envelope rest stage is not decreasing.\n";
                 return false;
@@ -76,7 +95,7 @@ bool testEnvelope(void){
 }
 
 int main(){
-    success = true;
+    bool success = true;
 
     success &= testEnvelope();
     success &= testSettersAndGetters();

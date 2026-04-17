@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.22)
 
 project(TrombonelessCore VERSION 1.0.0)
 
-# Set C++ standard
+# Use C++20 for everything in this test project
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # Generate compile_commands.json for better IntelliSense
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -49,9 +51,6 @@ target_link_libraries(TrombonelessCore
         TrombonelessCoreLibrary
 )
 
-
-
-
 # ========================================
 #                   Tests
 # ========================================
@@ -64,7 +63,7 @@ foreach(TEST_FILE ${TEST_SOURCES})
     get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
 
     add_executable(${TEST_NAME} ${TEST_FILE})
-    target_link_libraries(${TEST_NAME} PRIVATE TrombonelessAppLibrary)
+    target_link_libraries(${TEST_NAME} PRIVATE TrombonelessCoreLibrary)
     target_include_directories(${TEST_NAME} PRIVATE 
         ${PROJECT_SOURCE_DIR}/inc
         ${PROJECT_SOURCE_DIR}/tests
