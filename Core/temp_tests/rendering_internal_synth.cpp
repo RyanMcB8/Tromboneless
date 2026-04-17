@@ -6,11 +6,11 @@
 #include <thread>
 #include <mutex>
 #include <queue>
+#include <chrono>
 #include "MidiCoordinator.hpp"
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
 #include "audioRender.hpp"
-#include "chrono"
 
 class GetDistance {
 public:
@@ -57,6 +57,8 @@ int main() {
         AudioRender render;
 
         MidiCoordinator coordinator(render);
+        const bool externalDevicePresent = midiSink.GetDeviceStatus();
+        coordinator.setDevice(externalDevicePresent);
 
         if (!eventHandler.initialise()) {
             std::cerr << "Initialisation failed\n";
@@ -68,20 +70,19 @@ int main() {
                 midiSink.send(msg);
             });
 
-        coordinator.setExpr(100);
-        coordinator.setBend(8192);
-        coordinator.ChangeNote(60);
-
         eventHandler.start();
-        
-        render.start();
 
-        // play test tone for 2 seconds
-        render.setDebugTone(true);
-        std::this_thread::sleep_for(std::chrono::seconds(2));
-        render.setDebugTone(false);
+        if (!externalDevicePresent) {
+            render.start();
 
-        std::cout << "Debug tone active. If you hear nothing, audio path is broken.\n";
+            render.setDebugTone(true);
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            render.setDebugTone(false);
+
+            std::cout << "Internal synth mode\n";
+        } else {
+            std::cout << "External MIDI mode\n";
+        }
 
         bool pressure_gate = false;
         int current_note = 0;

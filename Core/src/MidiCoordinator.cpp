@@ -26,14 +26,20 @@ void MidiCoordinator::PressureEdge(bool on)
             if (latestExpr < 0)
                 latestExpr = 127;
 
-            if (callback) {
-                callback(builder.pitchBend(1, latestBend));
-                callback(builder.expr(1, latestExpr));
-                callback(builder.noteOn(1, latestNote, velocity));
+            if (current_output == EXTERNAL)
+            {
+                if (callback)
+                {
+                    callback(builder.pitchBend(1, latestBend));
+                    callback(builder.expr(1, latestExpr));
+                    callback(builder.noteOn(1, latestNote, velocity));
+                }
             }
-
-            synthRef.pitchBendFromMidi(latestBend);
-            synthRef.noteOnFromMidi(latestNote);
+            else
+            {
+                synthRef.pitchBendFromMidi(latestBend);
+                synthRef.noteOnFromMidi(latestNote);
+            }
 
             currentNote = latestNote;
             lastSentBend = latestBend;
@@ -46,10 +52,15 @@ void MidiCoordinator::PressureEdge(bool on)
     case PLAYING:
         if (!on)
         {
-            if (currentNote >= 0 && callback)
-                callback(builder.noteOff(1, currentNote, velocity));
-
-            synthRef.noteOffFromMidi();
+            if (current_output == EXTERNAL)
+            {
+                if (currentNote >= 0 && callback)
+                    callback(builder.noteOff(1, currentNote, velocity));
+            }
+            else
+            {
+                synthRef.noteOffFromMidi();
+            }
 
             currentNote = -1;
             setState(IDLE);
@@ -74,13 +85,19 @@ void MidiCoordinator::ChangeNote(int note)
     if (latestNote == currentNote)
         return;
 
-    if (currentNote >= 0 && callback)
-        callback(builder.noteOff(1, currentNote, velocity));
+    if (current_output == EXTERNAL)
+    {
+        if (currentNote >= 0 && callback)
+            callback(builder.noteOff(1, currentNote, velocity));
 
-    if (callback)
-        callback(builder.noteOn(1, latestNote, velocity));
+        if (callback)
+            callback(builder.noteOn(1, latestNote, velocity));
+    }
+    else
+    {
+        synthRef.noteChangeFromMidi(latestNote);
+    }
 
-    synthRef.noteChangeFromMidi(latestNote);
     currentNote = latestNote;
 }
 
@@ -97,10 +114,16 @@ void MidiCoordinator::setBend(int bend)
     if (lastSentBend == latestBend)
         return;
 
-    if (callback)
-        callback(builder.pitchBend(1, latestBend));
+    if (current_output == EXTERNAL)
+    {
+        if (callback)
+            callback(builder.pitchBend(1, latestBend));
+    }
+    else
+    {
+        synthRef.pitchBendFromMidi(latestBend);
+    }
 
-    synthRef.pitchBendFromMidi(latestBend);
     lastSentBend = latestBend;
 }
 
@@ -117,8 +140,11 @@ void MidiCoordinator::setExpr(int expr)
     if (lastSentExpr == latestExpr)
         return;
 
-    if (callback)
-        callback(builder.expr(1, latestExpr));
+    if (current_output == EXTERNAL)
+    {
+        if (callback)
+            callback(builder.expr(1, latestExpr));
+    }
 
     lastSentExpr = latestExpr;
 }
@@ -131,4 +157,12 @@ void MidiCoordinator::setState(State newstate)
 AudioRender& MidiCoordinator::getSynth()
 {
     return synthRef;
+}
+
+void MidiCoordinator::setDevice(bool external_device_present)
+{
+    if (external_device_present)
+        current_output = EXTERNAL;
+    else
+        current_output = INTERNAL;
 }

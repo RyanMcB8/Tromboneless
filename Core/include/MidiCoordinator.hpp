@@ -95,5 +95,7 @@ class MidiCoordinator{
          */
         void setState(State newstate);
 
+        void setDevice(bool external_device_present);
+
         AudioRender& getSynth(void);
 };
