@@ -50,7 +50,7 @@
 }
 
 #define APPROX_EQUAL(arg1, arg2)                                    \
-    (std::fabs(arg1 - arg2) <  0.000001)
+    (std::fabs(arg1 - arg2) <  0.000000001)
 
 /** @brief                  Set/get test for float types.
  *  @param  object          The object which is being iterated/referenced.

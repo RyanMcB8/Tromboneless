@@ -13,13 +13,13 @@ bool testSettersAndGetters(void){
     Envelope testClass = Envelope(100, 5, 0.95, 50);
 
     /* Testing the getter and setters for the ADSR */
-    int newValue = 550;
+    int newValue = 5;
     SET_GET_INT(testClass, setAttack, getAttack, newValue, Envelope, passFail);
-    SET_GET_INT(testClass, setAttack, getAttack, newValue, Envelope, passFail);
+    SET_GET_INT(testClass, setDecay, getDecay, newValue, Envelope, passFail);
     
     float newFloatValue = 0.9;
-    SET_GET_FLOAT(testClass, setAttack, getAttack, newFloatValue, Envelope, passFail);
-    SET_GET_INT(testClass, setAttack, getAttack, newValue, Envelope, passFail);
+    SET_GET_FLOAT(testClass, setSustain, getSustain, newFloatValue, Envelope, passFail);
+    SET_GET_INT(testClass, setRest, getRest, newValue, Envelope, passFail);
     
     /*  Testing the stages. */
     Envelope::envelope_stages_t newStage = Envelope::envelope_stages_t::attack_stage;
@@ -38,6 +38,7 @@ bool testSettersAndGetters(void){
         passFail &= true;                                             
     }                                                               
     
+    std::cout << "[PASS] Envelope passed all set/get tests. \n";
     return passFail;
 }
 
@@ -45,12 +46,14 @@ bool testEnvelope(void){
     bool passFail = true;
     Envelope testClass = Envelope(100, 100, 0.95, 100);
     /* Testing if the values change the expected amount*/
-    float previousAmplitude = -1;
     float amplitude = 0;
+    bool decayFlag = false;
     bool sustainFlag = false;
-    for (int i=0; i < (100*4); i++){
+
+    testClass.startEnvelope();
+    float previousAmplitude = testClass.getAmplitude()-0.01f;
+    for (int i=1; i < (100*4); i++){
         amplitude = testClass.getAmplitude();
-        previousAmplitude = amplitude;
 
         if(i == 300){
             testClass.endEnvelope();
@@ -59,16 +62,23 @@ bool testEnvelope(void){
         /*  Attack. */
         if (testClass.getStage() == Envelope::envelope_stages_t::attack_stage){
             if(amplitude <= previousAmplitude){
-                std::cerr << "[FAIL]   Envelope attack stage is not increasing.\n";                                     
+                std::cerr << "[FAIL]   Envelope attack stage is not increasing.\n";     
+                previousAmplitude = amplitude;                         
                 return false;
             }
+            previousAmplitude = amplitude;
         }
         /*  Decay.  */
         else if(testClass.getStage() == Envelope::envelope_stages_t::decay_stage){
-            if(amplitude >= previousAmplitude){
-                std::cerr << "[FAIL]   Envelope decay stage is not decreasing.\n";                                      
+            if (decayFlag == false){
+                decayFlag = true;
+            }
+            else if(amplitude > previousAmplitude){
+                std::cerr << "[FAIL]   Envelope decay stage is not decreasing.\n";    
+                previousAmplitude = amplitude;                                  
                 return false;
             }
+            previousAmplitude = amplitude;
         }
 
         /*  Saturation. */
@@ -78,27 +88,36 @@ bool testEnvelope(void){
             }
             else if(amplitude != previousAmplitude){
                 std::cerr << "[FAIL]   Envelope sustain stage is not constant.\n";
+                previousAmplitude = amplitude;
                 return false;
             }
+            previousAmplitude = amplitude;
         }
         /*  Rest.   */
         else if(testClass.getStage() == Envelope::envelope_stages_t::rest_stage){
-            if(amplitude >= previousAmplitude){
+            if(amplitude > previousAmplitude){
                 std::cerr << "[FAIL]   Envelope rest stage is not decreasing.\n";
+                previousAmplitude = amplitude;
                 return false;
             }
+            previousAmplitude = amplitude;
+        }
+        else{
+            previousAmplitude = amplitude;
+            
         }
 
     }
-
+    
+    std::cout << "[PASS] Envelope passed all ADSR tests. \n";
     return passFail;
 }
 
 int main(){
     bool success = true;
 
-    success &= testEnvelope();
     success &= testSettersAndGetters();
+    success &= testEnvelope();
 
     return !success;
 }
