@@ -55,7 +55,7 @@ int main() {
         GetDistance distanceGetter;
         MapEmbouchure mapembouchure;
         AudioRender render;
-        MidiCoordinator coordinator(render.getSynth());
+        MidiCoordinator coordinator(render);
         
 
         if (!eventHandler.initialise()) {
@@ -69,8 +69,8 @@ int main() {
             });
 
         coordinator.setExpr(100);
-        coordinator.setBend(8192, render);
-        coordinator.ChangeNote(60, render);
+        coordinator.setBend(8192);
+        coordinator.ChangeNote(60);
         coordinator.PressureEdge(false);
 
         eventHandler.start();
@@ -92,7 +92,7 @@ int main() {
 
             switch (event.type) {
                 case RawInputEvent::Type::ToFDistance:
-                    coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance), render);
+                    coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
                     break;
 
                 case RawInputEvent::Type::PressureReading:
@@ -112,7 +112,7 @@ int main() {
                     {
                         current_note = new_note;
                         //std::cout << "\tCurrent note: " << current_note << std::endl;
-                        coordinator.ChangeNote(current_note, render);
+                        coordinator.ChangeNote(current_note);
                     }
                     break;
             }

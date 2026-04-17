@@ -1,7 +1,7 @@
 #include "MidiCoordinator.hpp"
 
 MidiCoordinator::MidiCoordinator(TromboneSynth& synth)
-    : internal_synth(synth)
+    : synthRef(synth)
 {
 }
 
@@ -20,8 +20,8 @@ void MidiCoordinator::PressureEdge(bool on)
             callback(builder.expr(1, latestExpr));
             callback(builder.noteOn(1, latestNote, velocity));
 
-            internal_synth.setPitchBend(latestBend);
-            internal_synth.NewTromboneNoteMIDI(latestNote);
+            synthRef.setPitchBend(latestBend);
+            synthRef.NewTromboneNoteMIDI(latestNote);
 
             currentNote = latestNote;
 
@@ -34,7 +34,7 @@ void MidiCoordinator::PressureEdge(bool on)
         {
             callback(builder.noteOff(1, currentNote, velocity));
 
-            internal_synth.HandleMIDINoteOn(currentNote);
+            synthRef.HandleMIDINoteOn(currentNote);
             setState(IDLE);
         }
         break;
@@ -44,7 +44,7 @@ void MidiCoordinator::PressureEdge(bool on)
     }
 }
 
-void MidiCoordinator::ChangeNote(int note, AudioRender internal_synth)
+void MidiCoordinator::ChangeNote(int note)
 {
     if (note < 0) note = 0;
     if (note > 127) note = 127;
@@ -55,11 +55,11 @@ void MidiCoordinator::ChangeNote(int note, AudioRender internal_synth)
     {
         callback(builder.noteOn(1, latestNote, velocity));
         callback(builder.noteOff(1, currentNote, velocity));
-        internal_synth.HandleMIDINoteChange(latestNote);
+        synthRef.HandleMIDINoteChange(latestNote);
     }
 }
 
-void MidiCoordinator::setBend(int bend, AudioRender internal_synth)
+void MidiCoordinator::setBend(int bend)
 {
     if(bend < 0) bend = 0;
     if(bend > 8192) bend = 8192;
@@ -68,7 +68,7 @@ void MidiCoordinator::setBend(int bend, AudioRender internal_synth)
     if (current_state == PLAYING)
     {
         callback(builder.pitchBend(1, latestBend));
-        internal_synth.HandleMIDIPitchBend(latestBend);
+        synthRef.HandleMIDIPitchBend(latestBend);
     }
 }
 
@@ -90,5 +90,5 @@ void MidiCoordinator::setState(State newstate){
 }
 
 TromboneSynth& MidiCoordinator::getSynth(){
-    return internal_synth;
+    return synthRef;
 }

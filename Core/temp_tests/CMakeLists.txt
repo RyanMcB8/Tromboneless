@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+# /srv/project/Tromboneless/Core/modules/external/libgpiod/bindings/cxx/internal.hpp
+# /srv/project/Tromboneless/Core/modules/external/libgpiod/lib/internal.h
+
 set(LIDAR_DIR ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API)
 
 # Debug Mode
