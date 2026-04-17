@@ -306,7 +306,7 @@ float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float phase){
 
 float OctavesWithHarmonics::HarmonicDecay(int n){
     /*  Setting the minimum influence of the harmonics being tested to be 1%. */
-    return std::max(1.0f - (decayConstant * std::abs(n - 1)), 0.01f);
+    return std::max(1.0f - (decayConstant * std::abs((n+1) - 1)), 0.0000001f);
 }
 
 float OctavesWithHarmonics::getHarmomicDecayMax(int n){
