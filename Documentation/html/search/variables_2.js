@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['channel_0',['channel',['../struct_a_d_s1115settings.html#a3f4f9b2d8b6f0ef724bd4e4a68b75245',1,'ADS1115settings']]]
+  ['embouchureoption_0',['embouchureOption',['../structTrombonelessParameters__t.html#ad58556b928e44bd32a9b4d06bd328d6c',1,'TrombonelessParameters_t']]],
+  ['eqsliders_1',['eqSliders',['../classEqualizer.html#a4ccb3c51309f715183fd47a046ac1911',1,'Equalizer']]]
 ];

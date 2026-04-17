@@ -2,7 +2,17 @@
 \hypertarget{classNotes}{}\label{classNotes}\index{Notes@{Notes}}
 
 
-Inheritance diagram for Notes\+:\nopagebreak
+A class to store the frequency of the notes which may be referenced. The notes are stored in an enum {\ttfamily Notes\+\_\+t} which allow for the higher level functions to call upon the specific note as opposed to frequency.  
+
+
+
+
+{\ttfamily \#include $<$Tromboneless/\+Core/include/synth.\+hpp$>$}
+
+
+
+Inheritance diagram for Notes\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,7 +23,7 @@ Inheritance diagram for Notes\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}\label{classNotes_a8734fb9c1094a3becd78fe783ad43c0c} 
-enum {\bfseries Notes\+\_\+t} \{ \newline
+enum \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} \{ \newline
 {\bfseries note\+\_\+C}
 , {\bfseries note\+\_\+\+Db}
 , {\bfseries note\+\_\+D}
@@ -36,7 +46,7 @@ enum {\bfseries Notes\+\_\+t} \{ \newline
 , \newline
 {\bfseries note\+\_\+\+A\+\_\+sharp} = note\+\_\+\+Bb
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creation of the enumerated list of possible notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -76,7 +86,7 @@ void \mbox{\hyperlink{classNotes_ae65f2258ff7ad7714a0dc2ddb2d4c4a5}{set\+Bb}} (f
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Bb note plays. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNotes_a9073e06b45bf747f29dab9eae21eec76}{setB}} (float frequency)
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the B note plays. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (Notes\+\_\+t note, float freq)
+float \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float freq)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to alter the frequency of a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a69625a0a056e70309af328d42b2bf86e}{getC}} (void)
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the C note for the specified object. \end{DoxyCompactList}\item 
@@ -112,9 +122,12 @@ float \mbox{\hyperlink{classNotes_aba2f8ad19fc1b28a8a5e9f2e1941e881}{get\+Bb}} (
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Bb note for the specified object. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a192de65337df2408c3e56ca10a4c4c10}{getB}} (void)
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the B note for the specified object. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (Notes\+\_\+t note)
+float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to request a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class to store the frequency of the notes which may be referenced. The notes are stored in an enum {\ttfamily Notes\+\_\+t} which allow for the higher level functions to call upon the specific note as opposed to frequency. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classNotes_ae11cec41480227782d457e4829d5a06f}\label{classNotes_ae11cec41480227782d457e4829d5a06f} 
@@ -419,7 +432,7 @@ A function that returns the frequency of the Gb note for the specified object.
 \index{Notes@{Notes}!getNote@{getNote}}
 \index{getNote@{getNote}!Notes@{Notes}}
 \doxysubsubsection{\texorpdfstring{getNote()}{getNote()}}
-{\footnotesize\ttfamily float Notes\+::get\+Note (\begin{DoxyParamCaption}\item[{Notes\+\_\+t}]{note }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Notes\+::get\+Note (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}}}]{note }\end{DoxyParamCaption})}
 
 
 
@@ -745,7 +758,7 @@ There is no return value from this function.
 \index{Notes@{Notes}!setNote@{setNote}}
 \index{setNote@{setNote}!Notes@{Notes}}
 \doxysubsubsection{\texorpdfstring{setNote()}{setNote()}}
-{\footnotesize\ttfamily float Notes\+::set\+Note (\begin{DoxyParamCaption}\item[{Notes\+\_\+t}]{note,  }\item[{float}]{freq }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Notes\+::set\+Note (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}}}]{note,  }\item[{float}]{freq }\end{DoxyParamCaption})}
 
 
 
@@ -762,5 +775,5 @@ An alternative function which can allow for the user to alter the frequency of a
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
-/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}

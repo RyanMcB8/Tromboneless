@@ -2,17 +2,17 @@
 \hypertarget{classMidiCoordinator}{}\label{classMidiCoordinator}\index{MidiCoordinator@{MidiCoordinator}}
 
 
-Class to coordinate Midi message construction based on output from sensor mappers. This class is stateful and responsible for translating high-\/level sensor data into Midi messages using \doxylink{classMidiMessageBuilder}{Midi\+Message\+Builder}.  
+Class to coordinate Midi message construction based on output from sensor mappers. This class is stateful and responsible for translating high-\/level sensor data into Midi messages. Utilises \doxylink{classMidiMessageBuilder}{Midi\+Message\+Builder} for external synths and directly controls internal synth.  
 
 
 
 
-{\ttfamily \#include $<$Midi\+Coordinator.\+hpp$>$}
+{\ttfamily \#include $<$Tromboneless/\+Core/include/\+Midi\+Coordinator.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classMidiCoordinator_a86a4fdd03bbf379c3c1292c1e799a0ed}{Midi\+Coordinator}} ()
+\mbox{\hyperlink{classMidiCoordinator_a54dbe142d7166f8eaaf48c7e0b7054cb}{Midi\+Coordinator}} (\mbox{\hyperlink{classTromboneSynth}{Trombone\+Synth}} \&synth)
 \item 
 \Hypertarget{classMidiCoordinator_a90ef43e3af4736e78132644d8dec59bd}\label{classMidiCoordinator_a90ef43e3af4736e78132644d8dec59bd} 
 void {\bfseries Register\+Callback} (Callback\+Interface cb)
@@ -26,18 +26,21 @@ void \mbox{\hyperlink{classMidiCoordinator_a48e2f7db7a185169b3bf7f0ef13def13}{se
 void \mbox{\hyperlink{classMidiCoordinator_a94de653793d6a7f122535ec155aa6071}{set\+Expr}} (int expr)
 \item 
 void \mbox{\hyperlink{classMidiCoordinator_abaea3a3c4fc332900e2412bdb6ce0e65}{set\+State}} (State newstate)
+\item 
+\Hypertarget{classMidiCoordinator_ab33fd8879d5367391b4370d8a2850ff9}\label{classMidiCoordinator_ab33fd8879d5367391b4370d8a2850ff9} 
+\mbox{\hyperlink{classTromboneSynth}{Trombone\+Synth}} \& {\bfseries get\+Synth} (void)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Class to coordinate Midi message construction based on output from sensor mappers. This class is stateful and responsible for translating high-\/level sensor data into Midi messages using \doxylink{classMidiMessageBuilder}{Midi\+Message\+Builder}. 
+Class to coordinate Midi message construction based on output from sensor mappers. This class is stateful and responsible for translating high-\/level sensor data into Midi messages. Utilises \doxylink{classMidiMessageBuilder}{Midi\+Message\+Builder} for external synths and directly controls internal synth. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classMidiCoordinator_a86a4fdd03bbf379c3c1292c1e799a0ed}\label{classMidiCoordinator_a86a4fdd03bbf379c3c1292c1e799a0ed} 
+\Hypertarget{classMidiCoordinator_a54dbe142d7166f8eaaf48c7e0b7054cb}\label{classMidiCoordinator_a54dbe142d7166f8eaaf48c7e0b7054cb} 
 \index{MidiCoordinator@{MidiCoordinator}!MidiCoordinator@{MidiCoordinator}}
 \index{MidiCoordinator@{MidiCoordinator}!MidiCoordinator@{MidiCoordinator}}
 \doxysubsubsection{\texorpdfstring{MidiCoordinator()}{MidiCoordinator()}}
-{\footnotesize\ttfamily Midi\+Coordinator\+::\+Midi\+Coordinator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Midi\+Coordinator\+::\+Midi\+Coordinator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTromboneSynth}{Trombone\+Synth}} \&}]{synth }\end{DoxyParamCaption})}
 
 Default constructor. 
 
@@ -100,5 +103,5 @@ Method to set state of instrument.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+Core/include/Midi\+Coordinator.\+hpp\item 
-/home/ryan/\+Tromboneless/\+Core/src/Midi\+Coordinator.\+cpp\end{DoxyCompactItemize}
+Tromboneless/\+Core/include/Midi\+Coordinator.\+hpp\item 
+Tromboneless/\+Core/src/Midi\+Coordinator.\+cpp\end{DoxyCompactItemize}

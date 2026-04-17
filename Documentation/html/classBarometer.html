@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -76,12 +76,17 @@ $(function() {
   <div class="headertitle"><div class="title">Barometer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class which can allow for the look and feel of a set of rotary sliders be modified to look like a barometer (pressure gauge).  
+ <a href="classBarometer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Widgets_8hpp_source.html">Tromboneless/App/inc/Widgets.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Barometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBarometer__inherit__graph.png" border="0" usemap="#aBarometer_inherit__map" alt="Inheritance graph"/></div>
 <map name="aBarometer_inherit__map" id="aBarometer_inherit__map">
-<area shape="rect" title=" " alt="" coords="110,152,201,177"/>
+<area shape="rect" title="A class which can allow for the look and feel of a set of rotary sliders be modified to look like a b..." alt="" coords="110,152,201,177"/>
 <area shape="rect" href="classDualRotarySlider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="89,79,221,104"/>
 <area shape="poly" title=" " alt="" coords="158,118,158,152,153,152,153,118"/>
 <area shape="rect" title=" " alt="" coords="5,5,137,31"/>
@@ -95,7 +100,7 @@ Collaboration diagram for Barometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBarometer__coll__graph.png" border="0" usemap="#aBarometer_coll__map" alt="Collaboration graph"/></div>
 <map name="aBarometer_coll__map" id="aBarometer_coll__map">
-<area shape="rect" title=" " alt="" coords="110,152,201,177"/>
+<area shape="rect" title="A class which can allow for the look and feel of a set of rotary sliders be modified to look like a b..." alt="" coords="110,152,201,177"/>
 <area shape="rect" href="classDualRotarySlider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="89,79,221,104"/>
 <area shape="poly" title=" " alt="" coords="158,118,158,152,153,152,153,118"/>
 <area shape="rect" title=" " alt="" coords="5,5,137,31"/>
@@ -109,11 +114,11 @@ Collaboration diagram for Barometer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae73bc03245af7fe321e855a26968e3d9" id="r_ae73bc03245af7fe321e855a26968e3d9"><td class="memItemLeft" align="right" valign="top"><a id="ae73bc03245af7fe321e855a26968e3d9" name="ae73bc03245af7fe321e855a26968e3d9"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Barometer</b> ()</td></tr>
-<tr class="memdesc:ae73bc03245af7fe321e855a26968e3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classBarometer.html">Barometer</a> class which sets the look and feel of the sliders, attaches a listener to them both and sets the labels text to be the corresponding text. <br /></td></tr>
+<tr class="memdesc:ae73bc03245af7fe321e855a26968e3d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <a class="el" href="classBarometer.html" title="A class which can allow for the look and feel of a set of rotary sliders be modified to look like a b...">Barometer</a> class which sets the look and feel of the sliders, attaches a listener to them both and sets the labels text to be the corresponding text. <br /></td></tr>
 <tr class="separator:ae73bc03245af7fe321e855a26968e3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5254d60884f804d70f4d59b4c7e2cef8" id="r_a5254d60884f804d70f4d59b4c7e2cef8"><td class="memItemLeft" align="right" valign="top"><a id="a5254d60884f804d70f4d59b4c7e2cef8" name="a5254d60884f804d70f4d59b4c7e2cef8"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Barometer</b> ()</td></tr>
-<tr class="memdesc:a5254d60884f804d70f4d59b4c7e2cef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decontructor for the <a class="el" href="classBarometer.html">Barometer</a> class which removes the listeners from the sliders as well as resetting their look and feel. <br /></td></tr>
+<tr class="memdesc:a5254d60884f804d70f4d59b4c7e2cef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decontructor for the <a class="el" href="classBarometer.html" title="A class which can allow for the look and feel of a set of rotary sliders be modified to look like a b...">Barometer</a> class which removes the listeners from the sliders as well as resetting their look and feel. <br /></td></tr>
 <tr class="separator:a5254d60884f804d70f4d59b4c7e2cef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bfa01d333610a674db18ead6e1a7b2d" id="r_a3bfa01d333610a674db18ead6e1a7b2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBarometer.html#a3bfa01d333610a674db18ead6e1a7b2d">sliderValueChanged</a> (juce::Slider *sliderChanged) override</td></tr>
 <tr class="memdesc:a3bfa01d333610a674db18ead6e1a7b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A callback function which is automatically called upon when either of the sliders knobs are adjusted.  <br /></td></tr>
@@ -237,17 +242,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resized</b> () overri
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classDualRotarySlider"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classDualRotarySlider')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classDualRotarySlider.html">DualRotarySlider</a></td></tr>
-<tr class="memitem:ac0f3e0e5574427d2b02ff7974fa301d5 inherit pub_attribs_classDualRotarySlider" id="r_ac0f3e0e5574427d2b02ff7974fa301d5"><td class="memItemLeft" align="right" valign="top">
-juce::Slider&#160;</td><td class="memItemRight" valign="bottom"><b>maxSlider</b></td></tr>
+<tr class="memitem:ac0f3e0e5574427d2b02ff7974fa301d5 inherit pub_attribs_classDualRotarySlider" id="r_ac0f3e0e5574427d2b02ff7974fa301d5"><td class="memItemLeft" align="right" valign="top">juce::Slider&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDualRotarySlider.html#ac0f3e0e5574427d2b02ff7974fa301d5">maxSlider</a></td></tr>
 <tr class="separator:ac0f3e0e5574427d2b02ff7974fa301d5 inherit pub_attribs_classDualRotarySlider"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5046c6bcf193000398e6e7bc96a173a0 inherit pub_attribs_classDualRotarySlider" id="r_a5046c6bcf193000398e6e7bc96a173a0"><td class="memItemLeft" align="right" valign="top">
-juce::Slider&#160;</td><td class="memItemRight" valign="bottom"><b>minSlider</b></td></tr>
+<tr class="memitem:a5046c6bcf193000398e6e7bc96a173a0 inherit pub_attribs_classDualRotarySlider" id="r_a5046c6bcf193000398e6e7bc96a173a0"><td class="memItemLeft" align="right" valign="top">juce::Slider&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDualRotarySlider.html#a5046c6bcf193000398e6e7bc96a173a0">minSlider</a></td></tr>
 <tr class="separator:a5046c6bcf193000398e6e7bc96a173a0 inherit pub_attribs_classDualRotarySlider"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac926af9f0b359a18dcd42f6cc449a9f2 inherit pub_attribs_classDualRotarySlider" id="r_ac926af9f0b359a18dcd42f6cc449a9f2"><td class="memItemLeft" align="right" valign="top">
-juce::Label&#160;</td><td class="memItemRight" valign="bottom"><b>rotaryLabel</b></td></tr>
+<tr class="memitem:ac926af9f0b359a18dcd42f6cc449a9f2 inherit pub_attribs_classDualRotarySlider" id="r_ac926af9f0b359a18dcd42f6cc449a9f2"><td class="memItemLeft" align="right" valign="top">juce::Label&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDualRotarySlider.html#ac926af9f0b359a18dcd42f6cc449a9f2">rotaryLabel</a></td></tr>
 <tr class="separator:ac926af9f0b359a18dcd42f6cc449a9f2 inherit pub_attribs_classDualRotarySlider"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class which can allow for the look and feel of a set of rotary sliders be modified to look like a barometer (pressure gauge). </p>
+<dl class="section note"><dt>Note</dt><dd>This is used in the Tromboneless project to calibrate the maximum and minimum gains on the mouthpiece. </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa1c63dad94b2f07d5a7ada860ce07344" name="aa1c63dad94b2f07d5a7ada860ce07344"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1c63dad94b2f07d5a7ada860ce07344">&#9670;&#160;</a></span>getBackgroundColour()</h2>
 
@@ -682,8 +687,8 @@ juce::Label&#160;</td><td class="memItemRight" valign="bottom"><b>rotaryLabel</b
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
-<li>/home/ryan/Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
+<li>Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
+<li>Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
