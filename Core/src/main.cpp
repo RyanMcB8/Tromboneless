@@ -5,10 +5,11 @@
 #include "drivers/i2c_bus.hpp"
 #include "drivers/tof_sensor.hpp"
 
-/*
- * Subscriber class
- * Receives distance from sensor
- */
+#include <chrono>
+#include <cstdint>
+#include <iostream>
+#include <thread>
+
 class ToFPrinter
 {
 public:
@@ -18,31 +19,38 @@ public:
     }
 };
 
+
 int main()
 {
+    // Create shared Linux I2C bus object
     I2CBus bus("/dev/i2c-1");
 
-    // GPIO line must match wiring of VL53L1X interrupt pin
+    // Create sensor object
     ToFSensor sensor(bus, 0x29, "/dev/gpiochip0", 4);
 
-    ToFPrinter printer;
+    // ToFPrinter printer;
 
-    if (!sensor.initialise())
-    {
-        std::cerr << "Initialisation failed\n";
-        return 1;
-    }
-
-    // Connect publisher → subscriber via lambda
+  // Connect publisher -> subscriber via lambda
     sensor.registerCallback([&](uint16_t distance)
     {
         printer.hasToFSample(distance);
     });
 
-    // Start blocking GPIO + sensor
+    // Initialise sensor
+    if (!sensor.initialise())
+    {
+        std::cerr << "Sensor initialisation failed" << std::endl;
+        return 1;
+    }
+
+    std::cout << "Sensor initialised successfully" << std::endl;
+
+    // Start ranging + worker thread
     sensor.start();
 
-    // Main thread idle (system is event-driven now)
+    std::cout << "Sensor started, waiting for data..." << std::endl;
+
+    // Keep main alive so the worker thread can continue running
     while (true)
     {
         std::this_thread::sleep_for(std::chrono::seconds(1));

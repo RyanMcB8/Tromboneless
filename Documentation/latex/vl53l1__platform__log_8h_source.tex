@@ -1,0 +1,148 @@
+\doxysection{vl53l1\+\_\+platform\+\_\+log.\+h}
+\hypertarget{vl53l1__platform__log_8h_source}{}\label{vl53l1__platform__log_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Inc/vl53l1\_platform\_log.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Inc/vl53l1\_platform\_log.h}}
+\doxymbox{\hyperlink{vl53l1__platform__log_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_VL53L1\_PLATFORM\_LOG\_H\_}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \_VL53L1\_PLATFORM\_LOG\_H\_}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ VL53L1\_LOG\_ENABLE}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\doxymbox{\hyperlink{vl53l1__platform__user__config_8h}{vl53l1\_platform\_user\_config.h}}"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#\ \ \ define\ EWOKPLUS\_EXPORTS\ \ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \#\ \ \ \ \ \ \ define\ EWOKPLUS\_EXPORTS}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\doxymbox{\hyperlink{_example_2_inc_2vl53l1__types_8h}{vl53l1\_types.h}}"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \#include\ <time.h>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_NONE\ \ \ \ \ \ \ \ \ 0x00000000}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_ERRORS\ \ \ \ \ \ \ 0x00000001}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_WARNING\ \ \ \ \ \ 0x00000002}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_INFO\ \ \ \ \ \ \ \ \ 0x00000004}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_DEBUG\ \ \ \ \ \ \ \ 0x00000008}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_ALL\ \ \ \ \ \ \ \ \ \ 0x00000010}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_LEVEL\_IGNORE\ \ \ \ \ \ \ 0x00000020}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_FUNCTION\_NONE\ \ \ \ \ \ 0x00000000}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_FUNCTION\_I2C\ \ \ \ \ \ \ 0x00000001}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_FUNCTION\_ALL\ \ \ \ \ \ \ 0x7fffffff}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_NONE\ \ \ \ \ \ \ \ 0x00000000}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_API\ \ \ \ \ \ \ \ \ 0x00000001}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_CORE\ \ \ \ \ \ \ \ 0x00000002}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_PROTECTED\ \ \ \ \ \ \ 0x00000004}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_HISTOGRAM\ \ \ \ \ \ \ 0x00000008}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_REGISTERS\ \ \ \ \ \ \ 0x00000010}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_PLATFORM\ \ \ \ \ \ \ \ 0x00000020}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_NVM\ \ \ \ \ \ \ \ \ 0x00000040}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_CALIBRATION\_DATA\ \ \ \ 0x00000080}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_NVM\_DATA\ \ \ \ \ \ \ \ 0x00000100}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_HISTOGRAM\_DATA\ \ 0x00000200}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_RANGE\_RESULTS\_DATA\ \ 0x00000400}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_XTALK\_DATA\ \ \ \ \ \ 0x00000800}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_OFFSET\_DATA\ \ \ \ \ 0x00001000}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_DATA\_INIT\ \ \ \ \ \ \ 0x00002000}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_REF\_SPAD\_CHAR\ \ \ 0x00004000}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_SPAD\_RATE\_MAP\ \ \ 0x00008000}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PAL\_EXTENDED}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ VL53L1\_TRACE\_MODULE\_SPAD\ \ \ \ \ \ \ \ 0x01000000}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ VL53L1\_TRACE\_MODULE\_FMT\ \ \ \ \ \ \ \ \ 0x02000000}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ VL53L1\_TRACE\_MODULE\_UTILS\ \ \ \ \ \ \ 0x04000000}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ VL53L1\_TRACE\_MODULE\_BENCH\_FUNCS\ 0x08000000}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_CUSTOMER\_API\ \ \ \ 0x40000000}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ \ \ \ VL53L1\_TRACE\_MODULE\_ALL\ \ \ \ \ \ \ \ \ 0x7fffffff}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \_trace\_level;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ \ *\ NOTE:\ dynamically\ exported\ if\ we\ enable\ logging.}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ this\ way,\ Python\ interfaces\ can\ access\ this\ function,\ but\ we\ don't}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ need\ to\ include\ it\ in\ the\ .def\ files.}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00121\ \ \ \ \ EWOKPLUS\_EXPORTS\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_aef44329758059c91c76d334e8fc09700}{int8\_t}}\ VL53L1\_trace\_config(}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *filename,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ modules,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ level,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ functions);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ EWOKPLUS\_EXPORTS\ \textcolor{keywordtype}{void}\ VL53L1\_trace\_print\_module\_function(}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ module,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ level,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ function,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *format,\ ...);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ VL53L1\_get\_trace\_functions(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ VL53L1\_set\_trace\_functions(\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ function);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ \ \ \ \ *\ @brief\ Returns\ the\ current\ system\ tick\ count\ in\ [ms]}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ \ \ \ \ *\ @return\ \ time\_ms\ :\ current\ time\ in\ [ms]}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ \ \ \ \ *}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ VL53L1\_clock(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ \#define\ LOG\_GET\_TIME()\ \(\backslash\)}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ ((int)VL53L1\_clock())}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_TRACE\_PRINT(module,\ level,\ function,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ VL53L1\_trace\_print\_module\_function(module,\ level,\ function,\ \#\#\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_FUNCTION\_START(module,\ fmt,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ VL53L1\_trace\_print\_module\_function(module,\ \_trace\_level,\ VL53L1\_TRACE\_FUNCTION\_ALL,\ "{}\%6ld\ <START>\ \%s\ "{}fmt"{}\(\backslash\)n"{},\ LOG\_GET\_TIME(),\ \_\_FUNCTION\_\_,\ \#\#\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_FUNCTION\_END(module,\ status,\ ...)\(\backslash\)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ VL53L1\_trace\_print\_module\_function(module,\ \_trace\_level,\ VL53L1\_TRACE\_FUNCTION\_ALL,\ "{}\%6ld\ <END>\ \%s\ \%d\(\backslash\)n"{},\ LOG\_GET\_TIME(),\ \_\_FUNCTION\_\_,\ (int)status,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_FUNCTION\_END\_FMT(module,\ status,\ fmt,\ ...)\(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ VL53L1\_trace\_print\_module\_function(module,\ \_trace\_level,\ VL53L1\_TRACE\_FUNCTION\_ALL,\ "{}\%6ld\ <END>\ \%s\ \%d\ "{}fmt"{}\(\backslash\)n"{},\ LOG\_GET\_TIME(),\ \ \_\_FUNCTION\_\_,\ (int)status,\ \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_GET\_TRACE\_FUNCTIONS()\(\backslash\)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ VL53L1\_get\_trace\_functions()}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_SET\_TRACE\_FUNCTIONS(functions)\(\backslash\)}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ VL53L1\_set\_trace\_functions(functions)}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_STRING\_BUFFER(x)\ char\ x[VL53L1\_MAX\_STRING\_LENGTH]}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ VL53L1\_LOG\_ENABLE\ -\/\ no\ logging\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_TRACE\_PRINT(module,\ level,\ function,\ ...)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_FUNCTION\_START(module,\ fmt,\ ...)}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_FUNCTION\_END(module,\ status,\ ...)}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_FUNCTION\_END\_FMT(module,\ status,\ fmt,\ ...)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_GET\_TRACE\_FUNCTIONS()\ 0}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_SET\_TRACE\_FUNCTIONS(functions)}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_LOG\_STRING\_BUFFER(x)}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VL53L1\_LOG\_ENABLE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ \_VL53L1\_PLATFORM\_LOG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

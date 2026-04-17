@@ -1,0 +1,165 @@
+\doxysection{pac\+\_\+armv81.\+h}
+\hypertarget{pac__armv81_8h_source}{}\label{pac__armv81_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/CMSIS/Include/pac\_armv81.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/CMSIS/Include/pac\_armv81.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ \ \ \ \ pac\_armv81.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ \ \ \ CMSIS\ PAC\ key\ functions\ for\ Armv8.1-\/M\ PAC\ extension}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ @version\ \ V1.0.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ @date\ \ \ \ \ 23.\ March\ 2022}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2022\ Arm\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#if\ \ \ defined\ (\ \_\_ICCARM\_\_\ )}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \#pragma\ system\_include\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ treat\ file\ as\ system\ include\ file\ for\ MISRA\ check\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#elif\ defined\ (\_\_clang\_\_)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \#pragma\ clang\ system\_header\ \ \ \ }\textcolor{comment}{/*\ treat\ file\ as\ system\ include\ file\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ PAC\_ARMV81\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ PAC\_ARMV81\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/*\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ \ PAC\ Key\ functions\ \ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ */}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#if\ (defined\ (\_\_ARM\_FEATURE\_PAUTH)\ \&\&\ (\_\_ARM\_FEATURE\_PAUTH\ ==\ 1))}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_get\_PAC\_KEY\_P\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00051\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00052\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_0\(\backslash\)n"{}}}
+\DoxyCodeLine{00053\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00054\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_1\(\backslash\)n"{}}}
+\DoxyCodeLine{00055\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00056\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_2\(\backslash\)n"{}}}
+\DoxyCodeLine{00057\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00058\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_3\(\backslash\)n"{}}}
+\DoxyCodeLine{00059\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00060\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00061\ \ \ );}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_set\_PAC\_KEY\_P\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00070\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00071\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00072\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_0,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00073\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00074\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_1,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00075\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00076\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_2,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00077\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00078\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_3,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00079\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00080\ \ \ );}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_get\_PAC\_KEY\_U\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00089\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00090\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_0\(\backslash\)n"{}}}
+\DoxyCodeLine{00091\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00092\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_1\(\backslash\)n"{}}}
+\DoxyCodeLine{00093\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00094\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_2\(\backslash\)n"{}}}
+\DoxyCodeLine{00095\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00096\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_3\(\backslash\)n"{}}}
+\DoxyCodeLine{00097\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00098\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00099\ \ \ );}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_set\_PAC\_KEY\_U\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00108\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00109\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00110\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_0,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00111\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00112\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_1,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00113\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00114\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_2,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00115\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00116\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_3,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00117\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00118\ \ \ );}
+\DoxyCodeLine{00119\ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#if\ (defined\ (\_\_ARM\_FEATURE\_CMSE\ )\ \&\&\ (\_\_ARM\_FEATURE\_CMSE\ ==\ 3))}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_TZ\_get\_PAC\_KEY\_P\_NS\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00129\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00130\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_0\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00131\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00132\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_1\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00133\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00134\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_2\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00135\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00136\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_p\_3\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00137\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00138\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00139\ \ \ );}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00147\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_TZ\_set\_PAC\_KEY\_P\_NS\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00148\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00149\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00150\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_0\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00151\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00152\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_1\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00153\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00154\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_2\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00155\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00156\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_p\_3\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00157\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00158\ \ \ );}
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00166\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_TZ\_get\_PAC\_KEY\_U\_NS\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00167\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00168\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_0\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00169\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00170\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_1\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00171\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00172\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_2\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00173\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00174\ \ \ \textcolor{stringliteral}{"{}mrs\ \ \ r1,\ pac\_key\_u\_3\_ns\(\backslash\)n"{}}}
+\DoxyCodeLine{00175\ \ \ \textcolor{stringliteral}{"{}str\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00176\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00177\ \ \ );}
+\DoxyCodeLine{00178\ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \_\_TZ\_set\_PAC\_KEY\_U\_NS\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}*\ pPacKey)\ \{}
+\DoxyCodeLine{00186\ \ \ \_\_ASM\ \textcolor{keyword}{volatile}\ (}
+\DoxyCodeLine{00187\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#0]\(\backslash\)n"{}}}
+\DoxyCodeLine{00188\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_0\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00189\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#4]\(\backslash\)n"{}}}
+\DoxyCodeLine{00190\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_1\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00191\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#8]\(\backslash\)n"{}}}
+\DoxyCodeLine{00192\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_2\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00193\ \ \ \textcolor{stringliteral}{"{}ldr\ \ \ r1,[\%0,\#12]\(\backslash\)n"{}}}
+\DoxyCodeLine{00194\ \ \ \textcolor{stringliteral}{"{}msr\ \ \ pac\_key\_u\_3\_ns,\ r1\(\backslash\)n"{}}}
+\DoxyCodeLine{00195\ \ \ :\ :\ \textcolor{stringliteral}{"{}r"{}}\ (pPacKey)\ :\ \textcolor{stringliteral}{"{}memory"{}},\ \textcolor{stringliteral}{"{}r1"{}}}
+\DoxyCodeLine{00196\ \ \ );}
+\DoxyCodeLine{00197\ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (defined\ (\_\_ARM\_FEATURE\_CMSE\ )\ \&\&\ (\_\_ARM\_FEATURE\_CMSE\ ==\ 3))\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (defined\ (\_\_ARM\_FEATURE\_PAUTH)\ \&\&\ (\_\_ARM\_FEATURE\_PAUTH\ ==\ 1))\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PAC\_ARMV81\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

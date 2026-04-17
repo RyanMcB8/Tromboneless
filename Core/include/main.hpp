@@ -7,8 +7,11 @@ C{
 #endif
 
 /* Including header files */
-#include "Pin_Definitions.h"
-#include "synth.hpp"
+// #include "Pin_Definitions.h"
+// #include "MidiCoordinator.hpp"
+// #include "USBMidi.hpp"
+// #include "RtMidi.h"
+// #include "eventHandler.hpp"
 #include <iostream>
 
 

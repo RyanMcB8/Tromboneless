@@ -1,0 +1,346 @@
+\doxysection{cachel1\+\_\+armv7.\+h}
+\hypertarget{cachel1__armv7_8h_source}{}\label{cachel1__armv7_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/CMSIS/Include/cachel1\_armv7.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/CMSIS/Include/cachel1\_armv7.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ \ \ \ \ cachel1\_armv7.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ \ \ \ CMSIS\ Level\ 1\ Cache\ API\ for\ Armv7-\/M\ and\ later}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ @version\ \ V1.0.1}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ @date\ \ \ \ \ 19.\ April\ 2021}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2020-\/2021\ Arm\ Limited.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Licensed\ under\ the\ Apache\ License,\ Version\ 2.0\ (the\ License);\ you\ may}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ not\ use\ this\ file\ except\ in\ compliance\ with\ the\ License.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ www.apache.org/licenses/LICENSE-\/2.0}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ distributed\ under\ the\ License\ is\ distributed\ on\ an\ AS\ IS\ BASIS,\ WITHOUT}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ WARRANTIES\ OR\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ See\ the\ License\ for\ the\ specific\ language\ governing\ permissions\ and}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#if\ \ \ defined\ (\ \_\_ICCARM\_\_\ )}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \#pragma\ system\_include\ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ treat\ file\ as\ system\ include\ file\ for\ MISRA\ check\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#elif\ defined\ (\_\_clang\_\_)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \#pragma\ clang\ system\_header\ \ \ \ }\textcolor{comment}{/*\ treat\ file\ as\ system\ include\ file\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ ARM\_CACHEL1\_ARMV7\_H}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ ARM\_CACHEL1\_ARMV7\_H}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{/*\ Cache\ Size\ ID\ Register\ Macros\ */}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ CCSIDR\_WAYS(x)\ \ \ \ \ \ \ \ \ (((x)\ \&\ SCB\_CCSIDR\_ASSOCIATIVITY\_Msk)\ >>\ SCB\_CCSIDR\_ASSOCIATIVITY\_Pos)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ CCSIDR\_SETS(x)\ \ \ \ \ \ \ \ \ (((x)\ \&\ SCB\_CCSIDR\_NUMSETS\_Msk\ \ \ \ \ \ )\ >>\ SCB\_CCSIDR\_NUMSETS\_Pos\ \ \ \ \ \ )}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#ifndef\ \_\_SCB\_DCACHE\_LINE\_SIZE}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ \_\_SCB\_DCACHE\_LINE\_SIZE\ \ 32U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ \_\_SCB\_ICACHE\_LINE\_SIZE}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ \_\_SCB\_ICACHE\_LINE\_SIZE\ \ 32U\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga980ffe52af778f2535ccc52f25f9a7de}{SCB\_EnableICache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_ICACHE\_PRESENT)\ \&\&\ (\_\_ICACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCR\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf2ff8f5957edac919e28b536aa6c0a59}{SCB\_CCR\_IC\_Msk}})\ \textcolor{keywordflow}{return};\ \ \textcolor{comment}{/*\ return\ if\ ICache\ is\ already\ enabled\ */}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00063\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00064\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICIALLU\ =\ 0UL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ invalidate\ I-\/Cache\ */}}
+\DoxyCodeLine{00065\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00067\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCR\ |=\ \ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})\doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf2ff8f5957edac919e28b536aa6c0a59}{SCB\_CCR\_IC\_Msk}};\ \ \textcolor{comment}{/*\ enable\ I-\/Cache\ */}}
+\DoxyCodeLine{00068\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00069\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga56baa06298799dea5f207d4c12d9d4a6}{SCB\_DisableICache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_ICACHE\_PRESENT)\ \&\&\ (\_\_ICACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00081\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00082\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00083\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCR\ \&=\ \string~(\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})\doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf2ff8f5957edac919e28b536aa6c0a59}{SCB\_CCR\_IC\_Msk}};\ \ \textcolor{comment}{/*\ disable\ I-\/Cache\ */}}
+\DoxyCodeLine{00084\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICIALLU\ =\ 0UL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ invalidate\ I-\/Cache\ */}}
+\DoxyCodeLine{00085\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00086\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga62419cb7e6773e3d9236f14e458c1b05}{SCB\_InvalidateICache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_ICACHE\_PRESENT)\ \&\&\ (\_\_ICACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00098\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00099\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00100\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICIALLU\ =\ 0UL;}
+\DoxyCodeLine{00101\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00102\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00115\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gaeb1a2bf181afcfb837ce0502e6bfa4fb}{SCB\_InvalidateICache\_by\_Addr}}\ (\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *addr,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ isize)}
+\DoxyCodeLine{00116\ \{}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_ICACHE\_PRESENT)\ \&\&\ (\_\_ICACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ isize\ >\ 0\ )\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ op\_size\ =\ isize\ +\ (((\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr)\ \&\ (\doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gadd99421e7a7d7121063ef94b49f97e90}{\_\_SCB\_ICACHE\_LINE\_SIZE}}\ -\/\ 1U));}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ op\_addr\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr\ \textcolor{comment}{/*\ \&\ \string~(\_\_SCB\_ICACHE\_LINE\_SIZE\ -\/\ 1U)\ */};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>ICIMVAU\ =\ op\_addr;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ register\ accepts\ only\ 32byte\ aligned\ values,\ only\ bits\ 31..5\ are\ valid\ */}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ op\_addr\ +=\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gadd99421e7a7d7121063ef94b49f97e90}{\_\_SCB\_ICACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ op\_size\ -\/=\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gadd99421e7a7d7121063ef94b49f97e90}{\_\_SCB\_ICACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ op\_size\ >\ 0\ );}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00134\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga3861db932100ccb53f994e2cc68ed79c}{SCB\_EnableDCache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00142\ \{}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00144\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ccsidr;}
+\DoxyCodeLine{00145\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ sets;}
+\DoxyCodeLine{00146\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ways;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCR\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga57b3909dff40a9c28ec50991e4202678}{SCB\_CCR\_DC\_Msk}})\ \textcolor{keywordflow}{return};\ \ \textcolor{comment}{/*\ return\ if\ DCache\ is\ already\ enabled\ */}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CSSELR\ =\ 0U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ select\ Level\ 1\ data\ cache\ */}}
+\DoxyCodeLine{00151\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ ccsidr\ =\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCSIDR;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ invalidate\ D-\/Cache\ */}}
+\DoxyCodeLine{00156\ \ \ \ \ sets\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_SETS(ccsidr));}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ ways\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_WAYS(ccsidr));}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCISW\ =\ (((sets\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaea6bd5b7d1c47c7db06afdecc6e49281}{SCB\_DCISW\_SET\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gab08fbef94f7d068a7c0217e074c697f9}{SCB\_DCISW\_SET\_Msk}})\ |}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ways\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaa6a2a5e1707c9ef277e67dacd4e247fd}{SCB\_DCISW\_WAY\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gabfe6096a36807e0b7e1d09a06ef1d750}{SCB\_DCISW\_WAY\_Msk}})\ \ );}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined\ (\ \_\_CC\_ARM\ )}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ways-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00166\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(sets-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00167\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCR\ |=\ \ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})\doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga57b3909dff40a9c28ec50991e4202678}{SCB\_CCR\_DC\_Msk}};\ \ \textcolor{comment}{/*\ enable\ D-\/Cache\ */}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00172\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00174\ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00181\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gafe64b44d1a61483a947e44a77a9d3287}{SCB\_DisableDCache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00182\ \{}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00184\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ccsidr;}
+\DoxyCodeLine{00185\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ sets;}
+\DoxyCodeLine{00186\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ways;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CSSELR\ =\ 0U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ select\ Level\ 1\ data\ cache\ */}}
+\DoxyCodeLine{00189\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCR\ \&=\ \string~(\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})\doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga57b3909dff40a9c28ec50991e4202678}{SCB\_CCR\_DC\_Msk}};\ \ \textcolor{comment}{/*\ disable\ D-\/Cache\ */}}
+\DoxyCodeLine{00192\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ ccsidr\ =\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCSIDR;}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clean\ \&\ invalidate\ D-\/Cache\ */}}
+\DoxyCodeLine{00197\ \ \ \ \ sets\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_SETS(ccsidr));}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ ways\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_WAYS(ccsidr));}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCCISW\ =\ (((sets\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga525f1bb9849e89b3eafbd53dcd51e296}{SCB\_DCCISW\_SET\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf1b0bea5ab77d4ad7d5c21e77ca463ad}{SCB\_DCCISW\_SET\_Msk}})\ |}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ways\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaa90bd0b36679219d6a2144eba6eb96cd}{SCB\_DCCISW\_WAY\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf2269bbe0bc7705e1da8f5ee0f581054}{SCB\_DCCISW\_WAY\_Msk}})\ \ );}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined\ (\ \_\_CC\_ARM\ )}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ways-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00207\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(sets-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00210\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00212\ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00219\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga99fe43c224644881935de135ceaa2dd9}{SCB\_InvalidateDCache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00222\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ccsidr;}
+\DoxyCodeLine{00223\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ sets;}
+\DoxyCodeLine{00224\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ways;}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CSSELR\ =\ 0U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ select\ Level\ 1\ data\ cache\ */}}
+\DoxyCodeLine{00227\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ ccsidr\ =\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCSIDR;}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ invalidate\ D-\/Cache\ */}}
+\DoxyCodeLine{00232\ \ \ \ \ sets\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_SETS(ccsidr));}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ ways\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_WAYS(ccsidr));}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCISW\ =\ (((sets\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaea6bd5b7d1c47c7db06afdecc6e49281}{SCB\_DCISW\_SET\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gab08fbef94f7d068a7c0217e074c697f9}{SCB\_DCISW\_SET\_Msk}})\ |}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ways\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaa6a2a5e1707c9ef277e67dacd4e247fd}{SCB\_DCISW\_WAY\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gabfe6096a36807e0b7e1d09a06ef1d750}{SCB\_DCISW\_WAY\_Msk}})\ \ );}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined\ (\ \_\_CC\_ARM\ )}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ways-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00242\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(sets-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00245\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00247\ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00254\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gaf5585be5547cc60585d702a6129f4c17}{SCB\_CleanDCache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00255\ \{}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00257\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ccsidr;}
+\DoxyCodeLine{00258\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ sets;}
+\DoxyCodeLine{00259\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ways;}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CSSELR\ =\ 0U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ select\ Level\ 1\ data\ cache\ */}}
+\DoxyCodeLine{00262\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ ccsidr\ =\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCSIDR;}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clean\ D-\/Cache\ */}}
+\DoxyCodeLine{00267\ \ \ \ \ sets\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_SETS(ccsidr));}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ ways\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_WAYS(ccsidr));}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCCSW\ =\ (((sets\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gae93985adc38a127bc8dc909ac58e8fea}{SCB\_DCCSW\_SET\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga669e16d98c8ea0e66afb04641971d98c}{SCB\_DCCSW\_SET\_Msk}})\ |}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ways\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga6cac2d69791e13af276d8306c796925f}{SCB\_DCCSW\_WAY\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga8374e67655ac524284c9bb59eb2efa23}{SCB\_DCCSW\_WAY\_Msk}})\ \ );}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined\ (\ \_\_CC\_ARM\ )}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ways-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00277\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(sets-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00280\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00282\ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00289\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga5b22ca58709fadc326da83197a2f28bb}{SCB\_CleanInvalidateDCache}}\ (\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00290\ \{}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00292\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ccsidr;}
+\DoxyCodeLine{00293\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ sets;}
+\DoxyCodeLine{00294\ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ways;}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CSSELR\ =\ 0U;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ select\ Level\ 1\ data\ cache\ */}}
+\DoxyCodeLine{00297\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ ccsidr\ =\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CCSIDR;}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clean\ \&\ invalidate\ D-\/Cache\ */}}
+\DoxyCodeLine{00302\ \ \ \ \ sets\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_SETS(ccsidr));}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ ways\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})(CCSIDR\_WAYS(ccsidr));}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCCISW\ =\ (((sets\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_ga525f1bb9849e89b3eafbd53dcd51e296}{SCB\_DCCISW\_SET\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf1b0bea5ab77d4ad7d5c21e77ca463ad}{SCB\_DCCISW\_SET\_Msk}})\ |}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((ways\ <<\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaa90bd0b36679219d6a2144eba6eb96cd}{SCB\_DCCISW\_WAY\_Pos}})\ \&\ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaf2269bbe0bc7705e1da8f5ee0f581054}{SCB\_DCCISW\_WAY\_Msk}})\ \ );}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined\ (\ \_\_CC\_ARM\ )}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \_\_schedule\_barrier();}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (ways-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00312\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(sets-\/-\/\ !=\ 0U);}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00315\ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00317\ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00328\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga31c2439722ab4dbd0c67b196e3377ca7}{SCB\_InvalidateDCache\_by\_Addr}}\ (\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *addr,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ dsize)}
+\DoxyCodeLine{00329\ \{}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ dsize\ >\ 0\ )\ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ op\_size\ =\ dsize\ +\ (((\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr)\ \&\ (\doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}}\ -\/\ 1U));}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ op\_addr\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr\ \textcolor{comment}{/*\ \&\ \string~(\_\_SCB\_DCACHE\_LINE\_SIZE\ -\/\ 1U)\ */};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCIMVAC\ =\ op\_addr;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ register\ accepts\ only\ 32byte\ aligned\ values,\ only\ bits\ 31..5\ are\ valid\ */}}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ op\_addr\ +=\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ op\_size\ -\/=\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ op\_size\ >\ 0\ );}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00345\ \ \ \ \ \}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00347\ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00358\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_gabc9e51347dca344c72948c3dba0364fd}{SCB\_CleanDCache\_by\_Addr}}\ (\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *addr,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ dsize)}
+\DoxyCodeLine{00359\ \{}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00361\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ dsize\ >\ 0\ )\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ op\_size\ =\ dsize\ +\ (((\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr)\ \&\ (\doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}}\ -\/\ 1U));}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ op\_addr\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr\ \textcolor{comment}{/*\ \&\ \string~(\_\_SCB\_DCACHE\_LINE\_SIZE\ -\/\ 1U)\ */};}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCCMVAC\ =\ op\_addr;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ register\ accepts\ only\ 32byte\ aligned\ values,\ only\ bits\ 31..5\ are\ valid\ */}}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ op\_addr\ +=\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ op\_size\ -\/=\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ op\_size\ >\ 0\ );}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00375\ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00377\ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00388\ \_\_STATIC\_FORCEINLINE\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga83fe294bcc60d3c4f1c279f13477dda7}{SCB\_CleanInvalidateDCache\_by\_Addr}}\ (\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *addr,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ dsize)}
+\DoxyCodeLine{00389\ \{}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\ \ \#if\ defined\ (\_\_DCACHE\_PRESENT)\ \&\&\ (\_\_DCACHE\_PRESENT\ ==\ 1U)}}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordflow}{if}\ (\ dsize\ >\ 0\ )\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a32f2e37ee053cf2ce8ca28d1f74630e5}{int32\_t}}\ op\_size\ =\ dsize\ +\ (((\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr)\ \&\ (\doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}}\ -\/\ 1U));}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ op\_addr\ =\ (\doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}})addr\ \textcolor{comment}{/*\ \&\ \string~(\_\_SCB\_DCACHE\_LINE\_SIZE\ -\/\ 1U)\ */};}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___c_o_r_e_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>DCCIMVAC\ =\ op\_addr;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ register\ accepts\ only\ 32byte\ aligned\ values,\ only\ bits\ 31..5\ are\ valid\ */}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ op\_addr\ +=\ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ op\_size\ -\/=\ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___cache_functions_ga8f36551f2593cd3715d1e68e37f97f12}{\_\_SCB\_DCACHE\_LINE\_SIZE}};}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\ op\_size\ >\ 0\ );}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_ga067d257a2b34565410acefb5afef2203}{\_\_DSB}}();}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \doxymbox{\hyperlink{group___c_m_s_i_s___core___instruction_interface_gaad233022e850a009fc6f7602be1182f6}{\_\_ISB}}();}
+\DoxyCodeLine{00405\ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00407\ \}}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ARM\_CACHEL1\_ARMV7\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

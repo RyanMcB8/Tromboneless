@@ -1,0 +1,174 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+def.\+h}
+\hypertarget{stm32f4xx__hal__def_8h_source}{}\label{stm32f4xx__hal__def_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_def.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_def.h}}
+\doxymbox{\hyperlink{stm32f4xx__hal__def_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_\_STM32F4xx\_HAL\_DEF}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \_\_STM32F4xx\_HAL\_DEF}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00025\ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f4xx_8h}{stm32f4xx.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32__hal__legacy_8h}{Legacy/stm32\_hal\_legacy.h}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00034\ \ \ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ HAL\_OK\ \ \ \ \ \ \ =\ 0x00U,}
+\DoxyCodeLine{00041\ \ \ HAL\_ERROR\ \ \ \ =\ 0x01U,}
+\DoxyCodeLine{00042\ \ \ HAL\_BUSY\ \ \ \ \ =\ 0x02U,}
+\DoxyCodeLine{00043\ \ \ HAL\_TIMEOUT\ \ =\ 0x03U}
+\DoxyCodeLine{00044\ \}\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ }
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ HAL\_UNLOCKED\ =\ 0x00U,}
+\DoxyCodeLine{00052\ \ \ HAL\_LOCKED\ \ \ =\ 0x01U\ \ }
+\DoxyCodeLine{00053\ \}\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#if\ !defined(UNUSED)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ UNUSED(X)\ (void)X\ \ \ \ \ \ }\textcolor{comment}{/*\ To\ avoid\ gcc/g++\ warnings\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ UNUSED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ HAL\_MAX\_DELAY\ \ \ \ \ \ 0xFFFFFFFFU}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ HAL\_IS\_BIT\_SET(REG,\ BIT)\ \ \ \ \ \ \ \ \ (((REG)\ \&\ (BIT))\ ==\ (BIT))}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ HAL\_IS\_BIT\_CLR(REG,\ BIT)\ \ \ \ \ \ \ \ \ (((REG)\ \&\ (BIT))\ ==\ 0U)}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ \_\_HAL\_LINKDMA(\_\_HANDLE\_\_,\ \_\_PPP\_DMA\_FIELD\_\_,\ \_\_DMA\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ do\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>\_\_PPP\_DMA\_FIELD\_\_\ =\ \&(\_\_DMA\_HANDLE\_\_);\ \(\backslash\)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_DMA\_HANDLE\_\_).Parent\ =\ (\_\_HANDLE\_\_);\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0U)}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ \_\_HAL\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_)\ ((\_\_HANDLE\_\_)-\/>State\ =\ 0U)}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#if\ (USE\_RTOS\ ==\ 1U)}}
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{/*\ Reserved\ for\ future\ use\ */}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \#error\ "{}USE\_RTOS\ should\ be\ 0\ in\ the\ current\ HAL\ release"{}}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \#define\ \_\_HAL\_LOCK(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ do\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if((\_\_HANDLE\_\_)-\/>Lock\ ==\ HAL\_LOCKED)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ HAL\_BUSY;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>Lock\ =\ HAL\_LOCKED;\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}while\ (0U)}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \#define\ \_\_HAL\_UNLOCK(\_\_HANDLE\_\_)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ do\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_HANDLE\_\_)-\/>Lock\ =\ HAL\_UNLOCKED;\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}while\ (0U)}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_RTOS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#if\ defined\ (\_\_ARMCC\_VERSION)\ \&\&\ (\_\_ARMCC\_VERSION\ >=\ 6010050)\ }\textcolor{comment}{/*\ ARM\ Compiler\ V6\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_weak}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_weak\ \ \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_packed}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_packed\ \ \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_GNUC\_\_\ )\ \&\&\ !defined\ (\_\_CC\_ARM)\ }\textcolor{comment}{/*\ GNU\ Compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_weak}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_weak\ \ \ \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \#endif\ }\textcolor{comment}{/*\ \_\_weak\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_packed}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_packed\ \_\_attribute\_\_((\_\_packed\_\_))}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \#endif\ }\textcolor{comment}{/*\ \_\_packed\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_GNUC\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{comment}{/*\ Macro\ to\ get\ variable\ aligned\ on\ 4-\/bytes,\ for\ \_\_ICCARM\_\_\ the\ directive\ "{}\#pragma\ data\_alignment=4"{}\ must\ be\ used\ instead\ */}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#if\ defined\ (\_\_ARMCC\_VERSION)\ \&\&\ (\_\_ARMCC\_VERSION\ >=\ 6010050)\ }\textcolor{comment}{/*\ ARM\ Compiler\ V6\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_ALIGN\_END}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGN\_END\ \ \ \ \ \ \_\_attribute\_\_\ ((aligned\ (4)))}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_GNUC\_\_\ )\ \&\&\ !defined\ (\_\_CC\_ARM)\ }\textcolor{comment}{/*\ GNU\ Compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_ALIGN\_END}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ \_\_ALIGN\_END\ \ \ \ \_\_attribute\_\_\ ((aligned\ (4)))}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \#endif\ }\textcolor{comment}{/*\ \_\_ALIGN\_END\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_ALIGN\_BEGIN\ \ }}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \#endif\ }\textcolor{comment}{/*\ \_\_ALIGN\_BEGIN\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_ALIGN\_END}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_\_ALIGN\_END}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \#endif\ }\textcolor{comment}{/*\ \_\_ALIGN\_END\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \#ifndef\ \_\_ALIGN\_BEGIN\ \ \ \ \ \ }}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined\ \ \ (\_\_CC\_ARM)\ \ \ \ \ \ }\textcolor{comment}{/*\ ARM\ Compiler\ V5*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ \_\_ALIGN\_BEGIN\ \ \ \ \_\_align(4)}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined\ (\_\_ICCARM\_\_)\ \ \ \ }\textcolor{comment}{/*\ IAR\ Compiler\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ \ \ \#define\ \_\_ALIGN\_BEGIN\ }}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*\ \_\_CC\_ARM\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ \#endif\ }\textcolor{comment}{/*\ \_\_ALIGN\_BEGIN\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_GNUC\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#if\ defined\ (\ \_\_CC\_ARM\ \ \ )\ ||\ (defined\ (\_\_ARMCC\_VERSION)\ \&\&\ (\_\_ARMCC\_VERSION\ >=\ 6010050))}}
+\DoxyCodeLine{00161\ \textcolor{comment}{/*\ ARM\ Compiler\ V4/V5\ and\ V6}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ \ \ RAM\ functions\ are\ defined\ using\ the\ toolchain\ options.\ }}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ \ \ Functions\ that\ are\ executed\ in\ RAM\ should\ reside\ in\ a\ separate\ source\ module.}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ Using\ the\ 'Options\ for\ File'\ dialog\ you\ can\ simply\ change\ the\ 'Code\ /\ Const'\ }}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ area\ of\ a\ module\ to\ a\ memory\ space\ in\ physical\ RAM.}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ \ \ Available\ memory\ areas\ are\ declared\ in\ the\ 'Target'\ tab\ of\ the\ 'Options\ for\ Target'}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ dialog.\ }}
+\DoxyCodeLine{00169\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ \_\_RAM\_FUNC}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_ICCARM\_\_\ )}}
+\DoxyCodeLine{00173\ \textcolor{comment}{/*\ ICCARM\ Compiler}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ \ \ RAM\ functions\ are\ defined\ using\ a\ specific\ toolchain\ keyword\ "{}\_\_ramfunc"{}.\ }}
+\DoxyCodeLine{00176\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ \_\_RAM\_FUNC\ \_\_ramfunc}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#elif\ defined\ \ \ (\ \ \_\_GNUC\_\_\ \ )}}
+\DoxyCodeLine{00180\ \textcolor{comment}{/*\ GNU\ Compiler}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ RAM\ functions\ are\ defined\ using\ a\ specific\ toolchain\ attribute\ }}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ "{}\_\_attribute\_\_((section("{}.RamFunc"{})))"{}.}}
+\DoxyCodeLine{00184\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ \_\_RAM\_FUNC\ \_\_attribute\_\_((section("{}.RamFunc"{})))}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00188\ \ }
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#if\ defined\ (\ \_\_CC\_ARM\ \ \ )\ ||\ (defined\ (\_\_ARMCC\_VERSION)\ \&\&\ (\_\_ARMCC\_VERSION\ >=\ 6010050))\ ||\ defined\ \ \ (\ \ \_\_GNUC\_\_\ \ )}}
+\DoxyCodeLine{00193\ \textcolor{comment}{/*\ ARM\ V4/V5\ and\ V6\ \&\ GNU\ Compiler}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00195\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ \_\_NOINLINE\ \_\_attribute\_\_\ (\ (noinline)\ )}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#elif\ defined\ (\ \_\_ICCARM\_\_\ )}}
+\DoxyCodeLine{00199\ \textcolor{comment}{/*\ ICCARM\ Compiler}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00201\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ \_\_NOINLINE\ \_Pragma("{}optimize\ =\ no\_inline"{})}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_\_STM32F4xx\_HAL\_DEF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ }
+
+\end{DoxyCode}

@@ -1,0 +1,151 @@
+\doxysection{Calibration\+Slider Class Reference}
+\hypertarget{classCalibrationSlider}{}\label{classCalibrationSlider}\index{CalibrationSlider@{CalibrationSlider}}
+
+
+A class that adds more functionality to the slider class from Juce.  
+
+
+
+
+{\ttfamily \#include $<$Widgets.\+hpp$>$}
+
+
+
+Inheritance diagram for Calibration\+Slider\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classCalibrationSlider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Calibration\+Slider\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classCalibrationSlider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCalibrationSlider_a0cd4e4240dfd46d022488cc00cad88ad}\label{classCalibrationSlider_a0cd4e4240dfd46d022488cc00cad88ad} 
+{\bfseries Calibration\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The contructor function for the {\ttfamily \doxylink{classCalibrationSlider}{Calibration\+Slider}} class which requires the type of slider being used to be initiated. This is set to {\ttfamily Two\+Value\+Horizontal} by default. \end{DoxyCompactList}\item 
+\Hypertarget{classCalibrationSlider_a97344f37ff0850b789d63b14322602f3}\label{classCalibrationSlider_a97344f37ff0850b789d63b14322602f3} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Calibration\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classCalibrationSlider}{Calibration\+Slider}} class which removes the listener from the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalibrationSlider_a464e54684235c792c3e716811fbc43bb}{set\+Min\+Difference}} (float difference)
+\begin{DoxyCompactList}\small\item\em A function which sets the minimum difference between the upper and lower fingers of the slider. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classCalibrationSlider_a4beecc6c63a263d04119c5c426a4cae8}{get\+Min\+Difference}} (void)
+\begin{DoxyCompactList}\small\item\em A function which returns the current minimum distance that the slider fingers may be apart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A function that is called upon when either of the fingers are moved. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Slider\+With\+Label} (juce\+::\+Slider\+::\+Slider\+Style style)
+\begin{DoxyCompactList}\small\item\em Constructor which sets the style of the slider being used and removes the text entry option. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3}{Initialise\+Label\+Errors\+\_\+t}} \mbox{\hyperlink{classSliderWithLabel_ad717f4224ec15c616480523d7dd023e0}{Create\+Label}} (\mbox{\hyperlink{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe}{Label\+Positions\+\_\+t}} position, juce\+::\+String phrase, juce\+::\+Notification\+Type Notification\+Enable=juce\+::dont\+Send\+Notification)
+\begin{DoxyCompactList}\small\item\em A function which may be called to create or edit a specified label around the slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a8bafb51b5a3f26ecce9b6052ef470511}{resized}} () override
+\begin{DoxyCompactList}\small\item\em A function which is automatically called whenever the window size is modified. This automatically adjusts the bounds of each of the labels as well as the slider to ensure the size is correct with respect to the screen size for the component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a990c324d7c731dd6d582835f951ab1da}{set\+Top\+Label\+Bounds}} (int bound)
+\begin{DoxyCompactList}\small\item\em A function to set the bounds for which the top labels may be situated in. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSliderWithLabel_a74e5c407ce18a88630fe03c92f2f860c}{get\+Top\+Label\+Bounds}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the bounds for which the top labels are situated in. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a0258e9b9824cd858a8196107d93d3b0d}{set\+Left\+Label\+Bounds}} (int bound)
+\begin{DoxyCompactList}\small\item\em A function to set the bounds for which the labels on the left may be situated in. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSliderWithLabel_a64196b7c29f715ac1cac399646793e5c}{get\+Left\+Label\+Bounds}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the bounds for which the labels on the left are situated in. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a65397954cb9450f15c98f70d44602e33}{set\+Right\+Label\+Bounds}} (int bound)
+\begin{DoxyCompactList}\small\item\em A function to set the bounds for which the labels on the right may be situated in. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSliderWithLabel_a4f7ca1a0339c28f102e3bd3dfcfcf247}{get\+Right\+Label\+Bounds}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the bounds for which the labels on the right are situated in. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSliderWithLabel_a4eed51160f42ac0462ded7c09b214f8e}{set\+Bottom\+Label\+Bounds}} (int bound)
+\begin{DoxyCompactList}\small\item\em A function to set the bounds for which the bottom labels may be situated in. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSliderWithLabel_a28b636e7ced07eb9ded7a8c30a72b6e9}{get\+Bottom\+Label\+Bounds}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the bounds for which the bottom labels are situated in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe}\label{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe} 
+enum \mbox{\hyperlink{classSliderWithLabel_ad8662ad2ad354d6769f15e555f32f2fe}{Label\+Positions\+\_\+t}} \{ \newline
+{\bfseries Upper\+Left}
+, {\bfseries Upper\+Centre}
+, {\bfseries Upper\+Right}
+, {\bfseries Middle\+Left}
+, \newline
+{\bfseries Middle\+Right}
+, {\bfseries Lower\+Left}
+, {\bfseries Lower\+Centre}
+, {\bfseries Lower\+Right}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerated list of possible positions for the label to be attached relative to the slider. \end{DoxyCompactList}\item 
+\Hypertarget{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3}\label{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3} 
+enum \mbox{\hyperlink{classSliderWithLabel_ab9bc346c16ea8bf568905afc99ab9bc3}{Initialise\+Label\+Errors\+\_\+t}} \{ {\bfseries Label\+OK}
+, {\bfseries Positon\+Not\+Accepted}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumerated list of possible errors when initialising the labels within this component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classSliderWithLabel}{Slider\+With\+Label}}}
+\begin{DoxyCompactItemize}
+\item 
+juce\+::\+Slider {\bfseries slider}
+\begin{DoxyCompactList}\small\item\em The slider which is having the labels added to it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that adds more functionality to the slider class from Juce. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCalibrationSlider_a4beecc6c63a263d04119c5c426a4cae8}\label{classCalibrationSlider_a4beecc6c63a263d04119c5c426a4cae8} 
+\index{CalibrationSlider@{CalibrationSlider}!getMinDifference@{getMinDifference}}
+\index{getMinDifference@{getMinDifference}!CalibrationSlider@{CalibrationSlider}}
+\doxysubsubsection{\texorpdfstring{getMinDifference()}{getMinDifference()}}
+{\footnotesize\ttfamily float Calibration\+Slider\+::get\+Min\+Difference (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function which returns the current minimum distance that the slider fingers may be apart. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & double precision representation of the minimum distance between the slider fingers. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classCalibrationSlider_a464e54684235c792c3e716811fbc43bb}\label{classCalibrationSlider_a464e54684235c792c3e716811fbc43bb} 
+\index{CalibrationSlider@{CalibrationSlider}!setMinDifference@{setMinDifference}}
+\index{setMinDifference@{setMinDifference}!CalibrationSlider@{CalibrationSlider}}
+\doxysubsubsection{\texorpdfstring{setMinDifference()}{setMinDifference()}}
+{\footnotesize\ttfamily void Calibration\+Slider\+::set\+Min\+Difference (\begin{DoxyParamCaption}\item[{float}]{difference }\end{DoxyParamCaption})}
+
+
+
+A function which sets the minimum difference between the upper and lower fingers of the slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em difference} & The value of the minimum distance between the slider knobs. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4}\label{classCalibrationSlider_aa86dc6014c7b5579ffd0a41256a115f4} 
+\index{CalibrationSlider@{CalibrationSlider}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!CalibrationSlider@{CalibrationSlider}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void Calibration\+Slider\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A function that is called upon when either of the fingers are moved. 
+
+\begin{DoxyNote}{Note}
+This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Widgets_8hpp}{Widgets.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

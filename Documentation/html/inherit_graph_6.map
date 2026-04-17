@@ -1,0 +1,39 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="18,208,138,235"/>
+<area shape="rect" id="Node000001" href="$class_calibration_on_click.html" title="A class which allows for the additon of a button to the screen without inheriting the button directly..." alt="" coords="204,5,334,32"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="100,195,254,30,255,35,104,198"/>
+<area shape="rect" id="Node000015" href="$class_drop_down_menu.html" title="A class that creates a drop down menu or &#39;comboBox&#39; with a label attached to it. This takes up 95% of..." alt="" coords="211,309,326,336"/>
+<area shape="poly" id="edge3_Node000000_Node000015" title=" " alt="" coords="111,241,153,269,200,295,228,309,223,309,197,300,150,273,110,246"/>
+<area shape="rect" id="Node000013" href="$class_dual_rotary_slider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="400,208,520,235"/>
+<area shape="poly" id="edge4_Node000000_Node000013" title=" " alt="" coords="147,202,198,193,269,188,339,193,408,207,402,208,339,199,269,194,199,199,149,207"/>
+<area shape="rect" id="Node000016" href="$class_layout.html" title="Main class that creates the window." alt="" coords="239,360,299,387"/>
+<area shape="poly" id="edge6_Node000000_Node000016" title=" " alt="" coords="99,245,143,296,170,323,200,346,241,366,236,366,197,350,167,327,139,300,97,250"/>
+<area shape="rect" id="Node000005" href="$class_panels.html" title="A class which is inherited from Juce:Component reponsible for setting the general style of a panel wi..." alt="" coords="238,107,300,133"/>
+<area shape="poly" id="edge7_Node000000_Node000005" title=" " alt="" coords="113,198,197,150,240,131,236,135,200,154,116,202"/>
+<area shape="rect" id="Node000010" href="$class_slider_with_label.html" title="A class which inherits attributes from the juce::Component class to create a new component containing..." alt="" coords="213,259,325,285"/>
+<area shape="poly" id="edge11_Node000000_Node000010" title=" " alt="" coords="146,237,218,257,213,259,146,242"/>
+<area shape="rect" id="Node000002" href="$class_calibrate_embouchure.html" title="A class which is inherited from the CalibrationOnClick class that adds a dropdown menu next to the bu..." alt="" coords="387,5,533,32"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="349,16,389,18,385,20,351,21"/>
+<area shape="rect" id="Node000014" href="$class_barometer.html" title="A class which can allow for the look and feel of a set of rotary sliders be modified to look like a b..." alt="" coords="581,208,663,235"/>
+<area shape="poly" id="edge5_Node000013_Node000014" title=" " alt="" coords="536,219,583,221,578,222,536,224"/>
+<area shape="rect" id="Node000006" href="$class_drop_down_menus.html" title="A class which is created to display the drop down menus required by the Tromboneless UI to choose the..." alt="" coords="399,107,521,133"/>
+<area shape="poly" id="edge8_Node000005_Node000006" title=" " alt="" coords="314,117,401,119,396,121,316,123"/>
+<area shape="rect" id="Node000004" href="$class_equalizer_panel.html" title="A class which may be called to add a panel to the window contains a series of sliders for the equaliz..." alt="" coords="406,56,514,83"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="313,106,409,82,405,85,316,111"/>
+<area shape="rect" id="Node000007" href="$class_sliders.html" title="A class which adds all the linear sliders being used within the calibration section to be within the ..." alt="" coords="430,157,491,184"/>
+<area shape="poly" id="edge10_Node000005_Node000007" title=" " alt="" coords="315,129,432,162,427,164,315,135"/>
+<area shape="rect" id="Node000009" href="$class_calibration_slider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="402,259,518,285"/>
+<area shape="poly" id="edge12_Node000010_Node000009" title=" " alt="" coords="340,269,404,271,399,273,341,275"/>
+<area shape="rect" id="Node000011" href="$classvertical_mix_slider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="402,309,519,336"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="337,287,410,309,404,309,337,293"/>
+<area shape="rect" id="Node000012" href="$class_equalizer.html" title="A class which inherits its sliders from verticalMixSlider made to act as an equalizer." alt="" coords="584,309,660,336"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="534,320,586,322,581,323,534,325"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,31,151,57"/>
+<area shape="poly" id="edge15_Node000003_Node000001" title=" " alt="" coords="165,30,205,26,201,29,168,35"/>
+<area shape="poly" id="edge16_Node000003_Node000004" title=" " alt="" coords="166,47,407,64,404,68,167,52"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="199,208,339,235"/>
+<area shape="poly" id="edge18_Node000008_Node000013" title=" " alt="" coords="354,219,402,221,397,222,355,224"/>
+<area shape="poly" id="edge19_Node000008_Node000007" title=" " alt="" coords="336,201,432,178,427,180,338,206"/>
+<area shape="poly" id="edge17_Node000008_Node000009" title=" " alt="" coords="337,237,410,258,404,258,337,242"/>
+<area shape="poly" id="edge20_Node000008_Node000011" title=" " alt="" coords="331,239,341,245,356,258,365,270,374,283,388,295,412,309,407,308,386,300,370,287,361,274,352,261,337,249,331,244"/>
+</map>

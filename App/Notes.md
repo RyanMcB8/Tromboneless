@@ -1,20 +1,22 @@
 # Notes on App
 
-## This will contain a large amount of tutorial code for the use of certain classes within JUCE and will be removed for the alpha release once the initial template is complete. 
-
 ## Map of the code
-Within the `main.cpp` file is the code responsible for creating main window.
+Within the `main.cpp` file is the code responsible for creating main window. This should not need to be modified as the contents of the window are defined elsewhere.
 
-The code within `Layout.cpp` creates the custom layout for the window such as setting the inital size and adding all widgets and text to be displayed to the user.
+The code within `Layout.cpp` creates the defines the general structure of the window by creating instances of widgets and panels and arranging them to be in the correct position on the screen.
 
-The `Widgets.cpp` file hosts the classes for creating more custom widgets that base library of JUCE does not already provide. These include modifications to shapes of the widgets.
+The `Panels.cpp` file is where each panel on the display is created. This sets the backgorund colour of each panel and calls upon the specific widgets which should be in each panel.
 
-The `tromboneless_data.cpp` file has the functions responsible for calling upon the objects within the core functionality and modifying their values to match that of what the UX is displaying.
+The `Widgets.cpp` file hosts the classes for creating more custom widgets that base library of JUCE does not already provide. These include modifications to shapes of the widgets such as the custom calibration sliders and equalizer.
 
-Each of these files has an associated header file, excluding `main.cpp`, which hosts the declarations and custom types which may be used externally.
+The `tromboneless_data.cpp` file has the variables which interact with the Tromboneless Core functionality and allow for the Core and App to communicate parameters between each other. If there is a need to add more communication channels between the app and core, this is where t should be added. For example, a flag for if a speaker has been connected.
 
+Each of these files has an associated header file, excluding `main.cpp`, which hosts the declarations and custom types which may be used externally. All documentation for the functions are within the header files with more in-depth step by step explanations within the cpp files.
 
-## Code tutorials
+If the files are thought about as a pipe line, the order would be:
+JUCE --> Widgets --> Panels --> Layout --> main
+
+## Code tutorials specifically for JUCE:
 
 ### For labels:
 
@@ -52,7 +54,3 @@ The lines of code below display an example which first creates an instance of a 
   styleMenu.setSelectedId (1);
   setSize (400, 200);
 ```
-
-# Embauchure
- Add a function to set the lowest note
- Add a function to calibrate the pressure to that particular note.

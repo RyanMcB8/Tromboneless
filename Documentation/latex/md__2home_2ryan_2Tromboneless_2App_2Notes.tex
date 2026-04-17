@@ -1,0 +1,55 @@
+\chapter{Notes on App}
+\hypertarget{md__2home_2ryan_2Tromboneless_2App_2Notes}{}\label{md__2home_2ryan_2Tromboneless_2App_2Notes}\index{Notes on App@{Notes on App}}
+\label{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md0}%
+\Hypertarget{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md0}%
+ \hypertarget{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md1}{}\doxysection{\texorpdfstring{Map of the code}{Map of the code}}\label{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md1}
+Within the {\ttfamily main.\+cpp} file is the code responsible for creating main window. This should not need to be modified as the contents of the window are defined elsewhere.
+
+The code within {\ttfamily Layout.\+cpp} creates the defines the general structure of the window by creating instances of widgets and panels and arranging them to be in the correct position on the screen.
+
+The {\ttfamily \doxylink{Panels_8cpp}{Panels.\+cpp}} file is where each panel on the display is created. This sets the backgorund colour of each panel and calls upon the specific widgets which should be in each panel.
+
+The {\ttfamily \doxylink{Widgets_8cpp}{Widgets.\+cpp}} file hosts the classes for creating more custom widgets that base library of JUCE does not already provide. These include modifications to shapes of the widgets such as the custom calibration sliders and equalizer.
+
+The {\ttfamily tromboneless\+\_\+data.\+cpp} file has the variables which interact with the Tromboneless Core functionality and allow for the Core and App to communicate parameters between each other. If there is a need to add more communication channels between the app and core, this is where t should be added. For example, a flag for if a speaker has been connected.
+
+Each of these files has an associated header file, excluding {\ttfamily main.\+cpp}, which hosts the declarations and custom types which may be used externally. All documentation for the functions are within the header files with more in-\/depth step by step explanations within the cpp files.
+
+If the files are thought about as a pipe line, the order would be\+: JUCE -\/-\/\texorpdfstring{$>$}{>} Widgets -\/-\/\texorpdfstring{$>$}{>} \doxylink{classPanels}{Panels} -\/-\/\texorpdfstring{$>$}{>} \doxylink{classLayout}{Layout} -\/-\/\texorpdfstring{$>$}{>} main\hypertarget{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md2}{}\doxysection{\texorpdfstring{Code tutorials specifically for JUCE\+:}{Code tutorials specifically for JUCE:}}\label{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md2}
+\hypertarget{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md3}{}\doxysubsection{\texorpdfstring{For labels\+:}{For labels:}}\label{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md3}
+This code will display only uppercase characters input. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{addAndMakeVisible\ (uppercaseLabel);}
+\DoxyCodeLine{uppercaseLabel.setText\ ("{}Uppercase:"{},\ juce::dontSendNotification);}
+\DoxyCodeLine{uppercaseLabel.attachToComponent\ (\&uppercaseText,\ true);}
+\DoxyCodeLine{uppercaseLabel.setColour\ (juce::Label::textColourId,\ juce::Colours::orange);}
+\DoxyCodeLine{uppercaseLabel.setJustificationType\ (juce::Justification::right);}
+\DoxyCodeLine{addAndMakeVisible\ (uppercaseText);}
+\DoxyCodeLine{uppercaseText.setColour\ (juce::Label::backgroundColourId,\ juce::Colours::darkblue);}
+
+\end{DoxyCode}
+
+
+These functions will allow for the text to be editted by the user when the app is open. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{addAndMakeVisible\ (inputText);}
+\DoxyCodeLine{inputText.setEditable\ (true);}
+\DoxyCodeLine{inputText.setColour\ (juce::Label::backgroundColourId,\ juce::Colours::darkblue);}
+\DoxyCodeLine{inputText.onTextChange\ =\ [this]\ \{\ uppercaseText.setText\ (inputText.getText().toUpperCase(),\ juce::dontSendNotification);\ \};}
+
+\end{DoxyCode}
+ When this label is changed by the user, the {\ttfamily on\+Text\+Change} sets a lambda function to be excucted whenever there is any change within the label.\hypertarget{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md4}{}\doxysection{\texorpdfstring{For drop down menus}{For drop down menus}}\label{md__2home_2ryan_2Tromboneless_2App_2Notes_autotoc_md4}
+The drop down menus within the JUCE library are referred to as a {\ttfamily combo\+Box}.
+
+The lines of code below display an example which first creates an instance of a combo-\/box called \textquotesingle{}style\+Menu\textquotesingle{} and adds optionsusing the {\ttfamily add\+Item} method. When the choice is changed, the {\ttfamily style\+Menu\+Changed()} function is called upon. The first option within the list is set as the default to be selected. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{addAndMakeVisible\ (styleMenu);}
+\DoxyCodeLine{styleMenu.addItem\ ("{}Plain"{},\ 1);}
+\DoxyCodeLine{styleMenu.addItem\ ("{}Bold"{},\ 2);}
+\DoxyCodeLine{styleMenu.addItem\ ("{}Italic"{},\ 3);}
+\DoxyCodeLine{styleMenu.onChange\ =\ [this]\ \{\ styleMenuChanged();\ \};}
+\DoxyCodeLine{styleMenu.setSelectedId\ (1);}
+\DoxyCodeLine{setSize\ (400,\ 200);}
+
+\end{DoxyCode}
+ 

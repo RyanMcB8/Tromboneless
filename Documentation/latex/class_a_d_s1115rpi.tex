@@ -1,0 +1,109 @@
+\doxysection{ADS1115rpi Class Reference}
+\hypertarget{class_a_d_s1115rpi}{}\label{class_a_d_s1115rpi}\index{ADS1115rpi@{ADS1115rpi}}
+
+
+{\ttfamily \+\#include $<$ads1115rpi.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \doxymbox{\hyperlink{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c}{ADSCallback\+Interface}} = std::\+function$<$void(float)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_a_d_s1115rpi_a3dec47dc3242290468f21396df0d71a5}{\texorpdfstring{$\sim$}{\string~}\+ADS1115rpi}} ()
+\item 
+void \doxymbox{\hyperlink{class_a_d_s1115rpi_a720c2d3b7151367221af969ab436f299}{register\+Callback}} (\doxymbox{\hyperlink{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c}{ADSCallback\+Interface}} ci)
+\item 
+void \doxymbox{\hyperlink{class_a_d_s1115rpi_a4f36d0cca6cbec106b5a626d9973e091}{set\+Channel}} (\doxymbox{\hyperlink{struct_a_d_s1115settings_a17845a1a94f94bb7d2406dbe13bc560d}{ADS1115settings::\+\+Input}} channel)
+\item 
+void \doxymbox{\hyperlink{class_a_d_s1115rpi_a401e626b6afed688a9b0518c0316b2a9}{start}} (\doxymbox{\hyperlink{struct_a_d_s1115settings}{ADS1115settings}} settings=\doxymbox{\hyperlink{struct_a_d_s1115settings}{ADS1115settings}}())
+\item 
+\doxymbox{\hyperlink{struct_a_d_s1115settings}{ADS1115settings}} \doxymbox{\hyperlink{class_a_d_s1115rpi_ad8f096a3061f19cda469efe0eee60510}{get\+ADS1115settings}} () const
+\item 
+void \doxymbox{\hyperlink{class_a_d_s1115rpi_a910b9735f8bef69a0844a821fda06baf}{stop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class reads data from the ADS1115 in the background (separate thread) and calls a callback function whenever data is available. 
+
+\label{doc-typedef-members}
+\Hypertarget{class_a_d_s1115rpi_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c}\index{ADS1115rpi@{ADS1115rpi}!ADSCallbackInterface@{ADSCallbackInterface}}
+\index{ADSCallbackInterface@{ADSCallbackInterface}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{ADSCallbackInterface}{ADSCallbackInterface}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c} 
+using \doxymbox{\hyperlink{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c}{ADS1115rpi::\+\+ADSCallback\+Interface}} = std::\+function$<$void(float)$>$}
+
+Callback function type when a new sample is available. Callback value is in volt. 
+
+\label{doc-constructors}
+\Hypertarget{class_a_d_s1115rpi_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_a_d_s1115rpi_a3dec47dc3242290468f21396df0d71a5}\index{ADS1115rpi@{ADS1115rpi}!````~ADS1115rpi@{\texorpdfstring{$\sim$}{\string~}ADS1115rpi}}
+\index{````~ADS1115rpi@{\texorpdfstring{$\sim$}{\string~}ADS1115rpi}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ADS1115rpi()}{\string~ADS1115rpi()}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_a3dec47dc3242290468f21396df0d71a5} 
+ADS1115rpi::\+\texorpdfstring{$\sim$}{\string~}\+ADS1115rpi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor which makes sure the data acquisition stops on exit. 
+
+\label{doc-func-members}
+\Hypertarget{class_a_d_s1115rpi_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_a_d_s1115rpi_ad8f096a3061f19cda469efe0eee60510}\index{ADS1115rpi@{ADS1115rpi}!getADS1115settings@{getADS1115settings}}
+\index{getADS1115settings@{getADS1115settings}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{getADS1115settings()}{getADS1115settings()}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_ad8f096a3061f19cda469efe0eee60510} 
+\doxymbox{\hyperlink{struct_a_d_s1115settings}{ADS1115settings}} ADS1115rpi::\+get\+ADS1115settings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the current settings \Hypertarget{class_a_d_s1115rpi_a720c2d3b7151367221af969ab436f299}\index{ADS1115rpi@{ADS1115rpi}!registerCallback@{registerCallback}}
+\index{registerCallback@{registerCallback}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{registerCallback()}{registerCallback()}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_a720c2d3b7151367221af969ab436f299} 
+void ADS1115rpi::\+register\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c}{ADSCallback\+Interface}}}]{ci}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Registers callback with this class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ci} & Callback method and needs to be of type \doxylink{class_a_d_s1115rpi_a69806d343269487c97e5d34c9c13902c}{ADSCallback\+Interface}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_d_s1115rpi_a4f36d0cca6cbec106b5a626d9973e091}\index{ADS1115rpi@{ADS1115rpi}!setChannel@{setChannel}}
+\index{setChannel@{setChannel}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{setChannel()}{setChannel()}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_a4f36d0cca6cbec106b5a626d9973e091} 
+void ADS1115rpi::\+set\+Channel (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_a_d_s1115settings_a17845a1a94f94bb7d2406dbe13bc560d}{ADS1115settings::\+\+Input}}}]{channel}{}\end{DoxyParamCaption})}
+
+Selects a different channel at the multiplexer while running. Call this in the callback handler has\+Sample() to cycle through different channels. 
+\begin{DoxyParams}{Parameters}
+{\em channel} & Sets the channel from A0..A3. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_d_s1115rpi_a401e626b6afed688a9b0518c0316b2a9}\index{ADS1115rpi@{ADS1115rpi}!start@{start}}
+\index{start@{start}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_a401e626b6afed688a9b0518c0316b2a9} 
+void ADS1115rpi::\+start (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_a_d_s1115settings}{ADS1115settings}}}]{settings}{ = {\ttfamily \doxymbox{\hyperlink{struct_a_d_s1115settings}{ADS1115settings}}()}}\end{DoxyParamCaption})}
+
+Starts the data acquisition in the background and the callback is called with new samples. 
+\begin{DoxyParams}{Parameters}
+{\em settings} & A struct with the settings. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_a_d_s1115rpi_a910b9735f8bef69a0844a821fda06baf}\index{ADS1115rpi@{ADS1115rpi}!stop@{stop}}
+\index{stop@{stop}!ADS1115rpi@{ADS1115rpi}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{class_a_d_s1115rpi_a910b9735f8bef69a0844a821fda06baf} 
+void ADS1115rpi::\+stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Stops the data acquistion 
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+include/\+drivers/\+ads1115rpi.\+h\item 
+C:\+/\+\+Users/\+ryanm/\+\+Documents/\+\+Real\+Time/\+\+Tromboneless/\+\+Core/\+src/\+drivers/\+ads1115rpi.\+cpp\end{DoxyCompactItemize}

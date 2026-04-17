@@ -1,3 +1,10 @@
+/** @file       CustomStyles.cpp
+ *  @author     Ryan McBride
+ *  @brief      This file holds the defintions of all functions and variables
+ *              needed by the Tromboneless project to change the looks and feel
+ *              of various different widgets which are being displayed to the
+ *              end user.
+ */
 
 #include "CustomStyles.hpp"
 
@@ -32,25 +39,46 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         g.fillRect(bounds.withWidth(trackWidth).withCentre(bounds.getCentre()));
 
         /* Adding ticks to the slider */
-        int numSteps = 10;
-        g.setColour(tickColour);
+        int numSteps = 6;
 
+        juce::Array <juce::String> numeralLabels = {"-9dB", "-6dB", "-3dB", "0dB", "+3dB", "+6dB", "+9dB"};
+        g.setFont((float) 14);	
+        int textHeight = 18;
+        int textWidth = (int) (bounds.getWidth()/3);
+        
         for (int i = 1; i <= numSteps-1; ++i){
             float proportion = (float)i / (float)numSteps;
 
             float yPos = bounds.getBottom() - proportion * bounds.getHeight();
 
             // Draw horizontal tick line (perpendicular to vertical slider)
+            g.setColour(tickColour);
             g.drawLine(bounds.getCentreX() - tickWidth, yPos,
                         bounds.getCentreX() + tickWidth, yPos, tickThickness);
+
+            /* Adding numerals to the side of the slider. */
+            g.setColour(textColour);
+            g.drawText(numeralLabels[i],
+                       (int) (bounds.getCentreX() + tickWidth + 5), (int) ((yPos)-(textHeight/2)),
+                       (int) textWidth, (int) textHeight,
+                       juce::Justification::left );
         }
         
         /* Drawing the maxmimum and minimum ticks as wider than the rest of the ticks.*/
         g.drawLine(bounds.getCentreX() - tickWidth*1.5, bounds.getBottom(),
                         bounds.getCentreX() + tickWidth*1.5, bounds.getBottom(), tickThickness);
+        g.drawText(numeralLabels[0],
+                       (int) (bounds.getCentreX() + tickWidth + 10), (int) (bounds.getBottom()-(textHeight/2)),
+                       (int) textWidth, (int) textHeight,
+                       juce::Justification::left );
 
         g.drawLine(bounds.getCentreX() - tickWidth*1.5, bounds.getBottom() - bounds.getHeight(),
                         bounds.getCentreX() + tickWidth*1.5, bounds.getBottom() - bounds.getHeight(), tickThickness);
+        g.drawText(numeralLabels[6],
+                       (int) (bounds.getCentreX() + tickWidth + 10), (int) ((bounds.getBottom() - bounds.getHeight())-(textHeight/2)),
+                       (int) textWidth, (int) textHeight,
+                       juce::Justification::left );
+
 
         /* Drawing the custom finger. */
         g.setColour(dialColour);
@@ -79,6 +107,7 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         g.drawLine(bounds.getCentreX() - (fingerWidth*0.3), sliderPos - (fingerHeight*0.3),
                     bounds.getCentreX() + (fingerWidth*0.3), sliderPos - (fingerHeight*0.3), 0.2 * fingerHeight) ;
 #endif
+
     }
     else
     {
@@ -86,8 +115,112 @@ void VerticalSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, int y
         juce::LookAndFeel_V4::drawLinearSlider(g, x, y, width, height, sliderPos, minSliderPos, 
             maxSliderPos, style, slider);
     }
-}        
+}      
 
+void VerticalSliderLookAndFeel::setDialColour(const juce::Colour colour){
+    dialColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getDialColour(void){
+    return dialColour;
+}
+
+void VerticalSliderLookAndFeel::setDialEdgeColour(const juce::Colour& colour){
+    dialEdgeColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getDialEdgeColour(void){
+    return dialEdgeColour;
+}
+
+void VerticalSliderLookAndFeel::setTickColour(juce::Colour colour){
+    tickColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTickColour(void){
+    return tickColour;
+}
+
+void VerticalSliderLookAndFeel::setTrackColour(juce::Colour colour){
+    trackColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTrackColour(void){
+    return trackColour;
+}
+
+void VerticalSliderLookAndFeel::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getBackgroundColour(void){
+    return backgroundColour;
+}
+
+void VerticalSliderLookAndFeel::setTextColour(juce::Colour colour){
+    textColour = colour;
+    return;
+}
+
+juce::Colour VerticalSliderLookAndFeel::getTextColour(void){
+    return textColour;
+}
+
+void VerticalSliderLookAndFeel::setTrackWidth(float width){
+    trackWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getTrackWidth(void){
+    return trackWidth;
+}
+
+void VerticalSliderLookAndFeel::setTickThickness(float thickness){
+    tickThickness = thickness;
+}
+
+float VerticalSliderLookAndFeel::getTickThickness(void){
+    return tickThickness;
+}
+
+void VerticalSliderLookAndFeel::setTickWidth(float width){
+    tickWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getTickWidth(void){
+    return tickWidth;
+}
+
+#ifdef USE_CIRCLE_FINGER 
+void VerticalSliderLookAndFeel::setFingerRadius(float radius){
+    fingerRadius = radius;
+}
+
+float VerticalSliderLookAndFeel::getFingerRadius(void){
+    return fingerRadius;
+}
+
+#else
+void VerticalSliderLookAndFeel::setFingerWidth(float width){
+    fingerWidth = width;
+}
+
+float VerticalSliderLookAndFeel::getFingerWidth(void){
+    return fingerWidth;
+}
+
+void VerticalSliderLookAndFeel::setFingerHeight(float height){
+    fingerHeight = height;
+}
+
+float VerticalSliderLookAndFeel::getFingerHeight(void){
+    return fingerHeight;
+}
+#endif
 /* ========================================================================================== */
 /*                                                                                            */
 /*                                       PaintTrombone                                        */
@@ -146,6 +279,12 @@ juce::Path PaintTrombone(float x, float y, float width, float height, bool incPi
     /* Returning the path which has been drawn. */
     return tromboneShape;
 }
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                          PaintArc                                          */
+/*                                                                                            */
+/* ========================================================================================== */
 
 juce::Path PaintArc(float x, float y, float thickness, float gap, bool direction)
 {
@@ -237,7 +376,7 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
         
         /* Adding the trombone horn to be output to the screen. */
         g.setColour (juce::Colours::gold);
-        juce::Path tromboneShape = PaintTrombone(fullSliderBounds.getX(), y, std::min((float) 80, (float) (width*0.2)), 20, false);
+        juce::Path tromboneShape = PaintTrombone(thumbOneX - std::min((float) 80, (float) (width*0.2))*0.65 , y - 1.2*pipeGap, std::min((float) 80, (float) (width*0.2)), 20, false);
         g.fillPath(tromboneShape);
 
         /* Adding the arc between the middle part of the trombone to meet the bottom part. */
@@ -250,13 +389,69 @@ void CalibrationSliderLookAndFeel::drawLinearSlider(juce::Graphics& g, int x, in
 
         /* Adding lines to indicate where on the slider the values are. */
         g.setColour (juce::Colours::black);
-        juce::Rectangle Thumbs = juce::Rectangle<float>((float) thumbOneX, (float) y+(height/2), (float) fingerThickness, (float) bounds.getHeight()*0.8);
+        juce::Rectangle Thumbs = juce::Rectangle<float>((float) thumbOneX, (float) (y + (height*0.8)), (float) fingerThickness, (float) bounds.getHeight()*0.8);
         g.fillRect(Thumbs);
         Thumbs = Thumbs.withX(thumbTwoX);
         g.fillRect(Thumbs);
     }
 
 }
+
+void CalibrationSliderLookAndFeel::setEmptyTrackColour(juce::Colour colour){
+    emptyTrackColour = colour;
+    return;
+}
+
+juce::Colour CalibrationSliderLookAndFeel::getEmptyTrackColour(void){
+    return emptyTrackColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setFullTrackColour(juce::Colour colour){
+    fullTrackColour = colour;
+    return;
+}
+
+
+juce::Colour CalibrationSliderLookAndFeel::getFullTrackColour(void){
+    return fullTrackColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setMinThumbColour(juce::Colour colour){
+    thumbOneColour = colour;
+    return;
+}
+
+juce::Colour CalibrationSliderLookAndFeel::getMinThumbColour(void){
+    return thumbOneColour;
+}
+
+
+void CalibrationSliderLookAndFeel::setMaxThumbColour(juce::Colour colour){
+    thumbTwoColour = colour;
+    return;
+}
+
+
+juce::Colour CalibrationSliderLookAndFeel::getMaxThumbColour(void){
+    return thumbTwoColour;
+}
+
+void CalibrationSliderLookAndFeel::setTrackWidth(float width){
+    trackWidth = width;
+    return;
+}
+
+float CalibrationSliderLookAndFeel::getTrackWidth(void){
+    return trackWidth;
+}
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                          RotaryArc                                         */
+/*                                                                                            */
+/* ========================================================================================== */
 
 juce::Path RotaryArc(float x, float y, float thickness, float width, float height, float angularRange, float rotation)
 {
@@ -267,9 +462,6 @@ juce::Path RotaryArc(float x, float y, float thickness, float width, float heigh
     float endRad = angularRange/2;
     float startRad = -angularRange/2;
 
-    // rotation = rotation - (angularRange/2);
-    
-    // arcShape.startNewSubPath(x+(xRadius*sin(startRad)) , y+(yRadius*sin(startRad)));
     arcShape.startNewSubPath(x , y);
 
     arcShape.addCentredArc (x, y, 
@@ -277,23 +469,23 @@ juce::Path RotaryArc(float x, float y, float thickness, float width, float heigh
         rotation, startRad, endRad);
 
     arcShape.closeSubPath();
-    // arcShape.startNewSubPath(x+(xRadius*sin(endRad)) , y+(yRadius*sin(endRad)));
-    // arcShape.addCentredArc (x + xRadius, y + yRadius, 
-    //     xRadius - thickness, yRadius - thickness, 
-    //     rotation, startRad, endRad);
-
-    // arcShape.closeSubPath();
-
     return arcShape;
 
 }
+
+/* ========================================================================================== */
+/*                                                                                            */
+/*                                        drawCircle                                          */
+/*                                                                                            */
+/* ========================================================================================== */
 
 juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
 
     juce::Path circleShape;
     circleShape.startNewSubPath(x , y);
+    float radius = std::min(xRadius, yRadius);
 
-    circleShape.addCentredArc (x, y, xRadius, yRadius, 0, 0, 2*M_PI);
+    circleShape.addCentredArc (x, y, radius, radius, 0, 0, 2*M_PI);
 
     circleShape.closeSubPath();
     return circleShape;
@@ -301,83 +493,45 @@ juce::Path drawCircle(float x, float y, float xRadius, float yRadius){
 
 /* ========================================================================================== */
 /*                                                                                            */
-/*                                     BarometerSlider                                        */
+/*                                   NeedleLookAndFeel                                        */
 /*                                                                                            */
 /* ========================================================================================== */
 
-BarometerLookAndFeel::BarometerLookAndFeel(){
+void NeedleLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
+            int height, float sliderPos, const float rotaryStartAngle,
+             const float rotaryEndAngle, juce::Slider& slider) {
 
+    /* Finding the centere of the slider. */
+    float centreX = x + (width/2);
+    float centreY = y + (height/2);
+
+    /* This line is bad practice but it does remove the unused parameter error without needing to adjust the Juce library. */
+    slider.getBounds();     
+
+    float thickness = 5;
+    /* How much extra length relative to the radius is added to the other side of the slider. */
+    float extra = 0.1;
+
+    /* Determining the angle of the knob with respect to the centre point.*/
+    float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
+
+    /* Creating the main line of the arrow.*/
+    juce::Rectangle<float> mainLine = juce::Rectangle<float>{-(thickness/2), (float)(-(width*0.4)), thickness, (float)((height*0.4)*(1+extra))};
+    juce::Path p;
+    p.addRectangle(mainLine);
+    /* Adding the point at the end of the triangle. */
+    p.addTriangle(-thickness, -(height)*(0.4), 0, -((height)*(0.5)), thickness, -(height*0.4));
+    p.applyTransform (juce::AffineTransform::translation (x, y));
+    p.applyTransform (juce::AffineTransform::rotation (angle).translated (centreX, centreY));
+    g.setColour(needleColour);
+    g.fillPath(p);
 }
 
-void BarometerLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
-    int height, float sliderPos, const float rotaryStartAngle,
-    const float rotaryEndAngle, juce::Slider& slider){
-        /* Finding the centre point. */
-        float middleX = x + (width)/2;
-        float middleY = y + (height)/2;
-
-        /* Finding the radius of the circle. */
-        float radius = std::min(width/2, height/2);
-
-        /* Setting the relative sizes of component parts. */
-        float fingerThickness = std::min((float) 5, (float) (width*0.05));
-        float pathThickness = radius*0.08;
-        float edgeThickness = radius*0.1;
-
-        /* Drawing the main circle */
-        g.setColour(backgroundColour);
-        juce::Path background = drawCircle(middleX, middleY, radius, radius);
-        g.fillPath(background);
-
-        /* Adding the path that the sliders will follow. */
-        g.setColour(emptyTrackColour);
-        juce::Path sliderPath = RotaryArc(middleX, middleY, pathThickness, radius-edgeThickness,
-                                            radius - edgeThickness, rotaryEndAngle - rotaryStartAngle);
-        g.fillPath(sliderPath);
-
-        /* Adding the inner circle (Background). */
-        g.setColour(backgroundColour);
-        background = drawCircle(middleX, middleY, radius-edgeThickness - pathThickness,
-            radius - edgeThickness - pathThickness);
-        g.fillPath(background);
-
-        /* Adding one of the fingers. */
-        juce::Path p;
-        float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
-        p.addRectangle (-fingerThickness * 0.5f, -radius, fingerThickness, radius-edgeThickness);
-        p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
-        g.setColour (juce::Colours::black);
-        g.fillPath (p);
-        
+void NeedleLookAndFeel::setNeedleColour(juce::Colour colour){
+    needleColour = colour;
+    return;
 }
 
-
-BarometerOuterLookAndFeel::BarometerOuterLookAndFeel(){
-
-}
-
-void BarometerOuterLookAndFeel::drawRotarySlider(juce::Graphics& g, int x, int y, int width, 
-    int height, float sliderPos, const float rotaryStartAngle,
-    const float rotaryEndAngle, juce::Slider& slider){
-        /* Finding the centre point. */
-        float middleX = x + (width)/2;
-        float middleY = y + (height)/2;
-
-        /* Finding the radius of the circle. */
-        float radius = std::min(width/2, height/2);
-
-        /* Setting the relative sizes of component parts. */
-        float fingerThickness = std::min((float) 5, (float) (width*0.05));
-        float edgeThickness = radius*0.1;
-
-        /* Adding the outer finger. */
-        juce::Path p;
-        g.setColour(thumbColour);
-        float angle = (sliderPos*rotaryEndAngle) + (1-sliderPos)*(rotaryStartAngle);
-        p.addRectangle (-fingerThickness, -radius, fingerThickness, radius-edgeThickness);
-        p.applyTransform (juce::AffineTransform::translation (x, y));
-        p.applyTransform (juce::AffineTransform::rotation (angle).translated (middleX, middleY));
-        g.setColour (juce::Colours::black);
-        g.fillPath (p);
-        
+juce::Colour NeedleLookAndFeel::getNeedleColour(void){
+    return needleColour;
 }

@@ -1,0 +1,32 @@
+\doxysection{To\+FSensor Class Reference}
+\hypertarget{classToFSensor}{}\label{classToFSensor}\index{ToFSensor@{ToFSensor}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classToFSensor_a18b39e4fd8582d3deb562da59c45f161}\label{classToFSensor_a18b39e4fd8582d3deb562da59c45f161} 
+using {\bfseries Distance\+Callback\+Interface} = std\+::function$<$ void(uint16\+\_\+t)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classToFSensor_afde69720b503ab1fd306fdfbe09da6ef}\label{classToFSensor_afde69720b503ab1fd306fdfbe09da6ef} 
+{\bfseries To\+FSensor} (\mbox{\hyperlink{classI2CBus}{I2\+CBus}} \&bus, uint8\+\_\+t address=0x29, const std\+::string \&gpio\+Chip\+Path="{}/dev/gpiochip0"{}, unsigned int gpio\+Line=4)
+\item 
+\Hypertarget{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22}\label{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22} 
+bool {\bfseries initialise} ()
+\item 
+\Hypertarget{classToFSensor_aecff42f7e3ed68f71ec5f964836d5d49}\label{classToFSensor_aecff42f7e3ed68f71ec5f964836d5d49} 
+void {\bfseries register\+Callback} (Distance\+Callback\+Interface cb)
+\item 
+\Hypertarget{classToFSensor_a92205c9964186247b1345b8cf90cd91d}\label{classToFSensor_a92205c9964186247b1345b8cf90cd91d} 
+void {\bfseries start} ()
+\item 
+\Hypertarget{classToFSensor_a23a43c10a0ecbc2294d8d8ea93b0db98}\label{classToFSensor_a23a43c10a0ecbc2294d8d8ea93b0db98} 
+void {\bfseries stop} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+Core/include/drivers/tof\+\_\+sensor.\+hpp\item 
+/home/ryan/\+Tromboneless/\+Core/src/drivers/tof\+\_\+sensor.\+cpp\end{DoxyCompactItemize}

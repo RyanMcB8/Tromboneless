@@ -9,8 +9,26 @@
  /* Adding the necessary headers. */
  #include   "Panels.hpp"
  #include   "Widgets.hpp"
+ #include   <tromboneless_data.hpp>
 
  /* Initialisation of class members.*/
+
+void Panels::paint(juce::Graphics& g){
+    juce::Rectangle <int> area = getLocalBounds();
+    juce::Rectangle <float> outlineRectangle = area.toFloat();
+    g.setColour(backgroundColour);
+    g.fillRoundedRectangle(outlineRectangle , (float) 20);
+}
+
+void Panels::setBackgroundColour(juce::Colour colour){
+    backgroundColour = colour;
+    return;
+}
+
+juce::Colour Panels::getBackgroundColour(void){
+    return backgroundColour;
+}
+
 
 /* ========================================================================================== */
 /*                                                                                            */
@@ -24,21 +42,113 @@
     
     juce::Component::addAndMakeVisible (shiftKeyChoice);
     shiftKeyChoice.ChangeLabelText("Transposition\nchoice: ");
-    shiftKeyChoice.AddItem ("Middle F4", SKOpt_MiddleF4);
-    shiftKeyChoice.AddItem ("B sharp 4", SKOpt_BSharp4);
-    shiftKeyChoice.AddItem ("D5", SKOpt_D5);
-    shiftKeyChoice.AddItem ("F5", SKOpt_F5);
-    shiftKeyChoice.AddItem ("A sharp 4", SKOpt_ASharp4);
+    shiftKeyChoice.AddItem ("Bass", SKOpt_BASS);
+    shiftKeyChoice.AddItem ("Piccolo", SKOpt_PICCOLO);
+    shiftKeyChoice.AddItem ("Alto", SKOpt_ALTO);
+    shiftKeyChoice.AddItem ("Tenor", SKOpt_TENOR);
+    shiftKeyChoice.AddItem ("Contrabass", SKOpt_CONTRABASS);
+    shiftKeyChoice.AddItem ("Soprano", SKOpt_SOPRANO);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
     shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
 
+    addAndMakeVisible(calibrateEmbouchure);
+    return;
 }
 
 void DropDownMenus::resized(){
     auto area = getLocalBounds();
+    juce::Rectangle <int> workingArea = area.withSizeKeepingCentre(area.getWidth()*0.95, area.getHeight()*0.8);
+
+    juce::Rectangle <int> topDropDownBound = workingArea.withHeight(workingArea.getHeight()*0.4);
      
-    shiftKeyChoice.setBounds (area);
+    shiftKeyChoice.setBounds (topDropDownBound);
+
+    calibrateEmbouchure.setBounds (workingArea.removeFromBottom(workingArea.getHeight()*0.4));
+    return;
+}
+
+
+
+Sliders::Sliders(){
+    addAndMakeVisible (distanceSlider);
+    using juce::Slider;
+    distanceSlider.slider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
+    distanceSlider.setMinDifference(distanceRange);
+    distanceSlider.slider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
+    distanceSlider.slider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
+    distanceSlider.slider. addListener (this);  
+    distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
+    distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
+    distanceSlider.slider.setLookAndFeel(&LandF);
+
+    /* Adding labels to the slider. */    
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::UpperCentre, "Slider distance");
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerLeft, (juce::String)(((juce::String) minimumDistance) + (juce::String)" cm"));
+    distanceSlider.CreateLabel(SliderWithLabel::LabelPositions_t::LowerRight, (juce::String)(((juce::String) maximumDistance) + (juce::String)" cm"));
+    return;
+}
+
+Sliders::~Sliders(){
+    distanceSlider.slider.removeListener(this);
+    distanceSlider.slider.setLookAndFeel(nullptr);
+    return;
+
+}
+
+void Sliders::resized(){
+    juce::Rectangle <int> area = getLocalBounds();
+    juce::Rectangle <int> workingArea = area.withSizeKeepingCentre(area.getWidth()*0.95, area.getHeight()*0.8);
+    distanceSlider.setBounds(workingArea);
+    return;
+
+}
+
+
+void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
+    if (sliderChanged == &distanceSlider.slider){
+        /*  Update the calibrated distance of the slider in the main window. */
+        trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
+        trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+        return;
+    }
+    return;
+}
+
+void Sliders::setMinimumDistance(float distance){
+    minimumDistance = distance;
+    return;
+}
+
+float Sliders::getMinimumDistance(void){
+    return minimumDistance;
+}
+
+void Sliders::setMaximumDistance(float distance){
+    maximumDistance = distance;
+    return;
+}
+
+float Sliders::getMaximumDistance(void){
+    return maximumDistance;
+}
+
+void Sliders::setStepDistance(float distance){
+    stepDistance = distance;
+    return;
+}
+
+float Sliders::getStepDistance(void){
+    return stepDistance;
+}
+
+void Sliders::setDistanceRange(float range){
+    distanceRange = range;
+    return;
+}
+
+float Sliders::getDistanceRange(void){
+    return distanceRange;
 }
 
 /* ========================================================================================== */
@@ -55,6 +165,10 @@ EqualizerPanel::EqualizerPanel(){
     button.addListener(this);
     buttonLabel.setText((juce::String) "Enable equalizer", juce::dontSendNotification);
 
+}
+
+EqualizerPanel::~EqualizerPanel(){
+    button.removeListener(this);
 }
 
 void EqualizerPanel::resized(){
@@ -80,17 +194,20 @@ void EqualizerPanel::resized(){
 
 void EqualizerPanel::buttonClicked(juce::Button* buttonClicked)
 {
+    if (buttonClicked == &button){
+        /*  Alternating between showing the equalizer and hiding it. */
+        synthesiserParameters.synthEnable = !synthesiserParameters.synthEnable;
+        equalizer.setVisible(synthesiserParameters.synthEnable);
 
-    synthesiserParameters.synthEnable = !synthesiserParameters.synthEnable;
-    equalizer.setVisible(synthesiserParameters.synthEnable);
-
-    if (false == synthesiserParameters.synthEnable){
-        buttonLabel.setText((juce::String) "Enable equalizer", juce::dontSendNotification);
+        /*  Changing the displayed lbale depending upon on the visibility of the equalizer. */
+        if (false == synthesiserParameters.synthEnable){
+            buttonLabel.setText((juce::String) "Enable equalizer", juce::dontSendNotification);
+        }
+        else{
+            buttonLabel.setText((juce::String) "Disable equalizer", juce::dontSendNotification);
+        }
+        
+        /* Updating the parent component to redraw the screen. */
+        if (auto* parent = getParentComponent()) parent->resized();
     }
-    else{
-        buttonLabel.setText((juce::String) "Disable equalizer", juce::dontSendNotification);
-    }
-    
-    /* Updating the parent component to redraw the screen. */
-    if (auto* parent = getParentComponent()) parent->resized();
 }

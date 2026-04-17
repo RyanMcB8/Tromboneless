@@ -1,0 +1,8 @@
+<map id="OctavesWithHarmonics" name="OctavesWithHarmonics">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,168,180,193"/>
+<area shape="rect" id="Node000002" href="$classOctaves.html" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class..." alt="" coords="55,93,130,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,133,95,168,90,168,90,133"/>
+<area shape="rect" id="Node000003" href="$classNotes.html" title=" " alt="" coords="63,5,123,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,45,93,55,94,93,89,93,87,55,88,44"/>
+<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="95,45,95,93,90,93,90,45"/>
+</map>

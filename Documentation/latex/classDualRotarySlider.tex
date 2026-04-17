@@ -1,0 +1,386 @@
+\doxysection{Dual\+Rotary\+Slider Class Reference}
+\hypertarget{classDualRotarySlider}{}\label{classDualRotarySlider}\index{DualRotarySlider@{DualRotarySlider}}
+
+
+A class that adds more functionality to the slider class from Juce.  
+
+
+
+
+{\ttfamily \#include $<$Widgets.\+hpp$>$}
+
+
+
+Inheritance diagram for Dual\+Rotary\+Slider\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classDualRotarySlider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Dual\+Rotary\+Slider\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classDualRotarySlider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDualRotarySlider_aafe624d1dfda53a66256f2e3bcc78593}\label{classDualRotarySlider_aafe624d1dfda53a66256f2e3bcc78593} 
+{\bfseries Dual\+Rotary\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classDualRotarySlider}{Dual\+Rotary\+Slider}} class which sets the range of the sliders, minimum distance and adds listeners to them both so that when the sliders are moved, the corresponding variables may be changed. \end{DoxyCompactList}\item 
+\Hypertarget{classDualRotarySlider_af3b4b24992fc45da3771913bd6a61cf6}\label{classDualRotarySlider_af3b4b24992fc45da3771913bd6a61cf6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Dual\+Rotary\+Slider} ()
+\begin{DoxyCompactList}\small\item\em The destructor function for the {\ttfamily \doxylink{classDualRotarySlider}{Dual\+Rotary\+Slider}} class which removes the listeners from the sliders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}{slider\+Value\+Changed}} (juce\+::\+Slider \texorpdfstring{$\ast$}{*}slider\+Changed) override
+\begin{DoxyCompactList}\small\item\em A function that is called upon when either of the fingers are moved. \end{DoxyCompactList}\item 
+\Hypertarget{classDualRotarySlider_ae41130a459061a74df75c3d2a75696ae}\label{classDualRotarySlider_ae41130a459061a74df75c3d2a75696ae} 
+void {\bfseries resized} () override
+\begin{DoxyCompactList}\small\item\em A callback function for when the window size has changed. This allows for the labels and sliders to be resized to be the best relative size. This can either be set to a predetermined size like 100px x 200px, but it is currrently set to be relative to the size of the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a6d7fdf64bb167dc5a396550fb557cc3b}{set\+Min\+Difference}} (float difference)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum difference between the sliders 2 fingers. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a22e117cfdbe4e082890fd79a5cd5543c}{get\+Min\+Difference}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum difference between the 2 slider fingers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a3cbf8ff09a2ca305dba7ada524d942a9}{set\+Min\+Slider\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the minimum finger slider. It should always be less than or equal to the maximum slider radius and be between 0 and 1. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_ae2b75d288783ce33f75d389bfbccd0bc}{get\+Min\+Slider\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the minimum finger slider for this object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_ac9d7e4793d1c613e36cddb6cc931c6fc}{set\+Max\+Slider\+Radius}} (float radius)
+\begin{DoxyCompactList}\small\item\em A function to set the relative radius of the maximum finger slider. It should always be more than or equal to the minimum slider radius and be between 0 and 1. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a70a9ca4347d4271b508f7a0d3c1ff3fc}{get\+Max\+Slider\+Radius}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the relative radius of the maximum finger slider for this object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a94805761767bab06da5c11014572d802}{set\+Label\+Height}} (float height)
+\begin{DoxyCompactList}\small\item\em A function to set the maximum height of the label attached to the rotary slider. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a21244ddf20d2b5cb94f41e71fc99dd6b}{get\+Label\+Height}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current height of the label which is attached to the rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_aafb38c246936a7ef085d6fd3573d2c25}{set\+Min\+Limit}} (float limit)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum limit of the rotary slider. This may be any floating point value that is less than the difference between the maximum value and the minimum difference between the slider fingers. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_aed0f3b994fefe2f00273ca171008d1f0}{get\+Min\+Limit}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minium limit of the rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a777a6c1af50c812e9336f2f4c7d2ce5d}{set\+Max\+Limit}} (float limit)
+\begin{DoxyCompactList}\small\item\em A function to set the maximum limit of the rotary slider. This may be any floating point value that is more than the sum of the minium value and the minimum difference between the slider fingers. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a84a83b3b4d77bdf9bb0303c4dfa679b9}{get\+Max\+Limit}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current maximum limit of the rotary slider. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a65e89304a864aba483c6c76bf0a78fc2}{set\+Interval}} (float step)
+\begin{DoxyCompactList}\small\item\em A function to set the minimum step the slider may be moved by the user. This value is in the same scale as the max\+Limit and min\+Limit. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a68a34bf9438ec9cf086c7230f2e85be7}{get\+Interval}} (void)
+\begin{DoxyCompactList}\small\item\em A function to get the current minimum step which the slider may be adjusted by the user. This value is in the same scale as the max\+Limit and min\+Limit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_adf82a863e0347aa7a3fe8bf19b8e2531}{set\+Min\+Angle}} (float angle)
+\begin{DoxyCompactList}\small\item\em A function to allow for the minimum angle (furtherest anticlockwise) that the slider may be rotated to be set. This is measured in radians. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_a0214bb41de1c087ccd99a89f179a9f1c}{get\+Min\+Angle}} (void)
+\begin{DoxyCompactList}\small\item\em A function to return the current minimum angle (furtherest anticlockwise) that the slider may be rotated. This is measured in radians. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDualRotarySlider_a393264374ff3ef5efd1c767ee8bbf247}{set\+Max\+Angle}} (float angle)
+\begin{DoxyCompactList}\small\item\em A function to allow for the maximum angle (furtherest clockwise) that the slider may be rotated to be set. This is measured in radians. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classDualRotarySlider_aca45804387ada9d8184bf6783a230c95}{get\+Max\+Angle}} (void)
+\begin{DoxyCompactList}\small\item\em A function to return the current maximum angle (furtherest clockwise) that the slider may be rotated. This is measured in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classDualRotarySlider_ac0f3e0e5574427d2b02ff7974fa301d5}\label{classDualRotarySlider_ac0f3e0e5574427d2b02ff7974fa301d5} 
+juce\+::\+Slider {\bfseries max\+Slider}
+\item 
+\Hypertarget{classDualRotarySlider_a5046c6bcf193000398e6e7bc96a173a0}\label{classDualRotarySlider_a5046c6bcf193000398e6e7bc96a173a0} 
+juce\+::\+Slider {\bfseries min\+Slider}
+\item 
+\Hypertarget{classDualRotarySlider_ac926af9f0b359a18dcd42f6cc449a9f2}\label{classDualRotarySlider_ac926af9f0b359a18dcd42f6cc449a9f2} 
+juce\+::\+Label {\bfseries rotary\+Label}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that adds more functionality to the slider class from Juce. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDualRotarySlider_a68a34bf9438ec9cf086c7230f2e85be7}\label{classDualRotarySlider_a68a34bf9438ec9cf086c7230f2e85be7} 
+\index{DualRotarySlider@{DualRotarySlider}!getInterval@{getInterval}}
+\index{getInterval@{getInterval}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getInterval()}{getInterval()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Interval (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current minimum step which the slider may be adjusted by the user. This value is in the same scale as the max\+Limit and min\+Limit. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the current minimum step. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_a21244ddf20d2b5cb94f41e71fc99dd6b}\label{classDualRotarySlider_a21244ddf20d2b5cb94f41e71fc99dd6b} 
+\index{DualRotarySlider@{DualRotarySlider}!getLabelHeight@{getLabelHeight}}
+\index{getLabelHeight@{getLabelHeight}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getLabelHeight()}{getLabelHeight()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Label\+Height (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current height of the label which is attached to the rotary slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & height of the label as a floating point value. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_aca45804387ada9d8184bf6783a230c95}\label{classDualRotarySlider_aca45804387ada9d8184bf6783a230c95} 
+\index{DualRotarySlider@{DualRotarySlider}!getMaxAngle@{getMaxAngle}}
+\index{getMaxAngle@{getMaxAngle}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMaxAngle()}{getMaxAngle()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Max\+Angle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to return the current maximum angle (furtherest clockwise) that the slider may be rotated. This is measured in radians. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & angle in radians as a floating point value. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_a84a83b3b4d77bdf9bb0303c4dfa679b9}\label{classDualRotarySlider_a84a83b3b4d77bdf9bb0303c4dfa679b9} 
+\index{DualRotarySlider@{DualRotarySlider}!getMaxLimit@{getMaxLimit}}
+\index{getMaxLimit@{getMaxLimit}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMaxLimit()}{getMaxLimit()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Max\+Limit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current maximum limit of the rotary slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the minimum limit. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_a70a9ca4347d4271b508f7a0d3c1ff3fc}\label{classDualRotarySlider_a70a9ca4347d4271b508f7a0d3c1ff3fc} 
+\index{DualRotarySlider@{DualRotarySlider}!getMaxSliderRadius@{getMaxSliderRadius}}
+\index{getMaxSliderRadius@{getMaxSliderRadius}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMaxSliderRadius()}{getMaxSliderRadius()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Max\+Slider\+Radius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the relative radius of the maximum finger slider for this object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the floating point representation of the relative radius. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_a0214bb41de1c087ccd99a89f179a9f1c}\label{classDualRotarySlider_a0214bb41de1c087ccd99a89f179a9f1c} 
+\index{DualRotarySlider@{DualRotarySlider}!getMinAngle@{getMinAngle}}
+\index{getMinAngle@{getMinAngle}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMinAngle()}{getMinAngle()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Min\+Angle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to return the current minimum angle (furtherest anticlockwise) that the slider may be rotated. This is measured in radians. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & angle in radians as a floating point value. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_a22e117cfdbe4e082890fd79a5cd5543c}\label{classDualRotarySlider_a22e117cfdbe4e082890fd79a5cd5543c} 
+\index{DualRotarySlider@{DualRotarySlider}!getMinDifference@{getMinDifference}}
+\index{getMinDifference@{getMinDifference}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMinDifference()}{getMinDifference()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Min\+Difference (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current minimum difference between the 2 slider fingers. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the floating point representation of the minimum difference between the 2 sliders in terms of the chosen maximum and minimum values. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_aed0f3b994fefe2f00273ca171008d1f0}\label{classDualRotarySlider_aed0f3b994fefe2f00273ca171008d1f0} 
+\index{DualRotarySlider@{DualRotarySlider}!getMinLimit@{getMinLimit}}
+\index{getMinLimit@{getMinLimit}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMinLimit()}{getMinLimit()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Min\+Limit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the current minium limit of the rotary slider. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & floating point representation of the minimum limit. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_ae2b75d288783ce33f75d389bfbccd0bc}\label{classDualRotarySlider_ae2b75d288783ce33f75d389bfbccd0bc} 
+\index{DualRotarySlider@{DualRotarySlider}!getMinSliderRadius@{getMinSliderRadius}}
+\index{getMinSliderRadius@{getMinSliderRadius}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{getMinSliderRadius()}{getMinSliderRadius()}}
+{\footnotesize\ttfamily float Dual\+Rotary\+Slider\+::get\+Min\+Slider\+Radius (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function to get the relative radius of the minimum finger slider for this object. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the floating point representation of the relative radius. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{classDualRotarySlider_a65e89304a864aba483c6c76bf0a78fc2}\label{classDualRotarySlider_a65e89304a864aba483c6c76bf0a78fc2} 
+\index{DualRotarySlider@{DualRotarySlider}!setInterval@{setInterval}}
+\index{setInterval@{setInterval}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setInterval()}{setInterval()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Interval (\begin{DoxyParamCaption}\item[{float}]{step }\end{DoxyParamCaption})}
+
+
+
+A function to set the minimum step the slider may be moved by the user. This value is in the same scale as the max\+Limit and min\+Limit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em step} & The minimum step as a floating point value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_a94805761767bab06da5c11014572d802}\label{classDualRotarySlider_a94805761767bab06da5c11014572d802} 
+\index{DualRotarySlider@{DualRotarySlider}!setLabelHeight@{setLabelHeight}}
+\index{setLabelHeight@{setLabelHeight}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setLabelHeight()}{setLabelHeight()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Label\+Height (\begin{DoxyParamCaption}\item[{float}]{height }\end{DoxyParamCaption})}
+
+
+
+A function to set the maximum height of the label attached to the rotary slider. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & The height of the label in terms of the resolution as a floating point value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_a393264374ff3ef5efd1c767ee8bbf247}\label{classDualRotarySlider_a393264374ff3ef5efd1c767ee8bbf247} 
+\index{DualRotarySlider@{DualRotarySlider}!setMaxAngle@{setMaxAngle}}
+\index{setMaxAngle@{setMaxAngle}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMaxAngle()}{setMaxAngle()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Max\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+
+
+A function to allow for the maximum angle (furtherest clockwise) that the slider may be rotated to be set. This is measured in radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle in radians as a floating point value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_a777a6c1af50c812e9336f2f4c7d2ce5d}\label{classDualRotarySlider_a777a6c1af50c812e9336f2f4c7d2ce5d} 
+\index{DualRotarySlider@{DualRotarySlider}!setMaxLimit@{setMaxLimit}}
+\index{setMaxLimit@{setMaxLimit}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMaxLimit()}{setMaxLimit()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Max\+Limit (\begin{DoxyParamCaption}\item[{float}]{limit }\end{DoxyParamCaption})}
+
+
+
+A function to set the maximum limit of the rotary slider. This may be any floating point value that is more than the sum of the minium value and the minimum difference between the slider fingers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The floating point representation of the limit. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_ac9d7e4793d1c613e36cddb6cc931c6fc}\label{classDualRotarySlider_ac9d7e4793d1c613e36cddb6cc931c6fc} 
+\index{DualRotarySlider@{DualRotarySlider}!setMaxSliderRadius@{setMaxSliderRadius}}
+\index{setMaxSliderRadius@{setMaxSliderRadius}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMaxSliderRadius()}{setMaxSliderRadius()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Max\+Slider\+Radius (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+A function to set the relative radius of the maximum finger slider. It should always be more than or equal to the minimum slider radius and be between 0 and 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & The relative radius that the maximum slider should have. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_adf82a863e0347aa7a3fe8bf19b8e2531}\label{classDualRotarySlider_adf82a863e0347aa7a3fe8bf19b8e2531} 
+\index{DualRotarySlider@{DualRotarySlider}!setMinAngle@{setMinAngle}}
+\index{setMinAngle@{setMinAngle}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMinAngle()}{setMinAngle()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Min\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle }\end{DoxyParamCaption})}
+
+
+
+A function to allow for the minimum angle (furtherest anticlockwise) that the slider may be rotated to be set. This is measured in radians. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The angle in radians as a floating point value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_a6d7fdf64bb167dc5a396550fb557cc3b}\label{classDualRotarySlider_a6d7fdf64bb167dc5a396550fb557cc3b} 
+\index{DualRotarySlider@{DualRotarySlider}!setMinDifference@{setMinDifference}}
+\index{setMinDifference@{setMinDifference}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMinDifference()}{setMinDifference()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Min\+Difference (\begin{DoxyParamCaption}\item[{float}]{difference }\end{DoxyParamCaption})}
+
+
+
+A function to set the minimum difference between the sliders 2 fingers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em difference} & The difference in terms of the chosen maximum and minimum values as a floating point value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_aafb38c246936a7ef085d6fd3573d2c25}\label{classDualRotarySlider_aafb38c246936a7ef085d6fd3573d2c25} 
+\index{DualRotarySlider@{DualRotarySlider}!setMinLimit@{setMinLimit}}
+\index{setMinLimit@{setMinLimit}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMinLimit()}{setMinLimit()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Min\+Limit (\begin{DoxyParamCaption}\item[{float}]{limit }\end{DoxyParamCaption})}
+
+
+
+A function to set the minimum limit of the rotary slider. This may be any floating point value that is less than the difference between the maximum value and the minimum difference between the slider fingers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The floating point representation of the limit. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_a3cbf8ff09a2ca305dba7ada524d942a9}\label{classDualRotarySlider_a3cbf8ff09a2ca305dba7ada524d942a9} 
+\index{DualRotarySlider@{DualRotarySlider}!setMinSliderRadius@{setMinSliderRadius}}
+\index{setMinSliderRadius@{setMinSliderRadius}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{setMinSliderRadius()}{setMinSliderRadius()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::set\+Min\+Slider\+Radius (\begin{DoxyParamCaption}\item[{float}]{radius }\end{DoxyParamCaption})}
+
+
+
+A function to set the relative radius of the minimum finger slider. It should always be less than or equal to the maximum slider radius and be between 0 and 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & The relative radius that the minimum slider should have. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae}\label{classDualRotarySlider_a7d5673c6f2313981b21c4c24a98441ae} 
+\index{DualRotarySlider@{DualRotarySlider}!sliderValueChanged@{sliderValueChanged}}
+\index{sliderValueChanged@{sliderValueChanged}!DualRotarySlider@{DualRotarySlider}}
+\doxysubsubsection{\texorpdfstring{sliderValueChanged()}{sliderValueChanged()}}
+{\footnotesize\ttfamily void Dual\+Rotary\+Slider\+::slider\+Value\+Changed (\begin{DoxyParamCaption}\item[{juce\+::\+Slider \texorpdfstring{$\ast$}{*}}]{slider\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+A function that is called upon when either of the fingers are moved. 
+
+\begin{DoxyNote}{Note}
+This function automatically moves the fingers to ensure that they stay at least the minimum range apart from each other. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Widgets_8hpp}{Widgets.\+hpp}}\item 
+/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Widgets_8cpp}{Widgets.\+cpp}}\end{DoxyCompactItemize}

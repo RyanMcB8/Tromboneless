@@ -4,3 +4,12 @@
 [submodule "App/modules/freetype2"]
 	path = App/modules/freetype2
 	url = https://github.com/aseprite/freetype2.git
+[submodule "Core/modules/external/libgpiod"]
+	path = Core/modules/external/libgpiod
+	url = https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git
+[submodule "Core/modules/rtmidi"]
+	path = Core/modules/rtmidi
+	url = https://github.com/thestk/rtmidi.git
+[submodule "Core/modules/rpi_ads1115"]
+	path = Core/modules/rpi_ads1115
+	url = https://github.com/berndporr/rpi_ads1115

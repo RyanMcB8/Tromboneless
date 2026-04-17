@@ -1,0 +1,241 @@
+\doxysection{stm32f4xx\+\_\+hal\+\_\+exti.\+h}
+\hypertarget{stm32f4xx__hal__exti_8h_source}{}\label{stm32f4xx__hal__exti_8h_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_exti.h@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/external/STSW-\/IMG009/STSW-\/IMG009\_v3.5.5/Example/Drivers/STM32F4xx\_HAL\_Driver/Inc/stm32f4xx\_hal\_exti.h}}
+\doxymbox{\hyperlink{stm32f4xx__hal__exti_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ STM32f4xx\_HAL\_EXTI\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ STM32f4xx\_HAL\_EXTI\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f4xx__hal__def_8h}{stm32f4xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ HAL\_EXTI\_COMMON\_CB\_ID\ \ \ \ \ \ \ \ \ \ =\ 0x00U}
+\DoxyCodeLine{00047\ \}\ EXTI\_CallbackIDTypeDef;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def_a6a2875051ad4276be5322ffa99e12566}{Line}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ void\ (*\ \doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def_a4ae908c7b5ef022eecc64fac6241e83a}{PendingCallback}})(void);\ \ \ }
+\DoxyCodeLine{00056\ \}\ \doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def_a19ad88703f9ac13e8a741afdba86f6af}{Line}};\ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def_a6393a89a8cd198b19e10876e6f12cf5b}{Mode}};\ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def_acf6d2ea84df5f2b705676584ae00707a}{Trigger}};\ \ \ }
+\DoxyCodeLine{00069\ \ \ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def_acb9a59bb7943a21c105481f85007a79c}{GPIOSel}};\ \ \ }
+\DoxyCodeLine{00072\ \}\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def}{EXTI\_ConfigTypeDef}};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x00u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x01u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x02u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x03u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x04u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x05u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x06u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x07u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x08u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x09u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x0Au)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_11\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x0Bu)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_12\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x0Cu)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_13\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x0Du)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_14\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x0Eu)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_15\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_GPIO\ \ \ \ \ \ \ |\ 0x0Fu)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_16\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x10u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_17\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x11u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR\_IM18)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_18\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x12u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_18\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_RESERVED\ \ \ |\ 0x12u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR\_IM18\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR\_IM19)}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_19\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x13u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_19\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_RESERVED\ \ \ |\ 0x13u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR\_IM19\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR\_IM20)}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_20\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x14u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_20\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_RESERVED\ \ \ |\ 0x14u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR\_IM20\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_21\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x15u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_22\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x16u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR\_IM23)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_23\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ \ \ \ \ |\ 0x17u)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR\_IM23\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ EXTI\_MODE\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000u}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ EXTI\_MODE\_INTERRUPT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001u}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ EXTI\_MODE\_EVENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002u}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ EXTI\_TRIGGER\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000u}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ EXTI\_TRIGGER\_RISING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001u}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ EXTI\_TRIGGER\_FALLING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002u}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ EXTI\_TRIGGER\_RISING\_FALLING\ \ \ \ \ \ \ \ \ (EXTI\_TRIGGER\_RISING\ |\ EXTI\_TRIGGER\_FALLING)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000u}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001u}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002u}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#if\ defined\ (GPIOD)}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000003u}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOD\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#if\ defined\ (GPIOE)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004u}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#if\ defined\ (GPIOF)}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000005u}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#if\ defined\ (GPIOG)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000006u}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#if\ defined\ (GPIOH)}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000007u}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOH\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#if\ defined\ (GPIOI)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000008u}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#if\ defined\ (GPIOJ)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOJ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000009u}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOJ\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#if\ defined\ (GPIOK)}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ EXTI\_GPIOK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0000000Au}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOK\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ EXTI\_PROPERTY\_SHIFT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 24u}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ EXTI\_CONFIG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0x02uL\ <<\ EXTI\_PROPERTY\_SHIFT)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ EXTI\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((0x04uL\ <<\ EXTI\_PROPERTY\_SHIFT)\ |\ EXTI\_CONFIG)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ EXTI\_RESERVED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0x08uL\ <<\ EXTI\_PROPERTY\_SHIFT)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ EXTI\_PROPERTY\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_CONFIG\ |\ EXTI\_GPIO)}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ EXTI\_PIN\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0000001Fu}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ EXTI\_MODE\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_MODE\_EVENT\ |\ EXTI\_MODE\_INTERRUPT)}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#define\ EXTI\_TRIGGER\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_TRIGGER\_RISING\ |\ EXTI\_TRIGGER\_FALLING)}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR\_IM23)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_NB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 24UL}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ EXTI\_LINE\_NB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 23UL}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR\_IM23\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_LINE(\_\_EXTI\_LINE\_\_)\ \ \ \ \ \ \ \ \ \ ((((\_\_EXTI\_LINE\_\_)\ \&\ \string~(EXTI\_PROPERTY\_MASK\ |\ EXTI\_PIN\_MASK))\ ==\ 0x00u)\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((((\_\_EXTI\_LINE\_\_)\ \&\ EXTI\_PROPERTY\_MASK)\ ==\ EXTI\_CONFIG)\ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((\_\_EXTI\_LINE\_\_)\ \&\ EXTI\_PROPERTY\_MASK)\ ==\ EXTI\_GPIO))\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((\_\_EXTI\_LINE\_\_)\ \&\ EXTI\_PIN\_MASK)\ <\ EXTI\_LINE\_NB))}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_MODE(\_\_EXTI\_LINE\_\_)\ \ \ \ \ \ \ \ \ \ ((((\_\_EXTI\_LINE\_\_)\ \&\ EXTI\_MODE\_MASK)\ !=\ 0x00u)\ \&\&\ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (((\_\_EXTI\_LINE\_\_)\ \&\ \string~EXTI\_MODE\_MASK)\ ==\ 0x00u))}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_TRIGGER(\_\_EXTI\_LINE\_\_)\ \ \ \ \ \ \ (((\_\_EXTI\_LINE\_\_)\ \ \&\ \string~EXTI\_TRIGGER\_MASK)\ ==\ 0x00u)}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_PENDING\_EDGE(\_\_EXTI\_LINE\_\_)\ \ ((\_\_EXTI\_LINE\_\_)\ ==\ EXTI\_TRIGGER\_RISING\_FALLING)}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_CONFIG\_LINE(\_\_EXTI\_LINE\_\_)\ \ \ (((\_\_EXTI\_LINE\_\_)\ \&\ EXTI\_CONFIG)\ !=\ 0x00u)}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#if\ !defined\ (GPIOD)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PORT(\_\_PORT\_\_)\ \ \ \ \ (((\_\_PORT\_\_)\ ==\ EXTI\_GPIOA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOC)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOH))}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#elif\ !defined\ (GPIOE)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PORT(\_\_PORT\_\_)\ \ \ \ \ (((\_\_PORT\_\_)\ ==\ EXTI\_GPIOA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOC)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOD)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOH))}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#elif\ !defined\ (GPIOF)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PORT(\_\_PORT\_\_)\ \ \ \ \ (((\_\_PORT\_\_)\ ==\ EXTI\_GPIOA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOC)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOD)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOH))}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#elif\ !defined\ (GPIOI)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PORT(\_\_PORT\_\_)\ \ \ \ \ (((\_\_PORT\_\_)\ ==\ EXTI\_GPIOA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOC)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOD)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOF)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOG)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOH))}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#elif\ !defined\ (GPIOJ)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PORT(\_\_PORT\_\_)\ \ \ \ \ (((\_\_PORT\_\_)\ ==\ EXTI\_GPIOA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOC)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOD)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOF)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOG)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOH)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOI))}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PORT(\_\_PORT\_\_)\ \ \ \ \ (((\_\_PORT\_\_)\ ==\ EXTI\_GPIOA)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOB)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOC)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOD)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOE)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOF)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOG)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOH)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOI)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOJ)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_PORT\_\_)\ ==\ EXTI\_GPIOK))}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ GPIOD\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#define\ IS\_EXTI\_GPIO\_PIN(\_\_PIN\_\_)\ \ \ \ \ \ \ ((\_\_PIN\_\_)\ <\ 16U)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00325\ \textcolor{comment}{/*\ Configuration\ functions\ ****************************************************/}}
+\DoxyCodeLine{00326\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_EXTI\_SetConfigLine(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti,\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def}{EXTI\_ConfigTypeDef}}\ *pExtiConfig);}
+\DoxyCodeLine{00327\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_EXTI\_GetConfigLine(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti,\ \doxymbox{\hyperlink{struct_e_x_t_i___config_type_def}{EXTI\_ConfigTypeDef}}\ *pExtiConfig);}
+\DoxyCodeLine{00328\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_EXTI\_ClearConfigLine(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti);}
+\DoxyCodeLine{00329\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_EXTI\_RegisterCallback(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti,\ EXTI\_CallbackIDTypeDef\ CallbackID,\ \textcolor{keywordtype}{void}\ (*pPendingCbfn)(\textcolor{keywordtype}{void}));}
+\DoxyCodeLine{00330\ \doxymbox{\hyperlink{stm32f4xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_EXTI\_GetHandle(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ ExtiLine);}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00339\ \textcolor{comment}{/*\ IO\ operation\ functions\ *****************************************************/}}
+\DoxyCodeLine{00340\ \textcolor{keywordtype}{void}\ HAL\_EXTI\_IRQHandler(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti);}
+\DoxyCodeLine{00341\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ HAL\_EXTI\_GetPending(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ Edge);}
+\DoxyCodeLine{00342\ \textcolor{keywordtype}{void}\ HAL\_EXTI\_ClearPending(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti,\ \doxymbox{\hyperlink{_a_p_i_2platform_2vl53l1__types_8h_a435d1572bf3f880d55459d9805097f62}{uint32\_t}}\ Edge);}
+\DoxyCodeLine{00343\ \textcolor{keywordtype}{void}\ HAL\_EXTI\_GenerateSWI(\doxymbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\_HandleTypeDef}}\ *hexti);}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00362\ \}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32f4xx\_HAL\_EXTI\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00366\ }
+
+\end{DoxyCode}

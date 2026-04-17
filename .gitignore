@@ -41,7 +41,7 @@
 *.dwo
 
 # ignoring buiild
-build/
+*build/
 
 # ignoring build within Core
 
@@ -60,3 +60,6 @@ App/JUCE
 .vscode
 .vscode/settings.json
 .vscode/
+
+#ignoring cmake testing
+*/Testing/*
