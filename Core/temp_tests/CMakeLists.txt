@@ -35,8 +35,10 @@ add_executable(TrombonelessCoreTests
 target_include_directories(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/include/drivers
     ${PROJECT_ROOT}/include
-    ${PROJECT_ROOT}/tests
+    ${PROJECT_ROOT}/temp_tests
+    ${PROJECT_ROOT}/modules/rpi_ads1115
     ${PROJECT_ROOT}/modules/rtmidi
+    ${PROJECT_ROOT}/../Shared
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/core
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform
     ${LIDAR_DIR}/core
@@ -47,7 +49,6 @@ target_include_directories(TrombonelessCoreTests PRIVATE
 target_sources(TrombonelessCoreTests PRIVATE
 
     ${PROJECT_ROOT}/src/drivers/audio_output.cpp
-    ${PROJECT_ROOT}/src/drivers/ads1115rpi.cpp
     ${PROJECT_ROOT}/src/drivers/tof_sensor.cpp
     ${PROJECT_ROOT}/src/drivers/i2c_bus.cpp
     ${PROJECT_ROOT}/src/drivers/USBMidi.cpp
@@ -68,6 +69,7 @@ target_sources(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform/vl53l1_platform.cpp
 
     ${PROJECT_ROOT}/modules/rtmidi/RtMidi.cpp
+    ${PROJECT_ROOT}/modules/rpi_ads1115/ads1115rpi.cpp
 )
 
 link_directories("/usr/local/lib/")
