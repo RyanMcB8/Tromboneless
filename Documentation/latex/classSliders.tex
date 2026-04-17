@@ -8,7 +8,7 @@ A class which adds all the linear sliders being used within the calibration sect
 
 
 
-{\ttfamily \#include $<$Panels.\+hpp$>$}
+{\ttfamily \#include $<$Tromboneless/\+App/inc/\+Panels.\+hpp$>$}
 
 
 
@@ -73,8 +73,7 @@ juce\+::\+Colour \mbox{\hyperlink{classPanels_a7a046b513adc7309c21c35ecc393d4a7}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c}\label{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c} 
-\mbox{\hyperlink{classCalibrationSlider}{Calibration\+Slider}} {\bfseries distance\+Slider}
+\mbox{\hyperlink{classCalibrationSlider}{Calibration\+Slider}} \mbox{\hyperlink{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c}{distance\+Slider}}
 \end{DoxyCompactItemize}
 
 
@@ -229,7 +228,7 @@ A callback function which is automatically called upon when one of the sliders p
 
 
 \begin{DoxyParams}{Parameters}
-{\em slider\+Change} & A pointer to the slider which has been modified. This allows for the comparison between the different sliders within the class to detect which one has been affected. \\
+{\em slider\+Changed} & A pointer to the slider which has been modified. This allows for the comparison between the different sliders within the class to detect which one has been affected. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
@@ -237,7 +236,16 @@ This is where the interaction with the Core side of the Tromboneless takes place
 \end{DoxyNote}
 
 
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c}\label{classSliders_a7a4eb161eca68e0a4d6b2def4dfad31c} 
+\index{Sliders@{Sliders}!distanceSlider@{distanceSlider}}
+\index{distanceSlider@{distanceSlider}!Sliders@{Sliders}}
+\doxysubsubsection{\texorpdfstring{distanceSlider}{distanceSlider}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCalibrationSlider}{Calibration\+Slider}} Sliders\+::distance\+Slider}
+
+Creating an instance of the \doxylink{classCalibrationSlider}{Calibration\+Slider} class to be used for calibrating the maximum and minimum distance which the trombonist wishes to have their hand for the pitch bend. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/inc/\mbox{\hyperlink{Panels_8hpp}{Panels.\+hpp}}\item 
-/home/ryan/\+Tromboneless/\+App/src/\mbox{\hyperlink{Panels_8cpp}{Panels.\+cpp}}\end{DoxyCompactItemize}
+Tromboneless/\+App/inc/\mbox{\hyperlink{Panels_8hpp}{Panels.\+hpp}}\item 
+Tromboneless/\+App/src/\mbox{\hyperlink{Panels_8cpp}{Panels.\+cpp}}\end{DoxyCompactItemize}

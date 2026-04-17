@@ -1,6 +1,6 @@
 <map id="Octaves" name="Octaves">
 <area shape="rect" id="Node000001" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class..." alt="" coords="5,93,80,119"/>
-<area shape="rect" id="Node000002" href="$classNotes.html" title=" " alt="" coords="13,5,73,31"/>
+<area shape="rect" id="Node000002" href="$classNotes.html" title="A class to store the frequency of the notes which may be referenced. The notes are stored in an enum ..." alt="" coords="13,5,73,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="43,45,43,55,44,93,39,93,37,55,38,44"/>
 <area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="45,45,45,93,40,93,40,45"/>
 </map>

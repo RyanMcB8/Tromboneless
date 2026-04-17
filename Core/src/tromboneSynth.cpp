@@ -75,7 +75,28 @@ void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
     octave = std::clamp(octave, 0, nOctaves - 1);
 }
 
- void TromboneSynth::setAttackMS(float attack_time){
+void TromboneSynth::HandleMIDINoteOn(){
+    std::cout << "int_synth Note On" << std::endl;
+    StartTromboneNote(note, octave);
+};
+
+void TromboneSynth::HandleMIDINoteOff(){
+    std::cout << "int_synth Note Off" << std::endl;
+    StopTromboneNote();
+};
+
+void TromboneSynth::HandleMIDIPitchBend(int midipitchbend){
+    std::cout << "int_synth Pitch Bend" << std::endl;
+    setPitchBend(midipitchbend);
+};
+
+void TromboneSynth::HandleMIDINoteChange(int new_note){
+    std::cout << "int_synth Note Change" << std::endl;
+    NewTromboneNoteMIDI(new_note);
+};
+
+
+void TromboneSynth::setAttackMS(float attack_time){
     attack_ms = attack_time;
     return;
  }
@@ -187,4 +208,8 @@ float TromboneSynth::getAdjustedFrequency(void){
         interpolationValue * upperFreq;
 
     return frequency;
+}
+
+Envelope TromboneSynth::getEnvelope(void){
+    return tromboneEnvelope;
 }

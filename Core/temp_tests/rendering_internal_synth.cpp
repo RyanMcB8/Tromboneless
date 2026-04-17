@@ -1,14 +1,16 @@
 #include "main.hpp"
-#include <eventHandler.hpp>
+#include "eventHandler.hpp"
 #include <condition_variable>
 #include <cstdint>
 #include <iostream>
 #include <thread>
 #include <mutex>
 #include <queue>
+#include <chrono>
 #include "MidiCoordinator.hpp"
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
+#include "audioRender.hpp"
 
 class GetDistance {
 public:
@@ -23,22 +25,21 @@ public:
 class MapEmbouchure {
 public:
     int noteMapping(int8_t delta) {
-
         int strength = 34;
 
         if (delta >= 75)
-            strength = 62; // D4
+            strength = 62;
         else if (delta >= 70)
-            strength = 58; // Bb3
+            strength = 58;
         else if (delta >= 60)
-            strength = 53; // F3
+            strength = 53;
         else if (delta >= 50)
-            strength = 46; // Bb2
+            strength = 46;
         else if (delta >= 40)
-            strength = 34; // Bb1
+            strength = 34;
         else
             strength = 0;
-        std::cout << "Strength: " << strength << "\tDelta: " << static_cast<int>(delta) << std::endl;
+
         return strength;
     }
 };
@@ -50,10 +51,14 @@ int main() {
         std::condition_variable eventQueueCv;
 
         EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
-        MidiCoordinator coordinator;
         RtMidiSink midiSink;
         GetDistance distanceGetter;
         MapEmbouchure mapembouchure;
+        AudioRender render;
+
+        MidiCoordinator coordinator(render);
+        const bool externalDevicePresent = midiSink.GetDeviceStatus();
+        coordinator.setDevice(externalDevicePresent);
 
         if (!eventHandler.initialise()) {
             std::cerr << "Initialisation failed\n";
@@ -65,12 +70,19 @@ int main() {
                 midiSink.send(msg);
             });
 
-        coordinator.setExpr(100);
-        coordinator.setBend(0);
-        coordinator.ChangeNote(60);
-        coordinator.PressureEdge(false);
-
         eventHandler.start();
+
+        if (!externalDevicePresent) {
+            render.start();
+
+            render.setDebugTone(true);
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            render.setDebugTone(false);
+
+            std::cout << "Internal synth mode\n";
+        } else {
+            std::cout << "External MIDI mode\n";
+        }
 
         bool pressure_gate = false;
         int current_note = 0;
@@ -91,11 +103,10 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::PressureReading:
-
-                    if (event.pressureReading > 0.0035f && pressure_gate == false) {
+                    if (event.pressureReading < 0.22f && !pressure_gate) {
                         coordinator.PressureEdge(true);
                         pressure_gate = true;
-                    } else if (event.pressureReading < 0.0035f && pressure_gate == true) {
+                    } else if (event.pressureReading > 0.22f && pressure_gate) {
                         coordinator.PressureEdge(false);
                         pressure_gate = false;
                     }
@@ -103,10 +114,8 @@ int main() {
 
                 case RawInputEvent::Type::MouthpieceReading:
                     new_note = mapembouchure.noteMapping(event.mouthpieceReading);
-                    if (current_note != new_note && new_note != 0) 
-                    {
+                    if (current_note != new_note && new_note != 0) {
                         current_note = new_note;
-                        std::cout << "\tCurrent note: " << current_note << std::endl;
                         coordinator.ChangeNote(current_note);
                     }
                     break;

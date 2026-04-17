@@ -32,8 +32,8 @@
          *  @param  rest            The amount of time in milliseconds that the rest
                                     stage should last for.
          */
-        TromboneSynth(int sampleRate = 44100, float attack = 500.0, float decay = 50.0,
-             float sustain = 0.96, float rest = 10.0);
+        TromboneSynth(int sampleRate = 44100, float attack = 25.0, float decay = 50.0,
+             float sustain = 0.99, float rest = 10.0);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -74,6 +74,17 @@
          *                          the note which is being played.
          */
         void NewTromboneNoteMIDI(int MIDINote);
+
+        /** @brief                  A method to handle NoteOn messages as passed from
+         *                          the MIDI Coordinator.
+        */
+        void HandleMIDINoteOn();
+
+        void HandleMIDINoteOff();
+
+        void HandleMIDIPitchBend(int midipitchbend);
+
+        void HandleMIDINoteChange(int new_note);
 
         /** @brief                  A function to set the amount of time in milliseconds
          *                          that the attack stage takes.
@@ -170,11 +181,14 @@
          */
         float getAdjustedFrequency(void);
 
+        Envelope getEnvelope(void);
+
     private:
         /* Initialising the envelope class which will be used to create the various
         different noises for the trombone. This sets the sound of the trombone
         permanently. The ADSR values may need to be adjusted but this should sound
         brassy. */
+
         Envelope tromboneEnvelope = Envelope(100, 50, 0.95f, 10);
         float attack_ms;        /*  The attack time in milliseconds of the envelope. */
         float decay_ms;         /*  The decay time in milliseconds of the envelope. */

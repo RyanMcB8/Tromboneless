@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['verticalmixslider_0',['verticalMixSlider',['../classvertical_mix_slider.html',1,'']]],
-  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../class_vertical_slider_look_and_feel.html',1,'']]]
+  ['verticalmixslider_0',['verticalMixSlider',['../classverticalMixSlider.html',1,'']]],
+  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../classVerticalSliderLookAndFeel.html',1,'']]]
 ];

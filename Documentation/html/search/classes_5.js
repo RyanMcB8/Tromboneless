@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['guiappapplication_0',['GuiAppApplication',['../class_gui_app_application.html',1,'']]]
+  ['getdistance_0',['GetDistance',['../classGetDistance.html',1,'']]],
+  ['guiappapplication_1',['GuiAppApplication',['../classGuiAppApplication.html',1,'']]]
 ];

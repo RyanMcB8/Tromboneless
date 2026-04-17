@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -109,23 +109,29 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3a498339e40f60ba1205486de18716e" id="r_ae3a498339e40f60ba1205486de18716e"><td class="memItemLeft" align="right" valign="top"><a id="ae3a498339e40f60ba1205486de18716e" name="ae3a498339e40f60ba1205486de18716e"></a>
-const juce::String&#160;</td><td class="memItemRight" valign="bottom"><b>getApplicationName</b> () override</td></tr>
+<tr class="memitem:a79ff8c54c8c3b9a610c72f0cda6e47d9" id="r_a79ff8c54c8c3b9a610c72f0cda6e47d9"><td class="memItemLeft" align="right" valign="top"><a id="a79ff8c54c8c3b9a610c72f0cda6e47d9" name="a79ff8c54c8c3b9a610c72f0cda6e47d9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>GuiAppApplication</b> ()</td></tr>
+<tr class="memdesc:a79ff8c54c8c3b9a610c72f0cda6e47d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining the <a class="el" href="classGuiAppApplication.html" title="Creation of main application class.">GuiAppApplication</a> function. <br /></td></tr>
+<tr class="separator:a79ff8c54c8c3b9a610c72f0cda6e47d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a498339e40f60ba1205486de18716e" id="r_ae3a498339e40f60ba1205486de18716e"><td class="memItemLeft" align="right" valign="top">const juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGuiAppApplication.html#ae3a498339e40f60ba1205486de18716e">getApplicationName</a> () override</td></tr>
+<tr class="memdesc:ae3a498339e40f60ba1205486de18716e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the name of the applicaiton.  <br /></td></tr>
 <tr class="separator:ae3a498339e40f60ba1205486de18716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8220d7d6176973dcc3521061d654b402" id="r_a8220d7d6176973dcc3521061d654b402"><td class="memItemLeft" align="right" valign="top"><a id="a8220d7d6176973dcc3521061d654b402" name="a8220d7d6176973dcc3521061d654b402"></a>
-const juce::String&#160;</td><td class="memItemRight" valign="bottom"><b>getApplicationVersion</b> () override</td></tr>
+<tr class="memitem:a8220d7d6176973dcc3521061d654b402" id="r_a8220d7d6176973dcc3521061d654b402"><td class="memItemLeft" align="right" valign="top">const juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGuiAppApplication.html#a8220d7d6176973dcc3521061d654b402">getApplicationVersion</a> () override</td></tr>
+<tr class="memdesc:a8220d7d6176973dcc3521061d654b402"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which gets the current juce version and returns the name of the one being used.  <br /></td></tr>
 <tr class="separator:a8220d7d6176973dcc3521061d654b402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7999cf961cd78be4e6bd3ff0df80d116" id="r_a7999cf961cd78be4e6bd3ff0df80d116"><td class="memItemLeft" align="right" valign="top"><a id="a7999cf961cd78be4e6bd3ff0df80d116" name="a7999cf961cd78be4e6bd3ff0df80d116"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>moreThanOneInstanceAllowed</b> () override</td></tr>
+<tr class="memdesc:a7999cf961cd78be4e6bd3ff0df80d116"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which determines whether multiple instances of the window may be opened simultaneously. This is currently set to be false so that there may on be one window in use at a time. <br /></td></tr>
 <tr class="separator:a7999cf961cd78be4e6bd3ff0df80d116"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80153351c923e6338d5be191cd48b71b" id="r_a80153351c923e6338d5be191cd48b71b"><td class="memItemLeft" align="right" valign="top"><a id="a80153351c923e6338d5be191cd48b71b" name="a80153351c923e6338d5be191cd48b71b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initialise</b> (const juce::String &amp;commandLine) override</td></tr>
+<tr class="memitem:a80153351c923e6338d5be191cd48b71b" id="r_a80153351c923e6338d5be191cd48b71b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGuiAppApplication.html#a80153351c923e6338d5be191cd48b71b">initialise</a> (const juce::String &amp;commandLine) override</td></tr>
+<tr class="memdesc:a80153351c923e6338d5be191cd48b71b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function which initialises the main window when the code is executed.  <br /></td></tr>
 <tr class="separator:a80153351c923e6338d5be191cd48b71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae89b90a057c20d7f6d9c1b50b0568d0d" id="r_ae89b90a057c20d7f6d9c1b50b0568d0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGuiAppApplication.html#ae89b90a057c20d7f6d9c1b50b0568d0d">shutdown</a> () override</td></tr>
 <tr class="memdesc:ae89b90a057c20d7f6d9c1b50b0568d0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to control what happens when the user wants to close the application.  <br /></td></tr>
 <tr class="separator:ae89b90a057c20d7f6d9c1b50b0568d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d31e855136b85df87cc164fab4df3fa" id="r_a7d31e855136b85df87cc164fab4df3fa"><td class="memItemLeft" align="right" valign="top"><a id="a7d31e855136b85df87cc164fab4df3fa" name="a7d31e855136b85df87cc164fab4df3fa"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>systemRequestedQuit</b> () override</td></tr>
+<tr class="memdesc:a7d31e855136b85df87cc164fab4df3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function used to close the window. This is requested when the user presses the 'X' button. <br /></td></tr>
 <tr class="separator:a7d31e855136b85df87cc164fab4df3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c014380756e1f5d522acd1bdaedf42c" id="r_a4c014380756e1f5d522acd1bdaedf42c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGuiAppApplication.html#a4c014380756e1f5d522acd1bdaedf42c">anotherInstanceStarted</a> (const juce::String &amp;commandLine) override</td></tr>
 <tr class="memdesc:a4c014380756e1f5d522acd1bdaedf42c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for when the user tries to open mutliple instances of the application.  <br /></td></tr>
@@ -164,6 +170,96 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>systemRequestedQuit</
 
 </div>
 </div>
+<a id="ae3a498339e40f60ba1205486de18716e" name="ae3a498339e40f60ba1205486de18716e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a498339e40f60ba1205486de18716e">&#9670;&#160;</a></span>getApplicationName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const juce::String GuiAppApplication::getApplicationName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function which returns the name of the applicaiton. </p>
+<dl class="section note"><dt>Note</dt><dd>We inject the name as compile definitions from the CMakeLists.txt </dd></dl>
+
+</div>
+</div>
+<a id="a8220d7d6176973dcc3521061d654b402" name="a8220d7d6176973dcc3521061d654b402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8220d7d6176973dcc3521061d654b402">&#9670;&#160;</a></span>getApplicationVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const juce::String GuiAppApplication::getApplicationVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A function which gets the current juce version and returns the name of the one being used. </p>
+<dl class="section note"><dt>Note</dt><dd>We inject the name as compile definitions from the CMakeLists.txt </dd></dl>
+
+</div>
+</div>
+<a id="a80153351c923e6338d5be191cd48b71b" name="a80153351c923e6338d5be191cd48b71b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80153351c923e6338d5be191cd48b71b">&#9670;&#160;</a></span>initialise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GuiAppApplication::initialise </td>
+          <td>(</td>
+          <td class="paramtype">const juce::String &amp;&#160;</td>
+          <td class="paramname"><em>commandLine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The function which initialises the main window when the code is executed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commandLine</td><td>The arguments which the user has input on the terminal when executing the code. This is currently not used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae89b90a057c20d7f6d9c1b50b0568d0d" name="ae89b90a057c20d7f6d9c1b50b0568d0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae89b90a057c20d7f6d9c1b50b0568d0d">&#9670;&#160;</a></span>shutdown()</h2>
 
@@ -193,7 +289,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>systemRequestedQuit</
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/ryan/Tromboneless/App/src/<b>main.cpp</b></li>
+<li>Tromboneless/App/src/<b>main.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

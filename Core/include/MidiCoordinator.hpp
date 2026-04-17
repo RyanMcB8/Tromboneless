@@ -1,21 +1,31 @@
+/** @file   hpp.MidiCoordinator
+ *  @author Aidan McIntosh
+ *  @brief  File to define high-level musical coordination behaviour.
+ *          Takes premapped sensor inputs and either internal 
+ *          or external synth.
+ */
+
 #pragma once
 #include "MidiMessage.hpp"
 #include "MidiMessageBuilder.hpp"
 #include "functional"
 #include "tromboneSynth.hpp"
+#include "audioRender.hpp"
 
-/**
- * @brief Class to coordinate Midi message construction based on output from sensor mappers.
- * This class is stateful and responsible for translating high-level sensor data into Midi messages using MidiMessageBuilder.
+/** @brief 
+ *          Class to coordinate Midi message construction based on output from sensor mappers.
+ *          This class is stateful and responsible for translating high-level sensor data into Midi messages.
+ *          Utilises MidiMessageBuilder for external synths and directly controls internal synth.
  */
-
-
 class MidiCoordinator{
     private:
-
+/** @brief Initialising downstream classes for constructing, storing and sending
+ *         MIDI messages to internal and external synths.
+ * 
+ */
         MidiMessage message;
         MidiMessageBuilder builder;
-        TromboneSynth internal_synth;
+        AudioRender& synthRef;
 
         using CallbackInterface = std::function<void(const MidiMessage&)>;
         CallbackInterface callback;
@@ -26,13 +36,23 @@ class MidiCoordinator{
 
         int currentNote = -1; // Playing note 
         int lastSentExpr = -1; // Saves last expression sent to device
-        int lastSentBend = 10000; // Saves last bend sent to device
+        int lastSentBend = -1; // Saves last bend sent to device
 
         const int velocity = 127; // Clamped to max
+        /**
+         * States dependent on whether external or internal synth is being used.
+         */
+        enum OutputType{
+            EXTERNAL,
+            INTERNAL
+        };
+
+        enum OutputType current_output = INTERNAL;
 
         /**
          * High-level states that device can be in.
          */
+
         enum State{
             IDLE,
             PLAYING,
@@ -46,7 +66,7 @@ class MidiCoordinator{
         /**
          * Default constructor.
          */
-        MidiCoordinator();
+        MidiCoordinator(AudioRender& synth);
         void RegisterCallback(CallbackInterface cb);
 
         /**
@@ -74,4 +94,8 @@ class MidiCoordinator{
          * Method to set state of instrument.
          */
         void setState(State newstate);
+
+        void setDevice(bool external_device_present);
+
+        AudioRender& getSynth(void);
 };

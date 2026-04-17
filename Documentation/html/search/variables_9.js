@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lowpressure_0',['lowPressure',['../struct_tromboneless_parameters__t.html#a362040e7af460e17532fe456f8a16983',1,'TrombonelessParameters_t']]]
+  ['octaves_0',['octaves',['../classOctaves.html#aa6c0bbc5933997052bb27a71cb6de574',1,'Octaves']]]
 ];
