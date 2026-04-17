@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
+set(LIDAR_DIR ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API)
+
 # Debug Mode
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -34,6 +36,8 @@ target_include_directories(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/modules/rtmidi
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/core
     ${PROJECT_ROOT}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform
+    ${LIDAR_DIR}/core
+    ${LIDAR_DIR}/platform
 )
 
 # Add source files

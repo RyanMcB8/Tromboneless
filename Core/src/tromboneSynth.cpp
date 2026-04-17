@@ -75,8 +75,7 @@ void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
     octave = std::clamp(octave, 0, nOctaves - 1);
 }
 
-void TromboneSynth::HandleMIDINoteOn(int latestNote, int currentNote){
-    NewTromboneNoteMIDI(latestNote);
+void TromboneSynth::HandleMIDINoteOn(int currentNote){
     StartTromboneNote(note, octave);
 };
 
@@ -88,8 +87,12 @@ void TromboneSynth::HandleMIDIPitchBend(int midipitchbend){
     setPitchBend(midipitchbend);
 };
 
+void TromboneSynth::HandleMIDINoteChange(int new_note){
+    NewTromboneNoteMIDI(new_note);
+};
 
- void TromboneSynth::setAttackMS(float attack_time){
+
+void TromboneSynth::setAttackMS(float attack_time){
     attack_ms = attack_time;
     return;
  }

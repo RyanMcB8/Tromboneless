@@ -24,6 +24,7 @@ void MidiCoordinator::PressureEdge(bool on)
             internal_synth.NewTromboneNoteMIDI(latestNote);
 
             currentNote = latestNote;
+
             setState(PLAYING);
         }
         break;
@@ -33,7 +34,7 @@ void MidiCoordinator::PressureEdge(bool on)
         {
             callback(builder.noteOff(1, currentNote, velocity));
 
-            internal_synth.StopTromboneNote();
+            internal_synth.HandleMIDINoteOn(currentNote);
             setState(IDLE);
         }
         break;
@@ -54,8 +55,7 @@ void MidiCoordinator::ChangeNote(int note, AudioRender internal_synth)
     {
         callback(builder.noteOn(1, latestNote, velocity));
         callback(builder.noteOff(1, currentNote, velocity));
-        internal_synth.HandleMIDINoteOn(latestNote, currentNote);
-        internal_synth.HandleMIDINoteOff(currentNote);
+        internal_synth.HandleMIDINoteChange(latestNote);
     }
 }
 
