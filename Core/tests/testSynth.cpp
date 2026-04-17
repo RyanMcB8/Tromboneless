@@ -104,7 +104,7 @@ bool TestOctaves(){
         }
     }
 
-    std::cout << "[PASS] Ocatves passed all tests. \n";
+    std::cout << "[PASS] Octaves passed all tests. \n";
     return true;
 }
 
