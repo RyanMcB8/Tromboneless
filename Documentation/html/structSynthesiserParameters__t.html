@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -76,33 +76,27 @@ $(function() {
   <div class="headertitle"><div class="title">SynthesiserParameters_t Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A struct to store any of the synthesier parameters that may be changed within the app. A data changed flag variable should be added to this struct to tell the core to read the new values.  
+ <a href="structSynthesiserParameters__t.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tromboneless__data_8hpp_source.html">Tromboneless/Shared/tromboneless_data.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a412fa82e26f1a63a66eabd3fe6d14e88" id="r_a412fa82e26f1a63a66eabd3fe6d14e88"><td class="memItemLeft" align="right" valign="top"><a id="a412fa82e26f1a63a66eabd3fe6d14e88" name="a412fa82e26f1a63a66eabd3fe6d14e88"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>synthEnable</b></td></tr>
+<tr class="memdesc:a412fa82e26f1a63a66eabd3fe6d14e88"><td class="mdescLeft">&#160;</td><td class="mdescRight">The variable used to determine when the internal synth and equalizer is used. <br /></td></tr>
 <tr class="separator:a412fa82e26f1a63a66eabd3fe6d14e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4276d413e10d7ee952f12ae21c62080" id="r_ab4276d413e10d7ee952f12ae21c62080"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSynthesiserParameters__t.html#ab4276d413e10d7ee952f12ae21c62080">gains</a> [10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}</td></tr>
+<tr class="memitem:ab4276d413e10d7ee952f12ae21c62080" id="r_ab4276d413e10d7ee952f12ae21c62080"><td class="memItemLeft" align="right" valign="top"><a id="ab4276d413e10d7ee952f12ae21c62080" name="ab4276d413e10d7ee952f12ae21c62080"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>gains</b> [10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}</td></tr>
+<tr class="memdesc:ab4276d413e10d7ee952f12ae21c62080"><td class="mdescLeft">&#160;</td><td class="mdescRight">The chosen gains for the various frequency bands in the equalizer. <br /></td></tr>
 <tr class="separator:ab4276d413e10d7ee952f12ae21c62080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab4276d413e10d7ee952f12ae21c62080" name="ab4276d413e10d7ee952f12ae21c62080"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4276d413e10d7ee952f12ae21c62080">&#9670;&#160;</a></span>gains</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float SynthesiserParameters_t::gains[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The variable used to determine when the internal synth and equalizer is used. </p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/ryan/Tromboneless/App/shared/<a class="el" href="tromboneless__data_8hpp_source.html">tromboneless_data.hpp</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A struct to store any of the synthesier parameters that may be changed within the app. A data changed flag variable should be added to this struct to tell the core to read the new values. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>Tromboneless/Shared/<a class="el" href="tromboneless__data_8hpp_source.html">tromboneless_data.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

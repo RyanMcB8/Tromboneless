@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -80,7 +80,7 @@ $(function() {
 <p>A class that creates a drop down menu or 'comboBox' with a label attached to it. This takes up 95% of the available local area. The label is set to have a maxmimum width of 200, but scales as the window size is reduced.  
  <a href="classDropDownMenu.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Widgets_8hpp_source.html">Tromboneless/App/inc/Widgets.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for DropDownMenu:</div>
 <div class="dyncontent">
@@ -125,8 +125,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resized</b> () overri
 <tr class="memitem:a56e0e79ee5f5d195e4d11fd898a5d96c" id="r_a56e0e79ee5f5d195e4d11fd898a5d96c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDropDownMenu.html#a56e0e79ee5f5d195e4d11fd898a5d96c">ChangeLabelText</a> (juce::String text, juce::NotificationType notification=juce::dontSendNotification)</td></tr>
 <tr class="memdesc:a56e0e79ee5f5d195e4d11fd898a5d96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function allows for the editting of the main label displayed beside the drop down menu.  <br /></td></tr>
 <tr class="separator:a56e0e79ee5f5d195e4d11fd898a5d96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dcd04eb672f79c34d6b77a531a2b681" id="r_a1dcd04eb672f79c34d6b77a531a2b681"><td class="memItemLeft" align="right" valign="top"><a id="a1dcd04eb672f79c34d6b77a531a2b681" name="a1dcd04eb672f79c34d6b77a531a2b681"></a>
-juce::String&#160;</td><td class="memItemRight" valign="bottom"><b>getLabelText</b> (void)</td></tr>
+<tr class="memitem:a1dcd04eb672f79c34d6b77a531a2b681" id="r_a1dcd04eb672f79c34d6b77a531a2b681"><td class="memItemLeft" align="right" valign="top">juce::String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDropDownMenu.html#a1dcd04eb672f79c34d6b77a531a2b681">getLabelText</a> (void)</td></tr>
+<tr class="memdesc:a1dcd04eb672f79c34d6b77a531a2b681"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the current text which the label is displaying.  <br /></td></tr>
 <tr class="separator:a1dcd04eb672f79c34d6b77a531a2b681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -233,6 +233,32 @@ juce::String&#160;</td><td class="memItemRight" valign="bottom"><b>getLabelText<
 
 </div>
 </div>
+<a id="a1dcd04eb672f79c34d6b77a531a2b681" name="a1dcd04eb672f79c34d6b77a531a2b681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dcd04eb672f79c34d6b77a531a2b681">&#9670;&#160;</a></span>getLabelText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::String DropDownMenu::getLabelText </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A function which returns the current text which the label is displaying. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the text being distplayed as a type <code>juce::String</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac3b09c656d7b30ea9aab2dd6938a08df" name="ac3b09c656d7b30ea9aab2dd6938a08df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3b09c656d7b30ea9aab2dd6938a08df">&#9670;&#160;</a></span>OnChange()</h2>
 
@@ -262,7 +288,7 @@ template&lt;typename T &gt; </div>
 <p>This function sets what will happen when the option wihtin the drop down menu has been changed by the user. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">updateVaraible</td><td>This should be a pointer to the variable which is being set to the item index which has been chosen. </td></tr>
+    <tr><td class="paramname">updateVariable</td><td>This should be a pointer to the variable which is being set to the item index which has been chosen. </td></tr>
   </table>
   </dd>
 </dl>
@@ -271,8 +297,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
-<li>/home/ryan/Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
+<li>Tromboneless/App/inc/<a class="el" href="Widgets_8hpp_source.html">Widgets.hpp</a></li>
+<li>Tromboneless/App/src/<a class="el" href="Widgets_8cpp.html">Widgets.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

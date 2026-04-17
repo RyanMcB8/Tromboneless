@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['address_0',['address',['../struct_a_d_s1115settings.html#a5aac9fb517c9665aeca60f1a9b0bbbe2',1,'ADS1115settings']]]
+  ['button_0',['button',['../classCalibrationOnClick.html#acfbee39178d96a1dd1d70eb873e63aff',1,'CalibrationOnClick']]]
 ];

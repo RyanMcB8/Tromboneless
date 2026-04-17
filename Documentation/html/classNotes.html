@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -77,24 +77,31 @@ $(function() {
   <div class="headertitle"><div class="title">Notes Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class to store the frequency of the notes which may be referenced. The notes are stored in an enum <code>Notes_t</code> which allow for the higher level functions to call upon the specific note as opposed to frequency.  
+ <a href="classNotes.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="synth_8hpp_source.html">Tromboneless/Core/include/synth.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Notes:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNotes__inherit__graph.png" border="0" usemap="#aNotes_inherit__map" alt="Inheritance graph"/></div>
 <map name="aNotes_inherit__map" id="aNotes_inherit__map">
-<area shape="rect" title=" " alt="" coords="63,5,123,31"/>
+<area shape="rect" title="A class to store the frequency of the notes which may be referenced. The notes are stored in an enum ..." alt="" coords="63,5,123,31"/>
 <area shape="rect" href="classOctaves.html" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class..." alt="" coords="55,79,130,104"/>
 <area shape="poly" title=" " alt="" coords="95,44,95,79,90,79,90,44"/>
-<area shape="rect" href="classOctavesWithHarmonics.html" title=" " alt="" coords="5,152,180,177"/>
+<area shape="rect" href="classOctavesWithHarmonics.html" title="A class which inherits functions and variables from the Octaves class allowing for the notes being ou..." alt="" coords="5,152,180,177"/>
 <area shape="poly" title=" " alt="" coords="95,118,95,152,90,152,90,118"/>
 <area shape="rect" href="classTromboneSynth.html" title="A class which may be used to create a custom synth with an envelope attached to it." alt="" coords="31,225,154,251"/>
 <area shape="poly" title=" " alt="" coords="95,191,95,225,90,225,90,191"/>
+<area shape="rect" href="classAudioRender.html" title=" " alt="" coords="40,299,145,324"/>
+<area shape="poly" title=" " alt="" coords="95,264,95,299,90,299,90,264"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8734fb9c1094a3becd78fe783ad43c0c" id="r_a8734fb9c1094a3becd78fe783ad43c0c"><td class="memItemLeft" align="right" valign="top"><a id="a8734fb9c1094a3becd78fe783ad43c0c" name="a8734fb9c1094a3becd78fe783ad43c0c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Notes_t</b> { <br />
+<tr class="memitem:a8734fb9c1094a3becd78fe783ad43c0c" id="r_a8734fb9c1094a3becd78fe783ad43c0c"><td class="memItemLeft" align="right" valign="top"><a id="a8734fb9c1094a3becd78fe783ad43c0c" name="a8734fb9c1094a3becd78fe783ad43c0c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> { <br />
 &#160;&#160;<b>note_C</b>
 , <b>note_Db</b>
 , <b>note_D</b>
@@ -118,12 +125,13 @@ Public Types</h2></td></tr>
 &#160;&#160;<b>note_A_sharp</b> = note_Bb
 <br />
  }</td></tr>
+<tr class="memdesc:a8734fb9c1094a3becd78fe783ad43c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation of the enumerated list of possible notes. <br /></td></tr>
 <tr class="separator:a8734fb9c1094a3becd78fe783ad43c0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae11cec41480227782d457e4829d5a06f" id="r_ae11cec41480227782d457e4829d5a06f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#ae11cec41480227782d457e4829d5a06f">Notes</a> (float C_in=16.35, float Db_in=17.32, float D_in=18.35, float Eb_in=19.45, float E_in=20.60, float F_in=21.83, float Gb_in=23.12, float G_in=24.50, float Ab_in=25.96, float A_in=27.50, float Bb_in=29.14, float B_in=30.87)</td></tr>
-<tr class="memdesc:ae11cec41480227782d457e4829d5a06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <code><a class="el" href="classNotes.html">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default.  <br /></td></tr>
+<tr class="memdesc:ae11cec41480227782d457e4829d5a06f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <code><a class="el" href="classNotes.html" title="A class to store the frequency of the notes which may be referenced. The notes are stored in an enum ...">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default.  <br /></td></tr>
 <tr class="separator:ae11cec41480227782d457e4829d5a06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c9383818919d511ea9299d6ab7afa2f" id="r_a1c9383818919d511ea9299d6ab7afa2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a1c9383818919d511ea9299d6ab7afa2f">setC</a> (float frequency)</td></tr>
 <tr class="memdesc:a1c9383818919d511ea9299d6ab7afa2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the value of the frequency that the C note plays.  <br /></td></tr>
@@ -176,7 +184,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9073e06b45bf747f29dab9eae21eec76" id="r_a9073e06b45bf747f29dab9eae21eec76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a9073e06b45bf747f29dab9eae21eec76">setB</a> (float frequency)</td></tr>
 <tr class="memdesc:a9073e06b45bf747f29dab9eae21eec76"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the value of the frequency that the B note plays.  <br /></td></tr>
 <tr class="separator:a9073e06b45bf747f29dab9eae21eec76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a289e578ebfa78942170e0733ea111f6b" id="r_a289e578ebfa78942170e0733ea111f6b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a289e578ebfa78942170e0733ea111f6b">setNote</a> (Notes_t note, float freq)</td></tr>
+<tr class="memitem:a289e578ebfa78942170e0733ea111f6b" id="r_a289e578ebfa78942170e0733ea111f6b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a289e578ebfa78942170e0733ea111f6b">setNote</a> (<a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note, float freq)</td></tr>
 <tr class="memdesc:a289e578ebfa78942170e0733ea111f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alternative function which can allow for the user to alter the frequency of a specific note based upon the Notes_t enumerated values rather than specifying a function call.  <br /></td></tr>
 <tr class="separator:a289e578ebfa78942170e0733ea111f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69625a0a056e70309af328d42b2bf86e" id="r_a69625a0a056e70309af328d42b2bf86e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a69625a0a056e70309af328d42b2bf86e">getC</a> (void)</td></tr>
@@ -230,11 +238,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a192de65337df2408c3e56ca10a4c4c10" id="r_a192de65337df2408c3e56ca10a4c4c10"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a192de65337df2408c3e56ca10a4c4c10">getB</a> (void)</td></tr>
 <tr class="memdesc:a192de65337df2408c3e56ca10a4c4c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that returns the frequency of the B note for the specified object.  <br /></td></tr>
 <tr class="separator:a192de65337df2408c3e56ca10a4c4c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48d208550a87e540d1748253aae9516f" id="r_a48d208550a87e540d1748253aae9516f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a48d208550a87e540d1748253aae9516f">getNote</a> (Notes_t note)</td></tr>
+<tr class="memitem:a48d208550a87e540d1748253aae9516f" id="r_a48d208550a87e540d1748253aae9516f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a48d208550a87e540d1748253aae9516f">getNote</a> (<a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note)</td></tr>
 <tr class="memdesc:a48d208550a87e540d1748253aae9516f"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alternative function which can allow for the user to request a specific note based upon the Notes_t enumerated values rather than specifying a function call.  <br /></td></tr>
 <tr class="separator:a48d208550a87e540d1748253aae9516f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class to store the frequency of the notes which may be referenced. The notes are stored in an enum <code>Notes_t</code> which allow for the higher level functions to call upon the specific note as opposed to frequency. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae11cec41480227782d457e4829d5a06f" name="ae11cec41480227782d457e4829d5a06f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae11cec41480227782d457e4829d5a06f">&#9670;&#160;</a></span>Notes()</h2>
 
@@ -321,7 +331,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for the <code><a class="el" href="classNotes.html">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default. </p>
+<p>Constructor for the <code><a class="el" href="classNotes.html" title="A class to store the frequency of the notes which may be referenced. The notes are stored in an enum ...">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">C_in</td><td>The frequency of the C key. </td></tr>
@@ -795,7 +805,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">float Notes::getNote </td>
           <td>(</td>
-          <td class="paramtype">Notes_t&#160;</td>
+          <td class="paramtype"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a>&#160;</td>
           <td class="paramname"><em>note</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1286,7 +1296,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">float Notes::setNote </td>
           <td>(</td>
-          <td class="paramtype">Notes_t&#160;</td>
+          <td class="paramtype"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a>&#160;</td>
           <td class="paramname"><em>note</em>, </td>
         </tr>
         <tr>
@@ -1315,8 +1325,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/Core/include/<a class="el" href="synth_8hpp_source.html">synth.hpp</a></li>
-<li>/home/ryan/Tromboneless/Core/src/<a class="el" href="synth_8cpp.html">synth.cpp</a></li>
+<li>Tromboneless/Core/include/<a class="el" href="synth_8hpp_source.html">synth.hpp</a></li>
+<li>Tromboneless/Core/src/<a class="el" href="synth_8cpp.html">synth.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

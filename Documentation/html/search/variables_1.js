@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['button_0',['button',['../class_calibration_on_click.html#acfbee39178d96a1dd1d70eb873e63aff',1,'CalibrationOnClick']]]
+  ['distanceslider_0',['distanceSlider',['../classSliders.html#a7a4eb161eca68e0a4d6b2def4dfad31c',1,'Sliders']]]
 ];
