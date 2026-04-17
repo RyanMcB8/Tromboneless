@@ -75,19 +75,23 @@ void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
     octave = std::clamp(octave, 0, nOctaves - 1);
 }
 
-void TromboneSynth::HandleMIDINoteOn(int currentNote){
+void TromboneSynth::HandleMIDINoteOn(){
+    std::cout << "int_synth Note On" << std::endl;
     StartTromboneNote(note, octave);
 };
 
-void TromboneSynth::HandleMIDINoteOff(int currentNote){
+void TromboneSynth::HandleMIDINoteOff(){
+    std::cout << "int_synth Note Off" << std::endl;
     StopTromboneNote();
 };
 
 void TromboneSynth::HandleMIDIPitchBend(int midipitchbend){
+    std::cout << "int_synth Pitch Bend" << std::endl;
     setPitchBend(midipitchbend);
 };
 
 void TromboneSynth::HandleMIDINoteChange(int new_note){
+    std::cout << "int_synth Note Change" << std::endl;
     NewTromboneNoteMIDI(new_note);
 };
 

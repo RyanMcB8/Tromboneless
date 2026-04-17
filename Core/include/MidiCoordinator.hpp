@@ -10,6 +10,7 @@
 #include "MidiMessageBuilder.hpp"
 #include "functional"
 #include "tromboneSynth.hpp"
+#include "audioRender.hpp"
 
 /** @brief 
  *          Class to coordinate Midi message construction based on output from sensor mappers.
@@ -24,7 +25,7 @@ class MidiCoordinator{
  */
         MidiMessage message;
         MidiMessageBuilder builder;
-        TromboneSynth& synthRef;
+        AudioRender& synthRef;
 
         using CallbackInterface = std::function<void(const MidiMessage&)>;
         CallbackInterface callback;
@@ -35,7 +36,7 @@ class MidiCoordinator{
 
         int currentNote = -1; // Playing note 
         int lastSentExpr = -1; // Saves last expression sent to device
-        int lastSentBend = 10000; // Saves last bend sent to device
+        int lastSentBend = -1; // Saves last bend sent to device
 
         const int velocity = 127; // Clamped to max
         /**
@@ -65,7 +66,7 @@ class MidiCoordinator{
         /**
          * Default constructor.
          */
-        MidiCoordinator(TromboneSynth& synth);
+        MidiCoordinator(AudioRender& synth);
         void RegisterCallback(CallbackInterface cb);
 
         /**
@@ -94,5 +95,5 @@ class MidiCoordinator{
          */
         void setState(State newstate);
 
-        TromboneSynth& getSynth(void);
+        AudioRender& getSynth(void);
 };

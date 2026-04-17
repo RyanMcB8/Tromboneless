@@ -1,11 +1,12 @@
 #include "MidiCoordinator.hpp"
 
-MidiCoordinator::MidiCoordinator(TromboneSynth& synth)
+MidiCoordinator::MidiCoordinator(AudioRender& synth)
     : synthRef(synth)
 {
 }
 
-void MidiCoordinator::RegisterCallback(CallbackInterface cb){
+void MidiCoordinator::RegisterCallback(CallbackInterface cb)
+{
     callback = cb;
 }
 
@@ -16,14 +17,27 @@ void MidiCoordinator::PressureEdge(bool on)
     case IDLE:
         if (on)
         {
-            callback(builder.pitchBend(1, latestBend));
-            callback(builder.expr(1, latestExpr));
-            callback(builder.noteOn(1, latestNote, velocity));
+            if (latestNote < 0)
+                return;
 
-            synthRef.setPitchBend(latestBend);
-            synthRef.NewTromboneNoteMIDI(latestNote);
+            if (latestBend < 0)
+                latestBend = 8192;
+
+            if (latestExpr < 0)
+                latestExpr = 127;
+
+            if (callback) {
+                callback(builder.pitchBend(1, latestBend));
+                callback(builder.expr(1, latestExpr));
+                callback(builder.noteOn(1, latestNote, velocity));
+            }
+
+            synthRef.pitchBendFromMidi(latestBend);
+            synthRef.noteOnFromMidi(latestNote);
 
             currentNote = latestNote;
+            lastSentBend = latestBend;
+            lastSentExpr = latestExpr;
 
             setState(PLAYING);
         }
@@ -32,9 +46,12 @@ void MidiCoordinator::PressureEdge(bool on)
     case PLAYING:
         if (!on)
         {
-            callback(builder.noteOff(1, currentNote, velocity));
+            if (currentNote >= 0 && callback)
+                callback(builder.noteOff(1, currentNote, velocity));
 
-            synthRef.HandleMIDINoteOn(currentNote);
+            synthRef.noteOffFromMidi();
+
+            currentNote = -1;
             setState(IDLE);
         }
         break;
@@ -51,25 +68,40 @@ void MidiCoordinator::ChangeNote(int note)
 
     latestNote = note;
 
-    if (current_state == PLAYING)
-    {
-        callback(builder.noteOn(1, latestNote, velocity));
+    if (current_state != PLAYING)
+        return;
+
+    if (latestNote == currentNote)
+        return;
+
+    if (currentNote >= 0 && callback)
         callback(builder.noteOff(1, currentNote, velocity));
-        synthRef.HandleMIDINoteChange(latestNote);
-    }
+
+    if (callback)
+        callback(builder.noteOn(1, latestNote, velocity));
+
+    synthRef.noteChangeFromMidi(latestNote);
+    currentNote = latestNote;
 }
 
 void MidiCoordinator::setBend(int bend)
 {
-    if(bend < 0) bend = 0;
-    if(bend > 8192) bend = 8192;
+    if (bend < 0) bend = 0;
+    if (bend > 8192) bend = 8192;
+
     latestBend = bend;
 
-    if (current_state == PLAYING)
-    {
+    if (current_state != PLAYING)
+        return;
+
+    if (lastSentBend == latestBend)
+        return;
+
+    if (callback)
         callback(builder.pitchBend(1, latestBend));
-        synthRef.HandleMIDIPitchBend(latestBend);
-    }
+
+    synthRef.pitchBendFromMidi(latestBend);
+    lastSentBend = latestBend;
 }
 
 void MidiCoordinator::setExpr(int expr)
@@ -79,16 +111,24 @@ void MidiCoordinator::setExpr(int expr)
 
     latestExpr = expr;
 
-    if (current_state == PLAYING)
-    {
+    if (current_state != PLAYING)
+        return;
+
+    if (lastSentExpr == latestExpr)
+        return;
+
+    if (callback)
         callback(builder.expr(1, latestExpr));
-    }
+
+    lastSentExpr = latestExpr;
 }
 
-void MidiCoordinator::setState(State newstate){
+void MidiCoordinator::setState(State newstate)
+{
     current_state = newstate;
 }
 
-TromboneSynth& MidiCoordinator::getSynth(){
+AudioRender& MidiCoordinator::getSynth()
+{
     return synthRef;
 }

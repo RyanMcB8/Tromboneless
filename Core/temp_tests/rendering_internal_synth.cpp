@@ -1,5 +1,5 @@
 #include "main.hpp"
-#include <eventHandler.hpp>
+#include "eventHandler.hpp"
 #include <condition_variable>
 #include <cstdint>
 #include <iostream>
@@ -10,6 +10,7 @@
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
 #include "audioRender.hpp"
+#include "chrono"
 
 class GetDistance {
 public:
@@ -24,22 +25,21 @@ public:
 class MapEmbouchure {
 public:
     int noteMapping(int8_t delta) {
-
         int strength = 34;
 
         if (delta >= 75)
-            strength = 62; // D4
+            strength = 62;
         else if (delta >= 70)
-            strength = 58; // Bb3
+            strength = 58;
         else if (delta >= 60)
-            strength = 53; // F3
+            strength = 53;
         else if (delta >= 50)
-            strength = 46; // Bb2
+            strength = 46;
         else if (delta >= 40)
-            strength = 34; // Bb1
+            strength = 34;
         else
             strength = 0;
-        //std::cout << "Strength: " << strength << "\tDelta: " << static_cast<int>(delta) << std::endl;
+
         return strength;
     }
 };
@@ -55,8 +55,8 @@ int main() {
         GetDistance distanceGetter;
         MapEmbouchure mapembouchure;
         AudioRender render;
+
         MidiCoordinator coordinator(render);
-        
 
         if (!eventHandler.initialise()) {
             std::cerr << "Initialisation failed\n";
@@ -71,10 +71,17 @@ int main() {
         coordinator.setExpr(100);
         coordinator.setBend(8192);
         coordinator.ChangeNote(60);
-        coordinator.PressureEdge(false);
 
         eventHandler.start();
+        
         render.start();
+
+        // play test tone for 2 seconds
+        render.setDebugTone(true);
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        render.setDebugTone(false);
+
+        std::cout << "Debug tone active. If you hear nothing, audio path is broken.\n";
 
         bool pressure_gate = false;
         int current_note = 0;
@@ -83,7 +90,6 @@ int main() {
         while (true) {
             RawInputEvent event;
             {
-               // std::cout << "Envelope Stage: " << coordinator.getSynth().getEnvelope().getStage() << std::endl;
                 std::unique_lock<std::mutex> lock(eventQueueMutex);
                 eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
                 event = eventQueue.front();
@@ -96,11 +102,10 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::PressureReading:
-                    // std::cout << "Pressure: "<< event.pressureReading << std::endl;
-                    if (event.pressureReading > 0.0024f && pressure_gate == false) {
+                    if (event.pressureReading < 0.22f && !pressure_gate) {
                         coordinator.PressureEdge(true);
                         pressure_gate = true;
-                    } else if (event.pressureReading < 0.0024f && pressure_gate == true) {
+                    } else if (event.pressureReading > 0.22f && pressure_gate) {
                         coordinator.PressureEdge(false);
                         pressure_gate = false;
                     }
@@ -108,10 +113,8 @@ int main() {
 
                 case RawInputEvent::Type::MouthpieceReading:
                     new_note = mapembouchure.noteMapping(event.mouthpieceReading);
-                    if (current_note != new_note && new_note != 0) 
-                    {
+                    if (current_note != new_note && new_note != 0) {
                         current_note = new_note;
-                        //std::cout << "\tCurrent note: " << current_note << std::endl;
                         coordinator.ChangeNote(current_note);
                     }
                     break;

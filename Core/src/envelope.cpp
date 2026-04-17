@@ -61,7 +61,7 @@ float Envelope::getAmplitude(void){
         default:
             break;
     }
-    std::cout << "Envelope Amplitude " << static_cast<float>(amplitude) << std::endl;
+    //std::cout << "Envelope Amplitude " << static_cast<float>(amplitude) << std::endl;
     counter ++;
     return amplitude;
 }

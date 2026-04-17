@@ -32,8 +32,8 @@
          *  @param  rest            The amount of time in milliseconds that the rest
                                     stage should last for.
          */
-        TromboneSynth(int sampleRate = 44100, float attack = 500.0, float decay = 50.0,
-             float sustain = 0.96, float rest = 10.0);
+        TromboneSynth(int sampleRate = 44100, float attack = 25.0, float decay = 50.0,
+             float sustain = 0.99, float rest = 10.0);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -78,9 +78,9 @@
         /** @brief                  A method to handle NoteOn messages as passed from
          *                          the MIDI Coordinator.
         */
-        void HandleMIDINoteOn(int currentNote);
+        void HandleMIDINoteOn();
 
-        void HandleMIDINoteOff(int currentNote);
+        void HandleMIDINoteOff();
 
         void HandleMIDIPitchBend(int midipitchbend);
 
