@@ -78,11 +78,13 @@
         /** @brief                  A method to handle NoteOn messages as passed from
          *                          the MIDI Coordinator.
         */
-        void HandleMIDINoteOn(int latestNote, int currentNote);
+        void HandleMIDINoteOn(int currentNote);
 
         void HandleMIDINoteOff(int currentNote);
 
         void HandleMIDIPitchBend(int midipitchbend);
+
+        void HandleMIDINoteChange(int new_note);
 
         /** @brief                  A function to set the amount of time in milliseconds
          *                          that the attack stage takes.

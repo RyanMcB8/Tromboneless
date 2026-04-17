@@ -10,7 +10,6 @@
 #include "MidiMessageBuilder.hpp"
 #include "functional"
 #include "tromboneSynth.hpp"
-#include "audioRender.hpp"
 
 /** @brief 
  *          Class to coordinate Midi message construction based on output from sensor mappers.
@@ -25,7 +24,7 @@ class MidiCoordinator{
  */
         MidiMessage message;
         MidiMessageBuilder builder;
-        TromboneSynth& internal_synth;
+        TromboneSynth& synthRef;
 
         using CallbackInterface = std::function<void(const MidiMessage&)>;
         CallbackInterface callback;
@@ -78,12 +77,12 @@ class MidiCoordinator{
          * @brief Method to update note from mouthpiece.
          * @param note MIDI standard 0-127 notes.
          */
-        void ChangeNote(int note, AudioRender internal_synth);
+        void ChangeNote(int note);
         /**
          * Method to update pitch bend from slide.
          * @param bend Values from -8192 to 0 (so only downward bends possible)
          */
-        void setBend(int bend, AudioRender internal_synth);
+        void setBend(int bend);
         /**
          * Method to update MIDI expression.
          * @param expr: Expression value, 0-127.

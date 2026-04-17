@@ -15,9 +15,9 @@ public:
     AudioRender();
     ~AudioRender();
 
-    // // Prevent copying
-    // AudioRender(const AudioRender&) = delete;
-    // AudioRender& operator=(const AudioRender&) = delete;
+    // Prevent copying
+    AudioRender(const AudioRender&) = delete;
+    AudioRender& operator=(const AudioRender&) = delete;
 
     /** @brief Start the audio render thread */
     void start();
