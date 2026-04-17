@@ -1,6 +1,10 @@
 # Tromboneless
 
-This GitHub repository contains the open source hardware and firmware for Tromboneless - an open source device capable of measuring oral input to synthesise the output of a brass trombone using a Raspberry Pi 5, implementing MIDI protocol.
+<img src="" width="320">
+
+<img src="Documentation/Hardware/trombonelessflow.pdf" width="320">
+
+This GitHub repository contains the hardware and firmware for Tromboneless - an open source device capable of measuring oral input to synthesise the output of a brass trombone using a Raspberry Pi 5, implementing MIDI protocol.
 
 Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see component, sequence and state diagrams for the MIDI implementation.
 
@@ -8,30 +12,48 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 - [Getting Started](#getting-started)
 - [Dependencies](#dependencies)
 - [Bill of Materials](#bill-of-materials)
+- [Documentation](#documentation)
 - [Social Media](#social-media)
-- [Acknowledgements](#acknowledgements)
 - [Authors & Contributions](#authors-and-contributions)
 - [License](#license)
 
 ## Getting Started:
 
+### Setting up the Raspberry Pi 5
+
 1. Install Raspberry Pi OS onto your Raspberry Pi.<br>
    For set-up guidance for PiOS, please follow [this guide].(https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
    <br>
 
-### Option 1
+### Cloning
 
-2. clone this git repository and its submodule dependencies using one line one the command line:<br>
- ```  git clone --recursive https://github.com/RyanMcB8/Tromboneless.git ```<br>
+2. To clone with all submodules, run:
+ ```
+   git clone --recursive
+```
+   
+   If the submodules do not download, run:
 
-### Option 2
+```
+   git submodule update --recursive
+```
+### Libraries
+3. Tromboneless uses some libraries which are essential in the running of the Core and App.
+   To download these on your Linux OS, run:
+```
+apt-get install cmake
+sudo apt install libgpiod-dev
+...    ADD LIBS
+...    ADD LIBS
+```
 
-2. clone this git repository using the command:<br>
- ```  git clone https://github.com/RyanMcB8/Tromboneless.git ```<br>
+### Building the Core  
+4. The following commands can be executed to build the exectuables. This requires CMake      version 3.07 or greater. (edit)
+```
+cmake .
+make
+```
 
-3. To add the necessary submodules into the workspace, you will need to use the following command line commands:<br>
-``` git submodules init```<br>
-``` git submodules update```<br>
 
 
 ## Dependencies
@@ -68,9 +90,8 @@ Total Cost: £34.59
 
 | Additional Components                                          | Quantity | 
 |----------------------------------------------------------------|----------|
-| 10.0 kΩ Resistor                                               | 1        |    
+| 1.0 MΩ Resistor                                               | 1        |    
 | 300.0 Ω Resistor                                               | 1        |   
-| 390.0 kΩ Resistor                                              | 1        |   
 | USB MIDI Cable                                                 | 1        |    
 | Infrared LED                                                   | 1        |    
 | Photodiode                                                     | 1        |
@@ -80,18 +101,20 @@ Total Cost: £34.59
 
 Circuit diagram showing how to assemble the Tromboneless :
 
-<img width="600" alt="image" src="https://github.com/RyanMcB8/Tromboneless/blob/main/Documentation/Hardware/Tromboneless_Circuit_Diagram.svg" />
+<img width="600" alt="image" src="Documentation/Hardware/updated_circuit_image.svg" />
 
 ## Documentation
 
 <!-- If you wish to create your very own Tromboneless, the hardware used to create the protoype may be seen in the [Hardware](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation/Hardware) directory under Documentation. This includes a full circuit diagram.<br> -->
 
-For documentation of the code used, please refer to the [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation) directory where there are both LaTex and HTML versions of the documentation for this project.<br>
+For documentation of the code used, please refer to [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation), where there are both LaTex and HTML versions of documentation for this project.<br>
 
 ## Social Media
  
- - #1 Post on [r/Trombone](https://www.reddit.com/r/Trombone/)<br>
- - 28.6k+ Views across [r/Embedded](https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/), [r/Trombone](https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/) and [r/linuxaudio](https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/)
+ - **#1 Post** on [r/Trombone](https://www.reddit.com/r/Trombone/) (17-02-26) <br>
+
+
+ - **28.6k+ Views** across [r/Embedded](https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/), [r/Trombone](https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/) and [r/linuxaudio](https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/).
  
 Follow us for additional updates, including showcase videos and demonstrations:<br>
 
@@ -116,7 +139,7 @@ Follow us for additional updates, including showcase videos and demonstrations:<
 ### ADS1115 
 - The ADS1115 library was adopted from [Bernd Porr](https://github.com/berndporr), which can be sourced [here](https://github.com/berndporr/rpi_ads1115).
 
-
+### ADD HERE
 
 <!-- ## SSH Steps
 The following steps are to allow for a remote access connection into your Raspberry Pi if you wish to use another computer as your input terminal.<br>
