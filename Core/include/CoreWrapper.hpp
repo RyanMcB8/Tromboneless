@@ -60,5 +60,6 @@ class CoreWrapper{
         std::thread eventThread;
         bool running = false;
         void eventLoop();
+        bool externalDevicePresent;
 
 };

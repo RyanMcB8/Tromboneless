@@ -13,6 +13,7 @@
 #include "audioRender.hpp"
 #include "PitchMapper.hpp"
 #include "AmplitudeMapper.hpp"
+#include "CoreWrapper.hpp"
 
 int main() {
     try {
