@@ -22,11 +22,16 @@ add_subdirectory(modules/rtmidi)
 
 # Add source files
 file(GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE DRIVER_SOURCES "${PROJECT_SOURCE_DIR}/src/drivers/*.cpp")
 add_library(TrombonelessCoreLibrary 
 STATIC 
     ${SOURCES}
+    ${DRIVER_SOURCES}
     "${PROJECT_SOURCE_DIR}/modules/rpi_ads1115/ads1115rpi.cpp"
-    "${PROJECT_SOURCE_DIR}/../Shared/tromboneless_data.cpp")
+    "${PROJECT_SOURCE_DIR}/../Shared/tromboneless_data.cpp"
+    ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/core/VL53L1X_api.c
+    ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform/vl53l1_platform.cpp
+)
 
 
 target_include_directories(TrombonelessCoreLibrary PUBLIC
