@@ -48,6 +48,7 @@ target_include_directories(TrombonelessApp
 
 #   Adding additional compile defintions.
 target_compile_definitions(TrombonelessApp PRIVATE
+    NON_DEMO=1
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
     JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:TrombonelessApp,JUCE_PRODUCT_NAME>"

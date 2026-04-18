@@ -214,16 +214,16 @@
 
         /*  Sets the minimum distance the users hand may be from the Tromboneless for it to
             be detected and counted as a position on the pitch bend. */
-        float minimumDistance = 5;
+        float minimumDistance = 50;
         /*  Sets the maxmimum distance the users hand may be from the Tromboneless for it to
             be detected and counted as a position on the pitch bend. */
-        float maximumDistance = 60;
+        float maximumDistance = 600;
         /*  Sets the minimum change in distance the user can have when adjusting the slider.
             This is essentially the resolution of the slider. */
-        float stepDistance = 0.1;  
+        float stepDistance = 1;  
         /*  Setting the minimum distance that the maximum and minimum hand positions must be
             from each other. This reduces the chances of having ambiguity in the pitch bend. */ 
-        float distanceRange = 5;
+        float distanceRange = 50;
  };
 
  /**    @brief      A class which may be called to add a panel to

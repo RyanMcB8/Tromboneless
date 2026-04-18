@@ -11,18 +11,18 @@
 typedef enum{
     /** There was no chosen type of trombone by the user. */
     SKOpt_EMPTY,
-    /** The chosen type of trombone by the user was the bass. */                
-    SKOpt_BASS,
     /** The chosen type of trombone by the user was the piccolo. */                 
     SKOpt_PICCOLO, 
+    /** The chosen type of trombone by the user was the soprano. */     
+    SKOpt_SOPRANO,              
     /** The chosen type of trombone by the user was the alto. */             
     SKOpt_ALTO,   
     /** The chosen type of trombone by the user was the tenor. */              
     SKOpt_TENOR,     
+    /** The chosen type of trombone by the user was the bass. */                
+    SKOpt_BASS,
     /** The chosen type of trombone by the user was the contrabass. */           
     SKOpt_CONTRABASS,      
-    /** The chosen type of trombone by the user was the soprano. */     
-    SKOpt_SOPRANO,              
 } ShiftKeyingOptions_t;
 
 /**  Creation of an enum which corresponds to the different

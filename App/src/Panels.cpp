@@ -10,6 +10,9 @@
  #include   "Panels.hpp"
  #include   "Widgets.hpp"
  #include   <tromboneless_data.hpp>
+ #ifdef NON_DEMO
+ #include   <PitchMapper.hpp>
+ #endif
 
  /* Initialisation of class members.*/
 
@@ -42,15 +45,22 @@ juce::Colour Panels::getBackgroundColour(void){
     
     juce::Component::addAndMakeVisible (shiftKeyChoice);
     shiftKeyChoice.ChangeLabelText("Transposition\nchoice: ");
-    shiftKeyChoice.AddItem ("Bass", SKOpt_BASS);
     shiftKeyChoice.AddItem ("Piccolo", SKOpt_PICCOLO);
+    shiftKeyChoice.AddItem ("Soprano", SKOpt_SOPRANO);
     shiftKeyChoice.AddItem ("Alto", SKOpt_ALTO);
     shiftKeyChoice.AddItem ("Tenor", SKOpt_TENOR);
+    shiftKeyChoice.AddItem ("Bass", SKOpt_BASS);
     shiftKeyChoice.AddItem ("Contrabass", SKOpt_CONTRABASS);
-    shiftKeyChoice.AddItem ("Soprano", SKOpt_SOPRANO);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
+#ifndef NON_DEMO
     shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
+#else
+    auto DropDownLambda = [&pitchmapper](int index){
+        pitchmapper.setTromboneType(index);
+    };
+    shiftKeyChoice.OnChange(DropDownLamda);
+#endif
 
     addAndMakeVisible(calibrateEmbouchure);
     return;
@@ -75,8 +85,8 @@ Sliders::Sliders(){
     using juce::Slider;
     distanceSlider.slider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
     distanceSlider.setMinDifference(distanceRange);
-    distanceSlider.slider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
-    distanceSlider.slider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
+    distanceSlider.slider.setTextValueSuffix (" mm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
+    distanceSlider.slider.setMinAndMaxValues (150.0, 450.0, juce::dontSendNotification);
     distanceSlider.slider. addListener (this);  
     distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
@@ -108,8 +118,13 @@ void Sliders::resized(){
 void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
     if (sliderChanged == &distanceSlider.slider){
         /*  Update the calibrated distance of the slider in the main window. */
+#ifndef NON_DEMO
         trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
         trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+#else
+        pitchmapper.setSlideMinLimit(distanceSlider.slider.getMinValue());
+        pitchmapper.setSlideMaxLimit(distanceSlider.slider.getMaxValue());
+#endif
         return;
     }
     return;

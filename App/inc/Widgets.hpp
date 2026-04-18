@@ -717,6 +717,8 @@ class Equalizer : public verticalMixSlider
          */
         void AddItem(juce::String itemName, int itemValue);
 
+#ifndef NON_DEMO
+
         /** @brief                  This function sets what will happen when the option wihtin
          *                          the drop down menu has been changed by the user.
          *  @param  updateVariable  This should be a pointer to the variable which is being 
@@ -728,6 +730,20 @@ class Equalizer : public verticalMixSlider
         template <typename T> void OnChange(T* updateVariable){
             dropDownChoice.onChange = [updateVariable, this] {*updateVariable = static_cast<T> (dropDownChoice.getSelectedId());};
         }
+#else
+        /** @brief                  A function which allows for the higher level classes to set
+         *                          which setter/getter function is changed when the choice is
+         *                          changed.
+         *  @param  updateFuntion   The name of the function which is being used.
+         */
+        template <typename T>
+        void OnChange(std::function<void(T)> updateFunction) {
+            dropDownChoice.onChange = [updateFunction, this] {
+                T value = static_cast<T>(dropDownChoice.getSelectedId());
+                updateFunction(value);
+            };
+        }
+#endif
 
         /** @brief                  This function allows for the editting of the main label
          *                          displayed beside the drop down menu.
