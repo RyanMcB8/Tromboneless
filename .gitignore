@@ -69,3 +69,7 @@ App/JUCE
 
 #ignoring cmake testing
 */Testing/*
+
+# ignoring the generated latex and html documentation files:
+*/html/*
+*/latex/*
