@@ -1,65 +1,37 @@
 \doxysection{i2c\+\_\+bus.\+hpp}
-\hypertarget{i2c__bus_8hpp_source}{}\label{i2c__bus_8hpp_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/drivers/i2c\_bus.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/drivers/i2c\_bus.hpp}}
-
+\hypertarget{i2c__bus_8hpp_source}{}\label{i2c__bus_8hpp_source}\index{/home/kerr-\/mclaren/Tromboneless/Tromboneless/Core/include/drivers/i2c\_bus.hpp@{/home/kerr-\/mclaren/Tromboneless/Tromboneless/Core/include/drivers/i2c\_bus.hpp}}
+\mbox{\hyperlink{i2c__bus_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Minimal\ Linux\ I2C\ bus\ wrapper}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Responsibility:}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ -\/\ Open/close\ I2C\ device\ (e.g.\ /dev/i2c-\/1)}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ -\/\ Perform\ register-\/based\ read/write\ transactions}}
-\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Does\ NOT:}}
-\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ -\/\ Know\ anything\ about\ specific\ sensors}}
-\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ -\/\ Perform\ any\ higher-\/level\ logic}}
-\DoxyCodeLine{00015\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }I2CBus}
-\DoxyCodeLine{00018\ \{}
-\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Construct\ with\ device\ path\ (default\ =\ Raspberry\ Pi\ I2C\ bus\ 1)}}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{explicit}\ I2CBus(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ devicePath\ =\ \textcolor{stringliteral}{"{}/dev/i2c-\/1"{}});}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Destructor\ ensures\ bus\ is\ closed}}
-\DoxyCodeLine{00024\ \ \ \ \ \string~I2CBus();}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Open\ the\ I2C\ device\ file}}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ openBus();}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Close\ the\ I2C\ device\ file}}
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ closeBus();}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ \ *\ Write\ a\ block\ of\ data\ to\ a\ device\ register}}
-\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ \ *}}
-\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ \ *\ address\ :\ 7-\/bit\ I2C\ device\ address}}
-\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ \ *\ reg\ \ \ \ \ :\ 16-\/bit\ register\ address}}
-\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ \ *\ data\ \ \ \ :\ pointer\ to\ data\ buffer}}
-\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ \ *\ length\ \ :\ number\ of\ bytes\ to\ write}}
-\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ \ *}}
-\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ *\ Returns\ 0\ on\ success,\ -\/1\ on\ failure}}
-\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ \ \ */}}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ writeBlock(uint8\_t\ address,\ uint16\_t\ reg,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ uint8\_t\ length);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{/*}}
-\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ \ *\ Read\ a\ block\ of\ data\ from\ a\ device\ register}}
-\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ *}}
-\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ *\ address\ :\ 7-\/bit\ I2C\ device\ address}}
-\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ *\ reg\ \ \ \ \ :\ 16-\/bit\ register\ address}}
-\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ *\ data\ \ \ \ :\ buffer\ to\ store\ result}}
-\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ \ *\ length\ \ :\ number\ of\ bytes\ to\ read}}
-\DoxyCodeLine{00051\ \textcolor{comment}{\ \ \ \ \ *}}
-\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \ *\ Returns\ 0\ on\ success,\ -\/1\ on\ failure}}
-\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ */}}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ readBlock(uint8\_t\ address,\ uint16\_t\ reg,\ uint8\_t*\ data,\ uint8\_t\ length);}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classI2CBus}{I2CBus}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classI2CBus}{I2CBus}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ devicePath\ =\ \textcolor{stringliteral}{"{}/dev/i2c-\/1"{}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classI2CBus_a70dac2923cd16ce06f0e73f7fc5bca89}{\string~I2CBus}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classI2CBus_a0629e6e70044e1f55f9a1db34fd839cc}{openBus}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classI2CBus_a0f89a7670e4a264ce76b8c5d11c8b6ef}{closeBus}}();}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ devicePath\_;\ \ \ \textcolor{comment}{//\ e.g.\ "{}/dev/i2c-\/1"{}}}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ fd\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ file\ descriptor\ for\ the\ I2C\ device}}
-\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classI2CBus_af98bc1a0bf42aafc35a5cdb2a9418333}{writeBlock16}}(uint8\_t\ address,\ uint16\_t\ reg,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ uint8\_t\ length);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classI2CBus_a871df8c884aa49b95be5973a0e50ca86}{readBlock16}}(uint8\_t\ address,\ uint16\_t\ reg,\ uint8\_t*\ data,\ uint8\_t\ length);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classI2CBus_a684b69f56718b37fcd75abba4344bc93}{writeBlock8}}(uint8\_t\ address,\ uint8\_t\ reg,\ \textcolor{keyword}{const}\ uint8\_t*\ data,\ uint8\_t\ length);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classI2CBus_a4a7a7c7d74da409adfc0affaf5646e6a}{readBlock8}}(uint8\_t\ address,\ uint8\_t\ reg,\ uint8\_t*\ data,\ uint8\_t\ length);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ devicePath\_;\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ fd\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00113\ \};}
 
 \end{DoxyCode}

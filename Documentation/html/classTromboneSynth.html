@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -116,10 +116,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace1f00c513be279271cb58c3e6926e17" id="r_ace1f00c513be279271cb58c3e6926e17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#ace1f00c513be279271cb58c3e6926e17">TromboneSynth</a> (int sampleRate=44100, float attack=500.0, float decay=50.0, float sustain=0.96, float rest=10.0)</td></tr>
 <tr class="memdesc:ace1f00c513be279271cb58c3e6926e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor function for the <code><a class="el" href="classTromboneSynth.html" title="A class which may be used to create a custom synth with an envelope attached to it.">TromboneSynth</a></code> class.  <br /></td></tr>
 <tr class="separator:ace1f00c513be279271cb58c3e6926e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2ea585357078a232c49e22654b85ed3" id="r_ac2ea585357078a232c49e22654b85ed3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#ac2ea585357078a232c49e22654b85ed3">StartTromboneNote</a> (Notes::Notes_t note_in, int octave_in)</td></tr>
+<tr class="memitem:ac2ea585357078a232c49e22654b85ed3" id="r_ac2ea585357078a232c49e22654b85ed3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#ac2ea585357078a232c49e22654b85ed3">StartTromboneNote</a> (<a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes::Notes_t</a> note_in, int octave_in)</td></tr>
 <tr class="memdesc:ac2ea585357078a232c49e22654b85ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to set the note and octave of a new sound by the user. If there is already a note playing, this will stop the previous not and play this one without phase shifting (initially).  <br /></td></tr>
 <tr class="separator:ac2ea585357078a232c49e22654b85ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e5832b89e1d920373dd4b038bb7792" id="r_ab2e5832b89e1d920373dd4b038bb7792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#ab2e5832b89e1d920373dd4b038bb7792">ChangeTromboneNote</a> (Notes::Notes_t note_in, int octave_in)</td></tr>
+<tr class="memitem:ab2e5832b89e1d920373dd4b038bb7792" id="r_ab2e5832b89e1d920373dd4b038bb7792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#ab2e5832b89e1d920373dd4b038bb7792">ChangeTromboneNote</a> (<a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes::Notes_t</a> note_in, int octave_in)</td></tr>
 <tr class="memdesc:ab2e5832b89e1d920373dd4b038bb7792"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the current note without needed to change the stage that the envelope is in.  <br /></td></tr>
 <tr class="separator:ab2e5832b89e1d920373dd4b038bb7792"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac781c21d38a2a47f01ac8c34f8963629" id="r_ac781c21d38a2a47f01ac8c34f8963629"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#ac781c21d38a2a47f01ac8c34f8963629">ReadTromboneAudio</a> (void)</td></tr>
@@ -165,7 +165,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>StopTromboneNote</b> 
 <tr class="memitem:abbdc884f53d9f57e7cb210f12477f1e7" id="r_abbdc884f53d9f57e7cb210f12477f1e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#abbdc884f53d9f57e7cb210f12477f1e7">getOctave</a> (void)</td></tr>
 <tr class="memdesc:abbdc884f53d9f57e7cb210f12477f1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current octave which the current note is in.  <br /></td></tr>
 <tr class="separator:abbdc884f53d9f57e7cb210f12477f1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abebafddf9bb40891e83b9b260e6e8e9d" id="r_abebafddf9bb40891e83b9b260e6e8e9d"><td class="memItemLeft" align="right" valign="top">Notes::Notes_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#abebafddf9bb40891e83b9b260e6e8e9d">getNote</a> (void)</td></tr>
+<tr class="memitem:abebafddf9bb40891e83b9b260e6e8e9d" id="r_abebafddf9bb40891e83b9b260e6e8e9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes::Notes_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#abebafddf9bb40891e83b9b260e6e8e9d">getNote</a> (void)</td></tr>
 <tr class="memdesc:abebafddf9bb40891e83b9b260e6e8e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function to get the current note which is being used.  <br /></td></tr>
 <tr class="separator:abebafddf9bb40891e83b9b260e6e8e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bbb1325b99f9b586f0637afcaa78dd2" id="r_a2bbb1325b99f9b586f0637afcaa78dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTromboneSynth.html#a2bbb1325b99f9b586f0637afcaa78dd2">setPitchBend</a> (int bend)</td></tr>
@@ -180,14 +180,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>StopTromboneNote</b> 
 <tr class="inherit_header pub_methods_classOctavesWithHarmonics"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classOctavesWithHarmonics')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></td></tr>
 <tr class="memitem:aed7ad26de7c252c787b11d1a88b6cb30 inherit pub_methods_classOctavesWithHarmonics" id="r_aed7ad26de7c252c787b11d1a88b6cb30"><td class="memItemLeft" align="right" valign="top">
 &#160;</td><td class="memItemRight" valign="bottom"><b>OctavesWithHarmonics</b> ()</td></tr>
-<tr class="memdesc:aed7ad26de7c252c787b11d1a88b6cb30 inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of the <code><a class="el" href="classOctavesWithHarmonics.html">OctavesWithHarmonics</a></code>. <br /></td></tr>
+<tr class="memdesc:aed7ad26de7c252c787b11d1a88b6cb30 inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of the <code><a class="el" href="classOctavesWithHarmonics.html" title="A class which inherits functions and variables from the Octaves class allowing for the notes being ou...">OctavesWithHarmonics</a></code>. <br /></td></tr>
 <tr class="separator:aed7ad26de7c252c787b11d1a88b6cb30 inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2f7c9edb2eef430f0c18795747e4c41 inherit pub_methods_classOctavesWithHarmonics" id="r_aa2f7c9edb2eef430f0c18795747e4c41"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#aa2f7c9edb2eef430f0c18795747e4c41">PlayingNoteWithHarmonics</a> (int n, int octave, Notes_t note, float time)</td></tr>
-<tr class="memdesc:aa2f7c9edb2eef430f0c18795747e4c41 inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
-<tr class="separator:aa2f7c9edb2eef430f0c18795747e4c41 inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aada12badc25785e82187af576d49d606 inherit pub_methods_classOctavesWithHarmonics" id="r_aada12badc25785e82187af576d49d606"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#aada12badc25785e82187af576d49d606">PlayingFrequencyWithHarmonics</a> (int n, float freq, float time)</td></tr>
-<tr class="memdesc:aada12badc25785e82187af576d49d606 inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played.  <br /></td></tr>
-<tr class="separator:aada12badc25785e82187af576d49d606 inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80740c914b3cdda4e8cf4c8b194b623a inherit pub_methods_classOctavesWithHarmonics" id="r_a80740c914b3cdda4e8cf4c8b194b623a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a80740c914b3cdda4e8cf4c8b194b623a">PlayingNoteWithHarmonics</a> (int n, int octave, <a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note, float phase)</td></tr>
+<tr class="memdesc:a80740c914b3cdda4e8cf4c8b194b623a inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played.  <br /></td></tr>
+<tr class="separator:a80740c914b3cdda4e8cf4c8b194b623a inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b66d3a6df6849de730aad0966330f41 inherit pub_methods_classOctavesWithHarmonics" id="r_a4b66d3a6df6849de730aad0966330f41"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a4b66d3a6df6849de730aad0966330f41">PlayingFrequencyWithHarmonics</a> (int n, float phase)</td></tr>
+<tr class="memdesc:a4b66d3a6df6849de730aad0966330f41 inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played.  <br /></td></tr>
+<tr class="separator:a4b66d3a6df6849de730aad0966330f41 inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9d14fab35feae14d4ce9f14f2080324 inherit pub_methods_classOctavesWithHarmonics" id="r_af9d14fab35feae14d4ce9f14f2080324"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#af9d14fab35feae14d4ce9f14f2080324">HarmonicDecay</a> (int n)</td></tr>
 <tr class="memdesc:af9d14fab35feae14d4ce9f14f2080324 inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic.  <br /></td></tr>
 <tr class="separator:af9d14fab35feae14d4ce9f14f2080324 inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -201,15 +201,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>StopTromboneNote</b> 
 <tr class="memdesc:a617c4acb3379692aa05736cf9747b87b inherit pub_methods_classOctavesWithHarmonics"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the decay constant being used to determine the relative ampltiude of each successive harmonic.  <br /></td></tr>
 <tr class="separator:a617c4acb3379692aa05736cf9747b87b inherit pub_methods_classOctavesWithHarmonics"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classOctaves')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
-<tr class="memitem:a8f560ad8bf3c5ad4bdec4094e2119810 inherit pub_methods_classOctaves" id="r_a8f560ad8bf3c5ad4bdec4094e2119810"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a8f560ad8bf3c5ad4bdec4094e2119810">PlayingNote</a> (int octave, Notes_t note, float time)</td></tr>
-<tr class="memdesc:a8f560ad8bf3c5ad4bdec4094e2119810 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified time.  <br /></td></tr>
-<tr class="separator:a8f560ad8bf3c5ad4bdec4094e2119810 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfcba4d0b4f936d1bef9f5458c65fc36 inherit pub_methods_classOctaves" id="r_abfcba4d0b4f936d1bef9f5458c65fc36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#abfcba4d0b4f936d1bef9f5458c65fc36">PlayingFrequency</a> (float freq, float time)</td></tr>
-<tr class="memdesc:abfcba4d0b4f936d1bef9f5458c65fc36 inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified frequency at a specified time.  <br /></td></tr>
-<tr class="separator:abfcba4d0b4f936d1bef9f5458c65fc36 inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a023ab71a119c0bc8bb8c6c4919f0064f inherit pub_methods_classOctaves" id="r_a023ab71a119c0bc8bb8c6c4919f0064f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#a023ab71a119c0bc8bb8c6c4919f0064f">PlayingNote</a> (int octave, <a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note, float phase)</td></tr>
+<tr class="memdesc:a023ab71a119c0bc8bb8c6c4919f0064f inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified note at a specified phase.  <br /></td></tr>
+<tr class="separator:a023ab71a119c0bc8bb8c6c4919f0064f inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab77d9f9b4116757b6968606040af1c8c inherit pub_methods_classOctaves" id="r_ab77d9f9b4116757b6968606040af1c8c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctaves.html#ab77d9f9b4116757b6968606040af1c8c">PlayingFrequency</a> (float phase)</td></tr>
+<tr class="memdesc:ab77d9f9b4116757b6968606040af1c8c inherit pub_methods_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which may be called to determine the amplitude of a specified frequency at a specified time.  <br /></td></tr>
+<tr class="separator:ab77d9f9b4116757b6968606040af1c8c inherit pub_methods_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNotes"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNotes')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNotes.html">Notes</a></td></tr>
 <tr class="memitem:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes" id="r_ae11cec41480227782d457e4829d5a06f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#ae11cec41480227782d457e4829d5a06f">Notes</a> (float C_in=16.35, float Db_in=17.32, float D_in=18.35, float Eb_in=19.45, float E_in=20.60, float F_in=21.83, float Gb_in=23.12, float G_in=24.50, float Ab_in=25.96, float A_in=27.50, float Bb_in=29.14, float B_in=30.87)</td></tr>
-<tr class="memdesc:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <code><a class="el" href="classNotes.html">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default.  <br /></td></tr>
+<tr class="memdesc:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the <code><a class="el" href="classNotes.html" title="A class to store the frequency of the notes which may be referenced. The notes are stored in an enum ...">Notes</a></code> class to create a new set of notes and assign specified frequencies to each. Each frequency is set to <code>Octave 0</code> by default.  <br /></td></tr>
 <tr class="separator:ae11cec41480227782d457e4829d5a06f inherit pub_methods_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c9383818919d511ea9299d6ab7afa2f inherit pub_methods_classNotes" id="r_a1c9383818919d511ea9299d6ab7afa2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a1c9383818919d511ea9299d6ab7afa2f">setC</a> (float frequency)</td></tr>
 <tr class="memdesc:a1c9383818919d511ea9299d6ab7afa2f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the value of the frequency that the C note plays.  <br /></td></tr>
@@ -262,7 +262,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>StopTromboneNote</b> 
 <tr class="memitem:a9073e06b45bf747f29dab9eae21eec76 inherit pub_methods_classNotes" id="r_a9073e06b45bf747f29dab9eae21eec76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a9073e06b45bf747f29dab9eae21eec76">setB</a> (float frequency)</td></tr>
 <tr class="memdesc:a9073e06b45bf747f29dab9eae21eec76 inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the value of the frequency that the B note plays.  <br /></td></tr>
 <tr class="separator:a9073e06b45bf747f29dab9eae21eec76 inherit pub_methods_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a289e578ebfa78942170e0733ea111f6b inherit pub_methods_classNotes" id="r_a289e578ebfa78942170e0733ea111f6b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a289e578ebfa78942170e0733ea111f6b">setNote</a> (Notes_t note, float freq)</td></tr>
+<tr class="memitem:a289e578ebfa78942170e0733ea111f6b inherit pub_methods_classNotes" id="r_a289e578ebfa78942170e0733ea111f6b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a289e578ebfa78942170e0733ea111f6b">setNote</a> (<a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note, float freq)</td></tr>
 <tr class="memdesc:a289e578ebfa78942170e0733ea111f6b inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alternative function which can allow for the user to alter the frequency of a specific note based upon the Notes_t enumerated values rather than specifying a function call.  <br /></td></tr>
 <tr class="separator:a289e578ebfa78942170e0733ea111f6b inherit pub_methods_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69625a0a056e70309af328d42b2bf86e inherit pub_methods_classNotes" id="r_a69625a0a056e70309af328d42b2bf86e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a69625a0a056e70309af328d42b2bf86e">getC</a> (void)</td></tr>
@@ -316,14 +316,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>StopTromboneNote</b> 
 <tr class="memitem:a192de65337df2408c3e56ca10a4c4c10 inherit pub_methods_classNotes" id="r_a192de65337df2408c3e56ca10a4c4c10"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a192de65337df2408c3e56ca10a4c4c10">getB</a> (void)</td></tr>
 <tr class="memdesc:a192de65337df2408c3e56ca10a4c4c10 inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that returns the frequency of the B note for the specified object.  <br /></td></tr>
 <tr class="separator:a192de65337df2408c3e56ca10a4c4c10 inherit pub_methods_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48d208550a87e540d1748253aae9516f inherit pub_methods_classNotes" id="r_a48d208550a87e540d1748253aae9516f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a48d208550a87e540d1748253aae9516f">getNote</a> (Notes_t note)</td></tr>
+<tr class="memitem:a48d208550a87e540d1748253aae9516f inherit pub_methods_classNotes" id="r_a48d208550a87e540d1748253aae9516f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a48d208550a87e540d1748253aae9516f">getNote</a> (<a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> note)</td></tr>
 <tr class="memdesc:a48d208550a87e540d1748253aae9516f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alternative function which can allow for the user to request a specific note based upon the Notes_t enumerated values rather than specifying a function call.  <br /></td></tr>
 <tr class="separator:a48d208550a87e540d1748253aae9516f inherit pub_methods_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_classNotes"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classNotes')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classNotes.html">Notes</a></td></tr>
-<tr class="memitem:a8734fb9c1094a3becd78fe783ad43c0c inherit pub_types_classNotes" id="r_a8734fb9c1094a3becd78fe783ad43c0c"><td class="memItemLeft" align="right" valign="top"><a id="a8734fb9c1094a3becd78fe783ad43c0c" name="a8734fb9c1094a3becd78fe783ad43c0c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Notes_t</b> { <br />
+<tr class="memitem:a8734fb9c1094a3becd78fe783ad43c0c inherit pub_types_classNotes" id="r_a8734fb9c1094a3becd78fe783ad43c0c"><td class="memItemLeft" align="right" valign="top"><a id="a8734fb9c1094a3becd78fe783ad43c0c" name="a8734fb9c1094a3becd78fe783ad43c0c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes_t</a> { <br />
 &#160;&#160;<b>note_C</b>
 , <b>note_Db</b>
 , <b>note_D</b>
@@ -347,15 +347,18 @@ Additional Inherited Members</h2></td></tr>
 &#160;&#160;<b>note_A_sharp</b> = note_Bb
 <br />
  }</td></tr>
+<tr class="memdesc:a8734fb9c1094a3becd78fe783ad43c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creation of the enumerated list of possible notes. <br /></td></tr>
 <tr class="separator:a8734fb9c1094a3becd78fe783ad43c0c inherit pub_types_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classOctaves')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
-<tr class="memitem:a07f4560f7a1b18a1c239ebde202b9dc0 inherit pub_attribs_classOctaves" id="r_a07f4560f7a1b18a1c239ebde202b9dc0"><td class="memItemLeft" align="right" valign="top">
-Initialising an array of the octaves and their notes *<a class="el" href="classNotes.html">Notes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> [nOctaves]</td></tr>
-<tr class="separator:a07f4560f7a1b18a1c239ebde202b9dc0 inherit pub_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6c0bbc5933997052bb27a71cb6de574 inherit pub_attribs_classOctaves" id="r_aa6c0bbc5933997052bb27a71cb6de574"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="classNotes.html">Notes</a>&#160;</td><td class="memItemRight" valign="bottom"><b>octaves</b> [<a class="el" href="classOctaves.html#aab55dc1e4e61330511e61c2c302ada6e">nOctaves</a>]</td></tr>
+<tr class="memdesc:aa6c0bbc5933997052bb27a71cb6de574 inherit pub_attribs_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialising an array of the octaves and their notes. <br /></td></tr>
+<tr class="separator:aa6c0bbc5933997052bb27a71cb6de574 inherit pub_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_attribs_classOctaves"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_classOctaves')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="classOctaves.html">Octaves</a></td></tr>
-<tr class="memitem:a23c2f9ad52711d91c154a80772d7e972 inherit pub_static_attribs_classOctaves" id="r_a23c2f9ad52711d91c154a80772d7e972"><td class="memItemLeft" align="right" valign="top">
-Stores the number of octaves being used *static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves</b> = 9</td></tr>
-<tr class="separator:a23c2f9ad52711d91c154a80772d7e972 inherit pub_static_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab55dc1e4e61330511e61c2c302ada6e inherit pub_static_attribs_classOctaves" id="r_aab55dc1e4e61330511e61c2c302ada6e"><td class="memItemLeft" align="right" valign="top">
+static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves</b> = 9</td></tr>
+<tr class="memdesc:aab55dc1e4e61330511e61c2c302ada6e inherit pub_static_attribs_classOctaves"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the number of octaves being used. <br /></td></tr>
+<tr class="separator:aab55dc1e4e61330511e61c2c302ada6e inherit pub_static_attribs_classOctaves"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class which may be used to create a custom synth with an envelope attached to it. </p>
@@ -428,7 +431,7 @@ Stores the number of octaves being used *static const char&#160;</td><td class="
         <tr>
           <td class="memname">void TromboneSynth::ChangeTromboneNote </td>
           <td>(</td>
-          <td class="paramtype">Notes::Notes_t&#160;</td>
+          <td class="paramtype"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes::Notes_t</a>&#160;</td>
           <td class="paramname"><em>note_in</em>, </td>
         </tr>
         <tr>
@@ -567,7 +570,7 @@ Stores the number of octaves being used *static const char&#160;</td><td class="
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Notes::Notes_t TromboneSynth::getNote </td>
+          <td class="memname"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes::Notes_t</a> TromboneSynth::getNote </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -579,7 +582,7 @@ Stores the number of octaves being used *static const char&#160;</td><td class="
 <p>A function to get the current note which is being used. </p>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">The</td><td>note of type Notes::Notes_t being played. </td></tr>
+    <tr><td class="paramname">The</td><td>note of type <a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c" title="Creation of the enumerated list of possible notes.">Notes::Notes_t</a> being played. </td></tr>
   </table>
   </dd>
 </dl>
@@ -733,12 +736,6 @@ Stores the number of octaves being used *static const char&#160;</td><td class="
 </div><div class="memdoc">
 
 <p>A function which may be called to read the current amplitude of the audio signal being generated. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">time</td><td>The time step which is being called. </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
     <tr><td class="paramname">Returns</td><td>a floating point representation of the amplitude normalised between -1 and 1. </td></tr>
@@ -913,7 +910,7 @@ Stores the number of octaves being used *static const char&#160;</td><td class="
         <tr>
           <td class="memname">void TromboneSynth::StartTromboneNote </td>
           <td>(</td>
-          <td class="paramtype">Notes::Notes_t&#160;</td>
+          <td class="paramtype"><a class="el" href="classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c">Notes::Notes_t</a>&#160;</td>
           <td class="paramname"><em>note_in</em>, </td>
         </tr>
         <tr>
@@ -942,8 +939,8 @@ Stores the number of octaves being used *static const char&#160;</td><td class="
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/Core/include/<a class="el" href="tromboneSynth_8hpp_source.html">tromboneSynth.hpp</a></li>
-<li>/home/ryan/Tromboneless/Core/src/<a class="el" href="tromboneSynth_8cpp.html">tromboneSynth.cpp</a></li>
+<li>/home/kerr-mclaren/Tromboneless/Tromboneless/Core/include/<a class="el" href="tromboneSynth_8hpp_source.html">tromboneSynth.hpp</a></li>
+<li>/home/kerr-mclaren/Tromboneless/Tromboneless/Core/src/<a class="el" href="tromboneSynth_8cpp.html">tromboneSynth.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

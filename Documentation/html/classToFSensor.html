@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -77,34 +77,170 @@ $(function() {
   <div class="headertitle"><div class="title">ToFSensor Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Time-of-Flight sensor interface using I2C and GPIO interrupt handling.  
+ <a href="classToFSensor.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tof__sensor_8hpp_source.html">tof_sensor.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a18b39e4fd8582d3deb562da59c45f161" id="r_a18b39e4fd8582d3deb562da59c45f161"><td class="memItemLeft" align="right" valign="top"><a id="a18b39e4fd8582d3deb562da59c45f161" name="a18b39e4fd8582d3deb562da59c45f161"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>DistanceCallbackInterface</b> = std::function&lt; void(uint16_t)&gt;</td></tr>
-<tr class="separator:a18b39e4fd8582d3deb562da59c45f161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a6e8bd311175a1c39390bd55b3501f" id="r_a74a6e8bd311175a1c39390bd55b3501f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classToFSensor.html#a74a6e8bd311175a1c39390bd55b3501f">DistanceCallback</a> = std::function&lt; void(uint16_t)&gt;</td></tr>
+<tr class="memdesc:a74a6e8bd311175a1c39390bd55b3501f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback type used to publish distance measurements.  <br /></td></tr>
+<tr class="separator:a74a6e8bd311175a1c39390bd55b3501f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afde69720b503ab1fd306fdfbe09da6ef" id="r_afde69720b503ab1fd306fdfbe09da6ef"><td class="memItemLeft" align="right" valign="top"><a id="afde69720b503ab1fd306fdfbe09da6ef" name="afde69720b503ab1fd306fdfbe09da6ef"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ToFSensor</b> (<a class="el" href="classI2CBus.html">I2CBus</a> &amp;bus, uint8_t address=0x29, const std::string &amp;gpioChipPath=&quot;/dev/gpiochip0&quot;, unsigned int gpioLine=4)</td></tr>
-<tr class="separator:afde69720b503ab1fd306fdfbe09da6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc6b369cc16225e90b9ce37e2b4a7b22" id="r_abc6b369cc16225e90b9ce37e2b4a7b22"><td class="memItemLeft" align="right" valign="top"><a id="abc6b369cc16225e90b9ce37e2b4a7b22" name="abc6b369cc16225e90b9ce37e2b4a7b22"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>initialise</b> ()</td></tr>
+<tr class="memitem:aefae134910becfa515bf3871cdc88d42" id="r_aefae134910becfa515bf3871cdc88d42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classToFSensor.html#aefae134910becfa515bf3871cdc88d42">ToFSensor</a> (<a class="el" href="classI2CBus.html">I2CBus</a> &amp;bus, uint8_t i2cAddress7Bit=0x29, const std::string &amp;gpioChipPath=&quot;/dev/gpiochip0&quot;, unsigned int gpioLine=4)</td></tr>
+<tr class="memdesc:aefae134910becfa515bf3871cdc88d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classToFSensor.html" title="Time-of-Flight sensor interface using I2C and GPIO interrupt handling.">ToFSensor</a> object.  <br /></td></tr>
+<tr class="separator:aefae134910becfa515bf3871cdc88d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27073ddc5f92e7e47531073b221c211" id="r_ac27073ddc5f92e7e47531073b221c211"><td class="memItemLeft" align="right" valign="top"><a id="ac27073ddc5f92e7e47531073b221c211" name="ac27073ddc5f92e7e47531073b221c211"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~ToFSensor</b> ()</td></tr>
+<tr class="memdesc:ac27073ddc5f92e7e47531073b221c211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor ensures sensor is stopped and resources are released. <br /></td></tr>
+<tr class="separator:ac27073ddc5f92e7e47531073b221c211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc6b369cc16225e90b9ce37e2b4a7b22" id="r_abc6b369cc16225e90b9ce37e2b4a7b22"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classToFSensor.html#abc6b369cc16225e90b9ce37e2b4a7b22">initialise</a> ()</td></tr>
+<tr class="memdesc:abc6b369cc16225e90b9ce37e2b4a7b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the sensor and prepare it for operation.  <br /></td></tr>
 <tr class="separator:abc6b369cc16225e90b9ce37e2b4a7b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecff42f7e3ed68f71ec5f964836d5d49" id="r_aecff42f7e3ed68f71ec5f964836d5d49"><td class="memItemLeft" align="right" valign="top"><a id="aecff42f7e3ed68f71ec5f964836d5d49" name="aecff42f7e3ed68f71ec5f964836d5d49"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerCallback</b> (DistanceCallbackInterface cb)</td></tr>
-<tr class="separator:aecff42f7e3ed68f71ec5f964836d5d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22aef953c7c7219291d004202393d7c8" id="r_a22aef953c7c7219291d004202393d7c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classToFSensor.html#a22aef953c7c7219291d004202393d7c8">registerCallback</a> (<a class="el" href="classToFSensor.html#a74a6e8bd311175a1c39390bd55b3501f">DistanceCallback</a> cb)</td></tr>
+<tr class="memdesc:a22aef953c7c7219291d004202393d7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback for new distance measurements.  <br /></td></tr>
+<tr class="separator:a22aef953c7c7219291d004202393d7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92205c9964186247b1345b8cf90cd91d" id="r_a92205c9964186247b1345b8cf90cd91d"><td class="memItemLeft" align="right" valign="top"><a id="a92205c9964186247b1345b8cf90cd91d" name="a92205c9964186247b1345b8cf90cd91d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> ()</td></tr>
+<tr class="memdesc:a92205c9964186247b1345b8cf90cd91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start sensor ranging and launch the worker thread. <br /></td></tr>
 <tr class="separator:a92205c9964186247b1345b8cf90cd91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23a43c10a0ecbc2294d8d8ea93b0db98" id="r_a23a43c10a0ecbc2294d8d8ea93b0db98"><td class="memItemLeft" align="right" valign="top"><a id="a23a43c10a0ecbc2294d8d8ea93b0db98" name="a23a43c10a0ecbc2294d8d8ea93b0db98"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
+<tr class="memdesc:a23a43c10a0ecbc2294d8d8ea93b0db98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the worker thread, stop ranging, and release GPIO resources. <br /></td></tr>
 <tr class="separator:a23a43c10a0ecbc2294d8d8ea93b0db98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Time-of-Flight sensor interface using I2C and GPIO interrupt handling. </p>
+<p>This class manages a VL53L1X sensor. It communicates with the sensor over I2C, waits for a GPIO interrupt to indicate that a new measurement is ready, and publishes the measured distance via a callback. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a74a6e8bd311175a1c39390bd55b3501f" name="a74a6e8bd311175a1c39390bd55b3501f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a6e8bd311175a1c39390bd55b3501f">&#9670;&#160;</a></span>DistanceCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classToFSensor.html#a74a6e8bd311175a1c39390bd55b3501f">ToFSensor::DistanceCallback</a> =  std::function&lt;void(uint16_t)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback type used to publish distance measurements. </p>
+<p>The callback receives one argument:</p><ul>
+<li>measured distance in millimetres </li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aefae134910becfa515bf3871cdc88d42" name="aefae134910becfa515bf3871cdc88d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefae134910becfa515bf3871cdc88d42">&#9670;&#160;</a></span>ToFSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ToFSensor::ToFSensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classI2CBus.html">I2CBus</a> &amp;&#160;</td>
+          <td class="paramname"><em>bus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>i2cAddress7Bit</em> = <code>0x29</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>gpioChipPath</em> = <code>&quot;/dev/gpiochip0&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>gpioLine</em> = <code>4</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a <a class="el" href="classToFSensor.html" title="Time-of-Flight sensor interface using I2C and GPIO interrupt handling.">ToFSensor</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bus</td><td>Reference to an <a class="el" href="classI2CBus.html" title="Minimal Linux I2C bus wrapper for register-based communication.">I2CBus</a> object for communication. </td></tr>
+    <tr><td class="paramname">i2cAddress7Bit</td><td>7-bit I2C address of the sensor in 7-bit Linux form (0x29 by default). </td></tr>
+    <tr><td class="paramname">gpioChipPath</td><td>Path to the GPIO chip (e.g. "/dev/gpiochip0"). </td></tr>
+    <tr><td class="paramname">gpioLine</td><td>GPIO line connected to the sensor interrupt output (e.g. 4). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abc6b369cc16225e90b9ce37e2b4a7b22" name="abc6b369cc16225e90b9ce37e2b4a7b22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc6b369cc16225e90b9ce37e2b4a7b22">&#9670;&#160;</a></span>initialise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ToFSensor::initialise </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise the sensor and prepare it for operation. </p>
+<p>Opens the I2C bus, initialises the ST platform layer, resets the sensor, waits for boot, verifies sensor ID, and applies the configured ranging and interrupt settings.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if initialisation succeeded. </dd>
+<dd>
+false if initialisation failed (e.g. I2C communication error). </dd></dl>
+
+</div>
+</div>
+<a id="a22aef953c7c7219291d004202393d7c8" name="a22aef953c7c7219291d004202393d7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22aef953c7c7219291d004202393d7c8">&#9670;&#160;</a></span>registerCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ToFSensor::registerCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classToFSensor.html#a74a6e8bd311175a1c39390bd55b3501f">DistanceCallback</a>&#160;</td>
+          <td class="paramname"><em>cb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register a callback for new distance measurements. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cb</td><td>The callback function to call when a new measurement is available. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/Core/include/drivers/<a class="el" href="tof__sensor_8hpp_source.html">tof_sensor.hpp</a></li>
-<li>/home/ryan/Tromboneless/Core/src/drivers/<b>tof_sensor.cpp</b></li>
+<li>/home/kerr-mclaren/Tromboneless/Tromboneless/Core/include/drivers/<a class="el" href="tof__sensor_8hpp_source.html">tof_sensor.hpp</a></li>
+<li>/home/kerr-mclaren/Tromboneless/Tromboneless/Core/src/drivers/<a class="el" href="tof__sensor_8cpp.html">tof_sensor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

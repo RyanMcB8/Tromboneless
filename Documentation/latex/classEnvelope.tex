@@ -1,10 +1,19 @@
 \doxysection{Envelope Class Reference}
 \hypertarget{classEnvelope}{}\label{classEnvelope}\index{Envelope@{Envelope}}
+
+
+A class which can allow for the create of an envelope function which outputs a value between 0 and 1 depending on what stage the envelope is in. This uses the ADSR standard in music synthesis where A is the Attack, D is the decay, S is the saturation and R is the rest stage.  
+
+
+
+
+{\ttfamily \#include $<$envelope.\+hpp$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classEnvelope_a193b41a10053414287e7bc5d0f49296c}\label{classEnvelope_a193b41a10053414287e7bc5d0f49296c} 
-enum {\bfseries envelope\+\_\+stages\+\_\+t} \{ \newline
+enum \mbox{\hyperlink{classEnvelope_a193b41a10053414287e7bc5d0f49296c}{envelope\+\_\+stages\+\_\+t}} \{ \newline
 {\bfseries no\+\_\+stage}
 , {\bfseries attack\+\_\+stage}
 , {\bfseries decay\+\_\+stage}
@@ -12,7 +21,7 @@ enum {\bfseries envelope\+\_\+stages\+\_\+t} \{ \newline
 , \newline
 {\bfseries rest\+\_\+stage}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enumerated type to describe which part of the ADSR the object is in. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,12 +60,18 @@ float \mbox{\hyperlink{classEnvelope_a8212d69d8c815c4b68b90e91f3566a15}{decay\+F
 \begin{DoxyCompactList}\small\item\em This function determines the shape of the decay curve. It needs to start from 1 and finish at the sustain value which has been set by the object. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classEnvelope_a06b4c5769a54d06ad04af26b3118e952}{rest\+Function}} (void)
 \begin{DoxyCompactList}\small\item\em This function determines the shape of the rest curve. It needs to start from the sustain value and end at 0. \end{DoxyCompactList}\item 
-\Hypertarget{classEnvelope_a42b797bced3437aa16e41847d24756d7}\label{classEnvelope_a42b797bced3437aa16e41847d24756d7} 
-envelope\+\_\+stages\+\_\+t {\bfseries get\+Stage} (void)
-\item 
-\Hypertarget{classEnvelope_a45982ff85b4f370775b17e2badd6a592}\label{classEnvelope_a45982ff85b4f370775b17e2badd6a592} 
-void {\bfseries set\+Stage} (envelope\+\_\+stages\+\_\+t stage\+\_\+in)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classEnvelope_a193b41a10053414287e7bc5d0f49296c}{envelope\+\_\+stages\+\_\+t}} \mbox{\hyperlink{classEnvelope_a42b797bced3437aa16e41847d24756d7}{get\+Stage}} (void)
+\begin{DoxyCompactList}\small\item\em A function which gets the current stage which the envelope is in. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnvelope_a45982ff85b4f370775b17e2badd6a592}{set\+Stage}} (\mbox{\hyperlink{classEnvelope_a193b41a10053414287e7bc5d0f49296c}{envelope\+\_\+stages\+\_\+t}} stage\+\_\+in)
+\begin{DoxyCompactList}\small\item\em A function which sets the current stage which the envelope is in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class which can allow for the create of an envelope function which outputs a value between 0 and 1 depending on what stage the envelope is in. This uses the ADSR standard in music synthesis where A is the Attack, D is the decay, S is the saturation and R is the rest stage. 
+
+\begin{DoxyNote}{Note}
+The public functions to set up the envelope take the time in milliseconds for each parameter as well as the sample rate to determine the number of samples each stage should last for. 
+\end{DoxyNote}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -78,9 +93,12 @@ The constructor function for the {\ttfamily \doxylink{classEnvelope}{Envelope}} 
 \hline
 {\em sustain\+\_\+in} & The relative amplitude of the signal after the decay stage. \\
 \hline
-{\em rest\+\_\+in} & The number of times the \textquotesingle{}get\+Amplitde(){\ttfamily function should be called once the end\+Note flag has been triggered before the noise reaches an amplitude of 0. @note This class does not depend upon the real time or clock of the device, but instead the number of times the}\doxylink{classEnvelope_addcd51b64fe51653c0b5e13c146734aa}{get\+Amplitude()}\`{} function is called upon. \\
+{\em rest\+\_\+in} & The number of times the {\ttfamily get\+Amplitde()} function should be called once the end\+Note flag has been triggered before the noise reaches an amplitude of 0. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+This class does not depend upon the real time or clock of the device, but instead the number of times the {\ttfamily \doxylink{classEnvelope_addcd51b64fe51653c0b5e13c146734aa}{get\+Amplitude()}} function is called upon. 
+\end{DoxyNote}
 
 
 \doxysubsection{Member Function Documentation}
@@ -180,6 +198,21 @@ A function which can allow for the rest value to be used outside of the object w
 {\em Returns} & the number of times the {\ttfamily \doxylink{classEnvelope_addcd51b64fe51653c0b5e13c146734aa}{get\+Amplitude()}} function needs to be called before the ampltude reaches 0 from the sustain value. \\
 \hline
 \end{DoxyRetVals}
+\Hypertarget{classEnvelope_a42b797bced3437aa16e41847d24756d7}\label{classEnvelope_a42b797bced3437aa16e41847d24756d7} 
+\index{Envelope@{Envelope}!getStage@{getStage}}
+\index{getStage@{getStage}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{getStage()}{getStage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEnvelope_a193b41a10053414287e7bc5d0f49296c}{Envelope\+::envelope\+\_\+stages\+\_\+t}} Envelope\+::get\+Stage (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A function which gets the current stage which the envelope is in. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & stage at which the envelope is in as type {\ttfamily envelope\+\_\+stages\+\_\+t}. \\
+\hline
+\end{DoxyRetVals}
 \Hypertarget{classEnvelope_a50290124930a1d183f2fd062fba3e58e}\label{classEnvelope_a50290124930a1d183f2fd062fba3e58e} 
 \index{Envelope@{Envelope}!getSustain@{getSustain}}
 \index{getSustain@{getSustain}!Envelope@{Envelope}}
@@ -259,6 +292,21 @@ A function which can allow for the rest value to be changed externally from the 
 {\em rest\+\_\+in} & The number of times the {\ttfamily \doxylink{classEnvelope_addcd51b64fe51653c0b5e13c146734aa}{get\+Amplitude()}} function should be called before the envelope reaches its peak of 0 from the sustain value. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{classEnvelope_a45982ff85b4f370775b17e2badd6a592}\label{classEnvelope_a45982ff85b4f370775b17e2badd6a592} 
+\index{Envelope@{Envelope}!setStage@{setStage}}
+\index{setStage@{setStage}!Envelope@{Envelope}}
+\doxysubsubsection{\texorpdfstring{setStage()}{setStage()}}
+{\footnotesize\ttfamily void Envelope\+::set\+Stage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEnvelope_a193b41a10053414287e7bc5d0f49296c}{envelope\+\_\+stages\+\_\+t}}}]{stage\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+A function which sets the current stage which the envelope is in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stage\+\_\+in} & The stage at which the envelope should enter or already be in. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classEnvelope_a49ac02d6bc81ef63d42a04ba653fa478}\label{classEnvelope_a49ac02d6bc81ef63d42a04ba653fa478} 
 \index{Envelope@{Envelope}!setSustain@{setSustain}}
 \index{setSustain@{setSustain}!Envelope@{Envelope}}
@@ -278,5 +326,5 @@ A function which can allow for the sustain value to be changed externally from t
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{envelope_8hpp}{envelope.\+hpp}}\item 
-/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{envelope_8cpp}{envelope.\+cpp}}\end{DoxyCompactItemize}
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/include/\mbox{\hyperlink{envelope_8hpp}{envelope.\+hpp}}\item 
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/src/\mbox{\hyperlink{envelope_8cpp}{envelope.\+cpp}}\end{DoxyCompactItemize}

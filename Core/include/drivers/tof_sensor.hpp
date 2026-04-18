@@ -1,5 +1,14 @@
 #pragma once
 
+/**
+ * @file tof_sensor.hpp
+ * @brief Interface for VL53L1X Time-of-Flight sensor.
+ *
+ * @details
+ * Defines the ToFSensor class, which provides interrupt-driven distance
+ * measurement using the VL53L1X sensor over I2C and GPIO (libgpiod).
+ */
+
 #include <cstdint>
 #include <functional>
 #include <memory>

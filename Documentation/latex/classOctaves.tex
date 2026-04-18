@@ -12,28 +12,18 @@ Creation of a class to store the frequencies of notes at different octaves. Inhe
 
 
 
-Inheritance diagram for Octaves\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=211pt]{classOctaves__inherit__graph}
-\end{center}
-\end{figure}
+Inheritance diagram for Octaves\+:
+% FIG 0
 
 
-Collaboration diagram for Octaves\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=150pt]{classOctaves__coll__graph}
-\end{center}
-\end{figure}
+Collaboration diagram for Octaves\+:
+% FIG 1
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{classOctaves_a8f560ad8bf3c5ad4bdec4094e2119810}{Playing\+Note}} (int octave, Notes\+\_\+t note, float time)
-\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified time. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_abfcba4d0b4f936d1bef9f5458c65fc36}{Playing\+Frequency}} (float freq, float time)
+float \mbox{\hyperlink{classOctaves_a023ab71a119c0bc8bb8c6c4919f0064f}{Playing\+Note}} (int octave, \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified phase. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctaves_ab77d9f9b4116757b6968606040af1c8c}{Playing\+Frequency}} (float phase)
 \begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified frequency at a specified time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNotes}{Notes}}}
 \begin{DoxyCompactItemize}
@@ -74,7 +64,7 @@ void \mbox{\hyperlink{classNotes_ae65f2258ff7ad7714a0dc2ddb2d4c4a5}{set\+Bb}} (f
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Bb note plays. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNotes_a9073e06b45bf747f29dab9eae21eec76}{setB}} (float frequency)
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the B note plays. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (Notes\+\_\+t note, float freq)
+float \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float freq)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to alter the frequency of a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a69625a0a056e70309af328d42b2bf86e}{getC}} (void)
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the C note for the specified object. \end{DoxyCompactList}\item 
@@ -110,26 +100,26 @@ float \mbox{\hyperlink{classNotes_aba2f8ad19fc1b28a8a5e9f2e1941e881}{get\+Bb}} (
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Bb note for the specified object. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a192de65337df2408c3e56ca10a4c4c10}{getB}} (void)
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the B note for the specified object. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (Notes\+\_\+t note)
+float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to request a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classOctaves_a07f4560f7a1b18a1c239ebde202b9dc0}\label{classOctaves_a07f4560f7a1b18a1c239ebde202b9dc0} 
-Initialising an array of the octaves and their notes \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}n\+Octaves\mbox{]}
-\end{DoxyCompactItemize}
+\Hypertarget{classOctaves_aa6c0bbc5933997052bb27a71cb6de574}\label{classOctaves_aa6c0bbc5933997052bb27a71cb6de574} 
+\mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}\mbox{\hyperlink{classOctaves_aab55dc1e4e61330511e61c2c302ada6e}{n\+Octaves}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Initialising an array of the octaves and their notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classOctaves_a23c2f9ad52711d91c154a80772d7e972}\label{classOctaves_a23c2f9ad52711d91c154a80772d7e972} 
-Stores the number of octaves being used \texorpdfstring{$\ast$}{*}static const char {\bfseries n\+Octaves} = 9
-\end{DoxyCompactItemize}
+\Hypertarget{classOctaves_aab55dc1e4e61330511e61c2c302ada6e}\label{classOctaves_aab55dc1e4e61330511e61c2c302ada6e} 
+static const char {\bfseries n\+Octaves} = 9
+\begin{DoxyCompactList}\small\item\em Stores the number of octaves being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Types inherited from \mbox{\hyperlink{classNotes}{Notes}}}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}\label{classNotes_a8734fb9c1094a3becd78fe783ad43c0c} 
-enum {\bfseries Notes\+\_\+t} \{ \newline
+enum \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} \{ \newline
 {\bfseries note\+\_\+C}
 , {\bfseries note\+\_\+\+Db}
 , {\bfseries note\+\_\+D}
@@ -152,7 +142,7 @@ enum {\bfseries Notes\+\_\+t} \{ \newline
 , \newline
 {\bfseries note\+\_\+\+A\+\_\+sharp} = note\+\_\+\+Bb
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creation of the enumerated list of possible notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -160,11 +150,11 @@ Creation of a class to store the frequencies of notes at different octaves. Inhe
  
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classOctaves_abfcba4d0b4f936d1bef9f5458c65fc36}\label{classOctaves_abfcba4d0b4f936d1bef9f5458c65fc36} 
+\Hypertarget{classOctaves_ab77d9f9b4116757b6968606040af1c8c}\label{classOctaves_ab77d9f9b4116757b6968606040af1c8c} 
 \index{Octaves@{Octaves}!PlayingFrequency@{PlayingFrequency}}
 \index{PlayingFrequency@{PlayingFrequency}!Octaves@{Octaves}}
 \doxysubsubsection{\texorpdfstring{PlayingFrequency()}{PlayingFrequency()}}
-{\footnotesize\ttfamily float Octaves\+::\+Playing\+Frequency (\begin{DoxyParamCaption}\item[{float}]{freq,  }\item[{float}]{time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Octaves\+::\+Playing\+Frequency (\begin{DoxyParamCaption}\item[{float}]{phase }\end{DoxyParamCaption})}
 
 
 
@@ -172,9 +162,7 @@ A function which may be called to determine the amplitude of a specified frequen
 
 
 \begin{DoxyParams}{Parameters}
-{\em freq} & The frequency (in Hz) which should be played. \\
-\hline
-{\em time} & The time at which the sound should be sampled at. \\
+{\em phase} & The phase of the frequency at the time of sampling. \\
 \hline
 \end{DoxyParams}
 
@@ -185,15 +173,15 @@ A function which may be called to determine the amplitude of a specified frequen
 \begin{DoxyNote}{Note}
 This function only uses unit amplitudes and does not change depending on the volume. The maxmimum and minimum will always be 1 and -\/1 respectively. 
 \end{DoxyNote}
-\Hypertarget{classOctaves_a8f560ad8bf3c5ad4bdec4094e2119810}\label{classOctaves_a8f560ad8bf3c5ad4bdec4094e2119810} 
+\Hypertarget{classOctaves_a023ab71a119c0bc8bb8c6c4919f0064f}\label{classOctaves_a023ab71a119c0bc8bb8c6c4919f0064f} 
 \index{Octaves@{Octaves}!PlayingNote@{PlayingNote}}
 \index{PlayingNote@{PlayingNote}!Octaves@{Octaves}}
 \doxysubsubsection{\texorpdfstring{PlayingNote()}{PlayingNote()}}
-{\footnotesize\ttfamily float Octaves\+::\+Playing\+Note (\begin{DoxyParamCaption}\item[{int}]{octave,  }\item[{Notes\+\_\+t}]{note,  }\item[{float}]{time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Octaves\+::\+Playing\+Note (\begin{DoxyParamCaption}\item[{int}]{octave,  }\item[{\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}}}]{note,  }\item[{float}]{phase }\end{DoxyParamCaption})}
 
 
 
-A function which may be called to determine the amplitude of a specified note at a specified time. 
+A function which may be called to determine the amplitude of a specified note at a specified phase. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -201,7 +189,7 @@ A function which may be called to determine the amplitude of a specified note at
 \hline
 {\em note} & The note which is currently being played. \\
 \hline
-{\em time} & The time at which the sound should be sampled at. \\
+{\em phase} & The phase of the wave at the time of sampling. \\
 \hline
 \end{DoxyParams}
 
@@ -216,5 +204,5 @@ This function only uses unit amplitudes and does not change depending on the vol
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
-/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}

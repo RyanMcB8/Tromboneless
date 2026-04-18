@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['rcc_5firqn_0',['RCC_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a5710b22392997bac63daa5c999730f77',1,'stm32f401xe.h']]],
-  ['rtc_5falarm_5firqn_1',['RTC_Alarm_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8afe09d6563a21a1540f658163a76a3b37',1,'stm32f401xe.h']]],
-  ['rtc_5fwkup_5firqn_2',['RTC_WKUP_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a173ccc3f31df1f7e43de2ddeab3d1777',1,'stm32f401xe.h']]]
+  ['tofdistance_0',['ToFDistance',['../structRawInputEvent.html#a68427661288ca8ba1e1e12086b323e3aa14219293a792ad0ce1c2e6489da53695',1,'RawInputEvent']]]
 ];

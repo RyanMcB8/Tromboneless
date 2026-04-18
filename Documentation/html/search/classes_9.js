@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['needlelookandfeel_0',['NeedleLookAndFeel',['../class_needle_look_and_feel.html',1,'']]],
-  ['notes_1',['Notes',['../class_notes.html',1,'']]]
+  ['needlelookandfeel_0',['NeedleLookAndFeel',['../classNeedleLookAndFeel.html',1,'']]],
+  ['notes_1',['Notes',['../classNotes.html',1,'']]]
 ];

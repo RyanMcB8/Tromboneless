@@ -1,0 +1,116 @@
+\doxysection{/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+App/shared/tromboneless\+\_\+data.hpp File Reference}
+\hypertarget{tromboneless__data_8hpp}{}\label{tromboneless__data_8hpp}\index{/home/kerr-\/mclaren/Tromboneless/Tromboneless/App/shared/tromboneless\_data.hpp@{/home/kerr-\/mclaren/Tromboneless/Tromboneless/App/shared/tromboneless\_data.hpp}}
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTrombonelessParameters__t}{Tromboneless\+Parameters\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A struct which stores all the necessary parameters that may be changed on the app side effecting the core functionality. This struct should add a flag which is triggered whenever a parameter has been changed. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSynthesiserParameters__t}{Synthesiser\+Parameters\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em A struct to store any of the synthesier parameters that may be changed within the app. A data changed flag variable should be added to this struct to tell the core to read the new values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625}{Shift\+Keying\+Options\+\_\+t}} \{ \newline
+\mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a437d7e659de5456da976849593b141c0}{SKOpt\+\_\+\+EMPTY}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a11f68d77eeac7fe7e9e5e6b918f725cc}{SKOpt\+\_\+\+BASS}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625aa99444f5b69b59e1775d48192955d95e}{SKOpt\+\_\+\+PICCOLO}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a4eb5904ed18076921121408ac6315a6f}{SKOpt\+\_\+\+ALTO}}
+, \newline
+\mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a456d73688dec124d16568af9d15db6aa}{SKOpt\+\_\+\+TENOR}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a9731ad4fbec078290f549b9e6131ab96}{SKOpt\+\_\+\+CONTRABASS}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a35ad9d3d448800520c1d6a1e61632298}{SKOpt\+\_\+\+SOPRANO}}
+ \}
+\item 
+enum \mbox{\hyperlink{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717a}{Embachure\+Options\+\_\+t}} \{ \mbox{\hyperlink{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aaf4808eaed1bef9845248f9bc6201a294}{EMBCR\+\_\+\+EMPTY}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aaebb4cdfb6cfbeac4aeb83ed07917596e}{EMBCR\+\_\+\+Low\+Placement}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aa6542069a297e84c59c86cfe49edb94c1}{EMBCR\+\_\+\+Medium\+Placement}}
+, \mbox{\hyperlink{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aadb5fcf9a69b65782060ab68b43565383}{EMBCR\+\_\+\+High\+Placement}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTrombonelessParameters__t}{Tromboneless\+Parameters\+\_\+t}} \mbox{\hyperlink{tromboneless__data_8hpp_a6423ed6d06c6a67fbddb9273d20241bb}{tromboneless\+Parameters}}
+\item 
+\mbox{\hyperlink{structSynthesiserParameters__t}{Synthesiser\+Parameters\+\_\+t}} \mbox{\hyperlink{tromboneless__data_8hpp_a1b88b8e35770097350cbe37b63e6957a}{synthesiser\+Parameters}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717a}\label{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717a} 
+\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!EmbachureOptions\_t@{EmbachureOptions\_t}}
+\index{EmbachureOptions\_t@{EmbachureOptions\_t}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}
+\doxysubsubsection{\texorpdfstring{EmbachureOptions\_t}{EmbachureOptions\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717a}{Embachure\+Options\+\_\+t}}}
+
+Creation of an enum which corresponds to the different embouchure options that the user may select to calibrate. This should be adjusted before release the have the correct names and number of options. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMBCR\_EMPTY@{EMBCR\_EMPTY}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!EMBCR\_EMPTY@{EMBCR\_EMPTY}}}\Hypertarget{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aaf4808eaed1bef9845248f9bc6201a294}\label{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aaf4808eaed1bef9845248f9bc6201a294} 
+EMBCR\+\_\+\+EMPTY&Option for a no chosen embouchure placement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMBCR\_LowPlacement@{EMBCR\_LowPlacement}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!EMBCR\_LowPlacement@{EMBCR\_LowPlacement}}}\Hypertarget{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aaebb4cdfb6cfbeac4aeb83ed07917596e}\label{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aaebb4cdfb6cfbeac4aeb83ed07917596e} 
+EMBCR\+\_\+\+Low\+Placement&Option for a low embouchure placement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMBCR\_MediumPlacement@{EMBCR\_MediumPlacement}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!EMBCR\_MediumPlacement@{EMBCR\_MediumPlacement}}}\Hypertarget{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aa6542069a297e84c59c86cfe49edb94c1}\label{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aa6542069a297e84c59c86cfe49edb94c1} 
+EMBCR\+\_\+\+Medium\+Placement&Option for a medium embouchure placement. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMBCR\_HighPlacement@{EMBCR\_HighPlacement}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!EMBCR\_HighPlacement@{EMBCR\_HighPlacement}}}\Hypertarget{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aadb5fcf9a69b65782060ab68b43565383}\label{tromboneless__data_8hpp_afaafbafecaf85c28122cf490981d717aadb5fcf9a69b65782060ab68b43565383} 
+EMBCR\+\_\+\+High\+Placement&Option for a high embouchure placement. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625} 
+\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!ShiftKeyingOptions\_t@{ShiftKeyingOptions\_t}}
+\index{ShiftKeyingOptions\_t@{ShiftKeyingOptions\_t}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}
+\doxysubsubsection{\texorpdfstring{ShiftKeyingOptions\_t}{ShiftKeyingOptions\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625}{Shift\+Keying\+Options\+\_\+t}}}
+
+Creation of an enum which corresponds to different shift keying initial positions which may adjusted by the user through the app. These represent the different types of trombones which may be synthesised by calibrating the correct note and octave. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_EMPTY@{SKOpt\_EMPTY}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_EMPTY@{SKOpt\_EMPTY}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a437d7e659de5456da976849593b141c0}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a437d7e659de5456da976849593b141c0} 
+SKOpt\+\_\+\+EMPTY&There was no chosen type of trombone by the user. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_BASS@{SKOpt\_BASS}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_BASS@{SKOpt\_BASS}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a11f68d77eeac7fe7e9e5e6b918f725cc}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a11f68d77eeac7fe7e9e5e6b918f725cc} 
+SKOpt\+\_\+\+BASS&The chosen type of trombone by the user was the bass. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_PICCOLO@{SKOpt\_PICCOLO}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_PICCOLO@{SKOpt\_PICCOLO}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625aa99444f5b69b59e1775d48192955d95e}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625aa99444f5b69b59e1775d48192955d95e} 
+SKOpt\+\_\+\+PICCOLO&The chosen type of trombone by the user was the piccolo. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_ALTO@{SKOpt\_ALTO}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_ALTO@{SKOpt\_ALTO}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a4eb5904ed18076921121408ac6315a6f}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a4eb5904ed18076921121408ac6315a6f} 
+SKOpt\+\_\+\+ALTO&The chosen type of trombone by the user was the alto. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_TENOR@{SKOpt\_TENOR}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_TENOR@{SKOpt\_TENOR}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a456d73688dec124d16568af9d15db6aa}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a456d73688dec124d16568af9d15db6aa} 
+SKOpt\+\_\+\+TENOR&The chosen type of trombone by the user was the tenor. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_CONTRABASS@{SKOpt\_CONTRABASS}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_CONTRABASS@{SKOpt\_CONTRABASS}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a9731ad4fbec078290f549b9e6131ab96}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a9731ad4fbec078290f549b9e6131ab96} 
+SKOpt\+\_\+\+CONTRABASS&The chosen type of trombone by the user was the contrabass. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SKOpt\_SOPRANO@{SKOpt\_SOPRANO}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!SKOpt\_SOPRANO@{SKOpt\_SOPRANO}}}\Hypertarget{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a35ad9d3d448800520c1d6a1e61632298}\label{tromboneless__data_8hpp_adde00962bd6364c317f5d84391cc7625a35ad9d3d448800520c1d6a1e61632298} 
+SKOpt\+\_\+\+SOPRANO&The chosen type of trombone by the user was the soprano. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{tromboneless__data_8hpp_a1b88b8e35770097350cbe37b63e6957a}\label{tromboneless__data_8hpp_a1b88b8e35770097350cbe37b63e6957a} 
+\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!synthesiserParameters@{synthesiserParameters}}
+\index{synthesiserParameters@{synthesiserParameters}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}
+\doxysubsubsection{\texorpdfstring{synthesiserParameters}{synthesiserParameters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSynthesiserParameters__t}{Synthesiser\+Parameters\+\_\+t}} synthesiser\+Parameters\hspace{0.3cm}{\ttfamily [extern]}}
+
+The struct instance storing all the data used to interface between calibrating the Tromboneless from the App to the Core. \Hypertarget{tromboneless__data_8hpp_a6423ed6d06c6a67fbddb9273d20241bb}\label{tromboneless__data_8hpp_a6423ed6d06c6a67fbddb9273d20241bb} 
+\index{tromboneless\_data.hpp@{tromboneless\_data.hpp}!trombonelessParameters@{trombonelessParameters}}
+\index{trombonelessParameters@{trombonelessParameters}!tromboneless\_data.hpp@{tromboneless\_data.hpp}}
+\doxysubsubsection{\texorpdfstring{trombonelessParameters}{trombonelessParameters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTrombonelessParameters__t}{Tromboneless\+Parameters\+\_\+t}} tromboneless\+Parameters\hspace{0.3cm}{\ttfamily [extern]}}
+

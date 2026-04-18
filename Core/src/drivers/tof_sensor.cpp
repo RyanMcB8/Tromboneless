@@ -1,5 +1,14 @@
 #include "drivers/tof_sensor.hpp"
 
+/**
+ * @file tof_sensor.cpp
+ * @brief Implementation of the ToFSensor class.
+ *
+ * @details
+ * Implements VL53L1X initialisation, GPIO interrupt handling via libgpiod,
+ * and callback-based publication of distance measurements.
+ */
+
 #include "vl53l1_platform.h"
 
 extern "C" {

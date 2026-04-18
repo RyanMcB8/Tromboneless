@@ -1,0 +1,25 @@
+\doxysection{/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+App/src/\+Layout.cpp File Reference}
+\hypertarget{Layout_8cpp}{}\label{Layout_8cpp}\index{/home/kerr-\/mclaren/Tromboneless/Tromboneless/App/src/Layout.cpp@{/home/kerr-\/mclaren/Tromboneless/Tromboneless/App/src/Layout.cpp}}
+
+
+This file holds the defintions of all functions and variables needed by the Tromboneless project to define the layout of the window which is being displayed to the end user.  
+
+
+{\ttfamily \#include "{}Layout.\+hpp"{}}\newline
+{\ttfamily \#include "{}Widgets.\+hpp"{}}\newline
+{\ttfamily \#include "{}Panels.\+hpp"{}}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$system\+\_\+error$>$}\newline
+Include dependency graph for Layout.\+cpp\+:
+% FIG 0
+
+
+\doxysubsection{Detailed Description}
+This file holds the defintions of all functions and variables needed by the Tromboneless project to define the layout of the window which is being displayed to the end user. 
+
+\begin{DoxyAuthor}{Author}
+Ryan Mc\+Bride 
+\end{DoxyAuthor}

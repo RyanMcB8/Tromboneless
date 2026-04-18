@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['samplingrates_0',['SamplingRates',['../struct_a_d_s1115settings.html#aa3a33d5f6c7f14bb708a70499a225357',1,'ADS1115settings']]]
+  ['type_0',['Type',['../structRawInputEvent.html#a68427661288ca8ba1e1e12086b323e3a',1,'RawInputEvent']]]
 ];

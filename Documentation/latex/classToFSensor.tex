@@ -1,32 +1,120 @@
 \doxysection{To\+FSensor Class Reference}
 \hypertarget{classToFSensor}{}\label{classToFSensor}\index{ToFSensor@{ToFSensor}}
+
+
+Time-\/of-\/\+Flight sensor interface using I2C and GPIO interrupt handling.  
+
+
+
+
+{\ttfamily \#include $<$tof\+\_\+sensor.\+hpp$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classToFSensor_a18b39e4fd8582d3deb562da59c45f161}\label{classToFSensor_a18b39e4fd8582d3deb562da59c45f161} 
-using {\bfseries Distance\+Callback\+Interface} = std\+::function$<$ void(uint16\+\_\+t)$>$
-\end{DoxyCompactItemize}
+using \mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{Distance\+Callback}} = std\+::function$<$ void(uint16\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em Callback type used to publish distance measurements. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classToFSensor_afde69720b503ab1fd306fdfbe09da6ef}\label{classToFSensor_afde69720b503ab1fd306fdfbe09da6ef} 
-{\bfseries To\+FSensor} (\mbox{\hyperlink{classI2CBus}{I2\+CBus}} \&bus, uint8\+\_\+t address=0x29, const std\+::string \&gpio\+Chip\+Path="{}/dev/gpiochip0"{}, unsigned int gpio\+Line=4)
-\item 
-\Hypertarget{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22}\label{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22} 
-bool {\bfseries initialise} ()
-\item 
-\Hypertarget{classToFSensor_aecff42f7e3ed68f71ec5f964836d5d49}\label{classToFSensor_aecff42f7e3ed68f71ec5f964836d5d49} 
-void {\bfseries register\+Callback} (Distance\+Callback\+Interface cb)
-\item 
+\mbox{\hyperlink{classToFSensor_aefae134910becfa515bf3871cdc88d42}{To\+FSensor}} (\mbox{\hyperlink{classI2CBus}{I2\+CBus}} \&bus, uint8\+\_\+t i2c\+Address7\+Bit=0x29, const std\+::string \&gpio\+Chip\+Path="{}/dev/gpiochip0"{}, unsigned int gpio\+Line=4)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classToFSensor}{To\+FSensor} object. \end{DoxyCompactList}\item 
+\Hypertarget{classToFSensor_ac27073ddc5f92e7e47531073b221c211}\label{classToFSensor_ac27073ddc5f92e7e47531073b221c211} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+To\+FSensor} ()
+\begin{DoxyCompactList}\small\item\em Destructor ensures sensor is stopped and resources are released. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22}{initialise}} ()
+\begin{DoxyCompactList}\small\item\em Initialise the sensor and prepare it for operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classToFSensor_a22aef953c7c7219291d004202393d7c8}{register\+Callback}} (\mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{Distance\+Callback}} cb)
+\begin{DoxyCompactList}\small\item\em Register a callback for new distance measurements. \end{DoxyCompactList}\item 
 \Hypertarget{classToFSensor_a92205c9964186247b1345b8cf90cd91d}\label{classToFSensor_a92205c9964186247b1345b8cf90cd91d} 
 void {\bfseries start} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Start sensor ranging and launch the worker thread. \end{DoxyCompactList}\item 
 \Hypertarget{classToFSensor_a23a43c10a0ecbc2294d8d8ea93b0db98}\label{classToFSensor_a23a43c10a0ecbc2294d8d8ea93b0db98} 
 void {\bfseries stop} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Stop the worker thread, stop ranging, and release GPIO resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Time-\/of-\/\+Flight sensor interface using I2C and GPIO interrupt handling. 
+
+This class manages a VL53\+L1X sensor. It communicates with the sensor over I2C, waits for a GPIO interrupt to indicate that a new measurement is ready, and publishes the measured distance via a callback. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}\label{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f} 
+\index{ToFSensor@{ToFSensor}!DistanceCallback@{DistanceCallback}}
+\index{DistanceCallback@{DistanceCallback}!ToFSensor@{ToFSensor}}
+\doxysubsubsection{\texorpdfstring{DistanceCallback}{DistanceCallback}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{To\+FSensor\+::\+Distance\+Callback}} =  std\+::function$<$void(uint16\+\_\+t)$>$}
+
+
+
+Callback type used to publish distance measurements. 
+
+The callback receives one argument\+:
+\begin{DoxyItemize}
+\item measured distance in millimetres 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classToFSensor_aefae134910becfa515bf3871cdc88d42}\label{classToFSensor_aefae134910becfa515bf3871cdc88d42} 
+\index{ToFSensor@{ToFSensor}!ToFSensor@{ToFSensor}}
+\index{ToFSensor@{ToFSensor}!ToFSensor@{ToFSensor}}
+\doxysubsubsection{\texorpdfstring{ToFSensor()}{ToFSensor()}}
+{\footnotesize\ttfamily To\+FSensor\+::\+To\+FSensor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classI2CBus}{I2\+CBus}} \&}]{bus,  }\item[{uint8\+\_\+t}]{i2c\+Address7\+Bit = {\ttfamily 0x29},  }\item[{const std\+::string \&}]{gpio\+Chip\+Path = {\ttfamily "{}/dev/gpiochip0"{}},  }\item[{unsigned int}]{gpio\+Line = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+
+Construct a \doxylink{classToFSensor}{To\+FSensor} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bus} & Reference to an \doxylink{classI2CBus}{I2\+CBus} object for communication. \\
+\hline
+{\em i2c\+Address7\+Bit} & 7-\/bit I2C address of the sensor in 7-\/bit Linux form (0x29 by default). \\
+\hline
+{\em gpio\+Chip\+Path} & Path to the GPIO chip (e.\+g. "{}/dev/gpiochip0"{}). \\
+\hline
+{\em gpio\+Line} & GPIO line connected to the sensor interrupt output (e.\+g. 4). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22}\label{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22} 
+\index{ToFSensor@{ToFSensor}!initialise@{initialise}}
+\index{initialise@{initialise}!ToFSensor@{ToFSensor}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily bool To\+FSensor\+::initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise the sensor and prepare it for operation. 
+
+Opens the I2C bus, initialises the ST platform layer, resets the sensor, waits for boot, verifies sensor ID, and applies the configured ranging and interrupt settings.
+
+\begin{DoxyReturn}{Returns}
+true if initialisation succeeded. 
+
+false if initialisation failed (e.\+g. I2C communication error). 
+\end{DoxyReturn}
+\Hypertarget{classToFSensor_a22aef953c7c7219291d004202393d7c8}\label{classToFSensor_a22aef953c7c7219291d004202393d7c8} 
+\index{ToFSensor@{ToFSensor}!registerCallback@{registerCallback}}
+\index{registerCallback@{registerCallback}!ToFSensor@{ToFSensor}}
+\doxysubsubsection{\texorpdfstring{registerCallback()}{registerCallback()}}
+{\footnotesize\ttfamily void To\+FSensor\+::register\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{Distance\+Callback}}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Register a callback for new distance measurements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & The callback function to call when a new measurement is available. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+Core/include/drivers/tof\+\_\+sensor.\+hpp\item 
-/home/ryan/\+Tromboneless/\+Core/src/drivers/tof\+\_\+sensor.\+cpp\end{DoxyCompactItemize}
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/include/drivers/\mbox{\hyperlink{tof__sensor_8hpp}{tof\+\_\+sensor.\+hpp}}\item 
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/src/drivers/\mbox{\hyperlink{tof__sensor_8cpp}{tof\+\_\+sensor.\+cpp}}\end{DoxyCompactItemize}

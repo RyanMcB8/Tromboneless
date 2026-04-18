@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['set_5fget_5ffloat_0',['SET_GET_FLOAT',['../unit_test_macros_8hpp.html#af7aae92dc6f1a9fcb695fc38264eede6',1,'unitTestMacros.hpp']]]
+  ['debug_0',['DEBUG',['../ads1115rpi_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'ads1115rpi.h']]]
 ];

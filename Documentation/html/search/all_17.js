@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['_7eads1115rpi_0',['~ADS1115rpi',['../class_a_d_s1115rpi.html#a3dec47dc3242290468f21396df0d71a5',1,'ADS1115rpi']]],
-  ['_7ebarometer_1',['~Barometer',['../class_barometer.html#a5254d60884f804d70f4d59b4c7e2cef8',1,'Barometer']]],
-  ['_7ecalibrateembouchure_2',['~CalibrateEmbouchure',['../class_calibrate_embouchure.html#a8500bacc28c9b735bc68e4cd0def7caa',1,'CalibrateEmbouchure']]],
-  ['_7ecalibrationonclick_3',['~CalibrationOnClick',['../class_calibration_on_click.html#a716b529df6ca9dda09b6972a70917198',1,'CalibrationOnClick']]],
-  ['_7ecalibrationslider_4',['~CalibrationSlider',['../class_calibration_slider.html#a97344f37ff0850b789d63b14322602f3',1,'CalibrationSlider']]],
-  ['_7edropdownmenu_5',['~DropDownMenu',['../class_drop_down_menu.html#a38782be175ad1331dfe4937b89de9dbe',1,'DropDownMenu']]],
-  ['_7edropdownmenus_6',['~DropDownMenus',['../class_drop_down_menus.html#adb4f58983689e00e0856fafe172f450a',1,'DropDownMenus']]],
-  ['_7edualrotaryslider_7',['~DualRotarySlider',['../class_dual_rotary_slider.html#af3b4b24992fc45da3771913bd6a61cf6',1,'DualRotarySlider']]],
-  ['_7eenvelope_8',['~Envelope',['../class_envelope.html#a5c6afb61768a4406e1cc6d222caaf547',1,'Envelope']]],
-  ['_7eequalizer_9',['~Equalizer',['../class_equalizer.html#a3467b7d27117adad2b78ddb92ea86df9',1,'Equalizer']]],
-  ['_7eequalizerpanel_10',['~EqualizerPanel',['../class_equalizer_panel.html#a5798da5143820db69ce2b4754926e9d5',1,'EqualizerPanel']]],
-  ['_7eneedlelookandfeel_11',['~NeedleLookAndFeel',['../class_needle_look_and_feel.html#a5db1e44fd568bdbd97514d88b9baafb9',1,'NeedleLookAndFeel']]],
-  ['_7epanels_12',['~Panels',['../class_panels.html#a9cf6e0c36d874dcc3d94e6dfed3bbc33',1,'Panels']]],
-  ['_7esliders_13',['~Sliders',['../class_sliders.html#a9b83c7b0a2e863f1862115837f0e0306',1,'Sliders']]],
-  ['_7everticalmixslider_14',['~verticalMixSlider',['../classvertical_mix_slider.html#a78573e6d3ca59e33fbb67c8aab65d454',1,'verticalMixSlider']]],
-  ['_7everticalsliderlookandfeel_15',['~VerticalSliderLookAndFeel',['../class_vertical_slider_look_and_feel.html#a758baf1d5599468b77b983fb16efd975',1,'VerticalSliderLookAndFeel']]]
+  ['widgets_2ecpp_0',['Widgets.cpp',['../Widgets_8cpp.html',1,'']]],
+  ['widgets_2ehpp_1',['Widgets.hpp',['../Widgets_8hpp.html',1,'']]],
+  ['worker_2',['worker',['../classCAP1188.html#ae7cd7e2ecca75b5efceb58430ad88de4',1,'CAP1188']]],
+  ['writeblock16_3',['writeBlock16',['../classI2CBus.html#af98bc1a0bf42aafc35a5cdb2a9418333',1,'I2CBus']]],
+  ['writeblock8_4',['writeBlock8',['../classI2CBus.html#a684b69f56718b37fcd75abba4344bc93',1,'I2CBus']]],
+  ['writesamples_5',['writeSamples',['../classAudioOutput.html#a3871d20a31e3b5fd76b6d0bf50633810',1,'AudioOutput']]]
 ];

@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -76,28 +76,318 @@ $(function() {
   <div class="headertitle"><div class="title">I2CBus Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Minimal Linux I2C bus wrapper for register-based communication.  
+ <a href="classI2CBus.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="i2c__bus_8hpp_source.html">i2c_bus.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a01105c1dc2694ce503275d31f4d12e81" id="r_a01105c1dc2694ce503275d31f4d12e81"><td class="memItemLeft" align="right" valign="top"><a id="a01105c1dc2694ce503275d31f4d12e81" name="a01105c1dc2694ce503275d31f4d12e81"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>I2CBus</b> (const char *devicePath=&quot;/dev/i2c-1&quot;)</td></tr>
+<tr class="memitem:a01105c1dc2694ce503275d31f4d12e81" id="r_a01105c1dc2694ce503275d31f4d12e81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classI2CBus.html#a01105c1dc2694ce503275d31f4d12e81">I2CBus</a> (const char *devicePath=&quot;/dev/i2c-1&quot;)</td></tr>
+<tr class="memdesc:a01105c1dc2694ce503275d31f4d12e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an <a class="el" href="classI2CBus.html" title="Minimal Linux I2C bus wrapper for register-based communication.">I2CBus</a> object.  <br /></td></tr>
 <tr class="separator:a01105c1dc2694ce503275d31f4d12e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0629e6e70044e1f55f9a1db34fd839cc" id="r_a0629e6e70044e1f55f9a1db34fd839cc"><td class="memItemLeft" align="right" valign="top"><a id="a0629e6e70044e1f55f9a1db34fd839cc" name="a0629e6e70044e1f55f9a1db34fd839cc"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>openBus</b> ()</td></tr>
+<tr class="memitem:a70dac2923cd16ce06f0e73f7fc5bca89" id="r_a70dac2923cd16ce06f0e73f7fc5bca89"><td class="memItemLeft" align="right" valign="top"><a id="a70dac2923cd16ce06f0e73f7fc5bca89" name="a70dac2923cd16ce06f0e73f7fc5bca89"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~I2CBus</b> ()</td></tr>
+<tr class="memdesc:a70dac2923cd16ce06f0e73f7fc5bca89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor ensures the I2C device file is closed. <br /></td></tr>
+<tr class="separator:a70dac2923cd16ce06f0e73f7fc5bca89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0629e6e70044e1f55f9a1db34fd839cc" id="r_a0629e6e70044e1f55f9a1db34fd839cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classI2CBus.html#a0629e6e70044e1f55f9a1db34fd839cc">openBus</a> ()</td></tr>
+<tr class="memdesc:a0629e6e70044e1f55f9a1db34fd839cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the I2C device file.  <br /></td></tr>
 <tr class="separator:a0629e6e70044e1f55f9a1db34fd839cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f89a7670e4a264ce76b8c5d11c8b6ef" id="r_a0f89a7670e4a264ce76b8c5d11c8b6ef"><td class="memItemLeft" align="right" valign="top"><a id="a0f89a7670e4a264ce76b8c5d11c8b6ef" name="a0f89a7670e4a264ce76b8c5d11c8b6ef"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>closeBus</b> ()</td></tr>
+<tr class="memdesc:a0f89a7670e4a264ce76b8c5d11c8b6ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the I2C device file. <br /></td></tr>
 <tr class="separator:a0f89a7670e4a264ce76b8c5d11c8b6ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab576d3b32f579dd6e45e7203c952cc79" id="r_ab576d3b32f579dd6e45e7203c952cc79"><td class="memItemLeft" align="right" valign="top"><a id="ab576d3b32f579dd6e45e7203c952cc79" name="ab576d3b32f579dd6e45e7203c952cc79"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>writeBlock</b> (uint8_t address, uint16_t reg, const uint8_t *data, uint8_t length)</td></tr>
-<tr class="separator:ab576d3b32f579dd6e45e7203c952cc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d6e67800cf48e5bb96906fb0284f87f" id="r_a7d6e67800cf48e5bb96906fb0284f87f"><td class="memItemLeft" align="right" valign="top"><a id="a7d6e67800cf48e5bb96906fb0284f87f" name="a7d6e67800cf48e5bb96906fb0284f87f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>readBlock</b> (uint8_t address, uint16_t reg, uint8_t *data, uint8_t length)</td></tr>
-<tr class="separator:a7d6e67800cf48e5bb96906fb0284f87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af98bc1a0bf42aafc35a5cdb2a9418333" id="r_af98bc1a0bf42aafc35a5cdb2a9418333"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classI2CBus.html#af98bc1a0bf42aafc35a5cdb2a9418333">writeBlock16</a> (uint8_t address, uint16_t reg, const uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:af98bc1a0bf42aafc35a5cdb2a9418333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a block of data to a 16-bit register address.  <br /></td></tr>
+<tr class="separator:af98bc1a0bf42aafc35a5cdb2a9418333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a871df8c884aa49b95be5973a0e50ca86" id="r_a871df8c884aa49b95be5973a0e50ca86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classI2CBus.html#a871df8c884aa49b95be5973a0e50ca86">readBlock16</a> (uint8_t address, uint16_t reg, uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:a871df8c884aa49b95be5973a0e50ca86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a block of data from a 16-bit register address.  <br /></td></tr>
+<tr class="separator:a871df8c884aa49b95be5973a0e50ca86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684b69f56718b37fcd75abba4344bc93" id="r_a684b69f56718b37fcd75abba4344bc93"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classI2CBus.html#a684b69f56718b37fcd75abba4344bc93">writeBlock8</a> (uint8_t address, uint8_t reg, const uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:a684b69f56718b37fcd75abba4344bc93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a block of data to an 8-bit register address.  <br /></td></tr>
+<tr class="separator:a684b69f56718b37fcd75abba4344bc93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7a7c7d74da409adfc0affaf5646e6a" id="r_a4a7a7c7d74da409adfc0affaf5646e6a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classI2CBus.html#a4a7a7c7d74da409adfc0affaf5646e6a">readBlock8</a> (uint8_t address, uint8_t reg, uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:a4a7a7c7d74da409adfc0affaf5646e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a block of data from an 8-bit register address.  <br /></td></tr>
+<tr class="separator:a4a7a7c7d74da409adfc0affaf5646e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Minimal Linux I2C bus wrapper for register-based communication. </p>
+<p>This class:</p><ul>
+<li>Opens and closes the I2C device file (e.g. "/dev/i2c-1").</li>
+<li>Provides methods to read/write blocks of data to/from 8-bit or 16-bit registers on I2C devices.</li>
+</ul>
+<p>This class does not:</p><ul>
+<li>Handle any sensor-specific logic or protocols. </li>
+</ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a01105c1dc2694ce503275d31f4d12e81" name="a01105c1dc2694ce503275d31f4d12e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01105c1dc2694ce503275d31f4d12e81">&#9670;&#160;</a></span>I2CBus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">I2CBus::I2CBus </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>devicePath</em> = <code>&quot;/dev/i2c-1&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct an <a class="el" href="classI2CBus.html" title="Minimal Linux I2C bus wrapper for register-based communication.">I2CBus</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devicePath</td><td>Path to the Linux I2C device file (e.g. "/dev/i2c-1"). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0629e6e70044e1f55f9a1db34fd839cc" name="a0629e6e70044e1f55f9a1db34fd839cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0629e6e70044e1f55f9a1db34fd839cc">&#9670;&#160;</a></span>openBus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool I2CBus::openBus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Open the I2C device file. </p>
+<p>If the bus is already open, this function returns success.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if successful, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a871df8c884aa49b95be5973a0e50ca86" name="a871df8c884aa49b95be5973a0e50ca86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a871df8c884aa49b95be5973a0e50ca86">&#9670;&#160;</a></span>readBlock16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int I2CBus::readBlock16 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read a block of data from a 16-bit register address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I2C device address. </td></tr>
+    <tr><td class="paramname">reg</td><td>16-bit register address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the buffer where read data will be stored. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a4a7a7c7d74da409adfc0affaf5646e6a" name="a4a7a7c7d74da409adfc0affaf5646e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7a7c7d74da409adfc0affaf5646e6a">&#9670;&#160;</a></span>readBlock8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int I2CBus::readBlock8 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read a block of data from an 8-bit register address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I2C device address. </td></tr>
+    <tr><td class="paramname">reg</td><td>8-bit register address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the buffer where read data will be stored. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
+
+</div>
+</div>
+<a id="af98bc1a0bf42aafc35a5cdb2a9418333" name="af98bc1a0bf42aafc35a5cdb2a9418333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af98bc1a0bf42aafc35a5cdb2a9418333">&#9670;&#160;</a></span>writeBlock16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int I2CBus::writeBlock16 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write a block of data to a 16-bit register address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I2C device address. </td></tr>
+    <tr><td class="paramname">reg</td><td>16-bit register address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data buffer. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to write.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a684b69f56718b37fcd75abba4344bc93" name="a684b69f56718b37fcd75abba4344bc93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684b69f56718b37fcd75abba4344bc93">&#9670;&#160;</a></span>writeBlock8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int I2CBus::writeBlock8 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write a block of data to an 8-bit register address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I2C device address. </td></tr>
+    <tr><td class="paramname">reg</td><td>8-bit register address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data buffer. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to write.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/ryan/Tromboneless/Core/include/drivers/<a class="el" href="i2c__bus_8hpp_source.html">i2c_bus.hpp</a></li>
-<li>/home/ryan/Tromboneless/Core/src/drivers/<b>i2c_bus.cpp</b></li>
+<li>/home/kerr-mclaren/Tromboneless/Tromboneless/Core/include/drivers/<a class="el" href="i2c__bus_8hpp_source.html">i2c_bus.hpp</a></li>
+<li>/home/kerr-mclaren/Tromboneless/Tromboneless/Core/src/drivers/<a class="el" href="i2c__bus_8cpp.html">i2c_bus.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

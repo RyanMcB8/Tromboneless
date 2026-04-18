@@ -31,23 +31,23 @@ class \mbox{\hyperlink{classGuiAppApplication_1_1MainWindow}{Main\+Window}}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classGuiAppApplication_ae3a498339e40f60ba1205486de18716e}\label{classGuiAppApplication_ae3a498339e40f60ba1205486de18716e} 
-const juce\+::\+String {\bfseries get\+Application\+Name} () override
-\item 
-\Hypertarget{classGuiAppApplication_a8220d7d6176973dcc3521061d654b402}\label{classGuiAppApplication_a8220d7d6176973dcc3521061d654b402} 
-const juce\+::\+String {\bfseries get\+Application\+Version} () override
-\item 
+\Hypertarget{classGuiAppApplication_a79ff8c54c8c3b9a610c72f0cda6e47d9}\label{classGuiAppApplication_a79ff8c54c8c3b9a610c72f0cda6e47d9} 
+{\bfseries Gui\+App\+Application} ()
+\begin{DoxyCompactList}\small\item\em Defining the \doxylink{classGuiAppApplication}{Gui\+App\+Application} function. \end{DoxyCompactList}\item 
+const juce\+::\+String \mbox{\hyperlink{classGuiAppApplication_ae3a498339e40f60ba1205486de18716e}{get\+Application\+Name}} () override
+\begin{DoxyCompactList}\small\item\em A function which returns the name of the applicaiton. \end{DoxyCompactList}\item 
+const juce\+::\+String \mbox{\hyperlink{classGuiAppApplication_a8220d7d6176973dcc3521061d654b402}{get\+Application\+Version}} () override
+\begin{DoxyCompactList}\small\item\em A function which gets the current juce version and returns the name of the one being used. \end{DoxyCompactList}\item 
 \Hypertarget{classGuiAppApplication_a7999cf961cd78be4e6bd3ff0df80d116}\label{classGuiAppApplication_a7999cf961cd78be4e6bd3ff0df80d116} 
 bool {\bfseries more\+Than\+One\+Instance\+Allowed} () override
-\item 
-\Hypertarget{classGuiAppApplication_a80153351c923e6338d5be191cd48b71b}\label{classGuiAppApplication_a80153351c923e6338d5be191cd48b71b} 
-void {\bfseries initialise} (const juce\+::\+String \&command\+Line) override
-\item 
+\begin{DoxyCompactList}\small\item\em A function which determines whether multiple instances of the window may be opened simultaneously. This is currently set to be false so that there may on be one window in use at a time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGuiAppApplication_a80153351c923e6338d5be191cd48b71b}{initialise}} (const juce\+::\+String \&command\+Line) override
+\begin{DoxyCompactList}\small\item\em The function which initialises the main window when the code is executed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGuiAppApplication_ae89b90a057c20d7f6d9c1b50b0568d0d}{shutdown}} () override
 \begin{DoxyCompactList}\small\item\em Function used to control what happens when the user wants to close the application. \end{DoxyCompactList}\item 
 \Hypertarget{classGuiAppApplication_a7d31e855136b85df87cc164fab4df3fa}\label{classGuiAppApplication_a7d31e855136b85df87cc164fab4df3fa} 
 void {\bfseries system\+Requested\+Quit} () override
-\item 
+\begin{DoxyCompactList}\small\item\em A function used to close the window. This is requested when the user presses the \textquotesingle{}X\textquotesingle{} button. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classGuiAppApplication_a4c014380756e1f5d522acd1bdaedf42c}{another\+Instance\+Started}} (const juce\+::\+String \&command\+Line) override
 \begin{DoxyCompactList}\small\item\em Handler for when the user tries to open mutliple instances of the application. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -74,6 +74,47 @@ Handler for when the user tries to open mutliple instances of the application.
 \begin{DoxyNote}{Note}
 This function will return the command line parameters passed for the new instance were and may be used within the current window. 
 \end{DoxyNote}
+\Hypertarget{classGuiAppApplication_ae3a498339e40f60ba1205486de18716e}\label{classGuiAppApplication_ae3a498339e40f60ba1205486de18716e} 
+\index{GuiAppApplication@{GuiAppApplication}!getApplicationName@{getApplicationName}}
+\index{getApplicationName@{getApplicationName}!GuiAppApplication@{GuiAppApplication}}
+\doxysubsubsection{\texorpdfstring{getApplicationName()}{getApplicationName()}}
+{\footnotesize\ttfamily const juce\+::\+String Gui\+App\+Application\+::get\+Application\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+A function which returns the name of the applicaiton. 
+
+\begin{DoxyNote}{Note}
+We inject the name as compile definitions from the CMake\+Lists.\+txt 
+\end{DoxyNote}
+\Hypertarget{classGuiAppApplication_a8220d7d6176973dcc3521061d654b402}\label{classGuiAppApplication_a8220d7d6176973dcc3521061d654b402} 
+\index{GuiAppApplication@{GuiAppApplication}!getApplicationVersion@{getApplicationVersion}}
+\index{getApplicationVersion@{getApplicationVersion}!GuiAppApplication@{GuiAppApplication}}
+\doxysubsubsection{\texorpdfstring{getApplicationVersion()}{getApplicationVersion()}}
+{\footnotesize\ttfamily const juce\+::\+String Gui\+App\+Application\+::get\+Application\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+A function which gets the current juce version and returns the name of the one being used. 
+
+\begin{DoxyNote}{Note}
+We inject the name as compile definitions from the CMake\+Lists.\+txt 
+\end{DoxyNote}
+\Hypertarget{classGuiAppApplication_a80153351c923e6338d5be191cd48b71b}\label{classGuiAppApplication_a80153351c923e6338d5be191cd48b71b} 
+\index{GuiAppApplication@{GuiAppApplication}!initialise@{initialise}}
+\index{initialise@{initialise}!GuiAppApplication@{GuiAppApplication}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily void Gui\+App\+Application\+::initialise (\begin{DoxyParamCaption}\item[{const juce\+::\+String \&}]{command\+Line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+The function which initialises the main window when the code is executed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Line} & The arguments which the user has input on the terminal when executing the code. This is currently not used. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classGuiAppApplication_ae89b90a057c20d7f6d9c1b50b0568d0d}\label{classGuiAppApplication_ae89b90a057c20d7f6d9c1b50b0568d0d} 
 \index{GuiAppApplication@{GuiAppApplication}!shutdown@{shutdown}}
 \index{shutdown@{shutdown}!GuiAppApplication@{GuiAppApplication}}
@@ -91,4 +132,4 @@ Currently nothing extra is happening here other than closing the window
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+App/src/main.\+cpp\end{DoxyCompactItemize}
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+App/src/main.\+cpp\end{DoxyCompactItemize}

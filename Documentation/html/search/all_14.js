@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['verticalmixslider_0',['verticalMixSlider',['../classvertical_mix_slider.html',1,'verticalMixSlider'],['../classvertical_mix_slider.html#a64196197ca6240b83ad300ea23fe1f1c',1,'verticalMixSlider::verticalMixSlider()']]],
-  ['verticalsliderlookandfeel_1',['VerticalSliderLookAndFeel',['../class_vertical_slider_look_and_feel.html',1,'VerticalSliderLookAndFeel'],['../class_vertical_slider_look_and_feel.html#a55e59bdd0b182d197935c41ac3755e33',1,'VerticalSliderLookAndFeel::VerticalSliderLookAndFeel()']]],
-  ['video_2',['Video',['../md__hardware_2_hardware___notes.html#autotoc_md16',1,'']]]
+  ['verticalmixslider_0',['verticalmixslider',['../classverticalMixSlider.html',1,'verticalMixSlider'],['../classverticalMixSlider.html#a64196197ca6240b83ad300ea23fe1f1c',1,'verticalMixSlider::verticalMixSlider()']]],
+  ['verticalsliderlookandfeel_1',['verticalsliderlookandfeel',['../classVerticalSliderLookAndFeel.html',1,'VerticalSliderLookAndFeel'],['../classVerticalSliderLookAndFeel.html#a55e59bdd0b182d197935c41ac3755e33',1,'VerticalSliderLookAndFeel::VerticalSliderLookAndFeel()']]],
+  ['video_2',['Video',['../md_Hardware_2Hardware__Notes.html#autotoc_md16',1,'']]]
 ];

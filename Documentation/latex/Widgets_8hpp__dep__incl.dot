@@ -1,0 +1,22 @@
+digraph "/home/kerr-mclaren/Tromboneless/Tromboneless/App/inc/Widgets.hpp"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="/home/kerr-mclaren\l/Tromboneless/Tromboneless\l/App/inc/Widgets.hpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="A file which sets the declarations of any custom widgets which have been built off of the juce framew..."];
+  Node1 -> Node2 [id="edge10_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="/home/kerr-mclaren\l/Tromboneless/Tromboneless\l/App/inc/Layout.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Layout_8hpp.html",tooltip="This file holds the declarations of all functions and variables needed by the Tromboneless project to..."];
+  Node2 -> Node3 [id="edge11_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="/home/kerr-mclaren\l/Tromboneless/Tromboneless\l/App/src/Layout.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Layout_8cpp.html",tooltip="This file holds the defintions of all functions and variables needed by the Tromboneless project to d..."];
+  Node1 -> Node4 [id="edge12_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="/home/kerr-mclaren\l/Tromboneless/Tromboneless\l/App/inc/Panels.hpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Panels_8hpp.html",tooltip="A header file to contain the panels used within the Tromboneless user interface window...."];
+  Node4 -> Node2 [id="edge13_Node000004_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node3 [id="edge14_Node000004_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node5 [id="edge15_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="/home/kerr-mclaren\l/Tromboneless/Tromboneless\l/App/src/Panels.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Panels_8cpp.html",tooltip="This file contains the function defintions for to create the necessary panels that may be used within..."];
+  Node1 -> Node3 [id="edge16_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node5 [id="edge17_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node6 [id="edge18_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="/home/kerr-mclaren\l/Tromboneless/Tromboneless\l/App/src/Widgets.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Widgets_8cpp.html",tooltip="A file which defines the functions which have been declared within the Widgets.hpp file."];
+}

@@ -1,6 +1,21 @@
 var searchData=
 [
-  ['memory0_0',['MEMORY0',['../group___d_m_a_ex___exported___types.html#gga9cec283a461e47eda968838c35fd6eeda2dec05a318eee29371114f1a8f6fe3f4',1,'stm32f4xx_hal_dma_ex.h']]],
-  ['memory1_1',['MEMORY1',['../group___d_m_a_ex___exported___types.html#gga9cec283a461e47eda968838c35fd6eeda06080dfa68716b5bbf425d9232b144c3',1,'stm32f4xx_hal_dma_ex.h']]],
-  ['memorymanagement_5firqn_2',['MemoryManagement_IRQn',['../group___peripheral__interrupt__number__definition.html#gga7e1129cd8a196f4284d41db3e82ad5c8a33ff1cf7098de65d61b6354fee6cd5aa',1,'stm32f401xe.h']]]
+  ['no_5fstage_0',['no_stage',['../classEnvelope.html#a193b41a10053414287e7bc5d0f49296ca2b385196a3b0ede0598cacb0efb6c1f2',1,'Envelope']]],
+  ['note_5fa_1',['note_A',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca3b471b12c78410068bb3eac77179ae93',1,'Notes']]],
+  ['note_5fa_5fsharp_2',['note_A_sharp',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca6ed1dca00b75d85d4ed79ea184fd2b8d',1,'Notes']]],
+  ['note_5fab_3',['note_Ab',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0caa4c600c29ac69d767a687d3a2045aafe',1,'Notes']]],
+  ['note_5fb_4',['note_B',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0caa36354a2ce5c7764b6fd11a6e1367078',1,'Notes']]],
+  ['note_5fbb_5',['note_Bb',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0cad0c39f9bbdfaa7a76de1c287b024462b',1,'Notes']]],
+  ['note_5fc_6',['note_C',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0cadcdf54c40a0a0dd83433effd39b3957d',1,'Notes']]],
+  ['note_5fc_5fsharp_7',['note_C_sharp',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca960da9b2ee1b11226978eec4a6333e02',1,'Notes']]],
+  ['note_5fd_8',['note_D',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca7072b4003863120ec83c734602db99a5',1,'Notes']]],
+  ['note_5fd_5fsharp_9',['note_D_sharp',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca9be8af1375bd4c3f0044fc7d0c6353de',1,'Notes']]],
+  ['note_5fdb_10',['note_Db',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca7281cd42e9646c6cbd2c0994534dde96',1,'Notes']]],
+  ['note_5fe_11',['note_E',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0caf89a54b8e85e4d4e1d5e362c570d2f24',1,'Notes']]],
+  ['note_5feb_12',['note_Eb',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca8916f62208468529c448bb601377959a',1,'Notes']]],
+  ['note_5ff_13',['note_F',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0cacfdaa956707766d5e08c4c21773c2dbf',1,'Notes']]],
+  ['note_5ff_5fsharp_14',['note_F_sharp',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0cae26f672f3f97544d3d09ddc48ce74eb9',1,'Notes']]],
+  ['note_5fg_15',['note_G',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca8f5323bc035c9e19795d843b2377c368',1,'Notes']]],
+  ['note_5fg_5fsharp_16',['note_G_sharp',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca43c6b3ce04a734c0e1e21adc9eeaa2cc',1,'Notes']]],
+  ['note_5fgb_17',['note_Gb',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0ca7bd97ef4194512c6954b15aed61ca1a2',1,'Notes']]]
 ];

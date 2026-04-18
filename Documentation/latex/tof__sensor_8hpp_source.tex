@@ -1,64 +1,74 @@
 \doxysection{tof\+\_\+sensor.\+hpp}
-\hypertarget{tof__sensor_8hpp_source}{}\label{tof__sensor_8hpp_source}\index{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/drivers/tof\_sensor.hpp@{C:/Users/ryanm/Documents/RealTime/Tromboneless/Core/include/drivers/tof\_sensor.hpp}}
-
+\hypertarget{tof__sensor_8hpp_source}{}\label{tof__sensor_8hpp_source}\index{/home/kerr-\/mclaren/Tromboneless/Tromboneless/Core/include/drivers/tof\_sensor.hpp@{/home/kerr-\/mclaren/Tromboneless/Tromboneless/Core/include/drivers/tof\_sensor.hpp}}
+\mbox{\hyperlink{tof__sensor_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <thread>}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <gpiod.hpp>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}drivers/i2c\_bus.hpp"{}}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }ToFSensor}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{using\ }DistanceCallback\ =\ std::function<void(uint16\_t)>;}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <thread>}}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ ToFSensor(\doxymbox{\hyperlink{class_i2_c_bus}{I2CBus}}\&\ bus,}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ i2cAddress7Bit\ =\ 0x29,}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ gpioChipPath\ =\ \textcolor{stringliteral}{"{}/dev/gpiochip0"{}},}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gpioLine\ =\ 4);}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \string~ToFSensor();}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ initialise();}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ registerCallback(DistanceCallback\ cb);}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ start();}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ stop();}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ softReset();}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ startRanging();}
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ stopRanging();}
-\DoxyCodeLine{00035\ \ \ \ \ uint16\_t\ readDistanceMm();}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ worker();}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ handleDataReady();}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{class_i2_c_bus}{I2CBus}}\&\ bus\_;}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Linux\ I2C\ address\ form,\ e.g.\ 0x29}}
-\DoxyCodeLine{00043\ \ \ \ \ uint8\_t\ i2cAddress7Bit\_;}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <gpiod.hpp>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{i2c__bus_8hpp}{drivers/i2c\_bus.hpp}}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classToFSensor}{ToFSensor}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{DistanceCallback}}\ =\ std::function<void(uint16\_t)>;}
+\DoxyCodeLine{00043\ }
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ ST\ ULD\ address\ form,\ e.g.\ 0x52}}
-\DoxyCodeLine{00046\ \ \ \ \ uint16\_t\ stDevAddress\_;}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ std::string\ gpioChipPath\_;}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gpioLine\_;}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ DistanceCallback\ distanceCallback\_;}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ running\_\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00054\ \ \ \ \ std::thread\ thread\_;}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ std::shared\_ptr<gpiod::chip>\ chip\_;}
-\DoxyCodeLine{00057\ \ \ \ \ std::shared\_ptr<gpiod::line\_request>\ request\_;}
-\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classToFSensor}{ToFSensor}}(\mbox{\hyperlink{classI2CBus}{I2CBus}}\&\ bus,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ i2cAddress7Bit\ =\ 0x29,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ gpioChipPath\ =\ \textcolor{stringliteral}{"{}/dev/gpiochip0"{}},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gpioLine\ =\ 4);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classToFSensor_ac27073ddc5f92e7e47531073b221c211}{\string~ToFSensor}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classToFSensor_abc6b369cc16225e90b9ce37e2b4a7b22}{initialise}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classToFSensor_a22aef953c7c7219291d004202393d7c8}{registerCallback}}(\mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{DistanceCallback}}\ cb);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classToFSensor_a92205c9964186247b1345b8cf90cd91d}{start}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classToFSensor_a23a43c10a0ecbc2294d8d8ea93b0db98}{stop}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ softReset();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ startRanging();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ stopRanging();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00117\ \ \ \ \ uint16\_t\ readDistanceMm();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ worker();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ handleDataReady();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{classI2CBus}{I2CBus}}\&\ bus\_;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00135\ \ \ \ \ uint8\_t\ i2cAddress7Bit\_;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00138\ \ \ \ \ uint16\_t\ stDevAddress\_;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00141\ \ \ \ \ std::string\ gpioChipPath\_;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ gpioLine\_;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{classToFSensor_a74a6e8bd311175a1c39390bd55b3501f}{DistanceCallback}}\ distanceCallback\_;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ running\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00153\ \ \ \ \ std::thread\ thread\_;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ \ \ std::shared\_ptr<gpiod::chip>\ chip\_;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::shared\_ptr<gpiod::line\_request>\ request\_;}
+\DoxyCodeLine{00160\ \};}
 
 \end{DoxyCode}

@@ -11,30 +11,20 @@ A class which may be used to create a custom synth with an envelope attached to 
 
 
 
-Inheritance diagram for Trombone\+Synth\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=211pt]{classTromboneSynth__inherit__graph}
-\end{center}
-\end{figure}
+Inheritance diagram for Trombone\+Synth\+:
+% FIG 0
 
 
-Collaboration diagram for Trombone\+Synth\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=211pt]{classTromboneSynth__coll__graph}
-\end{center}
-\end{figure}
+Collaboration diagram for Trombone\+Synth\+:
+% FIG 1
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classTromboneSynth_ace1f00c513be279271cb58c3e6926e17}{Trombone\+Synth}} (int sample\+Rate=44100, float attack=500.\+0, float decay=50.\+0, float sustain=0.\+96, float rest=10.\+0)
 \begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classTromboneSynth}{Trombone\+Synth}} class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classTromboneSynth_ac2ea585357078a232c49e22654b85ed3}{Start\+Trombone\+Note}} (Notes\+::\+Notes\+\_\+t note\+\_\+in, int octave\+\_\+in)
+void \mbox{\hyperlink{classTromboneSynth_ac2ea585357078a232c49e22654b85ed3}{Start\+Trombone\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}} note\+\_\+in, int octave\+\_\+in)
 \begin{DoxyCompactList}\small\item\em A function which may be called to set the note and octave of a new sound by the user. If there is already a note playing, this will stop the previous not and play this one without phase shifting (initially). \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classTromboneSynth_ab2e5832b89e1d920373dd4b038bb7792}{Change\+Trombone\+Note}} (Notes\+::\+Notes\+\_\+t note\+\_\+in, int octave\+\_\+in)
+void \mbox{\hyperlink{classTromboneSynth_ab2e5832b89e1d920373dd4b038bb7792}{Change\+Trombone\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}} note\+\_\+in, int octave\+\_\+in)
 \begin{DoxyCompactList}\small\item\em A function that can change the current note without needed to change the stage that the envelope is in. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classTromboneSynth_ac781c21d38a2a47f01ac8c34f8963629}{Read\+Trombone\+Audio}} (void)
 \begin{DoxyCompactList}\small\item\em A function which may be called to read the current amplitude of the audio signal being generated. \end{DoxyCompactList}\item 
@@ -65,7 +55,7 @@ int \mbox{\hyperlink{classTromboneSynth_a75434218e9da679886d1cdc77fcac6ea}{get\+
 \begin{DoxyCompactList}\small\item\em A function to get the number of harmonics which are being generated for every note being played. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classTromboneSynth_abbdc884f53d9f57e7cb210f12477f1e7}{get\+Octave}} (void)
 \begin{DoxyCompactList}\small\item\em A function to get the current octave which the current note is in. \end{DoxyCompactList}\item 
-Notes\+::\+Notes\+\_\+t \mbox{\hyperlink{classTromboneSynth_abebafddf9bb40891e83b9b260e6e8e9d}{get\+Note}} (void)
+\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}} \mbox{\hyperlink{classTromboneSynth_abebafddf9bb40891e83b9b260e6e8e9d}{get\+Note}} (void)
 \begin{DoxyCompactList}\small\item\em A function to get the current note which is being used. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTromboneSynth_a2bbb1325b99f9b586f0637afcaa78dd2}{set\+Pitch\+Bend}} (int bend)
 \begin{DoxyCompactList}\small\item\em A function to set the pitch bend of the device. \end{DoxyCompactList}\item 
@@ -78,9 +68,9 @@ float \mbox{\hyperlink{classTromboneSynth_a8c3d268d1b2c41f78f8081c0b356839a}{get
 \item 
 {\bfseries Octaves\+With\+Harmonics} ()
 \begin{DoxyCompactList}\small\item\em Creates an instance of the {\ttfamily \doxylink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_aa2f7c9edb2eef430f0c18795747e4c41}{Playing\+Note\+With\+Harmonics}} (int n, int octave, Notes\+\_\+t note, float time)
+float \mbox{\hyperlink{classOctavesWithHarmonics_a80740c914b3cdda4e8cf4c8b194b623a}{Playing\+Note\+With\+Harmonics}} (int n, int octave, \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic notes when a specific note is called upon to be played. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_aada12badc25785e82187af576d49d606}{Playing\+Frequency\+With\+Harmonics}} (int n, float freq, float time)
+float \mbox{\hyperlink{classOctavesWithHarmonics_a4b66d3a6df6849de730aad0966330f41}{Playing\+Frequency\+With\+Harmonics}} (int n, float phase)
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}{Harmonic\+Decay}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\item 
@@ -93,9 +83,9 @@ float \mbox{\hyperlink{classOctavesWithHarmonics_a617c4acb3379692aa05736cf9747b8
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{classOctaves_a8f560ad8bf3c5ad4bdec4094e2119810}{Playing\+Note}} (int octave, Notes\+\_\+t note, float time)
-\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified time. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctaves_abfcba4d0b4f936d1bef9f5458c65fc36}{Playing\+Frequency}} (float freq, float time)
+float \mbox{\hyperlink{classOctaves_a023ab71a119c0bc8bb8c6c4919f0064f}{Playing\+Note}} (int octave, \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float phase)
+\begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified note at a specified phase. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classOctaves_ab77d9f9b4116757b6968606040af1c8c}{Playing\+Frequency}} (float phase)
 \begin{DoxyCompactList}\small\item\em A function which may be called to determine the amplitude of a specified frequency at a specified time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNotes}{Notes}}}
 \begin{DoxyCompactItemize}
@@ -136,7 +126,7 @@ void \mbox{\hyperlink{classNotes_ae65f2258ff7ad7714a0dc2ddb2d4c4a5}{set\+Bb}} (f
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the Bb note plays. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classNotes_a9073e06b45bf747f29dab9eae21eec76}{setB}} (float frequency)
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the frequency that the B note plays. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (Notes\+\_\+t note, float freq)
+float \mbox{\hyperlink{classNotes_a289e578ebfa78942170e0733ea111f6b}{set\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note, float freq)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to alter the frequency of a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a69625a0a056e70309af328d42b2bf86e}{getC}} (void)
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the C note for the specified object. \end{DoxyCompactList}\item 
@@ -172,14 +162,14 @@ float \mbox{\hyperlink{classNotes_aba2f8ad19fc1b28a8a5e9f2e1941e881}{get\+Bb}} (
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the Bb note for the specified object. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a192de65337df2408c3e56ca10a4c4c10}{getB}} (void)
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the B note for the specified object. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (Notes\+\_\+t note)
+float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to request a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Types inherited from \mbox{\hyperlink{classNotes}{Notes}}}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}\label{classNotes_a8734fb9c1094a3becd78fe783ad43c0c} 
-enum {\bfseries Notes\+\_\+t} \{ \newline
+enum \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} \{ \newline
 {\bfseries note\+\_\+C}
 , {\bfseries note\+\_\+\+Db}
 , {\bfseries note\+\_\+D}
@@ -202,17 +192,17 @@ enum {\bfseries Notes\+\_\+t} \{ \newline
 , \newline
 {\bfseries note\+\_\+\+A\+\_\+sharp} = note\+\_\+\+Bb
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creation of the enumerated list of possible notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
-Initialising an array of the octaves and their notes \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}n\+Octaves\mbox{]}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}\mbox{\hyperlink{classOctaves_aab55dc1e4e61330511e61c2c302ada6e}{n\+Octaves}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Initialising an array of the octaves and their notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classOctaves}{Octaves}}}
 \begin{DoxyCompactItemize}
 \item 
-Stores the number of octaves being used \texorpdfstring{$\ast$}{*}static const char {\bfseries n\+Octaves} = 9
-\end{DoxyCompactItemize}
+static const char {\bfseries n\+Octaves} = 9
+\begin{DoxyCompactList}\small\item\em Stores the number of octaves being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -249,7 +239,7 @@ The constructor function for the {\ttfamily \doxylink{classTromboneSynth}{Trombo
 \index{TromboneSynth@{TromboneSynth}!ChangeTromboneNote@{ChangeTromboneNote}}
 \index{ChangeTromboneNote@{ChangeTromboneNote}!TromboneSynth@{TromboneSynth}}
 \doxysubsubsection{\texorpdfstring{ChangeTromboneNote()}{ChangeTromboneNote()}}
-{\footnotesize\ttfamily void Trombone\+Synth\+::\+Change\+Trombone\+Note (\begin{DoxyParamCaption}\item[{Notes\+::\+Notes\+\_\+t}]{note\+\_\+in,  }\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Trombone\+Synth\+::\+Change\+Trombone\+Note (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}}}]{note\+\_\+in,  }\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
 
 
 
@@ -326,7 +316,7 @@ A function to get the number of harmonics which are being generated for every no
 \index{TromboneSynth@{TromboneSynth}!getNote@{getNote}}
 \index{getNote@{getNote}!TromboneSynth@{TromboneSynth}}
 \doxysubsubsection{\texorpdfstring{getNote()}{getNote()}}
-{\footnotesize\ttfamily Notes\+::\+Notes\+\_\+t Trombone\+Synth\+::get\+Note (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}} Trombone\+Synth\+::get\+Note (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
 
 
@@ -334,7 +324,7 @@ A function to get the current note which is being used.
 
 
 \begin{DoxyRetVals}{Return values}
-{\em The} & note of type Notes\+::\+Notes\+\_\+t being played. \\
+{\em The} & note of type \doxylink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t} being played. \\
 \hline
 \end{DoxyRetVals}
 \Hypertarget{classTromboneSynth_abbdc884f53d9f57e7cb210f12477f1e7}\label{classTromboneSynth_abbdc884f53d9f57e7cb210f12477f1e7} 
@@ -422,11 +412,6 @@ A function which can take in the MIDI equivalent note and map it to the Notes\+\
 
 A function which may be called to read the current amplitude of the audio signal being generated. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em time} & The time step which is being called. \\
-\hline
-\end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
 {\em Returns} & a floating point representation of the amplitude normalised between -\/1 and 1. \\
@@ -526,7 +511,7 @@ A function to set the relative amplitude of the sustain stage.
 \index{TromboneSynth@{TromboneSynth}!StartTromboneNote@{StartTromboneNote}}
 \index{StartTromboneNote@{StartTromboneNote}!TromboneSynth@{TromboneSynth}}
 \doxysubsubsection{\texorpdfstring{StartTromboneNote()}{StartTromboneNote()}}
-{\footnotesize\ttfamily void Trombone\+Synth\+::\+Start\+Trombone\+Note (\begin{DoxyParamCaption}\item[{Notes\+::\+Notes\+\_\+t}]{note\+\_\+in,  }\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Trombone\+Synth\+::\+Start\+Trombone\+Note (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}}}]{note\+\_\+in,  }\item[{int}]{octave\+\_\+in }\end{DoxyParamCaption})}
 
 
 
@@ -543,5 +528,5 @@ A function which may be called to set the note and octave of a new sound by the 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/ryan/\+Tromboneless/\+Core/include/\mbox{\hyperlink{tromboneSynth_8hpp}{trombone\+Synth.\+hpp}}\item 
-/home/ryan/\+Tromboneless/\+Core/src/\mbox{\hyperlink{tromboneSynth_8cpp}{trombone\+Synth.\+cpp}}\end{DoxyCompactItemize}
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/include/\mbox{\hyperlink{tromboneSynth_8hpp}{trombone\+Synth.\+hpp}}\item 
+/home/kerr-\/mclaren/\+Tromboneless/\+Tromboneless/\+Core/src/\mbox{\hyperlink{tromboneSynth_8cpp}{trombone\+Synth.\+cpp}}\end{DoxyCompactItemize}
