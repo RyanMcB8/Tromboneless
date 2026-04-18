@@ -7,7 +7,7 @@
 #include "CoreWrapper.hpp"
 
 CoreWrapper::CoreWrapper() : eventHandler(eventQueue, eventQueueMutex, eventQueueCv), coordinator(render){
-        const bool externalDevicePresent = midiSink.GetDeviceStatus();
+        externalDevicePresent = midiSink.GetDeviceStatus();
         coordinator.setDevice(externalDevicePresent);
 
         /* Ensuring that the event handler was initialised properly. */
