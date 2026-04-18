@@ -12,6 +12,7 @@
 #include "USBMidi.hpp"
 #include "audioRender.hpp"
 #include "PitchMapper.hpp"
+#include "AmplitudeMapper.hpp"
 
 int main() {
     try {
@@ -22,6 +23,7 @@ int main() {
         EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
         RtMidiSink midiSink;
         AudioRender render;
+        AmplitudeMapper amplitudemapper;
         PitchMapper pitchmapper;
         MidiCoordinator coordinator(render);
         
@@ -52,7 +54,28 @@ int main() {
             std::cout << "External MIDI mode\n";
         }
 
-        bool pressure_gate = false;
+        std::cout << "Beginning Pressure Baseline Calculation\n";
+        // Baseline collection loop
+        while (true) {
+            RawInputEvent event;
+            {
+                std::unique_lock<std::mutex> lock(eventQueueMutex);
+                eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
+                event = eventQueue.front();
+                eventQueue.pop();
+            }
+
+            // Only feed pressure readings to the baseline
+            if (event.type == RawInputEvent::Type::PressureReading) {
+                if (amplitudemapper.calculateBaseline(event.pressureReading)) {
+                    break;
+                }
+            }
+        }
+        std::cout << "Pressure Baseline found to be: " << amplitudemapper.getBaseline() << "\n";
+
+
+        // bool pressure_gate = false;
         int current_note = 0;
         int new_note = 0;
 
@@ -71,13 +94,7 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::PressureReading:
-                    if (event.pressureReading < 0.22f && !pressure_gate) {
-                        coordinator.PressureEdge(true);
-                        pressure_gate = true;
-                    } else if (event.pressureReading > 0.22f && pressure_gate) {
-                        coordinator.PressureEdge(false);
-                        pressure_gate = false;
-                    }
+                    coordinator.PressureEdge(amplitudemapper.noteEdge(event.pressureReading));
                     break;
 
                 case RawInputEvent::Type::MouthpieceReading:

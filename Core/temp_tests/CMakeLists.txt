@@ -59,7 +59,7 @@ target_sources(TrombonelessCoreTests PRIVATE
     ${PROJECT_ROOT}/src/MidiMessageBuilder.cpp
     ${PROJECT_ROOT}/src/eventHandler.cpp
     ${PROJECT_ROOT}/src/PitchMapper.cpp
-
+    ${PROJECT_ROOT}/src/AmplitudeMapper.cpp
     ${PROJECT_ROOT}/src/audioRender.cpp
 
     ${PROJECT_ROOT}/src/synth.cpp

@@ -16,7 +16,7 @@ AudioOutput::AudioOutput() {
         1,          // mono
         44100,      // sample rate
         1,          // allow resampling
-        500000      // latency in us
+        5000      // latency in us
     );
 
     if (err < 0) {
