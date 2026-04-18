@@ -1,9 +1,0 @@
-<map id="CalibrationSlider" name="CalibrationSlider">
-<area shape="rect" id="Node000001" title="A class that adds more functionality to the slider class from Juce." alt="" coords="82,155,198,181"/>
-<area shape="rect" id="Node000002" href="$class_slider_with_label.html" title="A class which inherits attributes from the juce::Component class to create a new component containing..." alt="" coords="9,80,122,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,115,130,154,125,155,88,120"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,126,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="66,45,68,80,63,79,65,50"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="146,80,286,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="195,117,155,156,152,152,190,118"/>
-</map>

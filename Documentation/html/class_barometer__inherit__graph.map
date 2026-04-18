@@ -1,9 +1,0 @@
-<map id="Barometer" name="Barometer">
-<area shape="rect" id="Node000001" title="A class which can allow for the look and feel of a set of rotary sliders be modified to look like a b..." alt="" coords="102,155,184,181"/>
-<area shape="rect" id="Node000002" href="$class_dual_rotary_slider.html" title="A class that adds more functionality to the slider class from Juce." alt="" coords="83,80,203,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,121,145,156,140,153,141,124"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,126,32"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,40,132,79,127,80,90,45"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="150,5,290,32"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="198,41,158,82,154,78,193,44"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="EqualizerPanel" name="EqualizerPanel">
-<area shape="rect" id="Node000001" title="A class which may be called to add a panel to the window contains a series of sliders for the equaliz..." alt="" coords="81,152,198,177"/>
-<area shape="rect" id="Node000002" href="$classPanels.html" title="A class which is inherited from Juce:Component reponsible for setting the general style of a panel wi..." alt="" coords="39,79,103,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,112,130,150,126,154,90,116"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,137,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="74,44,74,79,69,79,69,44"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="127,79,287,104"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,116,152,154,148,150,185,112"/>
-</map>
