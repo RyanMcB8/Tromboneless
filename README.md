@@ -69,9 +69,9 @@ Total Cost: £34.59
 
 | Additional Components                                          | Quantity | 
 |----------------------------------------------------------------|----------|
-| 10.0 kΩ Resistor                                               | 1        |    
-| 300.0 Ω Resistor                                               | 1        |   
-| 390.0 kΩ Resistor                                              | 1        |   
+| 10.0 k ohm Resistor                                            | 1        |    
+| 300.0 ohm Resistor                                             | 1        |   
+| 390.0 k ohm Resistor                                           | 1        |   
 | USB MIDI Cable                                                 | 1        |    
 | Infrared LED                                                   | 1        |    
 | Photodiode                                                     | 1        |

@@ -2,3 +2,154 @@
 \hypertarget{index}{}\label{index}\index{Tromboneless@{Tromboneless}}
 \label{index_md__2home_2ryan-mcbride_2Documents_2Tromboneless_2README}%
 \Hypertarget{index_md__2home_2ryan-mcbride_2Documents_2Tromboneless_2README}%
+ This Git\+Hub repository contains the open source hardware and firmware for Tromboneless -\/ an open source device capable of measuring oral input to synthesise the output of a brass trombone using a Raspberry Pi 5, implementing MIDI protocol.
+
+Please refer to our Wiki \href{https://github.com/RyanMcB8/Tromboneless/wiki}{\texttt{ wiki}} to see component, sequence and state diagrams for the MIDI implementation.\hypertarget{index_autotoc_md18}{}\doxysection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{index_autotoc_md18}
+
+\begin{DoxyItemize}
+\item Getting Started
+\item Dependencies
+\item Bill of Materials
+\item Social Media
+\item Acknowledgements
+\item Authors \& Contributions
+\item License
+\end{DoxyItemize}\hypertarget{index_autotoc_md19}{}\doxysection{\texorpdfstring{Getting Started\+:}{Getting Started:}}\label{index_autotoc_md19}
+
+\begin{DoxyEnumerate}
+\item Install Raspberry Pi OS onto your Raspberry Pi.~\newline
+ For set-\/up guidance for Pi\+OS, please follow \mbox{[}this guide\mbox{]}.(\href{https://www.raspberrypi.com/documentation/computers/getting-started.html\#installing-the-operating-system}{\texttt{ https\+://www.\+raspberrypi.\+com/documentation/computers/getting-\/started.\+html\#installing-\/the-\/operating-\/system}}) ~\newline
+ ~\newline
+
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Option 1}{Option 1}}\label{index_autotoc_md20}
+
+\begin{DoxyEnumerate}
+\item clone this git repository and its submodule dependencies using one line one the command line\+:~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ -\/-\/recursive\ https://github.com/RyanMcB8/Tromboneless.git\ }
+
+\end{DoxyCode}
+ ~\newline
+
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{Option 2}{Option 2}}\label{index_autotoc_md21}
+
+\begin{DoxyEnumerate}
+\item clone this git repository using the command\+:~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/RyanMcB8/Tromboneless.git\ }
+
+\end{DoxyCode}
+ ~\newline
+
+\item To add the necessary submodules into the workspace, you will need to use the following command line commands\+:~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ submodules\ init}
+
+\end{DoxyCode}
+ ~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ submodules\ update}
+
+\end{DoxyCode}
+ ~\newline
+
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{index_autotoc_md22}
+The Tromboneless App utilises the JUCE framework to create all the widgets necessary for operation.
+
+
+\begin{DoxyItemize}
+\item Juce ~\newline
+
+\item RTMidi ~\newline
+
+\item libgpiod (specifically for interacting with the GPIO pins on the Pi) ~\newline
+
+\item webkit2gtk-\/4.\+1 ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{Bill of Materials}{Bill of Materials}}\label{index_autotoc_md23}
+Below contains the materials required to construct the Tromboneless hardware, with a circuit diagram showing how to configure it.\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Controller}{Controller}}\label{index_autotoc_md24}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Microcontroller   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Quantity   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cost (£)    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Microcontroller   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Quantity   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cost (£)    }\\\cline{1-3}
+\endhead
+Raspberry Pi 5   &1   &58.\+98    \\\cline{1-3}
+Active Cooler for Raspberry Pi 5 (recommended)   &1   &4.\+80   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{Sensors}{Sensors}}\label{index_autotoc_md25}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sensors   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Quantity   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cost (£)    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sensors   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Quantity   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cost (£)    }\\\cline{1-3}
+\endhead
+VL53\+L1X Time of Flight (ToF) Sensor Breakout   &1   &20.\+40    \\\cline{1-3}
+\doxylink{classCAP1188}{CAP1188} 8-\/Key Capacitive Touch Sensor   &1   &7.\+70    \\\cline{1-3}
+ADS1115 16-\/bit ADC   &1   &6.\+49   \\\cline{1-3}
+\end{longtabu}
+
+
+Total Cost\+: £34.59\hypertarget{index_autotoc_md26}{}\doxysubsection{\texorpdfstring{Additional Components}{Additional Components}}\label{index_autotoc_md26}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Additional Components   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Quantity    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Additional Components   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Quantity    }\\\cline{1-2}
+\endhead
+10.\+0 k ohm Resistor   &1    \\\cline{1-2}
+300.\+0 ohm Resistor   &1    \\\cline{1-2}
+390.\+0 k ohm Resistor   &1    \\\cline{1-2}
+USB MIDI Cable   &1    \\\cline{1-2}
+Infrared LED   &1    \\\cline{1-2}
+Photodiode   &1   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{index_autotoc_md27}{}\doxysubsection{\texorpdfstring{Circuit Diagram}{Circuit Diagram}}\label{index_autotoc_md27}
+Circuit diagram showing how to assemble the Tromboneless \+:
+
+\hypertarget{index_autotoc_md28}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md28}
+For documentation of the code used, please refer to the \href{https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation}{\texttt{ Documentation}} directory where there are both La\+Tex and HTML versions of the documentation for this project.~\newline
+\hypertarget{index_autotoc_md29}{}\doxysection{\texorpdfstring{Social Media}{Social Media}}\label{index_autotoc_md29}
+
+\begin{DoxyItemize}
+\item \#1 Post on \href{https://www.reddit.com/r/Trombone/}{\texttt{ r/\+Trombone}}~\newline
+
+\item 28.\+6k+ Views across \href{https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/}{\texttt{ r/\+Embedded}}, \href{https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/}{\texttt{ r/\+Trombone}} and \href{https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/}{\texttt{ r/linuxaudio}}
+\end{DoxyItemize}
+
+Follow us for additional updates, including showcase videos and demonstrations\+:~\newline
+
+
+\href{https://www.reddit.com/user/Forward_Vehicle4096/}{\texttt{ Reddit}}~\newline
+ \href{https://www.instagram.com/tromboneless.tech/}{\texttt{ Instagram}}~\newline
+\hypertarget{index_autotoc_md30}{}\doxysection{\texorpdfstring{Authors and Contributions}{Authors and Contributions}}\label{index_autotoc_md30}
+
+\begin{DoxyItemize}
+\item Ben Allen -\/
+\item Aidan Mac\+Intosh -\/
+\item Ryan Mc\+Bride -\/
+\item Kerr Mc\+Laren -\/
+\item Ciaran Rogers -\/ ~\newline
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md31}{}\doxysection{\texorpdfstring{License}{License}}\label{index_autotoc_md31}
+\hypertarget{index_autotoc_md32}{}\doxysubsection{\texorpdfstring{ADS1115}{ADS1115}}\label{index_autotoc_md32}
+
+\begin{DoxyItemize}
+\item The ADS1115 library was adopted from \href{https://github.com/berndporr}{\texttt{ Bernd Porr}}, which can be sourced \href{https://github.com/berndporr/rpi_ads1115}{\texttt{ here}}. 
+\end{DoxyItemize}

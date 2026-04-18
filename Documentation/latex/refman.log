@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.18)  18 APR 2026 23:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.4.18)  19 APR 2026 00:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,44 +916,140 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 18.66588pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
-) (./md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.tex [1
-
-]
-[2
-
-]
-Chapter 2.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 5.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 19.
-[3]
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 4
-4.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+(Font)              scaled to size 12.9599pt on input line 7.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
+0.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 44.
-)
-(./md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Core_2Firmware__Notes.tex
+(Font)              scaled to size 8.99994pt on input line 10.
+
+Underfull \hbox (badness 6188) in paragraph at lines 20--23
+\T1/phv/m/n/10 For set-up guid-ance for Pi[]OS, please fol-low []this guide[].(
+[][] \T1/pcr/m/n/10 https[]://www.[]raspberrypi.[]
+ []
+
+
+Overfull \hbox (52.75285pt too wide) in paragraph at lines 20--23
+\T1/pcr/m/n/10 com/documentation/computers/getting-started.[]html#installing-th
+e-operating-system[][]\T1/phv/m/n/10 )
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--23
+
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 24.
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+[1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
+
+ []
+
+[3]) (./md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.tex
 [4]
+Chapter 2.
+[5
+
+])
+(./md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Core_2Firmware__Notes.tex
+[6]
 Chapter 3.
 )
 (./md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2H
-ardware__Notes.tex [5
+ardware__Notes.tex [7
 
-] [6
+] [8
 
 ]
 Chapter 4.
-[7]) [8]
+[9]) [10]
 Chapter 5.
-(./hierarchy.tex [9
+(./hierarchy.tex [11
 
-]) [10]
+]) [12]
 Chapter 6.
-(./annotated.tex [11
+(./annotated.tex [13
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 32--32
@@ -966,30 +1062,30 @@ Underfull \hbox (badness 2818) in paragraph at lines 37--37
 ://github.[]com/berndporr/rpi[]_[] 
  []
 
-[12]) [13] [14
+[14]) [15] [16
 
 ]
 Chapter 7.
-(./files.tex [15]) [16]
+(./files.tex [17]) [18]
 Chapter 8.
 (./classAmplitudeMapper.tex) (./classAudioOutput.tex) (./classAudioRender.tex <
 ./classAudioRender__inherit__graph.pdf>
-<classAudioRender__inherit__graph.pdf, id=2612, 211.79124pt x 320.19624pt>
+<classAudioRender__inherit__graph.pdf, id=2734, 211.79124pt x 320.19624pt>
 File: classAudioRender__inherit__graph.pdf Graphic file (type pdf)
 <use classAudioRender__inherit__graph.pdf>
 Package pdftex.def Info: classAudioRender__inherit__graph.pdf  used on input li
 ne 9.
 (pdftex.def)             Requested size: 211.0pt x 319.01308pt.
- [17
+ [19
 
 ] <./classAudioRender__coll__graph.pdf>
-<classAudioRender__coll__graph.pdf, id=2632, 211.79124pt x 334.24875pt>
+<classAudioRender__coll__graph.pdf, id=2753, 211.79124pt x 334.24875pt>
 File: classAudioRender__coll__graph.pdf Graphic file (type pdf)
 <use classAudioRender__coll__graph.pdf>
 Package pdftex.def Info: classAudioRender__coll__graph.pdf  used on input line 
 18.
 (pdftex.def)             Requested size: 211.0pt x 333.01367pt.
- [18]
+ [20]
 Underfull \hbox (badness 795) in paragraph at lines 57--58
 [][] \T1/phv/m/n/10 (int sample[]Rate=44100, float attack=10.[]0f, float decay=
 50.[]0f, float sustain=1.[]0f, float
@@ -1005,27 +1101,27 @@ LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 58.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 58.
-[19]
+[21]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 68.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 6.29996pt on input line 68.
- [20] [21] [22]) (./classBarometer.tex [23] <./classBarometer__inherit__graph.p
+ [22] [23] [24]) (./classBarometer.tex [25] <./classBarometer__inherit__graph.p
 df>
-<classBarometer__inherit__graph.pdf, id=2856, 315.1775pt x 209.78375pt>
+<classBarometer__inherit__graph.pdf, id=2977, 315.1775pt x 209.78375pt>
 File: classBarometer__inherit__graph.pdf Graphic file (type pdf)
 <use classBarometer__inherit__graph.pdf>
 Package pdftex.def Info: classBarometer__inherit__graph.pdf  used on input line
  18.
 (pdftex.def)             Requested size: 314.0pt x 209.01176pt.
  <./classBarometer__coll__graph.pdf>
-<classBarometer__coll__graph.pdf, id=2864, 315.1775pt x 209.78375pt>
+<classBarometer__coll__graph.pdf, id=2985, 315.1775pt x 209.78375pt>
 File: classBarometer__coll__graph.pdf Graphic file (type pdf)
 <use classBarometer__coll__graph.pdf>
 Package pdftex.def Info: classBarometer__coll__graph.pdf  used on input line 27
 .
 (pdftex.def)             Requested size: 314.0pt x 209.01176pt.
- [24] [25] [26]
+ [26] [27] [28]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 8.99994pt on input line 133.
 
@@ -1035,14 +1131,14 @@ Underfull \hbox (badness 10000) detected at line 133
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 143.
-[27] [28]
+[29] [30]
 Underfull \hbox (badness 10000) detected at line 259
 [][][]
  []
 
-[29] [30]) (./classCalibrateEmbouchure.tex <./classCalibrateEmbouchure__inherit
+[31] [32]) (./classCalibrateEmbouchure.tex <./classCalibrateEmbouchure__inherit
 __graph.pdf>
-<classCalibrateEmbouchure__inherit__graph.pdf, id=3012, 319.1925pt x 209.78375p
+<classCalibrateEmbouchure__inherit__graph.pdf, id=3133, 319.1925pt x 209.78375p
 t>
 File: classCalibrateEmbouchure__inherit__graph.pdf Graphic file (type pdf)
 <use classCalibrateEmbouchure__inherit__graph.pdf>
@@ -1050,13 +1146,13 @@ Package pdftex.def Info: classCalibrateEmbouchure__inherit__graph.pdf  used on
 input line 18.
 (pdftex.def)             Requested size: 318.0pt x 209.00215pt.
  <./classCalibrateEmbouchure__coll__graph.pdf>
-<classCalibrateEmbouchure__coll__graph.pdf, id=3020, 319.1925pt x 209.78375pt>
+<classCalibrateEmbouchure__coll__graph.pdf, id=3141, 319.1925pt x 209.78375pt>
 File: classCalibrateEmbouchure__coll__graph.pdf Graphic file (type pdf)
 <use classCalibrateEmbouchure__coll__graph.pdf>
 Package pdftex.def Info: classCalibrateEmbouchure__coll__graph.pdf  used on inp
 ut line 27.
 (pdftex.def)             Requested size: 318.0pt x 209.00215pt.
- [31] [32]
+ [33] [34]
 Underfull \hbox (badness 10000) detected at line 64
 [][][]
  []
@@ -1068,7 +1164,7 @@ Underfull \hbox (badness 10000) detected at line 80
 
 ) (./classCalibrationOnClick.tex <./classCalibrationOnClick__inherit__graph.pdf
 >
-<classCalibrationOnClick__inherit__graph.pdf, id=3066, 319.1925pt x 209.78375pt
+<classCalibrationOnClick__inherit__graph.pdf, id=3187, 319.1925pt x 209.78375pt
 >
 File: classCalibrationOnClick__inherit__graph.pdf Graphic file (type pdf)
 <use classCalibrationOnClick__inherit__graph.pdf>
@@ -1076,20 +1172,20 @@ Package pdftex.def Info: classCalibrationOnClick__inherit__graph.pdf  used on i
 nput line 18.
 (pdftex.def)             Requested size: 318.0pt x 209.00215pt.
  <./classCalibrationOnClick__coll__graph.pdf>
-<classCalibrationOnClick__coll__graph.pdf, id=3074, 319.1925pt x 154.5775pt>
+<classCalibrationOnClick__coll__graph.pdf, id=3195, 319.1925pt x 154.5775pt>
 File: classCalibrationOnClick__coll__graph.pdf Graphic file (type pdf)
 <use classCalibrationOnClick__coll__graph.pdf>
 Package pdftex.def Info: classCalibrationOnClick__coll__graph.pdf  used on inpu
 t line 27.
 (pdftex.def)             Requested size: 318.0pt x 154.00159pt.
- [33]
+ [35]
 Underfull \hbox (badness 10000) detected at line 62
 [][][]
  []
 
-[34]) (./classCalibrationSlider.tex <./classCalibrationSlider__inherit__graph.p
+[36]) (./classCalibrationSlider.tex <./classCalibrationSlider__inherit__graph.p
 df>
-<classCalibrationSlider__inherit__graph.pdf, id=3106, 312.16624pt x 209.78375pt
+<classCalibrationSlider__inherit__graph.pdf, id=3228, 312.16624pt x 209.78375pt
 >
 File: classCalibrationSlider__inherit__graph.pdf Graphic file (type pdf)
 <use classCalibrationSlider__inherit__graph.pdf>
@@ -1097,13 +1193,13 @@ Package pdftex.def Info: classCalibrationSlider__inherit__graph.pdf  used on in
 put line 18.
 (pdftex.def)             Requested size: 311.0pt x 209.00536pt.
  <./classCalibrationSlider__coll__graph.pdf>
-<classCalibrationSlider__coll__graph.pdf, id=3114, 312.16624pt x 209.78375pt>
+<classCalibrationSlider__coll__graph.pdf, id=3236, 312.16624pt x 209.78375pt>
 File: classCalibrationSlider__coll__graph.pdf Graphic file (type pdf)
 <use classCalibrationSlider__coll__graph.pdf>
 Package pdftex.def Info: classCalibrationSlider__coll__graph.pdf  used on input
  line 27.
 (pdftex.def)             Requested size: 311.0pt x 209.00536pt.
- [35] [36] [37]
+ [37] [38] [39]
 Underfull \hbox (badness 10000) detected at line 143
 [][][]
  []
@@ -1115,7 +1211,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
  []
 
  <./classCalibrationSliderLookAndFeel__inherit__graph.pdf>
-<classCalibrationSliderLookAndFeel__inherit__graph.pdf, id=3186, 240.9pt x 154.
+<classCalibrationSliderLookAndFeel__inherit__graph.pdf, id=3307, 240.9pt x 154.
 5775pt>
 File: classCalibrationSliderLookAndFeel__inherit__graph.pdf Graphic file (type 
 pdf)
@@ -1124,7 +1220,7 @@ Package pdftex.def Info: classCalibrationSliderLookAndFeel__inherit__graph.pdf
  used on input line 18.
 (pdftex.def)             Requested size: 240.0pt x 154.00394pt.
  <./classCalibrationSliderLookAndFeel__coll__graph.pdf>
-<classCalibrationSliderLookAndFeel__coll__graph.pdf, id=3194, 240.9pt x 154.577
+<classCalibrationSliderLookAndFeel__coll__graph.pdf, id=3315, 240.9pt x 154.577
 5pt>
 File: classCalibrationSliderLookAndFeel__coll__graph.pdf Graphic file (type pdf
 )
@@ -1132,12 +1228,12 @@ File: classCalibrationSliderLookAndFeel__coll__graph.pdf Graphic file (type pdf
 Package pdftex.def Info: classCalibrationSliderLookAndFeel__coll__graph.pdf  us
 ed on input line 27.
 (pdftex.def)             Requested size: 240.0pt x 154.00394pt.
- [38]
+ [40]
 Underfull \hbox (badness 10000) detected at line 60
 [][][]
  []
 
-[39] [40]
+[41] [42]
 Underfull \hbox (badness 10000) detected at line 129
 [][][]
  []
@@ -1146,62 +1242,62 @@ Underfull \hbox (badness 10000) detected at line 129
 Overfull \vbox (1.92148pt too high) has occurred while \output is active []
 
 
-[41]
+[43]
 Underfull \hbox (badness 10000) detected at line 207
 [][][]
  []
 
-[42]) (./classCAP1188.tex) (./classCAP1188Channel.tex [43])
+[44]) (./classCAP1188.tex) (./classCAP1188Channel.tex [45])
 (./classCAP1188Printer.tex) (./classCoreWrapper.tex) (./classDropDownMenu.tex <
 ./classDropDownMenu__inherit__graph.pdf>
-<classDropDownMenu__inherit__graph.pdf, id=3300, 179.67125pt x 154.5775pt>
+<classDropDownMenu__inherit__graph.pdf, id=3421, 179.67125pt x 154.5775pt>
 File: classDropDownMenu__inherit__graph.pdf Graphic file (type pdf)
 <use classDropDownMenu__inherit__graph.pdf>
 Package pdftex.def Info: classDropDownMenu__inherit__graph.pdf  used on input l
 ine 18.
 (pdftex.def)             Requested size: 179.0pt x 154.01102pt.
- [44] <./classDropDownMenu__coll__graph.pdf>
-<classDropDownMenu__coll__graph.pdf, id=3325, 179.67125pt x 154.5775pt>
+ [46] <./classDropDownMenu__coll__graph.pdf>
+<classDropDownMenu__coll__graph.pdf, id=3446, 179.67125pt x 154.5775pt>
 File: classDropDownMenu__coll__graph.pdf Graphic file (type pdf)
 <use classDropDownMenu__coll__graph.pdf>
 Package pdftex.def Info: classDropDownMenu__coll__graph.pdf  used on input line
  27.
 (pdftex.def)             Requested size: 179.0pt x 154.01102pt.
- [45] [46]
+ [47] [48]
 Underfull \hbox (badness 10000) detected at line 138
 [][][]
  []
 
 ) (./classDropDownMenus.tex <./classDropDownMenus__inherit__graph.pdf>
-<classDropDownMenus__inherit__graph.pdf, id=3366, 180.675pt x 209.78375pt>
+<classDropDownMenus__inherit__graph.pdf, id=3488, 180.675pt x 209.78375pt>
 File: classDropDownMenus__inherit__graph.pdf Graphic file (type pdf)
 <use classDropDownMenus__inherit__graph.pdf>
 Package pdftex.def Info: classDropDownMenus__inherit__graph.pdf  used on input 
 line 18.
 (pdftex.def)             Requested size: 180.0pt x 209.00215pt.
- [47] <./classDropDownMenus__coll__graph.pdf>
-<classDropDownMenus__coll__graph.pdf, id=3382, 180.675pt x 209.78375pt>
+ [49] <./classDropDownMenus__coll__graph.pdf>
+<classDropDownMenus__coll__graph.pdf, id=3503, 180.675pt x 209.78375pt>
 File: classDropDownMenus__coll__graph.pdf Graphic file (type pdf)
 <use classDropDownMenus__coll__graph.pdf>
 Package pdftex.def Info: classDropDownMenus__coll__graph.pdf  used on input lin
 e 27.
 (pdftex.def)             Requested size: 180.0pt x 209.00215pt.
- [48]) (./classDualRotarySlider.tex <./classDualRotarySlider__inherit__graph.pd
+ [50]) (./classDualRotarySlider.tex <./classDualRotarySlider__inherit__graph.pd
 f>
-<classDualRotarySlider__inherit__graph.pdf, id=3412, 315.1775pt x 209.78375pt>
+<classDualRotarySlider__inherit__graph.pdf, id=3533, 315.1775pt x 209.78375pt>
 File: classDualRotarySlider__inherit__graph.pdf Graphic file (type pdf)
 <use classDualRotarySlider__inherit__graph.pdf>
 Package pdftex.def Info: classDualRotarySlider__inherit__graph.pdf  used on inp
 ut line 18.
 (pdftex.def)             Requested size: 314.0pt x 209.01176pt.
  <./classDualRotarySlider__coll__graph.pdf>
-<classDualRotarySlider__coll__graph.pdf, id=3420, 315.1775pt x 154.5775pt>
+<classDualRotarySlider__coll__graph.pdf, id=3541, 315.1775pt x 154.5775pt>
 File: classDualRotarySlider__coll__graph.pdf Graphic file (type pdf)
 <use classDualRotarySlider__coll__graph.pdf>
 Package pdftex.def Info: classDualRotarySlider__coll__graph.pdf  used on input 
 line 27.
 (pdftex.def)             Requested size: 314.0pt x 154.00865pt.
- [49] [50] [51] [52] [53] [54] [55]
+ [51] [52] [53] [54] [55] [56] [57]
 Underfull \hbox (badness 10000) detected at line 375
 [][][]
  []
@@ -1212,7 +1308,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 /[]Documents/[]Tromboneless/[]Core/include/envelope.[]
  []
 
-[56] [57]
+[58] [59]
 Underfull \hbox (badness 10000) detected at line 72
 [][][]
  []
@@ -1222,7 +1318,7 @@ Underfull \hbox (badness 10000) detected at line 99
 [][][]
  []
 
-[58]
+[60]
 Underfull \hbox (badness 10000) detected at line 120
 [][][]
  []
@@ -1232,26 +1328,26 @@ Underfull \hbox (badness 10000) detected at line 138
 [][][]
  []
 
-[59] [60]
+[61] [62]
 Underfull \hbox (badness 10000) detected at line 246
 [][][]
  []
 
-[61] [62]) (./classEqualizer.tex <./classEqualizer__inherit__graph.pdf>
-<classEqualizer__inherit__graph.pdf, id=3638, 312.16624pt x 264.99pt>
+[63] [64]) (./classEqualizer.tex <./classEqualizer__inherit__graph.pdf>
+<classEqualizer__inherit__graph.pdf, id=3759, 312.16624pt x 264.99pt>
 File: classEqualizer__inherit__graph.pdf Graphic file (type pdf)
 <use classEqualizer__inherit__graph.pdf>
 Package pdftex.def Info: classEqualizer__inherit__graph.pdf  used on input line
  18.
 (pdftex.def)             Requested size: 311.0pt x 264.00679pt.
  <./classEqualizer__coll__graph.pdf>
-<classEqualizer__coll__graph.pdf, id=3646, 312.16624pt x 264.99pt>
+<classEqualizer__coll__graph.pdf, id=3767, 312.16624pt x 264.99pt>
 File: classEqualizer__coll__graph.pdf Graphic file (type pdf)
 <use classEqualizer__coll__graph.pdf>
 Package pdftex.def Info: classEqualizer__coll__graph.pdf  used on input line 27
 .
 (pdftex.def)             Requested size: 311.0pt x 264.00679pt.
- [63] [64]
+ [65] [66]
 pdfTeX warning (ext4): destination with the same identifier (name{classSliderWi
 thLabel_ad8662ad2ad354d6769f15e555f32f2fe}) has been already used, duplicate ig
 nored
@@ -1267,7 +1363,7 @@ nored
                    \relax 
 l.105 ...hLabel_ab9bc346c16ea8bf568905afc99ab9bc3}
                                                   \label{classSliderWithLabe...
-[65]
+[67]
 Underfull \hbox (badness 10000) detected at line 138
 [][][]
  []
@@ -1282,33 +1378,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--161
 
  []
 
-) (./classEqualizerPanel.tex [66] <./classEqualizerPanel__inherit__graph.pdf>
-<classEqualizerPanel__inherit__graph.pdf, id=3722, 293.095pt x 209.78375pt>
+) (./classEqualizerPanel.tex [68] <./classEqualizerPanel__inherit__graph.pdf>
+<classEqualizerPanel__inherit__graph.pdf, id=3843, 293.095pt x 209.78375pt>
 File: classEqualizerPanel__inherit__graph.pdf Graphic file (type pdf)
 <use classEqualizerPanel__inherit__graph.pdf>
 Package pdftex.def Info: classEqualizerPanel__inherit__graph.pdf  used on input
  line 18.
 (pdftex.def)             Requested size: 292.0pt x 208.99896pt.
  <./classEqualizerPanel__coll__graph.pdf>
-<classEqualizerPanel__coll__graph.pdf, id=3730, 293.095pt x 209.78375pt>
+<classEqualizerPanel__coll__graph.pdf, id=3851, 293.095pt x 209.78375pt>
 File: classEqualizerPanel__coll__graph.pdf Graphic file (type pdf)
 <use classEqualizerPanel__coll__graph.pdf>
 Package pdftex.def Info: classEqualizerPanel__coll__graph.pdf  used on input li
 ne 27.
 (pdftex.def)             Requested size: 292.0pt x 208.99896pt.
- [67]
+ [69]
 Underfull \hbox (badness 10000) detected at line 77
 [][][]
  []
 
-[68]
+[70]
 Underfull \hbox (badness 10000) detected at line 90
 [][][]
  []
 
 ) (./classEventHandler.tex) (./classGuiAppApplication.tex <./classGuiAppApplica
 tion__inherit__graph.pdf>
-<classGuiAppApplication__inherit__graph.pdf, id=3770, 201.75375pt x 154.5775pt>
+<classGuiAppApplication__inherit__graph.pdf, id=3891, 201.75375pt x 154.5775pt>
 
 File: classGuiAppApplication__inherit__graph.pdf Graphic file (type pdf)
 <use classGuiAppApplication__inherit__graph.pdf>
@@ -1316,14 +1412,14 @@ Package pdftex.def Info: classGuiAppApplication__inherit__graph.pdf  used on in
 put line 14.
 (pdftex.def)             Requested size: 201.0pt x 154.00159pt.
  <./classGuiAppApplication__coll__graph.pdf>
-<classGuiAppApplication__coll__graph.pdf, id=3778, 201.75375pt x 154.5775pt>
+<classGuiAppApplication__coll__graph.pdf, id=3899, 201.75375pt x 154.5775pt>
 File: classGuiAppApplication__coll__graph.pdf Graphic file (type pdf)
 <use classGuiAppApplication__coll__graph.pdf>
 Package pdftex.def Info: classGuiAppApplication__coll__graph.pdf  used on input
  line 23.
 (pdftex.def)             Requested size: 201.0pt x 154.00159pt.
- [69]
-[70]
+ [71]
+[72]
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 50.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
@@ -1348,25 +1444,25 @@ Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-[71]
+[73]
 Underfull \hbox (badness 10000) detected at line 128
 [][][]
  []
 
 ) (./classI2CBus.tex) (./classLayout.tex <./classLayout__inherit__graph.pdf>
-<classLayout__inherit__graph.pdf, id=3826, 179.67125pt x 154.5775pt>
+<classLayout__inherit__graph.pdf, id=3947, 179.67125pt x 154.5775pt>
 File: classLayout__inherit__graph.pdf Graphic file (type pdf)
 <use classLayout__inherit__graph.pdf>
 Package pdftex.def Info: classLayout__inherit__graph.pdf  used on input line 18
 .
 (pdftex.def)             Requested size: 179.0pt x 154.01102pt.
  <./classLayout__coll__graph.pdf>
-<classLayout__coll__graph.pdf, id=3834, 179.67125pt x 154.5775pt>
+<classLayout__coll__graph.pdf, id=3955, 179.67125pt x 154.5775pt>
 File: classLayout__coll__graph.pdf Graphic file (type pdf)
 <use classLayout__coll__graph.pdf>
 Package pdftex.def Info: classLayout__coll__graph.pdf  used on input line 27.
 (pdftex.def)             Requested size: 179.0pt x 154.01102pt.
- [72] [73] [74]
+ [74] [75] [76]
 Underfull \hbox (badness 10000) detected at line 58
 [][][]
  []
@@ -1378,7 +1474,7 @@ Underfull \hbox (badness 10000) detected at line 71
 
 ) (./classGuiAppApplication_1_1MainWindow.tex <./classGuiAppApplication_1_1Main
 Window__inherit__graph.pdf>
-<classGuiAppApplication_1_1MainWindow__inherit__graph.pdf, id=3873, 212.795pt x
+<classGuiAppApplication_1_1MainWindow__inherit__graph.pdf, id=3994, 212.795pt x
  165.61874pt>
 File: classGuiAppApplication_1_1MainWindow__inherit__graph.pdf Graphic file (ty
 pe pdf)
@@ -1387,7 +1483,7 @@ Package pdftex.def Info: classGuiAppApplication_1_1MainWindow__inherit__graph.p
 df  used on input line 14.
 (pdftex.def)             Requested size: 212.0pt x 165.00928pt.
  <./classGuiAppApplication_1_1MainWindow__coll__graph.pdf>
-<classGuiAppApplication_1_1MainWindow__coll__graph.pdf, id=3881, 212.795pt x 16
+<classGuiAppApplication_1_1MainWindow__coll__graph.pdf, id=4002, 212.795pt x 16
 5.61874pt>
 File: classGuiAppApplication_1_1MainWindow__coll__graph.pdf Graphic file (type 
 pdf)
@@ -1395,7 +1491,7 @@ pdf)
 Package pdftex.def Info: classGuiAppApplication_1_1MainWindow__coll__graph.pdf 
  used on input line 23.
 (pdftex.def)             Requested size: 212.0pt x 165.00928pt.
- [75]
+ [77]
 Underfull \hbox (badness 10000) detected at line 38
 [][][]
  []
@@ -1405,13 +1501,13 @@ Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
 
-) (./classMidiCoordinator.tex [76]
+) (./classMidiCoordinator.tex [78]
 Overfull \hbox (41.5152pt too wide) in paragraph at lines 10--11
 []\T1/pcr/m/n/10 #include $\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 /home/ryan-mcbride
 /[]Documents/[]Tromboneless/[]Core/include/[]Midi[]Coordinator.[]
  []
 
-[77]) (./classMidiMessage.tex [78]
+[79]) (./classMidiMessage.tex [80]
 Overfull \hbox (17.5152pt too wide) in paragraph at lines 10--11
 []\T1/pcr/m/n/10 #include $\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 /home/ryan-mcbride
 /[]Documents/[]Tromboneless/[]Core/include/[]Midi[]Message.[]
@@ -1419,7 +1515,7 @@ Overfull \hbox (17.5152pt too wide) in paragraph at lines 10--11
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 7.19995pt on input line 53.
-[79]
+[81]
 Underfull \hbox (badness 10000) detected at line 110
 [][][]
  []
@@ -1434,11 +1530,11 @@ Underfull \hbox (badness 10000) detected at line 136
 [][][]
  []
 
-) (./classMidiMessageBuilder.tex [80]
+) (./classMidiMessageBuilder.tex [82]
 Overfull \vbox (22.66212pt too high) has occurred while \output is active []
 
 
-[81]
+[83]
 Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
@@ -1459,8 +1555,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 /[]Documents/[]Tromboneless/[]App/inc/[]Custom[]Styles.[]
  []
 
-[82] <./classNeedleLookAndFeel__inherit__graph.pdf>
-<classNeedleLookAndFeel__inherit__graph.pdf, id=4003, 203.76125pt x 154.5775pt>
+[84] <./classNeedleLookAndFeel__inherit__graph.pdf>
+<classNeedleLookAndFeel__inherit__graph.pdf, id=4125, 203.76125pt x 154.5775pt>
 
 File: classNeedleLookAndFeel__inherit__graph.pdf Graphic file (type pdf)
 <use classNeedleLookAndFeel__inherit__graph.pdf>
@@ -1468,37 +1564,37 @@ Package pdftex.def Info: classNeedleLookAndFeel__inherit__graph.pdf  used on in
 put line 18.
 (pdftex.def)             Requested size: 203.0pt x 154.0063pt.
  <./classNeedleLookAndFeel__coll__graph.pdf>
-<classNeedleLookAndFeel__coll__graph.pdf, id=4011, 203.76125pt x 154.5775pt>
+<classNeedleLookAndFeel__coll__graph.pdf, id=4133, 203.76125pt x 154.5775pt>
 File: classNeedleLookAndFeel__coll__graph.pdf Graphic file (type pdf)
 <use classNeedleLookAndFeel__coll__graph.pdf>
 Package pdftex.def Info: classNeedleLookAndFeel__coll__graph.pdf  used on input
  line 27.
 (pdftex.def)             Requested size: 203.0pt x 154.0063pt.
- [83]
+ [85]
 Underfull \hbox (badness 10000) detected at line 82
 [][][]
  []
 
-[84]) (./classNotes.tex <./classNotes__inherit__graph.pdf>
-<classNotes__inherit__graph.pdf, id=4045, 211.79124pt x 320.19624pt>
+[86]) (./classNotes.tex <./classNotes__inherit__graph.pdf>
+<classNotes__inherit__graph.pdf, id=4166, 211.79124pt x 320.19624pt>
 File: classNotes__inherit__graph.pdf Graphic file (type pdf)
 <use classNotes__inherit__graph.pdf>
 Package pdftex.def Info: classNotes__inherit__graph.pdf  used on input line 18.
 
 (pdftex.def)             Requested size: 211.0pt x 319.01308pt.
- [85]
+ [87]
 pdfTeX warning (ext4): destination with the same identifier (name{classNotes_a8
 734fb9c1094a3becd78fe783ad43c0c}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.24 ...ssNotes_a8734fb9c1094a3becd78fe783ad43c0c}
                                                   \label{classNotes_a8734fb9...
-[86] [87] [88]
+[88] [89] [90]
 Underfull \hbox (badness 10000) detected at line 169
 [][][]
  []
 
-[89] [90] [91] [92] [93] [94]
+[91] [92] [93] [94] [95] [96]
 Underfull \hbox (badness 10000) detected at line 465
 [][][]
  []
@@ -1513,7 +1609,7 @@ Underfull \hbox (badness 10000) detected at line 501
 [][][]
  []
 
-[95]
+[97]
 Underfull \hbox (badness 10000) detected at line 519
 [][][]
  []
@@ -1528,7 +1624,7 @@ Underfull \hbox (badness 10000) detected at line 555
 [][][]
  []
 
-[96]
+[98]
 Underfull \hbox (badness 10000) detected at line 573
 [][][]
  []
@@ -1543,7 +1639,7 @@ Underfull \hbox (badness 10000) detected at line 609
 [][][]
  []
 
-[97]
+[99]
 Underfull \hbox (badness 10000) detected at line 627
 [][][]
  []
@@ -1558,7 +1654,7 @@ Underfull \hbox (badness 10000) detected at line 663
 [][][]
  []
 
-[98]
+[100]
 Underfull \hbox (badness 10000) detected at line 681
 [][][]
  []
@@ -1573,7 +1669,7 @@ Underfull \hbox (badness 10000) detected at line 717
 [][][]
  []
 
-[99]
+[101]
 Underfull \hbox (badness 10000) detected at line 735
 [][][]
  []
@@ -1589,20 +1685,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
  []
 
  <./classOctaves__inherit__graph.pdf>
-<classOctaves__inherit__graph.pdf, id=4205, 211.79124pt x 320.19624pt>
+<classOctaves__inherit__graph.pdf, id=4327, 211.79124pt x 320.19624pt>
 File: classOctaves__inherit__graph.pdf Graphic file (type pdf)
 <use classOctaves__inherit__graph.pdf>
 Package pdftex.def Info: classOctaves__inherit__graph.pdf  used on input line 1
 9.
 (pdftex.def)             Requested size: 211.0pt x 319.01308pt.
- [100] <./classOctaves__coll__graph.pdf>
-<classOctaves__coll__graph.pdf, id=4221, 150.5625pt x 165.61874pt>
+ [102] <./classOctaves__coll__graph.pdf>
+<classOctaves__coll__graph.pdf, id=4343, 150.5625pt x 165.61874pt>
 File: classOctaves__coll__graph.pdf Graphic file (type pdf)
 <use classOctaves__coll__graph.pdf>
 Package pdftex.def Info: classOctaves__coll__graph.pdf  used on input line 28.
 (pdftex.def)             Requested size: 150.0pt x 165.01434pt.
 
-[101] [102]
+[103] [104]
 pdfTeX warning (ext4): destination with the same identifier (name{classNotes_a8
 734fb9c1094a3becd78fe783ad43c0c}) has been already used, duplicate ignored
 <to be read again> 
@@ -1614,19 +1710,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-[103]
+[105]
 Underfull \hbox (badness 10000) detected at line 183
 [][][]
  []
 
-[104]
+[106]
 Underfull \hbox (badness 10000) detected at line 210
 [][][]
  []
 
 ) (./classOctavesWithHarmonics.tex <./classOctavesWithHarmonics__inherit__graph
 .pdf>
-<classOctavesWithHarmonics__inherit__graph.pdf, id=4313, 211.79124pt x 320.1962
+<classOctavesWithHarmonics__inherit__graph.pdf, id=4434, 211.79124pt x 320.1962
 4pt>
 File: classOctavesWithHarmonics__inherit__graph.pdf Graphic file (type pdf)
 <use classOctavesWithHarmonics__inherit__graph.pdf>
@@ -1634,44 +1730,44 @@ Package pdftex.def Info: classOctavesWithHarmonics__inherit__graph.pdf  used on
  input line 18.
 (pdftex.def)             Requested size: 211.0pt x 319.01308pt.
  <./classOctavesWithHarmonics__coll__graph.pdf>
-<classOctavesWithHarmonics__coll__graph.pdf, id=4321, 211.79124pt x 221.82875pt
+<classOctavesWithHarmonics__coll__graph.pdf, id=4442, 211.79124pt x 221.82875pt
 >
 File: classOctavesWithHarmonics__coll__graph.pdf Graphic file (type pdf)
 <use classOctavesWithHarmonics__coll__graph.pdf>
 Package pdftex.def Info: classOctavesWithHarmonics__coll__graph.pdf  used on in
 put line 27.
 (pdftex.def)             Requested size: 211.0pt x 221.00905pt.
- [105] [106] [107]
+ [107] [108] [109]
 pdfTeX warning (ext4): destination with the same identifier (name{classNotes_a8
 734fb9c1094a3becd78fe783ad43c0c}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.163 ...sNotes_a8734fb9c1094a3becd78fe783ad43c0c}
                                                   \label{classNotes_a8734fb9...
-[108] [109]
+[110] [111]
 Underfull \hbox (badness 10000) detected at line 259
 [][][]
  []
 
-[110]
+[112]
 Underfull \hbox (badness 10000) detected at line 310
 [][][]
  []
 
-) (./classPanels.tex [111] <./classPanels__inherit__graph.pdf>
-<classPanels__inherit__graph.pdf, id=4454, 355.3275pt x 209.78375pt>
+) (./classPanels.tex [113] <./classPanels__inherit__graph.pdf>
+<classPanels__inherit__graph.pdf, id=4576, 355.3275pt x 209.78375pt>
 File: classPanels__inherit__graph.pdf Graphic file (type pdf)
 <use classPanels__inherit__graph.pdf>
 Package pdftex.def Info: classPanels__inherit__graph.pdf  used on input line 18
 .
 (pdftex.def)             Requested size: 350.0pt x 206.6462pt.
  <./classPanels__coll__graph.pdf>
-<classPanels__coll__graph.pdf, id=4462, 179.67125pt x 154.5775pt>
+<classPanels__coll__graph.pdf, id=4584, 179.67125pt x 154.5775pt>
 File: classPanels__coll__graph.pdf Graphic file (type pdf)
 <use classPanels__coll__graph.pdf>
 Package pdftex.def Info: classPanels__coll__graph.pdf  used on input line 27.
 (pdftex.def)             Requested size: 179.0pt x 154.01102pt.
- [112]
+ [114]
 Underfull \hbox (badness 10000) detected at line 50
 [][][]
  []
@@ -1681,13 +1777,13 @@ Underfull \hbox (badness 10000) detected at line 86
 [][][]
  []
 
-[113]) (./structPitchMapper_1_1PartialDef.tex) (./classPitchMapper.tex
+[115]) (./structPitchMapper_1_1PartialDef.tex) (./classPitchMapper.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 []\T1/pcr/m/n/10 #include $\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 /home/ryan-mcbride
 /[]Documents/[]Tromboneless/[]Core/include/[]Pitch[]
  []
 
-[114] [115]
+[116] [117]
 Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
@@ -1698,22 +1794,22 @@ Overfull \hbox (41.5152pt too wide) in paragraph at lines 10--11
 /[]Documents/[]Tromboneless/[]Core/include/drivers/pressure[]
  []
 
-) (./structRawInputEvent.tex [116]) (./classRtMidiSink.tex) (./classSliders.tex
+) (./structRawInputEvent.tex [118]) (./classRtMidiSink.tex) (./classSliders.tex
  <./classSliders__inherit__graph.pdf>
-<classSliders__inherit__graph.pdf, id=4548, 289.08pt x 209.78375pt>
+<classSliders__inherit__graph.pdf, id=4669, 289.08pt x 209.78375pt>
 File: classSliders__inherit__graph.pdf Graphic file (type pdf)
 <use classSliders__inherit__graph.pdf>
 Package pdftex.def Info: classSliders__inherit__graph.pdf  used on input line 1
 9.
 (pdftex.def)             Requested size: 288.0pt x 209.01176pt.
  <./classSliders__coll__graph.pdf>
-<classSliders__coll__graph.pdf, id=4556, 375.4025pt x 296.10625pt>
+<classSliders__coll__graph.pdf, id=4677, 375.4025pt x 296.10625pt>
 File: classSliders__coll__graph.pdf Graphic file (type pdf)
 <use classSliders__coll__graph.pdf>
 Package pdftex.def Info: classSliders__coll__graph.pdf  used on input line 28.
 (pdftex.def)             Requested size: 350.0pt x 276.08531pt.
 
-[117] [118] [119]
+[119] [120] [121]
 Underfull \hbox (badness 10000) detected at line 155
 [][][]
  []
@@ -1723,21 +1819,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
-[120] [121]
+[122] [123]
 Underfull \hbox (badness 10000) detected at line 234
 [][][]
  []
 
 ) (./classSliderWithLabel.tex <./classSliderWithLabel__inherit__graph.pdf>
-<classSliderWithLabel__inherit__graph.pdf, id=4651, 297.11pt x 264.99pt>
+<classSliderWithLabel__inherit__graph.pdf, id=4772, 297.11pt x 264.99pt>
 File: classSliderWithLabel__inherit__graph.pdf Graphic file (type pdf)
 <use classSliderWithLabel__inherit__graph.pdf>
 Package pdftex.def Info: classSliderWithLabel__inherit__graph.pdf  used on inpu
 t line 18.
 (pdftex.def)             Requested size: 296.0pt x 264.01083pt.
 
-[122] <./classSliderWithLabel__coll__graph.pdf>
-<classSliderWithLabel__coll__graph.pdf, id=4665, 179.67125pt x 154.5775pt>
+[124] <./classSliderWithLabel__coll__graph.pdf>
+<classSliderWithLabel__coll__graph.pdf, id=4786, 179.67125pt x 154.5775pt>
 File: classSliderWithLabel__coll__graph.pdf Graphic file (type pdf)
 <use classSliderWithLabel__coll__graph.pdf>
 Package pdftex.def Info: classSliderWithLabel__coll__graph.pdf  used on input l
@@ -1759,23 +1855,23 @@ nored
                    \relax 
 l.46 ...thLabel_ab9bc346c16ea8bf568905afc99ab9bc3}
                                                   \label{classSliderWithLabe...
-[123] [124]
+[125] [126]
 Underfull \hbox (badness 10000) detected at line 108
 [][][]
  []
 
-[125]
+[127]
 Underfull \hbox (badness 10000) detected at line 181
 [][][]
  []
 
-[126]) (./structSynthesiserParameters__t.tex
+[128]) (./structSynthesiserParameters__t.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 []\T1/pcr/m/n/10 #include $\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 /home/ryan-mcbride
 /[]Documents/[]Tromboneless/[]Shared/tromboneless[]_[]
  []
 
-) (./classToFSensor.tex [127]) (./structTrombonelessParameters__t.tex
+) (./classToFSensor.tex [129]) (./structTrombonelessParameters__t.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 []\T1/pcr/m/n/10 #include $\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 /home/ryan-mcbride
 /[]Documents/[]Tromboneless/[]Shared/tromboneless[]_[]
@@ -1786,60 +1882,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-) (./classTromboneSynth.tex [128]
+) (./classTromboneSynth.tex [130]
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 []\T1/pcr/m/n/10 #include $\OML/cmm/m/it/10 <$\T1/pcr/m/n/10 /home/ryan-mcbride
 /[]Documents/[]Tromboneless/[]Core/include/trombone[]
  []
 
  <./classTromboneSynth__inherit__graph.pdf>
-<classTromboneSynth__inherit__graph.pdf, id=4754, 211.79124pt x 320.19624pt>
+<classTromboneSynth__inherit__graph.pdf, id=4875, 211.79124pt x 320.19624pt>
 File: classTromboneSynth__inherit__graph.pdf Graphic file (type pdf)
 <use classTromboneSynth__inherit__graph.pdf>
 Package pdftex.def Info: classTromboneSynth__inherit__graph.pdf  used on input 
 line 18.
 (pdftex.def)             Requested size: 211.0pt x 319.01308pt.
  <./classTromboneSynth__coll__graph.pdf>
-<classTromboneSynth__coll__graph.pdf, id=4762, 211.79124pt x 278.03876pt>
+<classTromboneSynth__coll__graph.pdf, id=4883, 211.79124pt x 278.03876pt>
 File: classTromboneSynth__coll__graph.pdf Graphic file (type pdf)
 <use classTromboneSynth__coll__graph.pdf>
 Package pdftex.def Info: classTromboneSynth__coll__graph.pdf  used on input lin
 e 27.
 (pdftex.def)             Requested size: 211.0pt x 277.01137pt.
- [129]
+ [131]
 Underfull \hbox (badness 795) in paragraph at lines 33--34
 [][] \T1/phv/m/n/10 (int sample[]Rate=44100, float attack=10.[]0f, float decay=
 50.[]0f, float sustain=1.[]0f, float
  []
 
-[130] [131] [132]
+[132] [133] [134]
 pdfTeX warning (ext4): destination with the same identifier (name{classNotes_a8
 734fb9c1094a3becd78fe783ad43c0c}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.196 ...sNotes_a8734fb9c1094a3becd78fe783ad43c0c}
                                                   \label{classNotes_a8734fb9...
-[133]
+[135]
 Overfull \vbox (50.34943pt too high) has occurred while \output is active []
 
 
-[134] [135] [136] [137] [138]) (./classverticalMixSlider.tex [139] <./classvert
+[136] [137] [138] [139] [140]) (./classverticalMixSlider.tex [141] <./classvert
 icalMixSlider__inherit__graph.pdf>
-<classverticalMixSlider__inherit__graph.pdf, id=4956, 312.16624pt x 264.99pt>
+<classverticalMixSlider__inherit__graph.pdf, id=5077, 312.16624pt x 264.99pt>
 File: classverticalMixSlider__inherit__graph.pdf Graphic file (type pdf)
 <use classverticalMixSlider__inherit__graph.pdf>
 Package pdftex.def Info: classverticalMixSlider__inherit__graph.pdf  used on in
 put line 18.
 (pdftex.def)             Requested size: 311.0pt x 264.00679pt.
  <./classverticalMixSlider__coll__graph.pdf>
-<classverticalMixSlider__coll__graph.pdf, id=4964, 312.16624pt x 209.78375pt>
+<classverticalMixSlider__coll__graph.pdf, id=5085, 312.16624pt x 209.78375pt>
 File: classverticalMixSlider__coll__graph.pdf Graphic file (type pdf)
 <use classverticalMixSlider__coll__graph.pdf>
 Package pdftex.def Info: classverticalMixSlider__coll__graph.pdf  used on input
  line 27.
 (pdftex.def)             Requested size: 311.0pt x 209.00536pt.
 
-[140]
+[142]
 pdfTeX warning (ext4): destination with the same identifier (name{classSliderWi
 thLabel_ad8662ad2ad354d6769f15e555f32f2fe}) has been already used, duplicate ig
 nored
@@ -1855,7 +1951,7 @@ nored
                    \relax 
 l.83 ...thLabel_ab9bc346c16ea8bf568905afc99ab9bc3}
                                                   \label{classSliderWithLabe...
-[141]
+[143]
 Underfull \hbox (badness 10000) detected at line 114
 [][][]
  []
@@ -1867,7 +1963,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
  []
 
  <./classVerticalSliderLookAndFeel__inherit__graph.pdf>
-<classVerticalSliderLookAndFeel__inherit__graph.pdf, id=5011, 223.83624pt x 154
+<classVerticalSliderLookAndFeel__inherit__graph.pdf, id=5133, 223.83624pt x 154
 .5775pt>
 File: classVerticalSliderLookAndFeel__inherit__graph.pdf Graphic file (type pdf
 )
@@ -1875,37 +1971,37 @@ File: classVerticalSliderLookAndFeel__inherit__graph.pdf Graphic file (type pdf
 Package pdftex.def Info: classVerticalSliderLookAndFeel__inherit__graph.pdf  us
 ed on input line 18.
 (pdftex.def)             Requested size: 223.0pt x 154.00394pt.
- [142] <./classVerticalSliderLookAndFeel__coll__graph.pdf>
-<classVerticalSliderLookAndFeel__coll__graph.pdf, id=5025, 223.83624pt x 154.57
+ [144] <./classVerticalSliderLookAndFeel__coll__graph.pdf>
+<classVerticalSliderLookAndFeel__coll__graph.pdf, id=5147, 223.83624pt x 154.57
 75pt>
 File: classVerticalSliderLookAndFeel__coll__graph.pdf Graphic file (type pdf)
 <use classVerticalSliderLookAndFeel__coll__graph.pdf>
 Package pdftex.def Info: classVerticalSliderLookAndFeel__coll__graph.pdf  used 
 on input line 27.
 (pdftex.def)             Requested size: 223.0pt x 154.00394pt.
- [143] [144]
+ [145] [146]
 Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-[145] [146] [147] [148] [149] [150]) [151] [152
+[147] [148] [149] [150] [151] [152]) [153] [154
 
 ]
 Chapter 9.
 (./CustomStyles_8hpp.tex <./CustomStyles_8hpp__incl.pdf>
-<CustomStyles_8hpp__incl.pdf, id=5158, 483.8075pt x 187.70125pt>
+<CustomStyles_8hpp__incl.pdf, id=5279, 483.8075pt x 187.70125pt>
 File: CustomStyles_8hpp__incl.pdf Graphic file (type pdf)
 <use CustomStyles_8hpp__incl.pdf>
 Package pdftex.def Info: CustomStyles_8hpp__incl.pdf  used on input line 16.
 (pdftex.def)             Requested size: 350.0pt x 135.79494pt.
  <./CustomStyles_8hpp__dep__incl.pdf>
-<CustomStyles_8hpp__dep__incl.pdf, id=5166, 546.04pt x 430.60875pt>
+<CustomStyles_8hpp__dep__incl.pdf, id=5287, 546.04pt x 430.60875pt>
 File: CustomStyles_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use CustomStyles_8hpp__dep__incl.pdf>
 Package pdftex.def Info: CustomStyles_8hpp__dep__incl.pdf  used on input line 2
 3.
 (pdftex.def)             Requested size: 350.0pt x 276.00916pt.
- [153] [154]
+ [155] [156]
 Underfull \hbox (badness 10000) detected at line 51
 [][][]
  []
@@ -1915,20 +2011,20 @@ Underfull \hbox (badness 10000) detected at line 78
 [][][]
  []
 
-[155] [156]
+[157] [158]
 Underfull \hbox (badness 10000) detected at line 164
 [][][]
  []
 
-) (./CustomStyles_8hpp_source.tex [157] [158]) (./Layout_8hpp.tex <./Layout_8hp
+) (./CustomStyles_8hpp_source.tex [159] [160]) (./Layout_8hpp.tex <./Layout_8hp
 p__incl.pdf>
-<Layout_8hpp__incl.pdf, id=5275, 833.1125pt x 364.36125pt>
+<Layout_8hpp__incl.pdf, id=5396, 833.1125pt x 364.36125pt>
 File: Layout_8hpp__incl.pdf Graphic file (type pdf)
 <use Layout_8hpp__incl.pdf>
 Package pdftex.def Info: Layout_8hpp__incl.pdf  used on input line 19.
 (pdftex.def)             Requested size: 350.0pt x 153.07515pt.
- [159] <./Layout_8hpp__dep__incl.pdf>
-<Layout_8hpp__dep__incl.pdf, id=5288, 226.8475pt x 198.7425pt>
+ [161] <./Layout_8hpp__dep__incl.pdf>
+<Layout_8hpp__dep__incl.pdf, id=5410, 226.8475pt x 198.7425pt>
 File: Layout_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use Layout_8hpp__dep__incl.pdf>
 Package pdftex.def Info: Layout_8hpp__dep__incl.pdf  used on input line 26.
@@ -1938,154 +2034,154 @@ Underfull \hbox (badness 10000) detected at line 39
 [][][]
  []
 
-) (./Layout_8hpp_source.tex [160]) (./Panels_8hpp.tex <./Panels_8hpp__incl.pdf>
-<Panels_8hpp__incl.pdf, id=5320, 695.59875pt x 309.155pt>
+) (./Layout_8hpp_source.tex [162]) (./Panels_8hpp.tex <./Panels_8hpp__incl.pdf>
+<Panels_8hpp__incl.pdf, id=5442, 695.59875pt x 309.155pt>
 File: Panels_8hpp__incl.pdf Graphic file (type pdf)
 <use Panels_8hpp__incl.pdf>
 Package pdftex.def Info: Panels_8hpp__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 155.55359pt.
-[161] <./Panels_8hpp__dep__incl.pdf>
-<Panels_8hpp__dep__incl.pdf, id=5334, 429.605pt x 276.03125pt>
+[163] <./Panels_8hpp__dep__incl.pdf>
+<Panels_8hpp__dep__incl.pdf, id=5455, 429.605pt x 276.03125pt>
 File: Panels_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use Panels_8hpp__dep__incl.pdf>
 Package pdftex.def Info: Panels_8hpp__dep__incl.pdf  used on input line 20.
 (pdftex.def)             Requested size: 350.0pt x 224.88554pt.
- [162]
+ [164]
 Underfull \hbox (badness 10000) detected at line 40
 [][][]
  []
 
-) (./Panels_8hpp_source.tex [163]) (./Widgets_8hpp.tex <./Widgets_8hpp__incl.pd
+) (./Panels_8hpp_source.tex [165]) (./Widgets_8hpp.tex <./Widgets_8hpp__incl.pd
 f>
-<Widgets_8hpp__incl.pdf, id=5400, 695.59875pt x 253.94875pt>
+<Widgets_8hpp__incl.pdf, id=5521, 695.59875pt x 253.94875pt>
 File: Widgets_8hpp__incl.pdf Graphic file (type pdf)
 <use Widgets_8hpp__incl.pdf>
 Package pdftex.def Info: Widgets_8hpp__incl.pdf  used on input line 19.
 (pdftex.def)             Requested size: 350.0pt x 127.77617pt.
- [164] <./Widgets_8hpp__dep__incl.pdf>
-<Widgets_8hpp__dep__incl.pdf, id=5413, 546.04pt x 353.32pt>
+ [166] <./Widgets_8hpp__dep__incl.pdf>
+<Widgets_8hpp__dep__incl.pdf, id=5534, 546.04pt x 353.32pt>
 File: Widgets_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use Widgets_8hpp__dep__incl.pdf>
 Package pdftex.def Info: Widgets_8hpp__dep__incl.pdf  used on input line 26.
 (pdftex.def)             Requested size: 350.0pt x 226.46907pt.
- [165]
+ [167]
 Underfull \hbox (badness 10000) detected at line 55
 [][][]
  []
 
-) (./Widgets_8hpp_source.tex [166] [167] [168] [169]) (./CustomStyles_8cpp.tex 
+) (./Widgets_8hpp_source.tex [168] [169] [170] [171]) (./CustomStyles_8cpp.tex 
 <./CustomStyles_8cpp__incl.pdf>
-<CustomStyles_8cpp__incl.pdf, id=5568, 483.8075pt x 242.9075pt>
+<CustomStyles_8cpp__incl.pdf, id=5689, 483.8075pt x 242.9075pt>
 File: CustomStyles_8cpp__incl.pdf Graphic file (type pdf)
 <use CustomStyles_8cpp__incl.pdf>
 Package pdftex.def Info: CustomStyles_8cpp__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 175.73462pt.
- [170]
+ [172]
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
 
-[171]
+[173]
 Underfull \hbox (badness 10000) detected at line 59
 [][][]
  []
 
-[172]
+[174]
 Underfull \hbox (badness 10000) detected at line 145
 [][][]
  []
 
 ) (./Layout_8cpp.tex <./Layout_8cpp__incl.pdf>
-<Layout_8cpp__incl.pdf, id=5603, 1069.9975pt x 419.5675pt>
+<Layout_8cpp__incl.pdf, id=5725, 1069.9975pt x 419.5675pt>
 File: Layout_8cpp__incl.pdf Graphic file (type pdf)
 <use Layout_8cpp__incl.pdf>
 Package pdftex.def Info: Layout_8cpp__incl.pdf  used on input line 20.
 (pdftex.def)             Requested size: 350.0pt x 137.2413pt.
- [173]
+ [175]
 Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
 ) (./Panels_8cpp.tex <./Panels_8cpp__incl.pdf>
-<Panels_8cpp__incl.pdf, id=5619, 667.49374pt x 364.36125pt>
+<Panels_8cpp__incl.pdf, id=5740, 667.49374pt x 364.36125pt>
 File: Panels_8cpp__incl.pdf Graphic file (type pdf)
 <use Panels_8cpp__incl.pdf>
 Package pdftex.def Info: Panels_8cpp__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 350.0pt x 191.059pt.
- [174]
+ [176]
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
 
 ) (./Widgets_8cpp.tex <./Widgets_8cpp__incl.pdf>
-<Widgets_8cpp__incl.pdf, id=5634, 695.59875pt x 309.155pt>
+<Widgets_8cpp__incl.pdf, id=5755, 695.59875pt x 309.155pt>
 File: Widgets_8cpp__incl.pdf Graphic file (type pdf)
 <use Widgets_8cpp__incl.pdf>
 Package pdftex.def Info: Widgets_8cpp__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 155.55359pt.
- [175]
+ [177]
 Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
-) (./AmplitudeMapper_8hpp_source.tex) (./audioRender_8hpp_source.tex [176])
+) (./AmplitudeMapper_8hpp_source.tex) (./audioRender_8hpp_source.tex [178])
 (./CoreWrapper_8hpp.tex <./CoreWrapper_8hpp__incl.pdf>
-<CoreWrapper_8hpp__incl.pdf, id=5666, 2375.87625pt x 397.485pt>
+<CoreWrapper_8hpp__incl.pdf, id=5787, 2375.87625pt x 397.485pt>
 File: CoreWrapper_8hpp__incl.pdf Graphic file (type pdf)
 <use CoreWrapper_8hpp__incl.pdf>
 Package pdftex.def Info: CoreWrapper_8hpp__incl.pdf  used on input line 26.
 (pdftex.def)             Requested size: 350.0pt x 58.5527pt.
  <./CoreWrapper_8hpp__dep__incl.pdf>
-<CoreWrapper_8hpp__dep__incl.pdf, id=5674, 247.92625pt x 198.7425pt>
+<CoreWrapper_8hpp__dep__incl.pdf, id=5795, 247.92625pt x 198.7425pt>
 File: CoreWrapper_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use CoreWrapper_8hpp__dep__incl.pdf>
 Package pdftex.def Info: CoreWrapper_8hpp__dep__incl.pdf  used on input line 33
 .
 (pdftex.def)             Requested size: 247.0pt x 198.00204pt.
- [177]
+ [179]
 Underfull \hbox (badness 10000) detected at line 46
 [][][]
  []
 
-) (./CoreWrapper_8hpp_source.tex [178]) (./audio__output_8hpp_source.tex)
-(./cap1188__registers_8hpp_source.tex [179] [180] [181])
-(./cap__sensor_8hpp_source.tex [182] [183]) (./i2c__bus_8hpp_source.tex
-[184]) (./Pin__Definitions_8h_source.tex) (./pressure__sensor_8hpp_source.tex
-[185]) (./tof__sensor_8hpp_source.tex) (./USBMidi_8hpp_source.tex [186])
+) (./CoreWrapper_8hpp_source.tex [180]) (./audio__output_8hpp_source.tex)
+(./cap1188__registers_8hpp_source.tex [181] [182] [183])
+(./cap__sensor_8hpp_source.tex [184] [185]) (./i2c__bus_8hpp_source.tex
+[186]) (./Pin__Definitions_8h_source.tex) (./pressure__sensor_8hpp_source.tex
+[187]) (./tof__sensor_8hpp_source.tex) (./USBMidi_8hpp_source.tex [188])
 (./envelope_8hpp.tex <./envelope_8hpp__incl.pdf>
-<envelope_8hpp__incl.pdf, id=5779, 229.85875pt x 176.66pt>
+<envelope_8hpp__incl.pdf, id=5900, 229.85875pt x 176.66pt>
 File: envelope_8hpp__incl.pdf Graphic file (type pdf)
 <use envelope_8hpp__incl.pdf>
 Package pdftex.def Info: envelope_8hpp__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 229.0pt x 176.00992pt.
  <./envelope_8hpp__dep__incl.pdf>
-<envelope_8hpp__dep__incl.pdf, id=5787, 516.93124pt x 507.8975pt>
+<envelope_8hpp__dep__incl.pdf, id=5908, 516.93124pt x 507.8975pt>
 File: envelope_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use envelope_8hpp__dep__incl.pdf>
 Package pdftex.def Info: envelope_8hpp__dep__incl.pdf  used on input line 20.
 (pdftex.def)             Requested size: 350.0pt x 343.89326pt.
- [187]
+ [189]
 Underfull \hbox (badness 10000) detected at line 33
 [][][]
  []
 
-) (./envelope_8hpp_source.tex [188]) (./eventHandler_8hpp_source.tex [189])
-(./main_8hpp_source.tex) (./MidiCoordinator_8hpp_source.tex [190])
-(./MidiMessage_8hpp_source.tex) (./MidiMessageBuilder_8hpp_source.tex [191])
-(./PitchMapper_8hpp_source.tex [192]) (./synth_8hpp.tex <./synth_8hpp__incl.pdf
+) (./envelope_8hpp_source.tex [190]) (./eventHandler_8hpp_source.tex [191])
+(./main_8hpp_source.tex) (./MidiCoordinator_8hpp_source.tex [192])
+(./MidiMessage_8hpp_source.tex) (./MidiMessageBuilder_8hpp_source.tex [193])
+(./PitchMapper_8hpp_source.tex [194]) (./synth_8hpp.tex <./synth_8hpp__incl.pdf
 >
-<synth_8hpp__incl.pdf, id=5901, 357.335pt x 176.66pt>
+<synth_8hpp__incl.pdf, id=6022, 357.335pt x 176.66pt>
 File: synth_8hpp__incl.pdf Graphic file (type pdf)
 <use synth_8hpp__incl.pdf>
 Package pdftex.def Info: synth_8hpp__incl.pdf  used on input line 16.
 (pdftex.def)             Requested size: 350.0pt x 173.04204pt.
  <./synth_8hpp__dep__incl.pdf>
-<synth_8hpp__dep__incl.pdf, id=5909, 516.93124pt x 507.8975pt>
+<synth_8hpp__dep__incl.pdf, id=6031, 516.93124pt x 507.8975pt>
 File: synth_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use synth_8hpp__dep__incl.pdf>
 Package pdftex.def Info: synth_8hpp__dep__incl.pdf  used on input line 23.
 (pdftex.def)             Requested size: 350.0pt x 343.89326pt.
- [193]
+ [195]
 Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
@@ -2100,28 +2196,28 @@ Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
-) (./synth_8hpp_source.tex [194] [195] [196]) (./tromboneSynth_8hpp.tex <./trom
+) (./synth_8hpp_source.tex [196] [197] [198]) (./tromboneSynth_8hpp.tex <./trom
 boneSynth_8hpp__incl.pdf>
-<tromboneSynth_8hpp__incl.pdf, id=6011, 377.41pt x 231.86626pt>
+<tromboneSynth_8hpp__incl.pdf, id=6133, 377.41pt x 231.86626pt>
 File: tromboneSynth_8hpp__incl.pdf Graphic file (type pdf)
 <use tromboneSynth_8hpp__incl.pdf>
 Package pdftex.def Info: tromboneSynth_8hpp__incl.pdf  used on input line 14.
 (pdftex.def)             Requested size: 350.0pt x 215.02484pt.
  <./tromboneSynth_8hpp__dep__incl.pdf>
-<tromboneSynth_8hpp__dep__incl.pdf, id=6019, 516.93124pt x 430.60875pt>
+<tromboneSynth_8hpp__dep__incl.pdf, id=6141, 516.93124pt x 430.60875pt>
 File: tromboneSynth_8hpp__dep__incl.pdf Graphic file (type pdf)
 <use tromboneSynth_8hpp__dep__incl.pdf>
 Package pdftex.def Info: tromboneSynth_8hpp__dep__incl.pdf  used on input line 
 21.
 (pdftex.def)             Requested size: 350.0pt x 291.56166pt.
- [197]
+ [199]
 Underfull \hbox (badness 10000) detected at line 34
 [][][]
  []
 
-) (./tromboneSynth_8hpp_source.tex [198] [199]) (./CoreWrapper_8cpp.tex <./Core
+) (./tromboneSynth_8hpp_source.tex [200] [201]) (./CoreWrapper_8cpp.tex <./Core
 Wrapper_8cpp__incl.pdf>
-<CoreWrapper_8cpp__incl.pdf, id=6083, 2375.87625pt x 452.69125pt>
+<CoreWrapper_8cpp__incl.pdf, id=6204, 2375.87625pt x 452.69125pt>
 File: CoreWrapper_8cpp__incl.pdf Graphic file (type pdf)
 <use CoreWrapper_8cpp__incl.pdf>
 Package pdftex.def Info: CoreWrapper_8cpp__incl.pdf  used on input line 13.
@@ -2132,39 +2228,39 @@ Underfull \hbox (badness 10000) detected at line 21
  []
 
 ) (./envelope_8cpp.tex <./envelope_8cpp__incl.pdf>
-<envelope_8cpp__incl.pdf, id=6091, 393.47pt x 231.86626pt>
+<envelope_8cpp__incl.pdf, id=6212, 393.47pt x 231.86626pt>
 File: envelope_8cpp__incl.pdf Graphic file (type pdf)
 <use envelope_8cpp__incl.pdf>
 Package pdftex.def Info: envelope_8cpp__incl.pdf  used on input line 16.
 (pdftex.def)             Requested size: 350.0pt x 206.24709pt.
- [200]
+ [202]
 Underfull \hbox (badness 10000) detected at line 24
 [][][]
  []
 
 ) (./synth_8cpp.tex <./synth_8cpp__incl.pdf>
-<synth_8cpp__incl.pdf, id=6106, 357.335pt x 231.86626pt>
+<synth_8cpp__incl.pdf, id=6227, 357.335pt x 231.86626pt>
 File: synth_8cpp__incl.pdf Graphic file (type pdf)
 <use synth_8cpp__incl.pdf>
 Package pdftex.def Info: synth_8cpp__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 350.0pt x 227.11769pt.
- [201]
+ [203]
 Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
 ) (./tromboneSynth_8cpp.tex <./tromboneSynth_8cpp__incl.pdf>
-<tromboneSynth_8cpp__incl.pdf, id=6122, 407.5225pt x 287.0725pt>
+<tromboneSynth_8cpp__incl.pdf, id=6244, 407.5225pt x 287.0725pt>
 File: tromboneSynth_8cpp__incl.pdf Graphic file (type pdf)
 <use tromboneSynth_8cpp__incl.pdf>
 Package pdftex.def Info: tromboneSynth_8cpp__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 350.0pt x 246.56215pt.
- [202]
+ [204]
 Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
 
-) (./tromboneless__data_8hpp_source.tex [203]) [204]
+) (./tromboneless__data_8hpp_source.tex [205]) [206]
 No file refman.ind.
 (./refman.aux)
  ***********
@@ -2176,16 +2272,16 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 9708A87AEB3FF8A3BF5E03376F5FB375;92935.
+(rerunfilecheck)             Checksum: 79EC1DF6E2F3BA51181E2A98ED01C47A;95250.
  ) 
 Here is how much of TeX's memory you used:
- 21769 strings out of 476182
- 403056 string characters out of 5795595
+ 21848 strings out of 476182
+ 404343 string characters out of 5795595
  1949975 words of memory out of 5000000
- 41694 multiletter control sequences out of 15000+600000
+ 41734 multiletter control sequences out of 15000+600000
  615173 words of font info for 109 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,16n,117p,1127b,754s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,16n,117p,1127b,748s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
@@ -2198,10 +2294,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (218 pages, 1123086 bytes).
+Output written on refman.pdf (220 pages, 1131690 bytes).
 PDF statistics:
- 6551 PDF objects out of 7423 (max. 8388607)
- 5967 compressed objects within 60 object streams
- 1559 named destinations out of 1728 (max. 500000)
- 3788 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6680 PDF objects out of 7423 (max. 8388607)
+ 6091 compressed objects within 61 object streams
+ 1598 named destinations out of 1728 (max. 500000)
+ 3908 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,20 +1,14 @@
 var searchData=
 [
-  ['paint_0',['paint',['../classLayout.html#a1928c3c94ff880bd1ca446a6f0991d05',1,'Layout::paint()'],['../classPanels.html#a0dbc535bb34f716890ef0c30911f39af',1,'Panels::paint()'],['../classBarometer.html#a9cde3aede799c7b81c5a9836865c05a5',1,'Barometer::paint()']]],
-  ['paintarc_1',['paintarc',['../CustomStyles_8cpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp'],['../CustomStyles_8hpp.html#afc21cb77f4f503d5a2f12eea5f289563',1,'PaintArc(float x, float y, float thickness, float gap, bool direction):&#160;CustomStyles.cpp']]],
-  ['painttrombone_2',['painttrombone',['../CustomStyles_8cpp.html#a00af11f5a0b4e5fcf2da53abf56d497b',1,'PaintTrombone(float x, float y, float width, float height, bool incPipes):&#160;CustomStyles.cpp'],['../CustomStyles_8hpp.html#a7cb6053776bd4ad715007c2eeafaeabc',1,'PaintTrombone(float x=300, float y=300, float width=50, float height=20, bool incPipes=true):&#160;CustomStyles.cpp']]],
-  ['panels_3',['panels',['../classPanels.html#a0144464dbf363ac1cae6a6c1d978d526',1,'Panels::Panels()'],['../classPanels.html',1,'Panels']]],
-  ['panels_2ecpp_4',['Panels.cpp',['../Panels_8cpp.html',1,'']]],
-  ['panels_2ehpp_5',['Panels.hpp',['../Panels_8hpp.html',1,'']]],
-  ['partialdef_6',['PartialDef',['../structPitchMapper_1_1PartialDef.html',1,'PitchMapper']]],
-  ['pitchbend_7',['pitchBend',['../classMidiMessageBuilder.html#a3569350d0a22a4dc1165bb475d9b52e7',1,'MidiMessageBuilder']]],
-  ['pitchmapper_8',['pitchmapper',['../classPitchMapper.html#abac04f03b1c3816113e66b1ac2cfd181',1,'PitchMapper::PitchMapper()'],['../classPitchMapper.html',1,'PitchMapper']]],
-  ['playingfrequency_9',['PlayingFrequency',['../classOctaves.html#ab77d9f9b4116757b6968606040af1c8c',1,'Octaves']]],
-  ['playingfrequencywithharmonics_10',['PlayingFrequencyWithHarmonics',['../classOctavesWithHarmonics.html#a4b66d3a6df6849de730aad0966330f41',1,'OctavesWithHarmonics']]],
-  ['playingnote_11',['PlayingNote',['../classOctaves.html#a023ab71a119c0bc8bb8c6c4919f0064f',1,'Octaves']]],
-  ['playingnotewithharmonics_12',['PlayingNoteWithHarmonics',['../classOctavesWithHarmonics.html#a80740c914b3cdda4e8cf4c8b194b623a',1,'OctavesWithHarmonics']]],
-  ['power_13',['Power',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html#autotoc_md9',1,'']]],
-  ['pressureedge_14',['PressureEdge',['../classMidiCoordinator.html#a976574199acbe5928d87286fb03bb321',1,'MidiCoordinator']]],
-  ['pressuresensor_15',['PressureSensor',['../classPressureSensor.html',1,'']]],
-  ['processing_16',['Processing',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html#autotoc_md8',1,'']]]
+  ['neardistance_0',['nearDistance',['../structTrombonelessParameters__t.html#a17c00b5a025feede88952c5b484c6f4f',1,'TrombonelessParameters_t']]],
+  ['needlelookandfeel_1',['needlelookandfeel',['../classNeedleLookAndFeel.html',1,'NeedleLookAndFeel'],['../classNeedleLookAndFeel.html#a0b0fbf7b09a81c1d031700cc8030a682',1,'NeedleLookAndFeel::NeedleLookAndFeel()']]],
+  ['newtrombonenotemidi_2',['NewTromboneNoteMIDI',['../classTromboneSynth.html#aa92885853f7411684a70ae0909b66103',1,'TromboneSynth']]],
+  ['noctaves_3',['nOctaves',['../classOctaves.html#aab55dc1e4e61330511e61c2c302ada6e',1,'Octaves']]],
+  ['noteoff_4',['noteOff',['../classMidiMessageBuilder.html#afed51e1a8f65ecfa622a0668a504e922',1,'MidiMessageBuilder']]],
+  ['noteon_5',['noteOn',['../classMidiMessageBuilder.html#afec866a91fd98c33c4a1bd1a4a7b245a',1,'MidiMessageBuilder']]],
+  ['notes_6',['notes',['../classNotes.html',1,'Notes'],['../classNotes.html#ae11cec41480227782d457e4829d5a06f',1,'Notes::Notes()']]],
+  ['notes_20for_20the_20changes_20made_20to_20the_20firmware_7',['Notes for the changes made to the firmware',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Core_2Firmware__Notes.html',1,'']]],
+  ['notes_20for_20the_20hardware_20implementation_20and_20design_8',['Notes for the Hardware implementation and design',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html',1,'']]],
+  ['notes_20on_20app_9',['Notes on App',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html',1,'']]],
+  ['notes_5ft_10',['Notes_t',['../classNotes.html#a8734fb9c1094a3becd78fe783ad43c0c',1,'Notes']]]
 ];
