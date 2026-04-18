@@ -57,8 +57,8 @@ class CoreWrapper{
 
 
         /*  Core loop. */
-        std::thread eventThread_;
-        bool running_ = false;
+        std::thread eventThread;
+        bool running = false;
         void eventLoop();
 
 };
