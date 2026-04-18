@@ -50,7 +50,7 @@ class Envelope{
          *                          times the `getAmplitude()` function is called
          *                          upon.
          */
-        Envelope(int attack_in = 100, int decay_in = 20, float sustain_in = 0.98, int rest_in = 10);
+        Envelope(int attack_in = 10, int decay_in = 20, float sustain_in = 0.98, int rest_in = 10);
 
         /** @brief                  The destructor function for the `Envelope` class
          *                          which is currently just set to default.
