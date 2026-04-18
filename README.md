@@ -40,6 +40,12 @@ The Tromboneless App utilises the JUCE framework to create all the widgets neces
  - Juce <br>
  - RTMidi <br>
  - libgpiod (specifically for interacting with the GPIO pins on the Pi) <br>
+ - PkgConfig   (for finding the necessary libraries within the users' system before compilation.)
+ - gtk+-3.0    (for the backend of the app.)
+ - webkit2gtk-4.1 (for cross-platform functionality for the app.)
+ - Curl
+ - alsa           (for audio output from the internal synth.)
+ - freetype2
 
 
 ## Bill of Materials
@@ -105,7 +111,7 @@ Follow us for additional updates, including showcase videos and demonstrations:<
 
 - Aidan MacIntosh - 
 
-- Ryan McBride - 
+- Ryan McBride - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time. 
 
 - Kerr McLaren - 
 
