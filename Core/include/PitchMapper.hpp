@@ -3,6 +3,7 @@
     */
 
 #include <cstdint>
+#include "tromboneless_data.hpp"
 
     /** @brief Takes raw input values from the LIDAR and
      * mouthpiece/embouchure sensors and maps them to appropriate values for
@@ -11,9 +12,26 @@
 class PitchMapper{
     private:
 
-        int slide_limit_mm = 500; /* Max limit of virtual trombone slide in mm.*/
+        typedef enum{
+            piccolo = 6,
+            soprano = 4,
+            alto = 2,
+            tenor = 0,
+            bass = -2,
+            contrabass = -4
+        } Trombone_type_t;
+
+        ShiftKeyingOptions_t trombone_type = ShiftKeyingOptions_t::SKOpt_TENOR;
+
+        int slide_max_limit_mm = 500; /* Max limit of virtual trombone slide in mm.*/
+        int slide_min_limit_mm = 0; /* Min limit of virtual trombone slide in mm.*/
         int mouthpiece_MIDI_note = 34; /* MIDI note produced by mouthpiece.*/ 
-    
+
+
+
+        Trombone_type_t trombone_type;
+        int trombone_type = Trombone_type_t::piccolo;
+
     public:
 
         /** @brief Constructor. */
@@ -22,7 +40,7 @@ class PitchMapper{
         /** @brief Maps raw LiDAR time-of-flight values to MIDI pitch bend scaled
          *         and clamped to range of 0-8192. 
          *  @param tof_distance Raw value returned from time-of-flight sensor.
-         *  @return Integer 0-8192 
+         *  @return Integer 0-8192
         */
 
         int tof_to_MIDI_bend(uint16_t tof_distance);
@@ -34,14 +52,22 @@ class PitchMapper{
 
 
         /** @brief Set maximum trombone slide limit in mm.*/
-        void SetSlideLimit(int new_slide_limit_mm);
+        void SetSlideMaxLimit(int new_slide_max_limit_mm);
 
-        /** @brief Return current trombone slide limit in mm.*/    
-        int GetSlideLimit();
+        /** @brief Return current max trombone slide limit in mm.*/    
+        int GetSlideMaxLimit();
+
+        /** @brief Set minimum trombone slide limit in mm.*/
+        void SetSlideMinLimit(int new_slide_min_limit_mm);
+
+        /** @brief Return current min trombone slide limit in mm.*/    
+        int GetSlideMinLimit();
 
         /** @brief Set current mouthpiece MIDI note, bypassing mapping function.*/    
         void SetMouthMIDI(int new_MIDI_note);
 
         /** @brief Return current mouthpiece MIDI note.*/    
         int GetMouthMIDI();
+
+        void SetTromboneType(ShiftKeyingOptions_t trombone_choice);
 };
