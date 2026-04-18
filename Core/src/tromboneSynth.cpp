@@ -1,9 +1,9 @@
-/** @file       tromboneSynth.cpp
- *  @author     Ryan McBride
- *  @brief      A file to define the synthesiser parameters and functions
- *              for the trombone specifically using the classes and methods
- *              declared in the `synth.hpp` file.
- */
+    /** @file       tromboneSynth.cpp
+     *  @author     Ryan McBride
+     *  @brief      A file to define the synthesiser parameters and functions
+     *              for the trombone specifically using the classes and methods
+     *              declared in the `synth.hpp` file.
+     */
 
  /* Adding the necessary header files to be included. */
  #include "tromboneSynth.hpp"
@@ -33,29 +33,39 @@
     tromboneEnvelope.setRest(rest);
  }
 
+void TromboneSynth::updatePitchCache()
+{
+    cachedFrequency = getAdjustedFrequency();
+    cachedPhaseIncrement = 2.0f * static_cast<float>(M_PI) * cachedFrequency / static_cast<float>(sampleRate);
+    pitchCacheDirty = false;
+}
+
  void TromboneSynth::StartTromboneNote(Notes::Notes_t note_in, int octave_in){
     note = note_in;
     octave = octave_in;
+    pitchCacheDirty = true;
     tromboneEnvelope.startEnvelope();
  }
 
- void TromboneSynth::ChangeTromboneNote(Notes::Notes_t note_in, int octave_in){
+void TromboneSynth::ChangeTromboneNote(Notes::Notes_t note_in, int octave_in){
     note = note_in;
     octave = octave_in;
- }
+    pitchCacheDirty = true;
+}
  
- /* Change this to be based on frequency with the base note and using the pitch bend.*/
- float TromboneSynth::ReadTromboneAudio(void){
-    float freq = getAdjustedFrequency();
-    float phaseIncrement = 2.0f * static_cast<float>(M_PI) * freq / static_cast<float>(sampleRate);
+float TromboneSynth::ReadTromboneAudio(void){
+    if (pitchCacheDirty) {
+        updatePitchCache();
+    }
 
-    phase += phaseIncrement;
+    phase += cachedPhaseIncrement;
     if (phase >= 2.0f * static_cast<float>(M_PI))
     {
         phase = std::fmod(phase, 2.0f * static_cast<float>(M_PI));
     }
+
     return tromboneEnvelope.getAmplitude() * PlayingFrequencyWithHarmonics(nHarmonics, phase);
- }
+}
 
  void TromboneSynth::StopTromboneNote(void){
    tromboneEnvelope.endEnvelope();
@@ -67,12 +77,10 @@ void TromboneSynth::NewTromboneNoteMIDI(int MIDINote){
     const int nNotes = 12;
 
     note = static_cast<Notes::Notes_t>(MIDINote % nNotes);
-
-    // MIDI standard: C4 = 60 → octave 4
     octave = (MIDINote / nNotes) - 1;
-
-    // clamp to available octave range
     octave = std::clamp(octave, 0, nOctaves - 1);
+
+    pitchCacheDirty = true;
 }
 
 void TromboneSynth::HandleMIDINoteOn(){
@@ -150,7 +158,7 @@ Notes::Notes_t TromboneSynth::getNote(void){
 
 void TromboneSynth::setPitchBend(int bend){
     pitchBend = bend;
-    return;
+    pitchCacheDirty = true;
 }
 
 int TromboneSynth::getPitchBend(void){

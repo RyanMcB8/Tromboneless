@@ -10,7 +10,7 @@
 
 class AudioRender : public TromboneSynth {
 public:
-    static constexpr int frames = 512;
+    static constexpr int frames = 128;
     static constexpr int sample_rate = 44100;
 
     AudioRender();
