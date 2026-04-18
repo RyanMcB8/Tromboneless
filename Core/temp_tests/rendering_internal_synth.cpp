@@ -11,38 +11,7 @@
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
 #include "audioRender.hpp"
-
-class GetDistance {
-public:
-    int hasTOFsample(uint16_t distance) {
-        int mm_limit = 500;
-        if (distance > mm_limit) distance = mm_limit;
-        int scaled_bend = 8192 - (distance * 8192) / mm_limit;
-        return scaled_bend;
-    }
-};
-
-class MapEmbouchure {
-public:
-    int noteMapping(int8_t delta) {
-        int strength = 34;
-
-        if (delta >= 75)
-            strength = 62;
-        else if (delta >= 70)
-            strength = 58;
-        else if (delta >= 60)
-            strength = 53;
-        else if (delta >= 50)
-            strength = 46;
-        else if (delta >= 40)
-            strength = 34;
-        else
-            strength = 0;
-
-        return strength;
-    }
-};
+#include "PitchMapper.hpp"
 
 int main() {
     try {
@@ -52,11 +21,10 @@ int main() {
 
         EventHandler eventHandler(eventQueue, eventQueueMutex, eventQueueCv);
         RtMidiSink midiSink;
-        GetDistance distanceGetter;
-        MapEmbouchure mapembouchure;
         AudioRender render;
-
+        PitchMapper pitchmapper;
         MidiCoordinator coordinator(render);
+        
         const bool externalDevicePresent = midiSink.GetDeviceStatus();
         coordinator.setDevice(externalDevicePresent);
 
@@ -99,7 +67,7 @@ int main() {
 
             switch (event.type) {
                 case RawInputEvent::Type::ToFDistance:
-                    coordinator.setBend(distanceGetter.hasTOFsample(event.tofDistance));
+                    coordinator.setBend(pitchmapper.tof_to_MIDI_bend(event.tofDistance));
                     break;
 
                 case RawInputEvent::Type::PressureReading:
@@ -113,7 +81,7 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::MouthpieceReading:
-                    new_note = mapembouchure.noteMapping(event.mouthpieceReading);
+                    new_note = pitchmapper.mouthpiece_to_MIDI_note(event.mouthpieceReading);
                     if (current_note != new_note && new_note != 0) {
                         current_note = new_note;
                         coordinator.ChangeNote(current_note);
