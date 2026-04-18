@@ -3,8 +3,6 @@
 PDF_NAME="Tromboneless_Documentation"
 
 set -e 
-cd Documentation || { echo "Documentation folder not found"; exit 1; }
-
 
 echo "Cleaning old LaTeX auxiliary files..."
 rm -f refman.aux refman.log refman.out refman.toc
