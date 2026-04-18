@@ -14,10 +14,12 @@ EventHandler::EventHandler(EventQueue& queue,
 
 bool EventHandler::initialise(){
         if(!tofSensor.initialise()) {
+            std::cout << "TOF Initialise failed.\n";
             return false;
         }
 
         if(!cap1188.initialise()) {
+            std::cout << "cap1188 Initialise failed.\n";
             return false;
         }
 
