@@ -18,9 +18,9 @@ find_package(CURL REQUIRED)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #   Adding the subdirectory.
-add_subdirectory(App)
-# add_subdirectory(App/modules/JUCE)
-add_subdirectory(Core)
+
+add_subdirectory(App/modules/JUCE)
+
 
 #   Enabling tests
 enable_testing()
