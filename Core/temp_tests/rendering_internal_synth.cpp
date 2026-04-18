@@ -71,10 +71,10 @@ int main() {
                     break;
 
                 case RawInputEvent::Type::PressureReading:
-                    if (event.pressureReading < 0.22f && !pressure_gate) {
+                    if (event.pressureReading < 0.24f && !pressure_gate) {
                         coordinator.PressureEdge(true);
                         pressure_gate = true;
-                    } else if (event.pressureReading > 0.22f && pressure_gate) {
+                    } else if (event.pressureReading > 0.24f && pressure_gate) {
                         coordinator.PressureEdge(false);
                         pressure_gate = false;
                     }

@@ -1,11 +1,11 @@
-/** @file       tromboneSynth.hpp
- *  @author     Ryan McBride
- *  @brief      A file to declare the synthesiser parameters and functions
- *              for the trombone specifically using the classes and methods
- *              declared in the `synth.hpp` file.
- */
+    /** @file       tromboneSynth.hpp
+     *  @author     Ryan McBride
+     *  @brief      A file to declare the synthesiser parameters and functions
+     *              for the trombone specifically using the classes and methods
+     *              declared in the `synth.hpp` file.
+     */
 
- /* Preventing recurssion */
+    /* Preventing recurssion */
  #pragma once
 
  /* Adding the necessary header files to be included. */
@@ -32,8 +32,8 @@
          *  @param  rest            The amount of time in milliseconds that the rest
                                     stage should last for.
          */
-        TromboneSynth(int sampleRate = 44100, float attack = 25.0, float decay = 50.0,
-             float sustain = 0.99, float rest = 10.0);
+        TromboneSynth(int sampleRate = 44100, float attack = 10.0f, float decay = 50.0f,
+             float sustain = 1.0f, float rest = 10.0f);
 
         /**    @brief              A function which may be called to set the
          *                         note and octave of a new sound by the user.
@@ -189,17 +189,25 @@
         permanently. The ADSR values may need to be adjusted but this should sound
         brassy. */
 
-        Envelope tromboneEnvelope = Envelope(100, 50, 0.95f, 10);
-        float attack_ms;        /*  The attack time in milliseconds of the envelope. */
-        float decay_ms;         /*  The decay time in milliseconds of the envelope. */
-        float rest_ms;          /*  The rest time in milliseconds of the envelope. */
-        float sustain;          /*  The sustain level of the envelope. */
+        Envelope tromboneEnvelope = Envelope(10, 50, 1.0f, 10);
+
+        float attack_ms = 10.0f;        /*  The attack time in milliseconds of the envelope. */
+        float decay_ms = 50.0f;         /*  The decay time in milliseconds of the envelope. */
+        float rest_ms = 10.0f;          /*  The rest time in milliseconds of the envelope. */
+        float sustain = 1.0f;          /*  The sustain level of the envelope. */
+
+        float cachedFrequency = 0.0f;
+        float cachedPhaseIncrement = 0.0f;
+        bool pitchCacheDirty = true;
+
+        void updatePitchCache();
+
 
         float phase = 0.0f; /* Phase of oscillator wave */
 
         /*  synth   */
         int nHarmonics = 17;    /*  The number of harmonics which will be present in the final signal. */
-        int octave = 2;         /*  The octave which the note will be present in. */
+        int octave = 4;         /*  The octave which the note will be present in. */
         Notes::Notes_t note = Notes::Notes::note_A;  /*  The note which will be played. */
         int pitchBend   =   8192;  /*  The MIDI message pitch bend dependent upon the position of the slider. */
 
