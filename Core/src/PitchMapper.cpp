@@ -28,6 +28,8 @@ int PitchMapper::mouthpiece_to_MIDI_note(int8_t delta){
             mouthpiece_MIDI_note = 34;
         else
             mouthpiece_MIDI_note = 0;
+            
+        return mouthpiece_MIDI_note;
 }
 
 void PitchMapper::SetSlideLimit(int new_slide_limit_mm){
