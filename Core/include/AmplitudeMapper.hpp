@@ -1,38 +1,29 @@
+#pragma once
 #include <cstdio> 
+#include <vector>
+#include <chrono>
 
-// This code defines a class that takes a sample of breath pressure from the ADC and maps it appropriately 
-// into functional values for MIDI (0-127).
+// This code defines a class that takes a voltage level sample from
+// ADS1115 representing breath pressure 
+// and compares it against a baseline to determine whether it
+// sufficiently high enough to switch note on.
 
 class AmplitudeMapper {
-    public:
+
+    private:
         // Attributes
-        float pressureSample;
-        float latestExpr;
-        float bottomLimit = 100;
-        float upperLimit = 200;
-        bool noteOn;
+        float pressureSample = 0.0f;
+        float pressureBaseline = 0.0f;
+        float pressureThreshold;
+        bool pressureState = false;
+        std::vector<float> buffer;
+        std::chrono::steady_clock::time_point startTime;
 
-        // Subscriber of ADS1115 driver. 
-        float getADS1115Sample(float v) {
-		    return v;
-        }
-        void getLatestExpr(float pressureSample) {
+    public:
+        AmplitudeMapper();
+        bool calculateBaseline(float pressureSample);
+        float getBaseline();
+        bool noteEdge(float pressureSample);
 
-            latestExpr = pressureSample - bottomLimit;
-            latestExpr = latestExpr * (127/upperLimit);
-            if (latestExpr<0){
-                latestExpr = 0;
-                noteOn = 0;
-            }
-            else if (latestExpr>127){
-                latestExpr = 127;
-                noteOn = 1;
-            }
-            else{
-                //latestExpr = latestExpr
-                noteOn = 1;
-            }
-        }
 
-        
 	};

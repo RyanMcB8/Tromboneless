@@ -14,10 +14,12 @@ EventHandler::EventHandler(EventQueue& queue,
 
 bool EventHandler::initialise(){
         if(!tofSensor.initialise()) {
+            std::cout << "TOF Initialise failed.\n";
             return false;
         }
 
         if(!cap1188.initialise()) {
+            std::cout << "cap1188 Initialise failed.\n";
             return false;
         }
 
@@ -27,7 +29,7 @@ bool EventHandler::initialise(){
                 handleToFDistance(distance);
             });
 
-        ads1115rpi.registerCallback(
+        pressureSensor.registerCallback(
             [&](float pressure)
             {
                 handlePressureReading(pressure);
@@ -46,7 +48,7 @@ void EventHandler::start(){
     cap1188.recalibratePins(0x01);      
     ADS1115settings s;
     s.samplingRate = ADS1115settings::FS128HZ;
-    ads1115rpi.start(s);
+    pressureSensor.start(s);
     tofSensor.start();
     cap1188.start();
 }

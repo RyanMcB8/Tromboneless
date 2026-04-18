@@ -53,6 +53,12 @@
 # ignoring CMake files excluding CMakeLists
 *CMakeCache.txt
 *.yaml
+*CMakeFiles*
+*.cmake*
+*Makefile*
+*.tcl
+*/TrombonelessApp_artefacts/*
+*compile_commands.json
 
 # ignoring the app side build
 App/build/

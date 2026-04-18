@@ -1,6 +1,11 @@
+# This CMakeLists file is for demonstrating the app works as a standalone option.
+# This is useful when there is no Pi to test on and only a linux base. 
+
+
+
 cmake_minimum_required(VERSION 3.22)
 
-project(TrombonelessApp VERSION 1.0.0)
+project(TrombonelessAppDemo VERSION 1.0.0)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -16,9 +21,6 @@ find_package(CURL REQUIRED)
 # Generate compile_commands.json for better IntelliSense
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Adding the shared file for intercommunication between the App and core
-add_subdirectory(shared)
-
 # Add JUCE as a subdirectory (assuming it's added as a git submodule)
 add_subdirectory(modules/JUCE)
 
@@ -32,16 +34,18 @@ include(CTest)
 # Add source files
 file(GLOB_RECURSE APP_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
-add_library(TrombonelessAppLibrary STATIC ${APP_SOURCES})
+add_library(TrombonelessAppLibrary STATIC ${APP_SOURCES} ${PROJECT_SOURCE_DIR}/../Shared/tromboneless_data.cpp)
 
-target_include_directories(TrombonelessAppLibrary PUBLIC
-${PROJECT_SOURCE_DIR}/inc
+target_include_directories(TrombonelessAppLibrary 
+PUBLIC
+    ${PROJECT_SOURCE_DIR}/../Shared/
+    ${PROJECT_SOURCE_DIR}/inc/
 PRIVATE
-${GTK3_INCLUDE_DIRS}
+    ${GTK3_INCLUDE_DIRS}
 )
 
 # Create the GUI application
-juce_add_gui_app(TrombonelessApp
+juce_add_gui_app(TrombonelessAppDemo
     PRODUCT_NAME "Tromboneless")
 
 # Set compile definitions
@@ -56,7 +60,6 @@ target_compile_definitions(TrombonelessAppLibrary
 target_link_libraries(TrombonelessAppLibrary
     PUBLIC
         juce::juce_gui_basics
-        TrombonelessSharedLibrary
         ${GTK3_LIBRARIES}
         CURL::libcurl
     PUBLIC
@@ -68,9 +71,13 @@ target_link_libraries(TrombonelessAppLibrary
 #               Main executable
 # ========================================
 
-target_include_directories(TrombonelessApp PRIVATE ${GTK3_INCLUDE_DIRS})
-target_link_libraries(TrombonelessApp PUBLIC TrombonelessAppLibrary CURL::libcurl ${GTK3_LIBRARIES})
-target_compile_options(TrombonelessApp PRIVATE ${GTK3_CFLAGS_OTHER})
+target_include_directories(TrombonelessAppDemo 
+    PRIVATE 
+        ${GTK3_INCLUDE_DIRS}
+        
+)
+target_link_libraries(TrombonelessAppDemo PUBLIC TrombonelessAppLibrary CURL::libcurl ${GTK3_LIBRARIES})
+target_compile_options(TrombonelessAppDemo PRIVATE ${GTK3_CFLAGS_OTHER})
 
 # ========================================
 #                   Tests
@@ -93,3 +100,4 @@ foreach(TEST_FILE ${TEST_SOURCES})
     # Add the test to the CTest list of tests.
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()
+

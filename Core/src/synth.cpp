@@ -282,46 +282,84 @@ float Octaves::PlayingFrequency(float phase){
 /*                                                                                            */
 /* ========================================================================================== */
 
-OctavesWithHarmonics::OctavesWithHarmonics(){
-
+OctavesWithHarmonics::OctavesWithHarmonics()
+{
 }
 
-float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float phase){
+void OctavesWithHarmonics::updateHarmonicCache(int n)
+{
+    n = std::max(1, std::min(n, maxHarmonics));
+
+    if (!harmonicCacheDirty && cachedNHarmonics == n)
+        return;
+
+    float amplitudeSum = 0.0f;
+    for (int i = 0; i < n; ++i) {
+        harmonicWeights[i] = HarmonicDecay(i + 1);
+        amplitudeSum += harmonicWeights[i];
+    }
+
+    if (amplitudeSum > 0.0f) {
+        for (int i = 0; i < n; ++i) {
+            harmonicWeights[i] /= amplitudeSum;
+        }
+    }
+
+    cachedNHarmonics = n;
+    harmonicCacheDirty = false;
+}
+
+float OctavesWithHarmonics::PlayingNoteWithHarmonics(int n, int octave, Notes_t note, float phase)
+{
     return PlayingFrequencyWithHarmonics(n, phase);
 }
 
-float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float phase){
-    float outputAmplitude = 0.0f;
-    /*  Ensuring that there has been a value of n above 1 being passed. */
-    n = std::max(n, 1);
 
-    for (int harmonicNumber=1; harmonicNumber < n+1; harmonicNumber++)
+float OctavesWithHarmonics::PlayingFrequencyWithHarmonics(int n, float phase)
+{
+    updateHarmonicCache(n);
+
+    const float c1 = std::cos(phase);
+
+    float cos_n_minus_1 = 1.0f; // cos(0 * phase)
+    float cos_n = c1;           // cos(1 * phase)
+
+    float outputAmplitude = harmonicWeights[0] * cos_n;
+
+    for (int harmonicNumber = 2; harmonicNumber <= cachedNHarmonics; ++harmonicNumber)
     {
-        outputAmplitude += HarmonicDecay(harmonicNumber) * std::cos(phase*harmonicNumber);
-    } 
+        float cos_n_plus_1 = 2.0f * c1 * cos_n - cos_n_minus_1;
+        outputAmplitude += harmonicWeights[harmonicNumber - 1] * cos_n_plus_1;
 
-    /*  Returning the normalised ampltide.*/
-    return outputAmplitude/getHarmomicDecayMax(n);
+        cos_n_minus_1 = cos_n;
+        cos_n = cos_n_plus_1;
+    }
+
+    return outputAmplitude;
 }
 
-float OctavesWithHarmonics::HarmonicDecay(int n){
+float OctavesWithHarmonics::HarmonicDecay(int n)
+{
     /*  Setting the minimum influence of the harmonics being tested to be 1%. */
-    return std::max(1.0f - (decayConstant * std::abs(n - 1)), 0.01f);
+    return std::max(1.0f - (decayConstant * std::abs((n+1) - 1)), 0.0000001f);
 }
 
-float OctavesWithHarmonics::getHarmomicDecayMax(int n){
+float OctavesWithHarmonics::getHarmonicDecayMax(int n)
+{
     float amplitude = 0.0f;
-    for (int i=0; i<n; i++){
-        amplitude += HarmonicDecay(i+1);
+    for (int i = 0; i < n; i++) {
+        amplitude += HarmonicDecay(i + 1);
     }
     return amplitude;
-
 }
 
-void OctavesWithHarmonics::setDecayConstant(float decayC){
+void OctavesWithHarmonics::setDecayConstant(float decayC)
+{
     decayConstant = decayC;
+    harmonicCacheDirty = true;
 }
 
-float OctavesWithHarmonics::getDecayConstant(void){
+float OctavesWithHarmonics::getDecayConstant(void)
+{
     return decayConstant;
 }

@@ -11,5 +11,5 @@ public:
     void writeSamples(const int16_t* buffer, int frames);
 
 private:
-    snd_pcm_t* handle;
+    snd_pcm_t* handle = nullptr;
 };
