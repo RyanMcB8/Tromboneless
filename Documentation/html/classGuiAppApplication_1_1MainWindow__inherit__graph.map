@@ -1,5 +1,0 @@
-<map id="GuiAppApplication::MainWindow" name="GuiAppApplication::MainWindow">
-<area shape="rect" id="Node000001" title="This class implements the desktop window that contains an instance of the MainComponent class." alt="" coords="18,79,169,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,181,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
-</map>

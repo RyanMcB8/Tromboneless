@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['widgets_2ecpp_0',['Widgets.cpp',['../Widgets_8cpp.html',1,'']]],
-  ['widgets_2ehpp_1',['Widgets.hpp',['../Widgets_8hpp.html',1,'']]],
-  ['writeblock16_2',['writeBlock16',['../classI2CBus.html#af98bc1a0bf42aafc35a5cdb2a9418333',1,'I2CBus']]],
-  ['writeblock8_3',['writeBlock8',['../classI2CBus.html#a684b69f56718b37fcd75abba4344bc93',1,'I2CBus']]]
-];
