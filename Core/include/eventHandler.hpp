@@ -18,44 +18,40 @@ struct RawInputEvent {
         Keycontrol
     };
 
-    Type type;
-    uint16_t tofDistance;
-    float pressureReading;
-    int8_t mouthpieceReading;
-    char keycontrol;
+    Type type{};
+    uint16_t tofDistance{};
+    float pressureReading{};
+    int8_t mouthpieceReading{};
+    char keycontrol{};
 };
 
 class EventHandler {
 public:
     using EventQueue = std::queue<RawInputEvent>;
 
-    /** @brief Constructor sets up event queuing, conditional blocking,
-     * initialises drivers for inputs.
-    */
-    EventHandler(EventQueue& queue,
-                 std::mutex& queueMutex,
-                 std::condition_variable& queueCv);
+    /** @brief Constructor initialises drivers and internal event transport. */
+    EventHandler();
 
     bool initialise();
     void start();
 
+    /** @brief Block until an event is available, then return it. */
+    RawInputEvent waitForEvent();
+
 private:
+    void pushEvent(const RawInputEvent& event);
+
     void handleToFDistance(uint16_t distance);
-
     void handleKeyControl(char key);
-
     void handleEmbouchure(int8_t embouchure);
-    
-    /* Takes pressure value as a float */
     void handlePressureReading(float pressure);
 
-    EventQueue& eventQueue;
-    std::mutex& eventQueueMutex;
-    std::condition_variable& eventQueueCv;
+    EventQueue eventQueue;
+    std::mutex eventQueueMutex;
+    std::condition_variable eventQueueCv;
 
     I2CBus bus;
     ToFSensor tofSensor;
     PressureSensor pressureSensor;
     CAP1188 cap1188;
-
 };
