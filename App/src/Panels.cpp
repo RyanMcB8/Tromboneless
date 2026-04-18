@@ -57,9 +57,9 @@ juce::Colour Panels::getBackgroundColour(void){
     shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
 #else
     auto DropDownLambda = [&pitchmapper](int index){
-        pitchmapper.setTromboneType(index);
+        pitchmapper.SetTromboneType(index);
     };
-    shiftKeyChoice.OnChange(DropDownLamda);
+    shiftKeyChoice.OnChange(DropDownLambda);
 #endif
 
     addAndMakeVisible(calibrateEmbouchure);
@@ -122,8 +122,8 @@ void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
         trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
         trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
 #else
-        pitchmapper.setSlideMinLimit(distanceSlider.slider.getMinValue());
-        pitchmapper.setSlideMaxLimit(distanceSlider.slider.getMaxValue());
+        pitchmapper.SetSlideMinLimit(distanceSlider.slider.getMinValue());
+        pitchmapper.SetSlideMaxLimit(distanceSlider.slider.getMaxValue());
 #endif
         return;
     }

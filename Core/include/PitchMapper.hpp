@@ -21,15 +21,10 @@ class PitchMapper{
             contrabass = -4
         } Trombone_type_t;
 
-        ShiftKeyingOptions_t trombone_type = ShiftKeyingOptions_t::SKOpt_TENOR;
-
         int slide_max_limit_mm = 500; /* Max limit of virtual trombone slide in mm.*/
         int slide_min_limit_mm = 0; /* Min limit of virtual trombone slide in mm.*/
         int mouthpiece_MIDI_note = 34; /* MIDI note produced by mouthpiece.*/ 
 
-
-
-        Trombone_type_t trombone_type;
         int trombone_type = Trombone_type_t::piccolo;
 
     public:
