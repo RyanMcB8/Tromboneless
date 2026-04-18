@@ -35,7 +35,7 @@ done
 cd latex || { echo "Latex folder not found"; exit 1; }
 echo "Compiling refman.tex..."
 pdflatex -interaction=nonstopmode -halt-on-error -output-directory="../" -jobname="$PDF_NAME" refman.tex
-pdflatex refman.tex
+pdflatex -interaction=nonstopmode -halt-on-error -output-directory="../" -jobname="$PDF_NAME" refman.tex
 
 echo "Cleaning new auxiliary files..."
 rm -f ../$PDF_NAME.aux ../$PDF_NAME.idx ../$PDF_NAME.log ../$PDF_NAME.out ../$PDF_NAME.toc
