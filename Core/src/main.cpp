@@ -1,18 +1,4 @@
 #include "main.hpp"
-#include "eventHandler.hpp"
-#include <condition_variable>
-#include <cstdint>
-#include <iostream>
-#include <thread>
-#include <mutex>
-#include <queue>
-#include <chrono>
-#include "MidiCoordinator.hpp"
-#include "tromboneSynth.hpp"
-#include "USBMidi.hpp"
-#include "audioRender.hpp"
-#include "PitchMapper.hpp"
-#include "AmplitudeMapper.hpp"
 
 int main() {
     try {

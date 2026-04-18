@@ -7,14 +7,23 @@ C{
 #endif
 
 /* Including header files */
-// #include "Pin_Definitions.h"
-// #include "MidiCoordinator.hpp"
-// #include "USBMidi.hpp"
-// #include "RtMidi.h"
-// #include "eventHandler.hpp"
+
+#include "eventHandler.hpp"
+#include <condition_variable>
+#include <cstdint>
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <queue>
+#include <chrono>
+#include "MidiCoordinator.hpp"
+#include "tromboneSynth.hpp"
+#include "USBMidi.hpp"
+#include "audioRender.hpp"
+#include "PitchMapper.hpp"
+#include "AmplitudeMapper.hpp"
 #include <iostream>
 #include "tromboneless_data.hpp"
-//extern PitchMapper pitchmapper;
 
 #ifdef C_PLUS_PLUS
 }
