@@ -1,5 +1,13 @@
 #include "PitchMapper.hpp"
 
+static const PitchMapper::PartialDef partials[] = {
+    { 70, -1, 5, 62 },
+    { 60, 65,  4, 58 },
+    { 50, 55,  3, 53 },
+    { 40, 45,  2, 46 },
+    { 30, 35,  1, 34 },
+};
+
 PitchMapper::PitchMapper(){
 
 }
@@ -19,20 +27,26 @@ int PitchMapper::tof_to_MIDI_bend(uint16_t tof_distance){
 }
 
 int PitchMapper::mouthpiece_to_MIDI_note(int8_t delta){
-        if (delta >= 75)
-            mouthpiece_MIDI_note = 62 + trombone_type;
-        else if (delta >= 70)
-            mouthpiece_MIDI_note = 58 + trombone_type;
-        else if (delta >= 60)
-            mouthpiece_MIDI_note = 53 + trombone_type;
-        else if (delta >= 50)
-            mouthpiece_MIDI_note = 46 + trombone_type;
-        else if (delta >= 40)
-            mouthpiece_MIDI_note = 34 + trombone_type;
-        else
-            mouthpiece_MIDI_note = 0 + trombone_type;
-            
-        return mouthpiece_MIDI_note;
+    // For every possible partial
+    for (const auto& p : partials)
+    {
+        // Non-hysteresis logic => Delta lies neatly within one band
+        if (delta >= p.minDelta)
+        {
+            partial = p.partial;
+            mouthpiece_MIDI_note = p.midiNote + trombone_type;
+            return mouthpiece_MIDI_note;
+        }
+        // Hysteresis logic => Between upper and lower partial, prefer lower unless it was upper before
+        if (p.hysteresisDelta > 0 && delta >= p.hysteresisDelta && partial == p.partial)
+        {
+            // Don't update partial — keep it as-is
+            mouthpiece_MIDI_note = p.midiNote + trombone_type;
+            return mouthpiece_MIDI_note;
+        }
+    }
+
+    return mouthpiece_MIDI_note;
 }
 
 void PitchMapper::SetSlideMaxLimit(int new_slide_max_limit_mm){

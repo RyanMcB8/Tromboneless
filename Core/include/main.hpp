@@ -14,7 +14,7 @@ C{
 // #include "eventHandler.hpp"
 #include <iostream>
 #include "tromboneless_data.hpp"
-extern PitchMapper pitchmapper;
+//extern PitchMapper pitchmapper;
 
 #ifdef C_PLUS_PLUS
 }
