@@ -1,0 +1,64 @@
+\doxysection{Core\+Wrapper.\+hpp}
+\hypertarget{CoreWrapper_8hpp_source}{}\label{CoreWrapper_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/CoreWrapper.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/CoreWrapper.hpp}}
+\mbox{\hyperlink{CoreWrapper_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}eventHandler.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}MidiCoordinator.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tromboneSynth_8hpp}{tromboneSynth.hpp}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}USBMidi.hpp"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}audioRender.hpp"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}PitchMapper.hpp"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}AmplitudeMapper.hpp"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCoreWrapper}{CoreWrapper}}\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ ==========================================\ \ */}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Adding\ the\ constructor\ and\ destructor.\ \ \ \ \ \ */}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ ==========================================\ \ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoreWrapper}{CoreWrapper}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classCoreWrapper}{\string~CoreWrapper}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ ==========================================\ \ */}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Adding\ functions\ to\ start\ the\ threads.\ \ \ \ \ \ */}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ ==========================================\ \ */}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ start();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ stop();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ ==========================================\ \ */}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Adding\ the\ getters\ for\ the\ classes'\ instances\ */}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ ==========================================\ \ */}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Setting\ up\ queue\ for\ the\ threading.\ */}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ std::queue<RawInputEvent>\ eventQueue;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ std::mutex\ eventQueueMutex;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::condition\_variable\ eventQueueCv;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Creating\ the\ instances.\ */}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEventHandler}{EventHandler}}\ eventHandler\ =\ \mbox{\hyperlink{classEventHandler}{EventHandler}}(eventQueue,\ eventQueueMutex,\ eventQueueCv);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRtMidiSink}{RtMidiSink}}\ midiSink;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classAudioRender}{AudioRender}}\ render;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classAmplitudeMapper}{AmplitudeMapper}}\ amplitudemapper;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPitchMapper}{PitchMapper}}\ pitchmapper;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMidiCoordinator}{MidiCoordinator}}\ coordinator\ =\ \mbox{\hyperlink{classMidiCoordinator}{MidiCoordinator}}(render);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ Core\ loop.\ */}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::thread\ eventThread;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ running\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ eventLoop();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \};}
+
+\end{DoxyCode}

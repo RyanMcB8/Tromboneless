@@ -81,7 +81,7 @@ $(function() {
 <p>A class which can allow for the create of an envelope function which outputs a value between 0 and 1 depending on what stage the envelope is in. This uses the ADSR standard in music synthesis where A is the Attack, D is the decay, S is the saturation and R is the rest stage.  
  <a href="classEnvelope.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="envelope_8hpp_source.html">Tromboneless/Core/include/envelope.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="envelope_8hpp_source.html">/home/ryan-mcbride/Documents/Tromboneless/Core/include/envelope.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -99,9 +99,9 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4a2ea654b4be00d5c64921ebecb880bf" id="r_a4a2ea654b4be00d5c64921ebecb880bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelope.html#a4a2ea654b4be00d5c64921ebecb880bf">Envelope</a> (int attack_in=100, int decay_in=20, float sustain_in=0.98, int rest_in=10)</td></tr>
-<tr class="memdesc:a4a2ea654b4be00d5c64921ebecb880bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor function for the <code><a class="el" href="classEnvelope.html" title="A class which can allow for the create of an envelope function which outputs a value between 0 and 1 ...">Envelope</a></code> class which sets the values of the ADSR of the envelope and initialises the beginning of it.  <br /></td></tr>
-<tr class="separator:a4a2ea654b4be00d5c64921ebecb880bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95463e2d5c42d909b12ac0f96733f873" id="r_a95463e2d5c42d909b12ac0f96733f873"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEnvelope.html#a95463e2d5c42d909b12ac0f96733f873">Envelope</a> (int attack_in=10, int decay_in=20, float sustain_in=0.98, int rest_in=10)</td></tr>
+<tr class="memdesc:a95463e2d5c42d909b12ac0f96733f873"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor function for the <code><a class="el" href="classEnvelope.html" title="A class which can allow for the create of an envelope function which outputs a value between 0 and 1 ...">Envelope</a></code> class which sets the values of the ADSR of the envelope and initialises the beginning of it.  <br /></td></tr>
+<tr class="separator:a95463e2d5c42d909b12ac0f96733f873"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c6afb61768a4406e1cc6d222caaf547" id="r_a5c6afb61768a4406e1cc6d222caaf547"><td class="memItemLeft" align="right" valign="top"><a id="a5c6afb61768a4406e1cc6d222caaf547" name="a5c6afb61768a4406e1cc6d222caaf547"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~Envelope</b> ()=default</td></tr>
 <tr class="memdesc:a5c6afb61768a4406e1cc6d222caaf547"><td class="mdescLeft">&#160;</td><td class="mdescRight">The destructor function for the <code><a class="el" href="classEnvelope.html" title="A class which can allow for the create of an envelope function which outputs a value between 0 and 1 ...">Envelope</a></code> class which is currently just set to default. <br /></td></tr>
@@ -161,8 +161,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>endEnvelope</b> (void
 <div class="textblock"><p>A class which can allow for the create of an envelope function which outputs a value between 0 and 1 depending on what stage the envelope is in. This uses the ADSR standard in music synthesis where A is the Attack, D is the decay, S is the saturation and R is the rest stage. </p>
 <dl class="section note"><dt>Note</dt><dd>The public functions to set up the envelope take the time in milliseconds for each parameter as well as the sample rate to determine the number of samples each stage should last for. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4a2ea654b4be00d5c64921ebecb880bf" name="a4a2ea654b4be00d5c64921ebecb880bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a2ea654b4be00d5c64921ebecb880bf">&#9670;&#160;</a></span>Envelope()</h2>
+<a id="a95463e2d5c42d909b12ac0f96733f873" name="a95463e2d5c42d909b12ac0f96733f873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95463e2d5c42d909b12ac0f96733f873">&#9670;&#160;</a></span>Envelope()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,7 +171,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>endEnvelope</b> (void
           <td class="memname">Envelope::Envelope </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>attack_in</em> = <code>100</code>, </td>
+          <td class="paramname"><em>attack_in</em> = <code>10</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -583,8 +583,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>endEnvelope</b> (void
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Tromboneless/Core/include/<a class="el" href="envelope_8hpp_source.html">envelope.hpp</a></li>
-<li>Tromboneless/Core/src/<a class="el" href="envelope_8cpp.html">envelope.cpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/include/<a class="el" href="envelope_8hpp_source.html">envelope.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/src/<a class="el" href="envelope_8cpp.html">envelope.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.0</span>
+   <div id="projectname">Tromboneless<span id="projectnumber">&#160;v0.1.1</span>
    </div>
    <div id="projectbrief">Electronic MIDI compatible trombone synthesiser</div>
   </td>
@@ -77,12 +77,12 @@ $(function() {
 <h1><a class="anchor" id="autotoc_md1"></a>
 Map of the code</h1>
 <p>Within the <code>main.cpp</code> file is the code responsible for creating main window. This should not need to be modified as the contents of the window are defined elsewhere.</p>
-<p>The code within <code>Layout.cpp</code> creates the defines the general structure of the window by creating instances of widgets and panels and arranging them to be in the correct position on the screen.</p>
+<p>The code within <code><a class="el" href="Layout_8cpp.html" title="This file holds the defintions of all functions and variables needed by the Tromboneless project to d...">Layout.cpp</a></code> creates the defines the general structure of the window by creating instances of widgets and panels and arranging them to be in the correct position on the screen.</p>
 <p>The <code><a class="el" href="Panels_8cpp.html" title="This file contains the function defintions for to create the necessary panels that may be used within...">Panels.cpp</a></code> file is where each panel on the display is created. This sets the backgorund colour of each panel and calls upon the specific widgets which should be in each panel.</p>
 <p>The <code><a class="el" href="Widgets_8cpp.html" title="A file which defines the functions which have been declared within the Widgets.hpp file.">Widgets.cpp</a></code> file hosts the classes for creating more custom widgets that base library of JUCE does not already provide. These include modifications to shapes of the widgets such as the custom calibration sliders and equalizer.</p>
 <p>The <code>tromboneless_data.cpp</code> file has the variables which interact with the Tromboneless Core functionality and allow for the Core and App to communicate parameters between each other. If there is a need to add more communication channels between the app and core, this is where t should be added. For example, a flag for if a speaker has been connected.</p>
 <p>Each of these files has an associated header file, excluding <code>main.cpp</code>, which hosts the declarations and custom types which may be used externally. All documentation for the functions are within the header files with more in-depth step by step explanations within the cpp files.</p>
-<p>If the files are thought about as a pipe line, the order would be: JUCE --&gt; Widgets --&gt; <a class="el" href="classPanels.html">Panels</a> --&gt; <a class="el" href="classLayout.html" title="Main class that creates the window.">Layout</a> --&gt; main</p>
+<p>If the files are thought about as a pipe line, the order would be: JUCE --&gt; Widgets --&gt; <a class="el" href="classPanels.html" title="A class which is inherited from Juce:Component reponsible for setting the general style of a panel wi...">Panels</a> --&gt; <a class="el" href="classLayout.html" title="Main class that creates the window.">Layout</a> --&gt; main</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Code tutorials specifically for JUCE:</h1>
 <h2><a class="anchor" id="autotoc_md3"></a>

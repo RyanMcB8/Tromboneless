@@ -7,12 +7,11 @@ A class which inherits functions and variables from the {\ttfamily \doxylink{cla
 
 
 
-{\ttfamily \#include $<$Tromboneless/\+Core/include/synth.\+hpp$>$}
+{\ttfamily \#include $<$/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/synth.\+hpp$>$}
 
 
 
-Inheritance diagram for Octaves\+With\+Harmonics\+:
-\nopagebreak
+Inheritance diagram for Octaves\+With\+Harmonics\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Octaves\+With\+Harmonics\+:
 \end{figure}
 
 
-Collaboration diagram for Octaves\+With\+Harmonics\+:
-\nopagebreak
+Collaboration diagram for Octaves\+With\+Harmonics\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -41,7 +39,7 @@ float \mbox{\hyperlink{classOctavesWithHarmonics_a4b66d3a6df6849de730aad0966330f
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}{Harmonic\+Decay}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{get\+Harmomic\+Decay\+Max}} (int n)
+float \mbox{\hyperlink{classOctavesWithHarmonics_aaa472a0fbd99137d29435e52af4c324a}{get\+Harmonic\+Decay\+Max}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9}{set\+Decay\+Constant}} (float decayC)
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. \end{DoxyCompactList}\item 
@@ -131,6 +129,33 @@ float \mbox{\hyperlink{classNotes_a192de65337df2408c3e56ca10a4c4c10}{getB}} (voi
 \begin{DoxyCompactList}\small\item\em A function that returns the frequency of the B note for the specified object. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t}} note)
 \begin{DoxyCompactList}\small\item\em An alternative function which can allow for the user to request a specific note based upon the Notes\+\_\+t enumerated values rather than specifying a function call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classOctavesWithHarmonics_a010c12d4ade6f83da040a89264d117f2}\label{classOctavesWithHarmonics_a010c12d4ade6f83da040a89264d117f2} 
+void {\bfseries update\+Harmonic\+Cache} (int n)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classOctavesWithHarmonics_a830e1a4260552b40d80ea0a80cf10314}\label{classOctavesWithHarmonics_a830e1a4260552b40d80ea0a80cf10314} 
+float {\bfseries decay\+Constant} = 0.\+1f
+\item 
+\Hypertarget{classOctavesWithHarmonics_a798caad8afe0e20254693cf6e0290b77}\label{classOctavesWithHarmonics_a798caad8afe0e20254693cf6e0290b77} 
+std\+::array$<$ float, max\+Harmonics $>$ {\bfseries harmonic\+Weights} \{\}
+\item 
+\Hypertarget{classOctavesWithHarmonics_aa7e314e705acd75423c9ae4a30093668}\label{classOctavesWithHarmonics_aa7e314e705acd75423c9ae4a30093668} 
+int {\bfseries cached\+NHarmonics} = 0
+\item 
+\Hypertarget{classOctavesWithHarmonics_a66424e89dd3af7acf3ae8e29f288bdf6}\label{classOctavesWithHarmonics_a66424e89dd3af7acf3ae8e29f288bdf6} 
+bool {\bfseries harmonic\+Cache\+Dirty} = true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classOctavesWithHarmonics_aba8238d96cfddc0d6fe960d671c81073}\label{classOctavesWithHarmonics_aba8238d96cfddc0d6fe960d671c81073} 
+static constexpr int {\bfseries max\+Harmonics} = 64
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Types inherited from \mbox{\hyperlink{classNotes}{Notes}}}
 \begin{DoxyCompactItemize}
@@ -191,11 +216,11 @@ A function which returns the decay constant being used to determine the relative
 {\em The} & floating point representation of the decay constant. \\
 \hline
 \end{DoxyRetVals}
-\Hypertarget{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}\label{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13} 
-\index{OctavesWithHarmonics@{OctavesWithHarmonics}!getHarmomicDecayMax@{getHarmomicDecayMax}}
-\index{getHarmomicDecayMax@{getHarmomicDecayMax}!OctavesWithHarmonics@{OctavesWithHarmonics}}
-\doxysubsubsection{\texorpdfstring{getHarmomicDecayMax()}{getHarmomicDecayMax()}}
-{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::get\+Harmomic\+Decay\+Max (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+\Hypertarget{classOctavesWithHarmonics_aaa472a0fbd99137d29435e52af4c324a}\label{classOctavesWithHarmonics_aaa472a0fbd99137d29435e52af4c324a} 
+\index{OctavesWithHarmonics@{OctavesWithHarmonics}!getHarmonicDecayMax@{getHarmonicDecayMax}}
+\index{getHarmonicDecayMax@{getHarmonicDecayMax}!OctavesWithHarmonics@{OctavesWithHarmonics}}
+\doxysubsubsection{\texorpdfstring{getHarmonicDecayMax()}{getHarmonicDecayMax()}}
+{\footnotesize\ttfamily float Octaves\+With\+Harmonics\+::get\+Harmonic\+Decay\+Max (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
@@ -304,5 +329,5 @@ A function that can change the value of the decay constant used to set the maxmi
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
-Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/\mbox{\hyperlink{synth_8hpp}{synth.\+hpp}}\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/src/\mbox{\hyperlink{synth_8cpp}{synth.\+cpp}}\end{DoxyCompactItemize}

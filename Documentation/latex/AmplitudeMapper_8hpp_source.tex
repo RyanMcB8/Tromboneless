@@ -1,44 +1,35 @@
 \doxysection{Amplitude\+Mapper.\+hpp}
-\hypertarget{AmplitudeMapper_8hpp_source}{}\label{AmplitudeMapper_8hpp_source}\index{Tromboneless/Core/include/AmplitudeMapper.hpp@{Tromboneless/Core/include/AmplitudeMapper.hpp}}
+\hypertarget{AmplitudeMapper_8hpp_source}{}\label{AmplitudeMapper_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/AmplitudeMapper.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/AmplitudeMapper.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <cstdio>}\ }
-\DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{comment}{//\ This\ code\ defines\ a\ class\ that\ takes\ a\ sample\ of\ breath\ pressure\ from\ the\ ADC\ and\ maps\ it\ appropriately\ }}
-\DoxyCodeLine{00004\ \textcolor{comment}{//\ into\ functional\ values\ for\ MIDI\ (0-\/127).}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstdio>}\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <chrono>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAmplitudeMapper}{AmplitudeMapper}}\ \{}
-\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Attributes}}
-\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pressureSample\ =\ 0.0f;}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ latestExpr\ =\ 0.0f;}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ bottomLimit\ =\ 100.0f;}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ upperLimit\ =\ 200.0f;}
-\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ noteOn\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Subscriber\ of\ ADS1115\ driver.\ }}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ getADS1115Sample(\textcolor{keywordtype}{float}\ v)\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ getLatestExpr(\textcolor{keywordtype}{float}\ pressureSample)\ \{}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ latestExpr\ =\ pressureSample\ -\/\ bottomLimit;}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ latestExpr\ =\ latestExpr\ *\ 127.0f/upperLimit;}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (latestExpr<0.0f)\{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ latestExpr\ =\ 0.0f;}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ noteOn\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (latestExpr>127.0f)\{}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ latestExpr\ =\ 127.0f;}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ noteOn\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//latestExpr\ =\ latestExpr}}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ noteOn\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00038\ \ \ \ \ \};}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ This\ code\ defines\ a\ class\ that\ takes\ a\ voltage\ level\ sample\ from}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ ADS1115\ representing\ breath\ pressure\ }}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ and\ compares\ it\ against\ a\ baseline\ to\ determine\ whether\ it}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ sufficiently\ high\ enough\ to\ switch\ note\ on.}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAmplitudeMapper}{AmplitudeMapper}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Attributes}}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pressureSample\ =\ 0.0f;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pressureBaseline\ =\ 0.0f;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pressureThreshold;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pressureState\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ std::vector<float>\ buffer;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::chrono::steady\_clock::time\_point\ startTime;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classAmplitudeMapper}{AmplitudeMapper}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ calculateBaseline(\textcolor{keywordtype}{float}\ pressureSample);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ getBaseline();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ noteEdge(\textcolor{keywordtype}{float}\ pressureSample);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \};}
 
 \end{DoxyCode}

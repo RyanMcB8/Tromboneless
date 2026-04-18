@@ -7,12 +7,11 @@ A class which may be used to create a custom synth with an envelope attached to 
 
 
 
-{\ttfamily \#include $<$Tromboneless/\+Core/include/trombone\+Synth.\+hpp$>$}
+{\ttfamily \#include $<$/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/trombone\+Synth.\+hpp$>$}
 
 
 
-Inheritance diagram for Trombone\+Synth\+:
-\nopagebreak
+Inheritance diagram for Trombone\+Synth\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Trombone\+Synth\+:
 \end{figure}
 
 
-Collaboration diagram for Trombone\+Synth\+:
-\nopagebreak
+Collaboration diagram for Trombone\+Synth\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,7 +30,7 @@ Collaboration diagram for Trombone\+Synth\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTromboneSynth_ace1f00c513be279271cb58c3e6926e17}{Trombone\+Synth}} (int sample\+Rate=44100, float attack=500.\+0, float decay=50.\+0, float sustain=0.\+96, float rest=10.\+0)
+\mbox{\hyperlink{classTromboneSynth_a800c6f82ea5d9c8caca2f72cbe53ddee}{Trombone\+Synth}} (int sample\+Rate=44100, float attack=10.\+0f, float decay=50.\+0f, float sustain=1.\+0f, float rest=10.\+0f)
 \begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classTromboneSynth}{Trombone\+Synth}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTromboneSynth_ac2ea585357078a232c49e22654b85ed3}{Start\+Trombone\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}} note\+\_\+in, int octave\+\_\+in)
 \begin{DoxyCompactList}\small\item\em A function which may be called to set the note and octave of a new sound by the user. If there is already a note playing, this will stop the previous not and play this one without phase shifting (initially). \end{DoxyCompactList}\item 
@@ -45,11 +43,11 @@ void {\bfseries Stop\+Trombone\+Note} (void)
 \begin{DoxyCompactList}\small\item\em A function which sends the synthesiser into its rest state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTromboneSynth_aa92885853f7411684a70ae0909b66103}{New\+Trombone\+Note\+MIDI}} (int MIDINote)
 \begin{DoxyCompactList}\small\item\em A function which can take in the MIDI equivalent note and map it to the Notes\+\_\+t options to match the rest of the synth interface. \end{DoxyCompactList}\item 
-\Hypertarget{classTromboneSynth_ab1b2929a64e4a07ed0131406672aba64}\label{classTromboneSynth_ab1b2929a64e4a07ed0131406672aba64} 
-void {\bfseries Handle\+MIDINote\+On} (int current\+Note)
+\Hypertarget{classTromboneSynth_a139226aca002fefc2eacf2b2a05e23d2}\label{classTromboneSynth_a139226aca002fefc2eacf2b2a05e23d2} 
+void {\bfseries Handle\+MIDINote\+On} ()
 \begin{DoxyCompactList}\small\item\em A method to handle Note\+On messages as passed from the MIDI Coordinator. \end{DoxyCompactList}\item 
-\Hypertarget{classTromboneSynth_a3f3dbfcb0194f02180817bcbb843ff3b}\label{classTromboneSynth_a3f3dbfcb0194f02180817bcbb843ff3b} 
-void {\bfseries Handle\+MIDINote\+Off} (int current\+Note)
+\Hypertarget{classTromboneSynth_a5c6530564ccdc7faf398cf0569b21f21}\label{classTromboneSynth_a5c6530564ccdc7faf398cf0569b21f21} 
+void {\bfseries Handle\+MIDINote\+Off} ()
 \item 
 \Hypertarget{classTromboneSynth_aadad1ffa1523270eda733ca98a6782c3}\label{classTromboneSynth_aadad1ffa1523270eda733ca98a6782c3} 
 void {\bfseries Handle\+MIDIPitch\+Bend} (int midipitchbend)
@@ -101,7 +99,7 @@ float \mbox{\hyperlink{classOctavesWithHarmonics_a4b66d3a6df6849de730aad0966330f
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}{Harmonic\+Decay}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{get\+Harmomic\+Decay\+Max}} (int n)
+float \mbox{\hyperlink{classOctavesWithHarmonics_aaa472a0fbd99137d29435e52af4c324a}{get\+Harmonic\+Decay\+Max}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9}{set\+Decay\+Constant}} (float decayC)
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. \end{DoxyCompactList}\item 
@@ -230,17 +228,38 @@ enum \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t
 \item 
 static const char {\bfseries n\+Octaves} = 9
 \begin{DoxyCompactList}\small\item\em Stores the number of octaves being used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries update\+Harmonic\+Cache} (int n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
+\begin{DoxyCompactItemize}
+\item 
+float {\bfseries decay\+Constant} = 0.\+1f
+\item 
+std\+::array$<$ float, max\+Harmonics $>$ {\bfseries harmonic\+Weights} \{\}
+\item 
+int {\bfseries cached\+NHarmonics} = 0
+\item 
+bool {\bfseries harmonic\+Cache\+Dirty} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int {\bfseries max\+Harmonics} = 64
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A class which may be used to create a custom synth with an envelope attached to it. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classTromboneSynth_ace1f00c513be279271cb58c3e6926e17}\label{classTromboneSynth_ace1f00c513be279271cb58c3e6926e17} 
+\Hypertarget{classTromboneSynth_a800c6f82ea5d9c8caca2f72cbe53ddee}\label{classTromboneSynth_a800c6f82ea5d9c8caca2f72cbe53ddee} 
 \index{TromboneSynth@{TromboneSynth}!TromboneSynth@{TromboneSynth}}
 \index{TromboneSynth@{TromboneSynth}!TromboneSynth@{TromboneSynth}}
 \doxysubsubsection{\texorpdfstring{TromboneSynth()}{TromboneSynth()}}
-{\footnotesize\ttfamily Trombone\+Synth\+::\+Trombone\+Synth (\begin{DoxyParamCaption}\item[{int}]{sample\+Rate = {\ttfamily 44100},  }\item[{float}]{attack = {\ttfamily 500.0},  }\item[{float}]{decay = {\ttfamily 50.0},  }\item[{float}]{sustain = {\ttfamily 0.96},  }\item[{float}]{rest = {\ttfamily 10.0} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Trombone\+Synth\+::\+Trombone\+Synth (\begin{DoxyParamCaption}\item[{int}]{sample\+Rate = {\ttfamily 44100},  }\item[{float}]{attack = {\ttfamily 10.0f},  }\item[{float}]{decay = {\ttfamily 50.0f},  }\item[{float}]{sustain = {\ttfamily 1.0f},  }\item[{float}]{rest = {\ttfamily 10.0f} }\end{DoxyParamCaption})}
 
 
 
@@ -555,5 +574,5 @@ A function which may be called to set the note and octave of a new sound by the 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Tromboneless/\+Core/include/\mbox{\hyperlink{tromboneSynth_8hpp}{trombone\+Synth.\+hpp}}\item 
-Tromboneless/\+Core/src/\mbox{\hyperlink{tromboneSynth_8cpp}{trombone\+Synth.\+cpp}}\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/\mbox{\hyperlink{tromboneSynth_8hpp}{trombone\+Synth.\+hpp}}\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/src/\mbox{\hyperlink{tromboneSynth_8cpp}{trombone\+Synth.\+cpp}}\end{DoxyCompactItemize}

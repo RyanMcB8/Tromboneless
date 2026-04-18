@@ -72,6 +72,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="classOctavesWithHarmonics-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">OctavesWithHarmonics Class Reference</div></div>
 </div><!--header-->
@@ -80,7 +83,7 @@ $(function() {
 <p>A class which inherits functions and variables from the <code><a class="el" href="classOctaves.html" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class...">Octaves</a></code> class allowing for the notes being output to have a set of harmonic frequencies attached to them too.  
  <a href="classOctavesWithHarmonics.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="synth_8hpp_source.html">Tromboneless/Core/include/synth.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="synth_8hpp_source.html">/home/ryan-mcbride/Documents/Tromboneless/Core/include/synth.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for OctavesWithHarmonics:</div>
 <div class="dyncontent">
@@ -126,9 +129,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af9d14fab35feae14d4ce9f14f2080324" id="r_af9d14fab35feae14d4ce9f14f2080324"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#af9d14fab35feae14d4ce9f14f2080324">HarmonicDecay</a> (int n)</td></tr>
 <tr class="memdesc:af9d14fab35feae14d4ce9f14f2080324"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic.  <br /></td></tr>
 <tr class="separator:af9d14fab35feae14d4ce9f14f2080324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a278ebf6d96d2a86441eb6d1348aa5d13" id="r_a278ebf6d96d2a86441eb6d1348aa5d13"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#a278ebf6d96d2a86441eb6d1348aa5d13">getHarmomicDecayMax</a> (int n)</td></tr>
-<tr class="memdesc:a278ebf6d96d2a86441eb6d1348aa5d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering.  <br /></td></tr>
-<tr class="separator:a278ebf6d96d2a86441eb6d1348aa5d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa472a0fbd99137d29435e52af4c324a" id="r_aaa472a0fbd99137d29435e52af4c324a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#aaa472a0fbd99137d29435e52af4c324a">getHarmonicDecayMax</a> (int n)</td></tr>
+<tr class="memdesc:aaa472a0fbd99137d29435e52af4c324a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering.  <br /></td></tr>
+<tr class="separator:aaa472a0fbd99137d29435e52af4c324a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7e6deb44d098e704519df09bbd189e9" id="r_ab7e6deb44d098e704519df09bbd189e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOctavesWithHarmonics.html#ab7e6deb44d098e704519df09bbd189e9">setDecayConstant</a> (float decayC)</td></tr>
 <tr class="memdesc:ab7e6deb44d098e704519df09bbd189e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic.  <br /></td></tr>
 <tr class="separator:ab7e6deb44d098e704519df09bbd189e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -255,6 +258,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a48d208550a87e540d1748253aae9516f inherit pub_methods_classNotes"><td class="mdescLeft">&#160;</td><td class="mdescRight">An alternative function which can allow for the user to request a specific note based upon the Notes_t enumerated values rather than specifying a function call.  <br /></td></tr>
 <tr class="separator:a48d208550a87e540d1748253aae9516f inherit pub_methods_classNotes"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a010c12d4ade6f83da040a89264d117f2" id="r_a010c12d4ade6f83da040a89264d117f2"><td class="memItemLeft" align="right" valign="top"><a id="a010c12d4ade6f83da040a89264d117f2" name="a010c12d4ade6f83da040a89264d117f2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateHarmonicCache</b> (int n)</td></tr>
+<tr class="separator:a010c12d4ade6f83da040a89264d117f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a830e1a4260552b40d80ea0a80cf10314" id="r_a830e1a4260552b40d80ea0a80cf10314"><td class="memItemLeft" align="right" valign="top"><a id="a830e1a4260552b40d80ea0a80cf10314" name="a830e1a4260552b40d80ea0a80cf10314"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>decayConstant</b> = 0.1f</td></tr>
+<tr class="separator:a830e1a4260552b40d80ea0a80cf10314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a798caad8afe0e20254693cf6e0290b77" id="r_a798caad8afe0e20254693cf6e0290b77"><td class="memItemLeft" align="right" valign="top"><a id="a798caad8afe0e20254693cf6e0290b77" name="a798caad8afe0e20254693cf6e0290b77"></a>
+std::array&lt; float, maxHarmonics &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>harmonicWeights</b> {}</td></tr>
+<tr class="separator:a798caad8afe0e20254693cf6e0290b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e314e705acd75423c9ae4a30093668" id="r_aa7e314e705acd75423c9ae4a30093668"><td class="memItemLeft" align="right" valign="top"><a id="aa7e314e705acd75423c9ae4a30093668" name="aa7e314e705acd75423c9ae4a30093668"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>cachedNHarmonics</b> = 0</td></tr>
+<tr class="separator:aa7e314e705acd75423c9ae4a30093668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66424e89dd3af7acf3ae8e29f288bdf6" id="r_a66424e89dd3af7acf3ae8e29f288bdf6"><td class="memItemLeft" align="right" valign="top"><a id="a66424e89dd3af7acf3ae8e29f288bdf6" name="a66424e89dd3af7acf3ae8e29f288bdf6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>harmonicCacheDirty</b> = true</td></tr>
+<tr class="separator:a66424e89dd3af7acf3ae8e29f288bdf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:aba8238d96cfddc0d6fe960d671c81073" id="r_aba8238d96cfddc0d6fe960d671c81073"><td class="memItemLeft" align="right" valign="top"><a id="aba8238d96cfddc0d6fe960d671c81073" name="aba8238d96cfddc0d6fe960d671c81073"></a>
+static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><b>maxHarmonics</b> = 64</td></tr>
+<tr class="separator:aba8238d96cfddc0d6fe960d671c81073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_types_classNotes"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classNotes')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classNotes.html">Notes</a></td></tr>
@@ -324,14 +354,14 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 
 </div>
 </div>
-<a id="a278ebf6d96d2a86441eb6d1348aa5d13" name="a278ebf6d96d2a86441eb6d1348aa5d13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a278ebf6d96d2a86441eb6d1348aa5d13">&#9670;&#160;</a></span>getHarmomicDecayMax()</h2>
+<a id="aaa472a0fbd99137d29435e52af4c324a" name="aaa472a0fbd99137d29435e52af4c324a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa472a0fbd99137d29435e52af4c324a">&#9670;&#160;</a></span>getHarmonicDecayMax()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float OctavesWithHarmonics::getHarmomicDecayMax </td>
+          <td class="memname">float OctavesWithHarmonics::getHarmonicDecayMax </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -517,8 +547,8 @@ static const char&#160;</td><td class="memItemRight" valign="bottom"><b>nOctaves
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Tromboneless/Core/include/<a class="el" href="synth_8hpp_source.html">synth.hpp</a></li>
-<li>Tromboneless/Core/src/<a class="el" href="synth_8cpp.html">synth.cpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/include/<a class="el" href="synth_8hpp_source.html">synth.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/src/<a class="el" href="synth_8cpp.html">synth.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

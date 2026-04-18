@@ -1,9 +1,9 @@
 \doxysection{trombone\+Synth.\+hpp}
-\hypertarget{tromboneSynth_8hpp_source}{}\label{tromboneSynth_8hpp_source}\index{Tromboneless/Core/include/tromboneSynth.hpp@{Tromboneless/Core/include/tromboneSynth.hpp}}
+\hypertarget{tromboneSynth_8hpp_source}{}\label{tromboneSynth_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/tromboneSynth.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/tromboneSynth.hpp}}
 \mbox{\hyperlink{tromboneSynth_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
-\DoxyCodeLine{00008\ \ \textcolor{comment}{/*\ Preventing\ recurssion\ */}}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{/*\ Preventing\ recurssion\ */}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \#pragma\ once}}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ \ \textcolor{comment}{/*\ Adding\ the\ necessary\ header\ files\ to\ be\ included.\ */}}
@@ -13,8 +13,8 @@
 \DoxyCodeLine{00018\ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTromboneSynth}{TromboneSynth}}\ \ \ \ :\ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{classOctavesWithHarmonics}{OctavesWithHarmonics}}}
 \DoxyCodeLine{00019\ \ \{}
 \DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTromboneSynth}{TromboneSynth}}(\textcolor{keywordtype}{int}\ sampleRate\ =\ 44100,\ \textcolor{keywordtype}{float}\ attack\ =\ 500.0,\ \textcolor{keywordtype}{float}\ decay\ =\ 50.0,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sustain\ =\ 0.96,\ \textcolor{keywordtype}{float}\ rest\ =\ 10.0);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTromboneSynth}{TromboneSynth}}(\textcolor{keywordtype}{int}\ sampleRate\ =\ 44100,\ \textcolor{keywordtype}{float}\ attack\ =\ 10.0f,\ \textcolor{keywordtype}{float}\ decay\ =\ 50.0f,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sustain\ =\ 1.0f,\ \textcolor{keywordtype}{float}\ rest\ =\ 10.0f);}
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTromboneSynth_ac2ea585357078a232c49e22654b85ed3}{StartTromboneNote}}(\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes::Notes\_t}}\ note\_in,\ \textcolor{keywordtype}{int}\ octave\_in);}
 \DoxyCodeLine{00047\ }
@@ -26,9 +26,9 @@
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTromboneSynth_aa92885853f7411684a70ae0909b66103}{NewTromboneNoteMIDI}}(\textcolor{keywordtype}{int}\ MIDINote);}
 \DoxyCodeLine{00077\ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTromboneSynth_ab1b2929a64e4a07ed0131406672aba64}{HandleMIDINoteOn}}(\textcolor{keywordtype}{int}\ currentNote);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTromboneSynth_a139226aca002fefc2eacf2b2a05e23d2}{HandleMIDINoteOn}}();}
 \DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ HandleMIDINoteOff(\textcolor{keywordtype}{int}\ currentNote);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ HandleMIDINoteOff();}
 \DoxyCodeLine{00084\ }
 \DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ HandleMIDIPitchBend(\textcolor{keywordtype}{int}\ midipitchbend);}
 \DoxyCodeLine{00086\ }
@@ -72,27 +72,35 @@
 \DoxyCodeLine{00189\ \textcolor{comment}{\ \ \ \ \ \ \ \ permanently.\ The\ ADSR\ values\ may\ need\ to\ be\ adjusted\ but\ this\ should\ sound}}
 \DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ \ \ \ brassy.\ */}}
 \DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEnvelope}{Envelope}}\ tromboneEnvelope\ =\ \mbox{\hyperlink{classEnvelope}{Envelope}}(100,\ 50,\ 0.95f,\ 10);}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ attack\_ms;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ attack\ time\ in\ milliseconds\ of\ the\ envelope.\ */}}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ decay\_ms;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ decay\ time\ in\ milliseconds\ of\ the\ envelope.\ */}}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ rest\_ms;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ rest\ time\ in\ milliseconds\ of\ the\ envelope.\ */}}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sustain;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ sustain\ level\ of\ the\ envelope.\ */}}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ phase\ =\ 0.0f;\ \textcolor{comment}{/*\ Phase\ of\ oscillator\ wave\ */}}
-\DoxyCodeLine{00199\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ synth\ \ \ */}}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nHarmonics\ =\ 17;\ \ \ \ \textcolor{comment}{/*\ \ The\ number\ of\ harmonics\ which\ will\ be\ present\ in\ the\ final\ signal.\ */}}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ octave\ =\ 2;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ octave\ which\ the\ note\ will\ be\ present\ in.\ */}}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes::Notes\_t}}\ note\ =\ Notes::Notes::note\_A;\ \ \textcolor{comment}{/*\ \ The\ note\ which\ will\ be\ played.\ */}}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pitchBend\ \ \ =\ \ \ 8192;\ \ \textcolor{comment}{/*\ \ The\ MIDI\ message\ pitch\ bend\ dependent\ upon\ the\ position\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEnvelope}{Envelope}}\ tromboneEnvelope\ =\ \mbox{\hyperlink{classEnvelope}{Envelope}}(10,\ 50,\ 1.0f,\ 10);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ attack\_ms\ =\ 10.0f;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ attack\ time\ in\ milliseconds\ of\ the\ envelope.\ */}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ decay\_ms\ =\ 50.0f;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ decay\ time\ in\ milliseconds\ of\ the\ envelope.\ */}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ rest\_ms\ =\ 10.0f;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ rest\ time\ in\ milliseconds\ of\ the\ envelope.\ */}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sustain\ =\ 1.0f;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ sustain\ level\ of\ the\ envelope.\ */}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ cachedFrequency\ =\ 0.0f;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ cachedPhaseIncrement\ =\ 0.0f;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pitchCacheDirty\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updatePitchCache();}
+\DoxyCodeLine{00204\ }
 \DoxyCodeLine{00205\ }
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ samples\ =\ 0;}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sampleRate\ =\ 44100;}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pitchBendMax\ =\ 8192;\ \ \ \ \textcolor{comment}{/*\ \ The\ maximum\ number\ which\ may\ be\ passed\ to\ the\ the\ pitch\ bending\ function\ by\ the\ MIDI\ input.\ */}}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pitchBendSpread\ =\ 7;\ \ \ \ \textcolor{comment}{/*\ \ The\ maximum\ number\ of\ semitones\ that\ the\ pitch\ bend\ may\ change\ the\ playing\ note\ by*/}}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ semitoneSpread\ =\ pitchBendMax/pitchBendSpread;\ \ \textcolor{comment}{/*\ \ \ The\ number\ of\ data\ points\ between\ each\ adjacent\ semitone.\ */}}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nNotes\ =\ 12;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ number\ of\ notes\ per\ octave.\ */}}
-\DoxyCodeLine{00213\ \};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ phase\ =\ 0.0f;\ \textcolor{comment}{/*\ Phase\ of\ oscillator\ wave\ */}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ synth\ \ \ */}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nHarmonics\ =\ 17;\ \ \ \ \textcolor{comment}{/*\ \ The\ number\ of\ harmonics\ which\ will\ be\ present\ in\ the\ final\ signal.\ */}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ octave\ =\ 4;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ octave\ which\ the\ note\ will\ be\ present\ in.\ */}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes::Notes\_t}}\ note\ =\ Notes::Notes::note\_A;\ \ \textcolor{comment}{/*\ \ The\ note\ which\ will\ be\ played.\ */}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pitchBend\ \ \ =\ \ \ 8192;\ \ \textcolor{comment}{/*\ \ The\ MIDI\ message\ pitch\ bend\ dependent\ upon\ the\ position\ of\ the\ slider.\ */}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ samples\ =\ 0;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sampleRate\ =\ 44100;}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pitchBendMax\ =\ 8192;\ \ \ \ \textcolor{comment}{/*\ \ The\ maximum\ number\ which\ may\ be\ passed\ to\ the\ the\ pitch\ bending\ function\ by\ the\ MIDI\ input.\ */}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pitchBendSpread\ =\ 7;\ \ \ \ \textcolor{comment}{/*\ \ The\ maximum\ number\ of\ semitones\ that\ the\ pitch\ bend\ may\ change\ the\ playing\ note\ by*/}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ semitoneSpread\ =\ pitchBendMax/pitchBendSpread;\ \ \textcolor{comment}{/*\ \ \ The\ number\ of\ data\ points\ between\ each\ adjacent\ semitone.\ */}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nNotes\ =\ 12;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ \ The\ number\ of\ notes\ per\ octave.\ */}}
+\DoxyCodeLine{00221\ \};}
 
 \end{DoxyCode}

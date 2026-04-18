@@ -1,5 +1,5 @@
 \doxysection{audio\+Render.\+hpp}
-\hypertarget{audioRender_8hpp_source}{}\label{audioRender_8hpp_source}\index{Tromboneless/Core/include/audioRender.hpp@{Tromboneless/Core/include/audioRender.hpp}}
+\hypertarget{audioRender_8hpp_source}{}\label{audioRender_8hpp_source}\index{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/audioRender.hpp@{/home/ryan-\/mcbride/Documents/Tromboneless/Core/include/audioRender.hpp}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -7,40 +7,51 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <atomic>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <thread>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdint>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tromboneSynth_8hpp}{tromboneSynth.hpp}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}drivers/audio\_output.hpp"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAudioRender}{AudioRender}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTromboneSynth}{TromboneSynth}}\{}
-\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ frames\ =\ 512;}
-\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ sample\_rate\ =\ 44100;}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classAudioRender}{AudioRender}}();}
-\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classAudioRender}{\string~AudioRender}}();}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Prevent\ copying}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tromboneSynth_8hpp}{tromboneSynth.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}drivers/audio\_output.hpp"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAudioRender}{AudioRender}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTromboneSynth}{TromboneSynth}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ frames\ =\ 128;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ sample\_rate\ =\ 44100;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{classAudioRender}{AudioRender}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classAudioRender}{\string~AudioRender}}();}
+\DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classAudioRender}{AudioRender}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAudioRender}{AudioRender}}\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classAudioRender}{AudioRender}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classAudioRender}{AudioRender}}\&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAudioRender_aaa91742a09b42745c61641641c25c4bc}{start}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ start();}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ stop();}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAudioRender_a2a6a932ca6bb3970b1aa95e8b1839a52}{stop}}();}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classAudioRender_a7d05104d18fae3a5554095a99cbea52e}{isRunning}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ running.load();\ \}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ renderLoop();}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ renderReleaseTail();}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ }
-\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{classAudioOutput}{AudioOutput}}\ output;}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ std::thread\ renderThread;}
-\DoxyCodeLine{00039\ \ \ \ \ std::atomic<bool>\ running\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00040\ \ \ \ \ std::atomic<bool>\ stopRequested\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ isRunning()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ running.load();\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Thread-\/safe\ wrappers\ for\ synth\ control\ from\ other\ threads}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ noteOnFromMidi(\textcolor{keywordtype}{int}\ midiNote);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ noteOffFromMidi();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ noteChangeFromMidi(\textcolor{keywordtype}{int}\ midiNote);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ pitchBendFromMidi(\textcolor{keywordtype}{int}\ bend);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Optional\ debug\ mode\ to\ prove\ audio\ path\ works}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ setDebugTone(\textcolor{keywordtype}{bool}\ enabled);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ renderLoop();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ renderReleaseTail();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classAudioOutput}{AudioOutput}}\ output;}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \ \ int16\_t\ buffer[frames]\{0\};}
-\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00042\ \ \ \ \ std::thread\ renderThread;}
+\DoxyCodeLine{00043\ \ \ \ \ std::atomic<bool>\ running\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00044\ \ \ \ \ std::atomic<bool>\ stopRequested\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00045\ \ \ \ \ std::atomic<bool>\ debugToneEnabled\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::mutex\ synthMutex;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ int16\_t\ buffer[frames]\{0\};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ debugPhase\{0.0f\};}
+\DoxyCodeLine{00051\ \};}
 
 \end{DoxyCode}

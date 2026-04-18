@@ -1,8 +1,16 @@
 var searchData=
 [
-  ['barometer_0',['barometer',['../classBarometer.html',1,'Barometer'],['../classBarometer.html#ae73bc03245af7fe321e855a26968e3d9',1,'Barometer::Barometer()']]],
-  ['bill_20of_20materials_1',['Bill of Materials',['../index.html#autotoc_md23',1,'']]],
-  ['button_2',['button',['../classCalibrationOnClick.html#acfbee39178d96a1dd1d70eb873e63aff',1,'CalibrationOnClick']]],
-  ['buttonclicked_3',['buttonclicked',['../classEqualizerPanel.html#a9eed82ebdad64058e99cbae61ffdcef7',1,'EqualizerPanel::buttonClicked()'],['../classCalibrateEmbouchure.html#a6e84f10dc4aa61609c6fa0aafbfa51c3',1,'CalibrateEmbouchure::buttonClicked()']]],
-  ['bytes_4',['bytes',['../classMidiMessage.html#aca8473aeb2fe33b0e02934531281c071',1,'MidiMessage']]]
+  ['data_0',['Reading data',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html#autotoc_md10',1,'']]],
+  ['decayfunction_1',['decayFunction',['../classEnvelope.html#a8212d69d8c815c4b68b90e91f3566a15',1,'Envelope']]],
+  ['design_2',['Notes for the Hardware implementation and design',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html',1,'']]],
+  ['details_3',['Details',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html#autotoc_md7',1,'']]],
+  ['distanceslider_4',['distanceSlider',['../classSliders.html#a7a4eb161eca68e0a4d6b2def4dfad31c',1,'Sliders']]],
+  ['down_20menus_5',['For drop down menus',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html#autotoc_md4',1,'']]],
+  ['drawcircle_6',['drawcircle',['../CustomStyles_8hpp.html#a0f1d69784265b2e2918e2e84b1cfe263',1,'drawCircle(float x, float y, float xRadius, float yRadius):&#160;CustomStyles.cpp'],['../CustomStyles_8cpp.html#a0f1d69784265b2e2918e2e84b1cfe263',1,'drawCircle(float x, float y, float xRadius, float yRadius):&#160;CustomStyles.cpp']]],
+  ['drawlinearslider_7',['drawlinearslider',['../classVerticalSliderLookAndFeel.html#abf08887596a4d91c75eccc8b98c2c39e',1,'VerticalSliderLookAndFeel::drawLinearSlider()'],['../classCalibrationSliderLookAndFeel.html#ae8a53aae08167b70ebae3a26895e51ec',1,'CalibrationSliderLookAndFeel::drawLinearSlider()']]],
+  ['drawrotaryslider_8',['drawRotarySlider',['../classNeedleLookAndFeel.html#a2aa793fe29c0c3231e986337f8c7a0fe',1,'NeedleLookAndFeel']]],
+  ['drop_20down_20menus_9',['For drop down menus',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html#autotoc_md4',1,'']]],
+  ['dropdownmenu_10',['dropdownmenu',['../classDropDownMenu.html#a85dbcc39a99ed5db3342709a21e2b7af',1,'DropDownMenu::DropDownMenu()'],['../classDropDownMenu.html',1,'DropDownMenu']]],
+  ['dropdownmenus_11',['dropdownmenus',['../classDropDownMenus.html#a52fcf3afcecae123aed6f79279b0ba04',1,'DropDownMenus::DropDownMenus()'],['../classDropDownMenus.html',1,'DropDownMenus']]],
+  ['dualrotaryslider_12',['dualrotaryslider',['../classDualRotarySlider.html#aafe624d1dfda53a66256f2e3bcc78593',1,'DualRotarySlider::DualRotarySlider()'],['../classDualRotarySlider.html',1,'DualRotarySlider']]]
 ];

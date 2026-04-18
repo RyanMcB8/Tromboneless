@@ -2,8 +2,7 @@
 \hypertarget{classAudioRender}{}\label{classAudioRender}\index{AudioRender@{AudioRender}}
 
 
-Inheritance diagram for Audio\+Render\+:
-\nopagebreak
+Inheritance diagram for Audio\+Render\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +11,7 @@ Inheritance diagram for Audio\+Render\+:
 \end{figure}
 
 
-Collaboration diagram for Audio\+Render\+:
-\nopagebreak
+Collaboration diagram for Audio\+Render\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,17 +29,32 @@ Collaboration diagram for Audio\+Render\+:
 \item 
 \Hypertarget{classAudioRender_aaa91742a09b42745c61641641c25c4bc}\label{classAudioRender_aaa91742a09b42745c61641641c25c4bc} 
 void {\bfseries start} ()
-\begin{DoxyCompactList}\small\item\em Start the audio render thread. \end{DoxyCompactList}\item 
+\item 
 \Hypertarget{classAudioRender_a2a6a932ca6bb3970b1aa95e8b1839a52}\label{classAudioRender_a2a6a932ca6bb3970b1aa95e8b1839a52} 
 void {\bfseries stop} ()
-\begin{DoxyCompactList}\small\item\em Stop the audio render thread (with release tail) \end{DoxyCompactList}\item 
+\item 
 \Hypertarget{classAudioRender_a7d05104d18fae3a5554095a99cbea52e}\label{classAudioRender_a7d05104d18fae3a5554095a99cbea52e} 
 bool {\bfseries is\+Running} () const
-\begin{DoxyCompactList}\small\item\em Check if currently rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\item 
+\Hypertarget{classAudioRender_a64652e2d1c985b7d38df809ee557ab59}\label{classAudioRender_a64652e2d1c985b7d38df809ee557ab59} 
+void {\bfseries note\+On\+From\+Midi} (int midi\+Note)
+\item 
+\Hypertarget{classAudioRender_a70e98aac6b1a976eca122c5b75c57491}\label{classAudioRender_a70e98aac6b1a976eca122c5b75c57491} 
+void {\bfseries note\+Off\+From\+Midi} ()
+\item 
+\Hypertarget{classAudioRender_afe008dbaa7f00df87cf097f8d535e112}\label{classAudioRender_afe008dbaa7f00df87cf097f8d535e112} 
+void {\bfseries note\+Change\+From\+Midi} (int midi\+Note)
+\item 
+\Hypertarget{classAudioRender_aa5a65b9f6147477ef3dd1da1a9bd14e3}\label{classAudioRender_aa5a65b9f6147477ef3dd1da1a9bd14e3} 
+void {\bfseries pitch\+Bend\+From\+Midi} (int bend)
+\item 
+\Hypertarget{classAudioRender_a9cbfa706f6c9c7aacdaa94792d3af6e0}\label{classAudioRender_a9cbfa706f6c9c7aacdaa94792d3af6e0} 
+void {\bfseries set\+Debug\+Tone} (bool enabled)
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classTromboneSynth}{Trombone\+Synth}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classTromboneSynth_ace1f00c513be279271cb58c3e6926e17}{Trombone\+Synth}} (int sample\+Rate=44100, float attack=500.\+0, float decay=50.\+0, float sustain=0.\+96, float rest=10.\+0)
+\mbox{\hyperlink{classTromboneSynth_a800c6f82ea5d9c8caca2f72cbe53ddee}{Trombone\+Synth}} (int sample\+Rate=44100, float attack=10.\+0f, float decay=50.\+0f, float sustain=1.\+0f, float rest=10.\+0f)
 \begin{DoxyCompactList}\small\item\em The constructor function for the {\ttfamily \doxylink{classTromboneSynth}{Trombone\+Synth}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTromboneSynth_ac2ea585357078a232c49e22654b85ed3}{Start\+Trombone\+Note}} (\mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+::\+Notes\+\_\+t}} note\+\_\+in, int octave\+\_\+in)
 \begin{DoxyCompactList}\small\item\em A function which may be called to set the note and octave of a new sound by the user. If there is already a note playing, this will stop the previous not and play this one without phase shifting (initially). \end{DoxyCompactList}\item 
@@ -53,9 +66,9 @@ void {\bfseries Stop\+Trombone\+Note} (void)
 \begin{DoxyCompactList}\small\item\em A function which sends the synthesiser into its rest state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTromboneSynth_aa92885853f7411684a70ae0909b66103}{New\+Trombone\+Note\+MIDI}} (int MIDINote)
 \begin{DoxyCompactList}\small\item\em A function which can take in the MIDI equivalent note and map it to the Notes\+\_\+t options to match the rest of the synth interface. \end{DoxyCompactList}\item 
-void {\bfseries Handle\+MIDINote\+On} (int current\+Note)
+void {\bfseries Handle\+MIDINote\+On} ()
 \begin{DoxyCompactList}\small\item\em A method to handle Note\+On messages as passed from the MIDI Coordinator. \end{DoxyCompactList}\item 
-void {\bfseries Handle\+MIDINote\+Off} (int current\+Note)
+void {\bfseries Handle\+MIDINote\+Off} ()
 \item 
 void {\bfseries Handle\+MIDIPitch\+Bend} (int midipitchbend)
 \item 
@@ -104,7 +117,7 @@ float \mbox{\hyperlink{classOctavesWithHarmonics_a4b66d3a6df6849de730aad0966330f
 \begin{DoxyCompactList}\small\item\em A function which may be called upon to stop playing a range of harmonic frequencies when a specific note is called upon to be played. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classOctavesWithHarmonics_af9d14fab35feae14d4ce9f14f2080324}{Harmonic\+Decay}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which calculates how much the amplitude of the harmonic should decay in comparison to the first harmonic. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classOctavesWithHarmonics_a278ebf6d96d2a86441eb6d1348aa5d13}{get\+Harmomic\+Decay\+Max}} (int n)
+float \mbox{\hyperlink{classOctavesWithHarmonics_aaa472a0fbd99137d29435e52af4c324a}{get\+Harmonic\+Decay\+Max}} (int n)
 \begin{DoxyCompactList}\small\item\em A function which returns the maximum amplitude possible for a set number of harmonics if they are all constructively interfering. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classOctavesWithHarmonics_ab7e6deb44d098e704519df09bbd189e9}{set\+Decay\+Constant}} (float decayC)
 \begin{DoxyCompactList}\small\item\em A function that can change the value of the decay constant used to set the maxmimum amplitude of each successive harmonic. \end{DoxyCompactList}\item 
@@ -198,7 +211,7 @@ float \mbox{\hyperlink{classNotes_a48d208550a87e540d1748253aae9516f}{get\+Note}}
 \begin{DoxyCompactItemize}
 \item 
 \Hypertarget{classAudioRender_ac3bd79da2b7d219789891a7d841fe61d}\label{classAudioRender_ac3bd79da2b7d219789891a7d841fe61d} 
-static constexpr int {\bfseries frames} = 512
+static constexpr int {\bfseries frames} = 128
 \item 
 \Hypertarget{classAudioRender_a334e4120d8d3867164c40ad875a2d254}\label{classAudioRender_a334e4120d8d3867164c40ad875a2d254} 
 static constexpr int {\bfseries sample\+\_\+rate} = 44100
@@ -242,9 +255,30 @@ enum \mbox{\hyperlink{classNotes_a8734fb9c1094a3becd78fe783ad43c0c}{Notes\+\_\+t
 \item 
 \mbox{\hyperlink{classNotes}{Notes}} {\bfseries octaves} \mbox{[}\mbox{\hyperlink{classOctaves_aab55dc1e4e61330511e61c2c302ada6e}{n\+Octaves}}\mbox{]}
 \begin{DoxyCompactList}\small\item\em Initialising an array of the octaves and their notes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries update\+Harmonic\+Cache} (int n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
+\begin{DoxyCompactItemize}
+\item 
+float {\bfseries decay\+Constant} = 0.\+1f
+\item 
+std\+::array$<$ float, max\+Harmonics $>$ {\bfseries harmonic\+Weights} \{\}
+\item 
+int {\bfseries cached\+NHarmonics} = 0
+\item 
+bool {\bfseries harmonic\+Cache\+Dirty} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{classOctavesWithHarmonics}{Octaves\+With\+Harmonics}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int {\bfseries max\+Harmonics} = 64
+\end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Tromboneless/\+Core/include/audio\+Render.\+hpp\item 
-Tromboneless/\+Core/src/audio\+Render.\+cpp\end{DoxyCompactItemize}
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/audio\+Render.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/src/audio\+Render.\+cpp\end{DoxyCompactItemize}

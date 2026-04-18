@@ -80,12 +80,12 @@ $(function() {
 <p>Class to coordinate Midi message construction based on output from sensor mappers. This class is stateful and responsible for translating high-level sensor data into Midi messages. Utilises <a class="el" href="classMidiMessageBuilder.html" title="Factory class for constructing common MIDI channel messages.">MidiMessageBuilder</a> for external synths and directly controls internal synth.  
  <a href="classMidiCoordinator.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="MidiCoordinator_8hpp_source.html">Tromboneless/Core/include/MidiCoordinator.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="MidiCoordinator_8hpp_source.html">/home/ryan-mcbride/Documents/Tromboneless/Core/include/MidiCoordinator.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a54dbe142d7166f8eaaf48c7e0b7054cb" id="r_a54dbe142d7166f8eaaf48c7e0b7054cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiCoordinator.html#a54dbe142d7166f8eaaf48c7e0b7054cb">MidiCoordinator</a> (<a class="el" href="classTromboneSynth.html">TromboneSynth</a> &amp;synth)</td></tr>
-<tr class="separator:a54dbe142d7166f8eaaf48c7e0b7054cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db9427313851e2ff852d29138a7a0b3" id="r_a1db9427313851e2ff852d29138a7a0b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiCoordinator.html#a1db9427313851e2ff852d29138a7a0b3">MidiCoordinator</a> (<a class="el" href="classAudioRender.html">AudioRender</a> &amp;synth)</td></tr>
+<tr class="separator:a1db9427313851e2ff852d29138a7a0b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90ef43e3af4736e78132644d8dec59bd" id="r_a90ef43e3af4736e78132644d8dec59bd"><td class="memItemLeft" align="right" valign="top"><a id="a90ef43e3af4736e78132644d8dec59bd" name="a90ef43e3af4736e78132644d8dec59bd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterCallback</b> (CallbackInterface cb)</td></tr>
 <tr class="separator:a90ef43e3af4736e78132644d8dec59bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -100,15 +100,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterCallback</b> 
 <tr class="separator:a94de653793d6a7f122535ec155aa6071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaea3a3c4fc332900e2412bdb6ce0e65" id="r_abaea3a3c4fc332900e2412bdb6ce0e65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMidiCoordinator.html#abaea3a3c4fc332900e2412bdb6ce0e65">setState</a> (State newstate)</td></tr>
 <tr class="separator:abaea3a3c4fc332900e2412bdb6ce0e65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab33fd8879d5367391b4370d8a2850ff9" id="r_ab33fd8879d5367391b4370d8a2850ff9"><td class="memItemLeft" align="right" valign="top"><a id="ab33fd8879d5367391b4370d8a2850ff9" name="ab33fd8879d5367391b4370d8a2850ff9"></a>
-<a class="el" href="classTromboneSynth.html">TromboneSynth</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSynth</b> (void)</td></tr>
-<tr class="separator:ab33fd8879d5367391b4370d8a2850ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95a3a4e2208c695c1493c64b1d8ace33" id="r_a95a3a4e2208c695c1493c64b1d8ace33"><td class="memItemLeft" align="right" valign="top"><a id="a95a3a4e2208c695c1493c64b1d8ace33" name="a95a3a4e2208c695c1493c64b1d8ace33"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDevice</b> (bool external_device_present)</td></tr>
+<tr class="separator:a95a3a4e2208c695c1493c64b1d8ace33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdadd3aff76c39830bf9241e0220dd15" id="r_acdadd3aff76c39830bf9241e0220dd15"><td class="memItemLeft" align="right" valign="top"><a id="acdadd3aff76c39830bf9241e0220dd15" name="acdadd3aff76c39830bf9241e0220dd15"></a>
+<a class="el" href="classAudioRender.html">AudioRender</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSynth</b> (void)</td></tr>
+<tr class="separator:acdadd3aff76c39830bf9241e0220dd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class to coordinate Midi message construction based on output from sensor mappers. This class is stateful and responsible for translating high-level sensor data into Midi messages. Utilises <a class="el" href="classMidiMessageBuilder.html" title="Factory class for constructing common MIDI channel messages.">MidiMessageBuilder</a> for external synths and directly controls internal synth. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a54dbe142d7166f8eaaf48c7e0b7054cb" name="a54dbe142d7166f8eaaf48c7e0b7054cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54dbe142d7166f8eaaf48c7e0b7054cb">&#9670;&#160;</a></span>MidiCoordinator()</h2>
+<a id="a1db9427313851e2ff852d29138a7a0b3" name="a1db9427313851e2ff852d29138a7a0b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db9427313851e2ff852d29138a7a0b3">&#9670;&#160;</a></span>MidiCoordinator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +119,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterCallback</b> 
         <tr>
           <td class="memname">MidiCoordinator::MidiCoordinator </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classTromboneSynth.html">TromboneSynth</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classAudioRender.html">AudioRender</a> &amp;&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -245,8 +248,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterCallback</b> 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Tromboneless/Core/include/<a class="el" href="MidiCoordinator_8hpp_source.html">MidiCoordinator.hpp</a></li>
-<li>Tromboneless/Core/src/<b>MidiCoordinator.cpp</b></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/include/<a class="el" href="MidiCoordinator_8hpp_source.html">MidiCoordinator.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/src/<b>MidiCoordinator.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

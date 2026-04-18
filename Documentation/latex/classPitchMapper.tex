@@ -1,0 +1,92 @@
+\doxysection{Pitch\+Mapper Class Reference}
+\hypertarget{classPitchMapper}{}\label{classPitchMapper}\index{PitchMapper@{PitchMapper}}
+
+
+Takes raw input values from the LIDAR and mouthpiece/embouchure sensors and maps them to appropriate values for the musical coordinator to work with.  
+
+
+
+
+{\ttfamily \#include $<$/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/\+Pitch\+Mapper.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPitchMapper_1_1PartialDef}{Partial\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classPitchMapper_abac04f03b1c3816113e66b1ac2cfd181}\label{classPitchMapper_abac04f03b1c3816113e66b1ac2cfd181} 
+{\bfseries Pitch\+Mapper} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPitchMapper_a8822ed162d4d43f330cfa4d60963fdb7}{tof\+\_\+to\+\_\+\+MIDI\+\_\+bend}} (uint16\+\_\+t tof\+\_\+distance)
+\begin{DoxyCompactList}\small\item\em Maps raw Li\+DAR time-\/of-\/flight values to MIDI pitch bend scaled and clamped to range of 0-\/8192. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classPitchMapper_a032c76a796c94a336e814f0297a6b715}{mouthpiece\+\_\+to\+\_\+\+MIDI\+\_\+note}} (int8\+\_\+t delta)
+\begin{DoxyCompactList}\small\item\em Maps capacitative mouthpiece readings to discrete MIDI notes. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_a23bc41fa2e6c97479816b8d24b33bfd6}\label{classPitchMapper_a23bc41fa2e6c97479816b8d24b33bfd6} 
+void {\bfseries Set\+Slide\+Max\+Limit} (int new\+\_\+slide\+\_\+max\+\_\+limit\+\_\+mm)
+\begin{DoxyCompactList}\small\item\em Set maximum trombone slide limit in mm. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_acac49985111f301be514b0d31ccd1954}\label{classPitchMapper_acac49985111f301be514b0d31ccd1954} 
+int {\bfseries Get\+Slide\+Max\+Limit} ()
+\begin{DoxyCompactList}\small\item\em Return current max trombone slide limit in mm. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_ac0fab2dc4813743eb7c4b09168554149}\label{classPitchMapper_ac0fab2dc4813743eb7c4b09168554149} 
+void {\bfseries Set\+Slide\+Min\+Limit} (int new\+\_\+slide\+\_\+min\+\_\+limit\+\_\+mm)
+\begin{DoxyCompactList}\small\item\em Set minimum trombone slide limit in mm. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_a522eecea2c62eba7edc6c4fbfd6d00fd}\label{classPitchMapper_a522eecea2c62eba7edc6c4fbfd6d00fd} 
+int {\bfseries Get\+Slide\+Min\+Limit} ()
+\begin{DoxyCompactList}\small\item\em Return current min trombone slide limit in mm. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_acedda6d17d2221ffb7fb537c9d1190ca}\label{classPitchMapper_acedda6d17d2221ffb7fb537c9d1190ca} 
+void {\bfseries Set\+Mouth\+MIDI} (int new\+\_\+\+MIDI\+\_\+note)
+\begin{DoxyCompactList}\small\item\em Set current mouthpiece MIDI note, bypassing mapping function. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_a15df663e9290975ea3d5475a212dea9a}\label{classPitchMapper_a15df663e9290975ea3d5475a212dea9a} 
+int {\bfseries Get\+Mouth\+MIDI} ()
+\begin{DoxyCompactList}\small\item\em Return current mouthpiece MIDI note. \end{DoxyCompactList}\item 
+\Hypertarget{classPitchMapper_ab4f5c4a7c332e25867e6e348e0a6ae90}\label{classPitchMapper_ab4f5c4a7c332e25867e6e348e0a6ae90} 
+void {\bfseries Set\+Trombone\+Type} (Shift\+Keying\+Options\+\_\+t trombone\+\_\+choice)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Takes raw input values from the LIDAR and mouthpiece/embouchure sensors and maps them to appropriate values for the musical coordinator to work with. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPitchMapper_a032c76a796c94a336e814f0297a6b715}\label{classPitchMapper_a032c76a796c94a336e814f0297a6b715} 
+\index{PitchMapper@{PitchMapper}!mouthpiece\_to\_MIDI\_note@{mouthpiece\_to\_MIDI\_note}}
+\index{mouthpiece\_to\_MIDI\_note@{mouthpiece\_to\_MIDI\_note}!PitchMapper@{PitchMapper}}
+\doxysubsubsection{\texorpdfstring{mouthpiece\_to\_MIDI\_note()}{mouthpiece\_to\_MIDI\_note()}}
+{\footnotesize\ttfamily int Pitch\+Mapper\+::mouthpiece\+\_\+to\+\_\+\+MIDI\+\_\+note (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{delta }\end{DoxyParamCaption})}
+
+
+
+Maps capacitative mouthpiece readings to discrete MIDI notes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta} & Raw value supplied by the cap1188 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPitchMapper_a8822ed162d4d43f330cfa4d60963fdb7}\label{classPitchMapper_a8822ed162d4d43f330cfa4d60963fdb7} 
+\index{PitchMapper@{PitchMapper}!tof\_to\_MIDI\_bend@{tof\_to\_MIDI\_bend}}
+\index{tof\_to\_MIDI\_bend@{tof\_to\_MIDI\_bend}!PitchMapper@{PitchMapper}}
+\doxysubsubsection{\texorpdfstring{tof\_to\_MIDI\_bend()}{tof\_to\_MIDI\_bend()}}
+{\footnotesize\ttfamily int Pitch\+Mapper\+::tof\+\_\+to\+\_\+\+MIDI\+\_\+bend (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{tof\+\_\+distance }\end{DoxyParamCaption})}
+
+
+
+Maps raw Li\+DAR time-\/of-\/flight values to MIDI pitch bend scaled and clamped to range of 0-\/8192. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tof\+\_\+distance} & Raw value returned from time-\/of-\/flight sensor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer 0-\/8192 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/include/Pitch\+Mapper.\+hpp\item 
+/home/ryan-\/mcbride/\+Documents/\+Tromboneless/\+Core/src/Pitch\+Mapper.\+cpp\end{DoxyCompactItemize}

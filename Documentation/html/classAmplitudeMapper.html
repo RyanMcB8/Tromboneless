@@ -72,7 +72,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classAmplitudeMapper-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AmplitudeMapper Class Reference</div></div>
 </div><!--header-->
@@ -80,33 +79,19 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa28b6f9a4fdb615f97c68f0f31a1dd25" id="r_aa28b6f9a4fdb615f97c68f0f31a1dd25"><td class="memItemLeft" align="right" valign="top"><a id="aa28b6f9a4fdb615f97c68f0f31a1dd25" name="aa28b6f9a4fdb615f97c68f0f31a1dd25"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>getADS1115Sample</b> (float v)</td></tr>
-<tr class="separator:aa28b6f9a4fdb615f97c68f0f31a1dd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accbaa79856204c0fccf2e96798324bef" id="r_accbaa79856204c0fccf2e96798324bef"><td class="memItemLeft" align="right" valign="top"><a id="accbaa79856204c0fccf2e96798324bef" name="accbaa79856204c0fccf2e96798324bef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getLatestExpr</b> (float pressureSample)</td></tr>
-<tr class="separator:accbaa79856204c0fccf2e96798324bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ae5481dda3ed9c262a8080b91b04907d1" id="r_ae5481dda3ed9c262a8080b91b04907d1"><td class="memItemLeft" align="right" valign="top"><a id="ae5481dda3ed9c262a8080b91b04907d1" name="ae5481dda3ed9c262a8080b91b04907d1"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>pressureSample</b> = 0.0f</td></tr>
-<tr class="separator:ae5481dda3ed9c262a8080b91b04907d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3d272e965840ba004abc805f228dad8" id="r_af3d272e965840ba004abc805f228dad8"><td class="memItemLeft" align="right" valign="top"><a id="af3d272e965840ba004abc805f228dad8" name="af3d272e965840ba004abc805f228dad8"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>latestExpr</b> = 0.0f</td></tr>
-<tr class="separator:af3d272e965840ba004abc805f228dad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59f43defd910d41370513728301c96bf" id="r_a59f43defd910d41370513728301c96bf"><td class="memItemLeft" align="right" valign="top"><a id="a59f43defd910d41370513728301c96bf" name="a59f43defd910d41370513728301c96bf"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>bottomLimit</b> = 100.0f</td></tr>
-<tr class="separator:a59f43defd910d41370513728301c96bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1922d9e4d78da8203620f1625f096545" id="r_a1922d9e4d78da8203620f1625f096545"><td class="memItemLeft" align="right" valign="top"><a id="a1922d9e4d78da8203620f1625f096545" name="a1922d9e4d78da8203620f1625f096545"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>upperLimit</b> = 200.0f</td></tr>
-<tr class="separator:a1922d9e4d78da8203620f1625f096545"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a285afad7f8765cab5ae5660852a15dad" id="r_a285afad7f8765cab5ae5660852a15dad"><td class="memItemLeft" align="right" valign="top"><a id="a285afad7f8765cab5ae5660852a15dad" name="a285afad7f8765cab5ae5660852a15dad"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>noteOn</b> = false</td></tr>
-<tr class="separator:a285afad7f8765cab5ae5660852a15dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5287f9bf2d142f6ab752a0529a604bc3" id="r_a5287f9bf2d142f6ab752a0529a604bc3"><td class="memItemLeft" align="right" valign="top"><a id="a5287f9bf2d142f6ab752a0529a604bc3" name="a5287f9bf2d142f6ab752a0529a604bc3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>calculateBaseline</b> (float pressureSample)</td></tr>
+<tr class="separator:a5287f9bf2d142f6ab752a0529a604bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7466a1a431a780f4a4f8fb9f55c2eaaa" id="r_a7466a1a431a780f4a4f8fb9f55c2eaaa"><td class="memItemLeft" align="right" valign="top"><a id="a7466a1a431a780f4a4f8fb9f55c2eaaa" name="a7466a1a431a780f4a4f8fb9f55c2eaaa"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getBaseline</b> ()</td></tr>
+<tr class="separator:a7466a1a431a780f4a4f8fb9f55c2eaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614e6d4649ba5235aac1fa6f2489a5b1" id="r_a614e6d4649ba5235aac1fa6f2489a5b1"><td class="memItemLeft" align="right" valign="top"><a id="a614e6d4649ba5235aac1fa6f2489a5b1" name="a614e6d4649ba5235aac1fa6f2489a5b1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>noteEdge</b> (float pressureSample)</td></tr>
+<tr class="separator:a614e6d4649ba5235aac1fa6f2489a5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>Tromboneless/Core/include/<a class="el" href="AmplitudeMapper_8hpp_source.html">AmplitudeMapper.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/include/<a class="el" href="AmplitudeMapper_8hpp_source.html">AmplitudeMapper.hpp</a></li>
+<li>/home/ryan-mcbride/Documents/Tromboneless/Core/src/<b>AmplitudeMapper.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

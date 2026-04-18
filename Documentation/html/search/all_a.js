@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['i2cbus_0',['I2CBus',['../classI2CBus.html',1,'']]],
-  ['implementation_20and_20design_1',['Notes for the Hardware implementation and design',['../md_Tromboneless_2Documentation_2Hardware_2Hardware__Notes.html',1,'']]],
-  ['initialise_2',['initialise',['../classGuiAppApplication.html#a80153351c923e6338d5be191cd48b71b',1,'GuiAppApplication']]],
-  ['initialiselabelerrors_5ft_3',['InitialiseLabelErrors_t',['../classSliderWithLabel.html#ab9bc346c16ea8bf568905afc99ab9bc3',1,'SliderWithLabel']]],
-  ['isrunning_4',['isRunning',['../classAudioRender.html#a7d05104d18fae3a5554095a99cbea52e',1,'AudioRender']]]
+  ['labelpositions_5ft_0',['LabelPositions_t',['../classSliderWithLabel.html#ad8662ad2ad354d6769f15e555f32f2fe',1,'SliderWithLabel']]],
+  ['labels_3a_1',['For labels:',['../md__2home_2ryan-mcbride_2Documents_2Tromboneless_2App_2Notes.html#autotoc_md3',1,'']]],
+  ['layout_2',['Layout',['../classLayout.html',1,'']]],
+  ['layout_2ecpp_3',['Layout.cpp',['../Layout_8cpp.html',1,'']]],
+  ['layout_2ehpp_4',['Layout.hpp',['../Layout_8hpp.html',1,'']]],
+  ['lowpressure_5',['lowPressure',['../structTrombonelessParameters__t.html#a362040e7af460e17532fe456f8a16983',1,'TrombonelessParameters_t']]]
 ];

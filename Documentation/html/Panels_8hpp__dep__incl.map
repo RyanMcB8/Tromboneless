@@ -1,10 +1,10 @@
-<map id="Tromboneless/App/inc/Panels.hpp" name="Tromboneless/App/inc/Panels.hpp">
-<area shape="rect" id="Node000001" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="125,5,289,45"/>
-<area shape="rect" id="Node000002" href="$Layout_8hpp.html" title="This file holds the declarations of all functions and variables needed by the Tromboneless project to..." alt="" coords="5,93,169,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,56,115,95,112,91,168,51"/>
-<area shape="rect" id="Node000003" href="$Layout_8cpp.html" title="This file holds the defintions of all functions and variables needed by the Tromboneless project to d..." alt="" coords="65,181,229,221"/>
-<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="204,60,184,134,161,182,156,180,180,132,199,58"/>
-<area shape="rect" id="Node000004" href="$Panels_8cpp.html" title="This file contains the function defintions for to create the necessary panels that may be used within..." alt="" coords="245,93,409,133"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="247,51,302,91,299,95,244,56"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="111,143,136,180,132,183,106,146"/>
+<map id="/home/ryan&#45;mcbride/Documents/Tromboneless/App/inc/Panels.hpp" name="/home/ryan&#45;mcbride/Documents/Tromboneless/App/inc/Panels.hpp">
+<area shape="rect" id="Node000001" title="A header file to contain the panels used within the Tromboneless user interface window...." alt="" coords="140,5,335,60"/>
+<area shape="rect" id="Node000002" href="$Layout_8hpp.html" title="This file holds the declarations of all functions and variables needed by the Tromboneless project to..." alt="" coords="5,108,200,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,70,140,110,136,106,190,66"/>
+<area shape="rect" id="Node000003" href="$Layout_8cpp.html" title="This file holds the defintions of all functions and variables needed by the Tromboneless project to d..." alt="" coords="72,211,267,265"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="236,74,228,118,214,164,190,212,185,209,210,162,223,117,230,73"/>
+<area shape="rect" id="Node000004" href="$Panels_8cpp.html" title="This file contains the function defintions for to create the necessary panels that may be used within..." alt="" coords="275,108,469,163"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="285,66,338,106,335,110,282,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="130,173,154,209,150,212,125,176"/>
 </map>
