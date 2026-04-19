@@ -129,7 +129,7 @@ bool CAP1188::initialise()
     // Lowest sensitivity = 111b or 7
     // Highest sensitivity = 0
     uint8_t sensitivity = 0x05;
-    CAP1188::sensitivitySetter(sensitivity);
+    CAP1188::setSensitivity(sensitivity);
 
     
     
@@ -222,15 +222,6 @@ void CAP1188::handleDataReady()
 }
 
 
-// Touched Pins
-std::array<bool, 8> CAP1188::touched_pins(){
-    std::array<bool, 8> pin_states;
-    int touched = CAP1188::touched();
-    for (int i = 0; i < 8; ++i){
-        pin_states[i] = (touched >> i) & 1;
-    }
-    return pin_states;
-}
 int CAP1188::touched(){
     //Clear the INT bit and any previously touched pins
     uint8_t current = 0;
@@ -244,16 +235,16 @@ int CAP1188::touched(){
 }
 
 // Sensitivity getter and setter
-uint8_t CAP1188::sensitivityGetter(){
+uint8_t CAP1188::getSensitivity(){
     uint8_t sensitivity = 0;
     bus_.readBlock8(address_, CAP1188_REG_SENSITIVITY, &sensitivity, 1);
     return sensitivity;
 }
-void CAP1188::sensitivitySetter(uint8_t sensitivityVal){
+void CAP1188::setSensitivity(uint8_t sensitivityVal){
     // Bits 6-4 control the sensitivity so a shift is needed
     sensitivityVal <<= 4;
     // Get what's in the register
-    uint8_t current = CAP1188::sensitivityGetter();
+    uint8_t current = CAP1188::getSensitivity();
     // Clear bits 6-4 and preserve the others
     current &= 0x8F;
     uint8_t newVal = current | sensitivityVal;
