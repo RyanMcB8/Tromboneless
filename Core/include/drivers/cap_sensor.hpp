@@ -12,12 +12,27 @@
 #include <stdexcept>
 #include "drivers/i2c_bus.hpp"
 #include "drivers/cap1188_registers.hpp"
- 
-class CAP1188;
 
+class CAP1188;
+/**
+ * @brief                  Helper class unique to one sensor channel
+ * @note                   This class is used to call base driver functions specific to
+ *                         only one input channel. When base driver is initialised, a unique channel
+ *                         class is created for each of the 8 pins
+ */
 class CAP1188Channel{
     public:
+        /**
+         * @brief                  Returns a boolean representing whether channel delta exceeds threshold 
+         * @return                 True if pin is touched
+         * @return                 False if pin is not touched
+         */
         bool isPinTouched();
+        /**
+         * @brief                  
+         * 
+         * @return                 desc
+         */
         int8_t pinDelta();
         int getThreshold();
         void setThreshold(int threshold);
@@ -30,7 +45,10 @@ class CAP1188Channel{
         CAP1188* cap1188_;
         int pin_;
 };
-
+/**
+ * @brief                  desc
+ * 
+ */
 class CAP1188
 {
     public:
@@ -47,7 +65,10 @@ class CAP1188
         
         // Destructor
         ~CAP1188();
-
+        /**
+         * @brief                  desc
+         * 
+         */
         void start();
         void stop();
 
@@ -56,6 +77,11 @@ class CAP1188
         
         // Sensitivity Getter & Setter
         uint8_t sensitivityGetter();
+        /**
+         * @brief                  desc
+         * 
+         * @param  sensitivityVal  desc
+         */
         void sensitivitySetter(uint8_t sensitivityVal);
 
         uint8_t getAveraging();
