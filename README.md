@@ -1,5 +1,18 @@
 # Tromboneless
 
+![Tromboneless Repo](https://img.shields.io/badge/github-repo-blue?logo=github)
+
+![release](https://img.shields.io/badge/Tromboneless-Release_1.1-blue)
+
+<a href="https://github.com/RyanMcB8/Tromboneless/releases" alt="Latest release">
+        <![release](https://img.shields.io/badge/Tromboneless-Release_1.1-blue) /></a>
+
+![version](https://img.shields.io/badge/version-1.2.3-blue)
+
+[![GitHub issues by-label](https://img.shields.io/github/issues/badges/shields/good%20first%20issue)](https://github.com/ryanmcb8/Tromboneless/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+
+</p>
+
 <img src="" width="320">
 
 <img src="Documentation/Hardware/trombonelessflow.pdf" width="320">
@@ -61,9 +74,9 @@ The Tromboneless App utilises the JUCE framework to create all the widgets neces
 
  - Juce <br>
  - RTMidi <br>
- - libgpiod (specifically for interacting with the GPIO pins on the Pi) <br>
- - PkgConfig   (for finding the necessary libraries within the users' system before compilation.)
- - gtk+-3.0    (for the backend of the app.)
+ - libgpiod       (specifically for interacting with the GPIO pins on the Pi) <br>
+ - PkgConfig      (for finding the necessary libraries within the users' system before compilation.)
+ - gtk+-3.0       (for the backend of the app.)
  - webkit2gtk-4.1 (for cross-platform functionality for the app.)
  - Curl
  - alsa           (for audio output from the internal synth.)
