@@ -50,9 +50,21 @@ juce::Colour Panels::getBackgroundColour(void){
     shiftKeyChoice.AddItem ("Soprano", SKOpt_SOPRANO);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
-    shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
+    shiftKeyChoice.SetOnChange([this] { shiftKeyChoiceChanged(); });
 
     addAndMakeVisible(calibrateEmbouchure);
+    return;
+}
+
+void DropDownMenus::shiftKeyChoiceChanged(){
+    auto selectedOption =
+        static_cast<ShiftKeyingOptions_t>(shiftKeyChoice.getSelectedId());
+
+    trombonelessParameters.shiftKeyingOption = selectedOption;
+
+    PitchMapper* mapper_ptr = coreWrapper_ref.getPitchMapper();
+    mapper_ptr->SetTromboneType(selectedOption);
+
     return;
 }
 

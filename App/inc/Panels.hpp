@@ -1,13 +1,13 @@
-/** @file       Panels.hpp
- *  @author     Ryan McBride
- *
- *  @brief      A header file to contain the panels used within the Tromboneless
- *              user interface window. This will allow for the encapsulation of
- *              different areas as opposed to having large amounts of repeat calls
- *              in the `Layout.hpp` file.
- */
+    /** @file       Panels.hpp
+     *  @author     Ryan McBride
+     *
+     *  @brief      A header file to contain the panels used within the Tromboneless
+     *              user interface window. This will allow for the encapsulation of
+     *              different areas as opposed to having large amounts of repeat calls
+     *              in the `Layout.hpp` file.
+     */
 
- /* Preventing recurssion. */
+    /* Preventing recurssion. */
  #pragma once
 
  /* Adding any necessary include files. */
@@ -96,6 +96,8 @@
         */
         void resized() override;
 
+        void shiftKeyChoiceChanged();
+
     private:
         /*  Shift keying drop down menu and label */
         DropDownMenu shiftKeyChoice;
@@ -105,10 +107,10 @@
         CoreWrapper& coreWrapper_ref;
 };
 
- /**    @brief      A class which adds all the linear sliders being used
-  *                 within the calibration section to be within the same    
-  *                 panel.
-  */
+    /**    @brief      A class which adds all the linear sliders being used
+     *                 within the calibration section to be within the same    
+     *                 panel.
+     */
  class Sliders : public Panels,
                 public juce::Slider::Listener
  {

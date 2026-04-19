@@ -683,6 +683,16 @@ class Equalizer : public verticalMixSlider
  class DropDownMenu :   public juce::Component
  {
      public:
+
+        int getSelectedId() const{
+            return dropDownChoice.getSelectedId();
+        }
+
+        template <typename Fn>
+        void SetOnChange(Fn&& callback){
+            dropDownChoice.onChange = std::forward<Fn>(callback);
+        }
+        
         /** @brief                  Constructor for the DropDownMenu class that creates an
          *                          instance of the class. This makes a juce component that
          *                          has a combobox or drop-down menu within it with a label
