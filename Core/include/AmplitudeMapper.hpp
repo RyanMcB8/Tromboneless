@@ -25,5 +25,21 @@ class AmplitudeMapper {
         float getBaseline();
         bool noteEdge(float pressureSample);
 
+        /** @brief              A function to get the current pressure threshold
+         *                      which is set for the gate for the input blowing
+         *                      pressure by the user.
+         *  @retval             The floating point representation of the current
+         *                      thhreshold value.
+         */
+        float getPressureThreshold(void);
+
+        /** @brief              A function to set the pressure threshold which is
+         *                      set for the gate of the input blowing pressure
+         *                      by the user.
+         *  @param  threshold   The floating point representation of the new
+         *                      threshold which should be set.
+         */
+        void setPressureThreshold(float threshold);
+
 
 	};

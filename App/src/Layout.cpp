@@ -18,7 +18,7 @@
 #include <system_error>
 
 Layout::Layout(CoreWrapper& coreWrapper) : coreWrapper_ref(coreWrapper), dropDownMenus(coreWrapper),
-    sliders(coreWrapper), equalizer(coreWrapper)
+    sliders(coreWrapper), pressureSlider(coreWrapper), equalizer(coreWrapper)
 {
     /* Sets the initial size of the window to be displayed to the user. */
     setSize (1200, 700);

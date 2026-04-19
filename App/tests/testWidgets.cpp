@@ -6,7 +6,7 @@
  */
 
 /*  Adding in the necessary headers and libraries. */
-#include "Widgets.hpp"
+#include <Widgets.hpp>
 #include "unitTestMacros.hpp"
 
 /** @brief      A function to run unit tests on the various public functions within
@@ -95,7 +95,8 @@ bool testDualRotarySlider(void){
  */
 bool testBarometer(void){
     bool passFail = true;
-    Barometer testClass;
+    CoreWrapper coreWrapper(true); 
+    Barometer testClass(coreWrapper);
 
     /*  Background colour. */
     SET_GET_COLOUR(testClass, setBackgroundColour, getBackgroundColour, Barometer, passFail);
@@ -124,7 +125,7 @@ bool testBarometer(void){
  *              the `DropDownMenu` class.
  */
 bool testDropDownMenu(void){
-    bool passFail;
+    bool passFail = true;
     DropDownMenu testClass;
 
     /*  Testing that the label text may be changed. */
@@ -143,6 +144,7 @@ bool testDropDownMenu(void){
 }
 
 int main(){
+    juce::ScopedJuceInitialiser_GUI guiInit;
     bool success = true;
     
     success &= testSliderWithLabel();

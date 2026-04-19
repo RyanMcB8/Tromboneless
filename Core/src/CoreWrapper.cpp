@@ -7,21 +7,23 @@
 #include "CoreWrapper.hpp"
 #include <stdexcept>
 
-CoreWrapper::CoreWrapper() : eventHandler(), coordinator(render){
-    externalDevicePresent = midiSink.GetDeviceStatus();
-    coordinator.setDevice(externalDevicePresent);
+CoreWrapper::CoreWrapper(bool isTest) : eventHandler(), coordinator(render){
+    if (!isTest){
+        externalDevicePresent = midiSink.GetDeviceStatus();
+        coordinator.setDevice(externalDevicePresent);
 
-    /* Ensuring that the event handler was initialised properly. */
-    if (!eventHandler.initialise()) {
-        std::cerr << "Initialisation failed\n";
-        throw std::runtime_error("EventHandler initialisation failed");
-    }
+        /* Ensuring that the event handler was initialised properly. */
+        if (!eventHandler.initialise()) {
+            std::cerr << "Initialisation failed\n";
+            throw std::runtime_error("EventHandler initialisation failed");
+        }
 
-    /*  Registering a callback for midi messages. */
-    coordinator.RegisterCallback(
-        [&](const MidiMessage& msg) {
-            midiSink.send(msg);
-        });
+        /*  Registering a callback for midi messages. */
+        coordinator.RegisterCallback(
+            [&](const MidiMessage& msg) {
+                midiSink.send(msg);
+            });
+        }
 }
 
 CoreWrapper::~CoreWrapper(){

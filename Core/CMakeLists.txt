@@ -72,5 +72,6 @@ foreach(TEST_FILE ${TEST_SOURCES})
         ${PROJECT_SOURCE_DIR}/tests
     )
 
+
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()

@@ -26,7 +26,7 @@ class CoreWrapper{
         /*  Adding the constructor and destructor.      */
         /*  ==========================================  */
 
-        CoreWrapper();
+        CoreWrapper(bool isTest);
         ~CoreWrapper();
 
         /*  ==========================================  */

@@ -44,4 +44,14 @@ float AmplitudeMapper::getBaseline(){
     return pressureBaseline;
 }
 
+
+float AmplitudeMapper::getPressureThreshold(void){
+    return pressureThreshold;
+}
+
+
+void AmplitudeMapper::setPressureThreshold(float threshold){
+    pressureThreshold = threshold;
+    return;
+}
         

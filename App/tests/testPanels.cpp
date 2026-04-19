@@ -21,7 +21,7 @@ bool testPanels(void){
 /*  Testing the Sliders class. */
 bool testSliders(void){
     bool passFail = true;
-    CoreWrapper* coreWrapper = new CoreWrapper(); 
+    CoreWrapper* coreWrapper = new CoreWrapper(true); 
     Sliders testClass(*coreWrapper);
 
     /* Minimum distance. */
@@ -44,6 +44,7 @@ bool testSliders(void){
 }
 
 int main(){
+    juce::ScopedJuceInitialiser_GUI guiInit;
     bool success = true;
     
     success &= testPanels();

@@ -16,6 +16,7 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include <juce_audio_processors/juce_audio_processors.h>
 #include "CustomStyles.hpp"
+#include "CoreWrapper.hpp"
 #include <tromboneless_data.hpp>
 
 /* A header file containing custom widgets to appear on the screen to reduce and repetitive definitions within the main Layout.cpp file. */
@@ -432,7 +433,7 @@ class Barometer :   public DualRotarySlider
          *                          the labels text to be the corresponding
          *                          text.
          */
-        Barometer();
+        Barometer(CoreWrapper& coreWrapper);
 
         /** @brief                  Decontructor for the Barometer class which
          *                          removes the listeners from the sliders as
@@ -565,6 +566,9 @@ class Barometer :   public DualRotarySlider
 
         /* Setting the distance of the gain labels relative to the centre point. */
         float relativeLabelRadius = 0.3;
+
+        /*  Pointer to the core class functions. */
+        CoreWrapper& coreWrapper_ref;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */

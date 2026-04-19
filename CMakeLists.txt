@@ -80,7 +80,11 @@ target_compile_definitions(TrombonelessAppLib PUBLIC
 
 target_link_libraries(TrombonelessApp PRIVATE TrombonelessAppLib)
 
-target_compile_options(TrombonelessApp PRIVATE ${GTK3_CFLAGS_OTHER})
+target_compile_options(TrombonelessApp 
+    PUBLIC
+        ${GTK3_CFLAGS_OTHER}
+)
+# The above options stop warning messages from RtMidi and ADS sub modules.
 
 # ========================================
 #                   Tests
@@ -99,9 +103,6 @@ foreach(TEST_FILE ${TEST_SOURCES} )
         ${PROJECT_SOURCE_DIR}/App/inc
         ${PROJECT_SOURCE_DIR}/App/tests
         )
-
-    target_compile_options(${TEST_NAME} PRIVATE ${GTK3_CFLAGS_OTHER})
-
 
     # Add the test to the CTest list of tests.
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
