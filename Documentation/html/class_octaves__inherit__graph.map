@@ -1,9 +1,0 @@
-<map id="Octaves" name="Octaves">
-<area shape="rect" id="Node000001" title="Creation of a class to store the frequencies of notes at different octaves. Inherits from Notes class..." alt="" coords="50,80,121,107"/>
-<area shape="rect" id="Node000003" href="$class_octaves_with_harmonics.html" title="A class which inherits functions and variables from the Octaves class allowing for the notes being ou..." alt="" coords="5,155,166,181"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,120,88,155,83,154,84,125"/>
-<area shape="rect" id="Node000002" href="$class_notes.html" title="A class to store the frequency of the notes which may be referenced. The notes are stored in an enum ..." alt="" coords="57,5,114,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,45,88,80,83,79,85,50"/>
-<area shape="rect" id="Node000004" href="$class_trombone_synth.html" title="A class which may be used to create a custom synth with an envelope attached to it." alt="" coords="29,229,142,256"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,195,88,230,83,228,84,199"/>
-</map>

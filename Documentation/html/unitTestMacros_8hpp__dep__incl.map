@@ -1,9 +1,0 @@
-<map id="/home/ryan/Tromboneless/App/tests/unitTestMacros.hpp" name="/home/ryan/Tromboneless/App/tests/unitTestMacros.hpp">
-<area shape="rect" id="Node000001" title="This file defines a set of macros which may be called upon to test various different tests for the Tr..." alt="" coords="249,5,467,45"/>
-<area shape="rect" id="Node000002" href="$testCustomStyles_8cpp.html" title="A file which stores the necessary test scripts for all the testable functions within the CustomStyles..." alt="" coords="5,93,239,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="294,53,175,96,173,91,292,48"/>
-<area shape="rect" id="Node000003" href="$testPanels_8cpp.html" title="A file which stores the necessary test scripts for all the testable functions within the Panels files..." alt="" coords="263,93,453,133"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="361,59,361,93,355,93,355,59"/>
-<area shape="rect" id="Node000004" href="$testWidgets_8cpp.html" title="A file which stores the necessary test scripts for all the testable functions within the Widgets file..." alt="" coords="477,93,673,133"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="419,48,529,91,527,96,418,53"/>
-</map>

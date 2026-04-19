@@ -15,6 +15,8 @@
 /* Addition of all necessary header files. */
 #include <cmath>
 #include <sys/time.h>
+#include <array>
+#include <algorithm>
 
 /* ========================================================================================== */
 /*                                  Class definitions                                         */
@@ -404,7 +406,7 @@ class OctavesWithHarmonics :    public Octaves
          *  @param  n       The number of harmonics
          *  @retval         The maximum amplitude possible as a floating point value.
          */
-        float getHarmomicDecayMax(int n);
+        float getHarmonicDecayMax(int n);
 
         /** @brief          A function that can change the value of the decay constant
          *                  used to set the maxmimum amplitude of each successive 
@@ -421,9 +423,17 @@ class OctavesWithHarmonics :    public Octaves
          */
         float getDecayConstant(void);
         
-    private:
-        float decayConstant = 0.1;
-        
+    protected:
+
+        static constexpr int maxHarmonics = 64;
+
+        float decayConstant = 0.1f;
+
+        std::array<float, maxHarmonics> harmonicWeights{};
+        int cachedNHarmonics = 0;
+        bool harmonicCacheDirty = true;
+
+        void updateHarmonicCache(int n);
 };
 
 

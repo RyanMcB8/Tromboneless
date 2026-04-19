@@ -104,7 +104,7 @@ bool TestOctaves(){
         }
     }
 
-    std::cout << "[PASS] Ocatves passed all tests. \n";
+    std::cout << "[PASS] Octaves passed all tests. \n";
     return true;
 }
 
@@ -121,7 +121,7 @@ bool TestOctavesWithHarmonics(){
         std::cerr << "[FAIL] Error with HarmonicDecay() function.\n      Does not have a maxmimum of 1 at n=0." << "\n";
         return false;
     }
-    if (0.00 < harmonics.HarmonicDecay(10e3) && 0.01 > harmonics.HarmonicDecay(10e3)){
+    if (0.00 > harmonics.HarmonicDecay(10e3) || 0.01 < harmonics.HarmonicDecay(10e3)){
         std::cerr << "[FAIL] Error with HarmonicDecay() function.\n      Does not have a minimum approach 0 at n=10e3." << "\n";
         return false;
     }

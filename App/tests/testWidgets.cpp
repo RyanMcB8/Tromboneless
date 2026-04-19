@@ -38,9 +38,10 @@ bool testSliderWithLabel(void){
 bool testCalibrationSlider(void){
     bool passFail = true;
     CalibrationSlider testClass;
+    float value = (testClass.slider.getMaxValue() - testClass.slider.getMinValue())/2.0f;
 
-    int value = 2;
     SET_GET_FLOAT(testClass, setMinDifference, getMinDifference, value, CalibrationSlider, passFail);
+    return passFail;
 }
 
 /** @brief      A function to run unit tests on the various public functions within
@@ -50,12 +51,8 @@ bool testDualRotarySlider(void){
     bool passFail = true;
     DualRotarySlider testClass;
 
-    /*  Testing minimum difference. */
-    float value = 2.0;
-    SET_GET_FLOAT(testClass, setMinDifference, getMinDifference, value, DualRotarySlider, passFail);
-
     /*  Testing the minimum slider radius. */
-    value = 0.1;
+    float value = 0.1;
     SET_GET_FLOAT(testClass, setMinSliderRadius, getMinSliderRadius, value, DualRotarySlider, passFail);
 
     /*  Testing the maximum slider radius. */
@@ -67,12 +64,16 @@ bool testDualRotarySlider(void){
     SET_GET_FLOAT(testClass, setLabelHeight, getLabelHeight, value, DualRotarySlider, passFail);
 
     /*  Testing the minimum limit. */
-    value = 2.3;
+    value = 0.3;
     SET_GET_FLOAT(testClass, setMinLimit, getMinLimit, value, DualRotarySlider, passFail);
 
     /*  Testing the maximum limit. */
     value = 20.0;
     SET_GET_FLOAT(testClass, setMaxLimit, getMaxLimit, value, DualRotarySlider, passFail);
+
+    /*  Testing minimum difference. */
+    value = (testClass.getMaxLimit() - testClass.getMinLimit())/3.0f;
+    SET_GET_FLOAT(testClass, setMinDifference, getMinDifference, value, DualRotarySlider, passFail);
 
     /*  Testing the interval. */
     value = 1.0;

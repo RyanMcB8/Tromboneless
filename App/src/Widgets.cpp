@@ -177,7 +177,7 @@ CalibrationSlider::~CalibrationSlider(){
 }
 
  void CalibrationSlider::setMinDifference(float difference){
-     minDistance = std::min((float) abs(difference), (float) (slider.getMaxValue() - slider.getMinValue()));
+     minDistance = std::min((float) fabs(difference), (float) (slider.getMaxValue() - slider.getMinValue()));
      return;
  }
 
@@ -323,7 +323,7 @@ void DualRotarySlider::resized()
 void DualRotarySlider::setMinDifference(float difference){
     
     /*  Instantly limit the differece to be a maximum of 80% and minimum of 0%. */
-    minDifference = std::min((float)((maxLimit-minLimit) * 0.8), (float)(abs(difference)));
+    minDifference = std::min((float)((getMaxLimit()-getMinLimit()) * 0.8), (float)(fabs(difference)));
     updateMinAngleDifference();
     return;
 }
