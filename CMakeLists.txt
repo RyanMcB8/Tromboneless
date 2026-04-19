@@ -19,7 +19,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #   Adding the subdirectory.
 
-add_subdirectory(App)
+# add_subdirectory(App)
+# Disable everything you don’t want
+set(JUCE_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+set(JUCE_BUILD_EXTRAS OFF CACHE BOOL "" FORCE)
+set(JUCE_ENABLE_MODULE_SOURCE_GROUPS OFF CACHE BOOL "" FORCE)
+set(JUCE_INSTALL_DESTINATION "lib/cmake/JUCE" CACHE STRING "" FORCE)
+set(JUCE_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+
+
+add_subdirectory(App/modules/JUCE EXCLUDE_FROM_ALL)
 add_subdirectory(Core)
 
 #   Enabling tests
@@ -48,17 +57,16 @@ target_link_libraries(TrombonelessAppLib
     PUBLIC
         ${GTK3_LIBRARIES}
         CURL::libcurl
-        TrombonelessJuce
         TrombonelessCoreLibrary
+        juce::juce_core
+        juce::juce_gui_basics
+        juce::juce_graphics
 )
 
 #   Creating the app executable.
 juce_add_gui_app(Tromboneless
     PRODUCT_NAME "Tromboneless"
 )
-
-#   Adding the source files.
-target_sources(TrombonelessAppLib PUBLIC ${APP_SOURCES})
 
 
 #   Adding additional compile defintions.
@@ -73,6 +81,10 @@ target_compile_definitions(TrombonelessAppLib PUBLIC
 target_link_libraries(Tromboneless PRIVATE TrombonelessAppLib)
 
 target_compile_options(Tromboneless PRIVATE ${GTK3_CFLAGS_OTHER})
+
+set_target_properties(Tromboneless PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
 # ========================================
 #                   Tests
