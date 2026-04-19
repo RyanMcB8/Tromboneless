@@ -17,7 +17,7 @@
 #include <string>
 #include <system_error>
 
-Layout::Layout()
+Layout::Layout(CoreWrapper& coreWrapper) : coreWrapper_ref(coreWrapper)
 {
     /* Sets the initial size of the window to be displayed to the user. */
     setSize (1200, 700);

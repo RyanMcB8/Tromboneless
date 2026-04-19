@@ -17,6 +17,7 @@
 #include <juce_gui_basics/juce_gui_basics.h>
 #include "Widgets.hpp"
 #include "Panels.hpp"
+#include "CoreWrapper.hpp"
 #include <stdio.h>
 
 /** @brief Main class that creates the window
@@ -26,7 +27,7 @@ class Layout final : public juce::Component
     public:
 
         // Constructor
-        Layout();
+        Layout(CoreWrapper& coreWrapper);
 
         // Deconstructor
         ~Layout() = default;
@@ -47,6 +48,9 @@ class Layout final : public juce::Component
         
 
     private:
+        /*  Creating the reference to the core*/
+        CoreContext& coreWrapper_ref;
+
         /* ========== This is where the buttons and sliders should be initialised and attached to the profiler. ========== */     
 
         /* Shift keying drop down menu and label */  

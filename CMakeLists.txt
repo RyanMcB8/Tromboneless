@@ -20,7 +20,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #   Adding the subdirectory.
 
 add_subdirectory(App/modules/JUCE)
-
+add_subdirectory(Core)
 
 #   Enabling tests
 enable_testing()
