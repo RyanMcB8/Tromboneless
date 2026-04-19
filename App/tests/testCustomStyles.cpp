@@ -6,7 +6,7 @@
  */
 
 /*  Adding in the necessary headers and libraries. */
-#include "CustomStyles.hpp"
+#include <CustomStyles.hpp>
 #include "unitTestMacros.hpp"
 
 /*  Testing the VerticalSliderLookAndFeel class. */
