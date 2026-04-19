@@ -5,29 +5,27 @@
  */
 
 #include "CoreWrapper.hpp"
+#include <stdexcept>
 
-CoreWrapper::CoreWrapper() : eventHandler(eventQueue, eventQueueMutex, eventQueueCv), coordinator(render){
-        externalDevicePresent = midiSink.GetDeviceStatus();
-        coordinator.setDevice(externalDevicePresent);
+CoreWrapper::CoreWrapper() : eventHandler(), coordinator(render){
+    externalDevicePresent = midiSink.GetDeviceStatus();
+    coordinator.setDevice(externalDevicePresent);
 
-        /* Ensuring that the event handler was initialised properly. */
-        if (!eventHandler.initialise()) {
-            std::cerr << "Initialisation failed\n";
-            throw;
-        }
+    /* Ensuring that the event handler was initialised properly. */
+    if (!eventHandler.initialise()) {
+        std::cerr << "Initialisation failed\n";
+        throw std::runtime_error("EventHandler initialisation failed");
+    }
 
-        /*  Registering a callback for midi messages. */
-        coordinator.RegisterCallback(
-            [&](const MidiMessage& msg) {
-                midiSink.send(msg);
-            });
-
-
+    /*  Registering a callback for midi messages. */
+    coordinator.RegisterCallback(
+        [&](const MidiMessage& msg) {
+            midiSink.send(msg);
+        });
 }
 
-
 CoreWrapper::~CoreWrapper(){
-
+    stop();
 }
 
 void CoreWrapper::start(){
@@ -50,47 +48,37 @@ void CoreWrapper::start(){
     }
 
     std::cout << "Beginning Pressure Baseline Calculation\n";
-    // Baseline collection loop
-    while (true) {
-        RawInputEvent event;
-        {
-            std::unique_lock<std::mutex> lock(eventQueueMutex);
-            eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
-            event = eventQueue.front();
-            eventQueue.pop();
-        }
 
-        // Only feed pressure readings to the baseline
+    /*  Baseline collection loop. */
+    while (true) {
+        RawInputEvent event = eventHandler.waitForEvent();
+
+        /*  Only feed pressure readings to the baseline. */
         if (event.type == RawInputEvent::Type::PressureReading) {
             if (amplitudemapper.calculateBaseline(event.pressureReading)) {
                 break;
             }
         }
     }
-    std::cout << "Pressure Baseline found to be: " << amplitudemapper.getBaseline() << "\n";
+
+    std::cout << "Pressure Baseline found to be: "
+              << amplitudemapper.getBaseline() << "\n";
+
+    running = true;
+    eventThread = std::thread(&CoreWrapper::eventLoop, this);
 }
 
 void CoreWrapper::stop(){
     running = false;
-    eventQueueCv.notify_all();
+
     if (eventThread.joinable()){
         eventThread.join();
     }
 }
 
-
-
 void CoreWrapper::eventLoop(){
-    int current_note = 0;
-
-    while (true) {
-        RawInputEvent event;
-        {
-            std::unique_lock<std::mutex> lock(eventQueueMutex);
-            eventQueueCv.wait(lock, [&] { return !eventQueue.empty(); });
-            event = eventQueue.front();
-            eventQueue.pop();
-        }
+    while (running) {
+        RawInputEvent event = eventHandler.waitForEvent();
 
         switch (event.type) {
             case RawInputEvent::Type::ToFDistance:
@@ -101,12 +89,15 @@ void CoreWrapper::eventLoop(){
                 coordinator.PressureEdge(amplitudemapper.noteEdge(event.pressureReading));
                 break;
 
-            case RawInputEvent::Type::MouthpieceReading:
+            case RawInputEvent::Type::MouthpieceReading: {
                 int new_note = pitchmapper.mouthpiece_to_MIDI_note(event.mouthpieceReading);
-                if (current_note != new_note && new_note != 0) {
-                    current_note = new_note;
-                    coordinator.ChangeNote(current_note);
+                if (new_note != 0) {
+                    coordinator.ChangeNote(new_note);
                 }
+                break;
+            }
+
+            case RawInputEvent::Type::Keycontrol:
                 break;
         }
     }
@@ -131,6 +122,7 @@ AmplitudeMapper* CoreWrapper::getAmplitudeMapper(void){
 PitchMapper* CoreWrapper::getPitchMapper(void){
     return &pitchmapper;
 }
+
 MidiCoordinator* CoreWrapper::getMidiCoordinator(void){
     return &coordinator;
 }
