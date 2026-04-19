@@ -14,16 +14,19 @@ PitchMapper::PitchMapper(){
 
 int PitchMapper::tof_to_MIDI_bend(uint16_t tof_distance){
 
-    if (tof_distance > slide_max_limit_mm) // Clamp to max value
+    if (tof_distance > slide_max_limit_mm)
         tof_distance = slide_max_limit_mm;
 
-    if (tof_distance < slide_min_limit_mm) // Clamp to min value
-        tof_distance = slide_min_limit_mm;    
+    if (tof_distance < slide_min_limit_mm)
+        tof_distance = slide_min_limit_mm;
 
-    if (slide_max_limit_mm <= 0)
-        slide_max_limit_mm = 1; // Guard against division by zero
+    int range = slide_max_limit_mm - slide_min_limit_mm;
+    if (range <= 0)
+        range = 1; // guard
 
-    return 8192 - (static_cast<int>(tof_distance) * 8192) / (slide_max_limit_mm-slide_min_limit_mm);
+    int normalised = static_cast<int>(tof_distance) - slide_min_limit_mm;
+
+    return 8192 - (normalised * 8192) / range;
 }
 
 int PitchMapper::mouthpiece_to_MIDI_note(int8_t delta){
@@ -78,16 +81,24 @@ void PitchMapper::SetTromboneType(ShiftKeyingOptions_t trombone_choice){
     switch(trombone_choice){
         case(SKOpt_CONTRABASS):
             trombone_type = Trombone_type_t::contrabass;
+            break;
         case(SKOpt_BASS):
             trombone_type = Trombone_type_t::bass;
+            break;
         case(SKOpt_TENOR):
             trombone_type = Trombone_type_t::tenor;
+            break;
         case(SKOpt_ALTO):
             trombone_type = Trombone_type_t::alto;
+            break;
         case(SKOpt_SOPRANO):
             trombone_type = Trombone_type_t::soprano;
+            break;
         case(SKOpt_PICCOLO):
             trombone_type = Trombone_type_t::piccolo;
+            break;
+        default:
+            trombone_type = Trombone_type_t::tenor;  
     }
 
 
