@@ -112,3 +112,25 @@ void CoreWrapper::eventLoop(){
     }
 }
 
+EventHandler* CoreWrapper::getEventHandler(void){
+    return &eventHandler;
+}
+
+RtMidiSink* CoreWrapper::getRtMidiSink(void){
+    return &midiSink;
+}
+
+AudioRender* CoreWrapper::getAudioRender(void){
+    return &render;
+}
+
+AmplitudeMapper* CoreWrapper::getAmplitudeMapper(void){
+    return &amplitudemapper;
+}
+
+PitchMapper* CoreWrapper::getPitchMapper(void){
+    return &pitchmapper;
+}
+MidiCoordinator* CoreWrapper::getMidiCoordinator(void){
+    return &coordinator;
+}
