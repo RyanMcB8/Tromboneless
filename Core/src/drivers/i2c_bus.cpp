@@ -1,3 +1,13 @@
+/**
+ * @file i2c_bus.cpp
+ * @brief Implementation of the I2CBus class for Linux I2C communication.
+ * 
+ * @details 
+ * Implements low-level Linux I2C device access using file descriptors,
+ * ioctl device selection, and register-based read/write operations.
+ */
+
+
 #include "drivers/i2c_bus.hpp"
 
 #include <linux/i2c-dev.h>
@@ -8,29 +18,19 @@
 #include <cstring>
 #include <cstdio>
 
-/*
- * Constructor
- * Initialise file descriptor to invalid state
- */
+// Constructor initializes device path and file descriptor
 I2CBus::I2CBus(const char* devicePath)
     : devicePath_(devicePath), fd_(-1)
 {
 }
 
-/*
- * Destructor
- * Ensures file descriptor is closed on object destruction
- */
+// Destructor ensures the I2C device file is closed when the object is destroyed.
 I2CBus::~I2CBus()
 {
     closeBus();
 }
 
-/*
- * Open the I2C device file
- *
- * Returns true if successful
- */
+// Open the I2C device file
 bool I2CBus::openBus()
 {
     if (fd_ >= 0)
@@ -39,18 +39,19 @@ bool I2CBus::openBus()
         return true;
     }
 
+    // Open the I2C device file for read/write access
     fd_ = open(devicePath_, O_RDWR);
     return (fd_ >= 0);
 }
 
-/*
- * Close the I2C device file
- */
+// 
 void I2CBus::closeBus()
 {
     if (fd_ >= 0)
     {
+        // close file descriptor
         close(fd_);
+        // mark as closed
         fd_ = -1;
     }
 }
@@ -65,6 +66,7 @@ int I2CBus::writeBlock16(uint8_t address, uint16_t reg, const uint8_t* data, uin
 {
     if (fd_ < 0)
     {
+        //bus is not open, cannot communicate
         return -1;
     }
 
@@ -77,10 +79,11 @@ int I2CBus::writeBlock16(uint8_t address, uint16_t reg, const uint8_t* data, uin
     // Create buffer: register (2 bytes) + payload
     std::vector<uint8_t> buffer(2 + length);
 
+    // split 16-bit register into two bytes
     buffer[0] = static_cast<uint8_t>(reg >> 8);   // register MSB
     buffer[1] = static_cast<uint8_t>(reg & 0xFF); // register LSB
 
-    // Copy payload data if present
+    // Copy payload data into buffer if present
     if (length > 0)
     {
         std::memcpy(&buffer[2], data, length);
