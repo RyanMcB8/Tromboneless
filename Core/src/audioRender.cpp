@@ -3,9 +3,13 @@
 #include <cmath>
 #include <iostream>
 
-AudioRender::AudioRender()
-    : output()
+AudioRender::AudioRender(bool isTest)
+    : output(isTest), isTestMode(isTest)
 {
+    std::cout << "IsTestMode AudioRender " << isTest << "\n";
+    if (isTestMode){
+        return;
+    }
 }
 
 AudioRender::~AudioRender()

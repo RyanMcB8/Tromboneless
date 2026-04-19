@@ -30,7 +30,7 @@ public:
     using EventQueue = std::queue<RawInputEvent>;
 
     /** @brief Constructor initialises drivers and internal event transport. */
-    EventHandler();
+    EventHandler(bool isTest);
 
     bool initialise();
     void start();

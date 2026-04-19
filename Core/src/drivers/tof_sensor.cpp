@@ -13,7 +13,8 @@ using namespace std::chrono_literals;
 ToFSensor::ToFSensor(I2CBus& bus,
                      uint8_t i2cAddress7Bit,
                      const std::string& gpioChipPath,
-                     unsigned int gpioLine)
+                     unsigned int gpioLine,
+                     bool isTest)
     : bus_(bus),
       i2cAddress7Bit_(i2cAddress7Bit),
       stDevAddress_(static_cast<uint16_t>(i2cAddress7Bit) << 1),

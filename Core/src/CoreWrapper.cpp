@@ -7,124 +7,113 @@
 #include "CoreWrapper.hpp"
 #include <stdexcept>
 
-CoreWrapper::CoreWrapper(bool isTest) : eventHandler(), coordinator(render){
-    if (!isTest){
-        externalDevicePresent = midiSink.GetDeviceStatus();
-        coordinator.setDevice(externalDevicePresent);
-
-        /* Ensuring that the event handler was initialised properly. */
-        if (!eventHandler.initialise()) {
-            std::cerr << "Initialisation failed\n";
-            throw std::runtime_error("EventHandler initialisation failed");
-        }
-
-        /*  Registering a callback for midi messages. */
-        coordinator.RegisterCallback(
-            [&](const MidiMessage& msg) {
-                midiSink.send(msg);
-            });
-        }
+CoreWrapper::CoreWrapper(bool isTest) : eventHandler(isTest),
+    //   midiSink(isTest),
+    //   render(isTest), 
+    //   coordinator(render, isTest), 
+      isTestMode(isTest)
+{
+    std::cout << "CoreWrapper IsTestMode: " << isTestMode << "\n";
+    if (isTest)
+    {
+        externalDevicePresent = false;
+        return;
+    }
 }
 
 CoreWrapper::~CoreWrapper(){
     stop();
 }
 
-void CoreWrapper::start(){
-    /*  Starting the callback*/
-    eventHandler.start();
+void CoreWrapper::start()
+{
+    // if (isTestMode){
+    //     return;
+    // }
+    // externalDevicePresent = midiSink.GetDeviceStatus();
+    // coordinator.setDevice(externalDevicePresent);
 
-    /*  Checking whether the external synth or internal synth is being used. */
-    if (!externalDevicePresent) {
-        render.start();
+    // if (!eventHandler.initialise())
+    // {
+    //     throw std::runtime_error("EventHandler initialisation failed");
+    // }
 
-        /*  Running a test tone to test if the external speakers are connected and audible. */
-        render.setDebugTone(true);
-        std::this_thread::sleep_for(std::chrono::seconds(2));
-        render.setDebugTone(false);
+    // coordinator.RegisterCallback(
+    //     [&](const MidiMessage& msg)
+    //     {
+    //         midiSink.send(msg);
+    //     });
 
-        std::cout << "Internal synth mode\n";
-    } 
-    else {
-        std::cout << "External MIDI mode\n";
-    }
+    // eventHandler.start();
 
-    std::cout << "Beginning Pressure Baseline Calculation\n";
+    // if (!externalDevicePresent)
+    // {
+    //     render.start();
 
-    /*  Baseline collection loop. */
-    while (true) {
-        RawInputEvent event = eventHandler.waitForEvent();
+    //     render.setDebugTone(true);
+    //     std::this_thread::sleep_for(std::chrono::seconds(2));
+    //     render.setDebugTone(false);
+    // }
 
-        /*  Only feed pressure readings to the baseline. */
-        if (event.type == RawInputEvent::Type::PressureReading) {
-            if (amplitudemapper.calculateBaseline(event.pressureReading)) {
-                break;
-            }
-        }
-    }
-
-    std::cout << "Pressure Baseline found to be: "
-              << amplitudemapper.getBaseline() << "\n";
-
-    running = true;
-    eventThread = std::thread(&CoreWrapper::eventLoop, this);
+    // running = true;
+    // eventThread = std::thread(&CoreWrapper::eventLoop, this);
 }
 
 void CoreWrapper::stop(){
-    running = false;
+    // running = false;
 
-    if (eventThread.joinable()){
-        eventThread.join();
-    }
+    // if (eventThread.joinable()){
+    //     eventThread.join();
+    // }
 }
 
 void CoreWrapper::eventLoop(){
-    while (running) {
-        RawInputEvent event = eventHandler.waitForEvent();
+    // while (running) {
+    //     RawInputEvent event = eventHandler.waitForEvent();
 
-        switch (event.type) {
-            case RawInputEvent::Type::ToFDistance:
-                coordinator.setBend(pitchmapper.tof_to_MIDI_bend(event.tofDistance));
-                break;
+    //     switch (event.type) {
+    //         case RawInputEvent::Type::ToFDistance:
+    //             coordinator.setBend(pitchmapper.tof_to_MIDI_bend(event.tofDistance));
+    //             break;
 
-            case RawInputEvent::Type::PressureReading:
-                coordinator.PressureEdge(amplitudemapper.noteEdge(event.pressureReading));
-                break;
+    //         case RawInputEvent::Type::PressureReading:
+    //             coordinator.PressureEdge(amplitudemapper.noteEdge(event.pressureReading));
+    //             break;
 
-            case RawInputEvent::Type::MouthpieceReading: {
-                int new_note = pitchmapper.mouthpiece_to_MIDI_note(event.mouthpieceReading);
-                if (new_note != 0) {
-                    coordinator.ChangeNote(new_note);
-                }
-                break;
-            }
+    //         case RawInputEvent::Type::MouthpieceReading: {
+    //             int new_note = pitchmapper.mouthpiece_to_MIDI_note(event.mouthpieceReading);
+    //             if (new_note != 0) {
+    //                 coordinator.ChangeNote(new_note);
+    //             }
+    //             break;
+    //         }
 
-            case RawInputEvent::Type::Keycontrol:
-                break;
-        }
-    }
+    //         case RawInputEvent::Type::Keycontrol:
+    //             break;
+    //     }
+    // }
 }
 
 EventHandler* CoreWrapper::getEventHandler(void){
-    return &eventHandler;
+    return nullptr;// &eventHandler;
 }
 
 RtMidiSink* CoreWrapper::getRtMidiSink(void){
-    return &midiSink;
+    return nullptr;// &midiSink;
 }
 
 AudioRender* CoreWrapper::getAudioRender(void){
-    return &render;
+    return nullptr;// &render;
 }
 
 AmplitudeMapper* CoreWrapper::getAmplitudeMapper(void){
-    return &amplitudemapper;
+    return nullptr;// &amplitudemapper;
 }
 
 PitchMapper* CoreWrapper::getPitchMapper(void){
-    return &pitchmapper;
+    return nullptr;// &pitchmapper;
 }
 
 MidiCoordinator* CoreWrapper::getMidiCoordinator(void){
-    return &coordinator;
+    return nullptr;// &coordinator;
 }

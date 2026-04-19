@@ -34,6 +34,7 @@ class CoreWrapper{
         /*  ==========================================  */
         void start();
         void stop();
+        
 
         EventHandler* getEventHandler(void);
         RtMidiSink* getRtMidiSink(void);
@@ -48,12 +49,14 @@ class CoreWrapper{
 
     private:
         /*  Creating the instances. */
+        
         EventHandler eventHandler;
-        RtMidiSink midiSink;
-        AudioRender render;
-        AmplitudeMapper amplitudemapper;
-        PitchMapper pitchmapper;
-        MidiCoordinator coordinator;
+        // RtMidiSink midiSink;
+        // AudioRender render;
+        // AmplitudeMapper amplitudemapper;
+        // PitchMapper pitchmapper;
+        // MidiCoordinator coordinator;
+        bool isTestMode = false;
 
         /*  Core loop. */
         std::thread eventThread;

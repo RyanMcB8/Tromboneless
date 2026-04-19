@@ -18,7 +18,8 @@ public:
     ToFSensor(I2CBus& bus,
               uint8_t i2cAddress7Bit = 0x29,
               const std::string& gpioChipPath = "/dev/gpiochip0",
-              unsigned int gpioLine = 4);
+              unsigned int gpioLine = 4,
+              bool isTest=false);
 
     ~ToFSensor();
 
