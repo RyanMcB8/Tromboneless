@@ -36,7 +36,7 @@ juce::Colour Panels::getBackgroundColour(void){
 /*                                                                                            */
 /* ========================================================================================== */
 
- DropDownMenus::DropDownMenus(){
+ DropDownMenus::DropDownMenus(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
 
     /* ============================== Creation of a dropdown menu that provides options for shift keying ============================== */
     
@@ -70,7 +70,7 @@ void DropDownMenus::resized(){
 
 
 
-Sliders::Sliders(){
+Sliders::Sliders(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
     addAndMakeVisible (distanceSlider);
     using juce::Slider;
     distanceSlider.slider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
@@ -110,6 +110,11 @@ void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
         /*  Update the calibrated distance of the slider in the main window. */
         trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
         trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+
+        PitchMapper* mapper_ptr = coreWrapper_ref.getPitchMapper();
+        mapper_ptr->SetSlideMinLimit((int)distanceSlider.slider.getMinValue());
+        mapper_ptr->SetSlideMaxLimit((int)distanceSlider.slider.getMaxValue());
+
         return;
     }
     return;
@@ -157,7 +162,7 @@ float Sliders::getDistanceRange(void){
 /*                                                                                            */
 /* ========================================================================================== */
 
-EqualizerPanel::EqualizerPanel(){
+EqualizerPanel::EqualizerPanel(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
     addAndMakeVisible(button);
     addAndMakeVisible(equalizer);
     addAndMakeVisible(buttonLabel);

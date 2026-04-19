@@ -3,7 +3,7 @@
 
 #include "Layout.hpp"
 #include <juce_gui_extra/juce_gui_extra.h>
-#include <tromboneless_data.hpp>
+#include "CoreWrapper.hpp"
 
 
 //==============================================================================
@@ -46,8 +46,11 @@ public:
         // This method is where you should put your application's initialisation code..
         juce::ignoreUnused (commandLine);
 
-        mainWindow.reset (new MainWindow (getApplicationName()));
-    }
+        /*  Creation of the shared instance to pass the parameters between app and core. */
+        coreWrapper_ref = std::make_unique<CoreWrapper>();
+        coreWrapper_ref->start();
+
+        mainWindow = std::make_unique<MainWindow>(*coreWrapper_ref, getApplicationName());    }
 
     /** @brief Function used to control what happens when the user wants to close the application
      *  @note Currently nothing extra is happening here other than closing the window
@@ -57,6 +60,8 @@ public:
         // Add your application's shutdown code here..
 
         mainWindow = nullptr; // (deletes our window)
+        coreWrapper_ref->stop();
+        coreWrapper_ref = nullptr;
     }
 
     //==============================================================================
@@ -86,14 +91,14 @@ public:
     public:
 
         /** Generation of what the main window will look like. */
-        explicit MainWindow (juce::String name)
+        explicit MainWindow (CoreWrapper& coreWrapper, juce::String name)
             : DocumentWindow (name,
                               juce::Desktop::getInstance().getDefaultLookAndFeel()
                                                           .findColour (backgroundColourId),
                               allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new Layout(), true);
+            setContentOwned (new Layout(coreWrapper), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
@@ -137,6 +142,7 @@ public:
 
 private:
     std::unique_ptr<MainWindow> mainWindow;
+    std::unique_ptr<CoreWrapper> coreWrapper_ref;
 };
 
 //==============================================================================

@@ -48,7 +48,7 @@
 /Core/build/
 
 # ignoring vscode settings
-.vscode/
+*.vscode/*
 
 # ignoring CMake files excluding CMakeLists
 *CMakeCache.txt
@@ -66,6 +66,11 @@ App/JUCE
 .vscode
 .vscode/settings.json
 .vscode/
+*.clangd*
 
 #ignoring cmake testing
 */Testing/*
+
+# ignoring the generated latex and html documentation files:
+*/html/*
+*/latex/*
