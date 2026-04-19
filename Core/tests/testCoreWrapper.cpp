@@ -15,26 +15,26 @@
     //     std::cerr << "  [FAIL]     getEventHandler() in CoreWrapper() failed\n";                                      
     //     passFail &= false; 
     // }
-    // if (nullptr == testClass.getRtMidiSink()){
-    //     std::cerr << "  [FAIL]     getRtMidiSink() in CoreWrapper() failed\n";                                      
-    //     passFail &= false; 
-    // }
-    // if (nullptr == testClass.getAudioRender()){
-    //     std::cerr << "  [FAIL]     getEventHandler() in getAudioRender() failed\n";                                      
-    //     passFail &= false; 
-    // }
-    // if (nullptr == testClass.getAmplitudeMapper()){
-    //     std::cerr << "  [FAIL]     getAmplitudeMapper() in CoreWrapper() failed\n";                                      
-    //     passFail &= false; 
-    // }
-    // if (nullptr == testClass.getPitchMapper()){
-    //     std::cerr << "  [FAIL]     getPitchMapper() in CoreWrapper() failed\n";                                      
-    //     passFail &= false; 
-    // }
-    // if (nullptr == testClass.getMidiCoordinator()){
-    //     std::cerr << "  [FAIL]     getMidiCoordinator() in CoreWrapper() failed\n";                                      
-    //     passFail &= false; 
-    // }
+    if (nullptr == testClass.getRtMidiSink()){
+        std::cerr << "  [FAIL]     getRtMidiSink() in CoreWrapper() failed\n";                                      
+        passFail &= false; 
+    }
+    if (nullptr == testClass.getAudioRender()){
+        std::cerr << "  [FAIL]     getEventHandler() in getAudioRender() failed\n";                                      
+        passFail &= false; 
+    }
+    if (nullptr == testClass.getAmplitudeMapper()){
+        std::cerr << "  [FAIL]     getAmplitudeMapper() in CoreWrapper() failed\n";                                      
+        passFail &= false; 
+    }
+    if (nullptr == testClass.getPitchMapper()){
+        std::cerr << "  [FAIL]     getPitchMapper() in CoreWrapper() failed\n";                                      
+        passFail &= false; 
+    }
+    if (nullptr == testClass.getMidiCoordinator()){
+        std::cerr << "  [FAIL]     getMidiCoordinator() in CoreWrapper() failed\n";                                      
+        passFail &= false; 
+    }
 
 
     return passFail;

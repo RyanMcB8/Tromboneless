@@ -50,12 +50,12 @@ class CoreWrapper{
     private:
         /*  Creating the instances. */
         
-        EventHandler eventHandler;
-        // RtMidiSink midiSink;
-        // AudioRender render;
-        // AmplitudeMapper amplitudemapper;
-        // PitchMapper pitchmapper;
-        // MidiCoordinator coordinator;
+        // EventHandler eventHandler;
+        RtMidiSink midiSink;
+        AudioRender render;
+        AmplitudeMapper amplitudemapper;
+        PitchMapper pitchmapper;
+        MidiCoordinator coordinator;
         bool isTestMode = false;
 
         /*  Core loop. */

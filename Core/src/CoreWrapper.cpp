@@ -7,10 +7,10 @@
 #include "CoreWrapper.hpp"
 #include <stdexcept>
 
-CoreWrapper::CoreWrapper(bool isTest) : eventHandler(isTest),
-    //   midiSink(isTest),
-    //   render(isTest), 
-    //   coordinator(render, isTest), 
+CoreWrapper::CoreWrapper(bool isTest) : //eventHandler(isTest),
+      midiSink(isTest),
+      render(isTest), 
+      coordinator(render, isTest), 
       isTestMode(isTest)
 {
     std::cout << "CoreWrapper IsTestMode: " << isTestMode << "\n";
@@ -27,35 +27,35 @@ CoreWrapper::~CoreWrapper(){
 
 void CoreWrapper::start()
 {
-    // if (isTestMode){
-    //     return;
-    // }
-    // externalDevicePresent = midiSink.GetDeviceStatus();
-    // coordinator.setDevice(externalDevicePresent);
+    if (isTestMode){
+        return;
+    }
+    externalDevicePresent = midiSink.GetDeviceStatus();
+    coordinator.setDevice(externalDevicePresent);
 
     // if (!eventHandler.initialise())
     // {
     //     throw std::runtime_error("EventHandler initialisation failed");
     // }
 
-    // coordinator.RegisterCallback(
-    //     [&](const MidiMessage& msg)
-    //     {
-    //         midiSink.send(msg);
-    //     });
+    coordinator.RegisterCallback(
+        [&](const MidiMessage& msg)
+        {
+            midiSink.send(msg);
+        });
 
     // eventHandler.start();
 
-    // if (!externalDevicePresent)
-    // {
-    //     render.start();
+    if (!externalDevicePresent)
+    {
+        render.start();
 
-    //     render.setDebugTone(true);
-    //     std::this_thread::sleep_for(std::chrono::seconds(2));
-    //     render.setDebugTone(false);
-    // }
+        render.setDebugTone(true);
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+        render.setDebugTone(false);
+    }
 
-    // running = true;
+    running = true;
     // eventThread = std::thread(&CoreWrapper::eventLoop, this);
 }
 
@@ -99,21 +99,21 @@ EventHandler* CoreWrapper::getEventHandler(void){
 }
 
 RtMidiSink* CoreWrapper::getRtMidiSink(void){
-    return nullptr;// &midiSink;
+    return &midiSink;
 }
 
 AudioRender* CoreWrapper::getAudioRender(void){
-    return nullptr;// &render;
+    return &render;
 }
 
 AmplitudeMapper* CoreWrapper::getAmplitudeMapper(void){
-    return nullptr;// &amplitudemapper;
+    return &amplitudemapper;
 }
 
 PitchMapper* CoreWrapper::getPitchMapper(void){
-    return nullptr;// &pitchmapper;
+    return &pitchmapper;
 }
 
 MidiCoordinator* CoreWrapper::getMidiCoordinator(void){
-    return nullptr;// &coordinator;
+    return &coordinator;
 }
