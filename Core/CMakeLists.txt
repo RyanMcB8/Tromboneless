@@ -41,7 +41,6 @@ target_include_directories(TrombonelessCoreLibrary PUBLIC
     ${PROJECT_SOURCE_DIR}/include/drivers
     ${PROJECT_SOURCE_DIR}/Drivers
     ${PROJECT_SOURCE_DIR}/../Shared
-    ${PROJECT_SOURCE_DIR}/modules/external/libgpiod/lib
     ${PROJECT_SOURCE_DIR}/modules/rpi_ads1115
     )
 
@@ -53,6 +52,11 @@ target_link_libraries(TrombonelessCoreLibrary
         asound
 )
 
+# Ignoring warning from RtMidi library.
+target_compile_options(TrombonelessCoreLibrary
+    PRIVATE
+        -Wno-zero-as-null-pointer-constant
+)
 
 add_executable(TrombonelessCore "${PROJECT_SOURCE_DIR}/src/main.cpp")
 
@@ -75,7 +79,7 @@ foreach(TEST_FILE ${TEST_SOURCES})
     add_executable(${TEST_NAME} ${TEST_FILE})
     target_link_libraries(${TEST_NAME} PRIVATE TrombonelessCoreLibrary)
     target_include_directories(${TEST_NAME} PRIVATE 
-        ${PROJECT_SOURCE_DIR}/inc
+        ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/tests
         )
 

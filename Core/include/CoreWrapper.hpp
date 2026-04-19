@@ -37,6 +37,14 @@ class CoreWrapper{
         void start();
         void stop();
 
+        EventHandler* getEventHandler(void);
+        RtMidiSink* getRtMidiSink(void);
+        AudioRender* getAudioRender(void);
+        AmplitudeMapper* getAmplitudeMapper(void);
+        PitchMapper* getPitchMapper(void);
+        MidiCoordinator* getMidiCoordinator(void);
+
+
         /*  ==========================================  */
         /* Adding the getters for the classes' instances */
         /*  ==========================================  */

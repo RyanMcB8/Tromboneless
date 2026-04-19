@@ -12,6 +12,7 @@
 
  /* Adding any necessary include files. */
  #include   "Widgets.hpp"
+ #include   "CoreWrapper.hpp"
 
  /* Class definitions. */
 
@@ -66,6 +67,7 @@
         /*  Definition of the colour which the panel should be. Currently a dark 
             grey colour with a slight transparency.*/
         juce::Colour backgroundColour         = juce::Colour((unsigned int) (0x43080810));
+
  };
 
  /**    @brief      A class which is created to display the drop down menus required
@@ -81,7 +83,7 @@
          *                  This also makes the components within it visible to the 
          *                  user.
          */
-        DropDownMenus();
+        DropDownMenus(CoreWrapper& coreWrapper);
 
         /** @brief          The destructor function for the `DropDownMenus` class
          *                  which is set to default as no child object within the
@@ -100,7 +102,8 @@
 
         /*  Creating an instance of the CalibrateEmbouchure class. */
         CalibrateEmbouchure calibrateEmbouchure;
- };
+        CoreWrapper& coreWrapper_ref;
+};
 
  /**    @brief      A class which adds all the linear sliders being used
   *                 within the calibration section to be within the same    
@@ -122,7 +125,7 @@
          *                  the slider as well as its knobs' initial
          *                  positions and other such initialisation steps.
          */
-        Sliders();
+        Sliders(CoreWrapper& coreWrapper);
 
         /** @brief          The destructor function for the `Sliders` class
          *                  which removes the look and feel of the sliders
@@ -224,7 +227,8 @@
         /*  Setting the minimum distance that the maximum and minimum hand positions must be
             from each other. This reduces the chances of having ambiguity in the pitch bend. */ 
         float distanceRange = 5;
- };
+         CoreWrapper& coreWrapper_ref;
+};
 
  /**    @brief      A class which may be called to add a panel to
   *                 the window contains a series of sliders for the
@@ -241,7 +245,7 @@
          *                          attaches a listener to the equalizer to detect when the
          *                          slider values have been adjusted by the user.
          */
-        EqualizerPanel();
+        EqualizerPanel(CoreWrapper& coreWrapper);
 
         /** @brief                  The destructor function which for the `EqualizerPanel` class
          *                          which removes the listener from the equalizer before 
@@ -276,5 +280,6 @@
         /*  Initialising the label which will appear beside the enable/disable button
             which will indicate what pressing the button will do. */
         juce::Label buttonLabel;
+        CoreWrapper& coreWrapper_ref;
 
  };
