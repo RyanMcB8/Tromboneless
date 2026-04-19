@@ -13,8 +13,6 @@
 // #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
-#include <juce_core/juce_core.h>
-#include <juce_gui_basics/juce_gui_basics.h>
 #include "Widgets.hpp"
 #include "Panels.hpp"
 #include "CoreWrapper.hpp"

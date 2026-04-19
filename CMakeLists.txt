@@ -19,7 +19,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #   Adding the subdirectory.
 
-add_subdirectory(App/modules/JUCE)
+add_subdirectory(App)
 add_subdirectory(Core)
 
 #   Enabling tests
@@ -27,10 +27,10 @@ enable_testing()
 include(CTest)
 
 #   Find all source files in App/src.
-file(GLOB_RECURSE APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/*.cpp")
+file(GLOB APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/*.cpp")
 list(REMOVE_ITEM APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/main.cpp")
 
-add_library(TrombonelessJuceLib)
+
 add_library(TrombonelessAppLib STATIC ${APP_SOURCES})
 
 #   Adding the include file directories. 
@@ -43,23 +43,17 @@ target_include_directories(TrombonelessAppLib
 
 #   Linking the libraries
 
-target_link_libraries(TrombonelessJuceLib
-    PUBLIC
-        juce::juce_gui_basics
-        juce::juce_recommended_config_flags
-        juce::juce_recommended_lto_flags
-        juce::juce_recommended_warning_flags
-)
+
 target_link_libraries(TrombonelessAppLib
     PUBLIC
         ${GTK3_LIBRARIES}
         CURL::libcurl
-        TrombonelessJuceLib
+        TrombonelessJuce
         TrombonelessCoreLibrary
 )
 
 #   Creating the app executable.
-juce_add_gui_app(TrombonelessApp
+juce_add_gui_app(Tromboneless
     PRODUCT_NAME "Tromboneless"
 )
 
@@ -71,14 +65,14 @@ target_sources(TrombonelessAppLib PUBLIC ${APP_SOURCES})
 target_compile_definitions(TrombonelessAppLib PUBLIC
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
-    JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:TrombonelessApp,JUCE_PRODUCT_NAME>"
-    JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:TrombonelessApp,JUCE_VERSION>"
+    JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:Tromboneless,JUCE_PRODUCT_NAME>"
+    JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:Tromboneless,JUCE_VERSION>"
     
 )
 
-target_link_libraries(TrombonelessApp PRIVATE TrombonelessAppLib)
+target_link_libraries(Tromboneless PRIVATE TrombonelessAppLib)
 
-target_compile_options(TrombonelessApp PRIVATE ${GTK3_CFLAGS_OTHER})
+target_compile_options(Tromboneless PRIVATE ${GTK3_CFLAGS_OTHER})
 
 # ========================================
 #                   Tests
