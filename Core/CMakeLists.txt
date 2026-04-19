@@ -75,7 +75,7 @@ foreach(TEST_FILE ${TEST_SOURCES})
     add_executable(${TEST_NAME} ${TEST_FILE})
     target_link_libraries(${TEST_NAME} PRIVATE TrombonelessCoreLibrary)
     target_include_directories(${TEST_NAME} PRIVATE 
-        ${PROJECT_SOURCE_DIR}/inc
+        ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/tests
         )
 

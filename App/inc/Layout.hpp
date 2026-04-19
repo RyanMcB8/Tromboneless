@@ -49,7 +49,7 @@ class Layout final : public juce::Component
 
     private:
         /*  Creating the reference to the core*/
-        CoreContext& coreWrapper_ref;
+        CoreWrapper& coreWrapper_ref;
 
         /* ========== This is where the buttons and sliders should be initialised and attached to the profiler. ========== */     
 

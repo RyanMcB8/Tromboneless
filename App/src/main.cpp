@@ -48,9 +48,9 @@ public:
 
         /*  Creation of the shared instance to pass the parameters between app and core. */
         coreWrapper_ref = std::make_unique<CoreWrapper>();
-        coreWrapper_ref->startThreads();
+        coreWrapper_ref->start();
 
-        mainWindow_ = std::make_unique<MainWindow>(*coreWrapper_ref, getApplicationName());    }
+        mainWindow = std::make_unique<MainWindow>(*coreWrapper_ref, getApplicationName());    }
 
     /** @brief Function used to control what happens when the user wants to close the application
      *  @note Currently nothing extra is happening here other than closing the window
@@ -60,7 +60,7 @@ public:
         // Add your application's shutdown code here..
 
         mainWindow = nullptr; // (deletes our window)
-        coreWrapper_ref->stopThreads();
+        coreWrapper_ref->stop();
         coreWrapper_ref = nullptr;
     }
 
@@ -98,7 +98,7 @@ public:
                               allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new Layout(), true);
+            setContentOwned (new Layout(coreWrapper), true);
 
            #if JUCE_IOS || JUCE_ANDROID
             setFullScreen (true);
