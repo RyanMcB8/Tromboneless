@@ -41,9 +41,9 @@ echo "Cleaning new auxiliary files..."
 rm -f ../$PDF_NAME.aux ../$PDF_NAME.idx ../$PDF_NAME.log ../$PDF_NAME.out ../$PDF_NAME.toc
 
 echo "Removing generated latex files..."
-rm -rf /latex
+rm -rf ../latex
 
 echo "Removing generated html files..."
-rm -rf /html
+rm -rf ../html
 
 echo "Build complete!"
