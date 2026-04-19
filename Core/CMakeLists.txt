@@ -38,12 +38,8 @@ target_include_directories(TrombonelessCoreLibrary PUBLIC
     ${PROJECT_SOURCE_DIR}/include/drivers
     ${PROJECT_SOURCE_DIR}/Drivers
     ${PROJECT_SOURCE_DIR}/../Shared
-    ${PROJECT_SOURCE_DIR}/modules
     ${PROJECT_SOURCE_DIR}/modules/rpi_ads1115
-    ${PROJECT_SOURCE_DIR}/modules/external/libgpiod/lib
-    ${LIDAR_DIR}/core
-    ${LIDAR_DIR}/platform
-)
+    )
 
 target_link_libraries(TrombonelessCoreLibrary PUBLIC
     rtmidi
@@ -52,8 +48,10 @@ target_link_libraries(TrombonelessCoreLibrary PUBLIC
     asound
 )
 
-add_executable(TrombonelessCore
-    ${PROJECT_SOURCE_DIR}/src/main.cpp
+# Ignoring warning from RtMidi library.
+target_compile_options(TrombonelessCoreLibrary
+    PRIVATE
+        -Wno-zero-as-null-pointer-constant
 )
 
 target_link_libraries(TrombonelessCore PUBLIC
