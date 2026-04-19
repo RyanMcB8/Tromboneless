@@ -63,6 +63,8 @@ juce_add_gui_app(TrombonelessApp
     PRODUCT_NAME "Tromboneless"
 )
 
+target_sources(TrombonelessApp PRIVATE ${PROJECT_SOURCE_DIR}/App/src/main.cpp )
+
 #   Adding the source files.
 target_sources(TrombonelessAppLib PUBLIC ${APP_SOURCES})
 
