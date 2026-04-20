@@ -34,7 +34,6 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 ## Set-Up Guide
 
 
-
 ### Installing PiOS on Raspberry Pi 5
 
 1. For set-up guidance for PiOS, please follow [this guide].(https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
@@ -63,24 +62,24 @@ In the terminal or command line, run:
 
 3. The Tromboneless software makes use of external libraries which are integral to the running of Tromboneless. 
 
-These libraries must be installed on the Raspberry Pi 5 prior to running/building of the software.
+These libraries include:
 
-   To download the required libraries, in the Pi terminal, run:
-```
-apt-get install cmake
-sudo apt install libgpiod-dev
-sudo apt install 
+| Library | Purpose |
+|---|---|
+| [JUCE](https://juce.com/) | UI framework |
+| RtMidi | Handles the communcation from USB Midi devices. |
+| RPi_ads1115 | Driver for the ADC being used | 
 
-```
+These are included as git submodules so no extra steps need to be taken to run this script. 
 
 ### Building Tromboneless Core Tests
 
 4. The Core directory contains all real-time processing used by the tromboneless hardware to convert raw data from hardware to a corresponding range of MIDI functions with accompanying unit test executables.     
 
-To run the software tests, run: 
+To build just the core, run in the Core directory: 
 ```
 cmake .
-make - j1
+make - j4
 ```
 
 ### Building Tromboneless App
@@ -90,11 +89,11 @@ make - j1
    - Adjust pressure sensitivity when interacting with mouthpiece
    - Transpose to alternative trombone ranges. 
 
-To build the app, run:
+To build the app and core, run in the Tromboneless directory:
 
 ```
 cmake .
-make - j4
+make -j1
 ```
 
 *Note: Due to the computational limitations of the Pi, we recommend only using one thread to make the executable.* 
@@ -108,14 +107,29 @@ make - j4
 |---|---|
 | [JUCE](https://juce.com/) | UI framework |
 | RTMidi | MIDI I/O |
-| libgpiod | GPIO pin interaction (Raspberry Pi) |
-| PkgConfig | Library detection at compile time |
+| libgpiod-dev | GPIO pin interaction (Raspberry Pi) |
+| pkg-config | Library detection at compile time |
 | libgtk-3-dev | App backend |
 | libwebkit2gtk-4.1-dev | Cross-platform support |
 | libcurl4-openssl-dev | HTTP/network support |
 | ALSA | Audio output for the internal synth |
 | freetype2 | Font rendering |
+|  build-essential | Building the project |
+|  cmake-build |  Building the project |
+|  libssl-dev |  Juce dependency |
 
+To install these dependencies and build the project, there is a bash script available:
+```
+./makeTromboneless.sh
+```
+
+In the Tromboneless directory which will install all the necessary dependencies and then build the Tromboneless project. Once the project has been built, there will be a prompt to run the script instantly.
+
+Alternatively, the dependencies may be installed independently using the lines below in your terminal.
+
+```
+sudo apt install libgpiod-dev pkg-config libgtk-3-dev libwebkit2gtk-4.1-dev libcurl4-openssl-dev build-essential cmake-build libssl-dev
+```
 
 ## Bill of Materials
 
