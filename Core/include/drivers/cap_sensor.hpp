@@ -43,7 +43,8 @@ class CAP1188
                 unsigned int gpioLine = 27,
                 unsigned int gpioReset = 22,
                 uint8_t enabledChannels = 0x01,
-                uint8_t interruptEnabledChannels = 0x01);
+                uint8_t interruptEnabledChannels = 0x01,
+                bool isTest = false);
         
         // Destructor
         ~CAP1188();

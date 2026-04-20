@@ -9,8 +9,6 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(LIDAR_DIR ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API)
-
 link_directories(/usr/local/lib)
 
 enable_testing()
@@ -39,7 +37,9 @@ target_include_directories(TrombonelessCoreLibrary PUBLIC
     ${PROJECT_SOURCE_DIR}/Drivers
     ${PROJECT_SOURCE_DIR}/../Shared
     ${PROJECT_SOURCE_DIR}/modules/rpi_ads1115
-    )
+    ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/core
+    ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform
+)
 
 target_link_libraries(TrombonelessCoreLibrary PUBLIC
     rtmidi
@@ -54,22 +54,27 @@ target_compile_options(TrombonelessCoreLibrary
         -Wno-zero-as-null-pointer-constant
 )
 
+add_executable(TrombonelessCore
+    ${PROJECT_SOURCE_DIR}/src/main.cpp
+)
+
 target_link_libraries(TrombonelessCore PUBLIC
     TrombonelessCoreLibrary
 )
 
-file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
+if(BUILD_TESTING)
+    file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
 
-foreach(TEST_FILE ${TEST_SOURCES})
-    get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
+    foreach(TEST_FILE ${TEST_SOURCES})
+        get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
 
-    add_executable(${TEST_NAME} ${TEST_FILE})
-    target_link_libraries(${TEST_NAME} PRIVATE TrombonelessCoreLibrary)
-    target_include_directories(${TEST_NAME} PRIVATE 
-        ${PROJECT_SOURCE_DIR}/include
-        ${PROJECT_SOURCE_DIR}/tests
-    )
+        add_executable(${TEST_NAME} ${TEST_FILE})
+        target_link_libraries(${TEST_NAME} PRIVATE TrombonelessCoreLibrary)
+        target_include_directories(${TEST_NAME} PRIVATE 
+            ${PROJECT_SOURCE_DIR}/include
+            ${PROJECT_SOURCE_DIR}/tests
+        )
 
-
-    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
-endforeach()
+        add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+    endforeach()
+endif()

@@ -7,34 +7,46 @@
 #include "CoreWrapper.hpp"
 #include <stdexcept>
 
-CoreWrapper::CoreWrapper(bool isTest) : eventHandler(), coordinator(render){
-    if (!isTest){
-        externalDevicePresent = midiSink.GetDeviceStatus();
-        coordinator.setDevice(externalDevicePresent);
-
-        /* Ensuring that the event handler was initialised properly. */
-        if (!eventHandler.initialise()) {
-            std::cerr << "Initialisation failed\n";
-            throw std::runtime_error("EventHandler initialisation failed");
-        }
-
-        /*  Registering a callback for midi messages. */
-        coordinator.RegisterCallback(
-            [&](const MidiMessage& msg) {
-                midiSink.send(msg);
-            });
-        }
+CoreWrapper::CoreWrapper(bool isTest) : eventHandler(isTest),
+      midiSink(isTest),
+      render(isTest), 
+      coordinator(render, isTest), 
+      isTestMode(isTest)
+{
+    std::cout << "CoreWrapper IsTestMode: " << isTestMode << "\n";
+    if (isTest)
+    {
+        externalDevicePresent = false;
+        return;
+    }
 }
 
 CoreWrapper::~CoreWrapper(){
     stop();
 }
 
-void CoreWrapper::start(){
-    /*  Starting the callback*/
+void CoreWrapper::start()
+{
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
+    externalDevicePresent = midiSink.GetDeviceStatus();
+    coordinator.setDevice(externalDevicePresent);
+
+    if (!eventHandler.initialise())
+    {
+        throw std::runtime_error("EventHandler initialisation failed");
+    }
+
+    coordinator.RegisterCallback(
+        [&](const MidiMessage& msg)
+        {
+            midiSink.send(msg);
+        });
+
     eventHandler.start();
 
-    /*  Checking whether the external synth or internal synth is being used. */
     if (!externalDevicePresent) {
         render.start();
 
@@ -65,7 +77,6 @@ void CoreWrapper::start(){
 
     std::cout << "Pressure Baseline found to be: "
               << amplitudemapper.getBaseline() << "\n";
-
     running = true;
     eventThread = std::thread(&CoreWrapper::eventLoop, this);
 }

@@ -255,7 +255,7 @@ DualRotarySlider::DualRotarySlider(){
     maxSlider.addListener(this);
 
     /* Showing the slider. */
-    addAndMakeVisible (maxSlider);
+    // addAndMakeVisible (maxSlider);
     addAndMakeVisible (minSlider);
     addAndMakeVisible (rotaryLabel);
 }
@@ -580,7 +580,7 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
     trombonelessParameters.highPressure = max;
 
     AmplitudeMapper* mapper_ptr = coreWrapper_ref.getAmplitudeMapper();
-    mapper_ptr->setPressureThreshold((float) (mapper_ptr->getPressureThreshold() * min));
+    mapper_ptr->setGateFactor((float) (mapper_ptr->getGateFactor() * min));
 
 
     return;
