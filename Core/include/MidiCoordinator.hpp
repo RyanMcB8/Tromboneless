@@ -1,6 +1,6 @@
-/** @file   hpp.MidiCoordinator
+/** @file   MidiCoordinator.hpp
  *  @author Aidan McIntosh
- *  @brief  File to define high-level musical coordination behaviour.
+ *  @brief  Declaration of class for high-level musical coordination behaviour.
  *          Takes premapped sensor inputs and either internal 
  *          or external synth.
  */
@@ -12,8 +12,7 @@
 #include "tromboneSynth.hpp"
 #include "audioRender.hpp"
 
-/** @brief 
- *          Class to coordinate Midi message construction based on output from sensor mappers.
+/** @brief  Class to coordinate Midi message construction based on output from sensor mappers.
  *          This class is stateful and responsible for translating high-level sensor data into Midi messages.
  *          Utilises MidiMessageBuilder for external synths and directly controls internal synth.
  */
@@ -40,14 +39,14 @@ class MidiCoordinator{
 
         const int velocity = 127; // Clamped to max
         /**
-         * States dependent on whether external or internal synth is being used.
+         * @brief States dependent on whether external or internal synth is being used.
          */
-        enum OutputType{
+        typedef enum OutputType{
             EXTERNAL,
             INTERNAL
-        };
+        } outputtype;
 
-        enum OutputType current_output = INTERNAL;
+        outputtype current_output = INTERNAL;
 
         /**
          * High-level states that device can be in.
@@ -63,16 +62,16 @@ class MidiCoordinator{
         bool isTestMode = false;
 
     public:
-        // Methods should be input events
+
         /**
-         * Default constructor.
+         * @brief Constructor takes reference to internal synth and optionally triggers tests.
          */
         MidiCoordinator(AudioRender& synth, bool isTest);
         void RegisterCallback(CallbackInterface cb);
 
         /**
-         * Method to update gate on/off.
-         * @param on Boolean: Decides whether 
+         * @brief Method to update gate on/off.
+         * @param on true = 'Note on' message, false = 'Note off'
          */
         void PressureEdge(bool on);
         /**
@@ -81,21 +80,27 @@ class MidiCoordinator{
          */
         void ChangeNote(int note);
         /**
-         * Method to update pitch bend from slide.
+         * @brief Method to update pitch bend from slide.
          * @param bend Values from -8192 to 0 (so only downward bends possible)
          */
         void setBend(int bend);
         /**
-         * Method to update MIDI expression.
+         * @param Method to update MIDI expression.
          * @param expr: Expression value, 0-127.
          */
         void setExpr(int expr);
 
         /**
-         * Method to set state of instrument.
+         * @brief Method to set state of instrument.
+         * @param newstate Set state to either IDLE, PLAYING or ERROR.
          */
         void setState(State newstate);
 
+        /**
+         * @brief Set state of whether to use internal or external synth
+         * 
+         * @param external_device_present true = Use soundcard/external synth, false = use internal synth
+         */
         void setDevice(bool external_device_present);
 
         AudioRender& getSynth(void);
