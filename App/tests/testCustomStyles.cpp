@@ -96,17 +96,3 @@ bool testNeedleLookAndFeel(void){
 
     return passFail;
 }
-
-int main(){
-    juce::ScopedJuceInitialiser_GUI guiInit;
-
-    bool success = true;
-    success &= testVerticalSliderLookAndFeel();
-    success &= testCalibrationSliderLookAndFeel();
-    success &= testNeedleLookAndFeel();
-
-    /*  As success = true means the test has been passed,
-        the sucess value needs to be inverted for the return
-        result as return 0 is pass in the normal way. */
-    return !success;
-}

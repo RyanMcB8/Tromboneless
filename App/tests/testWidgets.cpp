@@ -6,12 +6,8 @@
  */
 
 /*  Adding in the necessary headers and libraries. */
-#include <Widgets.hpp>
-#include "unitTestMacros.hpp"
+#include "testWidgets.hpp"
 
-/** @brief      A function to run unit tests on the various public functions within
- *              the `SliderWithLabel` class.
- */
 bool testSliderWithLabel(void){
     bool passFail = true;
     SliderWithLabel testClass = SliderWithLabel(juce::Slider::SliderStyle::LinearHorizontal);
@@ -32,9 +28,7 @@ bool testSliderWithLabel(void){
     return passFail;
 }
 
-/** @brief      A function to run unit tests on the various public functions within
- *              the `CalibrationSlider` class.
- */
+
 bool testCalibrationSlider(void){
     bool passFail = true;
     CalibrationSlider testClass;
@@ -44,9 +38,7 @@ bool testCalibrationSlider(void){
     return passFail;
 }
 
-/** @brief      A function to run unit tests on the various public functions within
- *              the `DualRotarySlider` class.
- */
+
 bool testDualRotarySlider(void){
     bool passFail = true;
     DualRotarySlider testClass;
@@ -90,9 +82,7 @@ bool testDualRotarySlider(void){
     return passFail;
 }
 
-/** @brief      A function to run unit tests on the various public functions within
- *              the `Barometer` class.
- */
+
 bool testBarometer(void){
     bool passFail = true;
     CoreWrapper coreWrapper(true); 
@@ -121,9 +111,7 @@ bool testBarometer(void){
     return passFail;
 }
 
-/** @brief      A function to run unit tests on the various public functions within
- *              the `DropDownMenu` class.
- */
+
 bool testDropDownMenu(void){
     bool passFail = true;
     DropDownMenu testClass;
@@ -143,17 +131,3 @@ bool testDropDownMenu(void){
     return passFail;
 }
 
-int main(){
-    juce::ScopedJuceInitialiser_GUI guiInit;
-    bool success = true;
-    
-    success &= testSliderWithLabel();
-    success &= testCalibrationSlider();
-    success &= testDualRotarySlider();
-    success &= testDropDownMenu();
-
-    /*  As success = true means the test has been passed,
-        the sucess value needs to be inverted for the return
-        result as return 0 is pass in the normal way. */
-    return !success;
-}
