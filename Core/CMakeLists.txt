@@ -55,10 +55,11 @@ target_compile_options(TrombonelessCoreLibrary
     PRIVATE
         -Wno-zero-as-null-pointer-constant
 )
+add_executable(TrombonelessCore)
 
-# target_link_libraries(TrombonelessCore PUBLIC
-#     TrombonelessCoreLibrary
-# )
+target_link_libraries(TrombonelessCore PUBLIC
+    TrombonelessCoreLibrary
+)
 
 file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
 
