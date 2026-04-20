@@ -232,16 +232,6 @@ class CAP1188
          * @param   pin             Pin number as integer from 1 to 8. This is used to source the relevant pin threshold register.
          * @param   threshold       New threshold value for the threshold register to update to. 
          */
-        void setThreshold(int pin, uint8_t threshold);
-        /**
-         * @brief                   Read the Delta Count Register for a given pin and return the delta value
-         *
-         * @param   pin             The pin AKA channel number. Must be an integer between 1 & 8.
-         * @return  int8_t          The delta count for the given channel as an 8-bit word signed with 2's complement.
-         *                          The count value represents a change in input due to
-                                    the capacitance associated with a touch on one of the sensor inputs and is referenced to a calibrated
-                                    base “Not Touched” count value.
-         */
         int8_t deltaCount(int pin);
         /**
          * @brief                   Force-initiate the baseline re-calibration routine for given channels
@@ -249,20 +239,47 @@ class CAP1188
          */
         void recalibratePins(uint8_t pins);
         /**
-         * @brief                   Get the threshold
-         * @return  std::array<uint8_t, 8>desc
+         * @brief                           Get the touch thresholds for every pin
+         * @return  std::array<uint8_t, 8>  An array of size 8 (from C1 to C8) of every delta value (8-bit signed integer)
+         *                                  at which the pin is considered touched
          */
         std::array<uint8_t, 8> getThresholds();
+        /**
+         * @brief                   Set new touch thresholds for every pin
+         * @param   newThresholds   Size 8 array of signed 8-bit integer. From C1 to C8, every 8-bit word contains the delta
+         *                          value after which the delta value is considered touching.
+         */
+        void setThresholds(std::array<uint8_t, 8> newThresholds);
         /**
          * @brief                   Enable onboard LED functionality for given pin
          * @param   pinmask         8-bit bitmask of channels to be linked to LED from C8(msb) to C1(lsb).
          * @note                    LED will switch on if pin is touched
          */
         void linkLEDs(uint8_t pinmask);
-
-        // void setThresholds(std::array<uint8_t, 8> newThresholds);
-
+        /**
+         * @brief                   Sets the interrupt repeat according to a 4-bit word.
+         * @param   rate            New interrupt repeat rate. Starts at 35ms = 0b0000 and increments by 35ms for
+         *                          every added +1.
+         */
+        void setInterruptRepeatRate(uint8_t rate);
+        /**
+         * @brief                   Enable channels according to the enabledChannels setting bitmask
+         */
+        void enableChannels();
+        /**
+         * @brief                   Enable interrupt channels according to the interruptEnabledChannels
+         *                          settings bitmask.
+         */
+        void enableInterruptChannels();
+        /**
+         * @brief                   Disable standby mode
+         */
         void disableStandby();
+        /**
+         * @brief                   Clear the interrupt bit. This is essential to do after data is read, to get
+         *                          edge events when the pin is touched, and so that the interrupt bit doesn't
+         *                          remain stuck after interrupt.
+         */
         void clearInterrupt();
 
     private:
