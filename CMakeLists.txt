@@ -12,24 +12,13 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 #   Adding the necessary packages before trying to compile.
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
-pkg_check_modules(WEBKIT REQUIRED webkit2gtk-4.1)
 find_package(CURL REQUIRED)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #   Adding the subdirectory.
-
-# add_subdirectory(App)
-# Disable everything you don’t want
-set(JUCE_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-set(JUCE_BUILD_EXTRAS OFF CACHE BOOL "" FORCE)
-set(JUCE_ENABLE_MODULE_SOURCE_GROUPS OFF CACHE BOOL "" FORCE)
-set(JUCE_INSTALL_DESTINATION "lib/cmake/JUCE" CACHE STRING "" FORCE)
-set(JUCE_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-
-
-add_subdirectory(App/modules/JUCE EXCLUDE_FROM_ALL)
 add_subdirectory(Core)
+set(JUCE_LOC ${PROJECT_SOURCE_DIR}/App/modules/JUCE/modules)
 
 #   Enabling tests
 enable_testing()
@@ -37,16 +26,28 @@ include(CTest)
 
 #   Find all source files in App/src.
 file(GLOB APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/*.cpp")
+file(GLOB_RECURSE JUCE_SOURCES_CORE "${JUCE_LOC}/juce_core/*.cpp")
+file(GLOB_RECURSE JUCE_SOURCES "${JUCE_LOC}/juce_gui_basics/*.cpp")
+file(GLOB_RECURSE JUCE_SOURCES_GRAPHICS "${JUCE_LOC}/juce_graphics/*.cpp")
 list(REMOVE_ITEM APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/main.cpp")
 
+add_executable(Tromboneless
+    ${PROJECT_SOURCE_DIR}/App/src/main.cpp
+)
 
-add_library(TrombonelessAppLib SHARED ${APP_SOURCES})
+
+add_library(TrombonelessAppLib SHARED ${APP_SOURCES} ${JUCE_SOURCES_CORE} ${JUCE_SOURCES} ${JUCE_SOURCES_GRAPHICS})
 
 #   Adding the include file directories. 
 target_include_directories(TrombonelessAppLib
     PUBLIC
         ${PROJECT_SOURCE_DIR}/Shared
         ${PROJECT_SOURCE_DIR}/App/inc
+	${PROJECT_SOURCE_DIR}/App/modules/JUCE/modules
+	${JUCE_LOC}/juce_core
+	${JUCE_LOC}/juce_core/system
+        ${JUCE_LOC}/juce_gui_basics
+        ${JUCE_LOC}/juce_graphics
         ${GTK3_INCLUDE_DIRS}
 )
 
@@ -58,17 +59,7 @@ target_link_libraries(TrombonelessAppLib
         ${GTK3_LIBRARIES}
         CURL::libcurl
         TrombonelessCoreLibrary
-        juce::juce_core
-        juce::juce_gui_basics
-        juce::juce_graphics
 )
-
-#   Creating the app executable.
-juce_add_gui_app(Tromboneless
-    PRODUCT_NAME "Tromboneless"
-)
-
-add_dependencies(Tromboneless TrombonelessAppLib)
 
 target_sources(Tromboneless PUBLIC ${PROJECT_SOURCE_DIR}/App/src/main.cpp)
 
@@ -77,22 +68,19 @@ target_sources(Tromboneless PUBLIC ${PROJECT_SOURCE_DIR}/App/src/main.cpp)
 target_compile_definitions(TrombonelessAppLib PUBLIC
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
-    JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:Tromboneless,JUCE_PRODUCT_NAME>"
-    JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:Tromboneless,JUCE_VERSION>"
+    JUCE_APPLICATION_NAME_STRING="Tromboneless"
+    JUCE_APPLICATION_VERSION_STRING="1.0.0"
     
 )
 
-#target_include_directories(Tromboneless
-#    PUBLIC
-#        ${PROJECT_SOURCE_DIR}/Shared
-#        ${PROJECT_SOURCE_DIR}/App/inc)
 
 target_link_libraries(Tromboneless PUBLIC TrombonelessAppLib)
 
-target_compile_options(Tromboneless PUBLIC ${GTK3_CFLAGS_OTHER})
+target_compile_options(Tromboneless PRIVATE ${GTK3_CFLAGS_OTHER})
 
 set_target_properties(Tromboneless PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+    UNITY_BUILD ON
 )
 
 # ========================================
