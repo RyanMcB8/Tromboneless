@@ -24,15 +24,14 @@ Tromboneless also contains its own internal synth, with custom control via the T
 Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see component, sequence and state diagrams for the MIDI implementation.
 
 ## Table of Contents
-- [Getting Started](#getting-started)
+- [Set-Up Guide](#set-up-guide)
 - [Dependencies](#dependencies)
 - [Bill of Materials](#bill-of-materials)
-- [Documentation](#documentation)
 - [Social Media](#social-media)
+- [Documentation](#documentation)
 - [Authors & Contributions](#authors-and-contributions)
-- [License](#license)
 
-## Set-Up Guide:
+## Set-Up Guide
 
 
 
@@ -118,7 +117,7 @@ make - j4
 | freetype2 | Font rendering |
 
 
-## Assembling the Hardware:
+## Bill of Materials
 
 To build the Tromboneless hardware, the following materials are required:
 
@@ -154,25 +153,29 @@ Total Sensor Cost: £38.90
 
 Once all materials have been collected, we can now begin assembly of the Tromboneless hardware.
 
-Click [here](Ben link in brackets here) for step-by-step hardware assembly instructions.
-
-
-<!-- <img width="600" alt="image" src="Documentation/Hardware/updated_circuit_image.svg" /> -->
+Click [here](Documentation/Hardware/Mouthpiece_Construction_G.md) for step-by-step hardware assembly instructions to create the mouthpiece used in Tromboneless v1.1.
 
 
 ## Social Media
 
  - **#1 Post** on [r/Trombone](https://www.reddit.com/r/Trombone/) (17-02-26) <br>
 
- - **#3 Post** on [r/Trombone](https://www.reddit.com/r/Trombone/) (??-02-26) <br>
+ - **#2 Post** on [r/Trombone](https://www.reddit.com/r/Trombone/comments/1s8ptlm/tromboneless_update/) (31-03-26) <br>
 
  - **28.6k+ total views** across [r/Embedded](https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/), [r/Trombone](https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/) and [r/linuxaudio](https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/).
 
- Social media strategy was aimed at directly targeting the demographic of people who would be interested in the project. 
+The social media strategy was devised to reach audiences already likely to be interested in the project, with early posts designed to spark debate and create a hype around the project.
 
- Upon comparison with initial Instagram analytics, we prioritised the forum-based site [Reddit](https://www.reddit.com/) as the main channel of communication between the project and target audience.  
+ The three main forums targeted were:
+   - [r/embedded](https://www.reddit.com/r/embedded/)
+   - [r/linuxaudio](https://www.reddit.com/r/linuxaudio/)
+   - [r/trombone](https://www.reddit.com/r/Trombone/)
+
+ A comparative analysis of early Instagram and Reddit analytics led us to prioritise Reddit as the main communication channel. The forum-based structure proved better suited to fostering direct engagement with the target audience. 
+
+ As mentioned, our posts collectively received over 28.6lk views and frequent interaction across the different targeted channels. 
  
-Follow our page for demonstrations, updates and new development! :<br>
+Follow our pages linked below for Tromboneless demonstrations, updates and new development! <br>
 
 [Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
 [Instagram](https://www.instagram.com/tromboneless.tech/)<br>
