@@ -14,10 +14,12 @@
 </p>
 
 
-<img src="Documentation/Hardware/trombonelessflow.png" width="620">
+<img src="Documentation/Hardware/trombonelessflow.png" width="500">
 
 
-This GitHub repository contains the hardware and firmware for Tromboneless - an open source device capable of measuring oral input to synthesise the output of a brass trombone using a Raspberry Pi 5, implementing MIDI protocol.
+This GitHub repository contains the hardware and firmware for Tromboneless - an open source device capable of measuring oral input to synthesise the output of a brass trombone using a Raspberry Pi 5, implementing MIDI protocol. 
+
+Tromboneless also contains its own internal synth, with custom control via the Tromboneless App!
 
 Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see component, sequence and state diagrams for the MIDI implementation.
 
@@ -30,82 +32,112 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 - [Authors & Contributions](#authors-and-contributions)
 - [License](#license)
 
-## Getting Started:
+## Set-Up Guide:
 
-### Setting up the Raspberry Pi 5
 
-1. Install Raspberry Pi OS onto your Raspberry Pi.<br>
-   For set-up guidance for PiOS, please follow [this guide].(https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
+
+### Installing PiOS on Raspberry Pi 5
+
+1. For set-up guidance for PiOS, please follow [this guide].(https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
    <br>
 
-### Cloning
+### Installing the Tromboneless Software
 
-2. To clone with all submodules, run:
+2. After installing PiOS on the Raspberry Pi 5, 
+
+In the terminal or command line, run:
+
  ```
    git clone --recursive https://github.com/RyanMcB8/Tromboneless.git
 ```
    
-   If the submodules do not download, run:
+   If this causes any errors, run:
 
 ```
    git submodule init
    git submodule update --recursive
 ```
+
+*Note : Make sure git is installed on the Raspberry Pi 5.*
+
 ### Libraries
-3. Tromboneless uses some libraries which are essential in the running of the Core and App.
-   To download these on your Linux OS, run:
+
+3. The Tromboneless software makes use of external libraries which are integral to the running of Tromboneless. 
+
+These libraries must be installed on the Raspberry Pi 5 prior to running/building of the software.
+
+   To download the required libraries, in the Pi terminal, run:
 ```
 apt-get install cmake
 sudo apt install libgpiod-dev
-...    ADD LIBS
-...    ADD LIBS
+sudo apt install 
+
 ```
 
-### Building the Core  
-4. The following commands can be executed to build the exectuables. This requires CMake      version 3.07 or greater. (edit)
+### Building Tromboneless Core Tests
+
+4. The Core directory contains all real-time processing used by the tromboneless hardware to convert raw data from hardware to a corresponding range of MIDI functions with accompanying unit test executables.     
+
+To run the software tests, run: 
 ```
 cmake .
 make - j1
 ```
 
-Due to the computational limitations of the Pi, we recommend only using one thread to make the executable.
+### Building Tromboneless App
+
+5. The App directory hosts a JUCE-based GUI which allows for the user to:
+   - Adjust trombone slider length 
+   - Adjust pressure sensitivity when interacting with mouthpiece
+   - Transpose to alternative trombone ranges. 
+
+To build the app, run:
+
+```
+cmake .
+make - j4
+```
+
+*Note: Due to the computational limitations of the Pi, we recommend only using one thread to make the executable.* 
 
 
 ## Dependencies
-The Tromboneless App utilises the JUCE framework to create all the widgets necessary for operation.
 
- - Juce <br>
- - RTMidi <br>
- - libgpiod       (specifically for interacting with the GPIO pins on the Pi) <br>
- - PkgConfig      (for finding the necessary libraries within the users' system before compilation.)
- - libgtk-3-dev          (for the backend of the app.)
- - libwebkit2gtk-4.1-dev (for cross-platform functionality for the app.)
- - libcurl4-openssl-dev
- - alsa           (for audio output from the internal synth.)
- - freetype2
+6. The Tromboneless App uses the [JUCE](https://juce.com/) framework for all UI widgets.
+
+| Library | Purpose |
+|---|---|
+| [JUCE](https://juce.com/) | UI framework |
+| RTMidi | MIDI I/O |
+| libgpiod | GPIO pin interaction (Raspberry Pi) |
+| PkgConfig | Library detection at compile time |
+| libgtk-3-dev | App backend |
+| libwebkit2gtk-4.1-dev | Cross-platform support |
+| libcurl4-openssl-dev | HTTP/network support |
+| ALSA | Audio output for the internal synth |
+| freetype2 | Font rendering |
 
 
-## Bill of Materials
+## Assembling the Hardware:
 
-Below contains the materials required to construct the Tromboneless hardware, with a circuit diagram showing how to configure it.
+To build the Tromboneless hardware, the following materials are required:
 
-### Controller
+### Computation
 
-| Microcontroller  | Quantity | Cost (£) |
+|   | Quantity | Cost (£) |
 |------------------|----------|----------|
-| Raspberry Pi 5   | 1        |     58.98|
+| Raspberry Pi 5   | 1        |     ~58.98|
 | Active Cooler for Raspberry Pi 5 (recommended)  | 1        |     4.80|
-
 
 ### Sensors
 
 | Sensors                                                        | Quantity | Cost (£) |
 |----------------------------------------------------------------|----------|----------|
-| VL53L1X Time of Flight (ToF) Sensor Breakout                   | 1        |  20.40   |
-| CAP1188 8-Key Capacitive Touch Sensor                          | 1        |  7.70    |
-| ADS1115 16-bit ADC                                             | 1        |  6.49    |
+| [VL53L1X](https://shop.pimoroni.com/products/vl53l1x-breakout?variant=12628497236051) Time of Flight (ToF) Sensor Breakout                   | 1        |  16.50   |
+| [CAP1188](https://thepihut.com/products/adafruit-cap1188-8-key-capacitive-touch-sensor-breakout-i2c-or-spi?variant=27739497169&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=5&gad_campaignid=22549809780&gclid=EAIaIQobChMI_O-VrPr8kwMVHJtQBh383QmIEAQYASABEgKftPD_BwE) 8-Key Capacitive Touch Sensor Breakout                          | 1        |  7.70    |
+| [ADS1115](https://shop.pimoroni.com/products/adafruit-ads1115-16-bit-adc-4-channel-with-programmable-gain-amplifier?variant=370782375) 16-bit ADC Breakout                                            | 1        |  14.70    |
 
-Total Cost: £34.59
+Total Sensor Cost: £38.90
 
 ### Additional Components
 
@@ -118,68 +150,56 @@ Total Cost: £34.59
 | Photodiode                                                     | 1        |
 
 
-### Circuit Diagram
+### Assembling the circuit
 
-Circuit diagram showing how to assemble the Tromboneless :
+Once all materials have been collected, we can now begin assembly of the Tromboneless hardware.
 
-<img width="600" alt="image" src="Documentation/Hardware/updated_circuit_image.svg" />
+Click [here](Ben link in brackets here) for step-by-step hardware assembly instructions.
 
-## Documentation
 
-<!-- If you wish to create your very own Tromboneless, the hardware used to create the protoype may be seen in the [Hardware](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation/Hardware) directory under Documentation. This includes a full circuit diagram.<br> -->
+<!-- <img width="600" alt="image" src="Documentation/Hardware/updated_circuit_image.svg" /> -->
 
-For documentation of the code used, please refer to [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation), where there are both LaTex and HTML versions of documentation for this project.<br>
 
 ## Social Media
- 
+
  - **#1 Post** on [r/Trombone](https://www.reddit.com/r/Trombone/) (17-02-26) <br>
 
+ - **#3 Post** on [r/Trombone](https://www.reddit.com/r/Trombone/) (??-02-26) <br>
 
- - **28.6k+ Views** across [r/Embedded](https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/), [r/Trombone](https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/) and [r/linuxaudio](https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/).
+ - **28.6k+ total views** across [r/Embedded](https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/), [r/Trombone](https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/) and [r/linuxaudio](https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/).
+
+ Social media strategy was aimed at directly targeting the demographic of people who would be interested in the project. 
+
+ Upon comparison with initial Instagram analytics, we prioritised the forum-based site [Reddit](https://www.reddit.com/) as the main channel of communication between the project and target audience.  
  
-Follow us for additional updates, including showcase videos and demonstrations:<br>
+Follow our page for demonstrations, updates and new development! :<br>
 
 [Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
 [Instagram](https://www.instagram.com/tromboneless.tech/)<br>
 
+## Documentation
+For full documentation of the Tromboneless software, refer to the [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation) folder, which contains both LaTeX and HTML versions.
 
 ## Authors and Contributions
 
-- Ben Allen - 
+- **Ben Allen** - 
 
-- Aidan MacIntosh - 
+- **Aidan McIntosh** - 
 
-- Ryan McBride - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time and all associated test scripts. Developed the CMakeLists to create libraries to reduce repetitive compilations.
+- **Ryan McBride** - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time and all associated test scripts. Developed the CMakeLists to create libraries to reduce repetitive compilations.
 
-- Kerr McLaren - 
+- **Kerr McLaren** - 
 
-- Ciaran Rogers -  
+- **Ciaran Rogers** -  
 
-## License
 
-### ADS1115 
-- The ADS1115 library was adopted from [Bernd Porr](https://github.com/berndporr), which can be sourced [here](https://github.com/berndporr/rpi_ads1115).
+<!-- ### ADS1115 
 
-### ADD HERE
+- ADS1115 library adopted from [Bernd Porr](https://github.com/berndporr), which can be sourced [here](https://github.com/berndporr/rpi_ads1115). -->
 
-<!-- ## SSH Steps
-The following steps are to allow for a remote access connection into your Raspberry Pi if you wish to use another computer as your input terminal.<br>
+###
 
-* SSH pair created on Raspberry with Located in /home/tromboneless/.ssh
 
-1) When generating own pair, make ssh of ed25519 format: ```ssh-keygen -t ed25519```
-2) Add your public key to /home/yourusername/.ssh/authorized_keys. If connected to the same network as the pi, you can do this automatically with ```ssh-copy-id yourusername@IP_Address```
 
-### If on the same network as pi:
-ssh in with eg ```ssh name@IP_Address```
 
-### If on a different network:
 
-1.) You need to set up your own personal tailscale account.
-   Invitations to share access to the pi are made on the owner account, then you need to be logged in to your personal account when you follow the invitation link.
-   After this is set up, you work from your personal account.
-   
-2.) Make sure your public ssh key is on the pi
-
-3.) ssh in with ip address associated with the pi in tailscale (not the same as the default device one seen above): ```ssh name@IP_Address```.
-We recommend working within vscode, as you can open a remote window from there which will have a proper GUI hosted by your local machine, but controlling the hardware on the pi. -->
