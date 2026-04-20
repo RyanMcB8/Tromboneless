@@ -203,7 +203,8 @@ Follow our pages linked below for Tromboneless demonstrations, updates and new d
 [Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
 [Instagram](https://www.instagram.com/tromboneless.tech/)<br>
 
-[![Video title](Documentation/Hardware/images/mqdefault.jpg)](https://youtu.be/Kp4s3FqIstI)
+[[Tromboneless V1.0.0](Documentation/Hardware/images/mqdefault.jpg)](https://youtu.be/Kp4s3FqIstI)
+
 
 ## Documentation
 
