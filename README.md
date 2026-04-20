@@ -106,7 +106,7 @@ Follow us for additional updates, including showcase videos and demonstrations:<
 
 - Ben Allen - 
 
-- Aidan MacIntosh - 
+- Aidan McIntosh - High-level event-handling, musical coordination, external MIDI integration
 
 - Ryan McBride - 
 
