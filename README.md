@@ -21,7 +21,7 @@ This GitHub repository contains the hardware and firmware for Tromboneless - an 
 
 Tromboneless also contains its own internal synth, with custom control via the Tromboneless App!
 
-Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) to see component, sequence and state diagrams for the MIDI implementation.
+Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) for more information relating to components, program sequence and state diagrams for the MIDI implementation.
 
 ## Table of Contents
 - [Set-Up Guide](#set-up-guide)
@@ -36,12 +36,12 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 
 ### Installing PiOS on Raspberry Pi 5
 
-1. For set-up guidance for PiOS, please follow [this guide].(https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
+1. For set-up guidance for PiOS, please follow [this guide](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
    <br>
 
 ### Installing the Tromboneless Software
 
-2. After installing PiOS on the Raspberry Pi 5, 
+2. After installing Pi OS on the Raspberry Pi 5, 
 
 In the terminal or command line, run:
 
@@ -58,9 +58,9 @@ In the terminal or command line, run:
 
 *Note : Make sure git is installed on the Raspberry Pi 5.*
 
-### Libraries
+### Installing Libraries
 
-3. The Tromboneless software makes use of external libraries which are integral to the running of Tromboneless. 
+3. The Tromboneless software makes use of third-party libraries which are integral to the running of Tromboneless. 
 
 These libraries include:
 
@@ -72,11 +72,11 @@ These libraries include:
 
 These are included as git submodules so no extra steps need to be taken to run this script. 
 
-### Building Tromboneless Core Tests
+### Building Tromboneless Core
 
 4. The Core directory contains all real-time processing used by the tromboneless hardware to convert raw data from hardware to a corresponding range of MIDI functions with accompanying unit test executables.     
 
-To build just the core, run in the Core directory: 
+To build ```Core```, in the Core directory, run: 
 ```
 cmake .
 make - j4
@@ -84,7 +84,7 @@ make - j4
 
 ### Building Tromboneless App
 
-5. The App directory hosts a JUCE-based GUI which allows for the user to:
+5. The App directory hosts a JUCE-based GUI which allows for the user, in real-time, to:
    - Adjust trombone slider length 
    - Adjust pressure sensitivity when interacting with mouthpiece
    - Transpose to alternative trombone ranges. 
@@ -103,27 +103,30 @@ make -j1
 
 6. The Tromboneless App uses the [JUCE](https://juce.com/) framework for all UI widgets.
 
-| Library | Purpose |
-|---|---|
-| [JUCE](https://juce.com/) | UI framework |
-| RTMidi | MIDI I/O |
-| libgpiod-dev | GPIO pin interaction (Raspberry Pi) |
-| pkg-config | Library detection at compile time |
-| libgtk-3-dev | App backend |
-| libwebkit2gtk-4.1-dev | Cross-platform support |
-| libcurl4-openssl-dev | HTTP/network support |
-| ALSA | Audio output for the internal synth |
-| freetype2 | Font rendering |
-|  build-essential | Building the project |
-|  cmake-build |  Building the project |
-|  libssl-dev |  Juce dependency |
+| Library | Purpose | License |
+|---|---|---|
+| [JUCE](https://juce.com/) | UI framework | AGPLv3 / Commercial |
+| RTMidi | MIDI I/O | MIT |
+| libgpiod-dev | GPIO pin interaction (Raspberry Pi) | LGPLv2.1+ |
+| pkg-config | Library detection at compile time | GPLv2 |
+| libgtk-3-dev | App backend | LGPLv2.1+ |
+| libwebkit2gtk-4.1-dev | Cross-platform support | LGPLv2.1+ |
+| libcurl4-openssl-dev | HTTP/network support | MIT/curl |
+| ALSA | Audio output for the internal synth | LGPLv2.1+ |
+| freetype2 | Font rendering | FTL / GPLv2 |
+| build-essential | Building the project | Various (GPL) |
+| cmake | Building the project | BSD 3-Clause |
+| libssl-dev | JUCE dependency | Apache 2.0 |
 
 To install these dependencies and build the project, there is a bash script available:
+
 ```
 ./makeTromboneless.sh
 ```
 
-In the Tromboneless directory which will install all the necessary dependencies and then build the Tromboneless project. Once the project has been built, there will be a prompt to run the script instantly.
+in the Tromboneless directory which will install all the necessary dependencies and then build the Tromboneless project. 
+
+Once the project has been built, there will be a prompt to run the script instantly.
 
 Alternatively, the dependencies may be installed independently using the lines below in your terminal.
 
@@ -165,9 +168,13 @@ Total Sensor Cost: £38.90
 
 ### Assembling the circuit
 
-Once all materials have been collected, we can now begin assembly of the Tromboneless hardware.
+Once all materials have been acquired, we can now begin to assemble the Tromboneless hardware.
 
-Click [here](Documentation/Hardware/Mouthpiece_Construction_G.md) for step-by-step hardware assembly instructions to create the mouthpiece used in Tromboneless v1.1.
+7. Click [here](Documentation/Hardware/Mouthpiece_Construction_G.md) and follow step-by-step assembly instructions to create the mouthpiece used in the Tromboneless hardware.
+
+8. Using the components outlined [above](#bill-of-materials), connect  the circuit with the mouthpiece and pin headers on the Pi exactly as shown:
+
+<img src="Documentation/Hardware/updated_circuit_image_w_bground.svg" width="600">
 
 
 ## Social Media
@@ -180,21 +187,26 @@ Click [here](Documentation/Hardware/Mouthpiece_Construction_G.md) for step-by-st
 
 The social media strategy was devised to reach audiences already likely to be interested in the project, with early posts designed to spark debate and create a hype around the project.
 
- The three main forums targeted were:
+ Using this model, three main forums targeted were:
    - [r/embedded](https://www.reddit.com/r/embedded/)
    - [r/linuxaudio](https://www.reddit.com/r/linuxaudio/)
    - [r/trombone](https://www.reddit.com/r/Trombone/)
 
+  
+
  A comparative analysis of early Instagram and Reddit analytics led us to prioritise Reddit as the main communication channel. The forum-based structure proved better suited to fostering direct engagement with the target audience. 
 
- As mentioned, our posts collectively received over 28.6lk views and frequent interaction across the different targeted channels. 
+ As mentioned, our posts collectively received over 28.6lk views and frequent interaction across the different targeted channels throughout the project, as can be seen [here](https://www.reddit.com/user/Forward_Vehicle4096/). 
  
 Follow our pages linked below for Tromboneless demonstrations, updates and new development! <br>
 
 [Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
 [Instagram](https://www.instagram.com/tromboneless.tech/)<br>
 
+[![Video title](Documentation/Hardware/images/mqdefault.jpg)](https://youtu.be/Kp4s3FqIstI)
+
 ## Documentation
+
 For full documentation of the Tromboneless software, refer to the [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation) folder, which contains both LaTeX and HTML versions.
 
 ## Authors and Contributions
@@ -205,16 +217,16 @@ For full documentation of the Tromboneless software, refer to the [Documentation
 
 - **Ryan McBride** - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time and all associated test scripts. Developed the CMakeLists to create libraries to reduce repetitive compilations.
 
-- **Kerr McLaren** - 
+- **Kerr McLaren** - ToF 'Slide' sensor integration and I2C communication set-up. 
 
-- **Ciaran Rogers** -  
+- **Ciaran Rogers** - ADS1115 Pressure-sensor wrapper, initial CMake and JUCE App bring-up, audioRender integration, Documentation, Social Media/PR Strategy.
 
 
 <!-- ### ADS1115 
 
 - ADS1115 library adopted from [Bernd Porr](https://github.com/berndporr), which can be sourced [here](https://github.com/berndporr/rpi_ads1115). -->
 
-###
+
 
 
 
