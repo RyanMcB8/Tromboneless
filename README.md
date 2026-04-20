@@ -201,7 +201,7 @@ For full documentation of the Tromboneless software, refer to the [Documentation
 
 - **Ben Allen** - 
 
-- **Aidan McIntosh** - 
+- **Aidan McIntosh** - High-level event-handling, musical coordination, external MIDI integration
 
 - **Ryan McBride** - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time and all associated test scripts. Developed the CMakeLists to create libraries to reduce repetitive compilations.
 
