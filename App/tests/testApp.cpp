@@ -1,6 +1,7 @@
 /*  Adding in the necessary headers and libraries. */
 #include "testCustomStyles.hpp"
 #include "testPanels.hpp"
+#include "testWidgets.hpp"
 
 
 
