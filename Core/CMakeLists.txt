@@ -23,7 +23,7 @@ target_link_libraries(rtmidi PUBLIC asound)
 file(GLOB_RECURSE SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 list(REMOVE_ITEM SOURCES "${PROJECT_SOURCE_DIR}/src/main.cpp")
 
-add_library(TrombonelessCoreLibrary STATIC
+add_library(TrombonelessCoreLibrary SHARED
     ${SOURCES}
     ${PROJECT_SOURCE_DIR}/modules/rpi_ads1115/ads1115rpi.cpp
     ${PROJECT_SOURCE_DIR}/../Shared/tromboneless_data.cpp
@@ -46,12 +46,6 @@ target_link_libraries(TrombonelessCoreLibrary PUBLIC
     gpiod
     gpiodcxx
     asound
-)
-
-# Ignoring warning from RtMidi library.
-target_compile_options(TrombonelessCoreLibrary
-    PRIVATE
-        -Wno-zero-as-null-pointer-constant
 )
 
 add_executable(TrombonelessCore
