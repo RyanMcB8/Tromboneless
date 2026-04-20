@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# uncomment to install doxygen dependencies
+sudo apt install doxygen texlive-latex-base texlive-latex-extra
+
 PDF_NAME="Tromboneless_Documentation"
 
 set -e 

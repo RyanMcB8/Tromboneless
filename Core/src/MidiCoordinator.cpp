@@ -1,3 +1,11 @@
+
+/**
+ * @file MidiCoordinator.cpp
+ * @author Aidan McIntosh
+ * @brief Definition file for MIDICoordinator class.
+ * 
+ */
+
 #include "MidiCoordinator.hpp"
 
 MidiCoordinator::MidiCoordinator(AudioRender& synth, bool isTest)
