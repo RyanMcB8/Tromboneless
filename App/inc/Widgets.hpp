@@ -387,13 +387,13 @@ private:
     /*  Setting the minimum limit of the slider. */
     float minLimit = 0.1;
     /*  Setting the maximum limit of the slider. */
-    float maxLimit = 2.0;
+    float maxLimit = 3.0;
 
     /*  Setting the minimum step to which the slider may be moved. */
-    float interval = 0.1;
+    float interval = 0.01;
 
     /* This is the minimum difference between the min and max sliders with respect ot the non normalised values. */
-    float minDifference = 0.2;
+    float minDifference = 0.01;
 
     /* Setting the relative height of the label. */
     float labelHeight;
