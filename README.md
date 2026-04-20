@@ -199,7 +199,7 @@ For full documentation of the Tromboneless software, refer to the [Documentation
 
 ## Authors and Contributions
 
-- **Ben Allen** - 
+- **Ben Allen** - Driver for the CAP1188 capacitive sensor, sensor data processing, Arduino prototyping, hardware design and construction, PCB design, and Tromboneless player.
 
 - **Aidan McIntosh** - 
 
