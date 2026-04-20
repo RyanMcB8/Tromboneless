@@ -47,15 +47,36 @@ void CoreWrapper::start()
 
     eventHandler.start();
 
-    if (!externalDevicePresent)
-    {
+    if (!externalDevicePresent) {
         render.start();
 
+        /*  Running a test tone to test if the external speakers are connected and audible. */
         render.setDebugTone(true);
         std::this_thread::sleep_for(std::chrono::seconds(2));
         render.setDebugTone(false);
+
+        std::cout << "Internal synth mode\n";
+    } 
+    else {
+        std::cout << "External MIDI mode\n";
     }
 
+    std::cout << "Beginning Pressure Baseline Calculation\n";
+
+    /*  Baseline collection loop. */
+    while (true) {
+        RawInputEvent event = eventHandler.waitForEvent();
+
+        /*  Only feed pressure readings to the baseline. */
+        if (event.type == RawInputEvent::Type::PressureReading) {
+            if (amplitudemapper.calculateBaseline(event.pressureReading)) {
+                break;
+            }
+        }
+    }
+
+    std::cout << "Pressure Baseline found to be: "
+              << amplitudemapper.getBaseline() << "\n";
     running = true;
     eventThread = std::thread(&CoreWrapper::eventLoop, this);
 }
