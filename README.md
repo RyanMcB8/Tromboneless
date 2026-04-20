@@ -13,9 +13,9 @@
 
 </p>
 
-<img src="" width="320">
 
-<img src="Documentation/Hardware/trombonelessflow.pdf" width="320">
+<img src="Documentation/Hardware/trombonelessflow.png" width="620">
+
 
 This GitHub repository contains the hardware and firmware for Tromboneless - an open source device capable of measuring oral input to synthesise the output of a brass trombone using a Raspberry Pi 5, implementing MIDI protocol.
 
@@ -42,12 +42,13 @@ Please refer to our Wiki [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) t
 
 2. To clone with all submodules, run:
  ```
-   git clone --recursive
+   git clone --recursive https://github.com/RyanMcB8/Tromboneless.git
 ```
    
    If the submodules do not download, run:
 
 ```
+   git submodule init
    git submodule update --recursive
 ```
 ### Libraries
@@ -64,9 +65,10 @@ sudo apt install libgpiod-dev
 4. The following commands can be executed to build the exectuables. This requires CMake      version 3.07 or greater. (edit)
 ```
 cmake .
-make
+make - j1
 ```
 
+Due to the computational limitations of the Pi, we recommend only using one thread to make the executable.
 
 
 ## Dependencies
@@ -147,7 +149,7 @@ Follow us for additional updates, including showcase videos and demonstrations:<
 
 - Aidan MacIntosh - 
 
-- Ryan McBride - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time. 
+- Ryan McBride - Internal synthesiser and envelope design, creation of the App side for calibration and changing of parameters in real-time and all associated test scripts. Developed the CMakeLists to create libraries to reduce repetitive compilations.
 
 - Kerr McLaren - 
 
