@@ -86,23 +86,17 @@ set_target_properties(Tromboneless PROPERTIES
 # ========================================
 #                   Tests
 # ========================================
-# Automatically find all test cpp files in tests/
-#if(BUILD_TESTING)
-#    file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/App/tests/*.cpp")
-#
-#    # Searches through all C files within the tests directory and treats them as test script.
-#    foreach(TEST_FILE ${TEST_SOURCES} )
-#        # Extract the file name without path and extension
-#        get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
-#
-#        add_executable(${TEST_NAME} ${TEST_FILE})
-#        target_link_libraries(${TEST_NAME} PUBLIC TrombonelessAppLib)
-#        target_include_directories(${TEST_NAME} PRIVATE 
-#	    ${PROJECT_SOURCE_DIR}/App/inc
-#            ${PROJECT_SOURCE_DIR}/App/tests
-#            )
-#
- #       # Add the test to the CTest list of tests.
-#        add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
-#    endforeach()
-#endif()
+file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/App/tests/*.cpp")
+
+add_executable(TrombonelessTests ${TEST_SOURCES})
+
+target_link_libraries(TrombonelessTests
+    PUBLIC TrombonelessAppLib
+)
+
+target_include_directories(TrombonelessTests PRIVATE
+    ${PROJECT_SOURCE_DIR}/App/inc
+    ${PROJECT_SOURCE_DIR}/App/tests
+)
+
+add_test(NAME TrombonelessTests COMMAND TrombonelessTests)
