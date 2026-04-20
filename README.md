@@ -5,7 +5,7 @@
 ![release](https://img.shields.io/badge/Tromboneless-Release_1.1-blue)
 
 <a href="https://github.com/RyanMcB8/Tromboneless/releases" alt="Latest release">
-        <![release](https://img.shields.io/badge/Tromboneless-Release_1.1-blue) /></a>
+        <![Release](https://img.shields.io/badge/Tromboneless-Release_1.1-blue) /></a>
 
 ![version](https://img.shields.io/badge/version-1.2.3-blue)
 
@@ -21,7 +21,7 @@ This GitHub repository contains the hardware and firmware for Tromboneless - an 
 
 Tromboneless also contains its own internal synth, with custom control via the Tromboneless App!
 
-Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) for more information relating to components, program sequence and state diagrams for the MIDI implementation.
+Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) for more information relating to components, program sequence and state diagrams for MIDI protocol implementation.
 
 ## Table of Contents
 - [Set-Up Guide](#set-up-guide)
@@ -34,74 +34,39 @@ Please refer to our [wiki](https://github.com/RyanMcB8/Tromboneless/wiki) for mo
 ## Set-Up Guide
 
 
+
 ### Installing PiOS on Raspberry Pi 5
 
-1. For set-up guidance for PiOS, please follow [this guide](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
+1.  For set-up guidance for PiOS, please follow [this guide](https://www.raspberrypi.com/documentation/computers/getting-started.html#installing-the-operating-system) <br>
    <br>
 
-### Installing the Tromboneless Software
+### Cloning Tromboneless
 
-2. After installing Pi OS on the Raspberry Pi 5, 
+2. After installing PiOS on the Raspberry Pi 5, 
 
-In the terminal or command line, run:
+   In the terminal or command line, run:
 
- ```
-   git clone --recursive https://github.com/RyanMcB8/Tromboneless.git
-```
-   
-   If this causes any errors, run:
+    ```
+      git clone --recursive https://github.com/RyanMcB8/Tromboneless.git
+   ```
 
-```
-   git submodule init
-   git submodule update --recursive
-```
-
-*Note : Make sure git is installed on the Raspberry Pi 5.*
+**Note : Make sure git is installed on the Raspberry Pi 5.**
 
 ### Installing Libraries
 
-3. The Tromboneless software makes use of third-party libraries which are integral to the running of Tromboneless. 
-
-These libraries include:
+3. Tromboneless software makes use of third-party libraries which are integral to the running of Tromboneless. 
 
 | Library | Purpose |
 |---|---|
 | [JUCE](https://juce.com/) | UI framework |
-| RtMidi | Handles the communcation from USB Midi devices. |
-| RPi_ads1115 | Driver for the ADC being used | 
+| [RtMidi](https://github.com/thestk/rtmidi) | Handles the communication from USB Midi devices. |
+| [RPi_ads1115](https://github.com/berndporr/rpi_ads1115/tree/f434fb9c197e0314af69fa5ee3839f8655fad72c) | [Bernd Porr ADC Library](https://github.com/berndporr/rpi_ads1115) used in pressure sensing. | 
 
-These are included as git submodules so no extra steps need to be taken to run this script. 
+    
 
-### Building Tromboneless Core
+### Installing Dependencies
 
-4. The Core directory contains all real-time processing used by the tromboneless hardware to convert raw data from hardware to a corresponding range of MIDI functions with accompanying unit test executables.     
-
-To build ```Core```, in the Core directory, run: 
-```
-cmake .
-make - j4
-```
-
-### Building Tromboneless App
-
-5. The App directory hosts a JUCE-based GUI which allows for the user, in real-time, to:
-   - Adjust trombone slider length 
-   - Adjust pressure sensitivity when interacting with mouthpiece
-   - Transpose to alternative trombone ranges. 
-
-To build the app and core, run in the Tromboneless directory:
-
-```
-cmake .
-make -j1
-```
-
-*Note: Due to the computational limitations of the Pi, we recommend only using one thread to make the executable.* 
-
-
-## Dependencies
-
-6. The Tromboneless App uses the [JUCE](https://juce.com/) framework for all UI widgets.
+4. The Tromboneless App uses the [JUCE](https://juce.com/) framework for all UI widgets, and uses the following dependencies:
 
 | Library | Purpose | License |
 |---|---|---|
@@ -118,13 +83,13 @@ make -j1
 | cmake | Building the project | BSD 3-Clause |
 | libssl-dev | JUCE dependency | Apache 2.0 |
 
-To install these dependencies and build the project, there is a bash script available:
+A **bash script** was created for a **single-command install** and build of all dependencies used in Tromboneless:
 
 ```
 ./makeTromboneless.sh
 ```
 
-in the Tromboneless directory which will install all the necessary dependencies and then build the Tromboneless project. 
+Running this in the ```Tromboneless``` directory will install all necessary dependencies and then build the Tromboneless project. 
 
 Once the project has been built, there will be a prompt to run the script instantly.
 
@@ -133,6 +98,8 @@ Alternatively, the dependencies may be installed independently using the lines b
 ```
 sudo apt install libgpiod-dev pkg-config libgtk-3-dev libwebkit2gtk-4.1-dev libcurl4-openssl-dev build-essential cmake-build libssl-dev
 ```
+
+**Note: The first build of the software may require more than five minutes to complete. This is expected behaviour and will not affect subsequent runs.**
 
 ## Bill of Materials
 
@@ -159,8 +126,8 @@ Total Sensor Cost: £38.90
 
 | Additional Components                                          | Quantity | 
 |----------------------------------------------------------------|----------|
-| 1.0 MΩ Resistor                                               | 1        |    
-| 300.0 Ω Resistor                                               | 1        |   
+| 1.0 M Ohm Resistor                                               | 1        |    
+| 300.0 Ohm Resistor                                               | 1        |   
 | USB MIDI Cable                                                 | 1        |    
 | Infrared LED                                                   | 1        |    
 | Photodiode                                                     | 1        |
@@ -170,12 +137,31 @@ Total Sensor Cost: £38.90
 
 Once all materials have been acquired, we can now begin to assemble the Tromboneless hardware.
 
-7. Click [here](Documentation/Hardware/Mouthpiece_Construction_G.md) and follow step-by-step assembly instructions to create the mouthpiece used in the Tromboneless hardware.
+1. Click [here](Documentation/Hardware/Mouthpiece_Construction_G.md) and follow step-by-step assembly instructions to create the mouthpiece used in the Tromboneless hardware.
 
-8. Using the components outlined [above](#bill-of-materials), connect  the circuit with the mouthpiece and pin headers on the Pi exactly as shown:
+2. Using the components outlined [above](#bill-of-materials), connect  the circuit andintegrate with the mouthpiece and pin headers on the Pi exactly as shown:
 
 <img src="Documentation/Hardware/updated_circuit_image_w_bground.svg" width="600">
 
+### Hardware-Software Integration
+
+3. To verify sensors, install ```i2c-tools``` to confirm that sensors are being correctly recognised by the Raspberry Pi 5 i2c bus.
+
+ ```
+ sudo apt install i2c-tools
+ i2cdetect -y 1
+ ```
+
+  Three devices should appear, and this confirms the correct configuration.
+  
+  If any do not show, check wiring and use [i2c-tools](https://www.kali.org/tools/i2c-tools/) for troubleshooting.
+
+4. Finally, in ```Tromboneless``` directory, run:
+
+   ```
+   ./makeTromboneless.sh
+   ```
+   This runs the dedicated bash [script](#installing-dependencies), and a prompt will appear to begin the program. 
 
 ## Social Media
 
@@ -201,9 +187,12 @@ Follow our pages linked below for Tromboneless demonstrations, updates and new d
 [Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
 [Instagram](https://www.instagram.com/tromboneless.tech/)<br>
 
-and check out our **Tromboneless v1.0.0 release video**! (click below): 
+and check out our **Tromboneless v1.0.0 release video**: 
+
+**Click the image below!**
 
 [![Tromboneless V1.0.0](Documentation/Hardware/images/mqdefault.jpg)](https://youtu.be/Kp4s3FqIstI)
+
 
 
 ## Documentation
@@ -212,7 +201,7 @@ For full documentation of the Tromboneless software, refer to the [Documentation
 
 ### Datasheets
 
-Alll datasheets for components used can be located [here](Documentation/Hardware/datasheets).
+All datasheets for components used can be located [here](Documentation/Hardware/datasheets).
 
 ## Authors and Contributions
 
