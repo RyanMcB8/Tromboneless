@@ -31,7 +31,7 @@ class MidiCoordinator{
 
         int latestNote = -1; // Updated by mouthpiece. [0:127]
         int latestExpr = -1; // Updated by pressure. [0:127]
-        int latestBend = -1; // Updated by slide. [-8192:8191]
+        int latestBend = -1; // Updated by slide. [0:8192]
 
         int currentNote = -1; // Playing note 
         int lastSentExpr = -1; // Saves last expression sent to device
@@ -81,7 +81,7 @@ class MidiCoordinator{
         void ChangeNote(int note);
         /**
          * @brief Method to update pitch bend from slide.
-         * @param bend Values from -8192 to 0 (so only downward bends possible)
+         * @param bend Values from 8192 to 0 (so only downward bends possible)
          */
         void setBend(int bend);
         /**
