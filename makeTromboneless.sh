@@ -12,6 +12,7 @@ packages=(
   libgtk-3-dev
   libwebkit2gtk-4.1-dev
   libcurl4-openssl-dev
+  ninja-build
 )
 
 #   Ensuring that all the necessary dependecies have been installed.
@@ -21,11 +22,11 @@ sudo apt install -y "${packages[@]}"
 
 echo "Configuring project..."
 #   Removing the previous CMakeCache.txt
-# rm -rf build/CMakeCache.txt
+rm -rf build/CMakeCache.txt
 cmake -S . -B build -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release
 
 echo "Building..."
-cmake --build build
+cmake -G Ninja -S . -B build
 
 echo "Done."
 

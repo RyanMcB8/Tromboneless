@@ -17,8 +17,9 @@ find_package(CURL REQUIRED)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #   Adding the subdirectory.
+set(JUCE_USE_PCH 1)
 add_subdirectory(Core)
-set(JUCE_LOC ${PROJECT_SOURCE_DIR}/App/modules/JUCE/modules)
+add_subdirectory(App/modules/JUCE)
 
 #   Enabling tests
 enable_testing()
@@ -26,28 +27,22 @@ include(CTest)
 
 #   Find all source files in App/src.
 file(GLOB APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/*.cpp")
-file(GLOB_RECURSE JUCE_SOURCES_CORE "${JUCE_LOC}/juce_core/*.cpp")
-file(GLOB_RECURSE JUCE_SOURCES "${JUCE_LOC}/juce_gui_basics/*.cpp")
-file(GLOB_RECURSE JUCE_SOURCES_GRAPHICS "${JUCE_LOC}/juce_graphics/*.cpp")
+#file(GLOB_RECURSE JUCE_BINARY "${JUCE_LOC}/../extras/BinaryBuilder/*.cpp")
 list(REMOVE_ITEM APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/main.cpp")
 
-add_executable(Tromboneless
+juce_add_gui_app(Tromboneless
     ${PROJECT_SOURCE_DIR}/App/src/main.cpp
 )
 
-
-add_library(TrombonelessAppLib SHARED ${APP_SOURCES} ${JUCE_SOURCES_CORE} ${JUCE_SOURCES} ${JUCE_SOURCES_GRAPHICS})
+add_library(TrombonelessAppLib SHARED 
+	${APP_SOURCES} 
+)
 
 #   Adding the include file directories. 
 target_include_directories(TrombonelessAppLib
     PUBLIC
         ${PROJECT_SOURCE_DIR}/Shared
         ${PROJECT_SOURCE_DIR}/App/inc
-	${PROJECT_SOURCE_DIR}/App/modules/JUCE/modules
-	${JUCE_LOC}/juce_core
-	${JUCE_LOC}/juce_core/system
-        ${JUCE_LOC}/juce_gui_basics
-        ${JUCE_LOC}/juce_graphics
         ${GTK3_INCLUDE_DIRS}
 )
 
@@ -58,7 +53,9 @@ target_link_libraries(TrombonelessAppLib
     PUBLIC
         ${GTK3_LIBRARIES}
         CURL::libcurl
-        TrombonelessCoreLibrary
+	juce::juce_core
+	juce::juce_graphics
+	juce::juce_gui_basics
 )
 
 target_sources(Tromboneless PUBLIC ${PROJECT_SOURCE_DIR}/App/src/main.cpp)
@@ -70,11 +67,15 @@ target_compile_definitions(TrombonelessAppLib PUBLIC
     JUCE_USE_CURL=0
     JUCE_APPLICATION_NAME_STRING="Tromboneless"
     JUCE_APPLICATION_VERSION_STRING="1.0.0"
+    JUCE_APP_CONFIG_HEADER="${PROJECT_SOURCE_DIR}/App/inc/juceConfig.hpp"
     
 )
 
 
-target_link_libraries(Tromboneless PUBLIC TrombonelessAppLib)
+
+target_link_libraries(Tromboneless PUBLIC 
+	TrombonelessAppLib 
+	TrombonelessCoreLibrary)
 
 target_compile_options(Tromboneless PRIVATE ${GTK3_CFLAGS_OTHER})
 
