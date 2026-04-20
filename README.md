@@ -117,7 +117,7 @@ To build the Tromboneless hardware, the following materials are required:
 | Sensors                                                        | Quantity | Cost (£) |
 |----------------------------------------------------------------|----------|----------|
 | [VL53L1X](https://shop.pimoroni.com/products/vl53l1x-breakout?variant=12628497236051) Time of Flight (ToF) Sensor Breakout                   | 1        |  16.50   |
-| [CAP1188](https://thepihut.com/products/adafruit-cap1188-8-key-capacitive-touch-sensor-breakout-i2c-or-spi?variant=27739497169&country=GB&currency=GBP&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gad_source=5&gad_campaignid=22549809780&gclid=EAIaIQobChMI_O-VrPr8kwMVHJtQBh383QmIEAQYASABEgKftPD_BwE) 8-Key Capacitive Touch Sensor Breakout                          | 1        |  7.70    |
+| [CAP1188](https://thepihut.com/products/adafruit-cap1188-8-key-capacitive-touch-sensor-breakout-i2c-or-spi) 8-Key Capacitive Touch Sensor Breakout                          | 1        |  7.70    |
 | [ADS1115](https://shop.pimoroni.com/products/adafruit-ads1115-16-bit-adc-4-channel-with-programmable-gain-amplifier?variant=370782375) 16-bit ADC Breakout                                            | 1        |  14.70    |
 
 Total Sensor Cost: £38.90
