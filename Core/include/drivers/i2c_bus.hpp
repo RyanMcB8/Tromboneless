@@ -32,7 +32,7 @@ public:
      * 
      * @param devicePath Path to the Linux I2C device file (e.g. "/dev/i2c-1").
      */
-    explicit I2CBus(const char* devicePath = "/dev/i2c-1");
+    explicit I2CBus(const char* devicePath = "/dev/i2c-1", bool isTest = false);
 
     /**
      * @brief Destructor ensures the I2C device file is closed.
@@ -109,5 +109,9 @@ private:
     const char* devicePath_; 
 
     /// File descriptor for the opened I2C device.
-    int fd_;                 
+    int fd_;        
+             
+    /*  A flag stored to inform the methods if it should ignore
+        all hardware dependent functions. */
+    bool isTestMode = false;
 };

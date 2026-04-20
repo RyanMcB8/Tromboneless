@@ -1,7 +1,11 @@
 #include "audio_output.hpp"
 #include <iostream>
 
-AudioOutput::AudioOutput() {
+AudioOutput::AudioOutput(bool isTest) : isTestMode(isTest){
+    if (isTestMode){
+        return;
+    }
+    std::cout << "IsTestMode: " << isTestMode << "\n";
     int err = snd_pcm_open(&handle, "plughw:CARD=Device,DEV=0", SND_PCM_STREAM_PLAYBACK, 0);
     if (err < 0) {
         std::cerr << "Error opening audio device: " << snd_strerror(err) << "\n";

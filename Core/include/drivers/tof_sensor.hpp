@@ -53,7 +53,8 @@ public:
     ToFSensor(I2CBus& bus,
               uint8_t i2cAddress7Bit = 0x29,
               const std::string& gpioChipPath = "/dev/gpiochip0",
-              unsigned int gpioLine = 4);
+              unsigned int gpioLine = 4,
+              bool isTest=false);
 
     /**
      * @brief Destructor ensures sensor is stopped and resources are released.
@@ -157,4 +158,8 @@ private:
 
     /// Requested GPIO line for data-ready events
     std::shared_ptr<gpiod::line_request> request_;
+
+    /*  A flag stored to inform the methods if it should ignore
+        all hardware dependent functions. */
+    bool isTestMode = false;
 };

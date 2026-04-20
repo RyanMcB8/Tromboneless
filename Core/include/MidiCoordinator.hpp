@@ -60,13 +60,14 @@ class MidiCoordinator{
         };
 
         enum State current_state = IDLE;
+        bool isTestMode = false;
 
     public:
         // Methods should be input events
         /**
          * Default constructor.
          */
-        MidiCoordinator(AudioRender& synth);
+        MidiCoordinator(AudioRender& synth, bool isTest);
         void RegisterCallback(CallbackInterface cb);
 
         /**

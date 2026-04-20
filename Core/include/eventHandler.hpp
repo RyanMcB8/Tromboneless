@@ -30,7 +30,7 @@ public:
     using EventQueue = std::queue<RawInputEvent>;
 
     /** @brief Constructor initialises drivers and internal event transport. */
-    EventHandler();
+    EventHandler(bool isTest);
 
     bool initialise();
     void start();
@@ -54,4 +54,7 @@ private:
     ToFSensor tofSensor;
     PressureSensor pressureSensor;
     CAP1188 cap1188;
+    /*  A flag stored to inform the methods if it should ignore
+        all hardware dependent functions. */
+    bool isTestMode = false;
 };

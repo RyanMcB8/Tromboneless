@@ -1,8 +1,11 @@
 #include "MidiCoordinator.hpp"
 
-MidiCoordinator::MidiCoordinator(AudioRender& synth)
-    : synthRef(synth)
+MidiCoordinator::MidiCoordinator(AudioRender& synth, bool isTest)
+    : synthRef(synth), isTestMode(isTest)
 {
+    if (isTestMode){
+        return;
+    }
 }
 
 void MidiCoordinator::RegisterCallback(CallbackInterface cb)
