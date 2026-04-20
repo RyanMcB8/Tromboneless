@@ -1,11 +1,10 @@
 #include "PitchMapper.hpp"
-
 static const PitchMapper::PartialDef partials[] = {
-    { 70, -1, 5, 62 },
-    { 60, 65,  4, 58 },
-    { 50, 55,  3, 53 },
-    { 40, 45,  2, 46 },
-    { 30, 35,  1, 34 },
+    //minDelta  hysteresisDelta partial midiNote
+    { 85, -1, 4, 62 },
+    { 65, 80,  3, 58 },
+    { 45, 60,  2, 53 },
+    { 0, 40,  1, 46 },
 };
 
 PitchMapper::PitchMapper(){
@@ -15,7 +14,7 @@ PitchMapper::PitchMapper(){
 int PitchMapper::tof_to_MIDI_bend(uint16_t tof_distance){
 
     if (tof_distance > slide_max_limit_mm)
-        tof_distance = slide_max_limit_mm;
+        tof_distance = slide_min_limit_mm;
 
     if (tof_distance < slide_min_limit_mm)
         tof_distance = slide_min_limit_mm;
