@@ -12,6 +12,7 @@ packages=(
   libgtk-3-dev
   libwebkit2gtk-4.1-dev
   libcurl4-openssl-dev
+  i2c-tools
 )
 
 #   Ensuring that all the necessary dependecies have been installed.
