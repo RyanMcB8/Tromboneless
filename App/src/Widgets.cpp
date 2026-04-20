@@ -580,7 +580,7 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
     trombonelessParameters.highPressure = max;
 
     AmplitudeMapper* mapper_ptr = coreWrapper_ref.getAmplitudeMapper();
-    mapper_ptr->setPressureThreshold((float) (mapper_ptr->getPressureThreshold() * min));
+    mapper_ptr->setGateFactor((float) (mapper_ptr->getGateFactor() * min));
 
 
     return;
