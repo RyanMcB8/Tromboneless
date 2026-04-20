@@ -50,14 +50,12 @@ CAP1188::CAP1188(I2CBus& bus,
         uint8_t address,
         const std::string& gpioChipPath,
         unsigned int gpioLine,
-        unsigned int gpioReset,
         uint8_t enabledChannels,
         uint8_t interruptEnabledChannels)
     :   bus_(bus),
         address_(address),
         gpioChipPath_(gpioChipPath),
         gpioLine_(gpioLine),
-        gpioReset_(gpioReset),
         enabledChannels_(enabledChannels),
         interruptEnabledChannels_(interruptEnabledChannels){}
 
@@ -104,16 +102,17 @@ bool CAP1188::initialise()
     // LED Linking on, so Sensor trips LED on board
     bus_.writeBlock8(address_, CAP1188_REG_LED_LINKING,
     &enabledChannels_, 1);
-
+    CAP1188::linkLEDs(enabledChannels_);
     // Set averaging window, sample time, cycle time
     CAP1188::setAveraging(8);
     CAP1188::setSampleTime("1.28ms");
     CAP1188::setCycleTime("35ms");
     
-    uint8_t cs1_thresh = 0x30;
-    bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, &cs1_thresh, 1);
+    // uint8_t cs1_thresh = 0x30;
+    // bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, &cs1_thresh, 1);
+    CAP1188::setThreshold(1, 0x30);
 
-    // Set interrupt repeat rate to period of 70ms
+    // Set interrupt repeat rate to period of 35ms
     uint8_t sensor_cfg1;
     bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
     sensor_cfg1 &= 0xF0;
@@ -159,8 +158,6 @@ void CAP1188::start(){
     builder.set_line_config(lineCfg);
 
     request_ = std::make_shared<gpiod::line_request>(builder.do_request());
-
-    // Start
 
     // Launch worker thread (blocking)
     running_ = true;
@@ -220,7 +217,11 @@ void CAP1188::handleDataReady()
     if (cap1188CallbackInterface_)
         cap1188CallbackInterface_(delta);
 }
-
+// Callback
+void CAP1188::registerCallback(CAP1188CallbackInterface cb)
+{
+    cap1188CallbackInterface_ = cb;
+}
 
 int CAP1188::touched(){
     //Clear the INT bit and any previously touched pins
@@ -333,12 +334,18 @@ std::array<uint8_t, 8> CAP1188::getThresholds() {
     bus_.readBlock8(address_, CAP1188_REG_THRESH_CS1, block.data(), 8);
     return block;
 }
-void CAP1188::setThresholds(std::array<uint8_t, 8> newThresholds){
-    for (int i=0; i<8; i++)
-        if (newThresholds[i] < 0 || newThresholds[i] > 127)
-            throw std::out_of_range("Threshold must lie between 0 and 127");
-    bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, newThresholds.data(), 8);
+void CAP1188::setThreshold(int pin, uint8_t threshold)
+{
+    uint8_t reg = CAP1188_REG_THRESH_CS1 + pin - 1;
+    bus_.writeBlock8(address_, reg, &threshold, 1);
 }
+// void CAP1188::setThresholds(std::array<uint8_t, 8> newThresholds)
+// {
+//     for (int i=0; i<8; i++)
+//         if (newThresholds[i] < 0 || newThresholds[i] > 127)
+//             throw std::out_of_range("Threshold must lie between 0 and 127");
+//     bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, newThresholds.data(), 8);
+// }
 
 // Take a mask of pins ie 00100001 for Pins 1 & 6
 // Forces reset of Calibration value
@@ -370,13 +377,6 @@ int8_t CAP1188::deltaCount(int pin){
 
         return delta;
     }
-
-// Callback
-void CAP1188::registerCallback(CAP1188CallbackInterface cb)
-{
-    cap1188CallbackInterface_ = cb;
-}
-
 void CAP1188::disableStandby()
 {
     uint8_t status = 0;

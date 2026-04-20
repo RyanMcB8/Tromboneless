@@ -1,7 +1,8 @@
 /**
  * @file cap_sensor.hpp
- * @author Ben Allen (you@domain.com)
- * @brief                   desc
+ * @author Ben Allen
+ * @brief                   Base driver class for the Adafruit CAP1188 sensor breakout board, 
+ *                          specific to Raspberry Pi 5 over Linux kernel with I2C communication.
  * @version 0.1
  * @date 2026-04-19
  * 
@@ -87,34 +88,69 @@ class CAP1188
     public:
         using CAP1188CallbackInterface = std::function<void(uint8_t)>;
 
-        
+        /**
+         * @brief                   Constructor for the CAP1188 base driver class
+         * @param   bus             I2Cbus object for the CAP1188 using i2c_bus
+         * @param   address         I2C address for the CAP1188 sensor. With the Adafruit breakout board this defaults to
+         *                          0x29. Wiring the '3Vo' pin to the 'AD' pin alters the address to 0x28. This is important
+         *                          as both the Time-of-Flight sensor and CAP1188 have the same default address. Default: 0x28.
+         * @param   gpioChipPath    Specifies the device file used by the linux kernel. So long as all I2C devices use the same
+         *                          chip path this can be any gpiochip. Default: "/dev/gpiochip0"
+         * @param   gpioLine        Specifies the GPIO pin on the Raspberry Pi used as the "data ready" pin.
+         * @param   enabledChannels Specifies the enabled input channels. Only these channels will be sampled for capacitance values.
+         *                          Disabled pins will not be included in the sample cycle. This is formatted as a bit-mask of enabled
+         *                          pins from msb:C8 to lsb:C1. The default value is 0x01 = 0b0000'0001 i.e. Only C1.
+         * @param   interruptEnabledChannels    Specifies the interrupt enabled channels. Data ready will only be called when one of
+         *                                      the specified pins have a touched status. This is formatted as a bit-mask of interrupt
+         *                                      enabled pins from msb:C8 to lsb:C1. The default value is 0x01 = 0b0000'0001 i.e. Only C1.
+         */
         CAP1188(I2CBus& bus,
                 uint8_t address                 = 0x28,
                 const std::string& gpioChipPath = "/dev/gpiochip0",
                 unsigned int gpioLine = 27,
-                unsigned int gpioReset = 22,
                 uint8_t enabledChannels = 0x01,
                 uint8_t interruptEnabledChannels = 0x01);
-        
-        // Destructor
+
+        /**
+         * @brief                  Destructor for the CAP1188 base driver class. Calls "stop()" function.
+         */
         ~CAP1188();
         /**
-         * @brief                  Start
-         * 
+         * @brief                   Runs initialisation routine for driver
+         * @return  true            Initialisation successful
+         * @return  false           Initialisation failed
+         * @note                    This routine will open the I2C bus for the driver and check that a CAP1188 is found at the
+         *                          specified I2C address. Set enabled channels, set interrupt-enabled channels, enable LED-linking
+         *                          on enabled channels, set sampling cycle settings, set threshold for data-ready condition, enable
+         *                          interrupt on touch release, set the sensitivity, disable standby mode and clear the interrupt.
+         *                          After successful initialisation the sensor should be sampling correctly.
+         */
+        bool initialise();
+        /**
+         * @brief                   Configures the GPIO line for input and falling edge detection. Creates a thread with worker(). Can now
+         *                          have callback registered.
          */
         void start();
         /**
-         * @brief                   desc
-         * 
+         * @brief                  After thread has finished, releases it and all GPIO resources. This ensures data is released in a safe way.
          */
         void stop();
         /**
-         * @brief                   desc
-         * 
-         * @return  true            Initialisation successful
-         * @return  false           Initialisation failed
+         * @brief                   Checks for data ready condition. When data is ready, call the handleDataReady() function.
          */
-        bool initialise();
+        void worker();
+        /**
+         * @brief                   If worker() determines data is ready this function is called. Gets the actual delta value on C1 channel
+         *                          and then clears the interrupt so that subsequent interrupts cause an edge event as opposed to
+         *                          maintaining a level. Publish delta value to the callback interface.
+         */
+        void handleDataReady();
+        /**
+         * @brief                   Register the callback of pin 1 delta values to be published when pin 1 is touched
+         * @param   ci              Delta values as 8-bit unsigned integer word. This MUST be converted to an 8-bit
+         *                          signed integer (int8_t) later, as this is the true form of delta values.
+         */
+        void registerCallback(CAP1188CallbackInterface ci);
         /**
          * @brief                   Get the sensitivity value from the sensitivity control register
          * @return  uint8_t         From the CAP1188 datasheet: "Bits 6-4 DELTA_SENSE[2:0] - Controls the sensitivity of a touch detection.
@@ -125,6 +161,7 @@ class CAP1188
          *                          are more sensitive to noise, however, and a noisy environment may flag more false touches with higher
          *                          sensitivity levels"
          */
+        
         uint8_t getSensitivity();
         /**
          * @brief                   Set the sensitivity value by writing to the sensitivity control register
@@ -190,10 +227,17 @@ class CAP1188
          */
         int touched();
         /**
+         * @brief                   Set threshold for touched condition on one pin.
+         * 
+         * @param   pin             Pin number as integer from 1 to 8. This is used to source the relevant pin threshold register.
+         * @param   threshold       New threshold value for the threshold register to update to. 
+         */
+        void setThreshold(int pin, uint8_t threshold);
+        /**
          * @brief                   Read the Delta Count Register for a given pin and return the delta value
          *
          * @param   pin             The pin AKA channel number. Must be an integer between 1 & 8.
-         * @return  int8_t          The delta count for the given channel as an 8-bit word signed with 2's complement. 
+         * @return  int8_t          The delta count for the given channel as an 8-bit word signed with 2's complement.
          *                          The count value represents a change in input due to
                                     the capacitance associated with a touch on one of the sensor inputs and is referenced to a calibrated
                                     base “Not Touched” count value.
@@ -201,28 +245,25 @@ class CAP1188
         int8_t deltaCount(int pin);
         /**
          * @brief                   Force-initiate the baseline re-calibration routine for given channels
-         * 
-         * @param   pins            desc
+         * @param   pins            8-bit bitmask of channels to be re-calibrated from C8(msb) to C1(lsb).
          */
         void recalibratePins(uint8_t pins);
+        /**
+         * @brief                   Get the threshold
+         * @return  std::array<uint8_t, 8>desc
+         */
         std::array<uint8_t, 8> getThresholds();
-        void setThresholds(std::array<uint8_t, 8> newThresholds);
+        /**
+         * @brief                   Enable onboard LED functionality for given pin
+         * @param   pinmask         8-bit bitmask of channels to be linked to LED from C8(msb) to C1(lsb).
+         * @note                    LED will switch on if pin is touched
+         */
+        void linkLEDs(uint8_t pinmask);
 
-        // REALTIME FUNCTIONALITY
-        // Worker thread: blocks on GPIO edge events
-        void worker();
-
-        // Called for data = ready
-        void handleDataReady();
+        // void setThresholds(std::array<uint8_t, 8> newThresholds);
 
         void disableStandby();
         void clearInterrupt();
-
-
-        // Register subscriber callback
-        void registerCallback(CAP1188CallbackInterface ci);
-
-        void tester();
 
     private:
 
