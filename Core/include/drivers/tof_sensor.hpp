@@ -57,5 +57,7 @@ private:
     std::shared_ptr<gpiod::chip> chip_;
     std::shared_ptr<gpiod::line_request> request_;
 
+    /*  A flag stored to inform the methods if it should ignore
+        all hardware dependent functions. */
     bool isTestMode = false;
 };

@@ -80,5 +80,7 @@ public:
 private:
     const char* devicePath_;   // e.g. "/dev/i2c-1"
     int fd_;                   // file descriptor for the I2C device
+    /*  A flag stored to inform the methods if it should ignore
+        all hardware dependent functions. */
     bool isTestMode = false;
 };

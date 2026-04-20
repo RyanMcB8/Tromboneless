@@ -56,6 +56,8 @@ class CoreWrapper{
         AmplitudeMapper amplitudemapper;
         PitchMapper pitchmapper;
         MidiCoordinator coordinator;
+        /*  A flag stored to inform the methods if it should ignore
+            all hardware dependent functions. */
         bool isTestMode = false;
 
         /*  Core loop. */
