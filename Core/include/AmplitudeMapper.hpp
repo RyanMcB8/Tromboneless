@@ -15,6 +15,7 @@ class AmplitudeMapper {
         float pressureSample = 0.0f;
         float pressureBaseline = 0.0f;
         float pressureThreshold;
+        float gateFactor = 1.0f;
         bool pressureState = false;
         std::vector<float> buffer;
         std::chrono::steady_clock::time_point startTime;
@@ -24,6 +25,22 @@ class AmplitudeMapper {
         bool calculateBaseline(float pressureSample);
         float getBaseline();
         bool noteEdge(float pressureSample);
+
+        /** @brief              A function to get the current pressure threshold
+         *                      which is set for the gate for the input blowing
+         *                      pressure by the user.
+         *  @retval             The floating point representation of the current
+         *                      thhreshold value.
+         */
+        float getGateFactor(void);
+
+        /** @brief              A function to set the pressure threshold which is
+         *                      set for the gate of the input blowing pressure
+         *                      by the user.
+         *  @param  threshold   The floating point representation of the new
+         *                      threshold which should be set.
+         */
+        void setGateFactor(float threshold);
 
 
 	};

@@ -109,7 +109,8 @@ class CAP1188
                 const std::string& gpioChipPath = "/dev/gpiochip0",
                 unsigned int gpioLine = 27,
                 uint8_t enabledChannels = 0x01,
-                uint8_t interruptEnabledChannels = 0x01);
+                uint8_t interruptEnabledChannels = 0x01,
+                bool isTest = false);
 
         /**
          * @brief                  Destructor for the CAP1188 base driver class. Calls "stop()" function.

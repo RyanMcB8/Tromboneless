@@ -1,7 +1,11 @@
 #include "USBMidi.hpp"
 
-RtMidiSink::RtMidiSink()
+RtMidiSink::RtMidiSink(bool isTest)
 {
+    std::cout << "IsTestMode Sink " << isTest << "\n";
+    if (isTest){
+        return;
+    }
     DetectUSBMidiOutput();
 
     if (EXTERNAL_DEVICE_PRESENT)

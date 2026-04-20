@@ -15,16 +15,16 @@ class PitchMapper{
 
 
         typedef enum{
-            piccolo = 6,
-            soprano = 4,
-            alto = 2,
+            piccolo = 17,
+            soprano = 12,
+            alto = 5,
             tenor = 0,
-            bass = -2,
-            contrabass = -4
+            bass = -5,
+            contrabass = -12
         } Trombone_type_t;
 
 
-        int slide_max_limit_mm = 500; /* Max limit of virtual trombone slide in mm.*/
+        int slide_max_limit_mm = 600; /* Max limit of virtual trombone slide in mm.*/
         int slide_min_limit_mm = 0; /* Min limit of virtual trombone slide in mm.*/
         int mouthpiece_MIDI_note = 34; /* MIDI note produced by mouthpiece.*/ 
         int partial = 0;

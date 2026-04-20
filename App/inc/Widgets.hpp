@@ -12,10 +12,9 @@
 // #include <juce_gui_extra/juce_gui_extra.h>
 #include <stdexcept>
 #include <string>
-#include <juce_core/juce_core.h>
-#include <juce_gui_basics/juce_gui_basics.h>
-#include <juce_audio_processors/juce_audio_processors.h>
+#include <TrombonelessJuce.hpp>
 #include "CustomStyles.hpp"
+#include "CoreWrapper.hpp"
 #include <tromboneless_data.hpp>
 
 /* A header file containing custom widgets to appear on the screen to reduce and repetitive definitions within the main Layout.cpp file. */
@@ -388,13 +387,13 @@ private:
     /*  Setting the minimum limit of the slider. */
     float minLimit = 0.1;
     /*  Setting the maximum limit of the slider. */
-    float maxLimit = 2.0;
+    float maxLimit = 2.5;
 
     /*  Setting the minimum step to which the slider may be moved. */
-    float interval = 0.1;
+    float interval = 0.05;
 
     /* This is the minimum difference between the min and max sliders with respect ot the non normalised values. */
-    float minDifference = 0.2;
+    float minDifference = 0.01;
 
     /* Setting the relative height of the label. */
     float labelHeight;
@@ -432,7 +431,7 @@ class Barometer :   public DualRotarySlider
          *                          the labels text to be the corresponding
          *                          text.
          */
-        Barometer();
+        Barometer(CoreWrapper& coreWrapper);
 
         /** @brief                  Decontructor for the Barometer class which
          *                          removes the listeners from the sliders as
@@ -565,6 +564,9 @@ class Barometer :   public DualRotarySlider
 
         /* Setting the distance of the gain labels relative to the centre point. */
         float relativeLabelRadius = 0.3;
+
+        /*  Pointer to the core class functions. */
+        CoreWrapper& coreWrapper_ref;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
@@ -683,6 +685,16 @@ class Equalizer : public verticalMixSlider
  class DropDownMenu :   public juce::Component
  {
      public:
+
+        int getSelectedId() const{
+            return dropDownChoice.getSelectedId();
+        }
+
+        template <typename Fn>
+        void SetOnChange(Fn&& callback){
+            dropDownChoice.onChange = std::forward<Fn>(callback);
+        }
+        
         /** @brief                  Constructor for the DropDownMenu class that creates an
          *                          instance of the class. This makes a juce component that
          *                          has a combobox or drop-down menu within it with a label

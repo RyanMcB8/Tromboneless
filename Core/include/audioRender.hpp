@@ -13,7 +13,7 @@ public:
     static constexpr int frames = 128;
     static constexpr int sample_rate = 44100;
 
-    AudioRender();
+    AudioRender(bool isTest);
     ~AudioRender();
 
     AudioRender(const AudioRender&) = delete;
@@ -48,4 +48,5 @@ private:
 
     int16_t buffer[frames]{0};
     float debugPhase{0.0f};
+    bool isTestMode = false;
 };

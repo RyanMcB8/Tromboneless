@@ -7,7 +7,7 @@
 
 class RtMidiSink {
     public:
-        RtMidiSink();
+        RtMidiSink(bool isTest);
         void send(const MidiMessage& message);
 
         void DetectUSBMidiOutput();

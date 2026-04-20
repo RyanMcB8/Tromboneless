@@ -20,22 +20,21 @@ bool AmplitudeMapper::calculateBaseline(float pressureSample)
         float sum = 0.0f;
         for (float s : buffer) sum += s;
         pressureBaseline = sum / buffer.size();
-        pressureThreshold = 0.8f*pressureBaseline;
+        pressureThreshold = gateFactor*pressureBaseline;
         return true;
     }
 }
 
 bool AmplitudeMapper::noteEdge(float pressureSample)
 {
-    // Active Low
-    float pressureThreshold = 0.9f*pressureBaseline;
+    pressureThreshold = gateFactor*pressureBaseline;
     // If value has fallen beneath the threshold => note on
-    if (pressureSample<pressureThreshold && !pressureState){
+    if (pressureSample>pressureThreshold && !pressureState){
         pressureState = true;
         return true;
     }
     // If value has risen above the threshold => note off
-    else if (pressureSample>=pressureThreshold && pressureState){
+    else if (pressureSample<=pressureThreshold && pressureState){
         pressureState = false;
         return false;
     }
@@ -46,4 +45,14 @@ float AmplitudeMapper::getBaseline(){
     return pressureBaseline;
 }
 
+
+float AmplitudeMapper::getGateFactor(void){
+    return gateFactor;
+}
+
+
+void AmplitudeMapper::setGateFactor(float factor){
+    gateFactor = 1.0f-(0.1f-(factor/10));
+    return;
+}
         

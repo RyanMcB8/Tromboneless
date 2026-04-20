@@ -62,13 +62,18 @@ CAP1188::CAP1188(I2CBus& bus,
         const std::string& gpioChipPath,
         unsigned int gpioLine,
         uint8_t enabledChannels,
-        uint8_t interruptEnabledChannels)
+        uint8_t interruptEnabledChannels,
+        bool isTest)
     :   bus_(bus),
         address_(address),
         gpioChipPath_(gpioChipPath),
         gpioLine_(gpioLine),
         enabledChannels_(enabledChannels),
-        interruptEnabledChannels_(interruptEnabledChannels){}
+        interruptEnabledChannels_(interruptEnabledChannels){
+            if (isTest){
+                return;
+            }
+        }
 
 // Destructor
 CAP1188::~CAP1188()

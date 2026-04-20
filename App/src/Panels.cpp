@@ -8,7 +8,6 @@
 
  /* Adding the necessary headers. */
  #include   "Panels.hpp"
- #include   "Widgets.hpp"
  #include   <tromboneless_data.hpp>
 
  /* Initialisation of class members.*/
@@ -36,7 +35,7 @@ juce::Colour Panels::getBackgroundColour(void){
 /*                                                                                            */
 /* ========================================================================================== */
 
- DropDownMenus::DropDownMenus(){
+ DropDownMenus::DropDownMenus(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
 
     /* ============================== Creation of a dropdown menu that provides options for shift keying ============================== */
     
@@ -50,9 +49,21 @@ juce::Colour Panels::getBackgroundColour(void){
     shiftKeyChoice.AddItem ("Soprano", SKOpt_SOPRANO);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
-    shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
+    shiftKeyChoice.SetOnChange([this] { shiftKeyChoiceChanged(); });
 
     addAndMakeVisible(calibrateEmbouchure);
+    return;
+}
+
+void DropDownMenus::shiftKeyChoiceChanged(){
+    auto selectedOption =
+        static_cast<ShiftKeyingOptions_t>(shiftKeyChoice.getSelectedId());
+
+    trombonelessParameters.shiftKeyingOption = selectedOption;
+
+    PitchMapper* mapper_ptr = coreWrapper_ref.getPitchMapper();
+    mapper_ptr->SetTromboneType(selectedOption);
+
     return;
 }
 
@@ -70,14 +81,14 @@ void DropDownMenus::resized(){
 
 
 
-Sliders::Sliders(){
+Sliders::Sliders(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
     addAndMakeVisible (distanceSlider);
     using juce::Slider;
     distanceSlider.slider.setRange(minimumDistance, maximumDistance, stepDistance);                 /* Setting the range to be between 5 and 60cm. */
     distanceSlider.setMinDifference(distanceRange);
     distanceSlider.slider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
     distanceSlider.slider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
-    distanceSlider.slider. addListener (this);  
+    distanceSlider.slider.addListener (this);  
     distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
     distanceSlider.slider.setLookAndFeel(&LandF);
@@ -110,6 +121,11 @@ void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
         /*  Update the calibrated distance of the slider in the main window. */
         trombonelessParameters.nearDistance = distanceSlider.slider.getMinValue();
         trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
+
+        PitchMapper* mapper_ptr = coreWrapper_ref.getPitchMapper();
+        mapper_ptr->SetSlideMinLimit(static_cast<int>(distanceSlider.slider.getMinValue()*10));
+        mapper_ptr->SetSlideMaxLimit(static_cast<int>(distanceSlider.slider.getMaxValue()*10));
+
         return;
     }
     return;
@@ -157,7 +173,7 @@ float Sliders::getDistanceRange(void){
 /*                                                                                            */
 /* ========================================================================================== */
 
-EqualizerPanel::EqualizerPanel(){
+EqualizerPanel::EqualizerPanel(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
     addAndMakeVisible(button);
     addAndMakeVisible(equalizer);
     addAndMakeVisible(buttonLabel);

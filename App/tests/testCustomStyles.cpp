@@ -6,7 +6,7 @@
  */
 
 /*  Adding in the necessary headers and libraries. */
-#include "CustomStyles.hpp"
+#include <CustomStyles.hpp>
 #include "unitTestMacros.hpp"
 
 /*  Testing the VerticalSliderLookAndFeel class. */
@@ -98,6 +98,8 @@ bool testNeedleLookAndFeel(void){
 }
 
 int main(){
+    juce::ScopedJuceInitialiser_GUI guiInit;
+
     bool success = true;
     success &= testVerticalSliderLookAndFeel();
     success &= testCalibrationSliderLookAndFeel();

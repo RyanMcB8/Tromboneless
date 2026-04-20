@@ -255,7 +255,7 @@ DualRotarySlider::DualRotarySlider(){
     maxSlider.addListener(this);
 
     /* Showing the slider. */
-    addAndMakeVisible (maxSlider);
+    // addAndMakeVisible (maxSlider);
     addAndMakeVisible (minSlider);
     addAndMakeVisible (rotaryLabel);
 }
@@ -414,7 +414,7 @@ float DualRotarySlider::getMaxAngle(void){
 /*                                                                                            */
 /* ========================================================================================== */
 
-Barometer::Barometer(){
+Barometer::Barometer(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
     minSlider.addListener(this);
     maxSlider.addListener(this);
 
@@ -557,7 +557,6 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
             max = getMaxLimit();
             maxSlider.setValue(max);
             minSlider.setValue(max - getMinDifference());
-            return;
         }
 
         /* Checking if the minimum value is already at the minimum. If it is, only the maximum finger is moved. */
@@ -565,22 +564,25 @@ void Barometer::sliderValueChanged(juce::Slider* sliderChanged){
             min = getMinLimit();
             minSlider.setValue(min);
             maxSlider.setValue(min + getMinDifference());
-            return;
         }
         
         /* If neither finger is on the edge, onlt the finger not being dragged is adjusted to ensure the minimum range is maintained. */
         else if (sliderChanged == &minSlider){
             maxSlider.setValue(min + getMinDifference());
-            return;
         }
 
         else{
             minSlider.setValue(max - getMinDifference());
-            return;
+
         }
     }
     trombonelessParameters.lowPressure = min;
     trombonelessParameters.highPressure = max;
+
+    AmplitudeMapper* mapper_ptr = coreWrapper_ref.getAmplitudeMapper();
+    mapper_ptr->setGateFactor((float) (mapper_ptr->getGateFactor() * min));
+
+
     return;
 
 }

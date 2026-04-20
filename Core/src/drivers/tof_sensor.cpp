@@ -22,13 +22,15 @@ using namespace std::chrono_literals;
 ToFSensor::ToFSensor(I2CBus& bus,
                      uint8_t i2cAddress7Bit,
                      const std::string& gpioChipPath,
-                     unsigned int gpioLine)
+                     unsigned int gpioLine,
+                     bool isTest)
     : bus_(bus),
       i2cAddress7Bit_(i2cAddress7Bit),
       // ST Ultra-Lite driver uses 8-bit I2C addresses, so shift left by 1.
       stDevAddress_(static_cast<uint16_t>(i2cAddress7Bit) << 1),
       gpioChipPath_(gpioChipPath),
-      gpioLine_(gpioLine)
+      gpioLine_(gpioLine),
+      isTestMode(isTest)
 {
 }
 
@@ -45,6 +47,11 @@ void ToFSensor::registerCallback(DistanceCallback cb)
 
 bool ToFSensor::initialise()
 {
+    
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return true;
+    }
     // Open Linux I2C bus before interacting with the sensor
     if (!bus_.openBus())
     {
@@ -125,6 +132,11 @@ bool ToFSensor::initialise()
 
 void ToFSensor::softReset()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     // perform software reset by toggling reset register
     uint8_t resetLow = 0x00;
     bus_.writeBlock16(i2cAddress7Bit_, SOFT_RESET, &resetLow, 1);
@@ -137,6 +149,11 @@ void ToFSensor::softReset()
 
 void ToFSensor::start()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     // configure GPIO before starting ranging to avoid missing interrupts while setting up GPIO
 
     // Create a configuration object to describe how the GPIO line should behave
@@ -179,6 +196,11 @@ void ToFSensor::start()
 
 void ToFSensor::stop()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     if (running_) // only stop if the worker thread is currently active
     {
         running_ = false; // signal worker thread to stop
@@ -209,6 +231,11 @@ void ToFSensor::stop()
 
 void ToFSensor::worker()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     while (running_)
     {
         // Block until a GPIO event is detected or timeout occurs (e.g. to check running_ flag periodically)
@@ -234,6 +261,11 @@ void ToFSensor::worker()
 
 void ToFSensor::handleDataReady()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     // read measurement in response to data-ready interrupt and publish through callback
     uint16_t distance = readDistanceMm();
 
@@ -246,18 +278,33 @@ void ToFSensor::handleDataReady()
 
 void ToFSensor::startRanging()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     //direct wrapper around ST API call to start ranging mode. See VL53L1X_api.c for details.
     (void)VL53L1X_StartRanging(stDevAddress_);
 }
 
 void ToFSensor::stopRanging()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     // Direct wrapper around ST API call to stop ranging mode. See VL53L1X_api.c for details.
     (void)VL53L1X_StopRanging(stDevAddress_);
 }
 
 uint16_t ToFSensor::readDistanceMm()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return 0;
+    }
     VL53L1X_Result_t result{};
 
     // Retrieve the latest measurement result from the sensor. If this fails, return an error value.
