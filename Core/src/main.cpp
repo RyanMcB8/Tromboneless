@@ -17,7 +17,7 @@
 
 int main() {
     try {
-        CoreWrapper coreWrapper;
+        CoreWrapper coreWrapper(false);
         coreWrapper.start();
 
         /* Runnning core indefinitely. */

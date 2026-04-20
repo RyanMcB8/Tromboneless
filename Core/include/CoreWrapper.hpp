@@ -4,17 +4,15 @@
  *                  to the main functioanlity of the core.
  */
 
-
 #pragma once
 
 #include "eventHandler.hpp"
-#include <condition_variable>
 #include <cstdint>
 #include <iostream>
 #include <thread>
-#include <mutex>
-#include <queue>
 #include <chrono>
+#include <atomic>
+
 #include "MidiCoordinator.hpp"
 #include "tromboneSynth.hpp"
 #include "USBMidi.hpp"
@@ -28,7 +26,7 @@ class CoreWrapper{
         /*  Adding the constructor and destructor.      */
         /*  ==========================================  */
 
-        CoreWrapper();
+        CoreWrapper(bool isTest);
         ~CoreWrapper();
 
         /*  ==========================================  */
@@ -44,30 +42,22 @@ class CoreWrapper{
         PitchMapper* getPitchMapper(void);
         MidiCoordinator* getMidiCoordinator(void);
 
-
         /*  ==========================================  */
         /* Adding the getters for the classes' instances */
         /*  ==========================================  */
 
     private:
-        /*  Setting up queue for the threading. */
-        std::queue<RawInputEvent> eventQueue;
-        std::mutex eventQueueMutex;
-        std::condition_variable eventQueueCv;
-
         /*  Creating the instances. */
-        EventHandler eventHandler = EventHandler(eventQueue, eventQueueMutex, eventQueueCv);
+        EventHandler eventHandler;
         RtMidiSink midiSink;
         AudioRender render;
         AmplitudeMapper amplitudemapper;
         PitchMapper pitchmapper;
-        MidiCoordinator coordinator = MidiCoordinator(render);
-
+        MidiCoordinator coordinator;
 
         /*  Core loop. */
         std::thread eventThread;
-        bool running = false;
+        std::atomic<bool> running{false};
         void eventLoop();
-        bool externalDevicePresent;
-
+        bool externalDevicePresent = false;
 };

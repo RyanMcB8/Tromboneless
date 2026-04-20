@@ -14,6 +14,7 @@
 #include <string>
 #include <TrombonelessJuce.hpp>
 #include "CustomStyles.hpp"
+#include "CoreWrapper.hpp"
 #include <tromboneless_data.hpp>
 
 /* A header file containing custom widgets to appear on the screen to reduce and repetitive definitions within the main Layout.cpp file. */
@@ -430,7 +431,7 @@ class Barometer :   public DualRotarySlider
          *                          the labels text to be the corresponding
          *                          text.
          */
-        Barometer();
+        Barometer(CoreWrapper& coreWrapper);
 
         /** @brief                  Decontructor for the Barometer class which
          *                          removes the listeners from the sliders as
@@ -563,6 +564,9 @@ class Barometer :   public DualRotarySlider
 
         /* Setting the distance of the gain labels relative to the centre point. */
         float relativeLabelRadius = 0.3;
+
+        /*  Pointer to the core class functions. */
+        CoreWrapper& coreWrapper_ref;
 };
 
 /** @brief A class that adds more functionality to the slider class from Juce. */
@@ -681,6 +685,16 @@ class Equalizer : public verticalMixSlider
  class DropDownMenu :   public juce::Component
  {
      public:
+
+        int getSelectedId() const{
+            return dropDownChoice.getSelectedId();
+        }
+
+        template <typename Fn>
+        void SetOnChange(Fn&& callback){
+            dropDownChoice.onChange = std::forward<Fn>(callback);
+        }
+        
         /** @brief                  Constructor for the DropDownMenu class that creates an
          *                          instance of the class. This makes a juce component that
          *                          has a combobox or drop-down menu within it with a label

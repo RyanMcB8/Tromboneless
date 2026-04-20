@@ -40,7 +40,9 @@ The Tromboneless App utilises the JUCE framework to create all the widgets neces
  - Juce <br>
  - RTMidi <br>
  - libgpiod (specifically for interacting with the GPIO pins on the Pi) <br>
- - webkit2gtk-4.1 <br>
+ - libwebkit2gtk-4.1-dev <br>
+ - libgtk-3-dev <br>
+ - libcurl4-openssl-dev <br>
 
 
 ## Bill of Materials

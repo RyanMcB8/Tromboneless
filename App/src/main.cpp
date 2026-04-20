@@ -46,7 +46,7 @@ public:
         juce::ignoreUnused (commandLine);
 
         /*  Creation of the shared instance to pass the parameters between app and core. */
-        coreWrapper_ref = std::make_unique<CoreWrapper>();
+        coreWrapper_ref = std::make_unique<CoreWrapper>(false);
         coreWrapper_ref->start();
 
         mainWindow = std::make_unique<MainWindow>(*coreWrapper_ref, getApplicationName());    }

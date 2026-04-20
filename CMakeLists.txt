@@ -104,9 +104,6 @@ foreach(TEST_FILE ${TEST_SOURCES} )
         ${PROJECT_SOURCE_DIR}/App/tests
         )
 
-    target_compile_options(${TEST_NAME} PRIVATE ${GTK3_CFLAGS_OTHER})
-
-
     # Add the test to the CTest list of tests.
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
 endforeach()

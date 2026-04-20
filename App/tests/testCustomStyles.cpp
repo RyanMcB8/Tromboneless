@@ -98,6 +98,8 @@ bool testNeedleLookAndFeel(void){
 }
 
 int main(){
+    juce::ScopedJuceInitialiser_GUI guiInit;
+
     bool success = true;
     success &= testVerticalSliderLookAndFeel();
     success &= testCalibrationSliderLookAndFeel();

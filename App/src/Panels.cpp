@@ -49,9 +49,21 @@ juce::Colour Panels::getBackgroundColour(void){
     shiftKeyChoice.AddItem ("Soprano", SKOpt_SOPRANO);
     
     /* This line is the one responsible for calling the shiftKeyingUpdate function when the choice changes. */
-    shiftKeyChoice.OnChange (&trombonelessParameters.shiftKeyingOption);
+    shiftKeyChoice.SetOnChange([this] { shiftKeyChoiceChanged(); });
 
     addAndMakeVisible(calibrateEmbouchure);
+    return;
+}
+
+void DropDownMenus::shiftKeyChoiceChanged(){
+    auto selectedOption =
+        static_cast<ShiftKeyingOptions_t>(shiftKeyChoice.getSelectedId());
+
+    trombonelessParameters.shiftKeyingOption = selectedOption;
+
+    PitchMapper* mapper_ptr = coreWrapper_ref.getPitchMapper();
+    mapper_ptr->SetTromboneType(selectedOption);
+
     return;
 }
 
@@ -76,7 +88,7 @@ Sliders::Sliders(CoreWrapper& coreWrapper): coreWrapper_ref(coreWrapper){
     distanceSlider.setMinDifference(distanceRange);
     distanceSlider.slider.setTextValueSuffix (" cm");      /* Adds a unit at the end of the slider so the user knows what the value means. */
     distanceSlider.slider.setMinAndMaxValues (15.0, 45.0, juce::dontSendNotification);
-    distanceSlider.slider. addListener (this);  
+    distanceSlider.slider.addListener (this);  
     distanceSlider.slider.setPopupDisplayEnabled(true, true, this, 1000);
     distanceSlider.slider.setNumDecimalPlacesToDisplay(1);
     distanceSlider.slider.setLookAndFeel(&LandF);
@@ -111,8 +123,8 @@ void Sliders::sliderValueChanged(juce::Slider* sliderChanged){
         trombonelessParameters.farDistance = distanceSlider.slider.getMaxValue();
 
         PitchMapper* mapper_ptr = coreWrapper_ref.getPitchMapper();
-        mapper_ptr->SetSlideMinLimit((int)distanceSlider.slider.getMinValue());
-        mapper_ptr->SetSlideMaxLimit((int)distanceSlider.slider.getMaxValue());
+        mapper_ptr->SetSlideMinLimit(static_cast<int>(distanceSlider.slider.getMinValue()*10));
+        mapper_ptr->SetSlideMaxLimit(static_cast<int>(distanceSlider.slider.getMaxValue()*10));
 
         return;
     }
