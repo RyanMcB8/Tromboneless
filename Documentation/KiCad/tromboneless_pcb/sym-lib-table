@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 0)
+  (lib (name "tromboneless-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/tromboneless-eagle-import.kicad_sym")(options "")(descr ""))
+)
