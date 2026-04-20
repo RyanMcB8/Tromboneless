@@ -68,6 +68,8 @@ juce_add_gui_app(Tromboneless
     PRODUCT_NAME "Tromboneless"
 )
 
+target_sources(Tromboneless PRIVATE ${PROJECT_SOURCE_DIR}/App/src/main.cpp)
+
 
 #   Adding additional compile defintions.
 target_compile_definitions(TrombonelessAppLib PUBLIC

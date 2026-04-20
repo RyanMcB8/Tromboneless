@@ -39,6 +39,8 @@ target_include_directories(TrombonelessCoreLibrary PUBLIC
     ${PROJECT_SOURCE_DIR}/Drivers
     ${PROJECT_SOURCE_DIR}/../Shared
     ${PROJECT_SOURCE_DIR}/modules/rpi_ads1115
+    ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/core
+    ${PROJECT_SOURCE_DIR}/external/STSW-IMG009/STSW-IMG009_v3.5.5/API/platform
     )
 
 target_link_libraries(TrombonelessCoreLibrary PUBLIC
@@ -54,9 +56,9 @@ target_compile_options(TrombonelessCoreLibrary
         -Wno-zero-as-null-pointer-constant
 )
 
-target_link_libraries(TrombonelessCore PUBLIC
-    TrombonelessCoreLibrary
-)
+# target_link_libraries(TrombonelessCore PUBLIC
+#     TrombonelessCoreLibrary
+# )
 
 file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/tests/*.cpp")
 
