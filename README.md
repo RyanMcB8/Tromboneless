@@ -131,6 +131,8 @@ Total Sensor Cost: £38.90
 | USB MIDI Cable                                                 | 1        |    
 | Infrared LED                                                   | 1        |    
 | Photodiode                                                     | 1        |
+| USB Sound Card                                                     | 1        |
+
 
 
 ### Hardware Assembly
@@ -156,12 +158,17 @@ Once all materials have been acquired, we can now begin to assemble the Trombone
   
   If any do not show, check wiring and use [i2c-tools](https://www.kali.org/tools/i2c-tools/) for troubleshooting.
 
-4. Finally, in ```Tromboneless``` directory, run:
+   4. Connect USB output of Raspberry Pi 5 to an external MIDI-compatible synthesizer, or use a USB sound card to output audio directly using the internal   synthesizer. 
+
+5. Finally, in ```Tromboneless``` directory, run:
 
    ```
    ./makeTromboneless.sh
    ```
    This runs the dedicated bash [script](#installing-dependencies), and a prompt will appear to begin the program. 
+
+
+   6. Use mouthpiece to trigger and change notes and distance sensor to bend notes with 7 semi-tone range. The app can be used to modify these parameters in real time.
 
 ## Social Media
 
