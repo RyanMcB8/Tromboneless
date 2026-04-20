@@ -40,7 +40,7 @@ file(GLOB APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/*.cpp")
 list(REMOVE_ITEM APP_SOURCES "${PROJECT_SOURCE_DIR}/App/src/main.cpp")
 
 
-add_library(TrombonelessAppLib STATIC ${APP_SOURCES})
+add_library(TrombonelessAppLib SHARED ${APP_SOURCES})
 
 #   Adding the include file directories. 
 target_include_directories(TrombonelessAppLib
@@ -68,7 +68,9 @@ juce_add_gui_app(Tromboneless
     PRODUCT_NAME "Tromboneless"
 )
 
-target_sources(Tromboneless PRIVATE ${PROJECT_SOURCE_DIR}/App/src/main.cpp)
+add_dependencies(Tromboneless TrombonelessAppLib)
+
+target_sources(Tromboneless PUBLIC ${PROJECT_SOURCE_DIR}/App/src/main.cpp)
 
 
 #   Adding additional compile defintions.
@@ -80,9 +82,14 @@ target_compile_definitions(TrombonelessAppLib PUBLIC
     
 )
 
-target_link_libraries(Tromboneless PRIVATE TrombonelessAppLib)
+#target_include_directories(Tromboneless
+#    PUBLIC
+#        ${PROJECT_SOURCE_DIR}/Shared
+#        ${PROJECT_SOURCE_DIR}/App/inc)
 
-target_compile_options(Tromboneless PRIVATE ${GTK3_CFLAGS_OTHER})
+target_link_libraries(Tromboneless PUBLIC TrombonelessAppLib)
+
+target_compile_options(Tromboneless PUBLIC ${GTK3_CFLAGS_OTHER})
 
 set_target_properties(Tromboneless PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -101,7 +108,8 @@ if(BUILD_TESTING)
         get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
 
         add_executable(${TEST_NAME} ${TEST_FILE})
-        target_link_libraries(${TEST_NAME} PRIVATE TrombonelessAppLib)
+	add_dependencies(${TEST_NAME} TrombonelessAppLib)
+        target_link_libraries(${TEST_NAME} LINK_PUBLIC TrombonelessAppLib)
         target_include_directories(${TEST_NAME} PRIVATE 
             ${PROJECT_SOURCE_DIR}/App/inc
             ${PROJECT_SOURCE_DIR}/App/tests
