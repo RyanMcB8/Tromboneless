@@ -1,3 +1,14 @@
+/**
+ * @file cap_sensor.cpp
+ * @author Ben Allen
+ * @brief                   Implementation of CAP11888 driver for Tromboneless
+ * @version 0.1
+ * @date 2026-04-20
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
+
 #include "drivers/cap_sensor.hpp"
 #include <chrono>
 using namespace std::chrono_literals;
@@ -50,7 +61,6 @@ CAP1188::CAP1188(I2CBus& bus,
         uint8_t address,
         const std::string& gpioChipPath,
         unsigned int gpioLine,
-        unsigned int gpioReset,
         uint8_t enabledChannels,
         uint8_t interruptEnabledChannels,
         bool isTest)
@@ -58,7 +68,6 @@ CAP1188::CAP1188(I2CBus& bus,
         address_(address),
         gpioChipPath_(gpioChipPath),
         gpioLine_(gpioLine),
-        gpioReset_(gpioReset),
         enabledChannels_(enabledChannels),
         interruptEnabledChannels_(interruptEnabledChannels){
             if (isTest){
@@ -101,43 +110,21 @@ bool CAP1188::initialise()
         channels[i].initialise(this,i);
     
     // Enable/Disable Channels
-    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_ENABLE, 
-    &enabledChannels_, 1);
-    bus_.writeBlock8(address_, CAP1188_REG_INTERRUPT_ENABLE,
-    &interruptEnabledChannels_, 1);
-    
-    // LED Linking on, so Sensor trips LED on board
-    bus_.writeBlock8(address_, CAP1188_REG_LED_LINKING,
-    &enabledChannels_, 1);
-
+    enableChannels();
+    enableInterruptChannels();
+    linkLEDs(enabledChannels_);
     // Set averaging window, sample time, cycle time
-    CAP1188::setAveraging(8);
-    CAP1188::setSampleTime("1.28ms");
-    CAP1188::setCycleTime("35ms");
-    
-    uint8_t cs1_thresh = 0x30;
-    bus_.writeBlock8(address_, CAP1188_REG_THRESH_CS1, &cs1_thresh, 1);
-
-    // Set interrupt repeat rate to lowest resolution of 35ms
-    uint8_t sensor_cfg1;
-    bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
-    sensor_cfg1 &= 0xF0;
-    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG1, &sensor_cfg1, 1);
-
-    // Enable interrupt on touch release
-    uint8_t sensor_cfg2;
-    bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
-    sensor_cfg2 |= 0x00;
-    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG2, &sensor_cfg2, 1);
-
-    // Lowest sensitivity = 111b or 7
-    // Highest sensitivity = 0
+    setAveraging(8);
+    setSampleTime("1.28ms");
+    setCycleTime("35ms");
+    // Configure data ready condition
+    // The threshold is 0x30 = 48 decimal
+    channels[0].setThreshold(0x30);
+    // 0x00 = 35ms
+    setInterruptRepeatRate(0x00);
+    // 0x05 = 101b = 4x 
     uint8_t sensitivity = 0x05;
-    CAP1188::sensitivitySetter(sensitivity);
-
-    
-    
-
+    setSensitivity(sensitivity);
 
     disableStandby();
     clearInterrupt();
@@ -164,8 +151,6 @@ void CAP1188::start(){
 
     request_ = std::make_shared<gpiod::line_request>(builder.do_request());
 
-    // Start
-
     // Launch worker thread (blocking)
     running_ = true;
     thread_ = std::thread(&CAP1188::worker, this);
@@ -180,9 +165,6 @@ void CAP1188::stop(){
     // Wait for thread to finish
     if (thread_.joinable())
         thread_.join();
-
-    // Stop sensor measurements
-
 
     // Release GPIO resources
     if (request_)
@@ -219,22 +201,16 @@ void CAP1188::handleDataReady()
     uint8_t delta = channels[0].pinDelta();
     clearInterrupt();
 
-
     // Publish to subscriber if registered
     if (cap1188CallbackInterface_)
         cap1188CallbackInterface_(delta);
 }
-
-
-// Touched Pins
-std::array<bool, 8> CAP1188::touched_pins(){
-    std::array<bool, 8> pin_states;
-    int touched = CAP1188::touched();
-    for (int i = 0; i < 8; ++i){
-        pin_states[i] = (touched >> i) & 1;
-    }
-    return pin_states;
+// Callback
+void CAP1188::registerCallback(CAP1188CallbackInterface cb)
+{
+    cap1188CallbackInterface_ = cb;
 }
+
 int CAP1188::touched(){
     //Clear the INT bit and any previously touched pins
     uint8_t current = 0;
@@ -246,25 +222,33 @@ int CAP1188::touched(){
     bus_.readBlock8(address_, CAP1188_REG_SENSOR_STATUS, &touchVals, 1);
     return touchVals;
 }
+void CAP1188::linkLEDs(uint8_t pinmask)
+    {
+        bus_.writeBlock8(address_, CAP1188_REG_LED_LINKING,
+        &pinmask, 1);
+    }
 
 // Sensitivity getter and setter
-uint8_t CAP1188::sensitivityGetter(){
+uint8_t CAP1188::getSensitivity()
+{
     uint8_t sensitivity = 0;
     bus_.readBlock8(address_, CAP1188_REG_SENSITIVITY, &sensitivity, 1);
     return sensitivity;
 }
-void CAP1188::sensitivitySetter(uint8_t sensitivityVal){
+void CAP1188::setSensitivity(uint8_t sensitivityVal)
+{
     // Bits 6-4 control the sensitivity so a shift is needed
     sensitivityVal <<= 4;
     // Get what's in the register
-    uint8_t current = CAP1188::sensitivityGetter();
+    uint8_t current = CAP1188::getSensitivity();
     // Clear bits 6-4 and preserve the others
     current &= 0x8F;
     uint8_t newVal = current | sensitivityVal;
     bus_.writeBlock8(address_, CAP1188_REG_SENSITIVITY, &newVal, 1);
 }
 
-uint8_t CAP1188::getAveraging(){
+uint8_t CAP1188::getAveraging()
+{
     uint8_t samplesPerAverageIx = 0;
     bus_.readBlock8(address_, CAP1188_REG_AVG_SAMP_RATE, &samplesPerAverageIx, 1);
     //Shift from B6-B4 to B2-B0
@@ -275,7 +259,8 @@ uint8_t CAP1188::getAveraging(){
     return CAP1188_AVERAGING_OPTIONS[samplesPerAverageIx];
 }
 
-void CAP1188::setAveraging(uint8_t averagingVal) {
+void CAP1188::setAveraging(uint8_t averagingVal)
+{
     auto it = std::find(CAP1188_AVERAGING_OPTIONS.begin(), CAP1188_AVERAGING_OPTIONS.end(), averagingVal);
     if (it == CAP1188_AVERAGING_OPTIONS.end())
         throw std::out_of_range("Samples per average must be 1,2,4,8,16,32,64 or 128");
@@ -296,7 +281,8 @@ void CAP1188::setAveraging(uint8_t averagingVal) {
     bus_.writeBlock8(address_, CAP1188_REG_AVG_SAMP_RATE, &avg, 1);
 }
 
-std::string CAP1188::getSampleTime(){
+std::string CAP1188::getSampleTime()
+{
     uint8_t reg = 0;
     bus_.readBlock8(address_, CAP1188_REG_AVG_SAMP_RATE, &reg, 1);
     reg >>= 2;
@@ -304,7 +290,8 @@ std::string CAP1188::getSampleTime(){
     return CAP1188_SAMP_TIME_OPTIONS[reg];
 }
 
-void CAP1188::setSampleTime(std::string newSampleTime){
+void CAP1188::setSampleTime(std::string newSampleTime)
+{
     auto it = std::find(CAP1188_SAMP_TIME_OPTIONS.begin(), CAP1188_SAMP_TIME_OPTIONS.end(), newSampleTime);
     if (it == CAP1188_SAMP_TIME_OPTIONS.end())
         throw std::out_of_range("Time per sample must be 320us ,640us, 1.28ms, or 2.56ms");
@@ -319,14 +306,16 @@ void CAP1188::setSampleTime(std::string newSampleTime){
     bus_.writeBlock8(address_, CAP1188_REG_AVG_SAMP_RATE, &newReg, 1);
 }
 
-std::string CAP1188::getCycleTime(){
+std::string CAP1188::getCycleTime()
+{
     uint8_t reg = 0;
     bus_.readBlock8(address_, CAP1188_REG_AVG_SAMP_RATE, &reg, 1);
     // Preserve only B1-B0
     uint8_t cycleTimeIx = reg & 0x03;
     return CAP1188_CYCLE_TIME_OPTIONS[cycleTimeIx];
 }
-void CAP1188::setCycleTime(std::string newCycleTime){
+void CAP1188::setCycleTime(std::string newCycleTime)
+{
     auto it = std::find(CAP1188_CYCLE_TIME_OPTIONS.begin(), CAP1188_CYCLE_TIME_OPTIONS.end(), newCycleTime);
     if (it == CAP1188_CYCLE_TIME_OPTIONS.end())
         throw std::out_of_range("Time per sample must be 35ms ,70ms, 105ms, or 140ms");
@@ -341,12 +330,15 @@ void CAP1188::setCycleTime(std::string newCycleTime){
     bus_.writeBlock8(address_, CAP1188_REG_AVG_SAMP_RATE, &newReg, 1);
 }
 
-std::array<uint8_t, 8> CAP1188::getThresholds() {
+std::array<uint8_t, 8> CAP1188::getThresholds() 
+{
     std::array<uint8_t, 8> block;
     bus_.readBlock8(address_, CAP1188_REG_THRESH_CS1, block.data(), 8);
     return block;
 }
-void CAP1188::setThresholds(std::array<uint8_t, 8> newThresholds){
+
+void CAP1188::setThresholds(std::array<uint8_t, 8> newThresholds)
+{
     for (int i=0; i<8; i++)
         if (newThresholds[i] < 0 || newThresholds[i] > 127)
             throw std::out_of_range("Threshold must lie between 0 and 127");
@@ -355,7 +347,8 @@ void CAP1188::setThresholds(std::array<uint8_t, 8> newThresholds){
 
 // Take a mask of pins ie 00100001 for Pins 1 & 6
 // Forces reset of Calibration value
-void CAP1188::recalibratePins(uint8_t pins){
+void CAP1188::recalibratePins(uint8_t pins)
+{
     bus_.writeBlock8(address_, CAP1188_REG_CALIB_ACTIVATE, 
     &pins, 1);
 }
@@ -383,13 +376,6 @@ int8_t CAP1188::deltaCount(int pin){
 
         return delta;
     }
-
-// Callback
-void CAP1188::registerCallback(CAP1188CallbackInterface cb)
-{
-    cap1188CallbackInterface_ = cb;
-}
-
 void CAP1188::disableStandby()
 {
     uint8_t status = 0;
@@ -402,4 +388,24 @@ void CAP1188::clearInterrupt()
 {
     uint8_t clear = 0x00;
     bus_.writeBlock8(address_, CAP1188_REG_MAIN_CTRL, &clear, 1);
+}
+
+void CAP1188::setInterruptRepeatRate(uint8_t rate)
+{
+    uint8_t reg_data;
+    bus_.readBlock8(address_, CAP1188_REG_SENSOR_CFG1, &reg_data, 1);
+    reg_data &= 0xF0;
+    reg_data |= rate;
+    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_CFG1, &reg_data, 1);
+}
+
+void CAP1188::enableChannels()
+{
+    bus_.writeBlock8(address_, CAP1188_REG_SENSOR_ENABLE, &enabledChannels_, 1);
+}   
+
+void CAP1188::enableInterruptChannels()
+{
+    bus_.writeBlock8(address_, CAP1188_REG_INTERRUPT_ENABLE,
+                     &interruptEnabledChannels_, 1);
 }
