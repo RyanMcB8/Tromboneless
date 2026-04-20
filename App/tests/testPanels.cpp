@@ -6,8 +6,7 @@
  */
 
 /*  Adding in the necessary headers and libraries. */
-#include "Panels.hpp"
-#include "unitTestMacros.hpp"
+#include "testPanels.hpp"
 
 /*  Testing the panels class. */
 bool testPanels(void){
@@ -41,17 +40,4 @@ bool testSliders(void){
     SET_GET_FLOAT(testClass, setDistanceRange, getDistanceRange, value, Sliders, passFail);
 
     return passFail;
-}
-
-int main(){
-    juce::ScopedJuceInitialiser_GUI guiInit;
-    bool success = true;
-    
-    success &= testPanels();
-    success &= testSliders();
-
-    /*  As success = true means the test has been passed,
-        the sucess value needs to be inverted for the return
-        result as return 0 is pass in the normal way. */
-    return !success;
 }

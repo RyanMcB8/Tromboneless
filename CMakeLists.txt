@@ -88,15 +88,15 @@ set_target_properties(Tromboneless PROPERTIES
 # ========================================
 file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/App/tests/*.cpp")
 
-add_executable(TrombonelessTests ${TEST_SOURCES})
+add_executable(TrombonelessAppTests ${TEST_SOURCES})
 
-target_link_libraries(TrombonelessTests
+target_link_libraries(TrombonelessAppTests
     PUBLIC TrombonelessAppLib
 )
 
-target_include_directories(TrombonelessTests PRIVATE
+target_include_directories(TrombonelessAppTests PRIVATE
     ${PROJECT_SOURCE_DIR}/App/inc
     ${PROJECT_SOURCE_DIR}/App/tests
 )
 
-add_test(NAME TrombonelessTests COMMAND TrombonelessTests)
+add_test(NAME TrombonelessAppTests COMMAND TrombonelessAppTests)
