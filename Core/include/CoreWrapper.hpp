@@ -50,7 +50,7 @@ class CoreWrapper{
     private:
         /*  Creating the instances. */
         
-        // EventHandler eventHandler;
+        EventHandler eventHandler;
         RtMidiSink midiSink;
         AudioRender render;
         AmplitudeMapper amplitudemapper;

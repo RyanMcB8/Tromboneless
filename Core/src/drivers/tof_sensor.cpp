@@ -19,7 +19,8 @@ ToFSensor::ToFSensor(I2CBus& bus,
       i2cAddress7Bit_(i2cAddress7Bit),
       stDevAddress_(static_cast<uint16_t>(i2cAddress7Bit) << 1),
       gpioChipPath_(gpioChipPath),
-      gpioLine_(gpioLine)
+      gpioLine_(gpioLine),
+      isTestMode(isTest)
 {
 }
 
@@ -36,6 +37,11 @@ void ToFSensor::registerCallback(DistanceCallback cb)
 
 bool ToFSensor::initialise()
 {
+    
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return true;
+    }
     // Open Linux I2C bus
     if (!bus_.openBus())
     {
@@ -114,6 +120,11 @@ bool ToFSensor::initialise()
 
 void ToFSensor::softReset()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     // Direct reset register write
     uint8_t resetLow = 0x00;
     bus_.writeBlock16(i2cAddress7Bit_, SOFT_RESET, &resetLow, 1);
@@ -126,6 +137,11 @@ void ToFSensor::softReset()
 
 void ToFSensor::start()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     // This is where GPIO data-ready handling is set up.
     gpiod::line_config lineCfg;
     lineCfg.add_line_settings(
@@ -153,6 +169,11 @@ void ToFSensor::start()
 
 void ToFSensor::stop()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     if (running_)
     {
         running_ = false;
@@ -180,6 +201,11 @@ void ToFSensor::stop()
 
 void ToFSensor::worker()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     while (running_)
     {
         // This is where the code blocks waiting for data-ready GPIO.
@@ -204,6 +230,11 @@ void ToFSensor::worker()
 
 void ToFSensor::handleDataReady()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     uint16_t distance = readDistanceMm();
 
     // This is where the callback is actually used.
@@ -215,16 +246,31 @@ void ToFSensor::handleDataReady()
 
 void ToFSensor::startRanging()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     (void)VL53L1X_StartRanging(stDevAddress_);
 }
 
 void ToFSensor::stopRanging()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return;
+    }
     (void)VL53L1X_StopRanging(stDevAddress_);
 }
 
 uint16_t ToFSensor::readDistanceMm()
 {
+
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
+    if (isTestMode){
+        return 0;
+    }
     VL53L1X_Result_t result{};
 
     if (VL53L1X_GetResult(stDevAddress_, &result) != 0)

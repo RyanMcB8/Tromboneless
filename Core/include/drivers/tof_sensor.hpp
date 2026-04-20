@@ -56,4 +56,6 @@ private:
 
     std::shared_ptr<gpiod::chip> chip_;
     std::shared_ptr<gpiod::line_request> request_;
+
+    bool isTestMode = false;
 };

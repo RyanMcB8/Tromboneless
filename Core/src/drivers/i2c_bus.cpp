@@ -12,8 +12,8 @@
  * Constructor
  * Initialise file descriptor to invalid state
  */
-I2CBus::I2CBus(const char* devicePath)
-    : devicePath_(devicePath), fd_(-1)
+I2CBus::I2CBus(const char* devicePath, bool isTest)
+    : devicePath_(devicePath), fd_(-1), isTestMode(isTest)
 {
 }
 
@@ -33,6 +33,10 @@ I2CBus::~I2CBus()
  */
 bool I2CBus::openBus()
 {
+    if (isTestMode){
+        return true;
+    }
+
     if (fd_ >= 0)
     {
         // Already open
@@ -48,6 +52,10 @@ bool I2CBus::openBus()
  */
 void I2CBus::closeBus()
 {
+    if (isTestMode){
+        return;
+    }
+    
     if (fd_ >= 0)
     {
         close(fd_);

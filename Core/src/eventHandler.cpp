@@ -2,15 +2,11 @@
 #include <iostream>
 
 EventHandler::EventHandler(bool isTest)
+    : bus(isTest ? I2CBus("/dev/i2c-1", true) : I2CBus("/dev/i2c-1", false)),
+      tofSensor(bus, 0x29, "/dev/gpiochip0", 4, isTest),
+      cap1188(bus, 0x28, "/dev/gpiochip0", 27, 22, 0x01, 0x01, isTest)
 {
-    if (isTest)
-        return; // skip ALL hardware construction
-
-    bus = I2CBus("/dev/i2c-1");
-    tofSensor = ToFSensor(bus, 0x29, "/dev/gpiochip0", 4, false, isTest);
-    cap1188   = CAP1188(bus, 0x28, "/dev/gpiochip0", 27, 22, 0x01, 0x01, isTest);
-
-    initialise();
+    std::cout << "IsTestMode Event " << isTest << "\n";
 }
 
 bool EventHandler::initialise() {

@@ -18,7 +18,7 @@ class I2CBus
 {
 public:
     // Construct with device path (default = Raspberry Pi I2C bus 1)
-    explicit I2CBus(const char* devicePath = "/dev/i2c-1");
+    explicit I2CBus(const char* devicePath = "/dev/i2c-1", bool isTest = false);
 
     // Destructor ensures bus is closed
     ~I2CBus();
@@ -80,4 +80,5 @@ public:
 private:
     const char* devicePath_;   // e.g. "/dev/i2c-1"
     int fd_;                   // file descriptor for the I2C device
+    bool isTestMode = false;
 };

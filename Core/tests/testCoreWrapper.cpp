@@ -11,10 +11,10 @@
  bool testCoreWrapper(void){
     bool passFail = true;
     CoreWrapper testClass(true);
-    // if (nullptr == testClass.getEventHandler()){
-    //     std::cerr << "  [FAIL]     getEventHandler() in CoreWrapper() failed\n";                                      
-    //     passFail &= false; 
-    // }
+    if (nullptr == testClass.getEventHandler()){
+        std::cerr << "  [FAIL]     getEventHandler() in CoreWrapper() failed\n";                                      
+        passFail &= false; 
+    }
     if (nullptr == testClass.getRtMidiSink()){
         std::cerr << "  [FAIL]     getRtMidiSink() in CoreWrapper() failed\n";                                      
         passFail &= false; 

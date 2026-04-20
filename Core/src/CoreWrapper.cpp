@@ -7,7 +7,7 @@
 #include "CoreWrapper.hpp"
 #include <stdexcept>
 
-CoreWrapper::CoreWrapper(bool isTest) : //eventHandler(isTest),
+CoreWrapper::CoreWrapper(bool isTest) : eventHandler(isTest),
       midiSink(isTest),
       render(isTest), 
       coordinator(render, isTest), 
@@ -27,6 +27,7 @@ CoreWrapper::~CoreWrapper(){
 
 void CoreWrapper::start()
 {
+    /*  Stoppinng the rest of the function from being run to initialise hardware. */
     if (isTestMode){
         return;
     }
@@ -95,7 +96,7 @@ void CoreWrapper::eventLoop(){
 }
 
 EventHandler* CoreWrapper::getEventHandler(void){
-    return nullptr;// &eventHandler;
+    return &eventHandler;
 }
 
 RtMidiSink* CoreWrapper::getRtMidiSink(void){
