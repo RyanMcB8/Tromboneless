@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include <main.hpp>
 #include "eventHandler.hpp"
 #include <condition_variable>
 #include <cstdint>
