@@ -12,7 +12,6 @@ packages=(
   libgtk-3-dev
   libwebkit2gtk-4.1-dev
   libcurl4-openssl-dev
-  ninja-build
 )
 
 #   Ensuring that all the necessary dependecies have been installed.
@@ -28,7 +27,7 @@ echo "Configuring project..."
 cmake -S . -B build -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release
 
 echo "Building..."
-cmake --build build -j$(3)
+cmake --build build -j2
 
 echo "Done."
 
