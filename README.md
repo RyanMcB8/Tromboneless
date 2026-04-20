@@ -166,7 +166,7 @@ Total Sensor Cost: £38.90
 | Photodiode                                                     | 1        |
 
 
-### Assembling the circuit
+### Hardware Assembly
 
 Once all materials have been acquired, we can now begin to assemble the Tromboneless hardware.
 
@@ -185,14 +185,12 @@ Once all materials have been acquired, we can now begin to assemble the Trombone
 
  - **28.6k+ total views** across [r/Embedded](https://www.reddit.com/r/embedded/comments/1sgra2m/tromboneless_update/), [r/Trombone](https://www.reddit.com/r/Trombone/comments/1r6bswo/tromboneless/) and [r/linuxaudio](https://www.reddit.com/r/linuxaudio/comments/1skgn6u/the_tromboneless/).
 
-The social media strategy was devised to reach audiences already likely to be interested in the project, with early posts designed to spark debate and create a hype around the project.
+The social media strategy was devised to reach audiences already likely to be interested in the project, with the initial announcement designed to spark debate and create a hype around the project, this initial post gained over 10k views and was the #1 post on r/Trombone that day.
 
  Using this model, three main forums targeted were:
    - [r/embedded](https://www.reddit.com/r/embedded/)
    - [r/linuxaudio](https://www.reddit.com/r/linuxaudio/)
    - [r/trombone](https://www.reddit.com/r/Trombone/)
-
-  
 
  A comparative analysis of early Instagram and Reddit analytics led us to prioritise Reddit as the main communication channel. The forum-based structure proved better suited to fostering direct engagement with the target audience. 
 
@@ -203,12 +201,18 @@ Follow our pages linked below for Tromboneless demonstrations, updates and new d
 [Reddit](https://www.reddit.com/user/Forward_Vehicle4096/)<br>
 [Instagram](https://www.instagram.com/tromboneless.tech/)<br>
 
+and check out our **Tromboneless v1.0.0 release video**! (click below): 
+
 [![Tromboneless V1.0.0](Documentation/Hardware/images/mqdefault.jpg)](https://youtu.be/Kp4s3FqIstI)
 
 
 ## Documentation
 
 For full documentation of the Tromboneless software, refer to the [Documentation](https://github.com/RyanMcB8/Tromboneless/tree/main/Documentation) folder, which contains both LaTeX and HTML versions.
+
+### Datasheets
+
+Alll datasheets for components used can be located [here](Documentation/Hardware/datasheets).
 
 ## Authors and Contributions
 
