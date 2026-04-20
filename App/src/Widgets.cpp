@@ -255,7 +255,7 @@ DualRotarySlider::DualRotarySlider(){
     maxSlider.addListener(this);
 
     /* Showing the slider. */
-    addAndMakeVisible (maxSlider);
+    // addAndMakeVisible (maxSlider);
     addAndMakeVisible (minSlider);
     addAndMakeVisible (rotaryLabel);
 }

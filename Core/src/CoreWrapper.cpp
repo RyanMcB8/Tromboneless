@@ -34,10 +34,10 @@ void CoreWrapper::start()
     externalDevicePresent = midiSink.GetDeviceStatus();
     coordinator.setDevice(externalDevicePresent);
 
-    // if (!eventHandler.initialise())
-    // {
-    //     throw std::runtime_error("EventHandler initialisation failed");
-    // }
+    if (!eventHandler.initialise())
+    {
+        throw std::runtime_error("EventHandler initialisation failed");
+    }
 
     coordinator.RegisterCallback(
         [&](const MidiMessage& msg)
@@ -45,54 +45,75 @@ void CoreWrapper::start()
             midiSink.send(msg);
         });
 
-    // eventHandler.start();
+    eventHandler.start();
 
-    if (!externalDevicePresent)
-    {
+    if (!externalDevicePresent) {
         render.start();
 
+        /*  Running a test tone to test if the external speakers are connected and audible. */
         render.setDebugTone(true);
         std::this_thread::sleep_for(std::chrono::seconds(2));
         render.setDebugTone(false);
+
+        std::cout << "Internal synth mode\n";
+    } 
+    else {
+        std::cout << "External MIDI mode\n";
     }
 
+    std::cout << "Beginning Pressure Baseline Calculation\n";
+
+    /*  Baseline collection loop. */
+    while (true) {
+        RawInputEvent event = eventHandler.waitForEvent();
+
+        /*  Only feed pressure readings to the baseline. */
+        if (event.type == RawInputEvent::Type::PressureReading) {
+            if (amplitudemapper.calculateBaseline(event.pressureReading)) {
+                break;
+            }
+        }
+    }
+
+    std::cout << "Pressure Baseline found to be: "
+              << amplitudemapper.getBaseline() << "\n";
     running = true;
-    // eventThread = std::thread(&CoreWrapper::eventLoop, this);
+    eventThread = std::thread(&CoreWrapper::eventLoop, this);
 }
 
 void CoreWrapper::stop(){
-    // running = false;
+    running = false;
 
-    // if (eventThread.joinable()){
-    //     eventThread.join();
-    // }
+    if (eventThread.joinable()){
+        eventThread.join();
+    }
 }
 
 void CoreWrapper::eventLoop(){
-    // while (running) {
-    //     RawInputEvent event = eventHandler.waitForEvent();
+    while (running) {
+        RawInputEvent event = eventHandler.waitForEvent();
 
-    //     switch (event.type) {
-    //         case RawInputEvent::Type::ToFDistance:
-    //             coordinator.setBend(pitchmapper.tof_to_MIDI_bend(event.tofDistance));
-    //             break;
+        switch (event.type) {
+            case RawInputEvent::Type::ToFDistance:
+                coordinator.setBend(pitchmapper.tof_to_MIDI_bend(event.tofDistance));
+                break;
 
-    //         case RawInputEvent::Type::PressureReading:
-    //             coordinator.PressureEdge(amplitudemapper.noteEdge(event.pressureReading));
-    //             break;
+            case RawInputEvent::Type::PressureReading:
+                coordinator.PressureEdge(amplitudemapper.noteEdge(event.pressureReading));
+                break;
 
-    //         case RawInputEvent::Type::MouthpieceReading: {
-    //             int new_note = pitchmapper.mouthpiece_to_MIDI_note(event.mouthpieceReading);
-    //             if (new_note != 0) {
-    //                 coordinator.ChangeNote(new_note);
-    //             }
-    //             break;
-    //         }
+            case RawInputEvent::Type::MouthpieceReading: {
+                int new_note = pitchmapper.mouthpiece_to_MIDI_note(event.mouthpieceReading);
+                if (new_note != 0) {
+                    coordinator.ChangeNote(new_note);
+                }
+                break;
+            }
 
-    //         case RawInputEvent::Type::Keycontrol:
-    //             break;
-    //     }
-    // }
+            case RawInputEvent::Type::Keycontrol:
+                break;
+        }
+    }
 }
 
 EventHandler* CoreWrapper::getEventHandler(void){
