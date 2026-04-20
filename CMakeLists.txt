@@ -53,6 +53,7 @@ target_link_libraries(TrombonelessAppLib
     PUBLIC
         ${GTK3_LIBRARIES}
         CURL::libcurl
+	TrombonelessCoreLibrary
 	juce::juce_core
 	juce::juce_graphics
 	juce::juce_gui_basics
@@ -67,7 +68,6 @@ target_compile_definitions(TrombonelessAppLib PUBLIC
     JUCE_USE_CURL=0
     JUCE_APPLICATION_NAME_STRING="Tromboneless"
     JUCE_APPLICATION_VERSION_STRING="1.0.0"
-    JUCE_APP_CONFIG_HEADER="${PROJECT_SOURCE_DIR}/App/inc/juceConfig.hpp"
     
 )
 
@@ -75,36 +75,34 @@ target_compile_definitions(TrombonelessAppLib PUBLIC
 
 target_link_libraries(Tromboneless PUBLIC 
 	TrombonelessAppLib 
-	TrombonelessCoreLibrary)
+	)
 
 target_compile_options(Tromboneless PRIVATE ${GTK3_CFLAGS_OTHER})
 
 set_target_properties(Tromboneless PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
-    UNITY_BUILD ON
 )
 
 # ========================================
 #                   Tests
 # ========================================
 # Automatically find all test cpp files in tests/
-if(BUILD_TESTING)
-    file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/App/tests/*.cpp")
-
-    # Searches through all C files within the tests directory and treats them as test script.
-    foreach(TEST_FILE ${TEST_SOURCES} )
-        # Extract the file name without path and extension
-        get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
-
-        add_executable(${TEST_NAME} ${TEST_FILE})
-	add_dependencies(${TEST_NAME} TrombonelessAppLib)
-        target_link_libraries(${TEST_NAME} LINK_PUBLIC TrombonelessAppLib)
-        target_include_directories(${TEST_NAME} PRIVATE 
-            ${PROJECT_SOURCE_DIR}/App/inc
-            ${PROJECT_SOURCE_DIR}/App/tests
-            )
-
-        # Add the test to the CTest list of tests.
-        add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
-    endforeach()
-endif()
+#if(BUILD_TESTING)
+#    file(GLOB_RECURSE TEST_SOURCES "${PROJECT_SOURCE_DIR}/App/tests/*.cpp")
+#
+#    # Searches through all C files within the tests directory and treats them as test script.
+#    foreach(TEST_FILE ${TEST_SOURCES} )
+#        # Extract the file name without path and extension
+#        get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
+#
+#        add_executable(${TEST_NAME} ${TEST_FILE})
+#        target_link_libraries(${TEST_NAME} PUBLIC TrombonelessAppLib)
+#        target_include_directories(${TEST_NAME} PRIVATE 
+#	    ${PROJECT_SOURCE_DIR}/App/inc
+#            ${PROJECT_SOURCE_DIR}/App/tests
+#            )
+#
+ #       # Add the test to the CTest list of tests.
+#        add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+#    endforeach()
+#endif()

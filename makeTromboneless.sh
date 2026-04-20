@@ -22,11 +22,13 @@ sudo apt install -y "${packages[@]}"
 
 echo "Configuring project..."
 #   Removing the previous CMakeCache.txt
-rm -rf build/CMakeCache.txt
+#rm build/CMakeCache.txt
+#rm -rf build/CMakeFiles
+
 cmake -S . -B build -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release
 
 echo "Building..."
-cmake -G Ninja -S . -B build
+cmake --build build -j$(3)
 
 echo "Done."
 
